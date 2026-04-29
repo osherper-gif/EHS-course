@@ -1,6 +1,5 @@
 import {
   ADMIN_EMAIL,
-  auth,
   db,
   collection,
   getDocs,
@@ -11,11 +10,15 @@ import {
   serverTimestamp,
 } from "./firebase-config.js";
 
+function clean(value, max = 1000) {
+  return window.CourseAuth?.sanitizeText ? window.CourseAuth.sanitizeText(value, max) : String(value || "").replace(/[<>]/g, "").trim().slice(0, max);
+}
+
 function fmt(value) {
   if (!value) return "-";
   if (value.toDate) return value.toDate().toLocaleString("he-IL");
   if (value instanceof Date) return value.toLocaleString("he-IL");
-  return String(value);
+  return clean(value, 120);
 }
 
 function statusLabel(status) {
@@ -26,35 +29,86 @@ function statusLabel(status) {
   }[status] || status || "-";
 }
 
+function cell(text) {
+  const td = document.createElement("td");
+  td.textContent = text;
+  return td;
+}
+
+function actionButton(text, status, disabled) {
+  const button = document.createElement("button");
+  button.className = status === "blocked" ? "btn danger" : status === "pending" ? "btn secondary" : "btn";
+  button.type = "button";
+  button.dataset.status = status;
+  button.textContent = text;
+  button.disabled = disabled;
+  return button;
+}
+
+function renderUserRow(user) {
+  const tr = document.createElement("tr");
+  tr.dataset.uid = clean(user.uid, 180);
+
+  const userTd = document.createElement("td");
+  const wrap = document.createElement("div");
+  wrap.className = "admin-user-cell";
+  const photoUrl = clean(user.photoURL, 1000);
+  if (/^https:\/\//.test(photoUrl) || photoUrl.startsWith("data:")) {
+    const img = document.createElement("img");
+    img.src = photoUrl;
+    img.alt = "";
+    wrap.append(img);
+  }
+  const text = document.createElement("span");
+  const name = document.createElement("strong");
+  name.textContent = clean(user.displayName || "-");
+  const email = document.createElement("small");
+  email.textContent = clean(user.email || "-", 320);
+  text.append(name, email);
+  wrap.append(text);
+  userTd.append(wrap);
+
+  const statusTd = document.createElement("td");
+  const status = document.createElement("span");
+  status.className = "status-pill";
+  status.textContent = statusLabel(user.status);
+  statusTd.append(status);
+
+  const actionsTd = document.createElement("td");
+  actionsTd.className = "admin-actions-cell";
+  const disabled = user.email === ADMIN_EMAIL;
+  actionsTd.append(
+    actionButton("אישור", "approved", disabled),
+    actionButton("pending", "pending", disabled),
+    actionButton("חסימה", "blocked", disabled)
+  );
+
+  tr.append(
+    userTd,
+    cell(clean(user.role || "student", 60)),
+    statusTd,
+    cell(clean(user.provider || "-", 80)),
+    cell(fmt(user.createdAt)),
+    cell(fmt(user.lastLoginAt)),
+    actionsTd
+  );
+  return tr;
+}
+
 async function loadUsers() {
   const tbody = document.getElementById("usersTableBody");
   const status = document.getElementById("adminStatus");
   if (!tbody || !status) return;
   status.textContent = "טוען משתמשים...";
   const snapshot = await getDocs(query(collection(db, "users"), orderBy("createdAt", "desc")));
-  tbody.innerHTML = snapshot.docs.map((item) => {
-    const user = item.data();
-    const disabled = user.email === ADMIN_EMAIL ? "disabled" : "";
-    return '<tr data-uid="' + user.uid + '">' +
-      '<td><div class="admin-user-cell">' + (user.photoURL ? '<img src="' + user.photoURL + '" alt="">' : '') + '<span><strong>' + (user.displayName || "-") + '</strong><small>' + (user.email || "-") + '</small></span></div></td>' +
-      '<td>' + (user.role || "student") + '</td>' +
-      '<td><span class="status-pill">' + statusLabel(user.status) + '</span></td>' +
-      '<td>' + (user.provider || "-") + '</td>' +
-      '<td>' + fmt(user.createdAt) + '</td>' +
-      '<td>' + fmt(user.lastLoginAt) + '</td>' +
-      '<td class="admin-actions-cell">' +
-      '<button class="btn" data-status="approved" ' + disabled + '>אישור</button>' +
-      '<button class="btn secondary" data-status="pending" ' + disabled + '>pending</button>' +
-      '<button class="btn danger" data-status="blocked" ' + disabled + '>חסימה</button>' +
-      '</td>' +
-      '</tr>';
-  }).join("");
+  tbody.replaceChildren();
+  snapshot.docs.forEach((item) => tbody.append(renderUserRow(item.data())));
   status.textContent = "נטענו " + snapshot.size + " משתמשים.";
 }
 
 async function updateStatus(uid, status) {
-  await updateDoc(doc(db, "users", uid), {
-    status,
+  await updateDoc(doc(db, "users", clean(uid, 180)), {
+    status: clean(status, 20),
     updatedAt: serverTimestamp(),
   });
   await loadUsers();
@@ -64,8 +118,7 @@ document.addEventListener("course-auth-approved", async (event) => {
   if (event.detail?.role !== "admin") return;
   try {
     await loadUsers();
-  } catch (error) {
-    console.error(error);
+  } catch {
     document.getElementById("adminStatus").textContent = "שגיאה בטעינת המשתמשים.";
   }
 });
@@ -78,8 +131,7 @@ document.addEventListener("click", async (event) => {
   button.disabled = true;
   try {
     await updateStatus(row.dataset.uid, button.dataset.status);
-  } catch (error) {
-    console.error(error);
+  } catch {
     document.getElementById("adminStatus").textContent = "שגיאה בעדכון המשתמש.";
   } finally {
     button.disabled = false;

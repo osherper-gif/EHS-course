@@ -1,120 +1,91 @@
-# פריסה ל-Firebase Hosting
+# העלאה היום ל-Firebase Hosting
 
-האתר נשאר HTML/CSS/JS רגיל, ללא Backend, ללא React וללא Vite. Firebase משמש רק ל-Authentication, Firestore ו-Hosting.
+לפני deploy חובה להדביק `firebaseConfig` אמיתי בקובץ `js/firebase-config.js`.
 
-## 1. יצירת פרויקט Firebase
+אם עדיין מופיע `PASTE_HERE`, עצרו:
 
-1. היכנסו אל [Firebase Console](https://console.firebase.google.com/).
-2. לחצו Add project.
-3. בחרו שם לפרויקט, למשל `safety-course-private`.
-4. ניתן לכבות Google Analytics כדי לשמור על פשטות ועלות נמוכה.
+**יש להדביק firebaseConfig אמיתי לפני deploy**
 
-## 2. הפעלת Authentication
+## צעדים מהירים
 
-1. בתפריט Firebase פתחו Authentication.
-2. לחצו Get started.
-3. עברו אל Sign-in method.
-
-## 3. הפעלת Google provider
-
-1. בתוך Sign-in method בחרו Google.
-2. הפעילו Enable.
-3. בחרו Support email.
-4. שמרו.
-
-## 4. הפעלת Email/Password
-
-1. בתוך Sign-in method בחרו Email/Password.
-2. הפעילו Email/Password.
-3. אין חובה להפעיל Email link.
-4. שמרו.
-
-## 5. העתקת firebaseConfig
-
-1. במסך Project settings לחצו על Web app.
-2. צרו אפליקציית Web אם עדיין אין.
-3. העתיקו את אובייקט `firebaseConfig`.
-4. פתחו את הקובץ `js/firebase-config.js`.
-5. החליפו את ערכי `PASTE_HERE` בערכים האמיתיים מה-Firebase Console.
-
-## 6. הפעלת Firestore
-
-1. בתפריט Firebase פתחו Firestore Database.
-2. לחצו Create database.
-3. בחרו Production mode.
-4. בחרו אזור קרוב או ברירת מחדל.
-
-## 7. העלאת Firestore Rules
-
-הקובץ `firestore.rules` כבר נמצא בפרויקט. הוא מאפשר:
-
-- למשתמש לקרוא את המסמך שלו.
-- לאדמין `osherper@gmail.com` לקרוא ולעדכן את כל המשתמשים.
-- למשתמש רגיל לעדכן פרטים בסיסיים בלבד, בלי לשנות לעצמו role/status.
-- למשתמש approved לסנכרן progress/notes תחת `users/{uid}/progress/{lessonId}`.
-
-להעלאה:
-
-```powershell
-firebase deploy --only firestore:rules
-```
-
-## 8. פרסום Firebase Hosting
-
-1. התקינו Firebase CLI אם צריך:
-
-```powershell
-npm install -g firebase-tools
-```
-
-2. התחברו:
+1. התחברות ל-Firebase CLI:
 
 ```powershell
 firebase login
 ```
 
-3. עדכנו את `.firebaserc` והחליפו `PASTE_FIREBASE_PROJECT_ID_HERE` ב-projectId.
+2. בחירת פרויקט:
 
-4. מתוך תיקיית האתר:
+```powershell
+firebase use --add
+```
+
+בחרו את פרויקט Firebase ושמרו אותו כ-`default`.
+
+3. הדבקת Firebase config:
+
+- Firebase Console
+- Project settings
+- Web app
+- העתיקו את `firebaseConfig`
+- הדביקו ב-`js/firebase-config.js`
+
+4. הפעלת Authentication:
+
+- Authentication > Get started
+- Sign-in method
+- הפעילו Google
+- הפעילו Email/Password
+
+5. הפעלת Firestore:
+
+- Firestore Database
+- Create database
+- Production mode
+
+6. העלאת Rules:
+
+```powershell
+firebase deploy --only firestore:rules
+```
+
+7. פרסום Hosting:
+
+```powershell
+firebase deploy --only hosting
+```
+
+או הכל יחד:
 
 ```powershell
 firebase deploy
 ```
 
-## 9. Authorized domains
+## Authorized domains
 
-ב-Firebase Console:
+Authentication > Settings > Authorized domains:
 
-1. Authentication.
-2. Settings.
-3. Authorized domains.
-4. ודאו שהדומיין של Firebase Hosting מופיע, למשל:
-   `your-project-id.web.app`
-5. אם משתמשים בדומיין מותאם, הוסיפו אותו כאן.
-6. לבדיקה מקומית אפשר להוסיף `localhost` ידנית אם Firebase לא הוסיף אותו אוטומטית.
+- ודאו ש-`PROJECT_ID.web.app` קיים.
+- אם משתמשים בדומיין מותאם, הוסיפו אותו.
+- לבדיקה מקומית אפשר להוסיף `localhost`.
 
-## 10. כניסה כאדמין
+## כניסת אדמין
 
-1. פתחו את האתר לאחר הפרסום.
-2. היכנסו עם Google או Email/Password באמצעות:
-   `osherper@gmail.com`
-3. בעת הכניסה הראשונה האתר ייצור אוטומטית מסמך:
-   `users/{uid}`
-4. אם האימייל הוא `osherper@gmail.com`, המשתמש יקבל:
-   `role: admin`
-   `status: approved`
-5. לאחר מכן יופיע קישור "ניהול משתמשים".
+האדמין הראשי הוא:
 
-## בדיקות מומלצות
+`osherper@gmail.com`
 
-1. היכנסו כאדמין.
-2. פתחו `admin.html`.
-3. הרשמו ממשתמש אחר.
-4. ודאו שהמשתמש החדש רואה הודעת המתנה.
-5. אשרו אותו דרך admin.html.
-6. התחברו שוב כמשתמש המאושר וודאו שתוכן הקורס מוצג.
-7. חסמו משתמש ובדקו שהוא רואה הודעת חסימה.
+כניסה ראשונה עם האימייל הזה תיצור משתמש עם:
 
-## הערת אבטחה חשובה
+- `role: admin`
+- `status: approved`
 
-זהו אתר סטטי. קבצי HTML ניתנים להורדה ברמת Hosting כמו כל אתר סטטי, ולכן שכבת ההגנה על הצגת הקורס מתבצעת ב-JS בכל עמוד. נתוני משתמשים והתקדמות מוגנים ב-Firestore Rules. אם בעתיד תרצו הגנה חזקה יותר על עצם קבלת קבצי התוכן, יהיה צורך בארכיטקטורה אחרת, אך היא תדרוש Backend או שירות נוסף.
+לאחר מכן יופיע קישור "ניהול משתמשים".
+
+## אבטחה
+
+- אין לשמור סיסמאות בקוד או ב-localStorage.
+- אין להעלות service account או private key.
+- `firebaseConfig` אינו סוד, אבל הוא חייב להיות config אמיתי לפני deploy.
+- האתר סטטי; כל עמוד מוגן ב-auth guard בצד לקוח.
+- Firestore Rules מגנות על מסמכי משתמשים ועל progress/notes.

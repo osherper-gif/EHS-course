@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  updateProfile,
   onAuthStateChanged,
   signOut,
   doc,
@@ -23,6 +24,7 @@ const ADMIN_PAGE = "admin.html";
 const APPROVED = "approved";
 const PENDING = "pending";
 const BLOCKED = "blocked";
+const MAX_TEXT = 5000;
 
 const isRootPage = !location.pathname.includes("/pages/");
 const pathPrefix = isRootPage ? "" : "../";
@@ -35,6 +37,10 @@ let authReadyResolve;
 window.CourseAuthReady = new Promise((resolve) => {
   authReadyResolve = resolve;
 });
+
+function sanitizeText(value, max = MAX_TEXT) {
+  return String(value || "").replace(/[<>]/g, "").replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, max);
+}
 
 function loginUrl() {
   return pathPrefix + LOGIN_PAGE;
@@ -53,7 +59,24 @@ function safeRedirect(url) {
   location.href = url;
 }
 
-function showShellMessage(title, message, actions = "") {
+function buttonElement(text, onClick) {
+  const button = document.createElement("button");
+  button.className = "btn";
+  button.type = "button";
+  button.textContent = text;
+  button.addEventListener("click", onClick);
+  return button;
+}
+
+function linkElement(text, href) {
+  const link = document.createElement("a");
+  link.className = "btn";
+  link.href = href;
+  link.textContent = text;
+  return link;
+}
+
+function showShellMessage(title, message, actionBuilder) {
   document.body.classList.add("auth-ready");
   document.body.classList.remove("auth-approved");
   let shell = document.getElementById("authStateShell");
@@ -63,7 +86,18 @@ function showShellMessage(title, message, actions = "") {
     shell.className = "auth-state-shell";
     document.body.prepend(shell);
   }
-  shell.innerHTML = '<div class="auth-state-card"><h1>' + title + '</h1><p>' + message + '</p><div class="auth-state-actions">' + actions + '</div></div>';
+  shell.replaceChildren();
+  const card = document.createElement("div");
+  card.className = "auth-state-card";
+  const heading = document.createElement("h1");
+  heading.textContent = title;
+  const paragraph = document.createElement("p");
+  paragraph.textContent = message;
+  const actions = document.createElement("div");
+  actions.className = "auth-state-actions";
+  if (actionBuilder) actions.append(actionBuilder());
+  card.append(heading, paragraph, actions);
+  shell.append(card);
 }
 
 function showLoading() {
@@ -73,7 +107,14 @@ function showLoading() {
     shell = document.createElement("section");
     shell.id = "authStateShell";
     shell.className = "auth-state-shell loading";
-    shell.innerHTML = '<div class="auth-state-card"><h1>בודק הרשאות...</h1><p>רגע קצר, מאמתים את הכניסה לאתר.</p></div>';
+    const card = document.createElement("div");
+    card.className = "auth-state-card";
+    const heading = document.createElement("h1");
+    heading.textContent = "בודק הרשאות...";
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "רגע קצר, מאמתים את הכניסה לאתר.";
+    card.append(heading, paragraph);
+    shell.append(card);
     document.body.prepend(shell);
   }
 }
@@ -96,10 +137,10 @@ async function ensureUserProfile(user) {
   const snapshot = await getDoc(ref);
   const base = {
     uid: user.uid,
-    email: user.email || "",
-    displayName: user.displayName || user.email || "",
-    photoURL: user.photoURL || "",
-    provider: providerName(user),
+    email: sanitizeText(user.email, 320),
+    displayName: sanitizeText(user.displayName || user.email, 180),
+    photoURL: sanitizeText(user.photoURL, 1000),
+    provider: sanitizeText(providerName(user), 80),
     lastLoginAt: serverTimestamp(),
   };
 
@@ -130,20 +171,50 @@ function decorateApprovedUser(profile) {
   hideShell();
   const actions = document.querySelector(".header-actions");
   if (!actions || document.getElementById("userBadge")) return;
-  const label = profile.displayName || profile.email || "משתמש";
-  const photo = profile.photoURL ? '<img src="' + profile.photoURL + '" alt="">' : '<span class="user-avatar-fallback">' + label.slice(0, 1) + '</span>';
-  const adminLink = profile.role === "admin" ? '<a class="btn secondary admin-link" href="' + adminUrl() + '">ניהול משתמשים</a>' : "";
-  actions.insertAdjacentHTML("afterbegin", '<div id="userBadge" class="user-badge">' + photo + '<span>שלום, ' + label + '</span></div>' + adminLink + '<button class="btn secondary" type="button" data-action="logout">התנתקות</button>');
-  actions.querySelector('[data-action="logout"]')?.addEventListener("click", () => window.CourseAuth.logout());
+  const label = sanitizeText(profile.displayName || profile.email || "משתמש", 180);
+  const badge = document.createElement("div");
+  badge.id = "userBadge";
+  badge.className = "user-badge";
+  const photoUrl = sanitizeText(profile.photoURL, 1000);
+  if (/^https:\/\//.test(photoUrl) || photoUrl.startsWith("data:")) {
+    const img = document.createElement("img");
+    img.src = photoUrl;
+    img.alt = "";
+    badge.append(img);
+  } else {
+    const fallback = document.createElement("span");
+    fallback.className = "user-avatar-fallback";
+    fallback.textContent = label.slice(0, 1);
+    badge.append(fallback);
+  }
+  const text = document.createElement("span");
+  text.textContent = "שלום, " + label;
+  badge.append(text);
+  actions.prepend(badge);
+  if (profile.role === "admin" && !actions.querySelector(".admin-link")) {
+    const adminLink = document.createElement("a");
+    adminLink.className = "btn secondary admin-link";
+    adminLink.href = adminUrl();
+    adminLink.textContent = "ניהול משתמשים";
+    badge.after(adminLink);
+  }
+  if (!actions.querySelector('[data-action="logout"]')) {
+    const logoutButton = document.createElement("button");
+    logoutButton.className = "btn secondary";
+    logoutButton.type = "button";
+    logoutButton.dataset.action = "logout";
+    logoutButton.textContent = "התנתקות";
+    logoutButton.addEventListener("click", () => window.CourseAuth.logout());
+    actions.append(logoutButton);
+  }
 }
 
 function renderNotApproved(profile) {
   if (profile.status === BLOCKED) {
-    showShellMessage("אין הרשאת גישה", "הגישה שלך לאתר נחסמה. פנה למנהל האתר.", '<button class="btn" type="button" data-action="logout">התנתקות</button>');
+    showShellMessage("אין הרשאת גישה", "הגישה שלך לאתר נחסמה. פנה למנהל האתר.", () => buttonElement("התנתקות", () => window.CourseAuth.logout()));
   } else {
-    showShellMessage("ממתין לאישור", "המשתמש נרשם בהצלחה אך ממתין לאישור מנהל האתר.", '<button class="btn" type="button" data-action="logout">התנתקות</button>');
+    showShellMessage("ממתין לאישור", "המשתמש נרשם בהצלחה אך ממתין לאישור מנהל האתר.", () => buttonElement("התנתקות", () => window.CourseAuth.logout()));
   }
-  document.querySelector('[data-action="logout"]')?.addEventListener("click", () => window.CourseAuth.logout());
 }
 
 function hebrewAuthError(error) {
@@ -168,12 +239,13 @@ async function googleLogin() {
 }
 
 async function emailLogin(email, password) {
-  await signInWithEmailAndPassword(auth, email, password);
+  await signInWithEmailAndPassword(auth, sanitizeText(email, 320), password);
 }
 
 async function emailRegister(email, password, displayName) {
-  const credential = await createUserWithEmailAndPassword(auth, email, password);
-  if (displayName) await updateProfile(credential.user, { displayName });
+  const credential = await createUserWithEmailAndPassword(auth, sanitizeText(email, 320), password);
+  const cleanName = sanitizeText(displayName, 180);
+  if (cleanName) await updateProfile(credential.user, { displayName: cleanName });
 }
 
 async function logout() {
@@ -185,15 +257,14 @@ async function logout() {
 async function syncProgress(lessonId, completed, notes) {
   if (!db || !auth?.currentUser || !currentProfile || currentProfile.status !== APPROVED) return false;
   try {
-    await setDoc(doc(db, "users", auth.currentUser.uid, "progress", lessonId), {
-      lessonId,
+    await setDoc(doc(db, "users", auth.currentUser.uid, "progress", sanitizeText(lessonId, 120)), {
+      lessonId: sanitizeText(lessonId, 120),
       completed: Boolean(completed),
-      notes: notes || "",
+      notes: sanitizeText(notes, MAX_TEXT),
       updatedAt: serverTimestamp(),
     }, { merge: true });
     return true;
-  } catch (error) {
-    console.warn("Firestore progress sync failed", error);
+  } catch {
     return false;
   }
 }
@@ -207,9 +278,10 @@ async function hydrateProgressFromFirestore(uid) {
     const localNotes = window.CourseStorage.notes();
     snapshot.forEach((item) => {
       const data = item.data();
-      if (!data.lessonId) return;
-      if (typeof data.completed === "boolean") localProgress[data.lessonId] = data.completed;
-      if (typeof data.notes === "string" && !localNotes[data.lessonId]) localNotes[data.lessonId] = data.notes;
+      const lessonId = sanitizeText(data.lessonId, 120);
+      if (!lessonId) return;
+      if (typeof data.completed === "boolean") localProgress[lessonId] = data.completed;
+      if (typeof data.notes === "string" && !localNotes[lessonId]) localNotes[lessonId] = sanitizeText(data.notes, MAX_TEXT);
     });
     window.CourseStorage.set("progress", localProgress);
     window.CourseStorage.set("notes", localNotes);
@@ -224,8 +296,8 @@ async function hydrateProgressFromFirestore(uid) {
     });
     const stat = document.querySelector('[data-stat="completed"]');
     if (stat) stat.textContent = Object.values(localProgress).filter(Boolean).length;
-  } catch (error) {
-    console.warn("Firestore progress load failed", error);
+  } catch {
+    // The site intentionally keeps working with localStorage when Firestore sync is unavailable.
   }
 }
 
@@ -247,7 +319,7 @@ function initLoginPage() {
     message.dataset.type = type;
   };
   if (!isFirebaseConfigured) {
-    setMessage("יש להדביק את firebaseConfig בקובץ js/firebase-config.js לפני שימוש בהתחברות.", "error");
+    setMessage("יש להדביק firebaseConfig אמיתי לפני deploy. עד אז לא ניתן להתחבר.", "error");
     return;
   }
   document.getElementById("googleLogin")?.addEventListener("click", async () => {
@@ -284,7 +356,7 @@ function initLoginPage() {
 function guard() {
   if (!isFirebaseConfigured) {
     if (isLoginPage) return initLoginPage();
-    showShellMessage("נדרש חיבור Firebase", "יש להדביק את firebaseConfig בקובץ js/firebase-config.js לפני פרסום האתר.", '<a class="btn" href="' + loginUrl() + '">לעמוד התחברות</a>');
+    showShellMessage("נדרש חיבור Firebase", "יש להדביק firebaseConfig אמיתי לפני deploy.", () => linkElement("לעמוד התחברות", loginUrl()));
     authReadyResolve?.(null);
     return;
   }
@@ -309,7 +381,7 @@ function guard() {
         return;
       }
       if (isAdminPage && profile.role !== "admin") {
-        showShellMessage("אין הרשאת גישה", "רק מנהל האתר יכול להיכנס לעמוד זה.", '<a class="btn" href="' + homeUrl() + '">חזרה לקורס</a>');
+        showShellMessage("אין הרשאת גישה", "רק מנהל האתר יכול להיכנס לעמוד זה.", () => linkElement("חזרה לקורס", homeUrl()));
         authReadyResolve?.(profile);
         return;
       }
@@ -323,8 +395,7 @@ function guard() {
       pushLocalProgressToFirestore();
       authReadyResolve?.(profile);
       document.dispatchEvent(new CustomEvent("course-auth-approved", { detail: profile }));
-    } catch (error) {
-      console.error(error);
+    } catch {
       showShellMessage("שגיאת הרשאות", "לא ניתן להשלים את בדיקת ההרשאות. נסה לרענן או פנה למנהל האתר.");
       authReadyResolve?.(null);
     }
@@ -342,6 +413,7 @@ window.CourseAuth = {
   syncProgress,
   hebrewAuthError,
   isAdminEmail,
+  sanitizeText,
 };
 
 document.addEventListener("DOMContentLoaded", guard);

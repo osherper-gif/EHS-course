@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>כניסה | קורס ממונה בטיחות</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://*.firebaseapp.com https://accounts.google.com;">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+<title>כניסה | קורס ממונה בטיחות</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body class="auth-page" data-page-title="כניסה">
   <main class="login-layout">
     <section class="login-hero">
-      <p class="kicker">באר הדרכות</p>
+      <p class="kicker">למידה פרטית</p>
       <h1>כניסה לקורס ממונה בטיחות</h1>
-      <p>האתר פרטי. משתמש חדש ייכנס לסטטוס ממתין עד אישור מנהל האתר.</p>
+      <p>האתר פרטי. משתמש חדש ייכנס לסטטוס ממתין עד אישור מנהל האתר. אתר לימודי פרטי להכנה לקורס ממונה בטיחות. התוכן נועד ללמידה בלבד ויש לאמת מול נוסח החוק/התקנה העדכני והמרצה.</p>
     </section>
     <section class="auth-panel">
       <div id="authMessage" class="auth-message" role="status"></div>
@@ -34,6 +36,7 @@
       <p class="law-emphasis">האדמין הראשי: osherper@gmail.com</p>
     </section>
   </main>
+  <footer class="site-footer">האתר נוצר על ידי אושר פרץ<br>טלפון: 054-4232490<br>Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></footer>
   <script type="module" src="./js/auth.js"></script>
 </body>
 </html>

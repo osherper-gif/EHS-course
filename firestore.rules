@@ -9,12 +9,26 @@ service cloud.firestore {
       return signedIn() && request.auth.token.email == "osherper@gmail.com";
     }
 
-    function myUserDoc() {
-      return get(/databases/$(database)/documents/users/$(request.auth.uid));
+    function userDoc(uid) {
+      return get(/databases/$(database)/documents/users/$(uid));
     }
 
-    function isApproved() {
-      return isMainAdmin() || (signedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid)) && myUserDoc().data.status == "approved");
+    function hasUserDoc(uid) {
+      return exists(/databases/$(database)/documents/users/$(uid));
+    }
+
+    function isApprovedSelf(uid) {
+      return signedIn()
+        && request.auth.uid == uid
+        && hasUserDoc(uid)
+        && userDoc(uid).data.status == "approved";
+    }
+
+    function validOwnImmutableFields(uid) {
+      return request.resource.data.uid == resource.data.uid
+        && request.resource.data.email == resource.data.email
+        && request.resource.data.role == resource.data.role
+        && request.resource.data.status == resource.data.status;
     }
 
     match /users/{uid} {
@@ -25,25 +39,29 @@ service cloud.firestore {
         && request.resource.data.uid == request.auth.uid
         && request.resource.data.email == request.auth.token.email
         && (
-          (request.auth.token.email == "osherper@gmail.com" && request.resource.data.role == "admin" && request.resource.data.status == "approved")
+          (request.auth.token.email == "osherper@gmail.com"
+            && request.resource.data.role == "admin"
+            && request.resource.data.status == "approved")
           ||
-          (request.auth.token.email != "osherper@gmail.com" && request.resource.data.role == "student" && request.resource.data.status == "pending")
+          (request.auth.token.email != "osherper@gmail.com"
+            && request.resource.data.role == "student"
+            && request.resource.data.status == "pending")
         );
 
       allow update: if isMainAdmin()
         || (
           signedIn()
           && request.auth.uid == uid
-          && request.resource.data.role == resource.data.role
-          && request.resource.data.status == resource.data.status
-          && request.resource.data.uid == resource.data.uid
-          && request.resource.data.email == resource.data.email
+          && validOwnImmutableFields(uid)
         );
 
       allow delete: if false;
 
       match /progress/{lessonId} {
-        allow read, write: if signedIn() && request.auth.uid == uid && isApproved();
+        allow read: if isApprovedSelf(uid);
+        allow create, update: if isApprovedSelf(uid)
+          && request.resource.data.lessonId == lessonId;
+        allow delete: if false;
       }
     }
 
