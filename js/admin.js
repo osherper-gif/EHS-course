@@ -10,8 +10,13 @@ import {
   serverTimestamp,
 } from "./firebase-config.js";
 
+let usersByUid = new Map();
+let preparedApproval = null;
+
 function clean(value, max = 1000) {
-  return window.CourseAuth?.sanitizeText ? window.CourseAuth.sanitizeText(value, max) : String(value || "").replace(/[<>]/g, "").trim().slice(0, max);
+  return window.CourseAuth?.sanitizeText
+    ? window.CourseAuth.sanitizeText(value, max)
+    : String(value || "").replace(/[<>]/g, "").trim().slice(0, max);
 }
 
 function fmt(value) {
@@ -29,6 +34,14 @@ function statusLabel(status) {
   }[status] || status || "-";
 }
 
+function approvalStatusLabel(status) {
+  return {
+    prepared: "הודעה הוכנה",
+    sent: "נשלח",
+    failed: "נכשל — נסה שוב",
+  }[status] || "";
+}
+
 function cell(text) {
   const td = document.createElement("td");
   td.textContent = text;
@@ -43,6 +56,77 @@ function actionButton(text, status, disabled) {
   button.textContent = text;
   button.disabled = disabled;
   return button;
+}
+
+function approvalButton(text, action, uid, secondary = true) {
+  const button = document.createElement("button");
+  button.className = secondary ? "btn secondary" : "btn";
+  button.type = "button";
+  button.dataset.approvalAction = action;
+  button.dataset.uid = uid;
+  button.textContent = text;
+  return button;
+}
+
+function approvalMailText(user) {
+  const name = clean(user.displayName || user.email || "משתמש", 180);
+  return [
+    "נושא: חשבונך אושר באתר קורס ממונה בטיחות",
+    "",
+    "שלום " + name + ",",
+    "",
+    "חשבונך אושר בהצלחה.",
+    "כעת ניתן להיכנס לאתר קורס ממונה בטיחות בקישור:",
+    "https://ehs-course.web.app",
+    "",
+    "בהצלחה,",
+    "אושר פרץ",
+    "054-4232490",
+    "osherper@gmail.com",
+  ].join("\n");
+}
+
+function showPreparedApproval(user) {
+  preparedApproval = user;
+  const panel = document.getElementById("approvalMessagePanel");
+  const emailField = document.getElementById("approvalEmailAddress");
+  const textField = document.getElementById("approvalEmailText");
+  if (emailField) emailField.value = clean(user.email, 320);
+  if (textField) textField.value = approvalMailText(user);
+  if (panel) panel.hidden = false;
+  document.getElementById("adminStatus").textContent = "המשתמש אושר. ניתן להעתיק ולשלוח לו הודעת אישור.";
+}
+
+function renderApprovalCell(user) {
+  const td = document.createElement("td");
+  td.className = "admin-actions-cell";
+  const uid = clean(user.uid, 180);
+  if (user.status === "pending") {
+    td.textContent = "אין הודעה עדיין";
+    return td;
+  }
+  if (user.status !== "approved") {
+    td.textContent = "-";
+    return td;
+  }
+  const status = clean(user.approvalEmailStatus, 40);
+  const label = approvalStatusLabel(status);
+  if (label) {
+    const span = document.createElement("span");
+    span.className = "status-pill";
+    span.textContent = label;
+    td.append(span);
+  } else {
+    td.append(approvalButton("הכן הודעת אישור", "prepare", uid, false));
+  }
+  if (status === "prepared" || status === "sent" || status === "failed") {
+    td.append(
+      approvalButton("העתק מייל", "copyEmail", uid),
+      approvalButton("העתק הודעת אישור", "copyMessage", uid)
+    );
+  }
+  if (status === "failed") td.append(approvalButton("נסה שוב", "prepare", uid, false));
+  return td;
 }
 
 function renderUserRow(user) {
@@ -90,6 +174,7 @@ function renderUserRow(user) {
     cell(clean(user.provider || "-", 80)),
     cell(fmt(user.createdAt)),
     cell(fmt(user.lastLoginAt)),
+    renderApprovalCell(user),
     actionsTd
   );
   return tr;
@@ -101,10 +186,12 @@ async function loadUsers() {
   if (!tbody || !status) return;
   status.textContent = "טוען משתמשים...";
   const snapshot = await getDocs(query(collection(db, "users"), orderBy("createdAt", "desc")));
+  const users = snapshot.docs.map((item) => item.data());
+  usersByUid = new Map(users.map((user) => [clean(user.uid, 180), user]));
   tbody.replaceChildren();
-  snapshot.docs.forEach((item) => tbody.append(renderUserRow(item.data())));
+  users.forEach((user) => tbody.append(renderUserRow(user)));
   status.textContent = "נטענו " + snapshot.size + " משתמשים.";
-  await loadExamScores(snapshot.docs.map((item) => item.data()));
+  await loadExamScores(users);
   await handleActionLink();
 }
 
@@ -135,12 +222,39 @@ async function loadExamScores(users) {
   status.textContent = "ציוני משתמשים נטענו.";
 }
 
-async function updateStatus(uid, status) {
+async function markApprovalPrepared(uid) {
+  const user = usersByUid.get(clean(uid, 180));
+  if (!user) return;
   await updateDoc(doc(db, "users", clean(uid, 180)), {
-    status: clean(status, 20),
+    approvalEmailStatus: "prepared",
+    approvalEmailPreparedAt: serverTimestamp(),
+    approvalEmailPreparedBy: clean(window.CourseAuth?.profile?.email || ADMIN_EMAIL, 320),
     updatedAt: serverTimestamp(),
   });
+  user.approvalEmailStatus = "prepared";
+  showPreparedApproval(user);
+}
+
+async function updateStatus(uid, nextStatus) {
+  const user = usersByUid.get(clean(uid, 180));
+  const approvedUser = nextStatus === "approved" && user ? { ...user, status: "approved", approvalEmailStatus: "prepared" } : null;
+  const updates = {
+    status: clean(nextStatus, 20),
+    updatedAt: serverTimestamp(),
+  };
+  if (nextStatus === "approved") {
+    updates.approvedAt = serverTimestamp();
+    updates.approvedBy = clean(window.CourseAuth?.profile?.email || ADMIN_EMAIL, 320);
+    updates.approvalEmailStatus = "prepared";
+    updates.approvalEmailPreparedAt = serverTimestamp();
+    updates.approvalEmailPreparedBy = clean(window.CourseAuth?.profile?.email || ADMIN_EMAIL, 320);
+  }
+  if (nextStatus === "pending" || nextStatus === "blocked") {
+    updates.approvalEmailStatus = "";
+  }
+  await updateDoc(doc(db, "users", clean(uid, 180)), updates);
   await loadUsers();
+  if (approvedUser) showPreparedApproval(approvedUser);
 }
 
 async function handleActionLink() {
@@ -148,17 +262,17 @@ async function handleActionLink() {
   const uid = params.get("uid");
   const action = params.get("action");
   if (!uid || action !== "approve") return;
-  await updateDoc(doc(db, "users", clean(uid, 180)), {
-    status: "approved",
-    updatedAt: serverTimestamp(),
-  });
+  await updateStatus(uid, "approved");
   history.replaceState({}, "", location.pathname);
-  const status = document.getElementById("adminStatus");
-  if (status) status.textContent = "המשתמש אושר בהצלחה מקישור המייל.";
+}
+
+async function copyText(text, successMessage) {
+  await navigator.clipboard.writeText(text || "");
+  document.getElementById("adminStatus").textContent = successMessage;
 }
 
 document.addEventListener("course-auth-approved", async (event) => {
-  if (event.detail?.role !== "admin") return;
+  if (event.detail?.role !== "admin" && !window.CourseAuth?.isAdminEmail?.(event.detail?.email)) return;
   try {
     await loadUsers();
   } catch {
@@ -167,16 +281,42 @@ document.addEventListener("course-auth-approved", async (event) => {
 });
 
 document.addEventListener("click", async (event) => {
-  const button = event.target.closest("[data-status]");
-  if (!button) return;
-  const row = button.closest("[data-uid]");
-  if (!row) return;
-  button.disabled = true;
-  try {
-    await updateStatus(row.dataset.uid, button.dataset.status);
-  } catch {
-    document.getElementById("adminStatus").textContent = "שגיאה בעדכון המשתמש.";
-  } finally {
-    button.disabled = false;
+  const statusButton = event.target.closest("[data-status]");
+  if (statusButton) {
+    const row = statusButton.closest("[data-uid]");
+    if (!row) return;
+    statusButton.disabled = true;
+    try {
+      await updateStatus(row.dataset.uid, statusButton.dataset.status);
+    } catch {
+      document.getElementById("adminStatus").textContent = "שגיאה בעדכון המשתמש.";
+    } finally {
+      statusButton.disabled = false;
+    }
+    return;
   }
+
+  const approvalButtonEl = event.target.closest("[data-approval-action]");
+  if (!approvalButtonEl) return;
+  const user = usersByUid.get(clean(approvalButtonEl.dataset.uid, 180));
+  if (!user) return;
+  approvalButtonEl.disabled = true;
+  try {
+    if (approvalButtonEl.dataset.approvalAction === "prepare") await markApprovalPrepared(user.uid);
+    if (approvalButtonEl.dataset.approvalAction === "copyEmail") await copyText(clean(user.email, 320), "כתובת המייל הועתקה.");
+    if (approvalButtonEl.dataset.approvalAction === "copyMessage") await copyText(approvalMailText(user), "הודעת האישור הועתקה.");
+  } catch {
+    document.getElementById("adminStatus").textContent = "שגיאה בהכנת הודעת האישור.";
+  } finally {
+    approvalButtonEl.disabled = false;
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("copyPreparedApprovalEmail")?.addEventListener("click", () => {
+    if (preparedApproval) copyText(clean(preparedApproval.email, 320), "כתובת המייל הועתקה.");
+  });
+  document.getElementById("copyPreparedApprovalText")?.addEventListener("click", () => {
+    if (preparedApproval) copyText(approvalMailText(preparedApproval), "הודעת האישור הועתקה.");
+  });
 });

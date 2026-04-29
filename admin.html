@@ -23,9 +23,20 @@
       <div class="section-title"><h2>משתמשים</h2><p id="adminStatus">ממתין לאימות מנהל...</p></div>
       <div class="table-scroll">
         <table class="data-table admin-table">
-          <thead><tr><th>משתמש</th><th>תפקיד</th><th>סטטוס</th><th>Provider</th><th>נרשם</th><th>כניסה אחרונה</th><th>פעולות</th></tr></thead>
+          <thead><tr><th>משתמש</th><th>תפקיד</th><th>סטטוס</th><th>Provider</th><th>נרשם</th><th>כניסה אחרונה</th><th>הודעת אישור</th><th>פעולות</th></tr></thead>
           <tbody id="usersTableBody"></tbody>
         </table>
+      </div>
+    </section>
+    <section id="approvalMessagePanel" class="content-section admin-section" hidden>
+      <div class="section-title"><h2>הודעת אישור למשתמש</h2><p>שליחה אוטומטית אינה פעילה. ניתן להעתיק את הכתובת והטקסט ולשלוח ידנית.</p></div>
+      <div class="mail-prep-grid">
+        <label><span>כתובת מייל</span><textarea id="approvalEmailAddress" rows="2" readonly></textarea></label>
+        <label><span>הודעת אישור</span><textarea id="approvalEmailText" rows="10" readonly></textarea></label>
+      </div>
+      <div class="form-actions">
+        <button class="btn secondary" type="button" id="copyPreparedApprovalEmail">העתק כתובת מייל</button>
+        <button class="btn secondary" type="button" id="copyPreparedApprovalText">העתק הודעת אישור למשתמש</button>
       </div>
     </section>
   <section class="content-section admin-section"><div class="section-title"><h2>ציוני משתמשים</h2><p id="examScoresStatus">הציונים יוצגו לאחר טעינת משתמשים.</p></div><div class="table-scroll"><table class="data-table admin-table"><thead><tr><th>אימייל משתמש</th><th>מספר ניסיונות</th><th>ציון אחרון</th><th>ממוצע</th></tr></thead><tbody id="examScoresBody"></tbody></table></div></section></main>

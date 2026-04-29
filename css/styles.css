@@ -195,6 +195,26 @@ body.auth-protected:not(.auth-approved) .site-footer {
   padding: .45rem .75rem;
   font-size: .9rem;
 }
+.approval-welcome-banner {
+  position: fixed;
+  top: .75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1200;
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+  justify-content: space-between;
+  max-width: min(92vw, 560px);
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-inline-start: 5px solid var(--ok);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: .75rem 1rem;
+  font-weight: 800;
+}
 body.login-auth-check .login-layout {
   visibility: hidden;
 }

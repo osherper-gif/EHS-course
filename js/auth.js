@@ -29,6 +29,7 @@ const MAX_TEXT = 5000;
 const AUTH_CACHE_KEY = "ehsCourseAuthCache";
 const AUTH_CACHE_TTL = 5 * 60 * 1000;
 const LOADER_DELAY = 700;
+const APPROVAL_WELCOME_PREFIX = "ehsCourseApprovalWelcome:";
 
 const isRootPage = !location.pathname.includes("/pages/");
 const pathPrefix = isRootPage ? "" : "../";
@@ -154,6 +155,37 @@ function showShellMessage(title, message, actionBuilder) {
   if (actionBuilder) actions.append(actionBuilder());
   card.append(heading, paragraph, actions);
   shell.append(card);
+}
+
+function showApprovalWelcome(profile) {
+  if (!profile?.uid || !profile?.approvedAt) return;
+  const key = APPROVAL_WELCOME_PREFIX + profile.uid;
+  try {
+    if (localStorage.getItem(key)) return;
+  } catch {
+    return;
+  }
+  const banner = document.createElement("div");
+  banner.className = "approval-welcome-banner";
+  const text = document.createElement("span");
+  text.textContent = "חשבונך אושר. ברוך הבא לאתר.";
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "icon-btn";
+  close.textContent = "×";
+  close.title = "סגור";
+  close.addEventListener("click", () => {
+    banner.remove();
+    localStorage.setItem(key, "shown");
+  });
+  banner.append(text, close);
+  document.body.prepend(banner);
+  window.setTimeout(() => {
+    if (document.body.contains(banner)) {
+      banner.remove();
+      localStorage.setItem(key, "shown");
+    }
+  }, 9000);
 }
 
 function showLoading() {
@@ -283,7 +315,7 @@ function renderNotApproved(profile) {
   if (profile.status === BLOCKED) {
     showShellMessage("אין הרשאת גישה", "הגישה שלך לאתר נחסמה. פנה למנהל האתר.", () => buttonElement("התנתקות", () => window.CourseAuth.logout()));
   } else {
-    showShellMessage("ממתין לאישור", "המשתמש נרשם בהצלחה אך ממתין לאישור מנהל האתר.", () => buttonElement("התנתקות", () => window.CourseAuth.logout()));
+    showShellMessage("ממתין לאישור", "נרשמת בהצלחה. חשבונך ממתין לאישור מנהל האתר. תקבל עדכון לאחר אישור.", () => buttonElement("התנתקות", () => window.CourseAuth.logout()));
   }
 }
 
@@ -449,7 +481,7 @@ function initLoginPage() {
     try {
       setMessage("יוצר משתמש...");
       await emailRegister(form.get("email"), form.get("password"), form.get("displayName"));
-      setMessage("המשתמש נרשם בהצלחה אך ממתין לאישור מנהל האתר.");
+      setMessage("נרשמת בהצלחה. חשבונך ממתין לאישור מנהל האתר. תקבל עדכון לאחר אישור.");
     } catch (error) {
       setMessage(hebrewAuthError(error), "error");
     }
@@ -543,6 +575,7 @@ function guard() {
       saveCachedProfile(profile);
       await hydrateProgressFromFirestore(user.uid);
       decorateApprovedUser(profile);
+      showApprovalWelcome(profile);
       pushLocalProgressToFirestore();
       authReadyResolve?.(profile);
       document.dispatchEvent(new CustomEvent("course-auth-approved", { detail: profile }));

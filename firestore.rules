@@ -40,11 +40,38 @@ service cloud.firestore {
         && request.resource.data.status == resource.data.status;
     }
 
+    function noApprovalFieldChanges() {
+      return !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+        "approvedAt",
+        "approvedBy",
+        "approvalEmailStatus",
+        "approvalEmailSentAt",
+        "approvalEmailSentBy",
+        "approvalEmailPreparedAt",
+        "approvalEmailPreparedBy"
+      ]);
+    }
+
+    function validUserCreateKeys() {
+      return request.resource.data.keys().hasOnly([
+        "uid",
+        "email",
+        "displayName",
+        "photoURL",
+        "provider",
+        "role",
+        "status",
+        "createdAt",
+        "lastLoginAt"
+      ]);
+    }
+
     match /users/{uid} {
       allow read: if isAdmin() || (signedIn() && request.auth.uid == uid);
 
       allow create: if signedIn()
         && request.auth.uid == uid
+        && validUserCreateKeys()
         && request.resource.data.uid == request.auth.uid
         && request.resource.data.email == request.auth.token.email
         && (
@@ -62,6 +89,7 @@ service cloud.firestore {
           signedIn()
           && request.auth.uid == uid
           && validOwnImmutableFields()
+          && noApprovalFieldChanges()
         );
 
       allow delete: if false;
