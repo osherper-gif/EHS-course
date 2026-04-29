@@ -24,7 +24,7 @@ service cloud.firestore {
         && userDoc(uid).data.status == "approved";
     }
 
-    function validOwnImmutableFields(uid) {
+    function validOwnImmutableFields() {
       return request.resource.data.uid == resource.data.uid
         && request.resource.data.email == resource.data.email
         && request.resource.data.role == resource.data.role
@@ -52,7 +52,7 @@ service cloud.firestore {
         || (
           signedIn()
           && request.auth.uid == uid
-          && validOwnImmutableFields(uid)
+          && validOwnImmutableFields()
         );
 
       allow delete: if false;
