@@ -121,3 +121,16 @@ progress { width: 100%; height: 8px; margin-top: .75rem; }
   .page-hero, .content-section, .lesson-shell, .lesson-section { box-shadow: none; border: 0; background: white; color: black; }
   .lesson-shell { display: block; }
 }
+.chip-list { display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0; }
+.chip-list span { background: var(--surface-2); border: 1px solid var(--border); color: var(--brand); padding: .35rem .65rem; border-radius: 999px; font-weight: 700; }
+.mini-quiz { border: 1px solid var(--border); border-radius: 8px; padding: .85rem; margin: .75rem 0; background: var(--surface-2); }
+.external-expansion { border-inline-start: 5px solid var(--accent); }
+.law-emphasis { color: var(--accent); font-weight: 800; }
+
+.chip-list { display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0; }
+.chip-list span { background: var(--surface-2); border: 1px solid var(--border); color: var(--brand); padding: .35rem .65rem; border-radius: 999px; font-weight: 700; }
+.mini-quiz { border: 1px solid var(--border); border-radius: 8px; padding: .85rem; margin: .75rem 0; background: var(--surface-2); }
+.external-expansion { border-inline-start: 5px solid var(--accent); }
+.law-emphasis { color: var(--accent); font-weight: 800; }
+.field-help { color: var(--muted); margin-top: .35rem; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
