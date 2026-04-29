@@ -382,6 +382,24 @@ body.login-auth-check .login-layout {
 .version-table td:nth-child(5) {
   min-width: 260px;
 }
+.version-details-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  display: grid;
+  gap: .75rem;
+}
+.version-details-card h2,
+.version-details-card h3,
+.version-details-card p {
+  margin: 0;
+}
+.version-details-card section {
+  border-top: 1px solid var(--border);
+  padding-top: .65rem;
+}
 @media (max-width: 860px) {
   .version-form, .mail-prep-grid {
     grid-template-columns: 1fr;

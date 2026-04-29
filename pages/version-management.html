@@ -23,6 +23,10 @@
 
     <section class="content-section">
       <div class="section-title"><h2>גרסה חדשה / עריכת גרסה</h2><p id="versionStatus">ממתין לאימות מנהל...</p></div>
+      <div class="toolbar-panel">
+        <button class="btn" type="button" id="importBuiltinVersions">ייבא גרסאות ל-Firestore</button>
+        <span class="muted-answer">אם Firestore ריק, הגרסאות המובנות מוצגות מיד וניתן לייבא אותן בלחיצה.</span>
+      </div>
       <form id="versionForm" class="version-form">
         <input type="hidden" name="versionId">
         <label><span>מספר גרסה</span><input name="versionNumber" required placeholder="לדוגמה: 1.4.0"></label>
@@ -48,10 +52,15 @@
       <div class="section-title"><h2>גרסאות קיימות</h2><p>מחיקה אפשרית רק לגרסה בסטטוס טיוטה.</p></div>
       <div class="table-scroll">
         <table class="data-table admin-table version-table">
-          <thead><tr><th>גרסה</th><th>תאריך ושעה</th><th>בוצע על ידי</th><th>סטטוס</th><th>תקציר</th><th>פעולות</th></tr></thead>
+          <thead><tr><th>גרסה / Commit</th><th>תאריך</th><th>כותרת</th><th>סטטוס</th><th>פעולות</th></tr></thead>
           <tbody id="versionsTableBody"></tbody>
         </table>
       </div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-title"><h2>פרטי גרסה</h2><p>לחץ על “פתח פרטים” ליד גרסה כדי לראות את כל השדות הידועים מהיסטוריית הפיתוח.</p></div>
+      <article id="versionDetails" class="version-details-card"></article>
     </section>
 
     <section class="content-section">
@@ -69,6 +78,7 @@
   <footer class="site-footer">האתר נוצר על ידי אושר פרץ<br>טלפון: 054-4232490<br>Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></footer>
   <script src="../data/course-data.js"></script>
   <script src="../data/exam-questions.js"></script>
+  <script src="../data/site-versions.js"></script>
   <script src="../js/storage.js"></script>
   <script src="../js/app.js"></script>
   <script type="module" src="../js/auth.js"></script>

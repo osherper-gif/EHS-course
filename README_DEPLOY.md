@@ -107,3 +107,15 @@ Authentication > Settings > Authorized domains:
 6. בצע firebase deploy.
 
 אם הקובץ נשאר עם PASTE_EMAILJS..., האתר יעבוד רגיל אך לא יישלח מייל בפועל.
+
+## עדכון היסטוריית גרסאות אתר
+
+עמוד ניהול הגרסאות משתמש בקובץ `data/site-versions.js` כמאגר גרסאות מובנה מראש. אם Firestore collection בשם `siteVersions` ריק, האדמין יראה את הגרסאות המובנות ויוכל ללחוץ על “ייבא גרסאות ל-Firestore”.
+
+ליצירת קובץ בסיסי מתוך היסטוריית Git המקומית ניתן להריץ:
+
+```powershell
+node .\scripts\generate-site-versions.js
+```
+
+הסקריפט קורא `git log` ומייצר רשומות בסיסיות. לאחר מכן מומלץ להשלים ידנית פירוט שינויים, באגים, אבטחה, תוכן ו-Firebase.
