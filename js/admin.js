@@ -94,7 +94,7 @@ function showPreparedApproval(user) {
   if (emailField) emailField.value = clean(user.email, 320);
   if (textField) textField.value = approvalMailText(user);
   if (panel) panel.hidden = false;
-  document.getElementById("adminStatus").textContent = "המשתמש אושר. ניתן להעתיק ולשלוח לו הודעת אישור.";
+  document.getElementById("adminStatus").textContent = "המשתמש אושר בהצלחה. ניתן להעתיק ולשלוח לו הודעת אישור.";
 }
 
 function renderApprovalCell(user) {

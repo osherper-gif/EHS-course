@@ -315,7 +315,7 @@ function renderNotApproved(profile) {
   if (profile.status === BLOCKED) {
     showShellMessage("אין הרשאת גישה", "הגישה שלך לאתר נחסמה. פנה למנהל האתר.", () => buttonElement("התנתקות", () => window.CourseAuth.logout()));
   } else {
-    showShellMessage("ממתין לאישור", "נרשמת בהצלחה. חשבונך ממתין לאישור מנהל האתר. תקבל עדכון לאחר אישור.", () => buttonElement("התנתקות", () => window.CourseAuth.logout()));
+    showShellMessage("ממתין לאישור", "חשבונך עדיין ממתין לאישור מנהל האתר.", () => buttonElement("התנתקות", () => window.CourseAuth.logout()));
   }
 }
 
@@ -481,7 +481,7 @@ function initLoginPage() {
     try {
       setMessage("יוצר משתמש...");
       await emailRegister(form.get("email"), form.get("password"), form.get("displayName"));
-      setMessage("נרשמת בהצלחה. חשבונך ממתין לאישור מנהל האתר. תקבל עדכון לאחר אישור.");
+      setMessage("נרשמת בהצלחה. חשבונך ממתין לאישור מנהל האתר. לאחר האישור תוכל להיכנס לאתר.");
     } catch (error) {
       setMessage(hebrewAuthError(error), "error");
     }
