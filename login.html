@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>כניסה | קורס ממונה בטיחות</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="auth-page" data-page-title="כניסה">
+  <main class="login-layout">
+    <section class="login-hero">
+      <p class="kicker">באר הדרכות</p>
+      <h1>כניסה לקורס ממונה בטיחות</h1>
+      <p>האתר פרטי. משתמש חדש ייכנס לסטטוס ממתין עד אישור מנהל האתר.</p>
+    </section>
+    <section class="auth-panel">
+      <div id="authMessage" class="auth-message" role="status"></div>
+      <button id="googleLogin" class="btn google-btn" type="button">כניסה עם Google</button>
+      <div class="auth-forms-grid">
+        <form id="emailLoginForm" class="auth-form">
+          <h2>התחברות עם Email</h2>
+          <label><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+          <label><span>סיסמה</span><input name="password" type="password" required autocomplete="current-password"></label>
+          <button class="btn" type="submit">התחברות</button>
+        </form>
+        <form id="emailRegisterForm" class="auth-form">
+          <h2>יצירת משתמש</h2>
+          <label><span>שם מלא</span><input name="displayName" type="text" autocomplete="name"></label>
+          <label><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+          <label><span>סיסמה</span><input name="password" type="password" required minlength="6" autocomplete="new-password"></label>
+          <button class="btn secondary" type="submit">הרשמה</button>
+        </form>
+      </div>
+      <p class="law-emphasis">האדמין הראשי: osherper@gmail.com</p>
+    </section>
+  </main>
+  <script type="module" src="./js/auth.js"></script>
+</body>
+</html>

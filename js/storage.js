@@ -19,6 +19,8 @@
       const notes = this.notes();
       notes[id] = value;
       this.set("notes", notes);
+      const completed = this.progress()[id] || false;
+      window.CourseAuth?.syncProgress?.(id, completed, value);
     },
     progress() {
       return this.get("progress", {});
@@ -27,6 +29,8 @@
       const progress = this.progress();
       progress[id] = Boolean(complete);
       this.set("progress", progress);
+      const notes = this.notes()[id] || "";
+      window.CourseAuth?.syncProgress?.(id, Boolean(complete), notes);
     },
     exportNotes() {
       const notes = this.notes();

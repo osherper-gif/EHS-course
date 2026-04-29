@@ -1,0 +1,54 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isMainAdmin() {
+      return signedIn() && request.auth.token.email == "osherper@gmail.com";
+    }
+
+    function myUserDoc() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+    function isApproved() {
+      return isMainAdmin() || (signedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid)) && myUserDoc().data.status == "approved");
+    }
+
+    match /users/{uid} {
+      allow read: if isMainAdmin() || (signedIn() && request.auth.uid == uid);
+
+      allow create: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.email == request.auth.token.email
+        && (
+          (request.auth.token.email == "osherper@gmail.com" && request.resource.data.role == "admin" && request.resource.data.status == "approved")
+          ||
+          (request.auth.token.email != "osherper@gmail.com" && request.resource.data.role == "student" && request.resource.data.status == "pending")
+        );
+
+      allow update: if isMainAdmin()
+        || (
+          signedIn()
+          && request.auth.uid == uid
+          && request.resource.data.role == resource.data.role
+          && request.resource.data.status == resource.data.status
+          && request.resource.data.uid == resource.data.uid
+          && request.resource.data.email == resource.data.email
+        );
+
+      allow delete: if false;
+
+      match /progress/{lessonId} {
+        allow read, write: if signedIn() && request.auth.uid == uid && isApproved();
+      }
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
