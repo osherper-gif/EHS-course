@@ -355,3 +355,35 @@ body.login-auth-check .login-layout {
   .learning-flow { align-items: stretch; }
   .learning-flow span { display: inline-flex; align-items: center; }
 }
+
+.version-form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+.version-form label, .mail-prep-grid label {
+  display: grid;
+  gap: .35rem;
+}
+.version-form .wide {
+  grid-column: 1 / -1;
+}
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  align-items: center;
+}
+.mail-prep-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.version-table td:nth-child(5) {
+  min-width: 260px;
+}
+@media (max-width: 860px) {
+  .version-form, .mail-prep-grid {
+    grid-template-columns: 1fr;
+  }
+}

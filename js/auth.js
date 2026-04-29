@@ -34,7 +34,7 @@ const isRootPage = !location.pathname.includes("/pages/");
 const pathPrefix = isRootPage ? "" : "../";
 const pageName = location.pathname.split("/").pop() || "index.html";
 const isLoginPage = pageName === LOGIN_PAGE;
-const isAdminPage = pageName === ADMIN_PAGE;
+const isAdminPage = pageName === ADMIN_PAGE || pageName === "version-management.html";
 
 let currentProfile = null;
 let authReadyResolve;
@@ -57,6 +57,10 @@ function homeUrl() {
 
 function adminUrl() {
   return isRootPage ? ADMIN_PAGE : "../admin.html";
+}
+
+function versionManagementUrl() {
+  return isRootPage ? "pages/version-management.html" : "version-management.html";
 }
 
 function safeRedirect(url) {
@@ -186,6 +190,10 @@ function isAdminEmail(email) {
   return String(email || "").toLowerCase() === ADMIN_EMAIL;
 }
 
+function isAdminProfile(profile) {
+  return profile?.role === "admin" || isAdminEmail(profile?.email);
+}
+
 async function ensureUserProfile(user) {
   const ref = doc(db, "users", user.uid);
   const snapshot = await getDoc(ref);
@@ -248,12 +256,17 @@ function decorateApprovedUser(profile) {
   text.textContent = "שלום, " + label;
   badge.append(text);
   actions.prepend(badge);
-  if (profile.role === "admin" && !actions.querySelector(".admin-link")) {
+  if (isAdminProfile(profile) && !actions.querySelector(".admin-link")) {
     const adminLink = document.createElement("a");
     adminLink.className = "btn secondary admin-link";
     adminLink.href = adminUrl();
     adminLink.textContent = "ניהול משתמשים";
     badge.after(adminLink);
+    const versionLink = document.createElement("a");
+    versionLink.className = "btn secondary admin-link";
+    versionLink.href = versionManagementUrl();
+    versionLink.textContent = "ניהול גרסאות אתר";
+    adminLink.after(versionLink);
   }
   if (!actions.querySelector('[data-action="logout"]')) {
     const logoutButton = document.createElement("button");
@@ -483,7 +496,9 @@ function guard() {
     safeRedirect(homeUrl());
     return;
   }
-  if (cached && !isLoginPage) {
+  if (cached && isAdminPage && !isAdminProfile(cached)) {
+    showLoading();
+  } else if (cached && !isLoginPage) {
     currentProfile = cached;
     window.CourseAuth.profile = cached;
     decorateApprovedUser(cached);
@@ -513,7 +528,7 @@ function guard() {
         authReadyResolve?.(profile);
         return;
       }
-      if (isAdminPage && profile.role !== "admin") {
+      if (isAdminPage && !isAdminProfile(profile)) {
         clearCachedProfile();
         showShellMessage("אין הרשאת גישה", "רק מנהל האתר יכול להיכנס לעמוד זה.", () => linkElement("חזרה לקורס", homeUrl()));
         authReadyResolve?.(profile);
@@ -550,6 +565,7 @@ window.CourseAuth = {
   saveExamAttempt,
   hebrewAuthError,
   isAdminEmail,
+  isAdminProfile,
   sanitizeText,
 };
 
