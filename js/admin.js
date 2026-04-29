@@ -104,6 +104,34 @@ async function loadUsers() {
   tbody.replaceChildren();
   snapshot.docs.forEach((item) => tbody.append(renderUserRow(item.data())));
   status.textContent = "נטענו " + snapshot.size + " משתמשים.";
+  await loadExamScores(snapshot.docs.map((item) => item.data()));
+}
+
+async function loadExamScores(users) {
+  const tbody = document.getElementById("examScoresBody");
+  const status = document.getElementById("examScoresStatus");
+  if (!tbody || !status) return;
+  tbody.replaceChildren();
+  for (const user of users) {
+    try {
+      const attempts = await getDocs(collection(db, "users", user.uid, "examAttempts"));
+      const scores = attempts.docs.map((item) => Number(item.data().score || 0));
+      const last = attempts.docs[attempts.docs.length - 1]?.data();
+      const tr = document.createElement("tr");
+      tr.append(
+        cell(clean(user.email || "-", 320)),
+        cell(String(scores.length)),
+        cell(last ? String(last.score || 0) + "%" : "-"),
+        cell(scores.length ? Math.round(scores.reduce((sum, score) => sum + score, 0) / scores.length) + "%" : "-")
+      );
+      tbody.append(tr);
+    } catch {
+      const tr = document.createElement("tr");
+      tr.append(cell(clean(user.email || "-", 320)), cell("-"), cell("-"), cell("-"));
+      tbody.append(tr);
+    }
+  }
+  status.textContent = "ציוני משתמשים נטענו.";
 }
 
 async function updateStatus(uid, status) {

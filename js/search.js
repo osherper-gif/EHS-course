@@ -8,6 +8,7 @@
       ...data.glossary.map((item) => ({ type: "מושג", title: item.term, href: "pages/glossary.html", text: item.term + " " + item.definition + " " + item.category, topic: item.category })),
       ...data.laws.map((item) => ({ type: "חוק/תקנה", title: item.title, href: "pages/laws.html", text: item.title + " " + item.note, topic: "חוקים ותקנות" })),
       ...data.questions.map((item) => ({ type: "שאלה", title: item.question, href: "pages/quizzes.html", text: item.question + " " + item.options.join(" ") + " " + item.explanation, topic: "תרגול" })),
+      ...(window.EXAM_QUESTIONS || []).map((item) => ({ type: "שאלת מבחן", title: item.question, href: "pages/exam-questions.html", text: item.question + " " + item.correctAnswer + " " + item.options.join(" ") + " " + item.explanation + " " + item.topic, topic: item.topic })),
     ];
   }
   function search(query, topic = "") {

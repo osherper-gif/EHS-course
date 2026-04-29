@@ -215,9 +215,51 @@ body.login-auth-check .login-layout {
 .admin-user-cell { display: flex; gap: .6rem; align-items: center; min-width: 220px; }
 .admin-user-cell small { display: block; color: var(--muted); direction: ltr; text-align: right; }
 .admin-actions-cell { display: flex; gap: .4rem; flex-wrap: wrap; }
+.exam-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.exam-form {
+  display: grid;
+  gap: 1rem;
+}
+.exam-question {
+  scroll-margin-top: 110px;
+}
+.exam-answer {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  padding: .9rem;
+  cursor: pointer;
+}
+.exam-answer input {
+  width: auto;
+}
+.exam-result {
+  margin-top: 1rem;
+  display: grid;
+  gap: .8rem;
+}
+.exam-result details {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .8rem;
+  background: var(--surface);
+}
+.muted-answer {
+  color: var(--muted);
+}
 
 @media (max-width: 860px) {
   .login-layout, .auth-forms-grid { grid-template-columns: 1fr; }
   .header-actions { align-items: flex-start; flex-wrap: wrap; }
   .user-badge { max-width: 100%; }
+  .exam-summary { grid-template-columns: 1fr 1fr; }
+  .exam-answer { min-height: 52px; }
 }

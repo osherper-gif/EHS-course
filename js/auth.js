@@ -323,6 +323,32 @@ async function syncProgress(lessonId, completed, notes) {
   }
 }
 
+async function saveExamAttempt(attempt) {
+  if (!db || !auth?.currentUser || !currentProfile || currentProfile.status !== APPROVED) return false;
+  try {
+    const attemptId = sanitizeText(attempt?.attemptId || "attempt-" + Date.now(), 140);
+    await setDoc(doc(db, "users", auth.currentUser.uid, "examAttempts", attemptId), {
+      attemptId,
+      userId: auth.currentUser.uid,
+      topic: sanitizeText(attempt?.topic, 120),
+      score: Number(attempt?.score || 0),
+      correctCount: Number(attempt?.correctCount || 0),
+      wrongCount: Number(attempt?.wrongCount || 0),
+      totalQuestions: Number(attempt?.totalQuestions || 0),
+      answers: Array.isArray(attempt?.answers) ? attempt.answers.slice(0, 200).map((answer) => ({
+        id: sanitizeText(answer.id, 140),
+        selected: sanitizeText(answer.selected, 1000),
+        correctAnswer: sanitizeText(answer.correctAnswer, 1000),
+        isCorrect: Boolean(answer.isCorrect),
+      })) : [],
+      createdAt: serverTimestamp(),
+    }, { merge: true });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function hydrateProgressFromFirestore(uid) {
   if (!db || !window.CourseStorage) return;
   try {
@@ -428,7 +454,7 @@ function initPrefetch() {
     isRootPage ? "index.html" : "../index.html",
     isRootPage ? "admin.html" : "../admin.html",
     ...(window.COURSE_DATA?.meetings || []).map((lesson) => (isRootPage ? "pages/" : "") + lesson.id + ".html"),
-    ...(isRootPage ? ["pages/syllabus.html", "pages/glossary.html", "pages/laws.html", "pages/quizzes.html", "pages/ai-assistant.html"] : ["syllabus.html", "glossary.html", "laws.html", "quizzes.html", "ai-assistant.html"]),
+    ...(isRootPage ? ["pages/syllabus.html", "pages/glossary.html", "pages/laws.html", "pages/quizzes.html", "pages/exam-questions.html", "pages/ai-assistant.html"] : ["syllabus.html", "glossary.html", "laws.html", "quizzes.html", "exam-questions.html", "ai-assistant.html"]),
   ];
   important.slice(0, 18).forEach(prefetchUrl);
   const warm = (event) => {
@@ -517,6 +543,7 @@ window.CourseAuth = {
   },
   logout,
   syncProgress,
+  saveExamAttempt,
   hebrewAuthError,
   isAdminEmail,
   sanitizeText,

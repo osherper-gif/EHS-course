@@ -1,5 +1,29 @@
 (function () {
+  function lastExamAnswer() {
+    try {
+      const attempt = JSON.parse(localStorage.getItem("safetyCourse:lastExamAttempt") || "null");
+      if (!attempt) return "לא מצאתי מידע על מבחן אחרון.";
+      const wrong = (attempt.answers || []).filter((answer) => !answer.isCorrect).length;
+      return "במבחן האחרון קיבלת " + attempt.score + "%. תשובות נכונות: " + attempt.correctCount + ", טעויות: " + wrong + ".";
+    } catch {
+      return "לא מצאתי מידע על מבחן אחרון.";
+    }
+  }
+  function examPromptAnswer(question) {
+    const q = String(question || "");
+    if (/טעיתי|טעויות|מבחן אחרון/.test(q)) return lastExamAnswer();
+    const topics = Array.from(new Set((window.EXAM_QUESTIONS || []).map((item) => item.topic)));
+    const topic = topics.find((item) => q.includes(item)) || (q.includes("גובה") ? "עבודה בגובה" : q.includes("חשמל") ? "חשמל" : "");
+    if ((q.includes("שאל אותי") || q.includes("תן לי מבחן")) && topic) {
+      const items = (window.EXAM_QUESTIONS || []).filter((item) => item.topic === topic).slice(0, 5);
+      if (!items.length) return "";
+      return "הנה שאלות בנושא " + topic + ":\n" + items.map((item, index) => (index + 1) + ". " + item.question).join("\n") + "\n\nלמבחן מלא עבור לעמוד שאלות למבחן.";
+    }
+    return "";
+  }
   function answer(question) {
+    const examAnswer = examPromptAnswer(question);
+    if (examAnswer) return examAnswer;
     const results = window.CourseSearch.search(question);
     const fallback = window.COURSE_DATA?.meta?.aiFallback || "לא מצאתי תשובה מספקת בחומר הקורס או בהרחבות האתר.";
     if (!results.length) return fallback;

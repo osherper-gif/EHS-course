@@ -77,10 +77,32 @@
     document.querySelectorAll('[data-action="print"]').forEach((btn) => btn.addEventListener("click", () => window.print()));
     document.querySelectorAll('[data-action="export-notes"]').forEach((btn) => btn.addEventListener("click", () => CourseStorage.exportNotes()));
   }
+  function initExamDashboard() {
+    const last = document.querySelector('[data-exam-stat="last"]');
+    if (!last) return;
+    const attempts = JSON.parse(localStorage.getItem("safetyCourse:examAttempts") || "[]");
+    const count = document.querySelector('[data-exam-stat="count"]');
+    const avg = document.querySelector('[data-exam-stat="avg"]');
+    const topic = document.querySelector('[data-exam-stat="topic"]');
+    if (!attempts.length) {
+      last.textContent = "-";
+      if (count) count.textContent = "0";
+      if (avg) avg.textContent = "-";
+      if (topic) topic.textContent = "-";
+      return;
+    }
+    const latest = attempts[attempts.length - 1];
+    const average = Math.round(attempts.reduce((sum, attempt) => sum + Number(attempt.score || 0), 0) / attempts.length);
+    last.textContent = latest.score + "%";
+    if (count) count.textContent = attempts.length;
+    if (avg) avg.textContent = average + "%";
+    if (topic) topic.textContent = latest.topic || "כל הנושאים";
+  }
   document.addEventListener("DOMContentLoaded", () => {
     initTheme();
     initNotes();
     initProgress();
+    initExamDashboard();
     initGlobalSearch();
     initGlossarySearch();
     initActions();

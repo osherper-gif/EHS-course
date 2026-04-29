@@ -63,6 +63,14 @@ service cloud.firestore {
           && request.resource.data.lessonId == lessonId;
         allow delete: if false;
       }
+
+      match /examAttempts/{attemptId} {
+        allow read: if isMainAdmin() || isApprovedSelf(uid);
+        allow create, update: if isApprovedSelf(uid)
+          && request.resource.data.attemptId == attemptId
+          && request.resource.data.userId == request.auth.uid;
+        allow delete: if false;
+      }
     }
 
     match /{document=**} {
