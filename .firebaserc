@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "PASTE_FIREBASE_PROJECT_ID_HERE"
-  }
+    "default": "ehs-course"
+  },
+  "targets": {},
+  "etags": {}
 }

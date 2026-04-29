@@ -25,12 +25,13 @@ import {
 export const ADMIN_EMAIL = "osherper@gmail.com";
 
 export const firebaseConfig = {
-  apiKey: "PASTE_HERE",
-  authDomain: "PASTE_HERE",
-  projectId: "PASTE_HERE",
-  storageBucket: "PASTE_HERE",
-  messagingSenderId: "PASTE_HERE",
-  appId: "PASTE_HERE",
+  apiKey: "AIzaSyDE2SXaGtaMdjkRv3jFzbeZzqidHf2ep8E",
+  authDomain: "ehs-course.firebaseapp.com",
+  projectId: "ehs-course",
+  storageBucket: "ehs-course.firebasestorage.app",
+  messagingSenderId: "960785871196",
+  appId: "1:960785871196:web:2efb1fc8505cae0543d199",
+  measurementId: "G-WLNH49W1EX"
 };
 
 export const isFirebaseConfigured = Object.values(firebaseConfig).every((value) => value && value !== "PASTE_HERE");

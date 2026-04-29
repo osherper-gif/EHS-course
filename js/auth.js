@@ -25,6 +25,9 @@ const APPROVED = "approved";
 const PENDING = "pending";
 const BLOCKED = "blocked";
 const MAX_TEXT = 5000;
+const AUTH_CACHE_KEY = "ehsCourseAuthCache";
+const AUTH_CACHE_TTL = 5 * 60 * 1000;
+const LOADER_DELAY = 700;
 
 const isRootPage = !location.pathname.includes("/pages/");
 const pathPrefix = isRootPage ? "" : "../";
@@ -34,6 +37,7 @@ const isAdminPage = pageName === ADMIN_PAGE;
 
 let currentProfile = null;
 let authReadyResolve;
+let loaderTimer = null;
 window.CourseAuthReady = new Promise((resolve) => {
   authReadyResolve = resolve;
 });
@@ -59,6 +63,52 @@ function safeRedirect(url) {
   location.href = url;
 }
 
+function isApprovedProfile(profile) {
+  return profile?.status === APPROVED || profile?.role === "admin";
+}
+
+function profileForCache(profile) {
+  return {
+    uid: sanitizeText(profile?.uid, 180),
+    email: sanitizeText(profile?.email, 320),
+    displayName: sanitizeText(profile?.displayName || profile?.email, 180),
+    role: sanitizeText(profile?.role, 40),
+    status: sanitizeText(profile?.status, 40),
+    photoURL: sanitizeText(profile?.photoURL, 1000),
+    lastAuthCheck: Date.now(),
+  };
+}
+
+function getCachedProfile() {
+  try {
+    const raw = sessionStorage.getItem(AUTH_CACHE_KEY);
+    if (!raw) return null;
+    const profile = JSON.parse(raw);
+    const fresh = Date.now() - Number(profile.lastAuthCheck || 0) < AUTH_CACHE_TTL;
+    if (!fresh || !profile.uid || !isApprovedProfile(profile)) return null;
+    return profile;
+  } catch {
+    return null;
+  }
+}
+
+function saveCachedProfile(profile) {
+  try {
+    if (isApprovedProfile(profile)) sessionStorage.setItem(AUTH_CACHE_KEY, JSON.stringify(profileForCache(profile)));
+    else sessionStorage.removeItem(AUTH_CACHE_KEY);
+  } catch {
+    // sessionStorage is an optimization only.
+  }
+}
+
+function clearCachedProfile() {
+  try {
+    sessionStorage.removeItem(AUTH_CACHE_KEY);
+  } catch {
+    // Ignore storage errors.
+  }
+}
+
 function buttonElement(text, onClick) {
   const button = document.createElement("button");
   button.className = "btn";
@@ -77,6 +127,7 @@ function linkElement(text, href) {
 }
 
 function showShellMessage(title, message, actionBuilder) {
+  hideLoading();
   document.body.classList.add("auth-ready");
   document.body.classList.remove("auth-approved");
   let shell = document.getElementById("authStateShell");
@@ -102,24 +153,26 @@ function showShellMessage(title, message, actionBuilder) {
 
 function showLoading() {
   if (isLoginPage) return;
-  let shell = document.getElementById("authStateShell");
-  if (!shell) {
-    shell = document.createElement("section");
-    shell.id = "authStateShell";
-    shell.className = "auth-state-shell loading";
-    const card = document.createElement("div");
-    card.className = "auth-state-card";
-    const heading = document.createElement("h1");
-    heading.textContent = "בודק הרשאות...";
-    const paragraph = document.createElement("p");
-    paragraph.textContent = "רגע קצר, מאמתים את הכניסה לאתר.";
-    card.append(heading, paragraph);
-    shell.append(card);
-    document.body.prepend(shell);
-  }
+  clearTimeout(loaderTimer);
+  loaderTimer = window.setTimeout(() => {
+    if (document.body.classList.contains("auth-approved")) return;
+    if (document.getElementById("authInlineLoader")) return;
+    const loader = document.createElement("div");
+    loader.id = "authInlineLoader";
+    loader.className = "auth-inline-loader";
+    loader.textContent = "בודק הרשאות...";
+    document.body.append(loader);
+  }, LOADER_DELAY);
+}
+
+function hideLoading() {
+  clearTimeout(loaderTimer);
+  const loader = document.getElementById("authInlineLoader");
+  if (loader) loader.remove();
 }
 
 function hideShell() {
+  hideLoading();
   const shell = document.getElementById("authStateShell");
   if (shell) shell.remove();
 }
@@ -249,6 +302,7 @@ async function emailRegister(email, password, displayName) {
 }
 
 async function logout() {
+  clearCachedProfile();
   if (auth) await signOut(auth);
   currentProfile = null;
   safeRedirect(loginUrl());
@@ -312,6 +366,12 @@ async function pushLocalProgressToFirestore() {
 }
 
 function initLoginPage() {
+  const cached = getCachedProfile();
+  if (cached) {
+    safeRedirect(homeUrl());
+    return;
+  }
+  document.body.classList.remove("login-auth-check");
   const message = document.getElementById("authMessage");
   const setMessage = (text, type = "info") => {
     if (!message) return;
@@ -353,19 +413,61 @@ function initLoginPage() {
   });
 }
 
+function prefetchUrl(url) {
+  if (!url || url.startsWith("#") || url.startsWith("mailto:") || /^https?:\/\//.test(url)) return;
+  const absolute = new URL(url, location.href);
+  if (document.querySelector('link[rel="prefetch"][href="' + absolute.href + '"]')) return;
+  const link = document.createElement("link");
+  link.rel = "prefetch";
+  link.href = absolute.href;
+  document.head.append(link);
+}
+
+function initPrefetch() {
+  const important = [
+    isRootPage ? "index.html" : "../index.html",
+    isRootPage ? "admin.html" : "../admin.html",
+    ...(window.COURSE_DATA?.meetings || []).map((lesson) => (isRootPage ? "pages/" : "") + lesson.id + ".html"),
+    ...(isRootPage ? ["pages/syllabus.html", "pages/glossary.html", "pages/laws.html", "pages/quizzes.html", "pages/ai-assistant.html"] : ["syllabus.html", "glossary.html", "laws.html", "quizzes.html", "ai-assistant.html"]),
+  ];
+  important.slice(0, 18).forEach(prefetchUrl);
+  const warm = (event) => {
+    const anchor = event.target.closest?.("a[href]");
+    if (anchor) prefetchUrl(anchor.getAttribute("href"));
+  };
+  document.addEventListener("mouseenter", warm, { capture: true, passive: true });
+  document.addEventListener("touchstart", warm, { capture: true, passive: true });
+  document.addEventListener("focusin", warm, { capture: true });
+}
+
 function guard() {
   if (!isFirebaseConfigured) {
+    document.body.classList.remove("login-auth-check");
     if (isLoginPage) return initLoginPage();
     showShellMessage("נדרש חיבור Firebase", "יש להדביק firebaseConfig אמיתי לפני deploy.", () => linkElement("לעמוד התחברות", loginUrl()));
     authReadyResolve?.(null);
     return;
   }
-  if (!isLoginPage) showLoading();
+  const cached = getCachedProfile();
+  if (cached && isLoginPage) {
+    safeRedirect(homeUrl());
+    return;
+  }
+  if (cached && !isLoginPage) {
+    currentProfile = cached;
+    window.CourseAuth.profile = cached;
+    decorateApprovedUser(cached);
+    authReadyResolve?.(cached);
+    document.dispatchEvent(new CustomEvent("course-auth-approved", { detail: cached }));
+  } else if (!isLoginPage) {
+    showLoading();
+  }
   if (isLoginPage) initLoginPage();
 
   onAuthStateChanged(auth, async (user) => {
     try {
       if (!user) {
+        clearCachedProfile();
         currentProfile = null;
         authReadyResolve?.(null);
         if (!isLoginPage) safeRedirect(loginUrl());
@@ -375,21 +477,25 @@ function guard() {
       currentProfile = profile;
       window.CourseAuth.profile = profile;
       if (isLoginPage) {
+        document.body.classList.remove("login-auth-check");
         if (profile.status === APPROVED) safeRedirect(homeUrl());
         else renderNotApproved(profile);
         authReadyResolve?.(profile);
         return;
       }
       if (isAdminPage && profile.role !== "admin") {
+        clearCachedProfile();
         showShellMessage("אין הרשאת גישה", "רק מנהל האתר יכול להיכנס לעמוד זה.", () => linkElement("חזרה לקורס", homeUrl()));
         authReadyResolve?.(profile);
         return;
       }
       if (profile.status !== APPROVED) {
+        clearCachedProfile();
         renderNotApproved(profile);
         authReadyResolve?.(profile);
         return;
       }
+      saveCachedProfile(profile);
       await hydrateProgressFromFirestore(user.uid);
       decorateApprovedUser(profile);
       pushLocalProgressToFirestore();
@@ -416,4 +522,7 @@ window.CourseAuth = {
   sanitizeText,
 };
 
-document.addEventListener("DOMContentLoaded", guard);
+document.addEventListener("DOMContentLoaded", () => {
+  initPrefetch();
+  guard();
+});
