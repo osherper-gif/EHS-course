@@ -1,5 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import {
+  initializeAppCheck,
+  ReCaptchaV3Provider,
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app-check.js";
+import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
@@ -36,8 +40,18 @@ export const firebaseConfig = {
 };
 
 export const isFirebaseConfigured = Object.values(firebaseConfig).every((value) => value && value !== "PASTE_HERE");
+export const appCheckSiteKey = "PASTE_RECAPTCHA_V3_SITE_KEY";
+export const isAppCheckConfigured =
+  appCheckSiteKey && appCheckSiteKey !== "PASTE_RECAPTCHA_V3_SITE_KEY";
 
 export const app = isFirebaseConfigured ? initializeApp(firebaseConfig) : null;
+export const appCheck =
+  app && isAppCheckConfigured
+    ? initializeAppCheck(app, {
+        provider: new ReCaptchaV3Provider(appCheckSiteKey),
+        isTokenAutoRefreshEnabled: true,
+      })
+    : null;
 export const auth = app ? getAuth(app) : null;
 export const db = app ? getFirestore(app) : null;
 export {

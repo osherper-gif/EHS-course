@@ -29,6 +29,7 @@ firebase use --add
 - Web app
 - העתיקו את `firebaseConfig`
 - הדביקו ב-`js/firebase-config.js`
+- אם מפעילים App Check: צרו reCAPTCHA v3 site key, הפעילו App Check ל-Web app בקונסול Firebase, והחליפו את `PASTE_RECAPTCHA_V3_SITE_KEY` בקובץ `js/firebase-config.js`
 
 4. הפעלת Authentication:
 
@@ -89,6 +90,7 @@ Authentication > Settings > Authorized domains:
 - `firebaseConfig` אינו סוד, אבל הוא חייב להיות config אמיתי לפני deploy.
 - האתר סטטי; כל עמוד מוגן ב-auth guard בצד לקוח.
 - Firestore Rules מגנות על מסמכי משתמשים ועל progress/notes.
+- App Check דורש הפעלה ידנית בקונסול Firebase והדבקת site key אמיתי; ללא site key הקוד לא מאתחל App Check כדי לא לשבור התחברות.
 
 
 ## התראות מייל לאדמין
