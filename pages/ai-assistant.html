@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>עוזר AI מקומי | קורס ממונה בטיחות</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page-title="עוזר AI מקומי">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">באר</span>
+        <span>
+          <strong>קורס ממונה בטיחות</strong>
+          <small>למידה מקומית מתוך חומר הקורס</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="ניווט ראשי">
+        <a href="../index.html">בית</a>
+        <a href="../pages/syllabus.html">תוכנית לימוד</a>
+        <a href="../pages/glossary.html">מילון</a>
+        <a href="../pages/laws.html">חוקים ותקנות</a>
+        <a href="../pages/quizzes.html">תרגול</a>
+        <a href="../pages/ai-assistant.html">עוזר AI</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button>
+        <button class="icon-btn" type="button" data-action="print" title="הדפסה">⎙</button>
+      </div>
+    </div>
+    <div class="law-notice">יש לאמת מול נוסח החוק/התקנה העדכני והמרצה</div>
+  </header>
+  <main id="main" class="site-main">
+<section class="page-hero">
+    <div>
+      <p class="kicker">ללא אינטרנט וללא API</p>
+      <h1>עוזר AI מקומי</h1>
+      <p>העוזר מחפש רק בתוך data/course-data.js. אם אין תשובה מתוך החומר, תופיע הודעת אי-מציאה.</p>
+    </div>
+  </section>
+  <section class="assistant-layout">
+    <div class="chat-panel">
+      <div id="chatLog" class="chat-log" aria-live="polite"></div>
+      <form id="chatForm" class="chat-form">
+        <input id="chatInput" type="text" autocomplete="off" placeholder="שאל שאלה מתוך חומר הקורס">
+        <button class="btn" type="submit">שליחה</button>
+      </form>
+    </div>
+    <aside class="panel">
+      <h2>כללי העוזר</h2>
+      <ul>
+        <li>פועל מקומית בלבד.</li>
+        <li>לא שולח מידע החוצה.</li>
+        <li>מחזיר תשובות רק מהחומר שבקובץ הנתונים.</li>
+        <li>אם אין תשובה: לא מצאתי תשובה בחומר הקורס.</li>
+      </ul>
+    </aside>
+  </section>
+  </main>
+  <footer class="site-footer">
+    אתר סטטי מקומי בלבד. אין שימוש בענן, API או שירות חיצוני. יש לאמת מול נוסח החוק/התקנה העדכני והמרצה
+  </footer>
+  <script src="../data/course-data.js"></script>
+<script src="../js/storage.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/quizzes.js"></script>
+<script src="../js/ai-assistant.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
