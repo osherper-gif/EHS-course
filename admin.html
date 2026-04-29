@@ -39,7 +39,34 @@
         <button class="btn secondary" type="button" id="copyPreparedApprovalText">העתק הודעת אישור למשתמש</button>
       </div>
     </section>
-  <section class="content-section admin-section"><div class="section-title"><h2>ציוני משתמשים</h2><p id="examScoresStatus">הציונים יוצגו לאחר טעינת משתמשים.</p></div><div class="table-scroll"><table class="data-table admin-table"><thead><tr><th>אימייל משתמש</th><th>מספר ניסיונות</th><th>ציון אחרון</th><th>ממוצע</th></tr></thead><tbody id="examScoresBody"></tbody></table></div></section></main>
+      <section class="content-section admin-section">
+      <div class="section-title"><h2>דיווחי תקלות והצעות שיפור</h2><p id="feedbackReportsStatus">הדיווחים יוצגו לאחר אימות מנהל.</p></div>
+      <div class="table-scroll">
+        <table class="data-table admin-table feedback-table">
+          <thead><tr><th>תאריך</th><th>סוג</th><th>משתמש</th><th>עמוד</th><th>כותרת</th><th>סטטוס</th><th>עדיפות</th><th>פעולות</th></tr></thead>
+          <tbody id="feedbackReportsBody"></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="feedbackDetailsPanel" class="content-section admin-section feedback-details-panel" hidden>
+      <div class="section-title">
+        <h2 id="feedbackDetailTitle">פרטי דיווח</h2>
+        <p id="feedbackDetailMeta"></p>
+      </div>
+      <p id="feedbackDetailDescription" class="feedback-detail-description"></p>
+      <p><strong>עמוד:</strong> <a id="feedbackDetailPage" href="#" target="_blank" rel="noopener"></a></p>
+      <div class="feedback-admin-grid">
+        <label><span>סטטוס</span><select id="feedbackStatusSelect"><option value="open">open</option><option value="in_progress">in_progress</option><option value="resolved">resolved</option><option value="rejected">rejected</option></select></label>
+        <label><span>עדיפות</span><select id="feedbackPrioritySelect"><option value="low">low</option><option value="normal">normal</option><option value="high">high</option><option value="critical">critical</option></select></label>
+        <label class="wide"><span>הערות אדמין</span><textarea id="feedbackAdminNotes" rows="5"></textarea></label>
+      </div>
+      <div class="form-actions">
+        <button class="btn" type="button" id="saveFeedbackReport">שמור עדכון</button>
+        <button class="btn secondary" type="button" id="copyFeedbackReply">העתק טקסט תשובה</button>
+        <a class="btn secondary" id="feedbackReplyMailto" href="#" hidden>הכן מייל תשובה למשתמש</a>
+      </div>
+    </section>
+<section class="content-section admin-section"><div class="section-title"><h2>ציוני משתמשים</h2><p id="examScoresStatus">הציונים יוצגו לאחר טעינת משתמשים.</p></div><div class="table-scroll"><table class="data-table admin-table"><thead><tr><th>אימייל משתמש</th><th>מספר ניסיונות</th><th>ציון אחרון</th><th>ממוצע</th></tr></thead><tbody id="examScoresBody"></tbody></table></div></section></main>
   <footer class="site-footer">האתר נוצר על ידי אושר פרץ<br>טלפון: 054-4232490<br>Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></footer>
   <script src="./data/course-data.js"></script>
 <script src="./data/exam-questions.js"></script>

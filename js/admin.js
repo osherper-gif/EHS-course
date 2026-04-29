@@ -12,6 +12,7 @@ import {
 
 let usersByUid = new Map();
 let preparedApproval = null;
+let feedbackById = new Map();
 
 function clean(value, max = 1000) {
   return window.CourseAuth?.sanitizeText
@@ -45,6 +46,17 @@ function approvalStatusLabel(status) {
 function cell(text) {
   const td = document.createElement("td");
   td.textContent = text;
+  return td;
+}
+
+function linkCell(text, href) {
+  const td = document.createElement("td");
+  const link = document.createElement("a");
+  link.href = href || "#";
+  link.target = "_blank";
+  link.rel = "noopener";
+  link.textContent = text;
+  td.append(link);
   return td;
 }
 
@@ -192,7 +204,104 @@ async function loadUsers() {
   users.forEach((user) => tbody.append(renderUserRow(user)));
   status.textContent = "נטענו " + snapshot.size + " משתמשים.";
   await loadExamScores(users);
+  await loadFeedbackReports();
   await handleActionLink();
+}
+
+function feedbackReplyText(report) {
+  return [
+    "שלום " + clean(report.userName || report.userEmail || "משתמש", 180) + ",",
+    "",
+    "קיבלתי את הדיווח שלך באתר קורס ממונה בטיחות.",
+    "נושא הדיווח: " + clean(report.title, 160),
+    "סטטוס נוכחי: " + clean(report.status || "open", 40),
+    "",
+    "תודה על העזרה בשיפור האתר.",
+    "",
+    "בברכה,",
+    "אושר פרץ",
+    "054-4232490",
+    "osherper@gmail.com",
+  ].join("\n");
+}
+
+function feedbackMailto(report) {
+  const subject = "עדכון לגבי הדיווח שלך באתר קורס ממונה בטיחות";
+  return "mailto:" + encodeURIComponent(clean(report.userEmail, 320)) +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(feedbackReplyText(report));
+}
+
+function renderFeedbackRow(report) {
+  const tr = document.createElement("tr");
+  const reportId = clean(report.reportId, 180);
+  tr.dataset.feedbackId = reportId;
+  tr.append(
+    cell(fmt(report.createdAt)),
+    cell(clean(report.type, 80)),
+    cell(clean(report.userEmail || report.userName || "-", 320)),
+    linkCell("פתח עמוד", clean(report.pageUrl, 1000)),
+    cell(clean(report.title, 160)),
+    cell(clean(report.status || "open", 40)),
+    cell(clean(report.priority || "normal", 40))
+  );
+  const action = document.createElement("td");
+  const open = document.createElement("button");
+  open.type = "button";
+  open.className = "btn secondary";
+  open.dataset.feedbackAction = "open";
+  open.dataset.feedbackId = reportId;
+  open.textContent = "פתח";
+  action.append(open);
+  tr.append(action);
+  return tr;
+}
+
+function showFeedbackDetails(report) {
+  const panel = document.getElementById("feedbackDetailsPanel");
+  if (!panel) return;
+  panel.hidden = false;
+  panel.dataset.feedbackId = clean(report.reportId, 180);
+  document.getElementById("feedbackDetailTitle").textContent = clean(report.title, 160);
+  document.getElementById("feedbackDetailMeta").textContent =
+    clean(report.type, 80) + " | " + clean(report.userEmail || report.userName || "-", 320) + " | " + fmt(report.createdAt);
+  document.getElementById("feedbackDetailDescription").textContent = clean(report.description, 4000);
+  const pageLink = document.getElementById("feedbackDetailPage");
+  pageLink.href = clean(report.pageUrl, 1000);
+  pageLink.textContent = clean(report.pageUrl, 1000);
+  document.getElementById("feedbackStatusSelect").value = clean(report.status || "open", 40);
+  document.getElementById("feedbackPrioritySelect").value = clean(report.priority || "normal", 40);
+  document.getElementById("feedbackAdminNotes").value = clean(report.adminNotes, 2000);
+  const reply = document.getElementById("feedbackReplyMailto");
+  reply.href = feedbackMailto(report);
+  reply.hidden = !report.userEmail;
+}
+
+async function loadFeedbackReports() {
+  const tbody = document.getElementById("feedbackReportsBody");
+  const status = document.getElementById("feedbackReportsStatus");
+  if (!tbody || !status) return;
+  status.textContent = "טוען דיווחים...";
+  const snapshot = await getDocs(query(collection(db, "feedbackReports"), orderBy("createdAt", "desc")));
+  const reports = snapshot.docs.map((item) => ({ reportId: item.id, ...item.data() }));
+  feedbackById = new Map(reports.map((report) => [clean(report.reportId, 180), report]));
+  tbody.replaceChildren();
+  reports.forEach((report) => tbody.append(renderFeedbackRow(report)));
+  status.textContent = "נטענו " + snapshot.size + " דיווחים.";
+}
+
+async function updateFeedbackReport() {
+  const panel = document.getElementById("feedbackDetailsPanel");
+  const reportId = clean(panel?.dataset.feedbackId, 180);
+  if (!reportId) return;
+  await updateDoc(doc(db, "feedbackReports", reportId), {
+    status: clean(document.getElementById("feedbackStatusSelect")?.value, 40),
+    priority: clean(document.getElementById("feedbackPrioritySelect")?.value, 40),
+    adminNotes: clean(document.getElementById("feedbackAdminNotes")?.value, 2000),
+    updatedAt: serverTimestamp(),
+  });
+  document.getElementById("feedbackReportsStatus").textContent = "הדיווח עודכן.";
+  await loadFeedbackReports();
 }
 
 async function loadExamScores(users) {
@@ -281,6 +390,13 @@ document.addEventListener("course-auth-approved", async (event) => {
 });
 
 document.addEventListener("click", async (event) => {
+  const feedbackButton = event.target.closest("[data-feedback-action]");
+  if (feedbackButton) {
+    const report = feedbackById.get(clean(feedbackButton.dataset.feedbackId, 180));
+    if (report) showFeedbackDetails(report);
+    return;
+  }
+
   const statusButton = event.target.closest("[data-status]");
   if (statusButton) {
     const row = statusButton.closest("[data-uid]");
@@ -313,6 +429,19 @@ document.addEventListener("click", async (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("saveFeedbackReport")?.addEventListener("click", async () => {
+    try {
+      await updateFeedbackReport();
+    } catch {
+      document.getElementById("feedbackReportsStatus").textContent = "שגיאה בעדכון הדיווח.";
+    }
+  });
+  document.getElementById("copyFeedbackReply")?.addEventListener("click", async () => {
+    const reportId = clean(document.getElementById("feedbackDetailsPanel")?.dataset.feedbackId, 180);
+    const report = feedbackById.get(reportId);
+    if (!report) return;
+    await copyText(feedbackReplyText(report), "תוכן מייל התשובה הועתק.");
+  });
   document.getElementById("copyPreparedApprovalEmail")?.addEventListener("click", () => {
     if (preparedApproval) copyText(clean(preparedApproval.email, 320), "כתובת המייל הועתקה.");
   });

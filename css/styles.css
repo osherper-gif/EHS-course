@@ -449,3 +449,115 @@ body.login-auth-check .login-layout {
     grid-template-columns: 1fr;
   }
 }
+
+.feedback-button {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--shadow);
+  padding: .62rem .95rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.feedback-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, .42);
+}
+.feedback-dialog {
+  width: min(680px, 100%);
+  max-height: min(88vh, 760px);
+  overflow: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+.feedback-dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: .85rem;
+}
+.feedback-dialog-head h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.feedback-form,
+.feedback-admin-grid {
+  display: grid;
+  gap: .85rem;
+}
+.feedback-form label,
+.feedback-admin-grid label {
+  display: grid;
+  gap: .35rem;
+}
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea,
+.feedback-admin-grid select,
+.feedback-admin-grid textarea {
+  width: 100%;
+}
+.feedback-meta {
+  display: grid;
+  gap: .25rem;
+  padding: .75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: .92rem;
+}
+.feedback-meta p,
+.feedback-status {
+  margin: 0;
+}
+.feedback-status[data-type="success"] { color: #1f7a4d; }
+.feedback-status[data-type="error"] { color: #9f2f24; }
+.feedback-admin-grid {
+  grid-template-columns: 1fr 1fr;
+}
+.feedback-admin-grid .wide {
+  grid-column: 1 / -1;
+}
+.feedback-detail-description {
+  white-space: pre-wrap;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .85rem;
+  background: var(--surface-2);
+}
+.feedback-table td:nth-child(5) {
+  min-width: 220px;
+}
+@media (max-width: 640px) {
+  .feedback-button {
+    left: .65rem;
+    bottom: .65rem;
+    padding: .52rem .75rem;
+    font-size: .9rem;
+  }
+  .feedback-overlay {
+    align-items: end;
+    padding: .55rem;
+  }
+  .feedback-dialog {
+    max-height: 86vh;
+  }
+  .feedback-admin-grid {
+    grid-template-columns: 1fr;
+  }
+}

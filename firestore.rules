@@ -114,6 +114,38 @@ service cloud.firestore {
       allow read, create, update, delete: if isAdmin();
     }
 
+    match /feedbackReports/{reportId} {
+      allow read: if isAdmin()
+        || (
+          signedIn()
+          && resource.data.userId == request.auth.uid
+        );
+
+      allow create: if signedIn()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.status == "open"
+        && request.resource.data.priority == "normal"
+        && request.resource.data.adminNotes == ""
+        && request.resource.data.keys().hasOnly([
+          "reportId",
+          "type",
+          "title",
+          "description",
+          "pageUrl",
+          "userId",
+          "userName",
+          "userEmail",
+          "status",
+          "priority",
+          "adminNotes",
+          "createdAt",
+          "updatedAt"
+        ]);
+
+      allow update: if isAdmin();
+      allow delete: if false;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }
