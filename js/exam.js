@@ -1,46 +1,84 @@
 (function () {
   const ATTEMPTS_KEY = "safetyCourse:examAttempts";
+  const ALL_TOPICS = "כל הנושאים";
+  const LESSON_ONLY = "__lesson__";
   let activeQuestions = [];
   let activeAnswers = {};
+  let activeLessonFilter = "";
 
   const shuffle = (items) => items.map((value) => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map((item) => item.value);
   const getAttempts = () => JSON.parse(localStorage.getItem(ATTEMPTS_KEY) || "[]");
   const saveAttempts = (attempts) => localStorage.setItem(ATTEMPTS_KEY, JSON.stringify(attempts));
+  const questions = () => window.EXAM_QUESTIONS || [];
 
-  function topics() {
-    return ["כל הנושאים", ...Array.from(new Set((window.EXAM_QUESTIONS || []).map((q) => q.topic))).sort()];
+  function uniqueTopics() {
+    return [ALL_TOPICS, ...Array.from(new Set(questions().map((q) => q.topic))).sort()];
+  }
+
+  function appendOption(select, value, label) {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = label;
+    select.append(option);
   }
 
   function initTopicSelect() {
     const select = document.getElementById("examTopic");
     if (!select) return;
-    select.innerHTML = topics().map((topic) => '<option value="' + topic + '">' + topic + '</option>').join("");
+    select.replaceChildren();
     const params = new URLSearchParams(location.search);
-    const lesson = params.get("lesson");
-    if (lesson) {
-      const match = (window.EXAM_QUESTIONS || []).find((q) => q.relatedLessonId === lesson);
-      if (match) select.value = match.topic;
+    activeLessonFilter = params.get("lesson") || "";
+    if (activeLessonFilter && questions().some((q) => q.relatedLessonId === activeLessonFilter)) {
+      appendOption(select, LESSON_ONLY, "שאלות מבחן – שיעור זה");
     }
+    uniqueTopics().forEach((topic) => appendOption(select, topic, topic));
+    if (activeLessonFilter) select.value = LESSON_ONLY;
   }
 
   function renderSummary() {
     const box = document.getElementById("examSummary");
     if (!box) return;
     const attempts = getAttempts();
+    box.replaceChildren();
     if (!attempts.length) {
       box.textContent = "עדיין לא בוצעו ניסיונות מבחן.";
       return;
     }
     const last = attempts[attempts.length - 1];
     const avg = Math.round(attempts.reduce((sum, a) => sum + a.score, 0) / attempts.length);
-    box.innerHTML = '<div class="metric"><strong>' + last.score + '%</strong><span>ציון אחרון</span></div><div class="metric"><strong>' + last.topic + '</strong><span>נושא אחרון</span></div><div class="metric"><strong>' + attempts.length + '</strong><span>מבחנים שבוצעו</span></div><div class="metric"><strong>' + avg + '%</strong><span>ממוצע</span></div>';
+    [
+      [last.score + "%", "ציון אחרון"],
+      [last.topic, "נושא אחרון"],
+      [attempts.length, "מבחנים שבוצעו"],
+      [avg + "%", "ממוצע"],
+    ].forEach(([value, label]) => {
+      const metric = document.createElement("div");
+      metric.className = "metric";
+      const strong = document.createElement("strong");
+      strong.textContent = value;
+      const span = document.createElement("span");
+      span.textContent = label;
+      metric.append(strong, span);
+      box.append(metric);
+    });
+  }
+
+  function selectedPool(topic) {
+    let pool = questions();
+    if (topic === LESSON_ONLY && activeLessonFilter) return pool.filter((q) => q.relatedLessonId === activeLessonFilter);
+    if (topic && topic !== ALL_TOPICS) pool = pool.filter((q) => q.topic === topic);
+    return pool;
+  }
+
+  function currentTopicLabel() {
+    const select = document.getElementById("examTopic");
+    return select?.selectedOptions?.[0]?.textContent || ALL_TOPICS;
   }
 
   function startExam() {
     const topic = document.getElementById("examTopic").value;
     const count = document.getElementById("examCount").value;
-    let pool = window.EXAM_QUESTIONS || [];
-    if (topic && topic !== "כל הנושאים") pool = pool.filter((q) => q.topic === topic);
+    const pool = selectedPool(topic);
     activeQuestions = shuffle(pool).slice(0, count === "all" ? pool.length : Number(count)).map((q) => ({ ...q, shuffledOptions: shuffle(q.options) }));
     activeAnswers = {};
     renderExam();
@@ -107,7 +145,7 @@
     const attempt = {
       attemptId: "attempt-" + Date.now(),
       userId: window.CourseAuth?.profile?.uid || "",
-      topic: document.getElementById("examTopic").value,
+      topic: currentTopicLabel(),
       score,
       correctCount: correct,
       wrongCount: total - correct,
@@ -126,7 +164,7 @@
     const title = document.createElement("h2");
     title.textContent = "ציון: " + attempt.score + "%";
     const meta = document.createElement("p");
-    meta.textContent = "נכונות: " + attempt.correctCount + " | שגויות: " + attempt.wrongCount + " | סה״כ: " + attempt.totalQuestions;
+    meta.textContent = "נכונות: " + attempt.correctCount + " | שגויות: " + attempt.wrongCount + " | סהכ: " + attempt.totalQuestions;
     box.append(title, meta);
     if (wrong.length) {
       const h = document.createElement("h3");
