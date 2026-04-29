@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://*.firebaseapp.com https://accounts.google.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com;">
   <meta name="referrer" content="no-referrer-when-downgrade">
   <title>שאלות למבחן | קורס ממונה בטיחות</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body data-page-title="שאלות למבחן" class="auth-protected">
   <a class="skip-link" href="#main">דלג לתוכן</a>
-  <header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>למידה פרטית מתוך חומר הקורס</small></span></a><nav class="main-nav" aria-label="ניווט ראשי"><a href="../index.html">בית</a><a href="syllabus.html">תוכנית לימוד</a><a href="glossary.html">מילון</a><a href="laws.html">חוקים ותקנות</a><a href="quizzes.html">תרגול</a><a href="exam-questions.html">שאלות למבחן</a><a href="ai-assistant.html">עוזר AI</a></nav><div class="header-actions"><button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button><button class="icon-btn" type="button" data-action="print" title="הדפסה">⎙</button></div></div><div class="law-notice">יש לאמת מול נוסח החוק/התקנה העדכני והמרצה</div></header>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>למידה פרטית מתוך חומר הקורס</small></span></a><nav class="main-nav" aria-label="ניווט ראשי"><a href="../index.html">בית</a><a href="syllabus.html">תוכנית לימוד</a><a href="glossary.html">מילון</a><a href="laws.html">חוקים ותקנות</a><a href="quizzes.html">תרגול</a><a href="exam-questions.html">שאלות למבחן</a><a href="safety-management.html">ניהול בטיחות</a><a href="standards.html">תקנים</a><a href="checklists.html">Checklists</a><a href="templates.html">פורמטים</a><a href="ai-assistant.html">עוזר AI</a></nav><div class="header-actions"><button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button><button class="icon-btn" type="button" data-action="print" title="הדפסה">⎙</button></div></div><div class="law-notice">יש לאמת מול נוסח החוק/התקנה העדכני והמרצה</div></header>
   <main id="main" class="site-main">
     <section class="page-hero"><div><p class="kicker">תרגול מבחן</p><h1>שאלות למבחן</h1><p>מאגר שאלות רחב עם ציון, ניסיון חוזר והסברים לתשובות שגויות.</p></div></section>
     <section class="exam-dashboard">
       <div class="toolbar-panel">
         <label><span>נושא</span><select id="examTopic"></select></label>
-        <label><span>מספר שאלות</span><select id="examCount"><option value="10">10</option><option value="20">20</option><option value="30">30</option><option value="all">כל השאלות</option></select></label>
+        <label><span>מספר שאלות</span><select id="examCount"><option value="10">10</option><option value="20">20</option><option value="30">30</option><option value="60">סימולציה מבחן אמיתי - 60</option><option value="all">כל השאלות</option></select></label>
         <button class="btn" id="startExam" type="button">התחל מבחן</button>
       </div>
       <div id="examSummary" class="exam-summary"></div>

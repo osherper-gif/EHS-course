@@ -1,3 +1,4 @@
+import "../js/email-notifications.js";
 import {
   ADMIN_EMAIL,
   auth,
@@ -206,6 +207,9 @@ async function ensureUserProfile(user) {
       createdAt: serverTimestamp(),
     };
     await setDoc(ref, profile);
+    if (!admin && profile.status === PENDING) {
+      window.CourseEmailNotifications?.notifyPendingUser?.({ ...profile, uid: user.uid }).catch(() => null);
+    }
     return { ...profile, createdAt: new Date(), lastLoginAt: new Date() };
   }
 

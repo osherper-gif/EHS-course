@@ -105,6 +105,7 @@ async function loadUsers() {
   snapshot.docs.forEach((item) => tbody.append(renderUserRow(item.data())));
   status.textContent = "נטענו " + snapshot.size + " משתמשים.";
   await loadExamScores(snapshot.docs.map((item) => item.data()));
+  await handleActionLink();
 }
 
 async function loadExamScores(users) {
@@ -140,6 +141,20 @@ async function updateStatus(uid, status) {
     updatedAt: serverTimestamp(),
   });
   await loadUsers();
+}
+
+async function handleActionLink() {
+  const params = new URLSearchParams(location.search);
+  const uid = params.get("uid");
+  const action = params.get("action");
+  if (!uid || action !== "approve") return;
+  await updateDoc(doc(db, "users", clean(uid, 180)), {
+    status: "approved",
+    updatedAt: serverTimestamp(),
+  });
+  history.replaceState({}, "", location.pathname);
+  const status = document.getElementById("adminStatus");
+  if (status) status.textContent = "המשתמש אושר בהצלחה מקישור המייל.";
 }
 
 document.addEventListener("course-auth-approved", async (event) => {

@@ -263,3 +263,58 @@ body.login-auth-check .login-layout {
   .exam-summary { grid-template-columns: 1fr 1fr; }
   .exam-answer { min-height: 52px; }
 }
+
+
+.professional-grid, .checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.professional-card, .checklist-card, .related-panel, .professional-extension {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+.professional-card h2, .checklist-card h2 { margin-top: 0; }
+.related-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.checklist-card {
+  display: grid;
+  gap: .55rem;
+}
+.checklist-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: .75rem;
+  align-items: start;
+}
+.checklist-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .6rem;
+  align-items: center;
+  padding: .55rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+.checklist-row input { width: auto; }
+.checklist-notes {
+  display: grid;
+  gap: .35rem;
+  margin-top: .4rem;
+}
+.checklist-notes textarea {
+  width: 100%;
+  resize: vertical;
+}
+@media (max-width: 640px) {
+  .checklist-card-head { display: grid; }
+  .main-nav { gap: .35rem; }
+}

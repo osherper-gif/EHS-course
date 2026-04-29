@@ -89,3 +89,21 @@ Authentication > Settings > Authorized domains:
 - `firebaseConfig` אינו סוד, אבל הוא חייב להיות config אמיתי לפני deploy.
 - האתר סטטי; כל עמוד מוגן ב-auth guard בצד לקוח.
 - Firestore Rules מגנות על מסמכי משתמשים ועל progress/notes.
+
+
+## התראות מייל לאדמין
+
+האתר כולל מנגנון EmailJS אופציונלי לשליחת התראה כאשר משתמש חדש נרשם וממתין לאישור.
+
+1. פתח חשבון ב-EmailJS.
+2. צור Email Service שמורשה לשלוח אל osherper@gmail.com.
+3. צור Email Template עם הפרמטרים: user_email, user_name, admin_link, approve_link.
+4. עדכן את js/email-config.js:
+   - enabled: true
+   - serviceId
+   - templateId
+   - publicKey
+5. ודא שה-CSP כולל connect-src אל https://api.emailjs.com.
+6. בצע firebase deploy.
+
+אם הקובץ נשאר עם PASTE_EMAILJS..., האתר יעבוד רגיל אך לא יישלח מייל בפועל.
