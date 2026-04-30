@@ -1,5 +1,26 @@
 window.SITE_VERSIONS = [
   {
+    versionId: "beta-content-quality-1",
+    versionNumber: "Beta Content Quality 1",
+    date: "2026-04-30",
+    time: "לא צוין",
+    releaseDate: "2026-04-30",
+    releaseTime: "לא צוין",
+    commitHash: "",
+    commitMessage: "fix: improve Hebrew content and exam question quality",
+    createdBy: "Osher Perets",
+    addedRequirements: "שיפור איכות התוכן והשאלות לאחר משוב בטא: עברית תקינה יותר, פחות חזרתיות, ושאלות מקצועיות לפי שיעור.",
+    siteChanges: "עודכן מאגר שאלות המבחן, עודכן מאגר השאלות הקצרות בקורס, ועודכנו רשימות שאלות בעמודי השיעור.",
+    fixedBugs: "הוסרו שאלות גנריות וחוזרות, עודכן מונה שאלות, ונוספה בדיקת איכות אוטומטית לשאלות.",
+    uiUxChanges: "ללא שינוי UI משמעותי; נשמרו המבנה, הניווט, Firebase/Auth/Admin/Feedback/Version Management.",
+    securityChanges: "ללא שינוי אבטחה.",
+    contentChanges: "שיפור עברית, הסרת כפילויות, שיפור שאלות מבחן, התאמת שאלות לחומר הקורס ולניסוח זהיר מול דרישות חוק ותקנות.",
+    firebaseChanges: "ללא שינוי Firestore rules או Authentication.",
+    releaseNotes: "גרסת איכות תוכן בטא ראשונה. המאגר כולל לפחות 20 שאלות מקצועיות לכל שיעור, עם הסבר קצר, מסיחים ברורים ושיוך לשיעור.",
+    status: "published",
+    emailStatus: "notSent"
+  },
+  {
     versionId: "commit-c258319",
     versionNumber: "c258319",
     date: "2026-04-29",
