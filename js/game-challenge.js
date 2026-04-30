@@ -53,12 +53,14 @@
     setText("challengeCounter", `${session.index + 1}/${challenges.length}`);
     setText("challengeTitle", currentChallenge.title);
     setText("challengePrompt", currentChallenge.prompt);
+    setText("challengeQuestion", currentChallenge.prompt);
+    renderTags();
     const progress = document.getElementById("challengeProgress");
     if (progress) progress.value = Math.round((session.index / challenges.length) * 100);
     const feedback = document.getElementById("challengeFeedback");
     if (feedback) {
       feedback.textContent = "";
-      feedback.className = "challenge-feedback";
+      feedback.className = "challenge-feedback gv2-feedback";
       feedback.hidden = true;
     }
     const next = document.getElementById("nextChallenge");
@@ -73,10 +75,30 @@
     if (node) node.textContent = value;
   }
 
+  function renderTags() {
+    const tags = document.getElementById("challengeTags");
+    if (!tags || !currentChallenge) return;
+    const labelByType = {
+      "multiple-choice": "מושג",
+      "true-false": "חוק/תקנה",
+      matching: "מושגים",
+      order: "תהליך",
+      "risk-identification": "תרחיש שטח"
+    };
+    tags.replaceChildren();
+    [labelByType[currentChallenge.type] || "אתגר", currentChallenge.difficulty || "רגיל"].forEach((label) => {
+      const tag = document.createElement("span");
+      tag.textContent = label;
+      tags.append(tag);
+    });
+  }
+
   function renderAnswerArea() {
     const container = document.getElementById("answerArea");
     if (!container || !currentChallenge) return;
     container.replaceChildren();
+    const legacy = document.getElementById("challengeOptions");
+    if (legacy) legacy.textContent = "";
     if (currentChallenge.type === "matching") return renderMatching(container);
     if (currentChallenge.type === "order") return renderOrdering(container);
     return renderChoiceButtons(container);
@@ -84,11 +106,11 @@
 
   function renderChoiceButtons(container) {
     const list = document.createElement("div");
-    list.className = "answer-list";
+    list.className = "answer-list gv2-answer-list";
     shuffle(currentChallenge.options).forEach((option) => {
       const button = document.createElement("button");
       button.type = "button";
-      button.className = "answer-option";
+      button.className = "answer-option gv2-answer-card";
       button.textContent = option;
       button.addEventListener("click", () => {
         if (checked) return;
@@ -99,12 +121,14 @@
       });
       list.append(button);
     });
+    const legacy = document.getElementById("challengeOptions");
+    if (legacy) legacy.textContent = currentChallenge.options.join(" | ");
     container.append(list);
   }
 
   function renderMatching(container) {
     const board = document.createElement("div");
-    board.className = "match-board";
+    board.className = "match-board gv2-match-board";
     selectedAnswer = {};
     currentChallenge.options.forEach((row) => {
       const label = document.createElement("label");
@@ -134,7 +158,7 @@
 
   function renderOrdering(container) {
     const board = document.createElement("div");
-    board.className = "order-board";
+    board.className = "order-board gv2-order-board";
     const pool = document.createElement("div");
     pool.className = "order-pool";
     const chosen = document.createElement("ol");
@@ -143,7 +167,7 @@
     shuffle(currentChallenge.options).forEach((step) => {
       const button = document.createElement("button");
       button.type = "button";
-      button.className = "answer-option";
+      button.className = "answer-option gv2-answer-card";
       button.textContent = step;
       button.addEventListener("click", () => {
         if (checked || selectedAnswer.includes(step)) return;
@@ -211,18 +235,18 @@
     if (!correct) state().addMistake(progress, currentChallenge, selectedAnswer);
     state().save(progress);
     state().saveActiveStage(session);
-    markAnswers(correct);
+    markAnswers();
     showFeedback(correct, xp);
   }
 
-  function markAnswers(correct) {
+  function markAnswers() {
     document.querySelectorAll(".answer-option").forEach((button) => {
       button.disabled = true;
       if (button.textContent === currentChallenge.correctAnswer) button.classList.add("correct");
       else if (button.classList.contains("selected")) button.classList.add("wrong");
     });
     if (currentChallenge.type === "matching" || currentChallenge.type === "order") {
-      document.getElementById("answerArea")?.classList.add(correct ? "is-correct" : "is-wrong");
+      document.getElementById("answerArea")?.classList.add(isCorrect() ? "is-correct" : "is-wrong");
     }
   }
 
@@ -230,7 +254,7 @@
     const feedback = document.getElementById("challengeFeedback");
     if (feedback) {
       feedback.hidden = false;
-      feedback.className = `challenge-feedback ${correct ? "is-correct" : "is-wrong"}`;
+      feedback.className = `challenge-feedback gv2-feedback ${correct ? "is-correct" : "is-wrong"}`;
       feedback.textContent = correct
         ? `נכון. צברת ${xp} XP. ${currentChallenge.explanation}`
         : `לא מדויק. התשובה הנכונה: ${text(currentChallenge.correctAnswer)}. ${currentChallenge.explanation}`;

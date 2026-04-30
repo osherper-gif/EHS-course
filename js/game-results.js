@@ -27,7 +27,7 @@
       return;
     }
     const stage = state().getStage(result.stageId);
-    setText("resultStageTitle", `סיום שלב ${stage.order}: ${stage.title}`);
+    setText("resultStageTitle", `שלב ${stage.order}: ${stage.title}`);
     setText("resultScore", `${result.score}%`);
     setText("resultXp", `${result.xp} XP`);
     setText("resultCorrect", `${result.correct}/${result.total}`);

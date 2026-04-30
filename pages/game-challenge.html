@@ -17,28 +17,37 @@
       <div class="header-actions"><button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button></div>
     </div>
   </header>
-  <main id="main" class="site-main game-challenge-main">
-    <nav class="breadcrumb" aria-label="היכן אני"><a href="../index.html">בית</a><span aria-hidden="true">›</span><a href="safety-game.html">אתגר בטיחות</a><span aria-hidden="true">›</span><span id="challengeStageTitle">יסודות בטיחות</span></nav>
-
-    <section class="challenge-card">
-      <div class="challenge-head">
-        <div>
-          <p class="kicker" id="challengeCounter">1/5</p>
-          <h1 id="challengeTitle">טוען אתגר...</h1>
-        </div>
-        <a class="btn secondary" href="game-unit.html?unit=unit-foundations">חזור למסלול</a>
-      </div>
-      <progress id="challengeProgress" class="game-progress-bar" max="100" value="0"></progress>
-      <p id="challengePrompt" class="challenge-question"></p>
-      <div id="answerArea" class="answer-area"></div>
-      <p id="challengeHint" class="challenge-hint" hidden></p>
-      <div id="challengeFeedback" class="challenge-feedback" hidden></div>
-      <div class="form-actions challenge-actions">
-        <button class="btn secondary" type="button" id="showHint">רמז</button>
-        <button class="btn" type="button" id="checkAnswer" disabled>בדוק תשובה</button>
-        <button class="btn" type="button" id="nextChallenge" hidden>המשך</button>
+  <main id="main" class="site-main gv2-shell gv2-challenge-shell">
+    <section class="gv2-challenge-topbar" aria-label="מצב שאלה">
+      <a class="btn secondary" href="game-unit.html?unit=unit-foundations">חזור למסלול</a>
+      <div>
+        <p id="challengeStageTitle" class="kicker">יסודות בטיחות</p>
+        <strong id="challengeCounter">1/5</strong>
       </div>
     </section>
+
+    <progress id="challengeProgress" class="gv2-progress-bar game-progress-bar" max="100" value="0"></progress>
+
+    <section class="challenge-card gv2-challenge-card">
+      <div class="challenge-head gv2-challenge-head">
+        <div>
+          <div id="challengeTags" class="gv2-tags" aria-label="סוג אתגר"></div>
+          <h1 id="challengeTitle">טוען אתגר...</h1>
+        </div>
+      </div>
+      <p id="challengePrompt" class="challenge-question gv2-question"></p>
+      <p id="challengeQuestion" class="visually-hidden"></p>
+      <div id="answerArea" class="answer-area gv2-answer-grid"></div>
+      <div id="challengeOptions" class="visually-hidden"></div>
+      <p id="challengeHint" class="challenge-hint gv2-hint" hidden></p>
+      <div id="challengeFeedback" class="challenge-feedback gv2-feedback" hidden></div>
+    </section>
+
+    <div class="form-actions challenge-actions gv2-sticky-actions">
+      <button class="btn secondary" type="button" id="showHint">רמז</button>
+      <button class="btn" type="button" id="checkAnswer" disabled>בדוק תשובה</button>
+      <button class="btn" type="button" id="nextChallenge" hidden>המשך</button>
+    </div>
   </main>
   <footer class="site-footer">האתר נוצר על ידי אושר פרץ<br>טלפון: 054-4232490<br>Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></footer>
   <script src="../data/course-data.js"></script>

@@ -10,7 +10,7 @@
   }
 
   function stars(count) {
-    const wrapper = el("span", "star-rating");
+    const wrapper = el("span", "star-rating gv2-stars-inline");
     for (let index = 1; index <= 3; index += 1) {
       const star = el("span", index <= count ? "star is-filled" : "star", "★");
       wrapper.append(star);
@@ -23,8 +23,7 @@
     const stages = state().stages();
     const completed = Object.keys(progress.completedStages || {}).length;
     const totalStages = stages.length || 1;
-    const xpNodes = document.querySelectorAll("[data-game-xp]");
-    xpNodes.forEach((node) => {
+    document.querySelectorAll("[data-game-xp]").forEach((node) => {
       node.textContent = String(progress.totalXp || 0);
     });
     document.querySelectorAll("[data-game-completed]").forEach((node) => {
@@ -50,21 +49,52 @@
     container.replaceChildren();
     state().stages().forEach((stage) => {
       const status = state().stageStatus(stage.id, progress);
-      const card = el("article", `game-node ${status}`);
-      const badge = el("div", "game-node-badge", String(stage.order));
-      const body = el("div", "game-node-body");
+      const starsCount = Number(progress.stageStars?.[stage.id] || 0);
+      const visualState = status === "completed" && starsCount === 3
+        ? "perfect"
+        : status === "completed" && starsCount < 3
+          ? "needs-review"
+          : status;
+
+      container.append(el("div", "gv2-cluster-divider", stage.title));
+
+      const card = el("article", `game-node gv2-node gv2-node--${visualState}`);
+      card.dataset.state = visualState;
+      card.dataset.stageId = stage.id;
+
+      const nodeButton = document.createElement("button");
+      nodeButton.type = "button";
+      nodeButton.className = "game-node-badge gv2-node-button";
+      nodeButton.textContent = status === "locked" ? "🔒" : String(stage.order);
+      nodeButton.disabled = status === "locked";
+      nodeButton.setAttribute("aria-label", `${stage.title} - ${statusText(status)}`);
+
+      const body = el("div", "game-node-body gv2-node-body");
       body.append(el("h2", "", stage.title));
       body.append(el("p", "", stage.summary));
-      const meta = el("div", "game-node-meta");
-      meta.append(stars(Number(progress.stageStars?.[stage.id] || 0)));
-      meta.append(el("span", "status-pill", statusText(status)));
+      const meta = el("div", "game-node-meta gv2-node-meta");
+      meta.append(stars(starsCount));
+      meta.append(el("span", "status-pill", statusText(visualState)));
       body.append(meta);
+
+      const popover = el("div", "gv2-stage-popover");
+      popover.hidden = true;
+      popover.append(el("h3", "", stage.title));
+      popover.append(el("p", "", stage.summary));
       const action = document.createElement("a");
-      action.className = status === "locked" ? "btn secondary disabled-link" : "btn";
-      action.href = status === "locked" ? "#" : `game-challenge.html?stage=${encodeURIComponent(stage.id)}`;
+      action.className = "btn";
+      action.href = `game-challenge.html?stage=${encodeURIComponent(stage.id)}`;
       action.textContent = status === "completed" ? "תרגל שוב" : "התחל שלב";
-      if (status === "locked") action.setAttribute("aria-disabled", "true");
-      card.append(badge, body, action);
+      popover.append(action);
+
+      nodeButton.addEventListener("click", () => {
+        container.querySelectorAll(".gv2-stage-popover").forEach((item) => {
+          if (item !== popover) item.hidden = true;
+        });
+        popover.hidden = !popover.hidden;
+      });
+
+      card.append(nodeButton, body, popover);
       container.append(card);
     });
   }
@@ -74,7 +104,9 @@
       completed: "הושלם",
       locked: "נעול",
       current: "נוכחי",
-      open: "פתוח"
+      open: "פתוח",
+      perfect: "מושלם",
+      "needs-review": "לחזרה"
     };
     return map[status] || status;
   }

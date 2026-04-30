@@ -21,7 +21,7 @@
     container.replaceChildren();
     if (!mistakes.length) {
       const empty = document.createElement("article");
-      empty.className = "challenge-card";
+      empty.className = "challenge-card gv2-empty-state";
       empty.textContent = "אין כרגע טעויות לחזרה. אפשר להמשיך לשלב הבא או לפתוח את מסלול היחידה.";
       container.append(empty);
       return;
@@ -29,7 +29,10 @@
     mistakes.forEach((mistake) => {
       const challenge = state().challenges().find((item) => item.id === mistake.challengeId);
       const card = document.createElement("article");
-      card.className = "challenge-card mistake-review-card";
+      card.className = "challenge-card mistake-review-card gv2-mistake-card";
+      const tag = document.createElement("span");
+      tag.className = "status-pill";
+      tag.textContent = "יסודות בטיחות";
       const title = document.createElement("h2");
       title.textContent = mistake.title;
       const prompt = document.createElement("p");
@@ -44,7 +47,7 @@
       const retry = document.createElement("a");
       retry.className = "btn";
       retry.href = `game-challenge.html?stage=${encodeURIComponent(mistake.stageId)}`;
-      retry.textContent = "תרגל את השלב שוב";
+      retry.textContent = "תרגל שוב";
       const lesson = document.createElement("a");
       lesson.className = "btn secondary";
       lesson.href = `${mistake.relatedLessonId}.html`;
@@ -58,7 +61,7 @@
         renderMistakes();
       });
       actions.append(retry, lesson, clear);
-      card.append(title, prompt, meta, explanation, actions);
+      card.append(tag, title, prompt, meta, explanation, actions);
       if (!challenge) card.dataset.missingChallenge = "true";
       container.append(card);
     });

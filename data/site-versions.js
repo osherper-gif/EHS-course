@@ -1,5 +1,26 @@
 window.SITE_VERSIONS = [
   {
+    versionId: "safety-game-ui-v2",
+    versionNumber: "Safety Game UI v2",
+    date: "2026-04-30",
+    time: "לא צוין",
+    releaseDate: "2026-04-30",
+    releaseTime: "לא צוין",
+    commitHash: "",
+    commitMessage: "feat: redesign safety game UI",
+    createdBy: "Osher Perets",
+    addedRequirements: "שדרוג UI של מודול אתגר בטיחות למסלול למידה משחקי בסגנון Duolingo/Coddy, ללא שינוי לוגיקת המשחק.",
+    siteChanges: "עודכנו מסכי game-unit, game-challenge, game-results ו-game-mistakes למבנה UI v2 עם מעטפת gv2 ייעודית.",
+    fixedBugs: "לא בוצע שינוי לוגי; השדרוג התמקד בחוויית משתמש, קריאות ומובייל.",
+    uiUxChanges: "נוספו מסלול שלבים אנכי/מתפתל, nodes עגולים, קווי התקדמות, cluster dividers, popover לפתיחת שלב, כרטיס שאלה נקי, פעולות sticky ותוצאות משחקיות יותר.",
+    securityChanges: "ללא שינוי אבטחה. כל עמודי המשחק נשארו auth-protected ומשתמשים ב-auth guard הקיים.",
+    contentChanges: "ללא שינוי בנתוני האתגרים או במאגר game-data.",
+    firebaseChanges: "ללא שינוי Firestore rules, localStorage או מבנה התקדמות.",
+    releaseNotes: "UI v2 לאתגר בטיחות: חוויה משחקית יותר, מותאמת מובייל, עם שמירה מלאה על scoring, unlock, progress ו-Firebase/Auth הקיימים.",
+    status: "published",
+    emailStatus: "notSent"
+  },
+  {
     versionId: "safety-game-mvp-1",
     versionNumber: "Safety Game MVP 1",
     date: "2026-04-30",
