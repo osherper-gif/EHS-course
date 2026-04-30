@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <title>יחידת יסודות בטיחות | אתגר בטיחות</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page-title="יחידת יסודות בטיחות" data-game-page="unit" class="auth-protected">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>אתגר בטיחות</small></span></a>
+      <nav class="main-nav" aria-label="ניווט ראשי"><a href="../index.html">בית</a><a href="syllabus.html">שיעורים</a><a href="quizzes.html">תרגול ומבחנים</a><a href="safety-game.html">אתגר בטיחות</a><a href="field-tools.html">חוקים, תקנים וכלי שטח</a><a href="ai-assistant.html">עוזר AI</a></nav>
+      <div class="header-actions"><button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button><button class="icon-btn" type="button" data-action="print" title="הדפסה">⎙</button></div>
+    </div>
+    <div class="law-notice">יש לאמת מול נוסח החוק או התקנה העדכני והמרצה</div>
+  </header>
+  <main id="main" class="site-main">
+    <nav class="breadcrumb" aria-label="היכן אני"><a href="../index.html">בית</a><span aria-hidden="true">›</span><a href="safety-game.html">אתגר בטיחות</a><span aria-hidden="true">›</span><span>יסודות בטיחות</span></nav>
+
+    <section class="page-hero game-unit-hero">
+      <div>
+        <p class="kicker">יחידה 1</p>
+        <h1>יסודות בטיחות</h1>
+        <p>חמישה שלבים קצרים לביסוס שפת הבטיחות: מפגע, סיכון, בקרה, חוק, תקנה ותפקיד ממונה בטיחות.</p>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="metric metric-modern"><strong data-game-xp>0</strong><span>XP שנצברו</span></article>
+      <article class="metric metric-modern"><strong data-game-completed>0/5</strong><span>שלבים שהושלמו</span></article>
+      <article class="metric metric-modern"><strong data-game-mistakes>0</strong><span>טעויות לחזרה</span></article>
+      <article class="metric metric-modern"><strong data-game-current-stage>שלב 1</strong><span>שלב נוכחי</span></article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-title">
+        <h2>מסלול היחידה</h2>
+        <p>שלב נעול נפתח לאחר סיום השלב הקודם. אפשר לחזור על שלבים שהושלמו כדי לשפר כוכבים.</p>
+      </div>
+      <div id="gameUnitPath" class="game-map"></div>
+    </section>
+  </main>
+  <footer class="site-footer">האתר נוצר על ידי אושר פרץ<br>טלפון: 054-4232490<br>Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></footer>
+  <script src="../data/course-data.js"></script>
+  <script src="../data/game-data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/game-state.js"></script>
+  <script src="../js/game-ui.js"></script>
+  <script type="module" src="../js/auth.js"></script>
+</body>
+</html>

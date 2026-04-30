@@ -399,6 +399,32 @@ async function saveExamAttempt(attempt) {
   }
 }
 
+async function saveGameProgress(progress) {
+  if (!db || !auth?.currentUser || !currentProfile || currentProfile.status !== APPROVED) return false;
+  try {
+    await setDoc(doc(db, "gameProgress", auth.currentUser.uid), {
+      userId: auth.currentUser.uid,
+      totalXp: Number(progress?.totalXp || 0),
+      completedStages: progress?.completedStages || {},
+      currentUnit: sanitizeText(progress?.currentUnit || "unit-foundations", 120),
+      currentStage: sanitizeText(progress?.currentStage || "stage-01", 120),
+      mistakes: Array.isArray(progress?.mistakes) ? progress.mistakes.slice(0, 50).map((mistake) => ({
+        challengeId: sanitizeText(mistake.challengeId, 140),
+        stageId: sanitizeText(mistake.stageId, 140),
+        unitId: sanitizeText(mistake.unitId, 140),
+        title: sanitizeText(mistake.title, 240),
+        prompt: sanitizeText(mistake.prompt, 1000),
+        relatedLessonId: sanitizeText(mistake.relatedLessonId, 120),
+        createdAt: sanitizeText(mistake.createdAt, 80),
+      })) : [],
+      updatedAt: serverTimestamp(),
+    }, { merge: true });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function hydrateProgressFromFirestore(uid) {
   if (!db || !window.CourseStorage) return;
   try {
@@ -504,7 +530,7 @@ function initPrefetch() {
     isRootPage ? "index.html" : "../index.html",
     isRootPage ? "admin.html" : "../admin.html",
     ...(window.COURSE_DATA?.meetings || []).map((lesson) => (isRootPage ? "pages/" : "") + lesson.id + ".html"),
-    ...(isRootPage ? ["pages/syllabus.html", "pages/glossary.html", "pages/laws.html", "pages/quizzes.html", "pages/exam-questions.html", "pages/ai-assistant.html"] : ["syllabus.html", "glossary.html", "laws.html", "quizzes.html", "exam-questions.html", "ai-assistant.html"]),
+    ...(isRootPage ? ["pages/syllabus.html", "pages/glossary.html", "pages/laws.html", "pages/quizzes.html", "pages/exam-questions.html", "pages/safety-game.html", "pages/game-unit.html", "pages/ai-assistant.html"] : ["syllabus.html", "glossary.html", "laws.html", "quizzes.html", "exam-questions.html", "safety-game.html", "game-unit.html", "ai-assistant.html"]),
   ];
   important.slice(0, 18).forEach(prefetchUrl);
   const warm = (event) => {
@@ -597,6 +623,7 @@ window.CourseAuth = {
   logout,
   syncProgress,
   saveExamAttempt,
+  saveGameProgress,
   hebrewAuthError,
   isAdminEmail,
   isAdminProfile,

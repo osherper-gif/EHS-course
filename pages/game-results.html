@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <title>סיום שלב | אתגר בטיחות</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page-title="תוצאות אתגר" data-game-page="results" class="auth-protected">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>תוצאות אתגר</small></span></a>
+      <nav class="main-nav" aria-label="ניווט ראשי"><a href="../index.html">בית</a><a href="syllabus.html">שיעורים</a><a href="quizzes.html">תרגול ומבחנים</a><a href="safety-game.html">אתגר בטיחות</a><a href="field-tools.html">חוקים, תקנים וכלי שטח</a><a href="ai-assistant.html">עוזר AI</a></nav>
+      <div class="header-actions"><button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button></div>
+    </div>
+  </header>
+  <main id="main" class="site-main">
+    <section class="page-hero game-results-hero">
+      <div>
+        <p class="kicker">סיכום שלב</p>
+        <h1 id="resultStageTitle">סיום שלב</h1>
+        <p>השלב נשמר. אפשר להמשיך לשלב הבא או לחזור על טעויות כדי לחזק את הידע.</p>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="metric metric-modern"><strong id="resultScore">0%</strong><span>ציון</span></article>
+      <article class="metric metric-modern"><strong id="resultXp">0 XP</strong><span>XP בשלב</span></article>
+      <article class="metric metric-modern"><strong id="resultCorrect">0/5</strong><span>תשובות נכונות</span></article>
+      <article class="metric metric-modern"><strong id="resultWrong">0</strong><span>טעויות</span></article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-title">
+        <h2>כוכבים</h2>
+        <p>3 כוכבים ללא טעויות, 2 כוכבים עד טעות אחת, כוכב אחד לשתי טעויות או יותר.</p>
+      </div>
+      <div id="resultStars" class="star-rating star-rating-large"></div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-title">
+        <h2>טעויות בשלב</h2>
+        <p>טעויות נשמרות לחזרה ממוקדת.</p>
+      </div>
+      <ul id="resultMistakes" class="mistakes-list"></ul>
+      <div class="form-actions">
+        <a id="continueNextStage" class="btn" href="game-challenge.html">המשך לשלב הבא</a>
+        <a class="btn secondary" href="game-mistakes.html">חזור על טעויות</a>
+        <a class="btn secondary" href="game-unit.html?unit=unit-foundations">חזור למסלול</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">האתר נוצר על ידי אושר פרץ<br>טלפון: 054-4232490<br>Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></footer>
+  <script src="../data/course-data.js"></script>
+  <script src="../data/game-data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/game-state.js"></script>
+  <script src="../js/game-results.js"></script>
+  <script type="module" src="../js/auth.js"></script>
+</body>
+</html>

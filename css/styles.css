@@ -1254,3 +1254,289 @@ html[data-theme="dark"] .status-pill[data-status="open"]      { color: var(--bra
   .answer-list button { font-size: 1rem; }
   .admin-mini-stats { grid-template-columns: 1fr 1fr; }
 }
+
+/* ---- Safety Game MVP ---- */
+.game-hero {
+  min-height: 260px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 360px);
+  gap: 1rem;
+  align-items: end;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(120deg, rgba(10, 79, 110, .96), rgba(31, 122, 77, .86)),
+    url("../assets/safety-pattern.svg");
+  color: #fff;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+}
+.game-hero h1 {
+  margin: .25rem 0 .5rem;
+  font-size: clamp(2.1rem, 5vw, 4rem);
+  letter-spacing: 0;
+}
+.game-hero p { max-width: 760px; margin-top: 0; }
+.game-hero .btn.secondary {
+  background: rgba(255,255,255,.16);
+  color: #fff;
+  border-color: rgba(255,255,255,.36);
+}
+.game-hero .btn.ghost {
+  background: #fff;
+  color: var(--brand-2);
+  border-color: #fff;
+}
+.game-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .6rem;
+}
+.game-xp {
+  display: grid;
+  place-items: center;
+  min-height: 96px;
+  padding: .8rem;
+  border: 1px solid rgba(255,255,255,.32);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,.12);
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+.game-xp strong {
+  font-size: 1.7rem;
+  line-height: 1.1;
+}
+.game-xp span { font-weight: 700; opacity: .92; }
+.game-progress {
+  display: grid;
+  gap: .6rem;
+}
+.game-progress-bar,
+.game-progress progress {
+  width: 100%;
+  height: 12px;
+}
+.game-map {
+  display: grid;
+  gap: .85rem;
+  position: relative;
+}
+.game-node {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  gap: .8rem;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: .9rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.game-node-badge {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--brand-soft);
+  color: var(--brand-2);
+  font-weight: 900;
+  font-size: 1.2rem;
+  border: 2px solid var(--brand);
+}
+.game-node-body h2,
+.game-node-body p { margin: 0; }
+.game-node-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  align-items: center;
+  margin-top: .55rem;
+}
+.game-node.completed {
+  border-color: color-mix(in srgb, var(--ok) 36%, var(--border));
+  background: color-mix(in srgb, var(--ok-soft) 45%, var(--surface));
+}
+.game-node.completed .game-node-badge {
+  background: var(--ok);
+  color: #fff;
+  border-color: var(--ok);
+}
+.game-node.current {
+  border-color: var(--warn);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--warn) 18%, transparent), var(--shadow);
+}
+.game-node.locked {
+  opacity: .68;
+  background: var(--surface-2);
+}
+.disabled-link {
+  pointer-events: none;
+  opacity: .7;
+}
+.star-rating {
+  display: inline-flex;
+  gap: .12rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1;
+}
+.star-rating .star.is-filled { color: var(--warn); }
+.star-rating-large { font-size: 2.5rem; }
+.challenge-card {
+  max-width: 860px;
+  margin: 1rem auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+.challenge-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+}
+.challenge-head h1 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  margin: .2rem 0 .5rem;
+}
+.challenge-question {
+  font-size: 1.18rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+.answer-area {
+  display: grid;
+  gap: .85rem;
+  margin: 1rem 0;
+}
+.answer-option.selected {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+  box-shadow: inset 0 0 0 1px var(--brand);
+}
+.match-board,
+.order-board {
+  display: grid;
+  gap: .85rem;
+}
+.match-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 220px) minmax(0, 1fr);
+  gap: .75rem;
+  align-items: center;
+  padding: .8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+.match-row span {
+  font-weight: 800;
+  color: var(--brand-2);
+}
+.order-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.order-pool .answer-option {
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  border-radius: 8px;
+  padding: .65rem .85rem;
+  cursor: pointer;
+  font: inherit;
+}
+.order-list {
+  min-height: 92px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+  padding: .75rem 2rem .75rem .75rem;
+  background: var(--surface-2);
+}
+.order-list li {
+  margin: .25rem 0;
+  font-weight: 700;
+}
+.challenge-hint {
+  border-inline-start: 4px solid var(--warn);
+  background: var(--warn-soft);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: .75rem .9rem;
+}
+.challenge-feedback {
+  border-radius: var(--radius-sm);
+  padding: .85rem 1rem;
+  margin: 1rem 0;
+  font-weight: 700;
+}
+.challenge-feedback.is-correct {
+  border: 1px solid color-mix(in srgb, var(--ok) 45%, var(--border));
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+.challenge-feedback.is-wrong {
+  border: 1px solid color-mix(in srgb, var(--danger) 45%, var(--border));
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.answer-area.is-correct,
+.answer-area.is-wrong {
+  border-radius: var(--radius-sm);
+  padding: .6rem;
+}
+.answer-area.is-correct { background: color-mix(in srgb, var(--ok-soft) 55%, transparent); }
+.answer-area.is-wrong { background: color-mix(in srgb, var(--danger-soft) 55%, transparent); }
+.challenge-actions {
+  justify-content: flex-start;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+.mistakes-review-list {
+  display: grid;
+  gap: 1rem;
+}
+.mistake-review-card {
+  margin: 0;
+}
+.game-results-hero,
+.game-unit-hero {
+  background:
+    linear-gradient(120deg, rgba(10,79,110,.95), rgba(196,116,2,.76)),
+    url("../assets/safety-pattern.svg");
+}
+@media (max-width: 760px) {
+  .game-hero,
+  .game-node,
+  .challenge-head {
+    grid-template-columns: 1fr;
+  }
+  .game-hero-stats {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .game-xp {
+    min-height: 78px;
+    padding: .65rem .45rem;
+  }
+  .game-xp strong {
+    font-size: 1.25rem;
+  }
+  .game-node {
+    align-items: stretch;
+  }
+  .game-node .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .challenge-card {
+    margin: .5rem 0;
+  }
+  .match-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,5 +1,26 @@
 window.SITE_VERSIONS = [
   {
+    versionId: "safety-game-mvp-1",
+    versionNumber: "Safety Game MVP 1",
+    date: "2026-04-30",
+    time: "לא צוין",
+    releaseDate: "2026-04-30",
+    releaseTime: "לא צוין",
+    commitHash: "",
+    commitMessage: "feat: add safety game MVP",
+    createdBy: "Osher Perets",
+    addedRequirements: "הוספת מודול אתגר בטיחות ראשון לאתר הקורס, כהרחבת למידה משחקית שמחוברת לשיעורים ולתרגול הקיים.",
+    siteChanges: "נוספו עמודי safety-game.html, game-unit.html, game-challenge.html, game-results.html ו-game-mistakes.html, יחד עם נתוני משחק וקבצי ניהול מצב.",
+    fixedBugs: "לא תוקנו באגים קיימים; המימוש הופרד מהמודולים הקיימים כדי לא לפגוע ב-Firebase Auth, מבחנים, דיווחי תקלות וניהול גרסאות.",
+    uiUxChanges: "נוסף מסלול יחידה עם שלבים פתוחים/נעולים/הושלמו, כוכבים, XP, פידבק מיידי, רמזים וחזרה על טעויות בממשק RTL מותאם למובייל.",
+    securityChanges: "כל עמודי המשחק מוגנים ב-auth-protected ומשתמשים ב-auth guard הקיים. לא נחשף תוכן למשתמש pending או blocked.",
+    contentChanges: "נוספה יחידת יסודות בטיחות עם 5 שלבים ו-25 אתגרים: רב ברירה, נכון/לא נכון, התאמת מושגים, סידור תהליך וזיהוי סיכון בתרחיש.",
+    firebaseChanges: "שמירת התקדמות מתבצעת ב-localStorage עם ניסיון סנכרון אופציונלי ל-Firestore collection gameProgress עבור משתמש מאושר.",
+    releaseNotes: "MVP ראשון של אתגר בטיחות: יחידת יסודות בטיחות, 5 שלבים, 25 אתגרים, XP, כוכבים וחזרה על טעויות. המודול נועד לבדיקה ראשונה לפני הרחבה ליחידות נוספות.",
+    status: "published",
+    emailStatus: "notSent"
+  },
+  {
     versionId: "beta-content-quality-1",
     versionNumber: "Beta Content Quality 1",
     date: "2026-04-30",
