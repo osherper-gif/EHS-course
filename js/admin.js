@@ -167,6 +167,7 @@ function renderUserRow(user) {
   const statusTd = document.createElement("td");
   const status = document.createElement("span");
   status.className = "status-pill";
+  status.dataset.status = clean(user.status || "pending", 40);
   status.textContent = statusLabel(user.status);
   statusTd.append(status);
 
@@ -236,14 +237,30 @@ function renderFeedbackRow(report) {
   const tr = document.createElement("tr");
   const reportId = clean(report.reportId, 180);
   tr.dataset.feedbackId = reportId;
+  const statusVal = clean(report.status || "open", 40);
+  const priorityVal = clean(report.priority || "normal", 40);
+  const statusTd = document.createElement("td");
+  const statusPill = document.createElement("span");
+  statusPill.className = "status-pill";
+  statusPill.dataset.status = statusVal;
+  statusPill.textContent = statusVal;
+  statusTd.append(statusPill);
+  const priorityTd = document.createElement("td");
+  const priorityPill = document.createElement("span");
+  const riskClass = priorityVal === "critical" ? "risk-critical" :
+                    priorityVal === "high" ? "risk-high" :
+                    priorityVal === "low" ? "risk-low" : "risk-medium";
+  priorityPill.className = "risk-pill " + riskClass;
+  priorityPill.textContent = priorityVal;
+  priorityTd.append(priorityPill);
   tr.append(
     cell(fmt(report.createdAt)),
     cell(clean(report.type, 80)),
     cell(clean(report.userEmail || report.userName || "-", 320)),
     linkCell("פתח עמוד", clean(report.pageUrl, 1000)),
     cell(clean(report.title, 160)),
-    cell(clean(report.status || "open", 40)),
-    cell(clean(report.priority || "normal", 40))
+    statusTd,
+    priorityTd
   );
   const action = document.createElement("td");
   const open = document.createElement("button");

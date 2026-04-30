@@ -137,7 +137,19 @@
       const selected = activeAnswers[q.id] || "";
       const ok = selected === q.correctAnswer;
       if (ok) correct += 1;
-      else wrong.push({ question: q.question, selected, correct: q.correctAnswer, explanation: q.explanation, topic: q.topic });
+      else {
+        wrong.push({ question: q.question, selected, correct: q.correctAnswer, explanation: q.explanation, topic: q.topic });
+        if (window.CourseStorage?.recordMistake) {
+          window.CourseStorage.recordMistake({
+            questionId: q.id,
+            lessonId: q.relatedLessonId || "",
+            topic: q.topic || "",
+            question: q.question,
+            correct: q.correctAnswer,
+            chosen: selected,
+          });
+        }
+      }
       return { id: q.id, selected, correctAnswer: q.correctAnswer, isCorrect: ok };
     });
     const total = activeQuestions.length;
@@ -158,14 +170,38 @@
     renderSummary();
   }
 
+  function buildScoreRing(score) {
+    const wrap = document.createElement("div");
+    wrap.className = "score-ring " + (score >= 80 ? "is-high" : score >= 60 ? "is-mid" : "is-low");
+    wrap.style.setProperty("--score", String(score));
+    wrap.innerHTML = ''
+      + '<svg viewBox="0 0 100 100">'
+      +   '<circle class="ring-bg" cx="50" cy="50" r="42" pathLength="100"/>'
+      +   '<circle class="ring-fg" cx="50" cy="50" r="42" pathLength="100" stroke-dasharray="' + score + ' 100"/>'
+      + '</svg>'
+      + '<div class="score-num">' + score + '%</div>';
+    return wrap;
+  }
+
   function renderResult(attempt, wrong) {
     const box = document.getElementById("examResult");
     box.replaceChildren();
+    const head = document.createElement("div");
+    head.style.display = "flex";
+    head.style.gap = "1rem";
+    head.style.alignItems = "center";
+    head.style.flexWrap = "wrap";
+    head.append(buildScoreRing(attempt.score));
+    const headText = document.createElement("div");
     const title = document.createElement("h2");
+    title.style.margin = "0";
     title.textContent = "ציון: " + attempt.score + "%";
     const meta = document.createElement("p");
+    meta.style.margin = ".25rem 0 0";
     meta.textContent = "נכונות: " + attempt.correctCount + " | שגויות: " + attempt.wrongCount + " | סהכ: " + attempt.totalQuestions;
-    box.append(title, meta);
+    headText.append(title, meta);
+    head.append(headText);
+    box.append(head);
     if (wrong.length) {
       const h = document.createElement("h3");
       h.textContent = "שאלות שבהן טעית";

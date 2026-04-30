@@ -3,40 +3,303 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
   <meta name="referrer" content="no-referrer-when-downgrade">
-<title>דף הבית | קורס ממונה בטיחות</title>
+  <meta name="description" content="קורס ממונה בטיחות — אתר לימודי, תרגול וכלי שטח. RTL, מודרני ומותאם למובייל.">
+  <title>דף הבית | קורס ממונה בטיחות</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body data-page-title="דף הבית" class="auth-protected">
   <a class="skip-link" href="#main">דלג לתוכן</a>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="./index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>למידה מקומית מתוך חומר הקורס</small></span></a>
-      <nav class="main-nav" aria-label="ניווט ראשי"><a href="./index.html">בית</a><a href="./pages/syllabus.html">שיעורים</a><a href="./pages/quizzes.html">תרגול ומבחנים</a><a href="./pages/field-tools.html">חוקים, תקנים וכלי שטח</a><a href="./pages/ai-assistant.html">עוזר AI</a></nav>
-      <div class="header-actions"><button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button><button class="icon-btn" type="button" data-action="print" title="הדפסה">⎙</button></div>
+      <a class="brand" href="./index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>למידה · תרגול · כלי שטח</small></span></a>
+      <nav class="main-nav" aria-label="ניווט ראשי">
+        <a href="./index.html" aria-current="page">בית</a>
+        <a href="./pages/syllabus.html">שיעורים</a>
+        <a href="./pages/quizzes.html">תרגול ומבחנים</a>
+        <a href="./pages/field-tools.html">חוקים, תקנים וכלי שטח</a>
+        <a href="./pages/ai-assistant.html">עוזר AI</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה" aria-label="מצב כהה">◐</button>
+        <button class="icon-btn" type="button" data-action="print" title="הדפסה" aria-label="הדפסה">⎙</button>
+      </div>
     </div>
     <div class="law-notice">יש לאמת מול נוסח החוק/התקנה העדכני והמרצה</div>
   </header>
-  <main id="main" class="site-main"><section class="page-hero"><div><p class="kicker">למידה פרטית</p><h1>קורס ממונה בטיחות</h1><p>אתר לימודי מלא, מקומי ו-RTL: תוכן מפגשים, חיפוש, מילון, חוקים, בוחנים ועוזר לימודי שעונה מתוך מאגר הידע בלבד. אתר לימודי פרטי להכנה לקורס ממונה בטיחות. התוכן נועד ללמידה בלבד ויש לאמת מול נוסח החוק/התקנה העדכני והמרצה.</p></div></section>
-  <section class="toolbar-panel"><label class="search-box"><span>חיפוש בקורס</span><input id="globalSearch" type="search" aria-label="חיפוש בקורס"></label><label><span>נושא</span><select id="topicFilter"><option value="">כל הנושאים</option><option>יסודות</option><option>ניהול בטיחות</option><option>אחזקה</option><option>תפעול</option><option>בנייה</option><option>חשמל</option><option>כימיה</option><option>גהות</option><option>גורם אנושי</option><option>חירום</option><option>חזרה</option></select></label><button class="btn" type="button" data-action="export-notes">ייצוא הערות</button></section>
-  <section id="searchResults" class="search-results" aria-live="polite"></section>
-  <section class="dashboard-grid"><article class="metric exam-progress-card"><strong data-exam-stat="last">-</strong><span>ציון אחרון</span></article><article class="metric exam-progress-card"><strong data-exam-stat="count">0</strong><span>מבחנים שבוצעו</span></article><article class="metric exam-progress-card"><strong data-exam-stat="avg">-</strong><span>ממוצע ציונים</span></article><article class="metric exam-progress-card"><strong data-exam-stat="topic">-</strong><span>נושא אחרון</span></article><article class="metric"><strong data-stat="completed">0</strong><span>מפגשים הושלמו</span></article><article class="metric"><strong>12</strong><span>מפגשי לימוד מלאים</span></article><article class="metric"><strong>18</strong><span>מושגים</span></article><article class="metric"><strong>324</strong><span>שאלות בוחן</span></article></section>
-  <section class="content-section">
-      <div class="section-title"><h2>מסלול למידה וניהול</h2><p>האתר מחולק לשני צירים ברורים: למידה למבחן וכלי עבודה מקצועיים לשטח.</p></div>
-      <div class="hub-grid">
-        <article class="hub-card"><p class="kicker">למידה</p><h2>שיעורים → תרגול → מבחן → תוצאות</h2><p>התחל מהמפגש, תרגל שאלות קצרות, עבור למבחן מלא וחזור לטעויות האחרונות.</p><a class="btn" href="./pages/quizzes.html">תרגול ומבחנים</a></article>
-        <article class="hub-card"><p class="kicker">ניהול בטיחות</p><h2>חוקים → תקנים → פורמטים → Checklists → יישום</h2><p>עבור מהחובה החוקית לכלי עבודה מעשיים שמסייעים לנהל בטיחות באתר, מפעל או משרד.</p><a class="btn" href="./pages/field-tools.html">חוקים, תקנים וכלי שטח</a></article>
+
+  <main id="main" class="site-main">
+    <!-- HERO MODERN -->
+    <section class="hero-modern">
+      <div class="hero-content">
+        <p class="kicker">מערכת לימוד פרטית</p>
+        <h1>קורס ממונה בטיחות</h1>
+        <p>למידה, תרגול וכלי שטח — הכול במקום אחד. אתר RTL מודרני להכנה למבחני קורס ממונה בטיחות. תוכן לימודי בלבד; יש לאמת מול נוסח החוק/התקנה העדכני והמרצה.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="./pages/syllabus.html">📚 התחל ללמוד</a>
+          <a class="btn ghost" href="./pages/quizzes.html">✍ תרגול מהיר</a>
+        </div>
+        <div class="hero-mini-stats">
+          <span><strong>12</strong>שיעורים</span>
+          <span><strong>54</strong>שאלות בוחן</span>
+          <span><strong>10+</strong>כלי שטח</span>
+        </div>
       </div>
-    </section><section class="content-section"><div class="section-title"><h2>מפגשי הקורס</h2><p>כל עמוד כולל חומר לימודי, מושגים, חוקים, דוגמאות, נקודות מבחן ושאלות.</p></div><div class="lesson-grid" id="lessonGrid"><article class="lesson-card" data-topic="יסודות" data-status="מלא"><div class="lesson-num">1</div><div><h3><a href="pages/lesson-01.html">יסודות תורת הבטיחות</a></h3><p>השיעור מגדיר את שפת הבסיס של המקצוע: חוק, תקנה, נוהל, תקן, שני חוקי היסוד בבטיחות, סיכון, מפגע, גורם סיכון, תקרית, תאונת עבודה, מחלת מקצוע, גיהות, ניטור, סקר מפגעים ותהליך ז.ה.ב.</p><div class="meta-row"><span>יסודות</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-01"></progress></div></article><article class="lesson-card" data-topic="ניהול בטיחות" data-status="מלא"><div class="lesson-num">2</div><div><h3><a href="pages/lesson-02.html">ארגון מערך הבטיחות</a></h3><p>מערך בטיחות אפקטיבי מחבר בין מחזיק המקום, הנהלה, מנהלים ישירים, ועדת בטיחות, נאמני בטיחות, ממונה בטיחות, רופא תעסוקתי, בודקים מוסמכים, מדריכים ועובדים. השיעור עוסק באחריות, סמכות, דיווח, תיעוד וממשקי עבודה.</p><div class="meta-row"><span>ניהול בטיחות</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-02"></progress></div></article><article class="lesson-card" data-topic="אחזקה" data-status="מלא"><div class="lesson-num">3</div><div><h3><a href="pages/lesson-03.html">בטיחות בעבודת אחזקה</a></h3><p>עבודות אחזקה מסוכנות במיוחד משום שהן מתבצעות לעיתים מחוץ לשגרת התפעול: פירוק מיגונים, פתיחת מערכות, עבודה עם אנרגיה אצורה, כניסת קבלנים, עבודה חמה, עבודה בגובה, ניקוי, תיקון מכונות והפעלת ציוד לאחר טיפול.</p><div class="meta-row"><span>אחזקה</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-03"></progress></div></article><article class="lesson-card" data-topic="תפעול" data-status="מלא"><div class="lesson-num">4</div><div><h3><a href="pages/lesson-04.html">סיכונים תפעוליים</a></h3><p>סיכונים תפעוליים נוצרים במהלך העבודה השוטפת: תנועת עובדים וכלי רכב, שינוע, מלגזות, מכונות, קווי ייצור, החלקה ומעידה, עומס פיזי, אחסון, סידור סביבת עבודה, עבודה חוזרת, רעש, חום, תאורה ואי התאמה בין נוהל למציאות.</p><div class="meta-row"><span>תפעול</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-04"></progress></div></article><article class="lesson-card" data-topic="בנייה" data-status="מלא"><div class="lesson-num">5</div><div><h3><a href="pages/lesson-05.html">בטיחות באתרי בנייה</a></h3><p>אתר בנייה הוא סביבת עבודה משתנה: חפירות, עבודה בגובה, פיגומים, פתחים, עגורנים, כלי צמ&quot;ה, חשמל זמני, קבלני משנה, נפילת חפצים, תנועה באתר ועבודה במזג אוויר משתנה. ניהול האתר דורש תפקידים ברורים ותיאום יומי.</p><div class="meta-row"><span>בנייה</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-05"></progress></div></article><article class="lesson-card" data-topic="חשמל" data-status="מלא"><div class="lesson-num">6</div><div><h3><a href="pages/lesson-06.html">חשמל והגנה מחשמל</a></h3><p>חשמל הוא סיכון שאינו תמיד נראה לעין. פגיעות עלולות להיגרם ממגע ישיר, מגע עקיף, קשת חשמלית, קצר, עומס יתר, ציוד פגום, הארקה לקויה, לחות, כבל זמני, לוח לא מוגן ועבודה על מערכת שלא נותקה ונבדקה.</p><div class="meta-row"><span>חשמל</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-06"></progress></div></article><article class="lesson-card" data-topic="כימיה" data-status="מלא"><div class="lesson-num">7</div><div><h3><a href="pages/lesson-07.html">סיכונים כימיים וסיכונים כלליים</a></h3><p>חומרים כימיים עלולים לגרום פגיעה חריפה או כרונית דרך שאיפה, בליעה, מגע עור ועיניים או הזרקה. בנוסף קיימים סיכוני דליקה, פיצוץ, תגובה בין חומרים, קורוזיה, רעילות, חנק, לחץ, אחסון לא תואם ושפך.</p><div class="meta-row"><span>כימיה</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-07"></progress></div></article><article class="lesson-card" data-topic="גהות" data-status="מלא"><div class="lesson-num">8</div><div><h3><a href="pages/lesson-08.html">גהות תעסוקתית</a></h3><p>גהות תעסוקתית עוסקת בחיזוי, הכרה, הערכה, בקרה ומניעה של גורמי סיכון בריאותיים בסביבת העבודה: רעש, אבק, חומרים כימיים, קרינה, עומסי חום וקור, תאורה, ביולוגיה, ארגונומיה וחשיפות חוזרות לאורך זמן.</p><div class="meta-row"><span>גהות</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-08"></progress></div></article><article class="lesson-card" data-topic="גורם אנושי" data-status="מלא"><div class="lesson-num">9</div><div><h3><a href="pages/lesson-09.html">ניהול בטיחות והגורם האנושי</a></h3><p>הגורם האנושי אינו רק 'טעות עובד'. הוא כולל הדרכה, עומס, עייפות, תפיסת סיכון, לחץ זמן, נורמות צוות, דוגמה אישית של מנהלים, תכנון עמדות עבודה, תקשורת, כשירות, משמעת ויכולת לעצור עבודה.</p><div class="meta-row"><span>גורם אנושי</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-09"></progress></div></article><article class="lesson-card" data-topic="ניהול בטיחות" data-status="מלא"><div class="lesson-num">10</div><div><h3><a href="pages/lesson-10.html">ניהול בטיחות בתעסוקה</a></h3><p>ניהול בטיחות בתעסוקה הוא מערכת מתמשכת: מדיניות, סקר סיכונים, תוכנית עבודה, חלוקת אחריות, הדרכות, ניהול קבלנים, בדיקות תקופתיות, דיווח אירועים, תחקירים, מדדים, ביקורות ושיפור מתמיד.</p><div class="meta-row"><span>ניהול בטיחות</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-10"></progress></div></article><article class="lesson-card" data-topic="חירום" data-status="מלא"><div class="lesson-num">11</div><div><h3><a href="pages/lesson-11.html">היערכות למצבי חירום</a></h3><p>היערכות לחירום כוללת זיהוי תרחישים, בניית מענה, הגדרת צוותים, ציוד, התרעה, פינוי, כיבוי ראשוני, טיפול בשפך, עזרה ראשונה, קשר עם רשויות, תרגול ותחקור. תוכנית חירום טובה קצרה, ידועה ומתורגלת.</p><div class="meta-row"><span>חירום</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-11"></progress></div></article><article class="lesson-card" data-topic="חזרה" data-status="מלא"><div class="lesson-num">12</div><div><h3><a href="pages/lesson-12.html">תקציר הרצאות וחזרה למבחן</a></h3><p>מפגש החזרה מרכז את שפת הבטיחות, שני חוקי היסוד, תפקידי ממונה הבטיחות, סקרי סיכונים, אחזקה, תפעול, בנייה, חשמל, כימיה, גהות, גורם אנושי, ניהול בטיחות וחירום. המטרה היא לחבר מושגים לשאלות מבחן ולתרחישי שטח.</p><div class="meta-row"><span>חזרה</span><span>מלא</span></div><progress max="100" value="0" data-progress="lesson-12"></progress></div></article></div></section></main>
+      <div class="hero-graphic" aria-hidden="true">
+        <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="hg-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity=".25"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="140" cy="110" r="110" fill="url(#hg-glow)"/>
+          <g stroke="#ffffff" stroke-opacity=".55" stroke-width="1.4" fill="none">
+            <line x1="140" y1="40" x2="60" y2="110"/>
+            <line x1="140" y1="40" x2="220" y2="110"/>
+            <line x1="60" y1="110" x2="140" y2="180"/>
+            <line x1="220" y1="110" x2="140" y2="180"/>
+            <line x1="60" y1="110" x2="220" y2="110"/>
+            <line x1="140" y1="40" x2="140" y2="180"/>
+          </g>
+          <g fill="#ffffff">
+            <circle cx="140" cy="40"  r="14"/>
+            <circle cx="60"  cy="110" r="14"/>
+            <circle cx="220" cy="110" r="14"/>
+            <circle cx="140" cy="180" r="14"/>
+          </g>
+          <g fill="#0a4f6e" font-weight="700" font-size="11" text-anchor="middle">
+            <text x="140" y="44">חוק</text>
+            <text x="60"  y="114">סיכון</text>
+            <text x="220" y="114">תקן</text>
+            <text x="140" y="184">שטח</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- CONTINUE WHERE YOU LEFT OFF (rendered by home.js if available) -->
+    <section id="continueWhereLeft" class="continue-card" hidden></section>
+
+    <!-- NEXT ACTIONS -->
+    <section aria-label="פעולות מומלצות">
+      <h2 style="margin:.5rem 0 .35rem;font-size:1.1rem;color:var(--muted);font-weight:700">מה כדאי לעשות עכשיו?</h2>
+      <div id="nextActions" class="next-actions"></div>
+    </section>
+
+    <!-- METRICS DASHBOARD -->
+    <section class="dashboard-grid" aria-label="סטטיסטיקות הקורס">
+      <article class="metric metric-modern"><strong>12</strong><span>מפגשי לימוד מלאים</span></article>
+      <article class="metric metric-modern"><strong>54</strong><span>שאלות בוחן</span></article>
+      <article class="metric metric-modern"><strong>18</strong><span>מושגים</span></article>
+      <article class="metric metric-modern"><strong>10+</strong><span>Checklists וכלים</span></article>
+      <article class="metric metric-modern exam-progress-card metric-ok"><strong data-exam-stat="last">-</strong><span>ציון אחרון</span></article>
+      <article class="metric metric-modern exam-progress-card"><strong data-exam-stat="count">0</strong><span>מבחנים שבוצעו</span></article>
+      <article class="metric metric-modern exam-progress-card"><strong data-exam-stat="avg">-</strong><span>ממוצע ציונים</span></article>
+      <article class="metric metric-modern exam-progress-card"><strong data-stat="completed">0</strong><span>שיעורים שהושלמו</span></article>
+    </section>
+
+    <!-- 5 NAV HUB CARDS -->
+    <section class="content-section">
+      <div class="section-title">
+        <h2>מסלולי האתר</h2>
+        <p>חמישה אזורים מרכזיים — בחר היכן להתחיל.</p>
+      </div>
+      <div class="nav-hub-grid">
+        <a class="nav-hub-card" href="./pages/syllabus.html">
+          <div class="card-icon"><svg width="24" height="24" aria-hidden="true"><use href="./assets/icons.svg#i-book"/></svg></div>
+          <h3>שיעורים</h3>
+          <p>12 מפגשים: יסודות, ניהול בטיחות, אחזקה, בנייה, חשמל, כימיה, גהות, חירום ועוד.</p>
+        </a>
+        <a class="nav-hub-card" href="./pages/quizzes.html">
+          <div class="card-icon ico-warn"><svg width="24" height="24" aria-hidden="true"><use href="./assets/icons.svg#i-quiz"/></svg></div>
+          <h3>תרגול ומבחנים</h3>
+          <p>בוחנים קצרים, מבחן סימולציה ואזור טעויות אחרונות לחזרה ממוקדת.</p>
+        </a>
+        <a class="nav-hub-card" href="./pages/field-tools.html">
+          <div class="card-icon ico-ok"><svg width="24" height="24" aria-hidden="true"><use href="./assets/icons.svg#i-shield"/></svg></div>
+          <h3>חוקים, תקנים וכלי שטח</h3>
+          <p>חוקים מרכזיים, ISO 45001/14001, פורמטים ומפת קשרים ויזואלית.</p>
+        </a>
+        <a class="nav-hub-card" href="./pages/checklists.html">
+          <div class="card-icon ico-ok"><svg width="24" height="24" aria-hidden="true"><use href="./assets/icons.svg#i-checklist"/></svg></div>
+          <h3>Checklists</h3>
+          <p>רשימות תיוג לבנייה, מפעל, משרד, חירום וחומרים מסוכנים.</p>
+        </a>
+        <a class="nav-hub-card" href="./pages/ai-assistant.html">
+          <div class="card-icon ico-accent"><svg width="24" height="24" aria-hidden="true"><use href="./assets/icons.svg#i-ai"/></svg></div>
+          <h3>עוזר AI מקומי</h3>
+          <p>שאל שאלות, קבל הסברים ובקש מבחן — הכל מבוסס על מאגר הקורס.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- TOPIC GRAPH -->
+    <section class="content-section">
+      <div class="section-title">
+        <h2>מפת הקורס</h2>
+        <p>איך הנושאים מתחברים. לחץ על כל צומת כדי להגיע לעמוד.</p>
+      </div>
+      <figure class="topic-graph" data-topic-graph></figure>
+    </section>
+
+    <!-- SEARCH TOOLBAR (existing functionality) -->
+    <section class="toolbar-panel">
+      <label class="search-box">
+        <span>חיפוש בקורס</span>
+        <input id="globalSearch" type="search" aria-label="חיפוש בקורס" placeholder="חפש מושג, חוק, נושא...">
+      </label>
+      <label>
+        <span>נושא</span>
+        <select id="topicFilter">
+          <option value="">כל הנושאים</option>
+          <option>יסודות</option>
+          <option>ניהול בטיחות</option>
+          <option>אחזקה</option>
+          <option>תפעול</option>
+          <option>בנייה</option>
+          <option>חשמל</option>
+          <option>כימיה</option>
+          <option>גהות</option>
+          <option>גורם אנושי</option>
+          <option>חירום</option>
+          <option>חזרה</option>
+        </select>
+      </label>
+      <button class="btn" type="button" data-action="export-notes">ייצוא הערות</button>
+    </section>
+    <section id="searchResults" class="search-results" aria-live="polite"></section>
+
+    <!-- LESSON GRID -->
+    <section class="content-section">
+      <div class="section-title">
+        <h2>מפגשי הקורס</h2>
+        <p>כל עמוד כולל חומר לימודי, מושגים, חוקים, נקודות מבחן ושאלות.</p>
+      </div>
+      <div class="lesson-grid" id="lessonGrid">
+        <article class="lesson-card" data-topic="יסודות" data-status="מלא">
+          <div class="lesson-num">1</div>
+          <div>
+            <h3><a href="pages/lesson-01.html">יסודות תורת הבטיחות</a></h3>
+            <div class="chip-list"><span class="tag tag-info">חוק</span><span class="tag tag-info">תקנה</span><span class="tag tag-warn">סיכון</span></div>
+            <p>שפת הבסיס של המקצוע: חוק, תקנה, נוהל, תקן, שני חוקי היסוד, סיכון/מפגע, גיהות וסקר מפגעים.</p>
+            <progress max="100" value="0" data-progress="lesson-01"></progress>
+          </div>
+        </article>
+        <article class="lesson-card" data-topic="ניהול בטיחות" data-status="מלא">
+          <div class="lesson-num">2</div>
+          <div>
+            <h3><a href="pages/lesson-02.html">ארגון מערך הבטיחות</a></h3>
+            <div class="chip-list"><span class="tag tag-info">ועדת בטיחות</span><span class="tag tag-info">ממונה</span><span class="tag tag-info">נאמן</span></div>
+            <p>מחזיק המקום, הנהלה, ועדת בטיחות, נאמני בטיחות, ממונה, רופא תעסוקתי ובודקים מוסמכים.</p>
+            <progress max="100" value="0" data-progress="lesson-02"></progress>
+          </div>
+        </article>
+        <article class="lesson-card" data-topic="אחזקה" data-status="מלא">
+          <div class="lesson-num">3</div>
+          <div>
+            <h3><a href="pages/lesson-03.html">בטיחות בעבודת אחזקה</a></h3>
+            <div class="chip-list"><span class="tag tag-warn">LOTO</span><span class="tag tag-warn">עבודה חמה</span><span class="tag tag-warn">קבלנים</span></div>
+            <p>פירוק מיגונים, אנרגיה אצורה, עבודה עם קבלנים, היתר עבודה חמה, ניקוי, תיקון מכונות.</p>
+            <progress max="100" value="0" data-progress="lesson-03"></progress>
+          </div>
+        </article>
+        <article class="lesson-card" data-topic="תפעול" data-status="מלא">
+          <div class="lesson-num">4</div>
+          <div>
+            <h3><a href="pages/lesson-04.html">סיכונים תפעוליים</a></h3>
+            <div class="chip-list"><span class="tag tag-warn">מלגזות</span><span class="tag tag-warn">החלקה</span><span class="tag tag-warn">רעש</span></div>
+            <p>תנועת עובדים, שינוע, מלגזות, מכונות, החלקה, עומס פיזי, אחסון ועבודה חוזרת.</p>
+            <progress max="100" value="0" data-progress="lesson-04"></progress>
+          </div>
+        </article>
+        <article class="lesson-card" data-topic="בנייה" data-status="מלא">
+          <div class="lesson-num">5</div>
+          <div>
+            <h3><a href="pages/lesson-05.html">בטיחות באתרי בנייה</a></h3>
+            <div class="chip-list"><span class="tag tag-danger">גובה</span><span class="tag tag-danger">פיגומים</span><span class="tag tag-danger">עגורנים</span></div>
+            <p>חפירות, גובה, פיגומים, עגורנים, צמ"ה, חשמל זמני, קבלני משנה ותיאום יומי באתר.</p>
+            <progress max="100" value="0" data-progress="lesson-05"></progress>
+          </div>
+        </article>
+        <article class="lesson-card" data-topic="חשמל" data-status="מלא">
+          <div class="lesson-num">6</div>
+          <div>
+            <h3><a href="pages/lesson-06.html">חשמל והגנה מחשמל</a></h3>
+            <div class="chip-list"><span class="tag tag-danger">קצר</span><span class="tag tag-warn">הארקה</span><span class="tag tag-warn">בודק מוסמך</span></div>
+            <p>מגע ישיר/עקיף, קשת חשמלית, קצר, ציוד פגום, הארקה, לוחות וניתוק לפני עבודה.</p>
+            <progress max="100" value="0" data-progress="lesson-06"></progress>
+          </div>
+        </article>
+        <article class="lesson-card" data-topic="כימיה" data-status="מלא">
+          <div class="lesson-num">7</div>
+          <div>
+            <h3><a href="pages/lesson-07.html">סיכונים כימיים וסיכונים כלליים</a></h3>
+            <div class="chip-list"><span class="tag tag-danger">חומ"ס</span><span class="tag tag-warn">MSDS</span><span class="tag tag-warn">שפך</span></div>
+            <p>שאיפה, בליעה, מגע, דליקה, פיצוץ, תגובה, קורוזיה, רעילות, אחסון לא תואם ושפך.</p>
+            <progress max="100" value="0" data-progress="lesson-07"></progress>
+          </div>
+        </article>
+        <article class="lesson-card" data-topic="גהות" data-status="מלא">
+          <div class="lesson-num">8</div>
+          <div>
+            <h3><a href="pages/lesson-08.html">גהות תעסוקתית</a></h3>
+            <div class="chip-list"><span class="tag tag-info">ניטור</span><span class="tag tag-warn">חשיפה</span><span class="tag tag-warn">ארגונומיה</span></div>
+            <p>חיזוי, הכרה, הערכה ובקרת רעש, אבק, חומרים כימיים, קרינה, חום וקור, תאורה וארגונומיה.</p>
+            <progress max="100" value="0" data-progress="lesson-08"></progress>
+          </div>
+        </article>
+        <article class="lesson-card" data-topic="גורם אנושי" data-status="מלא">
+          <div class="lesson-num">9</div>
+          <div>
+            <h3><a href="pages/lesson-09.html">ניהול בטיחות והגורם האנושי</a></h3>
+            <div class="chip-list"><span class="tag tag-accent">תפיסה</span><span class="tag tag-accent">הדרכה</span><span class="tag tag-accent">תרבות</span></div>
+            <p>הדרכה, עומס, עייפות, תפיסת סיכון, נורמות צוות, דוגמה אישית של מנהלים, כשירות ותקשורת.</p>
+            <progress max="100" value="0" data-progress="lesson-09"></progress>
+          </div>
+        </article>
+        <article class="lesson-card" data-topic="ניהול בטיחות" data-status="מלא">
+          <div class="lesson-num">10</div>
+          <div>
+            <h3><a href="pages/lesson-10.html">ניהול בטיחות בתעסוקה</a></h3>
+            <div class="chip-list"><span class="tag tag-info">PDCA</span><span class="tag tag-info">תוכנית</span><span class="tag tag-info">מבדק</span></div>
+            <p>מדיניות, סקר סיכונים, תוכנית עבודה, חלוקת אחריות, הדרכות, ניהול קבלנים, מדדים ושיפור מתמיד.</p>
+            <progress max="100" value="0" data-progress="lesson-10"></progress>
+          </div>
+        </article>
+        <article class="lesson-card" data-topic="חירום" data-status="מלא">
+          <div class="lesson-num">11</div>
+          <div>
+            <h3><a href="pages/lesson-11.html">היערכות למצבי חירום</a></h3>
+            <div class="chip-list"><span class="tag tag-danger">פינוי</span><span class="tag tag-danger">תרגיל</span><span class="tag tag-warn">תיק מפעל</span></div>
+            <p>זיהוי תרחישים, מענה, צוותים, פינוי, כיבוי ראשוני, טיפול בשפך, עזרה ראשונה, תרגול ותחקור.</p>
+            <progress max="100" value="0" data-progress="lesson-11"></progress>
+          </div>
+        </article>
+        <article class="lesson-card" data-topic="חזרה" data-status="מלא">
+          <div class="lesson-num">12</div>
+          <div>
+            <h3><a href="pages/lesson-12.html">תקציר הרצאות וחזרה למבחן</a></h3>
+            <div class="chip-list"><span class="tag tag-info">חזרה</span><span class="tag tag-info">סיכום</span><span class="tag tag-warn">מבחן</span></div>
+            <p>סיכום שפת הבטיחות, שני חוקי היסוד, תפקידי הממונה וחיבור מושגים לתרחישי שטח ולמבחן.</p>
+            <progress max="100" value="0" data-progress="lesson-12"></progress>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
   <footer class="site-footer">האתר נוצר על ידי אושר פרץ<br>טלפון: 054-4232490<br>Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></footer>
   <script src="./data/course-data.js"></script>
-<script src="./data/exam-questions.js"></script>
-<script src="./js/storage.js"></script>
-<script src="./js/search.js"></script>
-<script src="./js/quizzes.js"></script>
-<script src="./js/ai-assistant.js"></script>
-<script src="./js/app.js"></script>
-<script type="module" src="./js/auth.js"></script>
+  <script src="./data/exam-questions.js"></script>
+  <script src="./js/storage.js"></script>
+  <script src="./js/search.js"></script>
+  <script src="./js/quizzes.js"></script>
+  <script src="./js/ai-assistant.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/topic-graph.js"></script>
+  <script src="./js/home.js"></script>
+  <script type="module" src="./js/auth.js"></script>
 </body>
 </html>

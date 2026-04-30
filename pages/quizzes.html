@@ -19,41 +19,63 @@
     <div class="law-notice">יש לאמת מול נוסח החוק/התקנה העדכני והמרצה</div>
   </header>
   <main id="main" class="site-main">
-    <section class="page-hero"><div><p class="kicker">מרכז למידה</p><h1>תרגול ומבחנים</h1><p>כל אזורי התרגול והמבחנים מחוברים כאן למסלול אחד: שיעור, תרגול, מבחן, תוצאה וניסיון חוזר.</p></div></section>
+    <nav class="breadcrumb" aria-label="היכן אני"><a href="../index.html">בית</a><span aria-hidden="true">›</span><span>תרגול ומבחנים</span></nav>
+
+    <section class="page-hero">
+      <div>
+        <p class="kicker">מרכז למידה</p>
+        <h1>תרגול ומבחנים</h1>
+        <p>מסלול אחד שמחבר שיעור, תרגול קצר, מבחן ותיקון טעויות. בחרו שיעור, התחילו בוחן או חזרו לטעויות אחרונות.</p>
+      </div>
+    </section>
 
     <section class="learning-flow">
-      <span>שיעורים</span><span>←</span><span>תרגול</span><span>←</span><span>מבחן</span><span>←</span><span>תוצאות</span>
+      <span>שיעורים</span><span>←</span><span>תרגול</span><span>←</span><span>מבחן</span><span>←</span><span>תוצאות</span><span>←</span><span>תיקון טעויות</span>
     </section>
+
     <section class="hub-grid">
       <article class="hub-card">
+        <div class="card-icon"><svg width="22" height="22" aria-hidden="true"><use href="../assets/icons.svg#i-quiz"/></svg></div>
         <p class="kicker">מבחן כללי</p>
         <h2>סימולציית מבחן</h2>
-        <p>מבחן מכל הנושאים, כולל אפשרות סימולציה של 60 שאלות וניתוח טעויות בסיום.</p>
-        <a class="btn" href="exam-questions.html">פתח מבחן כללי</a>
+        <p>מבחן 60 שאלות מכל הנושאים, בתנאי מבחן אמיתי, עם ציון וניתוח טעויות בסיום.</p>
+        <a class="btn" href="exam-questions.html#simulation">פתח סימולציה</a>
       </article>
       <article class="hub-card">
+        <div class="card-icon"><svg width="22" height="22" aria-hidden="true"><use href="../assets/icons.svg#i-book"/></svg></div>
         <p class="kicker">לפי שיעור</p>
         <h2>שאלות לפי שיעור</h2>
-        <p>בחר שיעור מתוך תוכנית הלימוד וקבל שאלות שמחוברות בדיוק לנושא המפגש.</p>
-        <a class="btn" href="syllabus.html">בחר שיעור</a>
+        <p>בחרו שיעור מתוך תוכנית הלימוד וקבלו שאלות שמחוברות בדיוק לנושא המפגש.</p>
+        <a class="btn" href="#lessonPicker">בחרו שיעור</a>
       </article>
       <article class="hub-card">
+        <div class="card-icon"><svg width="22" height="22" aria-hidden="true"><use href="../assets/icons.svg#i-search"/></svg></div>
         <p class="kicker">לפי נושא</p>
         <h2>מבחן לפי נושא</h2>
-        <p>בעמוד שאלות למבחן אפשר לבחור נושא, מספר שאלות, ניסיון חוזר וערבוב תשובות.</p>
-        <a class="btn" href="exam-questions.html#main">מבחן לפי נושא</a>
+        <p>בעמוד שאלות למבחן ניתן לבחור נושא, מספר שאלות, ניסיון חוזר וערבוב תשובות.</p>
+        <a class="btn" href="exam-questions.html">מבחן לפי נושא</a>
       </article>
       <article class="hub-card">
+        <div class="card-icon"><svg width="22" height="22" aria-hidden="true"><use href="../assets/icons.svg#i-warning"/></svg></div>
         <p class="kicker">חזרה חכמה</p>
         <h2>טעויות וניסיון חוזר</h2>
-        <p>המערכת שומרת ניסיון אחרון ומציגה טעויות, תשובות נכונות והסברים לתיקון הלמידה.</p>
-        <a class="btn" href="exam-questions.html#examResult">ראה תוצאות</a>
+        <p>חזרה ממוקדת על שאלות שטעיתם בהן, עם הסבר ואפשרות לנסות שוב באותו נושא.</p>
+        <a class="btn" href="#mistakes">פתח טעויות אחרונות</a>
       </article>
     </section>
+
+    <section class="content-section" id="lessonPicker">
+      <div class="section-title">
+        <h2>בחרו שיעור לתרגול</h2>
+        <p>בחרו את אחד מ-12 השיעורים. מספר השאלות הזמינות לכל שיעור מוצג על הכרטיס. לחיצה תפעיל מיד את הבוחן הקצר.</p>
+      </div>
+      <div class="lesson-picker" id="quizLessonPicker"></div>
+    </section>
+
     <section class="content-section">
       <div class="section-title">
-        <h2>בוחן קצר לפי שיעור</h2>
-        <p>זהו אזור התרגול הקצר. לאחריו מומלץ לעבור למבחן מלא או למבחן לפי נושא.</p>
+        <h2>בוחן קצר</h2>
+        <p>בחרו מפגש מהרשימה או השאירו "כל המפגשים" וקבלו שאלות עם הסבר אחרי כל תשובה.</p>
       </div>
       <section class="quiz-app">
         <div class="toolbar-panel">
@@ -64,14 +86,24 @@
         <div id="quizContainer" class="quiz-container"></div>
       </section>
     </section>
+
+    <section class="content-section" id="mistakes">
+      <div class="section-title">
+        <h2>טעויות אחרונות שלי</h2>
+        <p>המערכת שומרת עד 30 טעויות אחרונות בדפדפן. כאן ניתן לראות את השאלה, התשובה הנכונה ולתרגל שוב רק את אלה.</p>
+      </div>
+      <aside class="mistakes-panel" id="mistakesPanel"></aside>
+    </section>
+
     <section class="content-section">
       <div class="section-title">
-        <h2>שאלות שחזרתי עליהן וטעויות אחרונות</h2>
-        <p>הנתונים נשמרים בדפדפן ומוצגים כדי להחזיר אותך למסלול: טעויות → הסבר → ניסיון חוזר.</p>
+        <h2>סיכום ניסיונות מבחן</h2>
+        <p>נשמר מקומית: ציון אחרון, נושא אחרון, מספר ניסיונות וממוצע. למבחן מלא יש לעבור לעמוד שאלות למבחן.</p>
       </div>
       <div id="learningReviewSummary" class="exam-summary"></div>
       <a class="btn" href="exam-questions.html">נסה שוב במבחן מלא</a>
     </section>
+
     <section class="related-panel">
       <h2>ראה גם</h2>
       <div class="related-links"><a class="btn secondary" href="syllabus.html">שיעורים לפי תוכנית הלימוד</a><a class="btn secondary" href="exam-questions.html">שאלות למבחן</a><a class="btn secondary" href="ai-assistant.html">שאל אותי שאלות בעוזר AI</a></div>
@@ -86,6 +118,7 @@
   <script src="../js/ai-assistant.js"></script>
   <script src="../js/app.js"></script>
   <script src="../js/learning-hub.js"></script>
+  <script src="../js/quiz-ui.js"></script>
   <script type="module" src="../js/auth.js"></script>
 </body>
 </html>

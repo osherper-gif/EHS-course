@@ -66,6 +66,16 @@
         if (idx === selected && idx !== question.answer) btn.classList.add("wrong");
       });
       card.querySelector(".explanation").textContent = question.explanation;
+      if (selected !== question.answer && window.CourseStorage?.recordMistake) {
+        window.CourseStorage.recordMistake({
+          questionId: question.id,
+          lessonId: question.lessonId || "",
+          topic: question.topic || "",
+          question: question.question,
+          correct: question.options[question.answer],
+          chosen: question.options[selected],
+        });
+      }
     });
   }
 

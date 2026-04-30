@@ -17,61 +17,129 @@
     </div>
   </header>
   <main class="site-main">
-    <section class="page-hero"><div><p class="kicker">אדמין</p><h1>ניהול משתמשים</h1><p>אישור, חסימה והחזרת משתמשים לסטטוס ממתין.</p></div></section>
-    <section class="toolbar-panel admin-only-panel"><a class="btn" href="./pages/version-management.html">ניהול גרסאות אתר</a></section>
-    <section class="content-section admin-section">
-      <div class="section-title"><h2>משתמשים</h2><p id="adminStatus">ממתין לאימות מנהל...</p></div>
-      <div class="table-scroll">
-        <table class="data-table admin-table">
-          <thead><tr><th>משתמש</th><th>תפקיד</th><th>סטטוס</th><th>Provider</th><th>נרשם</th><th>כניסה אחרונה</th><th>הודעת אישור</th><th>פעולות</th></tr></thead>
-          <tbody id="usersTableBody"></tbody>
-        </table>
+    <nav class="breadcrumb" aria-label="היכן אני"><a href="./index.html">בית</a><span aria-hidden="true">›</span><span>אדמין</span></nav>
+
+    <section class="page-hero">
+      <div>
+        <p class="kicker">אדמין</p>
+        <h1>פאנל ניהול</h1>
+        <p>אישור משתמשים, ניהול דיווחים, ציוני מבחנים ותחזוקת גרסאות. כל הנתונים נטענים מ־Firestore לאחר אימות מנהל.</p>
       </div>
     </section>
-    <section id="approvalMessagePanel" class="content-section admin-section" hidden>
-      <div class="section-title"><h2>הודעת אישור למשתמש</h2><p>שליחה אוטומטית אינה פעילה. ניתן להעתיק את הכתובת והטקסט ולשלוח ידנית.</p></div>
-      <div class="mail-prep-grid">
-        <label><span>כתובת מייל</span><textarea id="approvalEmailAddress" rows="2" readonly></textarea></label>
-        <label><span>הודעת אישור</span><textarea id="approvalEmailText" rows="10" readonly></textarea></label>
-      </div>
-      <div class="form-actions">
-        <button class="btn secondary" type="button" id="copyPreparedApprovalEmail">העתק כתובת מייל</button>
-        <button class="btn secondary" type="button" id="copyPreparedApprovalText">העתק הודעת אישור למשתמש</button>
-      </div>
+
+    <section class="admin-mini-stats" aria-label="סיכום מהיר">
+      <div class="metric-modern" data-admin-stat="users-pending"><strong>—</strong><span>משתמשים ממתינים</span></div>
+      <div class="metric-modern metric-ok" data-admin-stat="users-approved"><strong>—</strong><span>משתמשים מאושרים</span></div>
+      <div class="metric-modern metric-warn" data-admin-stat="users-blocked"><strong>—</strong><span>משתמשים חסומים</span></div>
+      <div class="metric-modern metric-accent" data-admin-stat="feedback-open"><strong>—</strong><span>דיווחים פתוחים</span></div>
     </section>
-      <section class="content-section admin-section">
-      <div class="section-title"><h2>דיווחי תקלות והצעות שיפור</h2><p id="feedbackReportsStatus">הדיווחים יוצגו לאחר אימות מנהל.</p></div>
-      <div class="table-scroll">
-        <table class="data-table admin-table feedback-table">
-          <thead><tr><th>תאריך</th><th>סוג</th><th>משתמש</th><th>עמוד</th><th>כותרת</th><th>סטטוס</th><th>עדיפות</th><th>פעולות</th></tr></thead>
-          <tbody id="feedbackReportsBody"></tbody>
-        </table>
-      </div>
+
+    <section class="toolbar-panel admin-only-panel">
+      <a class="btn" href="./pages/version-management.html">ניהול גרסאות אתר</a>
     </section>
-    <section id="feedbackDetailsPanel" class="content-section admin-section feedback-details-panel" hidden>
-      <div class="section-title">
-        <h2 id="feedbackDetailTitle">פרטי דיווח</h2>
-        <p id="feedbackDetailMeta"></p>
-      </div>
-      <p id="feedbackDetailDescription" class="feedback-detail-description"></p>
-      <p><strong>עמוד:</strong> <a id="feedbackDetailPage" href="#" target="_blank" rel="noopener"></a></p>
-      <div class="feedback-admin-grid">
-        <label><span>סטטוס</span><select id="feedbackStatusSelect"><option value="open">open</option><option value="in_progress">in_progress</option><option value="resolved">resolved</option><option value="rejected">rejected</option></select></label>
-        <label><span>עדיפות</span><select id="feedbackPrioritySelect"><option value="low">low</option><option value="normal">normal</option><option value="high">high</option><option value="critical">critical</option></select></label>
-        <label class="wide"><span>הערות אדמין</span><textarea id="feedbackAdminNotes" rows="5"></textarea></label>
-      </div>
-      <div class="form-actions">
-        <button class="btn" type="button" id="saveFeedbackReport">שמור עדכון</button>
-        <button class="btn secondary" type="button" id="copyFeedbackReply">העתק טקסט תשובה</button>
-        <a class="btn secondary" id="feedbackReplyMailto" href="#" hidden>הכן מייל תשובה למשתמש</a>
-      </div>
-    </section>
-<section class="content-section admin-section"><div class="section-title"><h2>ציוני משתמשים</h2><p id="examScoresStatus">הציונים יוצגו לאחר טעינת משתמשים.</p></div><div class="table-scroll"><table class="data-table admin-table"><thead><tr><th>אימייל משתמש</th><th>מספר ניסיונות</th><th>ציון אחרון</th><th>ממוצע</th></tr></thead><tbody id="examScoresBody"></tbody></table></div></section></main>
+
+    <nav class="admin-tabs" role="tablist" aria-label="מקטעי אדמין">
+      <button type="button" role="tab" class="admin-tab is-active" data-admin-tab="users" aria-selected="true">משתמשים</button>
+      <button type="button" role="tab" class="admin-tab" data-admin-tab="feedback" aria-selected="false">דיווחי תקלות</button>
+      <button type="button" role="tab" class="admin-tab" data-admin-tab="exams" aria-selected="false">ציוני מבחנים</button>
+    </nav>
+
+    <div class="admin-panels">
+      <section class="admin-panel is-active" data-admin-panel="users">
+        <section class="content-section admin-section">
+          <div class="section-title">
+            <h2>משתמשים</h2>
+            <p id="adminStatus">ממתין לאימות מנהל...</p>
+          </div>
+          <div class="admin-search">
+            <label><span>סינון לפי שם/אימייל/סטטוס</span><input type="search" id="usersSearch" placeholder="הקלידו לסינון..." autocomplete="off"></label>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table admin-table">
+              <thead><tr><th>משתמש</th><th>תפקיד</th><th>סטטוס</th><th>Provider</th><th>נרשם</th><th>כניסה אחרונה</th><th>הודעת אישור</th><th>פעולות</th></tr></thead>
+              <tbody id="usersTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="approvalMessagePanel" class="content-section admin-section" hidden>
+          <div class="section-title">
+            <h2>הודעת אישור למשתמש</h2>
+            <p>שליחה אוטומטית אינה פעילה. ניתן להעתיק את הכתובת והטקסט ולשלוח ידנית.</p>
+          </div>
+          <div class="mail-prep-grid">
+            <label><span>כתובת מייל</span><textarea id="approvalEmailAddress" rows="2" readonly></textarea></label>
+            <label><span>הודעת אישור</span><textarea id="approvalEmailText" rows="10" readonly></textarea></label>
+          </div>
+          <div class="form-actions">
+            <button class="btn secondary" type="button" id="copyPreparedApprovalEmail">העתק כתובת מייל</button>
+            <button class="btn secondary" type="button" id="copyPreparedApprovalText">העתק הודעת אישור למשתמש</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="admin-panel" data-admin-panel="feedback" hidden>
+        <section class="content-section admin-section">
+          <div class="section-title">
+            <h2>דיווחי תקלות והצעות שיפור</h2>
+            <p id="feedbackReportsStatus">הדיווחים יוצגו לאחר אימות מנהל.</p>
+          </div>
+          <div class="admin-search">
+            <label><span>סינון לפי כותרת/אימייל/סטטוס</span><input type="search" id="feedbackSearch" placeholder="הקלידו לסינון..." autocomplete="off"></label>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table admin-table feedback-table">
+              <thead><tr><th>תאריך</th><th>סוג</th><th>משתמש</th><th>עמוד</th><th>כותרת</th><th>סטטוס</th><th>עדיפות</th><th>פעולות</th></tr></thead>
+              <tbody id="feedbackReportsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="feedbackDetailsPanel" class="content-section admin-section feedback-details-panel" hidden>
+          <div class="section-title">
+            <h2 id="feedbackDetailTitle">פרטי דיווח</h2>
+            <p id="feedbackDetailMeta"></p>
+          </div>
+          <p id="feedbackDetailDescription" class="feedback-detail-description"></p>
+          <p><strong>עמוד:</strong> <a id="feedbackDetailPage" href="#" target="_blank" rel="noopener"></a></p>
+          <div class="feedback-admin-grid">
+            <label><span>סטטוס</span><select id="feedbackStatusSelect"><option value="open">open</option><option value="in_progress">in_progress</option><option value="resolved">resolved</option><option value="rejected">rejected</option></select></label>
+            <label><span>עדיפות</span><select id="feedbackPrioritySelect"><option value="low">low</option><option value="normal">normal</option><option value="high">high</option><option value="critical">critical</option></select></label>
+            <label class="wide"><span>הערות אדמין</span><textarea id="feedbackAdminNotes" rows="5"></textarea></label>
+          </div>
+          <div class="form-actions">
+            <button class="btn" type="button" id="saveFeedbackReport">שמור עדכון</button>
+            <button class="btn secondary" type="button" id="copyFeedbackReply">העתק טקסט תשובה</button>
+            <a class="btn secondary" id="feedbackReplyMailto" href="#" hidden>הכן מייל תשובה למשתמש</a>
+          </div>
+        </section>
+      </section>
+
+      <section class="admin-panel" data-admin-panel="exams" hidden>
+        <section class="content-section admin-section">
+          <div class="section-title">
+            <h2>ציוני משתמשים</h2>
+            <p id="examScoresStatus">הציונים יוצגו לאחר טעינת משתמשים.</p>
+          </div>
+          <div class="admin-search">
+            <label><span>סינון לפי אימייל</span><input type="search" id="examScoresSearch" placeholder="הקלידו לסינון..." autocomplete="off"></label>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table admin-table">
+              <thead><tr><th>אימייל משתמש</th><th>מספר ניסיונות</th><th>ציון אחרון</th><th>ממוצע</th></tr></thead>
+              <tbody id="examScoresBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
   <footer class="site-footer">האתר נוצר על ידי אושר פרץ<br>טלפון: 054-4232490<br>Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></footer>
   <script src="./data/course-data.js"></script>
-<script src="./data/exam-questions.js"></script>
+  <script src="./data/exam-questions.js"></script>
   <script src="./js/storage.js"></script>
   <script src="./js/app.js"></script>
+  <script src="./js/admin-ui.js"></script>
   <script type="module" src="./js/auth.js"></script>
   <script type="module" src="./js/admin.js"></script>
 </body>

@@ -47,5 +47,32 @@
       a.click();
       URL.revokeObjectURL(url);
     },
+    markLastVisited(lessonId, title) {
+      try {
+        this.set("lastVisited", { lessonId: String(lessonId || ""), title: String(title || ""), at: Date.now() });
+      } catch (_) { /* noop */ }
+    },
+    lastVisited() {
+      return this.get("lastVisited", null);
+    },
+    recordMistake(record) {
+      const list = this.get("mistakes", []);
+      list.push({
+        questionId: String(record.questionId || ""),
+        lessonId: String(record.lessonId || ""),
+        topic: String(record.topic || ""),
+        question: String(record.question || "").slice(0, 240),
+        correct: String(record.correct || "").slice(0, 240),
+        chosen: String(record.chosen || "").slice(0, 240),
+        at: Date.now(),
+      });
+      this.set("mistakes", list.slice(-30));
+    },
+    mistakes() {
+      return this.get("mistakes", []);
+    },
+    clearMistakes() {
+      this.set("mistakes", []);
+    },
   };
 })();
