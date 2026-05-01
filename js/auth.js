@@ -43,6 +43,7 @@ const isAdminPage = pageName === ADMIN_PAGE || pageName === "version-management.
 let currentProfile = null;
 let authReadyResolve;
 let loaderTimer = null;
+let authDelayTimer = null;
 window.CourseAuthReady = new Promise((resolve) => {
   authReadyResolve = resolve;
 });
@@ -194,6 +195,7 @@ function showApprovalWelcome(profile) {
 function showLoading() {
   if (isLoginPage) return;
   clearTimeout(loaderTimer);
+  clearTimeout(authDelayTimer);
   loaderTimer = window.setTimeout(() => {
     if (document.body.classList.contains("auth-approved")) return;
     if (document.getElementById("authInlineLoader")) return;
@@ -203,10 +205,27 @@ function showLoading() {
     loader.textContent = "בודק הרשאות...";
     document.body.append(loader);
   }, LOADER_DELAY);
+  authDelayTimer = window.setTimeout(() => {
+    if (document.body.classList.contains("auth-approved")) return;
+    if (document.getElementById("authStateShell")) return;
+    showShellMessage(
+      "בדיקת ההרשאות מתעכבת",
+      "החיבור מאובטח, אבל בדיקת ההרשאות נמשכת יותר מהרגיל. אפשר לרענן את העמוד או להתחבר מחדש.",
+      () => {
+        const actions = document.createDocumentFragment();
+        actions.append(
+          buttonElement("רענון", () => location.reload()),
+          buttonElement("התנתקות", () => window.CourseAuth.logout())
+        );
+        return actions;
+      }
+    );
+  }, 9000);
 }
 
 function hideLoading() {
   clearTimeout(loaderTimer);
+  clearTimeout(authDelayTimer);
   const loader = document.getElementById("authInlineLoader");
   if (loader) loader.remove();
 }
@@ -617,12 +636,16 @@ function guard() {
         return;
       }
       saveCachedProfile(profile);
-      await hydrateProgressFromFirestore(user.uid);
       decorateApprovedUser(profile);
       showApprovalWelcome(profile);
-      pushLocalProgressToFirestore();
       authReadyResolve?.(profile);
       document.dispatchEvent(new CustomEvent("course-auth-approved", { detail: profile }));
+      (async () => {
+        await hydrateProgressFromFirestore(user.uid);
+        await pushLocalProgressToFirestore();
+      })().catch(() => {
+        // Firestore progress sync is optional; content must remain visible for approved users.
+      });
     } catch {
       showShellMessage("שגיאת הרשאות", "לא ניתן להשלים את בדיקת ההרשאות. נסה לרענן או פנה למנהל האתר.");
       authReadyResolve?.(null);
