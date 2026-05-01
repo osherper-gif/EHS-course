@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "mobile-first-p1",
+    "versionNumber": "Mobile First P1",
+    "date": "2026-05-01",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "chore: add mobile P1 version entry",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "יישום הדרגתי של P1 לאחר Mobile First P0, תוך שמירה על Auth, Admin, מבחנים, משחק, דיווח תקלה, ניהול גרסאות ו-RTL.",
+    "siteChanges": "נוספו אקורדיונים לשיעורים במובייל, תוכן עניינים לשיעור, שיפור זרימת מבחנים, שיפור אתגר הבטיחות ושיפור אדמין במסך צר.",
+    "fixedBugs": "הושלמו פערי מובייל בחוויית קריאה, ניווט, מבחנים וניהול בלי לשנות תוכן לימודי.",
+    "uiUxChanges": "שיעורים באקורדיונים במובייל, sticky lesson progress, TOC bottom sheet, מפת שאלות במבחן, סימון לחזרה, כפתורי משחק נוחים, admin cards ו-touch interactions משופרים.",
+    "securityChanges": "לא בוצע שינוי בהרשאות; כל הרכיבים החדשים נשענים על auth guard הקיים וקישורי אדמין מוצגים רק למנהלים.",
+    "contentChanges": "לא בוצע שינוי בתוכן לימודי.",
+    "firebaseChanges": "לא בוצע שינוי ב-Firestore rules או במבנה Firebase.",
+    "releaseNotes": "Mobile First P1 משפר את חוויית המובייל בלמידה, מבחנים, משחק ואדמין, תוך שמירה על תצוגת דסקטופ קיימת.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "mobile-first-p0",
     "versionNumber": "Mobile First P0",
     "date": "2026-05-01",
