@@ -1,4 +1,23 @@
 window.SITE_VERSIONS = [
+  {
+    "versionId": "auto-approval-beta-window",
+    "versionNumber": "Auto Approval Beta Window",
+    "date": "2026-05-01",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: enable temporary auto approval for beta users",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "הפעלת אישור אוטומטי זמני למשתמשים חדשים בתקופת בטא של שבועיים.",
+    "siteChanges": "משתמש חדש שמתחבר עם Google או נרשם עם Email/Password מאושר אוטומטית עד 15.5.2026 ונכנס לאתר ללא אישור ידני.",
+    "fixedBugs": "משתמשים קיימים בסטטוס pending מאושרים בעת התחברות בזמן חלון הבטא, כל עוד אינם חסומים.",
+    "uiUxChanges": "עודכנה הודעת ההרשמה ונוסף Badge באדמין שמציג את מצב הבטא ואת תאריך הסיום.",
+    "securityChanges": "משתמשים blocked נשארים חסומים, האדמין נשאר osherper@gmail.com בלבד, ו-Firestore Rules מגבילות את האישור האוטומטי לחלון הזמן ולמשתמש עצמו.",
+    "contentChanges": "ללא שינוי תוכן לימודי.",
+    "firebaseChanges": "עודכנו יצירת/עדכון מסמכי users ו-Firestore Rules כדי לאפשר status approved במצב auto-beta עד תום החלון.",
+    "releaseNotes": "חלון בטא זמני: אישור אוטומטי למשתמשים חדשים ולמשתמשי pending קיימים עד 15.5.2026. לאחר מכן משתמשים חדשים חוזרים לסטטוס pending.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
     {
     "versionId": "public-readiness-free-beta",
     "versionNumber": "Public Readiness — Free Beta",

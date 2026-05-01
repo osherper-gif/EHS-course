@@ -52,6 +52,16 @@ service cloud.firestore {
       ]);
     }
 
+    function autoBetaActive() {
+      return request.time < timestamp.date(2026, 5, 16);
+    }
+
+    function validAutoBetaFields() {
+      return request.resource.data.status == "approved"
+        && request.resource.data.approvedBy == "auto-beta"
+        && request.resource.data.approvalMode == "auto-beta-14-days";
+    }
+
     function validUserCreateKeys() {
       return request.resource.data.keys().hasOnly([
         "uid",
@@ -61,6 +71,9 @@ service cloud.firestore {
         "provider",
         "role",
         "status",
+        "approvedAt",
+        "approvedBy",
+        "approvalMode",
         "createdAt",
         "lastLoginAt"
       ]);
@@ -82,9 +95,35 @@ service cloud.firestore {
           (request.auth.token.email != "osherper@gmail.com"
             && request.resource.data.role == "student"
             && request.resource.data.status == "pending")
+          ||
+          (request.auth.token.email != "osherper@gmail.com"
+            && autoBetaActive()
+            && request.resource.data.role == "student"
+            && validAutoBetaFields())
         );
 
       allow update: if isAdmin()
+        || (
+          signedIn()
+          && request.auth.uid == uid
+          && autoBetaActive()
+          && resource.data.status == "pending"
+          && resource.data.role == "student"
+          && request.resource.data.uid == resource.data.uid
+          && request.resource.data.email == resource.data.email
+          && request.resource.data.role == resource.data.role
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+            "displayName",
+            "photoURL",
+            "provider",
+            "lastLoginAt",
+            "status",
+            "approvedAt",
+            "approvedBy",
+            "approvalMode"
+          ])
+          && validAutoBetaFields()
+        )
         || (
           signedIn()
           && request.auth.uid == uid

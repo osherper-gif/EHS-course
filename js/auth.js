@@ -32,6 +32,7 @@ const MAX_TEXT = 5000;
 const AUTH_CACHE_KEY = "ehsCourseAuthCache";
 const AUTH_CACHE_TTL = 5 * 60 * 1000;
 const LOADER_DELAY = 700;
+const AUTO_APPROVE_NEW_USERS_UNTIL = "2026-05-15T23:59:59+03:00";
 const APPROVAL_WELCOME_PREFIX = "ehsCourseApprovalWelcome:";
 
 const isRootPage = !location.pathname.includes("/pages/");
@@ -79,6 +80,19 @@ function safeRedirect(url) {
 
 function isApprovedProfile(profile) {
   return profile?.status === APPROVED || profile?.role === "admin";
+}
+
+function isAutoApproveWindowActive(date = new Date()) {
+  return date.getTime() <= new Date(AUTO_APPROVE_NEW_USERS_UNTIL).getTime();
+}
+
+function autoApprovalFields() {
+  return {
+    status: APPROVED,
+    approvedAt: serverTimestamp(),
+    approvedBy: "auto-beta",
+    approvalMode: "auto-beta-14-days",
+  };
 }
 
 function profileForCache(profile) {
@@ -303,10 +317,12 @@ async function ensureUserProfile(user) {
 
   if (!snapshot.exists()) {
     const admin = isAdminEmail(user.email);
+    const autoApprove = !admin && isAutoApproveWindowActive();
     const profile = {
       ...base,
       role: admin ? "admin" : "student",
-      status: admin ? APPROVED : PENDING,
+      status: admin || autoApprove ? APPROVED : PENDING,
+      ...(autoApprove ? autoApprovalFields() : {}),
       createdAt: serverTimestamp(),
     };
     await setDoc(ref, profile);
@@ -318,9 +334,11 @@ async function ensureUserProfile(user) {
 
   const existing = snapshot.data();
   const admin = isAdminEmail(user.email);
+  const autoApprovePending = !admin && existing.status === PENDING && isAutoApproveWindowActive();
   const updates = {
     ...base,
     ...(admin ? { role: "admin", status: APPROVED } : {}),
+    ...(autoApprovePending ? autoApprovalFields() : {}),
   };
   await updateDoc(ref, updates);
   return { ...existing, ...updates };
@@ -590,6 +608,10 @@ function initLoginPage() {
     try {
       setMessage("יוצר משתמש...");
       await emailRegister(form.get("email"), form.get("password"), form.get("displayName"));
+      if (isAutoApproveWindowActive()) {
+        setMessage("נרשמת בהצלחה. חשבונך אושר אוטומטית לתקופת הבטא, ואתה מועבר לאתר.");
+        return;
+      }
       setMessage("נרשמת בהצלחה. חשבונך ממתין לאישור מנהל האתר. לאחר האישור תוכל להיכנס לאתר.");
     } catch (error) {
       setMessage(hebrewAuthError(error), "error");
