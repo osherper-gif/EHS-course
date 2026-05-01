@@ -30,9 +30,12 @@
       location.href = "game-unit.html";
       return;
     }
+    const selectedDifficulty = state().getDifficulty();
     let session = state().activeStage();
-    if (!session || session.stageId !== requestedStage) session = state().startStage(requestedStage);
-    session.difficulty = session.difficulty || state().getDifficulty();
+    if (!session || session.stageId !== requestedStage || session.difficulty !== selectedDifficulty) {
+      session = state().startStage(requestedStage);
+    }
+    session.difficulty = session.difficulty || selectedDifficulty;
     session.correctStreak = Number(session.correctStreak || 0);
     session.wrongStreak = Number(session.wrongStreak || 0);
     state().saveActiveStage(session);

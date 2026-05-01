@@ -87,7 +87,13 @@
 
   function setDifficulty(value) {
     const progress = load();
-    progress.difficulty = normalizeDifficulty(value);
+    const nextDifficulty = normalizeDifficulty(value);
+    progress.difficulty = nextDifficulty;
+    try {
+      sessionStorage.removeItem(ACTIVE_KEY);
+    } catch {
+      // Active challenge session is only a short-lived UX cache.
+    }
     return save(progress);
   }
 
