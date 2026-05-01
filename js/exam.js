@@ -11,6 +11,38 @@
   const saveAttempts = (attempts) => localStorage.setItem(ATTEMPTS_KEY, JSON.stringify(attempts));
   const questions = () => window.EXAM_QUESTIONS || [];
 
+  function saveExamDraft() {
+    if (!activeQuestions.length) return;
+    const draft = {
+      savedAt: new Date().toISOString(),
+      topic: currentTopicLabel(),
+      questionIds: activeQuestions.map((q) => q.id),
+      answers: activeAnswers,
+      marked: Array.from(markedQuestions),
+      index: mobileExamIndex,
+    };
+    localStorage.setItem(EXAM_DRAFT_KEY, JSON.stringify(draft));
+  }
+
+  function loadMatchingDraft() {
+    try {
+      const draft = JSON.parse(localStorage.getItem(EXAM_DRAFT_KEY) || "null");
+      if (!draft || !Array.isArray(draft.questionIds)) return;
+      const same = draft.questionIds.length === activeQuestions.length && draft.questionIds.every((id, index) => id === activeQuestions[index]?.id);
+      if (!same) return;
+      activeAnswers = draft.answers || {};
+      markedQuestions = new Set(draft.marked || []);
+      mobileExamIndex = Math.min(Number(draft.index || 0), Math.max(activeQuestions.length - 1, 0));
+    } catch {
+      localStorage.removeItem(EXAM_DRAFT_KEY);
+    }
+  }
+
+  function clearExamDraft() {
+    localStorage.removeItem(EXAM_DRAFT_KEY);
+  }
+
+
   function uniqueTopics() {
     return [ALL_TOPICS, ...Array.from(new Set(questions().map((q) => q.topic))).sort()];
   }
@@ -40,6 +72,7 @@
     if (!box) return;
     const attempts = getAttempts();
     box.replaceChildren();
+    box.classList.add("m-exam-result-ready");
     if (!attempts.length) {
       box.textContent = "עדיין לא בוצעו ניסיונות מבחן.";
       return;
@@ -85,6 +118,63 @@
     document.getElementById("examResult").replaceChildren();
   }
 
+  function ensureQuestionGridSheet() {
+    let sheet = document.getElementById("mExamGridSheet");
+    if (sheet) return sheet;
+    sheet = document.createElement("div");
+    sheet.id = "mExamGridSheet";
+    sheet.className = "m-sheet m-exam-grid-sheet";
+    sheet.hidden = true;
+    sheet.innerHTML = '<div class="m-sheet__backdrop" data-m-exam-grid-close></div>' +
+      '<section class="m-sheet__panel" role="dialog" aria-modal="true" aria-labelledby="mExamGridTitle" tabindex="-1">' +
+      '<div class="m-sheet__head"><h2 id="mExamGridTitle">מפת שאלות</h2>' +
+      '<button type="button" class="m-sheet__close" data-m-exam-grid-close aria-label="סגירה">×</button></div>' +
+      '<div class="m-exam-grid" id="mExamGrid"></div></section>';
+    document.body.append(sheet);
+    sheet.addEventListener("click", (event) => { if (event.target.closest("[data-m-exam-grid-close]")) closeQuestionGrid(); });
+    sheet.addEventListener("keydown", (event) => { if (event.key === "Escape") closeQuestionGrid(); });
+    return sheet;
+  }
+
+  function renderQuestionGrid() {
+    const sheet = ensureQuestionGridSheet();
+    const grid = sheet.querySelector("#mExamGrid");
+    if (!grid) return;
+    grid.replaceChildren();
+    activeQuestions.forEach((q, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "m-exam-grid__item";
+      if (activeAnswers[q.id]) button.classList.add("is-answered");
+      if (markedQuestions.has(q.id)) button.classList.add("is-marked");
+      if (index === mobileExamIndex) button.classList.add("is-current");
+      button.textContent = String(index + 1);
+      button.setAttribute("aria-label", "שאלה " + (index + 1));
+      button.addEventListener("click", () => {
+        mobileExamIndex = index;
+        closeQuestionGrid();
+        renderExam();
+      });
+      grid.append(button);
+    });
+  }
+
+  function openQuestionGrid() {
+    renderQuestionGrid();
+    const sheet = ensureQuestionGridSheet();
+    sheet.hidden = false;
+    sheet.classList.add("is-open");
+    requestAnimationFrame(() => sheet.querySelector(".m-sheet__panel")?.focus());
+  }
+
+  function closeQuestionGrid() {
+    const sheet = document.getElementById("mExamGridSheet");
+    if (!sheet) return;
+    sheet.classList.remove("is-open");
+    sheet.hidden = true;
+  }
+
+
   function renderOption(q, option) {
     const label = document.createElement("label");
     label.className = "exam-answer";
@@ -93,7 +183,10 @@
     input.name = q.id;
     input.value = option;
     input.checked = activeAnswers[q.id] === option;
-    input.addEventListener("change", () => activeAnswers[q.id] = option);
+    input.addEventListener("change", () => {
+      activeAnswers[q.id] = option;
+      saveExamDraft();
+    });
     const span = document.createElement("span");
     span.textContent = option;
     label.append(input, span);
@@ -129,19 +222,34 @@
     q.shuffledOptions.forEach((option) => answers.append(renderOption(q, option)));
     card.append(h, answers);
     const controls = document.createElement("div");
-    controls.className = "m-exam-controls";
+    controls.className = "m-exam-controls m-exam-controls--p1";
+    const grid = document.createElement("button");
+    grid.className = "btn secondary";
+    grid.type = "button";
+    grid.textContent = "מפת שאלות";
+    grid.addEventListener("click", openQuestionGrid);
+    const mark = document.createElement("button");
+    mark.className = markedQuestions.has(q.id) ? "btn is-marked" : "btn secondary";
+    mark.type = "button";
+    mark.textContent = markedQuestions.has(q.id) ? "מסומן לחזרה" : "סמן לחזרה";
+    mark.addEventListener("click", () => {
+      if (markedQuestions.has(q.id)) markedQuestions.delete(q.id);
+      else markedQuestions.add(q.id);
+      saveExamDraft();
+      renderExam();
+    });
     const back = document.createElement("button");
     back.className = "btn secondary";
     back.type = "button";
     back.textContent = "חזור";
     back.disabled = index === 0;
-    back.addEventListener("click", () => { mobileExamIndex -= 1; renderExam(); });
+    back.addEventListener("click", () => { mobileExamIndex -= 1; saveExamDraft(); renderExam(); });
     const next = document.createElement("button");
     next.className = "btn";
     next.type = index === total - 1 ? "submit" : "button";
     next.textContent = index === total - 1 ? "סיים מבחן" : "הבא";
-    if (index < total - 1) next.addEventListener("click", () => { mobileExamIndex += 1; renderExam(); });
-    controls.append(back, next);
+    if (index < total - 1) next.addEventListener("click", () => { mobileExamIndex += 1; saveExamDraft(); renderExam(); });
+    controls.append(grid, mark, back, next);
     shell.append(top, progress, card, controls);
     form.append(shell);
   }
