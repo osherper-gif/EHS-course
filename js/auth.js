@@ -32,6 +32,7 @@ const MAX_TEXT = 5000;
 const AUTH_CACHE_KEY = "ehsCourseAuthCache";
 const AUTH_CACHE_TTL = 5 * 60 * 1000;
 const LOADER_DELAY = 700;
+const FIRESTORE_STATUS_TIMEOUT = 3000;
 const APPROVAL_WELCOME_PREFIX = "ehsCourseApprovalWelcome:";
 
 const isRootPage = !location.pathname.includes("/pages/");
@@ -47,6 +48,11 @@ let authDelayTimer = null;
 window.CourseAuthReady = new Promise((resolve) => {
   authReadyResolve = resolve;
 });
+
+function authLog(message, detail) {
+  if (detail !== undefined) console.info(`[auth] ${message}`, detail);
+  else console.info(`[auth] ${message}`);
+}
 
 function sanitizeText(value, max = MAX_TEXT) {
   return String(value || "").replace(/[<>]/g, "").replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, max);
@@ -161,6 +167,39 @@ function showShellMessage(title, message, actionBuilder) {
   shell.append(card);
 }
 
+function showCheckingShell() {
+  if (document.body.classList.contains("auth-approved")) return;
+  if (document.getElementById("authStateShell")) return;
+  document.body.classList.add("auth-ready");
+  let shell = document.getElementById("authStateShell");
+  if (!shell) {
+    shell = document.createElement("section");
+    shell.id = "authStateShell";
+    shell.className = "auth-state-shell";
+    document.body.prepend(shell);
+  }
+  shell.replaceChildren();
+  const card = document.createElement("div");
+  card.className = "auth-state-card";
+  const heading = document.createElement("h1");
+  heading.textContent = "בודק הרשאות";
+  const paragraph = document.createElement("p");
+  paragraph.textContent = "אנחנו מאמתים את החיבור שלך. העמוד לא יישאר ריק גם אם הבדיקה מתעכבת.";
+  card.append(heading, paragraph);
+  shell.append(card);
+}
+
+function withTimeout(promise, timeoutMs, label) {
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = window.setTimeout(() => {
+      authLog(`${label} timeout`);
+      reject(new Error(`${label}-timeout`));
+    }, timeoutMs);
+  });
+  return Promise.race([promise, timeout]).finally(() => window.clearTimeout(timer));
+}
+
 function showApprovalWelcome(profile) {
   if (!profile?.uid || !profile?.approvedAt) return;
   const key = APPROVAL_WELCOME_PREFIX + profile.uid;
@@ -198,16 +237,10 @@ function showLoading() {
   clearTimeout(authDelayTimer);
   loaderTimer = window.setTimeout(() => {
     if (document.body.classList.contains("auth-approved")) return;
-    if (document.getElementById("authInlineLoader")) return;
-    const loader = document.createElement("div");
-    loader.id = "authInlineLoader";
-    loader.className = "auth-inline-loader";
-    loader.textContent = "בודק הרשאות...";
-    document.body.append(loader);
+    showCheckingShell();
   }, LOADER_DELAY);
   authDelayTimer = window.setTimeout(() => {
     if (document.body.classList.contains("auth-approved")) return;
-    if (document.getElementById("authStateShell")) return;
     showShellMessage(
       "בדיקת ההרשאות מתעכבת",
       "החיבור מאובטח, אבל בדיקת ההרשאות נמשכת יותר מהרגיל. אפשר לרענן את העמוד או להתחבר מחדש.",
@@ -588,14 +621,17 @@ function guard() {
   }
   const cached = getCachedProfile();
   if (cached && isLoginPage) {
+    authLog("cache found");
     safeRedirect(homeUrl());
     return;
   }
   if (cached && isAdminPage && !isAdminProfile(cached)) {
     showLoading();
   } else if (cached && !isLoginPage) {
+    authLog("cache found");
     currentProfile = cached;
     window.CourseAuth.profile = cached;
+    document.body.classList.add("auth-cache-ready");
     decorateApprovedUser(cached);
     authReadyResolve?.(cached);
     document.dispatchEvent(new CustomEvent("course-auth-approved", { detail: cached }));
@@ -607,13 +643,42 @@ function guard() {
   onAuthStateChanged(auth, async (user) => {
     try {
       if (!user) {
+        authLog("redirect login");
         clearCachedProfile();
         currentProfile = null;
         authReadyResolve?.(null);
         if (!isLoginPage) safeRedirect(loginUrl());
         return;
       }
-      const profile = await ensureUserProfile(user);
+      authLog("user detected");
+      document.body.classList.add("auth-user-detected");
+      const fallbackProfile = getCachedProfile();
+      authLog("firestore status start");
+      let profile;
+      try {
+        profile = await withTimeout(ensureUserProfile(user), FIRESTORE_STATUS_TIMEOUT, "firestore status");
+      } catch (error) {
+        if (fallbackProfile) {
+          authLog("firestore status timeout");
+          profile = fallbackProfile;
+        } else {
+          authLog("firestore status timeout");
+          showShellMessage(
+            "בדיקת ההרשאות מתעכבת",
+            "לא הצלחנו לקבל את סטטוס המשתמש בזמן סביר. אפשר לרענן או להתחבר מחדש.",
+            () => {
+              const actions = document.createDocumentFragment();
+              actions.append(
+                buttonElement("רענון", () => location.reload()),
+                buttonElement("התנתקות", () => window.CourseAuth.logout())
+              );
+              return actions;
+            }
+          );
+          authReadyResolve?.(null);
+          return;
+        }
+      }
       currentProfile = profile;
       window.CourseAuth.profile = profile;
       if (isLoginPage) {
@@ -630,11 +695,13 @@ function guard() {
         return;
       }
       if (profile.status !== APPROVED) {
+        authLog(profile.status === BLOCKED ? "blocked" : "pending");
         clearCachedProfile();
         renderNotApproved(profile);
         authReadyResolve?.(profile);
         return;
       }
+      authLog("approved");
       saveCachedProfile(profile);
       decorateApprovedUser(profile);
       showApprovalWelcome(profile);

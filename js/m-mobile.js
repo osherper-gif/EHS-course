@@ -140,10 +140,13 @@
 
   function init(profile) {
     if (!isProtectedPage()) return;
+    if (!document.body.classList.contains("auth-approved")) return;
     ensureBottomNav(profile || window.CourseAuth?.profile || activeProfile);
   }
 
   document.addEventListener("course-auth-approved", (event) => init(event.detail));
-  document.addEventListener("DOMContentLoaded", () => init(window.CourseAuth?.profile));
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.body.classList.contains("auth-approved")) init(window.CourseAuth?.profile);
+  });
   window.addEventListener("resize", () => { if (window.matchMedia(MOBILE_QUERY).matches) init(window.CourseAuth?.profile || activeProfile); });
 })();

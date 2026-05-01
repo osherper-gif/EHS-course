@@ -173,6 +173,11 @@ body.auth-protected:not(.auth-approved) .site-footer {
   display: none;
 }
 
+body.auth-protected:not(.auth-approved) .m-bottom-nav,
+body.auth-protected:not(.auth-approved) .m-sheet {
+  display: none !important;
+}
+
 .auth-state-shell, .login-layout {
   min-height: 100vh;
   display: grid;
