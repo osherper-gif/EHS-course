@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   function state() {
     return window.CourseGameState;
   }
@@ -27,11 +27,14 @@
       return;
     }
     const stage = state().getStage(result.stageId);
+    const difficulty = result.difficulty || progress.difficulty || "medium";
     setText("resultStageTitle", `שלב ${stage.order}: ${stage.title}`);
     setText("resultScore", `${result.score}%`);
     setText("resultXp", `${result.xp} XP`);
     setText("resultCorrect", `${result.correct}/${result.total}`);
     setText("resultWrong", String(result.wrong));
+    setText("resultDifficulty", result.difficultyLabel || state().difficultyLabel(difficulty));
+    setText("resultRecommendation", result.recommendation || recommendation(result, difficulty));
     renderStars(document.getElementById("resultStars"), result.stars);
 
     const list = document.getElementById("resultMistakes");
@@ -62,6 +65,13 @@
         nextLink.href = `game-challenge.html?stage=${encodeURIComponent(nextStage)}`;
       }
     }
+  }
+
+  function recommendation(result, difficulty) {
+    if (result.score === 100 && difficulty === "easy") return "מעולה! רוצה לנסות את אותו נושא ברמה בינונית או קשה?";
+    if (result.score >= 90 && difficulty !== "hard") return "הביצוע חזק. מומלץ לנסות את הרמה הקשה באותו נושא.";
+    if (result.score < 70) return "כדאי לחזור על הטעויות והרמזים לפני מעבר לשלב הבא.";
+    return "המשך לשלב הבא ושמור על קצב למידה יציב.";
   }
 
   document.addEventListener("DOMContentLoaded", () => {

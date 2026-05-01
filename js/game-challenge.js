@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   let currentChallenge = null;
   let selectedAnswer = null;
   let checked = false;
@@ -32,6 +32,10 @@
     }
     let session = state().activeStage();
     if (!session || session.stageId !== requestedStage) session = state().startStage(requestedStage);
+    session.difficulty = session.difficulty || state().getDifficulty();
+    session.correctStreak = Number(session.correctStreak || 0);
+    session.wrongStreak = Number(session.wrongStreak || 0);
+    state().saveActiveStage(session);
     render(session);
     document.getElementById("checkAnswer")?.addEventListener("click", checkAnswer);
     document.getElementById("nextChallenge")?.addEventListener("click", nextChallenge);
@@ -41,7 +45,7 @@
   function render(session) {
     checked = false;
     selectedAnswer = null;
-    const challenges = state().getStageChallenges(session.stageId);
+    const challenges = state().getStageChallenges(session.stageId, session.difficulty);
     currentChallenge = challenges[session.index];
     const stage = state().getStage(session.stageId);
     if (!currentChallenge) {
@@ -54,7 +58,8 @@
     setText("challengeTitle", currentChallenge.title);
     setText("challengePrompt", currentChallenge.prompt);
     setText("challengeQuestion", currentChallenge.prompt);
-    renderTags();
+    setText("challengeDifficulty", `רמה: ${state().difficultyLabel(session.difficulty)}`);
+    renderTags(session);
     const progress = document.getElementById("challengeProgress");
     if (progress) progress.value = Math.round((session.index / challenges.length) * 100);
     const feedback = document.getElementById("challengeFeedback");
@@ -63,10 +68,20 @@
       feedback.className = "challenge-feedback gv2-feedback";
       feedback.hidden = true;
     }
+    const adaptive = document.getElementById("adaptiveSuggestion");
+    if (adaptive) {
+      adaptive.textContent = "";
+      adaptive.hidden = true;
+    }
     const next = document.getElementById("nextChallenge");
     if (next) next.hidden = true;
     const check = document.getElementById("checkAnswer");
     if (check) check.disabled = true;
+    const hint = document.getElementById("challengeHint");
+    if (hint) {
+      hint.textContent = "";
+      hint.hidden = true;
+    }
     renderAnswerArea();
   }
 
@@ -75,7 +90,7 @@
     if (node) node.textContent = value;
   }
 
-  function renderTags() {
+  function renderTags(session) {
     const tags = document.getElementById("challengeTags");
     if (!tags || !currentChallenge) return;
     const labelByType = {
@@ -86,11 +101,16 @@
       "risk-identification": "תרחיש שטח"
     };
     tags.replaceChildren();
-    [labelByType[currentChallenge.type] || "אתגר", currentChallenge.difficulty || "רגיל"].forEach((label) => {
+    [labelByType[currentChallenge.type] || "אתגר", state().difficultyLabel(session.difficulty), difficultyLabel(currentChallenge.difficulty)].forEach((label) => {
       const tag = document.createElement("span");
       tag.textContent = label;
       tags.append(tag);
     });
+  }
+
+  function difficultyLabel(value) {
+    const labels = { easy: "שאלה קלה", medium: "שאלה בינונית", hard: "שאלה קשה" };
+    return labels[value] || value || "רגיל";
   }
 
   function renderAnswerArea() {
@@ -223,20 +243,23 @@
     session.xp += xp;
     session.correct += correct ? 1 : 0;
     session.wrong += correct ? 0 : 1;
+    session.correctStreak = correct ? Number(session.correctStreak || 0) + 1 : 0;
+    session.wrongStreak = correct ? 0 : Number(session.wrongStreak || 0) + 1;
     session.answers.push({
       challengeId: currentChallenge.id,
       selectedAnswer,
       correctAnswer: currentChallenge.correctAnswer,
       correct,
       hintUsed,
-      xp
+      xp,
+      difficulty: currentChallenge.difficulty
     });
     const progress = state().load();
     if (!correct) state().addMistake(progress, currentChallenge, selectedAnswer);
     state().save(progress);
     state().saveActiveStage(session);
     markAnswers();
-    showFeedback(correct, xp);
+    showFeedback(correct, xp, session);
   }
 
   function markAnswers() {
@@ -250,7 +273,7 @@
     }
   }
 
-  function showFeedback(correct, xp) {
+  function showFeedback(correct, xp, session) {
     const feedback = document.getElementById("challengeFeedback");
     if (feedback) {
       feedback.hidden = false;
@@ -259,15 +282,64 @@
         ? `נכון. צברת ${xp} XP. ${currentChallenge.explanation}`
         : `לא מדויק. התשובה הנכונה: ${text(currentChallenge.correctAnswer)}. ${currentChallenge.explanation}`;
     }
+    renderAdaptiveSuggestion(session);
     document.getElementById("nextChallenge").hidden = false;
     document.getElementById("checkAnswer").disabled = true;
+  }
+
+  function renderAdaptiveSuggestion(session) {
+    const adaptive = document.getElementById("adaptiveSuggestion") || createAdaptiveSuggestion();
+    if (!adaptive) return;
+    adaptive.replaceChildren();
+    adaptive.hidden = true;
+    if (session.correctStreak >= 3 && session.difficulty !== "hard") {
+      adaptive.hidden = false;
+      adaptive.className = "adaptive-suggestion is-positive";
+      const textNode = document.createElement("span");
+      textNode.textContent = "ענית נכון 3 פעמים ברצף. רוצה לנסות רמה קשה יותר בשלב הבא?";
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "btn secondary";
+      button.textContent = "עבור לרמה קשה";
+      button.addEventListener("click", () => {
+        state().setDifficulty("hard");
+        adaptive.textContent = "הרמה הקשה תופעל בשלב הבא.";
+      });
+      adaptive.append(textNode, button);
+    } else if (session.wrongStreak >= 2) {
+      adaptive.hidden = false;
+      adaptive.className = "adaptive-suggestion is-warning";
+      const textNode = document.createElement("span");
+      textNode.textContent = "שתי טעויות ברצף. מומלץ לפתוח רמז או לחזור לרמה בינונית בשלב הבא.";
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "btn secondary";
+      button.textContent = "הפעל רמה בינונית";
+      button.addEventListener("click", () => {
+        state().setDifficulty("medium");
+        adaptive.textContent = "הרמה הבינונית תופעל בשלב הבא.";
+      });
+      adaptive.append(textNode, button);
+    }
+  }
+
+  function createAdaptiveSuggestion() {
+    const feedback = document.getElementById("challengeFeedback");
+    if (!feedback?.parentNode) return null;
+    const node = document.createElement("div");
+    node.id = "adaptiveSuggestion";
+    node.className = "adaptive-suggestion";
+    node.hidden = true;
+    feedback.after(node);
+    return node;
   }
 
   function nextChallenge() {
     const session = state().activeStage();
     session.index += 1;
     state().saveActiveStage(session);
-    document.getElementById("challengeHint").hidden = true;
+    const hint = document.getElementById("challengeHint");
+    if (hint) hint.hidden = true;
     document.getElementById("answerArea")?.classList.remove("is-correct", "is-wrong");
     render(session);
   }

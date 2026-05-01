@@ -1,8 +1,22 @@
-(function () {
+﻿(function () {
   const STORAGE_KEY = "safetyCourse:game:progress";
   const ACTIVE_KEY = "safetyCourse:game:activeStage";
   const DEFAULT_UNIT = "unit-foundations";
   const DEFAULT_STAGE = "stage-01";
+  const DEFAULT_DIFFICULTY = "medium";
+  const STAGE_QUESTION_LIMIT = 5;
+  const DIFFICULTY_LABELS = {
+    easy: "קל",
+    medium: "בינוני",
+    hard: "קשה",
+    mixed: "מעורב"
+  };
+  const DIFFICULTY_ORDER = {
+    easy: ["easy", "medium", "hard"],
+    medium: ["medium", "hard", "easy"],
+    hard: ["hard", "medium", "easy"],
+    mixed: ["easy", "medium", "hard"]
+  };
 
   function defaultProgress() {
     return {
@@ -12,23 +26,29 @@
       stageStars: {},
       currentUnit: DEFAULT_UNIT,
       currentStage: DEFAULT_STAGE,
+      difficulty: DEFAULT_DIFFICULTY,
       mistakes: [],
       lastStageResult: null,
+      lastDifficultyRecommendation: "",
       updatedAt: new Date().toISOString()
     };
+  }
+
+  function normalizeDifficulty(value) {
+    return DIFFICULTY_LABELS[value] ? value : DEFAULT_DIFFICULTY;
   }
 
   function load() {
     try {
       const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-      return { ...defaultProgress(), ...(stored || {}) };
+      return { ...defaultProgress(), ...(stored || {}), difficulty: normalizeDifficulty(stored?.difficulty) };
     } catch {
       return defaultProgress();
     }
   }
 
   function save(progress) {
-    const next = { ...defaultProgress(), ...progress, updatedAt: new Date().toISOString() };
+    const next = { ...defaultProgress(), ...progress, difficulty: normalizeDifficulty(progress?.difficulty), updatedAt: new Date().toISOString() };
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
     } catch {
@@ -61,8 +81,31 @@
     return stages().find((stage) => stage.id === stageId) || stages()[0];
   }
 
-  function getStageChallenges(stageId) {
-    return challenges().filter((challenge) => challenge.stageId === stageId);
+  function getDifficulty(progress = load()) {
+    return normalizeDifficulty(progress?.difficulty);
+  }
+
+  function setDifficulty(value) {
+    const progress = load();
+    progress.difficulty = normalizeDifficulty(value);
+    return save(progress);
+  }
+
+  function difficultyLabel(value = getDifficulty()) {
+    return DIFFICULTY_LABELS[normalizeDifficulty(value)];
+  }
+
+  function sortByDifficultyPreference(list, difficulty) {
+    const order = DIFFICULTY_ORDER[normalizeDifficulty(difficulty)] || DIFFICULTY_ORDER.medium;
+    return [...list].sort((a, b) => order.indexOf(a.difficulty) - order.indexOf(b.difficulty));
+  }
+
+  function getStageChallenges(stageId, requestedDifficulty) {
+    const difficulty = normalizeDifficulty(requestedDifficulty || getDifficulty());
+    const stageItems = challenges().filter((challenge) => challenge.stageId === stageId);
+    if (difficulty === "mixed") return stageItems.slice(0, STAGE_QUESTION_LIMIT);
+    const preferred = sortByDifficultyPreference(stageItems, difficulty);
+    return preferred.slice(0, STAGE_QUESTION_LIMIT);
   }
 
   function isStageUnlocked(stageId, progress = load()) {
@@ -92,18 +135,21 @@
 
   function startStage(stageId) {
     const selectedStage = getStage(stageId)?.id || firstOpenStage();
+    const progress = load();
     const session = {
       stageId: selectedStage,
+      difficulty: getDifficulty(progress),
       index: 0,
       xp: 0,
       correct: 0,
       wrong: 0,
+      correctStreak: 0,
+      wrongStreak: 0,
       answers: [],
       hintUsedByChallenge: {},
       startedAt: new Date().toISOString()
     };
     sessionStorage.setItem(ACTIVE_KEY, JSON.stringify(session));
-    const progress = load();
     progress.currentStage = selectedStage;
     save(progress);
     return session;
@@ -149,12 +195,21 @@
 
   function completeStage(session) {
     const progress = load();
-    const stageChallenges = getStageChallenges(session.stageId);
+    const stageDifficulty = normalizeDifficulty(session?.difficulty || progress.difficulty);
+    const stageChallenges = getStageChallenges(session.stageId, stageDifficulty);
     const total = stageChallenges.length || 1;
     const stars = starsForMistakes(session.wrong);
+    const score = Math.round((session.correct / total) * 100);
+    let recommendation = "המשך לשלב הבא ושמור על קצב למידה יציב.";
+    if (score >= 90 && stageDifficulty !== "hard") recommendation = "הביצוע חזק. מומלץ לנסות את הרמה הקשה באותו נושא.";
+    if (score === 100 && stageDifficulty === "easy") recommendation = "מעולה! רוצה לנסות את אותו נושא ברמה בינונית או קשה?";
+    if (score < 70) recommendation = "כדאי לחזור על הטעויות והרמזים לפני מעבר לשלב הבא.";
     const result = {
       stageId: session.stageId,
-      score: Math.round((session.correct / total) * 100),
+      difficulty: stageDifficulty,
+      difficultyLabel: difficultyLabel(stageDifficulty),
+      recommendation,
+      score,
       xp: session.xp,
       stars,
       correct: session.correct,
@@ -168,6 +223,7 @@
     progress.stageStars = { ...(progress.stageStars || {}), [session.stageId]: Math.max(stars, Number(progress.stageStars?.[session.stageId] || 0)) };
     progress.currentStage = nextStageId(session.stageId);
     progress.lastStageResult = result;
+    progress.lastDifficultyRecommendation = recommendation;
     save(progress);
     sessionStorage.removeItem(ACTIVE_KEY);
     return result;
@@ -182,11 +238,15 @@
 
   window.CourseGameState = {
     STORAGE_KEY,
+    DIFFICULTY_LABELS,
     load,
     save,
     stages,
     challenges,
     getStage,
+    getDifficulty,
+    setDifficulty,
+    difficultyLabel,
     getStageChallenges,
     isStageUnlocked,
     firstOpenStage,

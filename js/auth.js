@@ -373,6 +373,19 @@ async function syncProgress(lessonId, completed, notes) {
   }
 }
 
+async function updateLastSeenVersionAt(timestamp) {
+  if (!db || !auth?.currentUser || !currentProfile || currentProfile.status !== APPROVED) return false;
+  try {
+    await updateDoc(doc(db, "users", auth.currentUser.uid), {
+      lastSeenVersionAt: sanitizeText(timestamp || new Date().toISOString(), 80),
+      lastSeenVersionUpdatedAt: serverTimestamp(),
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function saveExamAttempt(attempt) {
   if (!db || !auth?.currentUser || !currentProfile || currentProfile.status !== APPROVED) return false;
   try {
@@ -408,6 +421,8 @@ async function saveGameProgress(progress) {
       completedStages: progress?.completedStages || {},
       currentUnit: sanitizeText(progress?.currentUnit || "unit-foundations", 120),
       currentStage: sanitizeText(progress?.currentStage || "stage-01", 120),
+      difficulty: sanitizeText(progress?.difficulty || "medium", 40),
+      lastDifficultyRecommendation: sanitizeText(progress?.lastDifficultyRecommendation || "", 500),
       mistakes: Array.isArray(progress?.mistakes) ? progress.mistakes.slice(0, 50).map((mistake) => ({
         challengeId: sanitizeText(mistake.challengeId, 140),
         stageId: sanitizeText(mistake.stageId, 140),

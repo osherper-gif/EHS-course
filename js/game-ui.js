@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const state = () => window.CourseGameState;
   const data = () => window.CourseGameData || {};
 
@@ -16,6 +16,31 @@
       wrapper.append(star);
     }
     return wrapper;
+  }
+
+  function renderDifficulty(progress = state().load()) {
+    const difficulty = state().getDifficulty(progress);
+    const label = state().difficultyLabel(difficulty);
+    document.querySelectorAll("[data-game-difficulty]").forEach((node) => {
+      node.textContent = label;
+    });
+    document.querySelectorAll("[data-game-difficulty-value]").forEach((node) => {
+      node.value = difficulty;
+      node.checked = node.value === difficulty;
+    });
+  }
+
+  function initDifficultyControls() {
+    document.querySelectorAll("[data-game-difficulty-value]").forEach((control) => {
+      control.addEventListener("change", () => {
+        const progress = state().setDifficulty(control.value);
+        renderDifficulty(progress);
+        const notice = document.getElementById("difficultyNotice");
+        if (notice) notice.textContent = `רמת הקושי עודכנה ל-${state().difficultyLabel(progress.difficulty)}.`;
+        const continueButton = document.getElementById("continueGame");
+        if (continueButton) continueButton.href = `game-challenge.html?stage=${encodeURIComponent(state().firstOpenStage(progress))}`;
+      });
+    });
   }
 
   function renderDashboard() {
@@ -40,6 +65,7 @@
     document.querySelectorAll("[data-game-mistakes]").forEach((node) => {
       node.textContent = String(mistakeCount);
     });
+    renderDifficulty(progress);
   }
 
   function renderUnitPath(containerId = "gameUnitPath") {
@@ -75,12 +101,14 @@
       const meta = el("div", "game-node-meta gv2-node-meta");
       meta.append(stars(starsCount));
       meta.append(el("span", "status-pill", statusText(visualState)));
+      meta.append(el("span", "status-pill", `רמה: ${state().difficultyLabel(progress.difficulty)}`));
       body.append(meta);
 
       const popover = el("div", "gv2-stage-popover");
       popover.hidden = true;
       popover.append(el("h3", "", stage.title));
       popover.append(el("p", "", stage.summary));
+      popover.append(el("p", "", `רמת קושי פעילה: ${state().difficultyLabel(progress.difficulty)}.`));
       const action = document.createElement("a");
       action.className = "btn";
       action.href = `game-challenge.html?stage=${encodeURIComponent(stage.id)}`;
@@ -113,6 +141,7 @@
 
   function initSafetyGameHome() {
     renderDashboard();
+    initDifficultyControls();
     const continueButton = document.getElementById("continueGame");
     if (continueButton) {
       continueButton.href = `game-challenge.html?stage=${encodeURIComponent(state().firstOpenStage())}`;
@@ -149,6 +178,7 @@
   window.CourseGameUI = {
     renderDashboard,
     renderUnitPath,
+    renderDifficulty,
     stars
   };
 })();

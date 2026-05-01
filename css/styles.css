@@ -1985,3 +1985,128 @@ html[data-theme="dark"] .status-pill[data-status="open"]      { color: var(--bra
     grid-column: 1 / -1;
   }
 }
+
+/* Game difficulty and adaptive learning */
+.difficulty-picker {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 360px;
+}
+.difficulty-picker h2 {
+  margin: 0 0 .35rem;
+  font-size: 1rem;
+}
+.difficulty-picker p {
+  margin: 0 0 .65rem;
+  color: var(--muted);
+  font-size: .92rem;
+}
+.difficulty-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+}
+.difficulty-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  min-height: 36px;
+  padding: .35rem .55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-alt);
+  cursor: pointer;
+  font-size: .92rem;
+}
+.adaptive-suggestion,
+.result-recommendation {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-alt);
+  padding: .8rem;
+  margin-top: .75rem;
+}
+.adaptive-suggestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.adaptive-suggestion.is-positive {
+  border-color: rgba(16, 185, 129, .4);
+  background: rgba(16, 185, 129, .1);
+}
+.adaptive-suggestion.is-warning {
+  border-color: rgba(245, 158, 11, .45);
+  background: rgba(245, 158, 11, .12);
+}
+@media (max-width: 720px) {
+  .difficulty-picker {
+    max-width: none;
+    width: 100%;
+  }
+  .difficulty-options {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: .25rem;
+  }
+  .difficulty-options label {
+    flex: 0 0 auto;
+  }
+}
+
+/* What is new modal */
+.whats-new-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, .5);
+}
+.whats-new-dialog {
+  width: min(720px, 100%);
+  max-height: min(82vh, 760px);
+  overflow: auto;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  padding: 1.25rem;
+}
+.whats-new-dialog h2 {
+  margin-top: 0;
+}
+.whats-new-list {
+  display: grid;
+  gap: .75rem;
+  margin: 1rem 0;
+}
+.whats-new-list article {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .9rem;
+  background: var(--surface-alt);
+}
+.whats-new-list h3 {
+  margin: 0 0 .35rem;
+  font-size: 1.05rem;
+}
+.whats-new-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: .6rem;
+}
+.whats-new-tags span {
+  border-radius: 999px;
+  background: rgba(14, 165, 233, .12);
+  color: var(--accent-strong);
+  padding: .25rem .55rem;
+  font-size: .85rem;
+}

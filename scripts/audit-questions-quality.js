@@ -1,99 +1,129 @@
-const fs = require("fs");
+﻿const fs = require("fs");
+const path = require("path");
 const vm = require("vm");
 
-const sandbox = { window: {} };
-vm.runInNewContext(fs.readFileSync("data/exam-questions.js", "utf8"), sandbox);
+const root = path.resolve(__dirname, "..");
+const ctx = { window: {} };
+vm.runInNewContext(fs.readFileSync(path.join(root, "data", "exam-questions.js"), "utf8"), ctx);
+const questions = ctx.window.EXAM_QUESTIONS || [];
 
-const questions = sandbox.window.EXAM_QUESTIONS || [];
-const issues = [];
-const recommendations = [];
-const byLesson = {};
-const exact = new Map();
-
-function normalize(value) {
-  return String(value || "")
-    .toLowerCase()
-    .replace(/[^\u0590-\u05ffa-z0-9\s]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function words(value) {
-  return normalize(value).split(" ").filter((word) => word.length > 1);
-}
-
-function jaccard(a, b) {
-  const aSet = new Set(words(a));
-  const bSet = new Set(words(b));
-  if (!aSet.size || !bSet.size) return 0;
-  let intersection = 0;
-  for (const word of aSet) if (bSet.has(word)) intersection += 1;
-  return intersection / (aSet.size + bSet.size - intersection);
-}
-
-const genericPatterns = [
+const MIN_TOTAL = 300;
+const MIN_PER_LESSON = 25;
+const REQUIRED_DIFFICULTIES = new Set(["easy", "medium", "hard"]);
+const GENERIC_PATTERNS = [
   /מה מאפיין תשובה טובה/,
   /איזה סיכון מתאים למפגש/,
   /מה הצעד הראשון בניתוח מקצועי/,
-  /מהו הנושא המרכזי של המפגש/,
-  /רשימת סיכונים מתאימה ביותר/,
+  /מהי המשמעות המקצועית של .* בהקשר שיעור/,
+  /מהי טעות נפוצה בטיפול בנושא/,
+  /מה חשוב לזכור למבחן בנושא/,
+  /בחר את המשפט המדויק ביותר על הנושא/
+];
+const TOO_EASY_PATTERNS = [
+  /^מהו\s[^?]{0,18}\?$/,
+  /^מהי\s[^?]{0,18}\?$/,
+  /איזו תשובה נכונה\?$/
 ];
 
+function normalize(text) {
+  return String(text || "")
+    .replace(/[\u0591-\u05C7]/g, "")
+    .replace(/[\s\-–—_,.;:!?"'״׳()\[\]]+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function similarity(a, b) {
+  const aw = new Set(normalize(a).split(" ").filter(Boolean));
+  const bw = new Set(normalize(b).split(" ").filter(Boolean));
+  if (!aw.size || !bw.size) return 0;
+  let intersection = 0;
+  aw.forEach((word) => { if (bw.has(word)) intersection += 1; });
+  return intersection / Math.max(aw.size, bw.size);
+}
+
+const issues = [];
+const recommendations = [];
+const byLesson = new Map();
+const exactMap = new Map();
+
 questions.forEach((question, index) => {
-  const id = question.id || `index-${index}`;
-  byLesson[question.relatedLessonId || "missing"] = (byLesson[question.relatedLessonId || "missing"] || 0) + 1;
+  const label = question.id || `#${index + 1}`;
+  const lessonId = question.relatedLessonId || "missing";
+  if (!byLesson.has(lessonId)) byLesson.set(lessonId, []);
+  byLesson.get(lessonId).push(question);
 
-  const key = normalize(question.question);
-  if (exact.has(key)) issues.push(`כפילות מדויקת: ${id} דומה ל-${exact.get(key)}`);
-  else exact.set(key, id);
+  const normalizedQuestion = normalize(question.question);
+  if (exactMap.has(normalizedQuestion)) {
+    issues.push(`[duplicate] ${label} duplicates ${exactMap.get(normalizedQuestion)}`);
+  } else {
+    exactMap.set(normalizedQuestion, label);
+  }
 
-  if (!question.relatedLessonId) issues.push(`חסר relatedLessonId: ${id}`);
-  if (!question.difficulty) issues.push(`חסר difficulty: ${id}`);
-  if (!question.explanation || normalize(question.explanation).length < 80) issues.push(`הסבר קצר מדי או חסר: ${id}`);
-  if (!Array.isArray(question.options) || question.options.length < 4) issues.push(`פחות מ-4 אפשרויות: ${id}`);
-  if (normalize(question.question).length < 35) issues.push(`שאלה קצרה מדי: ${id}`);
-  if (genericPatterns.some((pattern) => pattern.test(question.question))) issues.push(`שאלה גנרית מדי: ${id}`);
-  if (question.options && new Set(question.options.map(normalize)).size !== question.options.length) issues.push(`אפשרויות כפולות: ${id}`);
-  if (question.correctAnswer && !question.options?.includes(question.correctAnswer)) issues.push(`התשובה הנכונה אינה נמצאת באפשרויות: ${id}`);
+  if (!question.relatedLessonId) issues.push(`[missing lesson] ${label}`);
+  if (!question.topic || String(question.topic).trim().length < 4) issues.push(`[missing topic] ${label}`);
+  if (!REQUIRED_DIFFICULTIES.has(question.difficulty)) issues.push(`[bad difficulty] ${label}: ${question.difficulty}`);
+  if (!question.explanation || String(question.explanation).trim().length < 35) issues.push(`[weak explanation] ${label}`);
+  if (!question.sourceNote && !question.source) issues.push(`[missing source note] ${label}`);
+  if (!Array.isArray(question.options) || question.options.length < 4) issues.push(`[options] ${label} has fewer than 4 options`);
+  if (Array.isArray(question.options) && question.options.length) {
+    const normalizedOptions = question.options.map(normalize);
+    if (new Set(normalizedOptions).size !== normalizedOptions.length) issues.push(`[duplicate options] ${label}`);
+    if (!question.options.includes(question.correctAnswer)) issues.push(`[correct answer missing from options] ${label}`);
+  }
+  if (!question.question || String(question.question).trim().length < 28) issues.push(`[too short] ${label}`);
+  if (GENERIC_PATTERNS.some((pattern) => pattern.test(question.question || ""))) issues.push(`[generic wording] ${label}: ${question.question}`);
+  if (TOO_EASY_PATTERNS.some((pattern) => pattern.test(question.question || "")) && question.difficulty !== "easy") {
+    issues.push(`[too easy for difficulty] ${label}: ${question.question}`);
+  }
 });
 
-const highSimilarity = [];
+const sortedLessons = [...byLesson.entries()].sort(([a], [b]) => a.localeCompare(b));
+sortedLessons.forEach(([lessonId, list]) => {
+  if (lessonId === "missing") return;
+  if (list.length < MIN_PER_LESSON) issues.push(`[lesson count] ${lessonId} has ${list.length}, expected at least ${MIN_PER_LESSON}`);
+  const diffCounts = list.reduce((acc, question) => {
+    acc[question.difficulty] = (acc[question.difficulty] || 0) + 1;
+    return acc;
+  }, {});
+  for (const difficulty of REQUIRED_DIFFICULTIES) {
+    if (!diffCounts[difficulty]) issues.push(`[difficulty spread] ${lessonId} has no ${difficulty} questions`);
+  }
+  const hardRatio = Number(diffCounts.hard || 0) / list.length;
+  if ((diffCounts.hard || 0) < 2) issues.push(`[difficulty spread] ${lessonId} has too few hard questions (${diffCounts.hard || 0}/${list.length})`);
+});
+
 for (let i = 0; i < questions.length; i += 1) {
   for (let j = i + 1; j < questions.length; j += 1) {
-    const score = jaccard(questions[i].question, questions[j].question);
-    if (score >= 0.92) highSimilarity.push(`${questions[i].id} ~ ${questions[j].id} (${score.toFixed(2)})`);
+    const score = similarity(questions[i].question, questions[j].question);
+    if (score >= 0.86 && normalize(questions[i].question) !== normalize(questions[j].question)) {
+      recommendations.push(`[high similarity] ${questions[i].id} ~ ${questions[j].id} (${score.toFixed(2)})`);
+    }
   }
 }
 
-if (highSimilarity.length) {
-  recommendations.push(`נמצאו ${highSimilarity.length} זוגות עם דמיון גבוה מאוד. מומלץ לבדוק ידנית: ${highSimilarity.slice(0, 12).join(", ")}`);
-}
+if (questions.length < MIN_TOTAL) issues.push(`[total count] ${questions.length} questions, expected at least ${MIN_TOTAL}`);
 
-Object.entries(byLesson).forEach(([lessonId, count]) => {
-  if (lessonId === "missing") return;
-  if (count < 20) issues.push(`מעט מדי שאלות ב-${lessonId}: ${count}`);
-});
-
-if (questions.length < 240) issues.push(`מאגר קטן מדי: ${questions.length} שאלות`);
-
-console.log("Question Quality Audit");
+console.log("Question quality audit");
 console.log("======================");
 console.log(`Total questions: ${questions.length}`);
 console.log("Questions by lesson:");
-Object.keys(byLesson).sort().forEach((lessonId) => console.log(`- ${lessonId}: ${byLesson[lessonId]}`));
-console.log(`Exact duplicates: ${Math.max(0, questions.length - exact.size)}`);
-console.log(`High-similarity pairs: ${highSimilarity.length}`);
-console.log(`Issues: ${issues.length}`);
-
-if (issues.length) {
-  console.log("\nFAIL");
-  issues.forEach((issue) => console.log(`- ${issue}`));
-  process.exitCode = 1;
-} else {
-  console.log("\nPASS");
-}
-
+sortedLessons.forEach(([lessonId, list]) => {
+  const diffCounts = list.reduce((acc, question) => {
+    acc[question.difficulty] = (acc[question.difficulty] || 0) + 1;
+    return acc;
+  }, {});
+  console.log(`- ${lessonId}: ${list.length} (easy ${diffCounts.easy || 0}, medium ${diffCounts.medium || 0}, hard ${diffCounts.hard || 0})`);
+});
+console.log(issues.length ? "FAIL" : "PASS");
 if (recommendations.length) {
-  console.log("\nRecommendations:");
-  recommendations.forEach((item) => console.log(`- ${item}`));
+  console.log("Recommendations:");
+  recommendations.slice(0, 40).forEach((item) => console.log(`- ${item}`));
+  if (recommendations.length > 40) console.log(`- ...and ${recommendations.length - 40} more`);
+}
+if (issues.length) {
+  console.log("Issues:");
+  issues.slice(0, 120).forEach((issue) => console.log(`- ${issue}`));
+  if (issues.length > 120) console.log(`- ...and ${issues.length - 120} more`);
+  process.exitCode = 1;
 }
