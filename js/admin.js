@@ -478,9 +478,32 @@ async function copyText(text, successMessage) {
   document.getElementById("adminStatus").textContent = successMessage;
 }
 
+function ensureAdminMobileFab() {
+  if (document.getElementById("mAdminFab")) return;
+  const fab = document.createElement("div");
+  fab.id = "mAdminFab";
+  fab.className = "m-admin-fab";
+  const users = document.createElement("button");
+  users.type = "button";
+  users.textContent = "משתמשים";
+  users.addEventListener("click", () => document.querySelector('[data-admin-tab="users"]')?.click());
+  const feedback = document.createElement("button");
+  feedback.type = "button";
+  feedback.textContent = "דיווחים";
+  feedback.addEventListener("click", () => document.querySelector('[data-admin-tab="feedback"]')?.click());
+  const top = document.createElement("button");
+  top.type = "button";
+  top.textContent = "למעלה";
+  top.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  fab.append(users, feedback, top);
+  document.body.append(fab);
+}
+
+
 document.addEventListener("course-auth-approved", async (event) => {
   if (event.detail?.role !== "admin" && !window.CourseAuth?.isAdminEmail?.(event.detail?.email)) return;
   try {
+    ensureAdminMobileFab();
     await loadUsers();
   } catch {
     document.getElementById("adminStatus").textContent = "שגיאה בטעינת המשתמשים.";

@@ -2307,3 +2307,20 @@ html[data-theme="dark"] { --muted: #c4d0da; }
   .difficulty-card { min-height: 64px; }
   .gv2-results-hero, .game-results-card { border-radius: 16px; padding: 1rem; }
 }
+
+
+/* ---- Mobile First P1 Admin ---- */
+@media (max-width: 767px) {
+  .admin-mini-stats { display: flex; overflow-x: auto; gap: .65rem; padding-bottom: .35rem; scroll-snap-type: x mandatory; }
+  .admin-mini-stats .metric-modern { min-width: 150px; scroll-snap-align: start; padding: .8rem; }
+  .admin-tabs { position: sticky; top: 0; z-index: 950; background: var(--bg); display: flex; overflow-x: auto; gap: .45rem; padding: .55rem 0; }
+  .admin-tab { min-height: 44px; white-space: nowrap; }
+  .admin-search input { min-height: 48px; font-size: 1rem; }
+  .m-admin-card { border-inline-start: 5px solid var(--brand); }
+  .m-admin-card__actions, .m-admin-card > .admin-actions-cell { margin-top: .35rem; }
+  .m-admin-card > button.btn, .m-admin-card > a.btn { width: 100%; min-height: 48px; }
+  .m-admin-card .status-pill, .m-admin-card .risk-pill { justify-self: start; }
+  .m-admin-fab { position: fixed; inset-inline: .75rem; bottom: calc(76px + env(safe-area-inset-bottom)); z-index: 1120; display: grid; grid-template-columns: repeat(3, 1fr); gap: .4rem; background: color-mix(in srgb, var(--surface), transparent 3%); border: 1px solid var(--border); border-radius: 14px; padding: .5rem; box-shadow: var(--shadow); }
+  .m-admin-fab button { min-height: 42px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-2); color: var(--text); font: inherit; font-weight: 800; }
+}
+@media (min-width: 768px) { .m-admin-fab { display: none !important; } }
