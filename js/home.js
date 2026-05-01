@@ -24,12 +24,21 @@
     const last = window.CourseStorage?.lastVisited?.();
     const href = last && lessonHrefById(last.lessonId);
     if (!last || !href) {
-      host.hidden = true;
+      host.hidden = false;
+      host.classList.add("m-home-continue");
+      host.innerHTML = ''
+        + '<div class="card-icon"><svg width="22" height="22" aria-hidden="true"><use href="./assets/icons.svg#i-book"/></svg></div>'
+        + '<div>'
+        +   '<h3>המשך מאיפה שעצרת</h3>'
+        +   '<p class="meta-row">עדיין לא התחלת שיעור. מומלץ להתחיל מהשיעור הראשון או להיכנס לתרגול.</p>'
+        + '</div>'
+        + '<a class="btn" href="./pages/lesson-01.html">התחל שיעור ראשון</a>';
       return;
     }
     const title = last.title || findLessonTitle(last.lessonId) || last.lessonId;
     const at = last.at ? new Date(last.at).toLocaleDateString("he-IL") : "";
     host.hidden = false;
+    host.classList.add("m-home-continue");
     host.innerHTML = ''
       + '<div class="card-icon"><svg width="22" height="22" aria-hidden="true"><use href="./assets/icons.svg#i-play"/></svg></div>'
       + '<div>'

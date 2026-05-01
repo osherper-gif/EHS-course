@@ -85,9 +85,68 @@
     document.getElementById("examResult").replaceChildren();
   }
 
-  function renderExam() {
-    const form = document.getElementById("examForm");
-    form.replaceChildren();
+  function renderOption(q, option) {
+    const label = document.createElement("label");
+    label.className = "exam-answer";
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.name = q.id;
+    input.value = option;
+    input.checked = activeAnswers[q.id] === option;
+    input.addEventListener("change", () => activeAnswers[q.id] = option);
+    const span = document.createElement("span");
+    span.textContent = option;
+    label.append(input, span);
+    return label;
+  }
+
+  function renderMobileExamQuestion(form) {
+    const total = activeQuestions.length;
+    const index = Math.min(Math.max(mobileExamIndex, 0), Math.max(total - 1, 0));
+    mobileExamIndex = index;
+    const q = activeQuestions[index];
+    if (!q) return;
+    const shell = document.createElement("section");
+    shell.className = "m-exam-shell";
+    const top = document.createElement("div");
+    top.className = "m-exam-top";
+    const counter = document.createElement("strong");
+    counter.textContent = "שאלה " + (index + 1) + " מתוך " + total;
+    const topic = document.createElement("span");
+    topic.textContent = q.topic;
+    top.append(counter, topic);
+    const progress = document.createElement("div");
+    progress.className = "m-exam-progress";
+    const bar = document.createElement("span");
+    bar.style.width = Math.round(((index + 1) / total) * 100) + "%";
+    progress.append(bar);
+    const card = document.createElement("article");
+    card.className = "question-card exam-question m-exam-question";
+    const h = document.createElement("h2");
+    h.textContent = q.question;
+    const answers = document.createElement("div");
+    answers.className = "answer-list m-exam-answers";
+    q.shuffledOptions.forEach((option) => answers.append(renderOption(q, option)));
+    card.append(h, answers);
+    const controls = document.createElement("div");
+    controls.className = "m-exam-controls";
+    const back = document.createElement("button");
+    back.className = "btn secondary";
+    back.type = "button";
+    back.textContent = "חזור";
+    back.disabled = index === 0;
+    back.addEventListener("click", () => { mobileExamIndex -= 1; renderExam(); });
+    const next = document.createElement("button");
+    next.className = "btn";
+    next.type = index === total - 1 ? "submit" : "button";
+    next.textContent = index === total - 1 ? "סיים מבחן" : "הבא";
+    if (index < total - 1) next.addEventListener("click", () => { mobileExamIndex += 1; renderExam(); });
+    controls.append(back, next);
+    shell.append(top, progress, card, controls);
+    form.append(shell);
+  }
+
+  function renderDesktopExam(form) {
     activeQuestions.forEach((q, index) => {
       const card = document.createElement("article");
       card.className = "question-card exam-question";
@@ -97,19 +156,7 @@
       p.textContent = q.question;
       const answers = document.createElement("div");
       answers.className = "answer-list";
-      q.shuffledOptions.forEach((option) => {
-        const label = document.createElement("label");
-        label.className = "exam-answer";
-        const input = document.createElement("input");
-        input.type = "radio";
-        input.name = q.id;
-        input.value = option;
-        input.addEventListener("change", () => activeAnswers[q.id] = option);
-        const span = document.createElement("span");
-        span.textContent = option;
-        label.append(input, span);
-        answers.append(label);
-      });
+      q.shuffledOptions.forEach((option) => answers.append(renderOption(q, option)));
       card.append(h, p, answers);
       form.append(card);
     });
@@ -118,6 +165,15 @@
     submit.type = "submit";
     submit.textContent = "סיים מבחן";
     form.append(submit);
+  }
+
+  function renderExam() {
+    const form = document.getElementById("examForm");
+    if (!form) return;
+    form.replaceChildren();
+    if (!activeQuestions.length) return;
+    if (isMobileExam()) renderMobileExamQuestion(form);
+    else renderDesktopExam(form);
   }
 
   async function saveAttempt(attempt) {

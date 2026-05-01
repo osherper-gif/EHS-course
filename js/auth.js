@@ -1,5 +1,6 @@
 import "../js/email-notifications.js";
 import "../js/feedback.js";
+import "../js/m-mobile.js";
 import {
   ADMIN_EMAIL,
   auth,

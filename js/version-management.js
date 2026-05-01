@@ -171,6 +171,53 @@ function renderVersions() {
   });
 }
 
+function ensureVersionCards() {
+  const tbody = document.getElementById("versionsTableBody");
+  if (!tbody) return null;
+  const tableWrap = tbody.closest(".table-scroll");
+  if (tableWrap) tableWrap.classList.add("m-card-source");
+  let container = document.getElementById("versionsMobileCards");
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "versionsMobileCards";
+    container.className = "m-admin-cards";
+    tableWrap?.after(container);
+  }
+  return container;
+}
+function versionCardLine(label, value) {
+  const row = document.createElement("p");
+  const strong = document.createElement("strong");
+  strong.textContent = label;
+  const span = document.createElement("span");
+  span.textContent = value || "-";
+  row.append(strong, span);
+  return row;
+}
+function renderVersionCards() {
+  const container = ensureVersionCards();
+  if (!container) return;
+  container.replaceChildren();
+  versions.forEach((version) => {
+    const card = document.createElement("article");
+    card.className = "m-admin-card";
+    const head = document.createElement("div");
+    head.className = "m-admin-card__head";
+    const h = document.createElement("h3");
+    h.textContent = (version.versionNumber || "-") + (version.commitHash ? " / " + version.commitHash : "");
+    const st = document.createElement("span");
+    st.className = "status-pill";
+    st.textContent = statusLabel(version.status);
+    head.append(h, st);
+    const actions = document.createElement("div");
+    actions.className = "admin-actions-cell";
+    actions.append(actionButton("פתח פרטים", "details", version.versionId), actionButton("עריכה", "edit", version.versionId), actionButton("מחיקה", "delete", version.versionId, version.status !== "draft" || usingBuiltinVersions), actionButton("סמן כפורסם", "publish", version.versionId, usingBuiltinVersions || version.status === "published" || version.status === "sent"), actionButton("שליחת מייל עדכון למשתמשים", "prepareEmail", version.versionId));
+    card.append(head, versionCardLine("תאריך", [version.releaseDate || version.date, version.releaseTime || version.time].filter(Boolean).join(" ")), versionCardLine("כותרת", version.commitMessage || version.releaseNotes || "-"), actions);
+    container.append(card);
+  });
+}
+
+
 function detailRow(title, text) {
   const section = document.createElement("section");
   const h = document.createElement("h3");

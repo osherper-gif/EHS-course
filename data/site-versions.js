@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "mobile-first-p0",
+    "versionNumber": "Mobile First P0",
+    "date": "2026-05-01",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: mobile first P0 improvements",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "יישום שלב P0 בלבד מתוך אפיון Mobile First ללא שינוי תוכן לימודי או לוגיקת האתר.",
+    "siteChanges": "נוסף ניווט תחתון במובייל עם בית, שיעורים, תרגול, אתגר ועוד; נוסף bottom sheet לקישורים משלימים ולפעולות משתמש.",
+    "fixedBugs": "שופרה קריאות ופעולה במובייל במסכי מבחנים ואדמין בלי לשבור את תצוגת הדסקטופ.",
+    "uiUxChanges": "נוספו tap targets של 44px, כרטיס המשך מאיפה שעצרת בדף הבית, מבחן שאלה-שאלה במובייל וכרטיסי אדמין במסך צר.",
+    "securityChanges": "הניווט החדש נשען על auth guard הקיים ומציג קישורי אדמין רק לפרופיל מנהל.",
+    "contentChanges": "לא בוצע שינוי בתוכן לימודי.",
+    "firebaseChanges": "לא בוצע שינוי ב-Firestore rules או במבנה Firebase.",
+    "releaseNotes": "שיפור מובייל ראשוני: bottom navigation, bottom sheet 'עוד', מבחנים מותאמים למסך צר, כרטיסי אדמין ושיפור ניגודיות.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "content-refresh-game-difficulty",
     "versionNumber": "Content Refresh + Game Difficulty",
     "date": "2026-05-01",

@@ -193,6 +193,87 @@ function renderUserRow(user) {
   return tr;
 }
 
+function ensureCardContainer(tbodyId, containerId) {
+  const tbody = document.getElementById(tbodyId);
+  if (!tbody) return null;
+  const tableWrap = tbody.closest(".table-scroll");
+  if (tableWrap) tableWrap.classList.add("m-card-source");
+  let container = document.getElementById(containerId);
+  if (!container) {
+    container = document.createElement("div");
+    container.id = containerId;
+    container.className = "m-admin-cards";
+    tableWrap?.after(container);
+  }
+  return container;
+}
+function cardLine(label, value) {
+  const row = document.createElement("p");
+  const strong = document.createElement("strong");
+  strong.textContent = label;
+  const span = document.createElement("span");
+  span.textContent = value || "-";
+  row.append(strong, span);
+  return row;
+}
+function renderUserCard(user) {
+  const card = document.createElement("article");
+  card.className = "m-admin-card";
+  card.dataset.uid = clean(user.uid, 180);
+  const head = document.createElement("div");
+  head.className = "m-admin-card__head";
+  const title = document.createElement("h3");
+  title.textContent = clean(user.displayName || user.email || "משתמש", 320);
+  const status = document.createElement("span");
+  status.className = "status-pill";
+  status.dataset.status = clean(user.status || "pending", 40);
+  status.textContent = statusLabel(user.status);
+  head.append(title, status);
+  const actions = document.createElement("div");
+  actions.className = "admin-actions-cell";
+  const disabled = user.email === ADMIN_EMAIL;
+  actions.append(actionButton("אישור", "approved", disabled), actionButton("pending", "pending", disabled), actionButton("חסימה", "blocked", disabled));
+  const approval = renderApprovalCell(user);
+  approval.classList.add("m-admin-card__actions");
+  card.append(head, cardLine("אימייל", clean(user.email || "-", 320)), cardLine("תפקיד", clean(user.role || "student", 60)), cardLine("Provider", clean(user.provider || "-", 80)), cardLine("נרשם", fmt(user.createdAt)), cardLine("כניסה אחרונה", fmt(user.lastLoginAt)), approval, actions);
+  return card;
+}
+function renderUserCards(users) {
+  const container = ensureCardContainer("usersTableBody", "usersMobileCards");
+  if (!container) return;
+  container.replaceChildren();
+  users.forEach((user) => container.append(renderUserCard(user)));
+}
+function renderFeedbackCard(report) {
+  const card = document.createElement("article");
+  card.className = "m-admin-card";
+  card.dataset.feedbackId = clean(report.reportId, 180);
+  const head = document.createElement("div");
+  head.className = "m-admin-card__head";
+  const title = document.createElement("h3");
+  title.textContent = clean(report.title || "דיווח", 160);
+  const status = document.createElement("span");
+  status.className = "status-pill";
+  status.dataset.status = clean(report.status || "open", 40);
+  status.textContent = clean(report.status || "open", 40);
+  head.append(title, status);
+  const open = document.createElement("button");
+  open.type = "button";
+  open.className = "btn secondary";
+  open.dataset.feedbackAction = "open";
+  open.dataset.feedbackId = clean(report.reportId, 180);
+  open.textContent = "פתח";
+  card.append(head, cardLine("תאריך", fmt(report.createdAt)), cardLine("סוג", clean(report.type, 80)), cardLine("משתמש", clean(report.userEmail || report.userName || "-", 320)), cardLine("עדיפות", clean(report.priority || "normal", 40)), open);
+  return card;
+}
+function renderFeedbackCards(reports) {
+  const container = ensureCardContainer("feedbackReportsBody", "feedbackMobileCards");
+  if (!container) return;
+  container.replaceChildren();
+  reports.forEach((report) => container.append(renderFeedbackCard(report)));
+}
+
+
 async function loadUsers() {
   const tbody = document.getElementById("usersTableBody");
   const status = document.getElementById("adminStatus");
