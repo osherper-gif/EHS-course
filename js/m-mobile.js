@@ -29,6 +29,9 @@
   }
 
   function sheetLink(label, target) {
+    if (String(target || "").includes("ai-assistant.html")) {
+      return document.createDocumentFragment();
+    }
     const link = document.createElement("a");
     link.href = target;
     link.textContent = label;

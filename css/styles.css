@@ -69,6 +69,11 @@ h3 { font-size: 1.2rem; font-weight: 700; }
 }
 a { color: var(--brand); text-decoration: none; }
 a:hover { text-decoration: underline; }
+a[href$="ai-assistant.html"],
+a[href$="/ai-assistant.html"],
+a[href$="pages/ai-assistant.html"] {
+  display: none !important;
+}
 .skip-link { position: absolute; inset-inline-start: 1rem; top: -4rem; background: var(--text); color: var(--surface); padding: .5rem 1rem; z-index: 5; }
 .skip-link:focus { top: 1rem; }
 .site-header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }

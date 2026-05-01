@@ -93,7 +93,8 @@
 
     items.push({ label: "שאל את עוזר ה-AI", href: "./pages/ai-assistant.html", ico: "i-ai" });
 
-    host.innerHTML = items.map((it) => ''
+    const visibleItems = items.filter((it) => !String(it.href || "").includes("ai-assistant.html"));
+    host.innerHTML = visibleItems.map((it) => ''
       + '<a class="next-action-chip" href="' + escapeHtml(it.href) + '">'
       +   '<svg class="ico" width="18" height="18" aria-hidden="true"><use href="./assets/icons.svg#' + escapeHtml(it.ico) + '"/></svg>'
       +   '<span>' + escapeHtml(it.label) + '</span>'

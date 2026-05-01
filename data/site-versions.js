@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "temporarily-hide-ai-assistant",
+    "versionNumber": "Temporarily Hide AI Assistant",
+    "date": "2026-05-01",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "chore: temporarily hide AI assistant",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "הסרה זמנית של מודול עוזר ה-AI מהניווט ומהעמודים הפעילים.",
+    "siteChanges": "הוסתרו קישורי העוזר מהתפריט העליון, מתפריט המובייל, מדף הבית ומאזורי הקישורים הרלוונטיים.",
+    "fixedBugs": "נמנעה הפניה לפיצ'ר שאינו מספיק מועיל בשלב הנוכחי.",
+    "uiUxChanges": "עמוד העוזר נשאר קיים אך מציג הודעה שהמודול אינו זמין כרגע עם קישורי חזרה לתוכן פעיל.",
+    "securityChanges": "ללא שינוי הרשאות או Firebase Auth.",
+    "contentChanges": "נוקו טקסטים שמציגים את העוזר כפיצ'ר פעיל, תוך שמירת אפשרות להחזירו בעתיד.",
+    "firebaseChanges": "ללא שינוי Firestore או Hosting מעבר לפריסת הקבצים הסטטיים.",
+    "releaseNotes": "עוזר ה-AI הוסתר זמנית מהאתר. הקוד והנתונים נשמרו כדי לאפשר החזרה עתידית לאחר שיפור.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "auto-approval-beta-window",
     "versionNumber": "Auto Approval Beta Window",
     "date": "2026-05-01",

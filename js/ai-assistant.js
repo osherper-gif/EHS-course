@@ -1,4 +1,6 @@
 (function () {
+  const AI_ASSISTANT_TEMPORARILY_DISABLED = true;
+
   function lastExamAnswer() {
     try {
       const attempt = JSON.parse(localStorage.getItem("safetyCourse:lastExamAttempt") || "null");
@@ -39,6 +41,7 @@
     log.scrollTop = log.scrollHeight;
   }
   function initAssistant() {
+    if (AI_ASSISTANT_TEMPORARILY_DISABLED) return;
     const form = document.getElementById("chatForm");
     const input = document.getElementById("chatInput");
     const log = document.getElementById("chatLog");
