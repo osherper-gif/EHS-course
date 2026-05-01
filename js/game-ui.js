@@ -106,6 +106,13 @@
 
       const popover = el("div", "gv2-stage-popover");
       popover.hidden = true;
+      const popoverClose = document.createElement("button");
+      popoverClose.type = "button";
+      popoverClose.className = "gv2-popover-close";
+      popoverClose.textContent = "×";
+      popoverClose.setAttribute("aria-label", "סגירת פרטי שלב");
+      popoverClose.addEventListener("click", () => { popover.hidden = true; });
+      popover.append(popoverClose);
       popover.append(el("h3", "", stage.title));
       popover.append(el("p", "", stage.summary));
       popover.append(el("p", "", `רמת קושי פעילה: ${state().difficultyLabel(progress.difficulty)}.`));

@@ -2272,3 +2272,38 @@ html[data-theme="dark"] { --muted: #c4d0da; }
   .exam-result details { border: 1px solid var(--border); border-radius: 10px; padding: .75rem; background: var(--surface-2); margin-block: .6rem; }
   .exam-result summary { font-weight: 800; cursor: pointer; }
 }
+
+
+/* ---- Mobile First P1 Safety Game ---- */
+@media (max-width: 767px) {
+  .gv2-topbar { padding: 1rem; border-radius: 14px; }
+  .gv2-topbar-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gv2-map { padding-bottom: 1rem; }
+  .gv2-node { grid-template-columns: 72px 1fr; gap: .85rem; padding: .9rem; }
+  .gv2-node-button { width: 64px; height: 64px; font-size: 1.25rem; }
+  .gv2-node-body h2 { font-size: 1.05rem; }
+  .gv2-node-meta { gap: .35rem; }
+  .gv2-stage-popover:not([hidden]) {
+    position: fixed;
+    inset-inline: .75rem;
+    bottom: calc(82px + env(safe-area-inset-bottom));
+    z-index: 1250;
+    display: grid;
+    gap: .65rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 18px 48px rgba(13, 27, 38, .28);
+    padding: 1rem;
+  }
+  .gv2-popover-close { position: absolute; inset-inline-end: .55rem; top: .55rem; width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-2); color: var(--text); font-size: 1.25rem; }
+  .gv2-challenge-card { margin-bottom: 6.5rem; }
+  .gv2-answer-card { min-height: 56px; padding: .95rem; font-size: 1rem; }
+  .gv2-sticky-actions { position: sticky; bottom: calc(76px + env(safe-area-inset-bottom)); z-index: 1080; background: color-mix(in srgb, var(--surface), transparent 3%); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); padding: .7rem; display: grid; grid-template-columns: 1fr 1fr; }
+  .gv2-sticky-actions #nextChallenge:not([hidden]) { grid-column: 1 / -1; }
+  .gv2-feedback { border-radius: 12px; padding: .9rem; }
+  .m-game-feedback-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; margin-top: .75rem; }
+  .difficulty-grid, .difficulty-cards { grid-template-columns: 1fr; }
+  .difficulty-card { min-height: 64px; }
+  .gv2-results-hero, .game-results-card { border-radius: 16px; padding: 1rem; }
+}

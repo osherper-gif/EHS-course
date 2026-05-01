@@ -276,14 +276,40 @@
     }
   }
 
+  function retryCurrentChallenge() {
+    const session = state().activeStage();
+    if (!session) return;
+    document.getElementById("answerArea")?.classList.remove("is-correct", "is-wrong");
+    render(session);
+  }
+
   function showFeedback(correct, xp, session) {
     const feedback = document.getElementById("challengeFeedback");
     if (feedback) {
       feedback.hidden = false;
       feedback.className = `challenge-feedback gv2-feedback ${correct ? "is-correct" : "is-wrong"}`;
-      feedback.textContent = correct
+      feedback.replaceChildren();
+      const message = document.createElement("p");
+      message.textContent = correct
         ? `נכון. צברת ${xp} XP. ${currentChallenge.explanation}`
         : `לא מדויק. התשובה הנכונה: ${text(currentChallenge.correctAnswer)}. ${currentChallenge.explanation}`;
+      const actions = document.createElement("div");
+      actions.className = "m-game-feedback-actions";
+      if (!correct) {
+        const retry = document.createElement("button");
+        retry.type = "button";
+        retry.className = "btn secondary";
+        retry.textContent = "נסה שוב";
+        retry.addEventListener("click", retryCurrentChallenge);
+        actions.append(retry);
+      }
+      const nextInline = document.createElement("button");
+      nextInline.type = "button";
+      nextInline.className = "btn";
+      nextInline.textContent = "המשך";
+      nextInline.addEventListener("click", nextChallenge);
+      actions.append(nextInline);
+      feedback.append(message, actions);
     }
     renderAdaptiveSuggestion(session);
     document.getElementById("nextChallenge").hidden = false;
