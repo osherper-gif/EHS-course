@@ -1,4 +1,5 @@
 import {
+  auth,
   db,
   collection,
   doc,
@@ -7,6 +8,7 @@ import {
 } from "./firebase-config.js";
 
 const ADMIN_EMAIL = "osherper@gmail.com";
+const PENDING_FEEDBACK_KEY = "pendingFeedbackReports";
 const REPORT_TYPES = [
   "תקלה",
   "שגיאת תוכן",
@@ -19,6 +21,7 @@ const REPORT_TYPES = [
 let activeProfile = null;
 let lastMailto = "";
 let lastFeedbackFocus = null;
+let lastFailedReport = null;
 
 function clean(value, max = 2000) {
   return window.CourseAuth?.sanitizeText
@@ -65,19 +68,98 @@ function showStatus(text, type = "info") {
   status.dataset.type = type;
 }
 
+function setRetryVisible(visible) {
+  const retry = document.getElementById("feedbackRetry");
+  if (retry) retry.hidden = !visible;
+}
+
+function loadPendingReports() {
+  try {
+    const raw = localStorage.getItem(PENDING_FEEDBACK_KEY);
+    const reports = raw ? JSON.parse(raw) : [];
+    return Array.isArray(reports) ? reports : [];
+  } catch {
+    return [];
+  }
+}
+
+function savePendingReports(reports) {
+  try {
+    localStorage.setItem(PENDING_FEEDBACK_KEY, JSON.stringify(reports.slice(-20)));
+  } catch {
+    // localStorage is a best-effort fallback only.
+  }
+}
+
+function rememberPendingReport(report) {
+  const pending = loadPendingReports();
+  const localId = report.localId || "feedback-" + Date.now();
+  const stored = { ...report, localId, savedAt: new Date().toISOString() };
+  if (!pending.some((item) => item.localId === localId)) pending.push(stored);
+  savePendingReports(pending);
+  lastFailedReport = stored;
+  return stored;
+}
+
+function removePendingReport(localId) {
+  if (!localId) return;
+  savePendingReports(loadPendingReports().filter((report) => report.localId !== localId));
+}
+
 function reportPayload(form) {
+  const firebaseUser = auth?.currentUser;
   return {
     type: clean(form.get("type"), 80),
     title: clean(form.get("title"), 160),
     description: clean(form.get("description"), 4000),
     pageUrl: clean(location.href, 1000),
-    userId: clean(activeProfile?.uid, 180),
-    userName: clean(activeProfile?.displayName || activeProfile?.email, 180),
-    userEmail: clean(activeProfile?.email, 320),
+    userId: clean(firebaseUser?.uid || activeProfile?.uid, 180),
+    userName: clean(firebaseUser?.displayName || activeProfile?.displayName || activeProfile?.email, 180),
+    userEmail: clean(firebaseUser?.email || activeProfile?.email, 320),
     status: "open",
     priority: "normal",
     adminNotes: "",
   };
+}
+
+async function saveReportToFirestore(report) {
+  if (!db) throw new Error("feedback-db-not-initialized");
+  if (!auth?.currentUser) throw new Error("feedback-user-not-authenticated");
+  const safeReport = {
+    type: clean(report.type, 80),
+    title: clean(report.title, 160),
+    description: clean(report.description, 4000),
+    pageUrl: clean(report.pageUrl, 1000),
+    userId: clean(auth.currentUser.uid, 180),
+    userName: clean(report.userName || auth.currentUser.displayName || auth.currentUser.email, 180),
+    userEmail: clean(report.userEmail || auth.currentUser.email, 320),
+    status: "open",
+    priority: "normal",
+    adminNotes: "",
+  };
+  const ref = doc(collection(db, "feedbackReports"));
+  await setDoc(ref, {
+    ...safeReport,
+    reportId: ref.id,
+    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
+  });
+  return ref.id;
+}
+
+async function flushPendingReports() {
+  if (!db || !auth?.currentUser) return;
+  const pending = loadPendingReports();
+  if (!pending.length) return;
+  for (const report of pending) {
+    try {
+      await saveReportToFirestore(report);
+      removePendingReport(report.localId);
+    } catch (error) {
+      console.error("[feedback] pending report retry failed", error);
+      break;
+    }
+  }
 }
 
 async function submitFeedback(event) {
@@ -85,9 +167,22 @@ async function submitFeedback(event) {
   const form = new FormData(event.currentTarget);
   const report = reportPayload(form);
   lastMailto = buildMailto(report);
+  setRetryVisible(false);
 
   if (!report.title || !report.description) {
     showStatus("יש למלא כותרת ותיאור.", "error");
+    return;
+  }
+
+  if (!auth?.currentUser) {
+    rememberPendingReport(report);
+    showStatus("צריך להתחבר מחדש כדי לשמור את הדיווח בענן. הדיווח נשמר זמנית במכשיר ואפשר לשלוח אותו במייל.", "error");
+    setRetryVisible(true);
+    const mailButton = document.getElementById("feedbackMailto");
+    if (mailButton) {
+      mailButton.hidden = false;
+      mailButton.href = lastMailto;
+    }
     return;
   }
 
@@ -95,17 +190,16 @@ async function submitFeedback(event) {
   if (submit) submit.disabled = true;
 
   try {
-    const ref = doc(collection(db, "feedbackReports"));
-    await setDoc(ref, {
-      ...report,
-      reportId: ref.id,
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
-    });
-    showStatus("הדיווח התקבל. תודה על העזרה בשיפור האתר.", "success");
+    await saveReportToFirestore(report);
+    if (lastFailedReport?.localId) removePendingReport(lastFailedReport.localId);
+    lastFailedReport = null;
+    showStatus("הדיווח נשלח בהצלחה. תודה!", "success");
     event.currentTarget.reset();
-  } catch {
-    showStatus("לא ניתן היה לשמור את הדיווח כרגע. אפשר לשלוח אותו במייל.", "error");
+  } catch (error) {
+    console.error("[feedback] failed to save report", error);
+    rememberPendingReport(report);
+    showStatus("הדיווח לא נשמר בענן כרגע (ייתכן בעיית חיבור). הוא נשמר זמנית במכשיר. אפשר לנסות שוב או לשלוח במייל.", "error");
+    setRetryVisible(true);
   } finally {
     if (submit) submit.disabled = false;
     const mailButton = document.getElementById("feedbackMailto");
@@ -186,7 +280,12 @@ function openModal() {
   const mailto = el("a", "btn secondary", "שלח גם במייל");
   mailto.id = "feedbackMailto";
   mailto.href = `mailto:${ADMIN_EMAIL}`;
-  actions.append(submit, mailto);
+  const retry = el("button", "btn secondary", "נסה שוב");
+  retry.id = "feedbackRetry";
+  retry.type = "button";
+  retry.hidden = true;
+  retry.addEventListener("click", () => form.requestSubmit());
+  actions.append(submit, retry, mailto);
 
   const status = el("p", "feedback-status");
   status.id = "feedbackStatus";
@@ -237,6 +336,7 @@ function ensureFeedbackButton(profile) {
 document.addEventListener("course-auth-approved", (event) => {
   activeProfile = event.detail;
   ensureFeedbackButton(event.detail);
+  flushPendingReports();
 });
 
 window.CourseFeedback = {
