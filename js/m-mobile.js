@@ -140,6 +140,7 @@
 
   function init(profile) {
     if (!isProtectedPage()) return;
+    if (!window.matchMedia(MOBILE_QUERY).matches) return;
     if (!document.body.classList.contains("auth-approved")) return;
     ensureBottomNav(profile || window.CourseAuth?.profile || activeProfile);
   }

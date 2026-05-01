@@ -167,15 +167,21 @@ progress { width: 100%; height: 8px; margin-top: .75rem; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
 
-body.auth-protected:not(.auth-approved) .site-header,
-body.auth-protected:not(.auth-approved) .site-main,
-body.auth-protected:not(.auth-approved) .site-footer {
-  display: none;
-}
-
 body.auth-protected:not(.auth-approved) .m-bottom-nav,
 body.auth-protected:not(.auth-approved) .m-sheet {
   display: none !important;
+}
+
+body.auth-protected.auth-shell-active .site-header,
+body.auth-protected.auth-shell-active .site-main,
+body.auth-protected.auth-shell-active .site-footer {
+  display: none;
+}
+
+body.admin-strict:not(.auth-approved) .site-header,
+body.admin-strict:not(.auth-approved) .site-main,
+body.admin-strict:not(.auth-approved) .site-footer {
+  display: none;
 }
 
 .auth-state-shell, .login-layout {

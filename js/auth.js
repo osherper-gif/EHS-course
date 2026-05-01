@@ -32,7 +32,6 @@ const MAX_TEXT = 5000;
 const AUTH_CACHE_KEY = "ehsCourseAuthCache";
 const AUTH_CACHE_TTL = 5 * 60 * 1000;
 const LOADER_DELAY = 700;
-const FIRESTORE_STATUS_TIMEOUT = 3000;
 const APPROVAL_WELCOME_PREFIX = "ehsCourseApprovalWelcome:";
 
 const isRootPage = !location.pathname.includes("/pages/");
@@ -44,7 +43,6 @@ const isAdminPage = pageName === ADMIN_PAGE || pageName === "version-management.
 let currentProfile = null;
 let authReadyResolve;
 let loaderTimer = null;
-let authDelayTimer = null;
 window.CourseAuthReady = new Promise((resolve) => {
   authReadyResolve = resolve;
 });
@@ -144,7 +142,7 @@ function linkElement(text, href) {
 
 function showShellMessage(title, message, actionBuilder) {
   hideLoading();
-  document.body.classList.add("auth-ready");
+  document.body.classList.add("auth-ready", "auth-shell-active");
   document.body.classList.remove("auth-approved");
   let shell = document.getElementById("authStateShell");
   if (!shell) {
@@ -234,37 +232,26 @@ function showApprovalWelcome(profile) {
 function showLoading() {
   if (isLoginPage) return;
   clearTimeout(loaderTimer);
-  clearTimeout(authDelayTimer);
   loaderTimer = window.setTimeout(() => {
     if (document.body.classList.contains("auth-approved")) return;
-    showCheckingShell();
+    if (document.getElementById("authInlineLoader")) return;
+    const loader = document.createElement("div");
+    loader.id = "authInlineLoader";
+    loader.className = "auth-inline-loader";
+    loader.textContent = "בודק הרשאות...";
+    document.body.append(loader);
   }, LOADER_DELAY);
-  authDelayTimer = window.setTimeout(() => {
-    if (document.body.classList.contains("auth-approved")) return;
-    showShellMessage(
-      "בדיקת ההרשאות מתעכבת",
-      "החיבור מאובטח, אבל בדיקת ההרשאות נמשכת יותר מהרגיל. אפשר לרענן את העמוד או להתחבר מחדש.",
-      () => {
-        const actions = document.createDocumentFragment();
-        actions.append(
-          buttonElement("רענון", () => location.reload()),
-          buttonElement("התנתקות", () => window.CourseAuth.logout())
-        );
-        return actions;
-      }
-    );
-  }, 9000);
 }
 
 function hideLoading() {
   clearTimeout(loaderTimer);
-  clearTimeout(authDelayTimer);
   const loader = document.getElementById("authInlineLoader");
   if (loader) loader.remove();
 }
 
 function hideShell() {
   hideLoading();
+  document.body.classList.remove("auth-shell-active");
   const shell = document.getElementById("authStateShell");
   if (shell) shell.remove();
 }
@@ -279,6 +266,27 @@ function isAdminEmail(email) {
 
 function isAdminProfile(profile) {
   return profile?.role === "admin" || isAdminEmail(profile?.email);
+}
+
+function provisionalProfileFromUser(user) {
+  const admin = isAdminEmail(user?.email);
+  return {
+    uid: sanitizeText(user?.uid, 180),
+    email: sanitizeText(user?.email, 320),
+    displayName: sanitizeText(user?.displayName || user?.email || "משתמש", 180),
+    photoURL: sanitizeText(user?.photoURL, 1000),
+    provider: sanitizeText(providerName(user), 80),
+    role: admin ? "admin" : "student",
+    status: APPROVED,
+  };
+}
+
+function revealAuthenticatedView(profile) {
+  currentProfile = profile;
+  window.CourseAuth.profile = profile;
+  decorateApprovedUser(profile);
+  authReadyResolve?.(profile);
+  document.dispatchEvent(new CustomEvent("course-auth-approved", { detail: profile }));
 }
 
 async function ensureUserProfile(user) {
@@ -322,27 +330,32 @@ function decorateApprovedUser(profile) {
   document.body.classList.add("auth-ready", "auth-approved");
   hideShell();
   const actions = document.querySelector(".header-actions");
-  if (!actions || document.getElementById("userBadge")) return;
+  if (!actions) return;
+  let badge = document.getElementById("userBadge");
   const label = sanitizeText(profile.displayName || profile.email || "משתמש", 180);
-  const badge = document.createElement("div");
-  badge.id = "userBadge";
-  badge.className = "user-badge";
-  const photoUrl = sanitizeText(profile.photoURL, 1000);
-  if (/^https:\/\//.test(photoUrl) || photoUrl.startsWith("data:")) {
-    const img = document.createElement("img");
-    img.src = photoUrl;
-    img.alt = "";
-    badge.append(img);
-  } else {
-    const fallback = document.createElement("span");
-    fallback.className = "user-avatar-fallback";
-    fallback.textContent = label.slice(0, 1);
-    badge.append(fallback);
+  if (!badge) {
+    badge = document.createElement("div");
+    badge.id = "userBadge";
+    badge.className = "user-badge";
+    const photoUrl = sanitizeText(profile.photoURL, 1000);
+    if (/^https:\/\//.test(photoUrl) || photoUrl.startsWith("data:")) {
+      const img = document.createElement("img");
+      img.src = photoUrl;
+      img.alt = "";
+      badge.append(img);
+    } else {
+      const fallback = document.createElement("span");
+      fallback.className = "user-avatar-fallback";
+      fallback.textContent = label.slice(0, 1);
+      badge.append(fallback);
+    }
+    const text = document.createElement("span");
+    text.dataset.userGreeting = "true";
+    badge.append(text);
+    actions.prepend(badge);
   }
-  const text = document.createElement("span");
-  text.textContent = "שלום, " + label;
-  badge.append(text);
-  actions.prepend(badge);
+  const text = badge.querySelector("[data-user-greeting]");
+  if (text) text.textContent = "שלום, " + label;
   if (isAdminProfile(profile) && !actions.querySelector(".admin-link")) {
     const adminLink = document.createElement("a");
     adminLink.className = "btn secondary admin-link";
@@ -595,13 +608,8 @@ function prefetchUrl(url) {
 }
 
 function initPrefetch() {
-  const important = [
-    isRootPage ? "index.html" : "../index.html",
-    isRootPage ? "admin.html" : "../admin.html",
-    ...(window.COURSE_DATA?.meetings || []).map((lesson) => (isRootPage ? "pages/" : "") + lesson.id + ".html"),
-    ...(isRootPage ? ["pages/syllabus.html", "pages/glossary.html", "pages/laws.html", "pages/quizzes.html", "pages/exam-questions.html", "pages/safety-game.html", "pages/game-unit.html", "pages/ai-assistant.html"] : ["syllabus.html", "glossary.html", "laws.html", "quizzes.html", "exam-questions.html", "safety-game.html", "game-unit.html", "ai-assistant.html"]),
-  ];
-  important.slice(0, 18).forEach(prefetchUrl);
+  if (initPrefetch.ready) return;
+  initPrefetch.ready = true;
   const warm = (event) => {
     const anchor = event.target.closest?.("a[href]");
     if (anchor) prefetchUrl(anchor.getAttribute("href"));
@@ -619,6 +627,7 @@ function guard() {
     authReadyResolve?.(null);
     return;
   }
+  let alreadyRevealed = false;
   const cached = getCachedProfile();
   if (cached && isLoginPage) {
     authLog("cache found");
@@ -629,12 +638,9 @@ function guard() {
     showLoading();
   } else if (cached && !isLoginPage) {
     authLog("cache found");
-    currentProfile = cached;
-    window.CourseAuth.profile = cached;
     document.body.classList.add("auth-cache-ready");
-    decorateApprovedUser(cached);
-    authReadyResolve?.(cached);
-    document.dispatchEvent(new CustomEvent("course-auth-approved", { detail: cached }));
+    revealAuthenticatedView(cached);
+    alreadyRevealed = true;
   } else if (!isLoginPage) {
     showLoading();
   }
@@ -653,19 +659,28 @@ function guard() {
       authLog("user detected");
       document.body.classList.add("auth-user-detected");
       const fallbackProfile = getCachedProfile();
+      let shownProfile = alreadyRevealed;
+      if (!isLoginPage && !shownProfile && (!isAdminPage || isAdminEmail(user.email) || isAdminProfile(fallbackProfile))) {
+        revealAuthenticatedView(fallbackProfile || provisionalProfileFromUser(user));
+        shownProfile = true;
+      }
       authLog("firestore status start");
       let profile;
       try {
-        profile = await withTimeout(ensureUserProfile(user), FIRESTORE_STATUS_TIMEOUT, "firestore status");
+        profile = await ensureUserProfile(user);
       } catch (error) {
         if (fallbackProfile) {
-          authLog("firestore status timeout");
+          authLog("firestore status failed");
           profile = fallbackProfile;
         } else {
-          authLog("firestore status timeout");
+          authLog("firestore status failed");
+          if (shownProfile) {
+            authReadyResolve?.(currentProfile);
+            return;
+          }
           showShellMessage(
-            "בדיקת ההרשאות מתעכבת",
-            "לא הצלחנו לקבל את סטטוס המשתמש בזמן סביר. אפשר לרענן או להתחבר מחדש.",
+            "בדיקת ההרשאות נכשלה",
+            "לא הצלחנו לקבל את סטטוס המשתמש כרגע. אפשר לרענן או להתחבר מחדש.",
             () => {
               const actions = document.createDocumentFragment();
               actions.append(
@@ -703,10 +718,10 @@ function guard() {
       }
       authLog("approved");
       saveCachedProfile(profile);
-      decorateApprovedUser(profile);
+      if (shownProfile) decorateApprovedUser(profile);
+      else revealAuthenticatedView(profile);
       showApprovalWelcome(profile);
       authReadyResolve?.(profile);
-      document.dispatchEvent(new CustomEvent("course-auth-approved", { detail: profile }));
       (async () => {
         await hydrateProgressFromFirestore(user.uid);
         await pushLocalProgressToFirestore();
