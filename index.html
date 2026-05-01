@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta name="description" content="קורס ממונה בטיחות — אתר לימודי, תרגול וכלי שטח. RTL, מודרני ומותאם למובייל.">
+  <meta name="description" content="אתר לימודי לתרגול, סיכום וכלי עבודה בתחום הבטיחות. המידע מיועד ללמידה והעשרה, ויש לאמת כל דרישה מול הדין והגורמים המוסמכים.">
   <title>דף הבית | קורס ממונה בטיחות</title>
+  <meta property="og:title" content="דף הבית | קורס ממונה בטיחות">
+  <meta property="og:description" content="אתר לימודי לתרגול, סיכום וכלי עבודה בתחום הבטיחות. המידע מיועד ללמידה והעשרה, ויש לאמת כל דרישה מול הדין והגורמים המוסמכים.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ehs-course.web.app/">
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body data-page-title="דף הבית" class="auth-protected">
@@ -26,7 +30,7 @@
         <button class="icon-btn" type="button" data-action="print" title="הדפסה" aria-label="הדפסה">⎙</button>
       </div>
     </div>
-    <div class="law-notice">יש לאמת מול נוסח החוק או התקנה העדכני והמרצה</div>
+    <div class="law-notice">יש לאמת מול החוק, התקנות והתקנים העדכניים וגורם מוסמך</div>
   </header>
 
   <main id="main" class="site-main">
@@ -35,7 +39,7 @@
       <div class="hero-content">
         <p class="kicker">מערכת לימוד פרטית</p>
         <h1>קורס ממונה בטיחות</h1>
-        <p>למידה, תרגול וכלי שטח — הכול במקום אחד. אתר RTL מודרני להכנה למבחני קורס ממונה בטיחות. תוכן לימודי בלבד; יש לאמת מול נוסח החוק או התקנה העדכני והמרצה.</p>
+        <p>למידה, תרגול וכלי שטח — הכול במקום אחד. אתר RTL מודרני להכנה למבחני קורס ממונה בטיחות. תוכן לימודי בלבד; יש לאמת מול החוק, התקנות והתקנים העדכניים וגורם מוסמך.</p>
         <div class="hero-cta">
           <a class="btn primary" href="./pages/syllabus.html">📚 התחל ללמוד</a>
           <a class="btn ghost" href="./pages/quizzes.html">✍ תרגול מהיר</a>
@@ -47,7 +51,7 @@
         </div>
       </div>
       <div class="hero-graphic" aria-hidden="true">
-        <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="hg-glow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="#ffffff" stop-opacity=".25"/>
@@ -295,7 +299,18 @@
     </section>
   </main>
 
-  <footer class="site-footer">האתר נוצר על ידי אושר פרץ<br>טלפון: 054-4232490<br>Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></footer>
+  <footer class="site-footer" role="contentinfo">
+  <div class="footer-links" aria-label="קישורי אתר">
+    <a href="./pages/privacy.html">פרטיות</a>
+    <a href="./pages/terms.html">תנאי שימוש</a>
+    <a href="./pages/disclaimer.html">הצהרת אחריות</a>
+    <a href="#accessibility" data-action="open-accessibility">נגישות</a>
+    <a href="mailto:osherper@gmail.com">צור קשר</a>
+  </div>
+  <p>האתר נוצר על ידי אושר פרץ</p>
+  <p>טלפון: 054-4232490 | Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></p>
+  <p class="footer-legal">כל הזכויות במבנה האתר, הסיכומים, השאלות, המשחק וכלי הלמידה שמורות. המידע נועד ללמידה והעשרה בלבד; יש לאמת מול החוק, התקנות, התקנים והגורמים המוסמכים העדכניים.</p>
+</footer>
   <script src="./data/course-data.js"></script>
   <script src="./data/exam-questions.js"></script>
   <script src="./js/storage.js"></script>
@@ -306,5 +321,6 @@
   <script src="./js/topic-graph.js"></script>
   <script src="./js/home.js"></script>
   <script type="module" src="./js/auth.js"></script>
+  <script src="./js/accessibility.js"></script>
 </body>
 </html>

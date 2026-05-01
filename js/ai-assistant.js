@@ -25,11 +25,11 @@
     const examAnswer = examPromptAnswer(question);
     if (examAnswer) return examAnswer;
     const results = window.CourseSearch.search(question);
-    const fallback = window.COURSE_DATA?.meta?.aiFallback || "לא מצאתי תשובה מספקת בחומר הקורס או בהרחבות האתר.";
+    const fallback = window.COURSE_DATA?.meta?.aiFallback || "לא מצאתי תשובה מספקת בהידע המקצועי או בהרחבות האתר.";
     if (!results.length) return fallback;
     const top = results[0];
     if (top.score < 1 || top.snippet.length < 40) return fallback;
-    return "מצאתי במאגר הידע המקומי: " + top.title + ". " + top.snippet + "\n\nמקור: " + top.type + ".";
+    return "מצאתי במאגר הידע המקומי: " + top.title + ". " + top.snippet + "\n\nתחום: " + top.type + ".";
   }
   function addMessage(log, text, role) {
     const div = document.createElement("div");
@@ -43,7 +43,7 @@
     const input = document.getElementById("chatInput");
     const log = document.getElementById("chatLog");
     if (!form || !input || !log) return;
-    addMessage(log, "שלום. אשיב רק מתוך חומר הקורס וההרחבות המסומנות באתר.", "assistant");
+    addMessage(log, "שלום. אשיב רק על בסיס ידע מקצועי בתחום הבטיחות וההרחבות המסומנות באתר.", "assistant");
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const question = input.value.trim();

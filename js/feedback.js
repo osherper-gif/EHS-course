@@ -18,6 +18,7 @@ const REPORT_TYPES = [
 
 let activeProfile = null;
 let lastMailto = "";
+let lastFeedbackFocus = null;
 
 function clean(value, max = 2000) {
   return window.CourseAuth?.sanitizeText
@@ -51,6 +52,10 @@ function buildMailto(report) {
 function closeModal() {
   document.body.classList.remove("feedback-open");
   document.getElementById("feedbackModal")?.remove();
+  if (lastFeedbackFocus && typeof lastFeedbackFocus.focus === "function") {
+    lastFeedbackFocus.focus();
+  }
+  lastFeedbackFocus = null;
 }
 
 function showStatus(text, type = "info") {
@@ -113,6 +118,7 @@ async function submitFeedback(event) {
 
 function openModal() {
   if (document.getElementById("feedbackModal")) return;
+  lastFeedbackFocus = document.activeElement;
   document.body.classList.add("feedback-open");
   const overlay = el("div", "feedback-overlay");
   overlay.id = "feedbackModal";
@@ -127,6 +133,7 @@ function openModal() {
   const close = el("button", "icon-btn", "×");
   close.type = "button";
   close.title = "סגירה";
+  close.setAttribute("aria-label", "סגירת חלון דיווח");
   close.addEventListener("click", closeModal);
   header.append(heading, close);
 
@@ -190,6 +197,27 @@ function openModal() {
   overlay.append(panel);
   overlay.addEventListener("click", (event) => {
     if (event.target === overlay) closeModal();
+  });
+  overlay.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+    if (event.key !== "Tab") return;
+    const focusable = Array.from(overlay.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )).filter((node) => node.offsetParent !== null);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   });
   document.body.append(overlay);
   titleInput.focus();

@@ -22,7 +22,7 @@
     }).filter((item) => item.score > 0 && (!topic || item.topic === topic)).sort((a, b) => b.score - a.score).slice(0, 12);
   }
   function renderResults(container, results) {
-    container.innerHTML = results.length ? results.map((item) => '<article class="search-hit"><strong>' + item.type + ': <a href="' + item.href + '">' + item.title + '</a></strong><p>' + item.snippet + '</p></article>').join("") : '<article class="search-hit">לא נמצאו תוצאות בחומר הקורס.</article>';
+    container.innerHTML = results.length ? results.map((item) => '<article class="search-hit"><strong>' + item.type + ': <a href="' + item.href + '">' + item.title + '</a></strong><p>' + item.snippet + '</p></article>').join("") : '<article class="search-hit">לא נמצאו תוצאות בהידע המקצועי.</article>';
   }
   window.CourseSearch = { search, renderResults, normalize };
 })();

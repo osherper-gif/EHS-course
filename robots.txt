@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /pages/version-management.html
+Sitemap: https://ehs-course.web.app/sitemap.xml

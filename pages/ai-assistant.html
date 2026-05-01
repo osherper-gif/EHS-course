@@ -5,21 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
   <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta name="description" content="אתר לימודי לתרגול, סיכום וכלי עבודה בתחום הבטיחות. המידע מיועד ללמידה והעשרה, ויש לאמת כל דרישה מול הדין והגורמים המוסמכים.">
 <title>עוזר AI מקומי | קורס ממונה בטיחות</title>
+  <meta property="og:title" content="עוזר AI מקומי | קורס ממונה בטיחות">
+  <meta property="og:description" content="אתר לימודי לתרגול, סיכום וכלי עבודה בתחום הבטיחות. המידע מיועד ללמידה והעשרה, ויש לאמת כל דרישה מול הדין והגורמים המוסמכים.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ehs-course.web.app/pages/ai-assistant.html">
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body data-page-title="עוזר AI מקומי" class="auth-protected">
   <a class="skip-link" href="#main">דלג לתוכן</a>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="../index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>למידה מקומית מתוך חומר הקורס</small></span></a>
+      <a class="brand" href="../index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>למידה מקומית על בסיס ידע מקצועי בתחום הבטיחות</small></span></a>
       <nav class="main-nav" aria-label="ניווט ראשי"><a href="../index.html">בית</a><a href="syllabus.html">שיעורים</a><a href="quizzes.html">תרגול ומבחנים</a><a href="safety-game.html">אתגר בטיחות</a><a href="field-tools.html">חוקים, תקנים וכלי שטח</a><a href="ai-assistant.html">עוזר AI</a></nav>
       <div class="header-actions"><button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button><button class="icon-btn" type="button" data-action="print" title="הדפסה">⎙</button></div>
     </div>
-    <div class="law-notice">יש לאמת מול נוסח החוק או התקנה העדכני והמרצה</div>
+    <div class="law-notice">יש לאמת מול החוק, התקנות והתקנים העדכניים וגורם מוסמך</div>
   </header>
-  <main id="main" class="site-main"><section class="page-hero"><div><p class="kicker">ללא אינטרנט וללא API</p><h1>עוזר AI מקומי</h1><p>העוזר מחפש רק בתוך data/course-data.js ומחזיר תשובות מתוך חומר הקורס וההרחבות המסומנות.</p></div></section><section class="assistant-layout"><div class="chat-panel"><div id="chatLog" class="chat-log" aria-live="polite"></div><form id="chatForm" class="chat-form"><label class="visually-hidden" for="chatInput">שאלה לעוזר המקומי</label><input id="chatInput" type="text" autocomplete="off" aria-label="שאלה לעוזר המקומי"><button class="btn" type="submit">שליחה</button></form></div><aside class="panel"><h2>כללי העוזר</h2><ul><li>פועל מקומית בלבד.</li><li>לא שולח מידע החוצה.</li><li>מחזיר תשובות רק מתוך מאגר הידע המקומי.</li><li>אם אין תשובה: לא מצאתי תשובה מספקת בחומר הקורס או בהרחבות האתר.</li></ul></aside></section></main>
-  <footer class="site-footer">האתר נוצר על ידי אושר פרץ<br>טלפון: 054-4232490<br>Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></footer>
+  <main id="main" class="site-main"><section class="page-hero"><div><p class="kicker">ללא אינטרנט וללא API</p><h1>עוזר AI מקומי</h1><p>העוזר מחפש רק בתוך data/course-data.js ומחזיר תשובות על בסיס ידע מקצועי בתחום הבטיחות וההרחבות המסומנות.</p></div></section><section class="assistant-layout"><div class="chat-panel"><div id="chatLog" class="chat-log" aria-live="polite"></div><form id="chatForm" class="chat-form"><label class="visually-hidden" for="chatInput">שאלה לעוזר המקומי</label><input id="chatInput" type="text" autocomplete="off" aria-label="שאלה לעוזר המקומי"><button class="btn" type="submit">שליחה</button></form></div><aside class="panel"><h2>כללי העוזר</h2><ul><li>פועל מקומית בלבד.</li><li>לא שולח מידע החוצה.</li><li>מחזיר תשובות רק מתוך מאגר הידע המקומי.</li><li>אם אין תשובה: לא מצאתי תשובה מספקת בהידע המקצועי או בהרחבות האתר.</li></ul></aside></section></main>
+  <footer class="site-footer" role="contentinfo">
+  <div class="footer-links" aria-label="קישורי אתר">
+    <a href="privacy.html">פרטיות</a>
+    <a href="terms.html">תנאי שימוש</a>
+    <a href="disclaimer.html">הצהרת אחריות</a>
+    <a href="#accessibility" data-action="open-accessibility">נגישות</a>
+    <a href="mailto:osherper@gmail.com">צור קשר</a>
+  </div>
+  <p>האתר נוצר על ידי אושר פרץ</p>
+  <p>טלפון: 054-4232490 | Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></p>
+  <p class="footer-legal">כל הזכויות במבנה האתר, הסיכומים, השאלות, המשחק וכלי הלמידה שמורות. המידע נועד ללמידה והעשרה בלבד; יש לאמת מול החוק, התקנות, התקנים והגורמים המוסמכים העדכניים.</p>
+</footer>
   <script src="../data/course-data.js"></script>
 <script src="../data/exam-questions.js"></script>
 <script src="../js/storage.js"></script>
@@ -28,5 +44,6 @@
 <script src="../js/ai-assistant.js"></script>
 <script src="../js/app.js"></script>
 <script type="module" src="../js/auth.js"></script>
+  <script src="../js/accessibility.js"></script>
 </body>
 </html>
