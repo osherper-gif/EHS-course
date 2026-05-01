@@ -49,6 +49,7 @@ function buildMailto(report) {
 }
 
 function closeModal() {
+  document.body.classList.remove("feedback-open");
   document.getElementById("feedbackModal")?.remove();
 }
 
@@ -112,6 +113,7 @@ async function submitFeedback(event) {
 
 function openModal() {
   if (document.getElementById("feedbackModal")) return;
+  document.body.classList.add("feedback-open");
   const overlay = el("div", "feedback-overlay");
   overlay.id = "feedbackModal";
   overlay.setAttribute("role", "dialog");

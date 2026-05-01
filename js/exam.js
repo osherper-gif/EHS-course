@@ -1,15 +1,19 @@
 (function () {
   const ATTEMPTS_KEY = "safetyCourse:examAttempts";
+  const EXAM_DRAFT_KEY = "safetyCourse:mobileExamDraft";
   const ALL_TOPICS = "כל הנושאים";
   const LESSON_ONLY = "__lesson__";
   let activeQuestions = [];
   let activeAnswers = {};
   let activeLessonFilter = "";
+  let mobileExamIndex = 0;
+  let markedQuestions = new Set();
 
   const shuffle = (items) => items.map((value) => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map((item) => item.value);
   const getAttempts = () => JSON.parse(localStorage.getItem(ATTEMPTS_KEY) || "[]");
   const saveAttempts = (attempts) => localStorage.setItem(ATTEMPTS_KEY, JSON.stringify(attempts));
   const questions = () => window.EXAM_QUESTIONS || [];
+  const isMobileExam = () => window.matchMedia("(max-width: 767px)").matches;
 
   function saveExamDraft() {
     if (!activeQuestions.length) return;
@@ -72,7 +76,7 @@
     if (!box) return;
     const attempts = getAttempts();
     box.replaceChildren();
-    box.classList.add("m-exam-result-ready");
+    box.classList.remove("m-exam-result-ready");
     if (!attempts.length) {
       box.textContent = "עדיין לא בוצעו ניסיונות מבחן.";
       return;
@@ -109,13 +113,21 @@
   }
 
   function startExam() {
-    const topic = document.getElementById("examTopic").value;
-    const count = document.getElementById("examCount").value;
+    const topicSelect = document.getElementById("examTopic");
+    const countSelect = document.getElementById("examCount");
+    if (!topicSelect || !countSelect) return;
+    const topic = topicSelect.value;
+    const count = countSelect.value;
     const pool = selectedPool(topic);
     activeQuestions = shuffle(pool).slice(0, count === "all" ? pool.length : Number(count)).map((q) => ({ ...q, shuffledOptions: shuffle(q.options) }));
     activeAnswers = {};
+    markedQuestions = new Set();
+    mobileExamIndex = 0;
+    loadMatchingDraft();
     renderExam();
-    document.getElementById("examResult").replaceChildren();
+    document.getElementById("examResult")?.replaceChildren();
+    const form = document.getElementById("examForm");
+    if (form) form.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function ensureQuestionGridSheet() {
@@ -330,6 +342,7 @@
       createdAt: new Date().toISOString(),
     };
     await saveAttempt(attempt);
+    clearExamDraft();
     renderResult(attempt, wrong);
     renderSummary();
   }
@@ -350,6 +363,7 @@
   function renderResult(attempt, wrong) {
     const box = document.getElementById("examResult");
     box.replaceChildren();
+    box.classList.add("m-exam-result-ready");
     const head = document.createElement("div");
     head.style.display = "flex";
     head.style.gap = "1rem";
@@ -395,6 +409,13 @@
     initTopicSelect();
     renderSummary();
     document.getElementById("startExam")?.addEventListener("click", startExam);
+    document.getElementById("startSimulation")?.addEventListener("click", () => {
+      const topic = document.getElementById("examTopic");
+      const count = document.getElementById("examCount");
+      if (topic) topic.value = ALL_TOPICS;
+      if (count) count.value = "60";
+      startExam();
+    });
     document.getElementById("examForm")?.addEventListener("submit", finishExam);
   });
 })();

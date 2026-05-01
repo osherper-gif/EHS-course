@@ -2324,3 +2324,31 @@ html[data-theme="dark"] { --muted: #c4d0da; }
   .m-admin-fab button { min-height: 42px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-2); color: var(--text); font: inherit; font-weight: 800; }
 }
 @media (min-width: 768px) { .m-admin-fab { display: none !important; } }
+
+
+/* ---- Hotfix: feedback over mobile sticky UI ---- */
+.feedback-overlay { z-index: 3000; }
+.feedback-dialog { position: relative; z-index: 3001; }
+body.feedback-open .gv2-sticky-actions,
+body.feedback-open .m-bottom-nav,
+body.feedback-open .m-lesson-progress,
+body.feedback-open .m-admin-fab {
+  display: none !important;
+}
+@media (max-width: 767px) {
+  .feedback-button {
+    z-index: 1195;
+    bottom: calc(148px + env(safe-area-inset-bottom));
+    left: .75rem;
+    min-width: 112px;
+    min-height: 48px;
+    background: var(--brand);
+    color: #fff;
+    box-shadow: var(--shadow);
+  }
+  .feedback-dialog {
+    width: min(100%, calc(100vw - 1rem));
+    max-height: calc(100vh - 1.5rem);
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}
