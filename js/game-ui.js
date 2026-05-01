@@ -25,8 +25,8 @@
       node.textContent = label;
     });
     document.querySelectorAll("[data-game-difficulty-value]").forEach((node) => {
-      node.value = difficulty;
       node.checked = node.value === difficulty;
+      node.closest?.(".difficulty-card")?.classList.toggle("is-selected", node.checked);
     });
   }
 
@@ -36,7 +36,7 @@
         const progress = state().setDifficulty(control.value);
         renderDifficulty(progress);
         const notice = document.getElementById("difficultyNotice");
-        if (notice) notice.textContent = `רמת הקושי עודכנה ל-${state().difficultyLabel(progress.difficulty)}.`;
+        if (notice) notice.textContent = `רמה פעילה: ${state().difficultyLabel(progress.difficulty)}. עכשיו אפשר ללחוץ על המשך אתגר.`;
         const continueButton = document.getElementById("continueGame");
         if (continueButton) continueButton.href = `game-challenge.html?stage=${encodeURIComponent(state().firstOpenStage(progress))}`;
       });

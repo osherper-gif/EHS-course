@@ -33,15 +33,32 @@
         </div>
       </div>
       <div class="difficulty-picker" aria-label="בחירת רמת קושי">
-        <h2>רמת קושי</h2>
-        <p>ברירת המחדל היא בינוני. אם שלב קודם הסתיים בציון גבוה, מומלץ לנסות רמה קשה.</p>
-        <div class="difficulty-options">
-          <label><input type="radio" name="gameDifficulty" value="easy" data-game-difficulty-value> קל</label>
-          <label><input type="radio" name="gameDifficulty" value="medium" data-game-difficulty-value> בינוני</label>
-          <label><input type="radio" name="gameDifficulty" value="hard" data-game-difficulty-value> קשה</label>
-          <label><input type="radio" name="gameDifficulty" value="mixed" data-game-difficulty-value> מעורב</label>
+        <p class="kicker">לפני שמתחילים</p>
+        <h2>בחר רמת קושי לאתגר</h2>
+        <p>בחר רמה ואז לחץ על “המשך אתגר”. אפשר לשנות רמה בכל כניסה למסך הזה.</p>
+        <div class="difficulty-options" role="radiogroup" aria-label="רמת קושי">
+          <label class="difficulty-card">
+            <input type="radio" name="gameDifficulty" value="easy" data-game-difficulty-value>
+            <span class="difficulty-name">קל</span>
+            <span class="difficulty-desc">הגדרות בסיסיות וחזרה מהירה.</span>
+          </label>
+          <label class="difficulty-card">
+            <input type="radio" name="gameDifficulty" value="medium" data-game-difficulty-value>
+            <span class="difficulty-name">בינוני</span>
+            <span class="difficulty-desc">הבנה ויישום במצבי עבודה.</span>
+          </label>
+          <label class="difficulty-card">
+            <input type="radio" name="gameDifficulty" value="hard" data-game-difficulty-value>
+            <span class="difficulty-name">קשה</span>
+            <span class="difficulty-desc">תרחישים ושאלות גבוליות.</span>
+          </label>
+          <label class="difficulty-card">
+            <input type="radio" name="gameDifficulty" value="mixed" data-game-difficulty-value>
+            <span class="difficulty-name">מעורב</span>
+            <span class="difficulty-desc">שילוב אקראי של רמות.</span>
+          </label>
         </div>
-        <p id="difficultyNotice" class="muted">רמה פעילה: <strong data-game-difficulty>בינוני</strong></p>
+        <p id="difficultyNotice" class="difficulty-notice">רמה פעילה: <strong data-game-difficulty>בינוני</strong></p>
       </div>
       <div class="game-hero-stats" aria-label="נתוני התקדמות">
         <div class="game-xp"><strong data-game-xp>0</strong><span>XP</span></div>
