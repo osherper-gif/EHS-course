@@ -2204,3 +2204,55 @@ html[data-theme="dark"] { --muted: #c4d0da; }
   .feedback-button { bottom: calc(86px + env(safe-area-inset-bottom)); }
 }
 @media (min-width: 1024px) { .m-bottom-nav, .m-sheet, .m-admin-cards { display: none !important; } }
+
+
+/* ---- Mobile First P1 Lessons ---- */
+@media (min-width: 768px) {
+  .m-lesson-accordion__toggle { display: none; }
+  .m-lesson-accordion__body[hidden] { display: block; }
+  .m-lesson-progress, .m-lesson-toc-sheet { display: none !important; }
+}
+@media (max-width: 767px) {
+  .lesson-shell { display: block; }
+  .lesson-sidebar { position: static; margin-bottom: .75rem; }
+  .lesson-content { gap: .65rem; }
+  .m-lesson-accordion { padding: 0; overflow: hidden; }
+  .m-lesson-accordion__toggle {
+    width: 100%;
+    min-height: 52px;
+    border: 0;
+    background: var(--surface);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: .9rem 1rem;
+    font: inherit;
+    font-weight: 800;
+    text-align: right;
+    cursor: pointer;
+  }
+  .m-lesson-accordion__toggle[aria-expanded="true"] span:last-child { transform: rotate(180deg); }
+  .m-lesson-accordion__body { padding: 0 1rem 1rem; }
+  .m-lesson-progress {
+    position: fixed;
+    inset-inline: .75rem;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    z-index: 1100;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .35rem;
+    align-items: center;
+    background: color-mix(in srgb, var(--surface), transparent 2%);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: .55rem;
+  }
+  .m-lesson-progress__track { grid-column: 1 / -1; height: 7px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+  .m-lesson-progress__track span { display: block; height: 100%; width: 0; background: var(--brand); border-radius: inherit; }
+  .m-lesson-progress button { min-height: 42px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-2); color: var(--text); font: inherit; font-weight: 750; }
+  .m-lesson-toc-list { max-height: 62vh; overflow: auto; }
+  .m-lesson-toc-list .m-sheet__link { justify-content: flex-start; line-height: 1.35; }
+}
