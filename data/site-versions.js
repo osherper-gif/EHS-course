@@ -1,7 +1,26 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "visual-learning-aids-site-search",
+    "versionNumber": "Visual Learning Aids + Site Search",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: add visual learning aids and site search",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "הוספת טבלאות, תרשימי זרימה, מטריצות סיכון וחיפוש אתר מקומי.",
+    "siteChanges": "נוסף כפתור חיפוש בראש האתר ומנוע חיפוש מקומי במושגים, שיעורים, שאלות ועמודי כלי שטח.",
+    "fixedBugs": "שופר רינדור תוצאות החיפוש לרינדור בטוח ללא שילוב קלט משתמש כ-HTML.",
+    "uiUxChanges": "נוספו רכיבים חזותיים קלים במשקל, מודאל חיפוש מותאם מובייל וכרטיסי תוצאות.",
+    "securityChanges": "ללא שינוי Auth/Admin/Firestore; החיפוש פועל מקומית בלבד.",
+    "contentChanges": "נוספו טבלאות לימודיות מקוריות, תרשימי זרימה, מטריצת סיכון ותרשימי תהליך בנושאי בטיחות מרכזיים.",
+    "firebaseChanges": "פריסת Hosting בלבד.",
+    "releaseNotes": "נוספו כלי למידה חזותיים וחיפוש אתר מהיר כדי למצוא מושגים, שיעורים, שאלות וכלי שטח.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "beer-materials-coverage-refresh",
-    "versionNumber": "Beer Materials Coverage Refresh",
+    "versionNumber": "רענון כיסוי מקצועי נוסף",
     "date": "2026-05-03",
     "time": "לא צוין",
     "commitHash": "",

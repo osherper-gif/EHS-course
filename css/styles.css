@@ -2591,3 +2591,231 @@ html.a11y-high-contrast.dark {
     justify-content: flex-start;
   }
 }
+
+
+/* ---- Visual learning aids and site search ---- */
+.site-search-open {
+  min-height: 38px;
+  white-space: nowrap;
+}
+.site-search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3100;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+.site-search-overlay[hidden] { display: none; }
+.site-search-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 27, 38, .45);
+}
+.site-search-dialog {
+  position: relative;
+  width: min(920px, 100%);
+  max-height: min(86vh, 760px);
+  overflow: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(13, 27, 38, .28);
+  padding: 1rem;
+}
+.site-search-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: .75rem;
+}
+.site-search-head h2 { margin: 0; }
+.site-search-close {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.site-search-field input {
+  min-height: 48px;
+  font-size: 1.05rem;
+}
+.site-search-results-list {
+  display: grid;
+  gap: .75rem;
+  margin-top: .9rem;
+}
+.site-search-hit {
+  display: grid;
+  gap: .35rem;
+}
+.site-search-title {
+  color: var(--text);
+  font-weight: 850;
+}
+.site-search-type {
+  justify-self: start;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--brand);
+  padding: .2rem .55rem;
+  font-size: .82rem;
+  font-weight: 800;
+}
+.site-search-empty {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  padding: 1rem;
+  font-weight: 800;
+}
+.visual-learning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.diagram-card,
+.learning-diagram,
+.mini-chart {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+.diagram-card h3,
+.learning-diagram h3,
+.mini-chart h3 {
+  margin-top: 0;
+}
+.learning-table,
+.raci-table,
+.risk-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.learning-table caption,
+.raci-table caption,
+.risk-matrix caption {
+  text-align: right;
+  font-weight: 850;
+  margin-bottom: .5rem;
+}
+.learning-table th,
+.learning-table td,
+.raci-table th,
+.raci-table td,
+.risk-matrix th,
+.risk-matrix td {
+  border: 1px solid var(--border);
+  padding: .65rem;
+  vertical-align: top;
+  text-align: right;
+}
+.learning-table th,
+.raci-table th,
+.risk-matrix th {
+  background: var(--surface-2);
+  color: var(--text);
+}
+.flow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  align-items: stretch;
+  margin: .75rem 0;
+  padding: 0;
+}
+.flow-steps li,
+.flow-steps span {
+  list-style: none;
+  flex: 1 1 130px;
+  min-height: 54px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  padding: .55rem;
+  font-weight: 850;
+  text-align: center;
+}
+.flow-steps li:not(:last-child)::after,
+.flow-steps span:not(:last-child)::after {
+  content: "←";
+  color: var(--muted);
+  margin-inline-start: .35rem;
+}
+.risk-matrix td {
+  text-align: center;
+  font-weight: 800;
+}
+.risk-low { background: var(--ok-soft); color: var(--ok); }
+.risk-medium { background: var(--warn-soft); color: #7a4a00; }
+.risk-high { background: var(--danger-soft); color: var(--danger); }
+.mini-chart-row {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: .6rem;
+  align-items: center;
+  margin: .55rem 0;
+}
+.mini-chart-bar {
+  height: 12px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.mini-chart-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--brand);
+}
+.diagram-svg {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+}
+.diagram-note {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .site-search-open {
+    min-width: 44px;
+    padding-inline: .6rem;
+    font-size: .86rem;
+  }
+  .site-search-dialog {
+    width: 100%;
+    max-height: calc(100vh - 1rem);
+    border-radius: 16px 16px 0 0;
+    align-self: end;
+  }
+  .visual-learning-grid {
+    grid-template-columns: 1fr;
+  }
+  .learning-table,
+  .raci-table,
+  .risk-matrix {
+    display: block;
+    overflow-x: auto;
+    white-space: normal;
+  }
+  .mini-chart-row {
+    grid-template-columns: 88px 1fr auto;
+  }
+}
