@@ -9,7 +9,23 @@ const questions = ctx.window.EXAM_QUESTIONS || [];
 
 const MIN_TOTAL = 300;
 const MIN_PER_LESSON = 25;
+const EXPECTED_DIFFICULTY_SPREAD = { easy: 7, medium: 12, hard: 6 };
 const REQUIRED_DIFFICULTIES = new Set(["easy", "medium", "hard"]);
+const LEGAL_OR_STANDARD_PATTERNS = [
+  /חוק/,
+  /תקנה/,
+  /פקודה/,
+  /תקן/,
+  /ISO/,
+  /עבודה בגובה/,
+  /רעש/,
+  /חשמל/,
+  /חומרים מסוכנים/,
+  /בנייה/,
+  /עגורן/,
+  /פיגום/,
+  /חלל מוקף/
+];
 const GENERIC_PATTERNS = [
   /מה מאפיין תשובה טובה/,
   /איזה סיכון מתאים למפגש/,
@@ -64,7 +80,11 @@ questions.forEach((question, index) => {
   if (!question.topic || String(question.topic).trim().length < 4) issues.push(`[missing topic] ${label}`);
   if (!REQUIRED_DIFFICULTIES.has(question.difficulty)) issues.push(`[bad difficulty] ${label}: ${question.difficulty}`);
   if (!question.explanation || String(question.explanation).trim().length < 35) issues.push(`[weak explanation] ${label}`);
+  const isLegalOrStandard = LEGAL_OR_STANDARD_PATTERNS.some((pattern) => pattern.test(`${question.topic || ""} ${question.question || ""} ${question.explanation || ""}`));
   if (!question.sourceNote && !question.source) issues.push(`[missing source note] ${label}`);
+  if (isLegalOrStandard && (!question.sourceNote || String(question.sourceNote).trim().length < 20)) {
+    issues.push(`[missing legal source note] ${label}`);
+  }
   if (!Array.isArray(question.options) || question.options.length < 4) issues.push(`[options] ${label} has fewer than 4 options`);
   if (Array.isArray(question.options) && question.options.length) {
     const normalizedOptions = question.options.map(normalize);
@@ -89,6 +109,11 @@ sortedLessons.forEach(([lessonId, list]) => {
   for (const difficulty of REQUIRED_DIFFICULTIES) {
     if (!diffCounts[difficulty]) issues.push(`[difficulty spread] ${lessonId} has no ${difficulty} questions`);
   }
+  Object.entries(EXPECTED_DIFFICULTY_SPREAD).forEach(([difficulty, expected]) => {
+    if ((diffCounts[difficulty] || 0) < expected) {
+      issues.push(`[difficulty spread] ${lessonId} has ${diffCounts[difficulty] || 0} ${difficulty}, expected at least ${expected}`);
+    }
+  });
   const hardRatio = Number(diffCounts.hard || 0) / list.length;
   if ((diffCounts.hard || 0) < 2) issues.push(`[difficulty spread] ${lessonId} has too few hard questions (${diffCounts.hard || 0}/${list.length})`);
 });

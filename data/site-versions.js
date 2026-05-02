@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "course-material-refresh",
+    "versionNumber": "Course Material Refresh",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: refresh course materials and exam content",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "סריקת חומרי לימוד מקומיים, שילוב חידודים מקצועיים בשיעורים ושיפור מאגר שאלות המבחן.",
+    "siteChanges": "עודכנו שיעורי הקורס, דגשי מבחן, שאלות לפי שיעור ומאגר המבחנים הכללי.",
+    "fixedBugs": "צומצמו שאלות דומות מדי ונוקו ניסוחים שמציגים ייחוס למקורות חיצוניים גלויים.",
+    "uiUxChanges": "ללא שינוי UI מהותי; נשמרה חוויית השימוש הקיימת.",
+    "securityChanges": "ללא שינוי בהרשאות או ב-Firebase Auth.",
+    "contentChanges": "נוספו חידודי דין ותקנות, דוגמאות יישומיות, שאלות תרחיש והסברים מקצועיים לתשובות.",
+    "firebaseChanges": "ללא שינוי Firestore או Hosting מעבר לפריסת קבצים סטטיים.",
+    "releaseNotes": "רענון תוכן מקצועי ושאלות מבחן. המידע נועד ללמידה בלבד ויש לאמת דרישות מחייבות מול נוסח החוק, התקנה או התקן העדכני.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "active-users-indicator",
     "versionNumber": "Active Users Indicator",
     "date": "2026-05-03",
@@ -56,7 +75,7 @@ window.SITE_VERSIONS = [
     "status": "published",
     "emailStatus": "notSent"
   },
-    {
+  {
     "versionId": "public-readiness-free-beta",
     "versionNumber": "Public Readiness — Free Beta",
     "date": "2026-05-01",
@@ -75,7 +94,7 @@ window.SITE_VERSIONS = [
     "status": "published",
     "emailStatus": "notSent"
   },
-{
+  {
     "versionId": "mobile-first-p1",
     "versionNumber": "Mobile First P1",
     "date": "2026-05-01",
@@ -165,7 +184,7 @@ window.SITE_VERSIONS = [
     "commitHash": "",
     "commitMessage": "feat: add safety game MVP",
     "createdBy": "Osher Perets",
-    "addedRequirements": "הוספת מודול אתגר בטיחות ראשון לאתר הקורס, כהרחבת למידה משחקית שמחוברת לשיעורים ולתרגול הקיים.",
+    "addedRequirements": "הוספת מודול אתגר בטיחות ראשון לאתר הקורס, כהרחבת למידה משחקית שממקור מקצועי לשיעורים ולתרגול הקיים.",
     "siteChanges": "נוספו עמודי safety-game.html, game-unit.html, game-challenge.html, game-results.html ו-game-mistakes.html, יחד עם נתוני משחק וקבצי ניהול מצב.",
     "fixedBugs": "לא תוקנו באגים קיימים; המימוש הופרד מהמודולים הקיימים כדי לא לפגוע ב-Firebase Auth, מבחנים, דיווחי תקלות וניהול גרסאות.",
     "uiUxChanges": "נוסף מסלול יחידה עם שלבים פתוחים/נעולים/הושלמו, כוכבים, XP, פידבק מיידי, רמזים וחזרה על טעויות בממשק RTL מותאם למובייל.",
