@@ -1122,6 +1122,35 @@ html[data-theme="dark"] .admin-tabs button[aria-selected="true"] { color: var(--
   gap: .75rem;
   margin: 1rem 0 1.25rem;
 }
+.active-users-panel {
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin: .75rem 0 1rem;
+}
+.compact-title h3 { margin: 0; }
+.active-users-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: .75rem;
+}
+.active-user-card {
+  display: grid;
+  gap: .2rem;
+  padding: .8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.active-user-card span,
+.active-user-card small,
+.muted-text {
+  color: var(--muted);
+}
+.active-user-card span {
+  overflow-wrap: anywhere;
+}
 
 /* ---- Org-type accordion (field-tools) ---- */
 .org-type-grid {

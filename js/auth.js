@@ -2,6 +2,7 @@ import "../js/email-notifications.js";
 import "../js/feedback.js";
 import "../js/m-mobile.js";
 import "../js/m-lessons.js";
+import "../js/presence.js";
 import {
   ADMIN_EMAIL,
   auth,
@@ -734,14 +735,19 @@ function guard() {
       if (profile.status !== APPROVED) {
         authLog(profile.status === BLOCKED ? "blocked" : "pending");
         clearCachedProfile();
+        window.CoursePresence?.stopPresence?.();
         renderNotApproved(profile);
         authReadyResolve?.(profile);
         return;
       }
       authLog("approved");
       saveCachedProfile(profile);
-      if (shownProfile) decorateApprovedUser(profile);
-      else revealAuthenticatedView(profile);
+      if (shownProfile) {
+        decorateApprovedUser(profile);
+        window.CoursePresence?.startPresence?.(profile);
+      } else {
+        revealAuthenticatedView(profile);
+      }
       showApprovalWelcome(profile);
       authReadyResolve?.(profile);
       (async () => {

@@ -185,6 +185,24 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    match /activeSessions/{uid} {
+      allow read: if isAdmin();
+      allow create, update: if isApprovedSelf(uid)
+        && request.auth.uid == uid
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.keys().hasOnly([
+          "uid",
+          "email",
+          "displayName",
+          "lastSeenAt",
+          "currentPath",
+          "userAgent",
+          "isMobile"
+        ]);
+      allow delete: if isAdmin();
+    }
+
     match /gameProgress/{uid} {
       allow read: if isAdmin() || isApprovedSelf(uid);
       allow create, update: if isApprovedSelf(uid)

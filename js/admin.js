@@ -273,6 +273,58 @@ function renderFeedbackCards(reports) {
   reports.forEach((report) => container.append(renderFeedbackCard(report)));
 }
 
+function minutesSince(timestamp) {
+  const date = timestamp?.toDate ? timestamp.toDate() : timestamp instanceof Date ? timestamp : null;
+  if (!date) return Infinity;
+  return Math.max(0, Math.floor((Date.now() - date.getTime()) / 60000));
+}
+
+function activeSessionCard(session) {
+  const card = document.createElement("article");
+  card.className = "active-user-card";
+  const title = document.createElement("strong");
+  title.textContent = clean(session.displayName || session.email || "משתמש", 180);
+  const email = document.createElement("span");
+  email.textContent = clean(session.email || "-", 320);
+  const path = document.createElement("span");
+  path.textContent = "עמוד: " + clean(session.currentPath || "-", 500);
+  const seen = document.createElement("small");
+  const minutes = minutesSince(session.lastSeenAt);
+  seen.textContent = minutes <= 0 ? "נראה עכשיו" : "נראה לפני " + minutes + " דקות";
+  card.append(title, email, path, seen);
+  return card;
+}
+
+async function loadActiveSessions() {
+  const stat = document.querySelector('[data-admin-stat="active-now"] strong');
+  const list = document.getElementById("activeUsersList");
+  const status = document.getElementById("activeUsersStatus");
+  if (!stat && !list) return;
+  try {
+    const snapshot = await getDocs(collection(db, "activeSessions"));
+    const active = snapshot.docs
+      .map((item) => ({ uid: item.id, ...item.data() }))
+      .filter((session) => minutesSince(session.lastSeenAt) <= 5)
+      .sort((a, b) => minutesSince(a.lastSeenAt) - minutesSince(b.lastSeenAt));
+    if (stat) stat.textContent = String(active.length);
+    if (status) status.textContent = "פעילים ב-5 הדקות האחרונות.";
+    if (list) {
+      list.replaceChildren();
+      if (!active.length) {
+        const empty = document.createElement("p");
+        empty.className = "muted-text";
+        empty.textContent = "אין משתמשים פעילים כרגע.";
+        list.append(empty);
+      } else {
+        active.forEach((session) => list.append(activeSessionCard(session)));
+      }
+    }
+  } catch {
+    if (stat) stat.textContent = "—";
+    if (status) status.textContent = "לא ניתן לטעון משתמשים פעילים כרגע.";
+  }
+}
+
 
 async function loadUsers() {
   const tbody = document.getElementById("usersTableBody");
@@ -285,6 +337,8 @@ async function loadUsers() {
   tbody.replaceChildren();
   users.forEach((user) => tbody.append(renderUserRow(user)));
   status.textContent = "נטענו " + snapshot.size + " משתמשים.";
+  renderUserCards(users);
+  await loadActiveSessions();
   await loadExamScores(users);
   await loadFeedbackReports();
   await handleActionLink();

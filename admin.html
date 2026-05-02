@@ -38,6 +38,7 @@
       <div class="metric-modern" data-admin-stat="users-pending"><strong>—</strong><span>משתמשים ממתינים</span></div>
       <div class="metric-modern metric-ok" data-admin-stat="users-approved"><strong>—</strong><span>משתמשים מאושרים</span></div>
       <div class="metric-modern metric-warn" data-admin-stat="users-blocked"><strong>—</strong><span>משתמשים חסומים</span></div>
+      <div class="metric-modern metric-ok" data-admin-stat="active-now"><strong>—</strong><span>משתמשים פעילים כרגע<br><small>פעילים ב-5 הדקות האחרונות</small></span></div>
       <div class="metric-modern metric-accent" data-admin-stat="feedback-open"><strong>—</strong><span>דיווחים פתוחים</span></div>
     </section>
     <section class="toolbar-panel admin-only-panel" aria-label="מצב בטא">
@@ -72,6 +73,13 @@
           <div class="admin-search">
             <label><span>סינון לפי שם/אימייל/סטטוס</span><input type="search" id="usersSearch" placeholder="הקלידו לסינון..." autocomplete="off"></label>
           </div>
+          <section class="active-users-panel" aria-labelledby="activeUsersTitle">
+            <div class="section-title compact-title">
+              <h3 id="activeUsersTitle">משתמשים פעילים כרגע</h3>
+              <p id="activeUsersStatus">פעילים ב-5 הדקות האחרונות.</p>
+            </div>
+            <div id="activeUsersList" class="active-users-list"></div>
+          </section>
           <div class="table-scroll">
             <table class="data-table admin-table">
               <thead><tr><th>משתמש</th><th>תפקיד</th><th>סטטוס</th><th>Provider</th><th>נרשם</th><th>כניסה אחרונה</th><th>הודעת אישור</th><th>פעולות</th></tr></thead>

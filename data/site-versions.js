@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "active-users-indicator",
+    "versionNumber": "Active Users Indicator",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: add active users indicator",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "הוספת מדד משתמשים פעילים כרגע לאזור האדמין.",
+    "siteChanges": "נוסף heartbeat מאובטח למשתמשים מאושרים ואדמין, ונוספה רשימת משתמשים פעילים ב-5 הדקות האחרונות.",
+    "fixedBugs": "ללא תיקוני באגים ישירים.",
+    "uiUxChanges": "נוסף כרטיס KPI באדמין ורשימת משתמשים פעילים עם שם, אימייל, עמוד נוכחי וזמן מאז פעילות אחרונה.",
+    "securityChanges": "נוספו Firestore Rules עבור activeSessions כך שמשתמש יכול לעדכן רק את המסמך שלו ואדמין בלבד יכול לקרוא את כלל ה-sessions.",
+    "contentChanges": "עודכנה מדיניות הפרטיות עם הסבר על שמירת זמן פעילות אחרון, עמוד נוכחי ואינדיקציית מובייל לצורכי אבטחה, תמיכה ושיפור השירות.",
+    "firebaseChanges": "נוסף collection בשם activeSessions עם heartbeat כל 60 שניות, בטעינת עמוד ובחזרה לטאב פעיל.",
+    "releaseNotes": "אדמין יכול לראות הערכת משתמשים פעילים כרגע לפי heartbeat של 5 דקות אחרונות.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "temporarily-hide-ai-assistant",
     "versionNumber": "Temporarily Hide AI Assistant",
     "date": "2026-05-01",
