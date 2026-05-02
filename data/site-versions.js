@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "beer-materials-coverage-refresh",
+    "versionNumber": "Beer Materials Coverage Refresh",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: expand course coverage from additional materials",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "סריקת חומרי תיקיות מקצועיות נוספות ובדיקת כיסוי מול שיעורי האתר.",
+    "siteChanges": "נוספו חידודי תוכן לשיעורים ולעמודי תחום, ונוצרו דוחות כיסוי פנימיים.",
+    "fixedBugs": "צומצמו פערי תוכן בתחומי כלי לחץ, אביזרי הרמה, חלל מוקף, קרינה, חקלאות, PPE, מחלות מקצוע, ארגונומיה ועזרה ראשונה.",
+    "uiUxChanges": "ללא שינוי UI כללי.",
+    "securityChanges": "ללא שינוי הרשאות או Firebase Auth.",
+    "contentChanges": "הורחבו דוגמאות, נקודות למבחן, שאלות תרחיש וחידודים מקצועיים בתחומים חסרים.",
+    "firebaseChanges": "ללא שינוי Firestore או Auth; פריסת Hosting בלבד.",
+    "releaseNotes": "רענון כיסוי מקצועי נוסף: האתר כולל כעת מיפוי רחב יותר של תחומי בטיחות וכלים להכנה למבחן.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "course-material-refresh",
     "versionNumber": "Course Material Refresh",
     "date": "2026-05-03",
