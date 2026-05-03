@@ -210,7 +210,7 @@ async function submitFeedback(event) {
   }
 }
 
-function openModal() {
+function openModal(preset = {}) {
   if (document.getElementById("feedbackModal")) return;
   lastFeedbackFocus = document.activeElement;
   document.body.classList.add("feedback-open");
@@ -247,6 +247,7 @@ function openModal() {
     option.value = type;
     typeSelect.append(option);
   });
+  if (preset.type && REPORT_TYPES.includes(preset.type)) typeSelect.value = preset.type;
   typeLabel.append(typeSelect);
 
   const titleLabel = el("label");
@@ -255,6 +256,7 @@ function openModal() {
   titleInput.name = "title";
   titleInput.maxLength = 160;
   titleInput.required = true;
+  if (preset.title) titleInput.value = clean(preset.title, 160);
   titleLabel.append(titleInput);
 
   const descLabel = el("label");
@@ -264,6 +266,7 @@ function openModal() {
   desc.rows = 6;
   desc.maxLength = 4000;
   desc.required = true;
+  if (preset.description) desc.value = clean(preset.description, 4000);
   descLabel.append(desc);
 
   const meta = el("div", "feedback-meta");

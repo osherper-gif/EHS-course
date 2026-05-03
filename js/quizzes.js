@@ -9,15 +9,16 @@
   }
 
   function quizPool() {
-    if (Array.isArray(window.COURSE_DATA?.questions) && window.COURSE_DATA.questions.length) return window.COURSE_DATA.questions;
-    return (window.EXAM_QUESTIONS || []).map((q) => ({
+    if (Array.isArray(window.EXAM_QUESTIONS) && window.EXAM_QUESTIONS.length) return window.EXAM_QUESTIONS.map((q) => ({
       id: q.id,
       lessonId: q.relatedLessonId,
+      topic: q.topic,
       question: q.question,
       options: q.options,
       answer: q.options.indexOf(q.correctAnswer),
       explanation: q.explanation,
     }));
+    return Array.isArray(window.COURSE_DATA?.questions) ? window.COURSE_DATA.questions : [];
   }
 
   function prepareQuestion(q) {
@@ -53,6 +54,24 @@
       container.innerHTML = questions.length ? questions.map(renderQuestion).join("") : '<article class="question-card">אין שאלות למפגש שנבחר.</article>';
     });
     container.addEventListener("click", (event) => {
+      const reportButton = event.target.closest("[data-report-question]");
+      if (reportButton) {
+        const question = activeQuizQuestions.get(reportButton.dataset.reportQuestion);
+        if (question && window.CourseFeedback?.open) {
+          window.CourseFeedback.open({
+            type: "שאלה לא נכונה",
+            title: "דיווח על שאלה " + question.id,
+            description: [
+              "מזהה שאלה: " + question.id,
+              "שיעור: " + (question.lessonId || "-"),
+              "נושא: " + (question.topic || "-"),
+              "שאלה: " + question.question,
+              "תשובה שנבחרה: לא רלוונטי",
+            ].join("\n"),
+          });
+        }
+        return;
+      }
       const button = event.target.closest("[data-answer]");
       if (!button) return;
       const card = button.closest("[data-question]");
@@ -89,7 +108,7 @@
   }
 
   function renderQuestion(q, index) {
-    return '<article class="question-card" data-question="' + escapeHtml(q.id) + '"><h2>שאלה ' + (index + 1) + '</h2><p>' + escapeHtml(q.question) + '</p><div class="answer-list">' + q.options.map((option, i) => '<button type="button" data-answer="' + i + '">' + escapeHtml(option) + '</button>').join("") + '</div><p class="explanation"></p></article>';
+    return '<article class="question-card" data-question="' + escapeHtml(q.id) + '"><h2>שאלה ' + (index + 1) + '</h2><p>' + escapeHtml(q.question) + '</p><div class="answer-list">' + q.options.map((option, i) => '<button type="button" data-answer="' + i + '">' + escapeHtml(option) + '</button>').join("") + '</div><button type="button" class="btn secondary question-report-btn" data-report-question="' + escapeHtml(q.id) + '">דווח על שאלה</button><p class="explanation"></p></article>';
   }
 
   window.CourseQuizzes = { initQuiz };

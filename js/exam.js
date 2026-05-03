@@ -210,6 +210,28 @@
     return label;
   }
 
+  function buildQuestionReportButton(q) {
+    const button = document.createElement("button");
+    button.className = "btn secondary question-report-btn";
+    button.type = "button";
+    button.textContent = "דווח על שאלה";
+    button.addEventListener("click", () => {
+      if (!window.CourseFeedback?.open) return;
+      window.CourseFeedback.open({
+        type: "שאלה לא נכונה",
+        title: "דיווח על שאלה " + q.id,
+        description: [
+          "מזהה שאלה: " + q.id,
+          "שיעור: " + (q.relatedLessonId || "-"),
+          "נושא: " + (q.topic || "-"),
+          "שאלה: " + q.question,
+          "תשובה שנבחרה: " + (activeAnswers[q.id] || "לא נבחרה תשובה"),
+        ].join("\n"),
+      });
+    });
+    return button;
+  }
+
   function renderMobileExamQuestion(form) {
     const total = activeQuestions.length;
     const index = Math.min(Math.max(mobileExamIndex, 0), Math.max(total - 1, 0));
@@ -237,7 +259,7 @@
     const answers = document.createElement("div");
     answers.className = "answer-list m-exam-answers";
     q.shuffledOptions.forEach((option) => answers.append(renderOption(q, option)));
-    card.append(h, answers);
+    card.append(h, answers, buildQuestionReportButton(q));
     const controls = document.createElement("div");
     controls.className = "m-exam-controls m-exam-controls--p1";
     const grid = document.createElement("button");
@@ -282,7 +304,7 @@
       const answers = document.createElement("div");
       answers.className = "answer-list";
       q.shuffledOptions.forEach((option) => answers.append(renderOption(q, option)));
-      card.append(h, p, answers);
+      card.append(h, p, answers, buildQuestionReportButton(q));
       form.append(card);
     });
     const submit = document.createElement("button");

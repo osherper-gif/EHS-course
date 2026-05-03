@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "question-quality-audit",
+    "versionNumber": "Question Quality Audit",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "fix: audit and improve question quality",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "ביצוע ביקורת איכות עומק למאגר השאלות והתשובות לאחר פידבק משתמשים.",
+    "siteChanges": "מאגר השאלות הפעיל הוחלף למאגר שמרני ומבוקר של 180 שאלות, עם כיסוי אחיד לכל שיעור.",
+    "fixedBugs": "הוסרו שאלות חלשות, גנריות או חוזרות, ושופרו מסיחים והסברים לתשובות.",
+    "uiUxChanges": "נוסף כפתור קטן לדיווח על שאלה מתוך מסכי מבחן ותרגול, ללא שינוי UI רחב.",
+    "securityChanges": "ללא שינוי בהרשאות או בכללי Firestore.",
+    "contentChanges": "שופרו ניסוחים, תשובות, הסברים, מסיחים והערות מקור כלליות לשאלות.",
+    "firebaseChanges": "פריסת Hosting בלבד.",
+    "releaseNotes": "עודכן מאגר השאלות כדי לשפר אמינות, מקצועיות ויכולת דיווח ממוקד על שאלות בעייתיות.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "user-progress-engagement",
     "versionNumber": "User Progress & Engagement",
     "date": "2026-05-03",

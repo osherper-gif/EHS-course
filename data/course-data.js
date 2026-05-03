@@ -15369,3 +15369,10 @@ window.COURSE_DATA = {
     }
   ]
 };
+
+// Question quality audit 2026-05-03:
+// The active question bank now lives in data/exam-questions.js.
+// Keep legacy generated questions out of runtime surfaces to avoid stale or weaker wording.
+if (window.COURSE_DATA) {
+  window.COURSE_DATA.questions = [];
+}

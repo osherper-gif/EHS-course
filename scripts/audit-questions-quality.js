@@ -7,9 +7,9 @@ const ctx = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(root, "data", "exam-questions.js"), "utf8"), ctx);
 const questions = ctx.window.EXAM_QUESTIONS || [];
 
-const MIN_TOTAL = 300;
-const MIN_PER_LESSON = 25;
-const EXPECTED_DIFFICULTY_SPREAD = { easy: 7, medium: 12, hard: 6 };
+const MIN_TOTAL = 180;
+const MIN_PER_LESSON = 15;
+const EXPECTED_DIFFICULTY_SPREAD = { easy: 5, medium: 5, hard: 5 };
 const REQUIRED_DIFFICULTIES = new Set(["easy", "medium", "hard"]);
 const LEGAL_OR_STANDARD_PATTERNS = [
   /חוק/,
@@ -34,6 +34,29 @@ const GENERIC_PATTERNS = [
   /מהי טעות נפוצה בטיפול בנושא/,
   /מה חשוב לזכור למבחן בנושא/,
   /בחר את המשפט המדויק ביותר על הנושא/
+];
+const SILLY_DISTRACTOR_PATTERNS = [
+  /להתעלם מהחוק/,
+  /לא לעשות כלום/,
+  /לבטל תיעוד/,
+  /אין צורך בבקרה/,
+  /להמשיך כרגיל ללא בדיקה/,
+  /לא צריך לבדוק/,
+  /תמיד מותר/
+];
+const ABSOLUTE_LEGAL_PATTERNS = [
+  /תמיד/,
+  /לעולם/,
+  /בוודאות/,
+  /בכל מצב/
+];
+const AI_STYLE_PATTERNS = [
+  /מה מאפיין/,
+  /באופן כללי/,
+  /בהקשר של הנושא/,
+  /התשובה הטובה ביותר היא/,
+  /ניתוח מקצועי בלבד/,
+  /איזה מהבאים נכון ביותר ללא קשר לתרחיש/
 ];
 const TOO_EASY_PATTERNS = [
   /^מהו\s[^?]{0,18}\?$/,
@@ -79,7 +102,10 @@ questions.forEach((question, index) => {
   if (!question.relatedLessonId) issues.push(`[missing lesson] ${label}`);
   if (!question.topic || String(question.topic).trim().length < 4) issues.push(`[missing topic] ${label}`);
   if (!REQUIRED_DIFFICULTIES.has(question.difficulty)) issues.push(`[bad difficulty] ${label}: ${question.difficulty}`);
-  if (!question.explanation || String(question.explanation).trim().length < 35) issues.push(`[weak explanation] ${label}`);
+  if (!question.explanation || String(question.explanation).trim().length < 55) issues.push(`[weak explanation] ${label}`);
+  if (!question.qualityStatus || !["approved", "rewrite", "verify", "remove"].includes(question.qualityStatus)) {
+    issues.push(`[missing quality status] ${label}`);
+  }
   const isLegalOrStandard = LEGAL_OR_STANDARD_PATTERNS.some((pattern) => pattern.test(`${question.topic || ""} ${question.question || ""} ${question.explanation || ""}`));
   if (!question.sourceNote && !question.source) issues.push(`[missing source note] ${label}`);
   if (isLegalOrStandard && (!question.sourceNote || String(question.sourceNote).trim().length < 20)) {
@@ -90,9 +116,23 @@ questions.forEach((question, index) => {
     const normalizedOptions = question.options.map(normalize);
     if (new Set(normalizedOptions).size !== normalizedOptions.length) issues.push(`[duplicate options] ${label}`);
     if (!question.options.includes(question.correctAnswer)) issues.push(`[correct answer missing from options] ${label}`);
+    question.options.forEach((option) => {
+      if (SILLY_DISTRACTOR_PATTERNS.some((pattern) => pattern.test(option))) {
+        issues.push(`[silly distractor] ${label}: ${option}`);
+      }
+    });
+    const distractors = question.options.filter((option) => option !== question.correctAnswer);
+    const avgDistractorLength = distractors.reduce((sum, option) => sum + String(option).length, 0) / Math.max(distractors.length, 1);
+    if (String(question.correctAnswer || "").length > avgDistractorLength * 2.4) {
+      issues.push(`[answer length bias] ${label}`);
+    }
   }
   if (!question.question || String(question.question).trim().length < 28) issues.push(`[too short] ${label}`);
   if (GENERIC_PATTERNS.some((pattern) => pattern.test(question.question || ""))) issues.push(`[generic wording] ${label}: ${question.question}`);
+  if (AI_STYLE_PATTERNS.some((pattern) => pattern.test(question.question || ""))) issues.push(`[ai-like wording] ${label}: ${question.question}`);
+  if (isLegalOrStandard && ABSOLUTE_LEGAL_PATTERNS.some((pattern) => pattern.test(`${question.question || ""} ${question.correctAnswer || ""} ${question.explanation || ""}`))) {
+    issues.push(`[absolute legal wording] ${label}`);
+  }
   if (TOO_EASY_PATTERNS.some((pattern) => pattern.test(question.question || "")) && question.difficulty !== "easy") {
     issues.push(`[too easy for difficulty] ${label}: ${question.question}`);
   }
@@ -121,7 +161,7 @@ sortedLessons.forEach(([lessonId, list]) => {
 for (let i = 0; i < questions.length; i += 1) {
   for (let j = i + 1; j < questions.length; j += 1) {
     const score = similarity(questions[i].question, questions[j].question);
-    if (score >= 0.86 && normalize(questions[i].question) !== normalize(questions[j].question)) {
+    if (questions[i].relatedLessonId === questions[j].relatedLessonId && score >= 0.9 && normalize(questions[i].question) !== normalize(questions[j].question)) {
       recommendations.push(`[high similarity] ${questions[i].id} ~ ${questions[j].id} (${score.toFixed(2)})`);
     }
   }
