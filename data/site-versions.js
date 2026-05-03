@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "restore-google-login-after-lazy-auth",
+    "versionNumber": "Restore Google Login Stability",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "fix: restore Google login after lazy auth optimization",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "החזרת מסלול התחברות יציב לאחר ניסיון טעינה דינמית שפגע בפתיחת Google.",
+    "siteChanges": "דף הכניסה טוען כעת את רכיבי ההתחברות הבסיסיים בלבד כבר בתחילת הדף, ושאר רכיבי האתר נשארים מחוץ לדף הכניסה.",
+    "fixedBugs": "תוקנה תקיעה שבה כפתור הכניסה נשאר על 'פותח התחברות...' ולא התקדם לבחירת חשבון.",
+    "uiUxChanges": "שופרה הודעת הכשל: הכפתור חוזר לפעולה והמשתמש מקבל הנחיה לרענן או לבחור שוב חשבון Google.",
+    "securityChanges": "ללא שינוי בהרשאות או במדיניות הגישה.",
+    "contentChanges": "ללא שינוי בתוכן הלימודי.",
+    "firebaseChanges": "דף הכניסה משתמש ברכיבי התחברות בסיסיים בלבד; נתוני האתר ושאר רכיבי המערכת אינם נטענים בדף הכניסה.",
+    "releaseNotes": "הכניסה עם Google הוחזרה למסלול יציב ומהיר יותר, עם שמירה על דף כניסה קל וללא טעינת רכיבים שאינם נדרשים להתחברות.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "login-lazy-firebase-load",
     "versionNumber": "Login Lazy Firebase Load",
     "date": "2026-05-03",
