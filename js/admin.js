@@ -14,6 +14,8 @@ let usersByUid = new Map();
 let preparedApproval = null;
 let feedbackById = new Map();
 let allUsers = [];
+let questionReports = [];
+let questionRatings = [];
 
 function clean(value, max = 1000) {
   return window.CourseAuth?.sanitizeText
@@ -318,6 +320,129 @@ function renderFeedbackCards(reports) {
   reports.forEach((report) => container.append(renderFeedbackCard(report)));
 }
 
+function questionTitle(questionId) {
+  const question = (window.EXAM_QUESTIONS || []).find((item) => item.id === questionId);
+  return question?.question || questionId;
+}
+
+function populateQuestionQualityFilters() {
+  const lessonFilter = document.getElementById("questionQualityLessonFilter");
+  const issueFilter = document.getElementById("questionQualityIssueFilter");
+  if (lessonFilter && lessonFilter.options.length <= 1) {
+    Array.from(new Set([
+      ...questionReports.map((item) => clean(item.lessonId, 120)),
+      ...questionRatings.map((item) => clean(item.lessonId, 120)),
+    ].filter(Boolean))).sort().forEach((lessonId) => {
+      const option = document.createElement("option");
+      option.value = lessonId;
+      option.textContent = lessonId;
+      lessonFilter.append(option);
+    });
+  }
+  if (issueFilter && issueFilter.options.length <= 1) {
+    Array.from(new Set(questionReports.map((item) => clean(item.issueType, 120)).filter(Boolean))).sort().forEach((issue) => {
+      const option = document.createElement("option");
+      option.value = issue;
+      option.textContent = issue;
+      issueFilter.append(option);
+    });
+  }
+}
+
+function currentQuestionQualityFilters() {
+  return {
+    lessonId: clean(document.getElementById("questionQualityLessonFilter")?.value || "", 120),
+    issueType: clean(document.getElementById("questionQualityIssueFilter")?.value || "", 120),
+  };
+}
+
+function qualityItemCard(item, type) {
+  const card = document.createElement("article");
+  card.className = "quality-item";
+  const title = document.createElement("h4");
+  title.textContent = questionTitle(item.questionId);
+  const meta = document.createElement("p");
+  meta.textContent = "שיעור: " + (item.lessonId || "-") + " | " + (type === "reports" ? "דיווחים: " + item.reportCount : "דירוג ממוצע: " + item.averageRating.toFixed(1));
+  card.append(title, meta);
+  if (item.status === "needs-review") {
+    const flag = document.createElement("span");
+    flag.className = "status-pill";
+    flag.dataset.status = "pending";
+    flag.textContent = "שאלה זו נמצאת בבדיקה";
+    card.append(flag);
+  }
+  if (item.issueTypes?.length) {
+    const issues = document.createElement("small");
+    issues.textContent = "סוגי בעיות: " + item.issueTypes.join(", ");
+    card.append(issues);
+  }
+  return card;
+}
+
+function renderQuestionQuality() {
+  const status = document.getElementById("questionQualityStatus");
+  const topBox = document.getElementById("topReportedQuestions");
+  const lowBox = document.getElementById("lowRatedQuestions");
+  if (!status || !topBox || !lowBox) return;
+  const filters = currentQuestionQualityFilters();
+  const filteredReports = questionReports.filter((report) =>
+    (!filters.lessonId || report.lessonId === filters.lessonId)
+    && (!filters.issueType || report.issueType === filters.issueType)
+  );
+  const filteredRatings = questionRatings.filter((rating) => !filters.lessonId || rating.lessonId === filters.lessonId);
+  const byReport = new Map();
+  filteredReports.forEach((report) => {
+    const questionId = clean(report.questionId, 140);
+    if (!questionId) return;
+    const current = byReport.get(questionId) || { questionId, lessonId: report.lessonId || "", reportCount: 0, issueTypes: new Set(), status: "" };
+    current.reportCount += 1;
+    if (report.issueType) current.issueTypes.add(clean(report.issueType, 120));
+    if (current.reportCount > 3) current.status = "needs-review";
+    byReport.set(questionId, current);
+  });
+  const byRating = new Map();
+  filteredRatings.forEach((rating) => {
+    const questionId = clean(rating.questionId, 140);
+    if (!questionId) return;
+    const current = byRating.get(questionId) || { questionId, lessonId: rating.lessonId || "", count: 0, sum: 0, status: "" };
+    current.count += 1;
+    current.sum += Number(rating.rating || 0);
+    byRating.set(questionId, current);
+  });
+  const reported = Array.from(byReport.values())
+    .map((item) => ({ ...item, issueTypes: Array.from(item.issueTypes) }))
+    .sort((a, b) => b.reportCount - a.reportCount)
+    .slice(0, 10);
+  const rated = Array.from(byRating.values())
+    .map((item) => ({ ...item, averageRating: item.count ? item.sum / item.count : 0, status: item.count && item.sum / item.count < 3 ? "needs-review" : "" }))
+    .filter((item) => item.count > 0)
+    .sort((a, b) => a.averageRating - b.averageRating)
+    .slice(0, 10);
+  topBox.replaceChildren();
+  lowBox.replaceChildren();
+  if (!reported.length) topBox.append(cardLine("", "אין דיווחי שאלות להצגה."));
+  else reported.forEach((item) => topBox.append(qualityItemCard(item, "reports")));
+  if (!rated.length) lowBox.append(cardLine("", "אין דירוגי שאלות להצגה."));
+  else rated.forEach((item) => lowBox.append(qualityItemCard(item, "ratings")));
+  status.textContent = "נטענו " + questionReports.length + " דיווחי שאלות ו-" + questionRatings.length + " דירוגים.";
+}
+
+async function loadQuestionQuality() {
+  if (!document.getElementById("questionQualityStatus")) return;
+  try {
+    const [reportsSnapshot, ratingsSnapshot] = await Promise.all([
+      getDocs(query(collection(db, "questionReports"), orderBy("createdAt", "desc"))),
+      getDocs(query(collection(db, "questionRatings"), orderBy("updatedAt", "desc"))),
+    ]);
+    questionReports = reportsSnapshot.docs.map((item) => ({ reportId: item.id, ...item.data() }));
+    questionRatings = ratingsSnapshot.docs.map((item) => ({ ratingId: item.id, ...item.data() }));
+    populateQuestionQualityFilters();
+    renderQuestionQuality();
+  } catch {
+    document.getElementById("questionQualityStatus").textContent = "לא ניתן לטעון נתוני איכות שאלות כרגע.";
+  }
+}
+
 function minutesSince(timestamp) {
   const date = timestamp?.toDate ? timestamp.toDate() : timestamp instanceof Date ? timestamp : null;
   if (!date) return Infinity;
@@ -457,6 +582,7 @@ async function loadUsers() {
   await loadActiveSessions();
   await loadExamScores(users);
   await loadFeedbackReports();
+  await loadQuestionQuality();
   await handleActionLink();
 }
 
@@ -728,6 +854,9 @@ document.addEventListener("DOMContentLoaded", () => {
   ["usersSearch", "surveyStatusFilter", "surveyUseFilter", "surveySourceFilter"].forEach((id) => {
     document.getElementById(id)?.addEventListener("input", applyUserFilters);
     document.getElementById(id)?.addEventListener("change", applyUserFilters);
+  });
+  ["questionQualityLessonFilter", "questionQualityIssueFilter"].forEach((id) => {
+    document.getElementById(id)?.addEventListener("change", renderQuestionQuality);
   });
   document.getElementById("saveFeedbackReport")?.addEventListener("click", async () => {
     try {

@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "question-feedback-system",
+    "versionNumber": "Question Feedback System",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: add question feedback and rating system",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "הפיכת המשתמשים למקור שיפור איכות שאלות באמצעות דיווחים ודירוגים ממוקדים.",
+    "siteChanges": "שודרג כפתור דיווח על שאלה ונוסף דירוג 1-5 מתחת לשאלות בתרגול ובמבחנים.",
+    "fixedBugs": "שופרה היכולת לזהות שאלות עם ניסוח בעייתי, תשובה לא מדויקת או כמה תשובות אפשריות.",
+    "uiUxChanges": "המשתמש רואה טופס דיווח ייעודי לשאלה עם השאלה, התשובה הנכונה והבחירה שלו.",
+    "securityChanges": "נוספו הרשאות שמאפשרות למשתמש מאושר לדווח ולדרג שאלות, ולאדמין לקרוא את הנתונים.",
+    "contentChanges": "נוסף דשבורד אדמין לאיתור שאלות עם הרבה דיווחים או דירוג נמוך.",
+    "firebaseChanges": "נוספו אוספים questionReports, questionRatings ו-questionFeedback.",
+    "releaseNotes": "שאלות בעייתיות ניתנות לזיהוי מהיר יותר, ושאלה שמקבלת דירוג נמוך או דיווחים רבים מסומנת לבדיקה.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "rollback-login-to-last-known-working-flow",
     "versionNumber": "Rollback Login To Stable Flow",
     "date": "2026-05-03",

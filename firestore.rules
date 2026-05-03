@@ -33,6 +33,12 @@ service cloud.firestore {
         && userDoc(uid).data.status == "approved";
     }
 
+    function isApprovedRequester() {
+      return signedIn()
+        && hasUserDoc(request.auth.uid)
+        && userDoc(request.auth.uid).data.status == "approved";
+    }
+
     function validOwnImmutableFields() {
       return request.resource.data.uid == resource.data.uid
         && request.resource.data.email == resource.data.email
@@ -203,6 +209,61 @@ service cloud.firestore {
 
       allow update: if isAdmin();
       allow delete: if false;
+    }
+
+    match /questionReports/{reportId} {
+      allow read: if isAdmin();
+      allow create: if isApprovedRequester()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.keys().hasOnly([
+          "reportId",
+          "questionId",
+          "lessonId",
+          "issueType",
+          "freeText",
+          "questionText",
+          "correctAnswer",
+          "selectedAnswer",
+          "userId",
+          "userEmail",
+          "createdAt"
+        ]);
+      allow update, delete: if false;
+    }
+
+    match /questionRatings/{ratingId} {
+      allow read: if isAdmin();
+      allow create, update: if isApprovedRequester()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.keys().hasOnly([
+          "ratingId",
+          "questionId",
+          "lessonId",
+          "rating",
+          "userId",
+          "createdAt",
+          "updatedAt"
+        ])
+        && request.resource.data.rating >= 1
+        && request.resource.data.rating <= 5;
+      allow delete: if false;
+    }
+
+    match /questionFeedback/{questionId} {
+      allow read: if isAdmin() || isApprovedRequester();
+      allow create, update: if isApprovedRequester()
+        && request.resource.data.questionId == questionId
+        && request.resource.data.keys().hasOnly([
+          "questionId",
+          "lessonId",
+          "lastIssueType",
+          "lastReportedAt",
+          "lastLowRating",
+          "status",
+          "updatedAt"
+        ])
+        && request.resource.data.status == "needs-review";
+      allow delete: if isAdmin();
     }
 
     match /activeSessions/{uid} {

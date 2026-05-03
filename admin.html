@@ -65,6 +65,7 @@
       <button type="button" role="tab" class="admin-tab is-active" data-admin-tab="users" aria-selected="true">משתמשים</button>
       <button type="button" role="tab" class="admin-tab" data-admin-tab="feedback" aria-selected="false">דיווחי תקלות</button>
       <button type="button" role="tab" class="admin-tab" data-admin-tab="exams" aria-selected="false">ציוני מבחנים</button>
+      <button type="button" role="tab" class="admin-tab" data-admin-tab="question-quality" aria-selected="false">איכות שאלות</button>
     </nav>
 
     <div class="admin-panels">
@@ -162,6 +163,28 @@
               <thead><tr><th>אימייל משתמש</th><th>מספר ניסיונות</th><th>ציון אחרון</th><th>ממוצע</th></tr></thead>
               <tbody id="examScoresBody"></tbody>
             </table>
+          </div>
+        </section>
+      </section>
+      <section class="admin-panel" data-admin-panel="question-quality" hidden>
+        <section class="content-section admin-section">
+          <div class="section-title">
+            <h2>איכות שאלות</h2>
+            <p id="questionQualityStatus">נתוני דירוג ודיווחי שאלות יוצגו לאחר אימות מנהל.</p>
+          </div>
+          <div class="admin-search">
+            <label><span>שיעור</span><select id="questionQualityLessonFilter"><option value="">כל השיעורים</option></select></label>
+            <label><span>סוג בעיה</span><select id="questionQualityIssueFilter"><option value="">כל הסוגים</option></select></label>
+          </div>
+          <div class="quality-grid">
+            <section class="quality-card">
+              <h3>Top בעייתיות</h3>
+              <div id="topReportedQuestions" class="quality-list"></div>
+            </section>
+            <section class="quality-card">
+              <h3>דירוג ממוצע נמוך</h3>
+              <div id="lowRatedQuestions" class="quality-list"></div>
+            </section>
           </div>
         </section>
       </section>

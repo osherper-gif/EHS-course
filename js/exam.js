@@ -210,26 +210,54 @@
     return label;
   }
 
+  function questionPayload(q) {
+    return {
+      questionId: q.id,
+      lessonId: q.relatedLessonId || "",
+      topic: q.topic || "",
+      questionText: q.question || "",
+      correctAnswer: q.correctAnswer || "",
+      selectedAnswer: activeAnswers[q.id] || "",
+    };
+  }
+
   function buildQuestionReportButton(q) {
     const button = document.createElement("button");
     button.className = "btn secondary question-report-btn";
     button.type = "button";
     button.textContent = "דווח על שאלה";
     button.addEventListener("click", () => {
-      if (!window.CourseFeedback?.open) return;
-      window.CourseFeedback.open({
-        type: "שאלה לא נכונה",
-        title: "דיווח על שאלה " + q.id,
-        description: [
-          "מזהה שאלה: " + q.id,
-          "שיעור: " + (q.relatedLessonId || "-"),
-          "נושא: " + (q.topic || "-"),
-          "שאלה: " + q.question,
-          "תשובה שנבחרה: " + (activeAnswers[q.id] || "לא נבחרה תשובה"),
-        ].join("\n"),
-      });
+      if (!window.CourseFeedback?.openQuestionReport) return;
+      window.CourseFeedback.openQuestionReport(questionPayload(q));
     });
     return button;
+  }
+
+  function buildQuestionRating(q) {
+    const wrap = document.createElement("div");
+    wrap.className = "question-rating";
+    const label = document.createElement("span");
+    label.textContent = "עד כמה השאלה הייתה טובה?";
+    const stars = document.createElement("div");
+    stars.className = "question-rating-stars";
+    const status = document.createElement("small");
+    status.setAttribute("aria-live", "polite");
+    for (let rating = 1; rating <= 5; rating += 1) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "question-rating-star";
+      button.textContent = "★";
+      button.setAttribute("aria-label", "דרג " + rating + " מתוך 5");
+      button.addEventListener("click", () => {
+        stars.querySelectorAll("button").forEach((item, index) => {
+          item.classList.toggle("is-selected", index < rating);
+        });
+        window.CourseFeedback?.rateQuestion?.(questionPayload(q), rating, status);
+      });
+      stars.append(button);
+    }
+    wrap.append(label, stars, status);
+    return wrap;
   }
 
   function renderMobileExamQuestion(form) {
@@ -259,7 +287,8 @@
     const answers = document.createElement("div");
     answers.className = "answer-list m-exam-answers";
     q.shuffledOptions.forEach((option) => answers.append(renderOption(q, option)));
-    card.append(h, answers, buildQuestionReportButton(q));
+    card.append(h, answers, buildQuestionRating(q), buildQuestionReportButton(q));
+    window.CourseFeedback?.showQuestionStatus?.(q.id, card);
     const controls = document.createElement("div");
     controls.className = "m-exam-controls m-exam-controls--p1";
     const grid = document.createElement("button");
@@ -304,7 +333,8 @@
       const answers = document.createElement("div");
       answers.className = "answer-list";
       q.shuffledOptions.forEach((option) => answers.append(renderOption(q, option)));
-      card.append(h, p, answers, buildQuestionReportButton(q));
+      card.append(h, p, answers, buildQuestionRating(q), buildQuestionReportButton(q));
+      window.CourseFeedback?.showQuestionStatus?.(q.id, card);
       form.append(card);
     });
     const submit = document.createElement("button");

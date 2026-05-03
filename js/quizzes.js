@@ -52,24 +52,42 @@
       activeQuizQuestions.clear();
       questions.forEach((q) => activeQuizQuestions.set(q.id, q));
       container.innerHTML = questions.length ? questions.map(renderQuestion).join("") : '<article class="question-card">אין שאלות למפגש שנבחר.</article>';
+      questions.forEach((q) => {
+        const card = container.querySelector('[data-question="' + q.id.replace(/"/g, '\\"') + '"]');
+        if (card) window.CourseFeedback?.showQuestionStatus?.(q.id, card);
+      });
     });
     container.addEventListener("click", (event) => {
       const reportButton = event.target.closest("[data-report-question]");
       if (reportButton) {
         const question = activeQuizQuestions.get(reportButton.dataset.reportQuestion);
-        if (question && window.CourseFeedback?.open) {
-          window.CourseFeedback.open({
-            type: "שאלה לא נכונה",
-            title: "דיווח על שאלה " + question.id,
-            description: [
-              "מזהה שאלה: " + question.id,
-              "שיעור: " + (question.lessonId || "-"),
-              "נושא: " + (question.topic || "-"),
-              "שאלה: " + question.question,
-              "תשובה שנבחרה: לא רלוונטי",
-            ].join("\n"),
+        if (question && window.CourseFeedback?.openQuestionReport) {
+          const selected = reportButton.closest("[data-question]")?.querySelector("[data-answer].wrong");
+          window.CourseFeedback.openQuestionReport({
+            questionId: question.id,
+            lessonId: question.lessonId || "",
+            topic: question.topic || "",
+            questionText: question.question,
+            correctAnswer: question.options[question.answer] || "",
+            selectedAnswer: selected ? selected.textContent : "",
           });
         }
+        return;
+      }
+      const ratingButton = event.target.closest("[data-rate-question]");
+      if (ratingButton) {
+        const question = activeQuizQuestions.get(ratingButton.dataset.rateQuestion);
+        const rating = Number(ratingButton.dataset.rating || 0);
+        if (!question || !rating) return;
+        const card = ratingButton.closest("[data-question]");
+        card.querySelectorAll("[data-rate-question]").forEach((button) => {
+          button.classList.toggle("is-selected", Number(button.dataset.rating) <= rating);
+        });
+        window.CourseFeedback?.rateQuestion?.({
+          questionId: question.id,
+          lessonId: question.lessonId || "",
+          topic: question.topic || "",
+        }, rating, card.querySelector("[data-rating-status]"));
         return;
       }
       const button = event.target.closest("[data-answer]");
@@ -108,7 +126,10 @@
   }
 
   function renderQuestion(q, index) {
-    return '<article class="question-card" data-question="' + escapeHtml(q.id) + '"><h2>שאלה ' + (index + 1) + '</h2><p>' + escapeHtml(q.question) + '</p><div class="answer-list">' + q.options.map((option, i) => '<button type="button" data-answer="' + i + '">' + escapeHtml(option) + '</button>').join("") + '</div><button type="button" class="btn secondary question-report-btn" data-report-question="' + escapeHtml(q.id) + '">דווח על שאלה</button><p class="explanation"></p></article>';
+    const rating = '<div class="question-rating"><span>עד כמה השאלה הייתה טובה?</span><div class="question-rating-stars">' +
+      [1, 2, 3, 4, 5].map((value) => '<button type="button" class="question-rating-star" data-rate-question="' + escapeHtml(q.id) + '" data-rating="' + value + '" aria-label="דרג ' + value + ' מתוך 5">★</button>').join("") +
+      '</div><small data-rating-status aria-live="polite"></small></div>';
+    return '<article class="question-card" data-question="' + escapeHtml(q.id) + '"><h2>שאלה ' + (index + 1) + '</h2><p>' + escapeHtml(q.question) + '</p><div class="answer-list">' + q.options.map((option, i) => '<button type="button" data-answer="' + i + '">' + escapeHtml(option) + '</button>').join("") + '</div>' + rating + '<button type="button" class="btn secondary question-report-btn" data-report-question="' + escapeHtml(q.id) + '">דווח על שאלה</button><p class="explanation"></p></article>';
   }
 
   window.CourseQuizzes = { initQuiz };

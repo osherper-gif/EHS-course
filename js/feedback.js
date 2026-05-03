@@ -3,12 +3,22 @@ import {
   db,
   collection,
   doc,
+  getDoc,
   setDoc,
   serverTimestamp,
 } from "./firebase-config.js";
 
 const ADMIN_EMAIL = "osherper@gmail.com";
 const PENDING_FEEDBACK_KEY = "pendingFeedbackReports";
+const QUESTION_ISSUE_TYPES = [
+  "תשובה לא נכונה",
+  "ניסוח לא ברור",
+  "כמה תשובות נכונות",
+  "שאלה לא רלוונטית",
+  "קשה מדי",
+  "קלה מדי",
+  "אחר",
+];
 const REPORT_TYPES = [
   "תקלה",
   "שגיאת תוכן",
@@ -22,6 +32,8 @@ let activeProfile = null;
 let lastMailto = "";
 let lastFeedbackFocus = null;
 let lastFailedReport = null;
+let activeQuestionReport = null;
+const questionStatusCache = new Map();
 
 function clean(value, max = 2000) {
   return window.CourseAuth?.sanitizeText
@@ -55,10 +67,23 @@ function buildMailto(report) {
 function closeModal() {
   document.body.classList.remove("feedback-open");
   document.getElementById("feedbackModal")?.remove();
+  activeQuestionReport = null;
   if (lastFeedbackFocus && typeof lastFeedbackFocus.focus === "function") {
     lastFeedbackFocus.focus();
   }
   lastFeedbackFocus = null;
+}
+
+function questionContextFromPreset(preset = {}) {
+  if (!preset.questionId) return null;
+  return {
+    questionId: clean(preset.questionId, 140),
+    lessonId: clean(preset.lessonId || preset.relatedLessonId, 120),
+    topic: clean(preset.topic, 160),
+    questionText: clean(preset.questionText || preset.question, 2000),
+    correctAnswer: clean(preset.correctAnswer, 1000),
+    selectedAnswer: clean(preset.selectedAnswer || preset.selected, 1000),
+  };
 }
 
 function showStatus(text, type = "info") {
@@ -147,6 +172,52 @@ async function saveReportToFirestore(report) {
   return ref.id;
 }
 
+async function saveQuestionReportToFirestore(report) {
+  if (!db) throw new Error("question-report-db-not-initialized");
+  if (!auth?.currentUser) throw new Error("question-report-user-not-authenticated");
+  const ref = doc(collection(db, "questionReports"));
+  await setDoc(ref, {
+    reportId: ref.id,
+    questionId: clean(report.questionId, 140),
+    lessonId: clean(report.lessonId, 120),
+    issueType: clean(report.issueType, 120),
+    freeText: clean(report.freeText, 2000),
+    questionText: clean(report.questionText, 2000),
+    correctAnswer: clean(report.correctAnswer, 1000),
+    selectedAnswer: clean(report.selectedAnswer, 1000),
+    userId: clean(auth.currentUser.uid, 180),
+    userEmail: clean(auth.currentUser.email || activeProfile?.email, 320),
+    createdAt: serverTimestamp(),
+  });
+  return ref.id;
+}
+
+async function saveQuestionRating(question, rating) {
+  if (!db) throw new Error("question-rating-db-not-initialized");
+  if (!auth?.currentUser) throw new Error("question-rating-user-not-authenticated");
+  const safeQuestionId = clean(question.questionId || question.id, 140);
+  const safeRating = Math.max(1, Math.min(5, Number(rating || 0)));
+  const ratingId = safeQuestionId + "_" + clean(auth.currentUser.uid, 180);
+  await setDoc(doc(db, "questionRatings", ratingId), {
+    ratingId,
+    questionId: safeQuestionId,
+    lessonId: clean(question.lessonId || question.relatedLessonId, 120),
+    rating: safeRating,
+    userId: clean(auth.currentUser.uid, 180),
+    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
+  }, { merge: true });
+  if (safeRating < 3) {
+    await setDoc(doc(db, "questionFeedback", safeQuestionId), {
+      questionId: safeQuestionId,
+      lessonId: clean(question.lessonId || question.relatedLessonId, 120),
+      status: "needs-review",
+      lastLowRating: safeRating,
+      updatedAt: serverTimestamp(),
+    }, { merge: true });
+  }
+}
+
 async function flushPendingReports() {
   if (!db || !auth?.currentUser) return;
   const pending = loadPendingReports();
@@ -165,6 +236,28 @@ async function flushPendingReports() {
 async function submitFeedback(event) {
   event.preventDefault();
   const form = new FormData(event.currentTarget);
+  if (activeQuestionReport) {
+    const issueType = clean(form.get("issueType"), 120);
+    const freeText = clean(form.get("freeText"), 2000);
+    const questionReport = { ...activeQuestionReport, issueType, freeText };
+    if (!issueType) {
+      showStatus("יש לבחור מה הבעיה בשאלה.", "error");
+      return;
+    }
+    const submit = event.currentTarget.querySelector('[type="submit"]');
+    if (submit) submit.disabled = true;
+    try {
+      await saveQuestionReportToFirestore(questionReport);
+      showStatus("הדיווח על השאלה התקבל. תודה על העזרה בשיפור המאגר.", "success");
+      window.setTimeout(closeModal, 1000);
+    } catch (error) {
+      console.error("[feedback] failed to save question report", error);
+      showStatus("לא ניתן היה לשמור את הדיווח כרגע. אפשר לנסות שוב או לשלוח דיווח כללי.", "error");
+    } finally {
+      if (submit) submit.disabled = false;
+    }
+    return;
+  }
   const report = reportPayload(form);
   lastMailto = buildMailto(report);
   setRetryVisible(false);
@@ -212,6 +305,7 @@ async function submitFeedback(event) {
 
 function openModal(preset = {}) {
   if (document.getElementById("feedbackModal")) return;
+  activeQuestionReport = questionContextFromPreset(preset);
   lastFeedbackFocus = document.activeElement;
   document.body.classList.add("feedback-open");
   const overlay = el("div", "feedback-overlay");
@@ -269,6 +363,43 @@ function openModal(preset = {}) {
   if (preset.description) desc.value = clean(preset.description, 4000);
   descLabel.append(desc);
 
+  const questionBox = el("div", "question-feedback-context");
+  let issueLabel = null;
+  let freeTextLabel = null;
+  if (activeQuestionReport) {
+    heading.textContent = "דווח על שאלה";
+    questionBox.append(
+      el("h3", "", "פרטי השאלה"),
+      el("p", "", "שאלה: " + (activeQuestionReport.questionText || "-")),
+      el("p", "", "התשובה הנכונה: " + (activeQuestionReport.correctAnswer || "-")),
+      el("p", "", "הבחירה שלך: " + (activeQuestionReport.selectedAnswer || "לא נבחרה תשובה"))
+    );
+    issueLabel = el("label");
+    issueLabel.append(el("span", "", "מה הבעיה בשאלה?"));
+    const issueSelect = el("select");
+    issueSelect.name = "issueType";
+    issueSelect.required = true;
+    QUESTION_ISSUE_TYPES.forEach((issue) => {
+      const option = el("option", "", issue);
+      option.value = issue;
+      issueSelect.append(option);
+    });
+    issueLabel.append(issueSelect);
+    freeTextLabel = el("label");
+    freeTextLabel.append(el("span", "", "פירוט חופשי"));
+    const freeText = el("textarea");
+    freeText.name = "freeText";
+    freeText.rows = 4;
+    freeText.maxLength = 2000;
+    freeText.placeholder = "מה לדעתך צריך לתקן או לבדוק?";
+    freeTextLabel.append(freeText);
+    typeLabel.hidden = true;
+    titleLabel.hidden = true;
+    descLabel.hidden = true;
+    titleInput.required = false;
+    desc.required = false;
+  }
+
   const meta = el("div", "feedback-meta");
   meta.append(
     el("p", "", `עמוד נוכחי: ${location.href}`),
@@ -294,7 +425,9 @@ function openModal(preset = {}) {
   status.id = "feedbackStatus";
   status.setAttribute("aria-live", "polite");
 
-  form.append(typeLabel, titleLabel, descLabel, meta, actions, status);
+  form.append(typeLabel, titleLabel, descLabel);
+  if (activeQuestionReport) form.append(questionBox, issueLabel, freeTextLabel);
+  form.append(meta, actions, status);
   panel.append(header, form);
   overlay.append(panel);
   overlay.addEventListener("click", (event) => {
@@ -344,4 +477,38 @@ document.addEventListener("course-auth-approved", (event) => {
 
 window.CourseFeedback = {
   open: openModal,
+  openQuestionReport: openModal,
+  showQuestionStatus: async (questionId, container) => {
+    if (!db || !auth?.currentUser || !questionId || !container) return;
+    try {
+      const safeQuestionId = clean(questionId, 140);
+      let status = questionStatusCache.get(safeQuestionId);
+      if (!status) {
+        const snapshot = await getDoc(doc(db, "questionFeedback", safeQuestionId));
+        status = snapshot.exists() ? snapshot.data()?.status : "ok";
+        questionStatusCache.set(safeQuestionId, status || "ok");
+      }
+      if (status === "needs-review" && !container.querySelector(".question-review-flag")) {
+        const flag = el("p", "question-review-flag", "שאלה זו נמצאת בבדיקה");
+        container.prepend(flag);
+      }
+    } catch {
+      // Review status is informational only.
+    }
+  },
+  rateQuestion: async (question, rating, statusElement) => {
+    try {
+      await saveQuestionRating(question, rating);
+      if (statusElement) {
+        statusElement.textContent = "הדירוג נשמר. תודה!";
+        statusElement.dataset.type = "success";
+      }
+    } catch (error) {
+      console.error("[feedback] failed to save question rating", error);
+      if (statusElement) {
+        statusElement.textContent = "לא ניתן לשמור דירוג כרגע.";
+        statusElement.dataset.type = "error";
+      }
+    }
+  },
 };
