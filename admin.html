@@ -175,6 +175,14 @@
           <div class="admin-search">
             <label><span>שיעור</span><select id="questionQualityLessonFilter"><option value="">כל השיעורים</option></select></label>
             <label><span>סוג בעיה</span><select id="questionQualityIssueFilter"><option value="">כל הסוגים</option></select></label>
+            <label><span>עדיפות</span><select id="questionQualityPriorityFilter"><option value="">כל העדיפויות</option><option value="high">גבוהה</option><option value="medium">בינונית</option><option value="low">נמוכה</option></select></label>
+            <label><span>סטטוס</span><select id="questionQualityStatusFilter"><option value="">כל הסטטוסים</option><option value="open">פתוח</option><option value="in-progress">בטיפול</option><option value="fixed">תוקן</option></select></label>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table admin-table question-issues-table">
+              <thead><tr><th>שאלה</th><th>שיעור</th><th>דיווחים</th><th>דירוג ממוצע</th><th>עדיפות</th><th>סטטוס</th><th>פעולות</th></tr></thead>
+              <tbody id="questionIssuesBody"></tbody>
+            </table>
           </div>
           <div class="quality-grid">
             <section class="quality-card">

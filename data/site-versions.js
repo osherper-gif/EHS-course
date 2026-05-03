@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "question-quality-workflow",
+    "versionNumber": "Question Quality Workflow",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: add question quality workflow system",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "הפיכת דיווחי ודירוגי השאלות לתהליך עבודה מסודר לשיפור איכות השאלות.",
+    "siteChanges": "נוסף Backlog איכות שאלות עם סטטוס, עדיפות, מספר דיווחים ודירוג ממוצע לכל שאלה.",
+    "fixedBugs": "שאלות בעייתיות אינן נשארות רק כדיווח בודד, אלא מצטברות לפריט טיפול ברור לאדמין.",
+    "uiUxChanges": "במסך האדמין נוספה טבלת עבודה עם פעולות סימון בטיפול, סימון תוקן ופתיחת שאלה.",
+    "securityChanges": "נוספו הרשאות ייעודיות לפריטי איכות שאלות, כך שמשתמשים מאושרים יכולים ליצור עדכון איכות ואדמין מנהל את סטטוס הטיפול.",
+    "contentChanges": "נוסף דוח שבועי פנימי לאיכות שאלות ותהליך עבודה לבדיקת שאלות בעייתיות.",
+    "firebaseChanges": "נוסף אוסף questionIssues לניהול תקלות ודירוגי איכות ברמת שאלה.",
+    "releaseNotes": "מערכת איכות השאלות הפכה לתהליך עבודה: תעדוף אוטומטי, סטטוס טיפול, סימון שאלות בעדיפות גבוהה ודוח שבועי.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "public-readiness-review-free-access",
     "versionNumber": "Public Readiness Review — Free Access",
     "date": "2026-05-03",

@@ -232,7 +232,7 @@ service cloud.firestore {
     }
 
     match /questionRatings/{ratingId} {
-      allow read: if isAdmin();
+      allow read: if isAdmin() || (isApprovedRequester() && resource.data.userId == request.auth.uid);
       allow create, update: if isApprovedRequester()
         && request.resource.data.userId == request.auth.uid
         && request.resource.data.keys().hasOnly([
@@ -264,6 +264,28 @@ service cloud.firestore {
         ])
         && request.resource.data.status == "needs-review";
       allow delete: if isAdmin();
+    }
+
+    match /questionIssues/{questionId} {
+      allow read: if isAdmin() || isApprovedRequester();
+      allow create, update: if isApprovedRequester()
+        && request.resource.data.questionId == questionId
+        && request.resource.data.keys().hasOnly([
+          "questionId",
+          "lessonId",
+          "reportsCount",
+          "ratingCount",
+          "ratingSum",
+          "avgRating",
+          "lastReportedAt",
+          "status",
+          "priority",
+          "updatedAt",
+          "fixedAt"
+        ])
+        && request.resource.data.status in ["open", "in-progress"]
+        && request.resource.data.priority in ["high", "medium", "low"];
+      allow update, delete: if isAdmin();
     }
 
     match /activeSessions/{uid} {

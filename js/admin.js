@@ -3,6 +3,7 @@
   db,
   collection,
   getDocs,
+  deleteDoc,
   doc,
   updateDoc,
   query,
@@ -16,6 +17,7 @@ let feedbackById = new Map();
 let allUsers = [];
 let questionReports = [];
 let questionRatings = [];
+let questionIssues = [];
 
 function clean(value, max = 1000) {
   return window.CourseAuth?.sanitizeText
@@ -353,7 +355,25 @@ function currentQuestionQualityFilters() {
   return {
     lessonId: clean(document.getElementById("questionQualityLessonFilter")?.value || "", 120),
     issueType: clean(document.getElementById("questionQualityIssueFilter")?.value || "", 120),
+    priority: clean(document.getElementById("questionQualityPriorityFilter")?.value || "", 40),
+    status: clean(document.getElementById("questionQualityStatusFilter")?.value || "", 40),
   };
+}
+
+function priorityLabel(priority) {
+  return {
+    high: "גבוהה",
+    medium: "בינונית",
+    low: "נמוכה",
+  }[priority] || priority || "-";
+}
+
+function issueStatusLabel(status) {
+  return {
+    open: "פתוח",
+    "in-progress": "בטיפול",
+    fixed: "תוקן",
+  }[status] || status || "-";
 }
 
 function qualityItemCard(item, type) {
@@ -383,6 +403,7 @@ function renderQuestionQuality() {
   const status = document.getElementById("questionQualityStatus");
   const topBox = document.getElementById("topReportedQuestions");
   const lowBox = document.getElementById("lowRatedQuestions");
+  const backlogBody = document.getElementById("questionIssuesBody");
   if (!status || !topBox || !lowBox) return;
   const filters = currentQuestionQualityFilters();
   const filteredReports = questionReports.filter((report) =>
@@ -424,18 +445,110 @@ function renderQuestionQuality() {
   else reported.forEach((item) => topBox.append(qualityItemCard(item, "reports")));
   if (!rated.length) lowBox.append(cardLine("", "אין דירוגי שאלות להצגה."));
   else rated.forEach((item) => lowBox.append(qualityItemCard(item, "ratings")));
-  status.textContent = "נטענו " + questionReports.length + " דיווחי שאלות ו-" + questionRatings.length + " דירוגים.";
+  if (backlogBody) {
+    const filteredIssues = questionIssues
+      .filter((issue) => !filters.lessonId || issue.lessonId === filters.lessonId)
+      .filter((issue) => !filters.priority || issue.priority === filters.priority)
+      .filter((issue) => !filters.status || issue.status === filters.status)
+      .sort((a, b) => {
+        const weight = { high: 3, medium: 2, low: 1 };
+        return (weight[b.priority] || 0) - (weight[a.priority] || 0)
+          || Number(b.reportsCount || 0) - Number(a.reportsCount || 0)
+          || Number(a.avgRating || 99) - Number(b.avgRating || 99);
+      });
+    backlogBody.replaceChildren();
+    if (!filteredIssues.length) {
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+      td.colSpan = 7;
+      td.textContent = "אין פריטי עבודה פתוחים לפי הסינון הנוכחי.";
+      tr.append(td);
+      backlogBody.append(tr);
+    } else {
+      filteredIssues.forEach((issue) => backlogBody.append(questionIssueRow(issue)));
+    }
+  }
+  const highCount = questionIssues.filter((item) => item.priority === "high" && item.status !== "fixed").length;
+  status.textContent = "נטענו " + questionReports.length + " דיווחי שאלות, " + questionRatings.length + " דירוגים ו-" + questionIssues.length + " פריטי עבודה. עדיפות גבוהה: " + highCount + ".";
+}
+
+function questionIssueRow(issue) {
+  const tr = document.createElement("tr");
+  const status = clean(issue.status || "open", 40);
+  const priority = clean(issue.priority || "low", 40);
+  const actions = document.createElement("td");
+  const inProgress = document.createElement("button");
+  inProgress.type = "button";
+  inProgress.className = "btn secondary";
+  inProgress.dataset.questionIssueAction = "in-progress";
+  inProgress.dataset.questionId = clean(issue.questionId, 140);
+  inProgress.textContent = "סמן בטיפול";
+  inProgress.disabled = status === "in-progress" || status === "fixed";
+  const fixed = document.createElement("button");
+  fixed.type = "button";
+  fixed.className = "btn";
+  fixed.dataset.questionIssueAction = "fixed";
+  fixed.dataset.questionId = clean(issue.questionId, 140);
+  fixed.textContent = "סמן תוקן";
+  fixed.disabled = status === "fixed";
+  const open = document.createElement("a");
+  open.className = "btn secondary";
+  open.href = "./pages/exam-questions.html?questionId=" + encodeURIComponent(clean(issue.questionId, 140));
+  open.textContent = "פתח שאלה";
+  actions.append(inProgress, fixed, open);
+  tr.append(
+    cell(questionTitle(issue.questionId)),
+    cell(issue.lessonId || "-"),
+    cell(String(Number(issue.reportsCount || 0))),
+    cell(issue.avgRating == null ? "-" : Number(issue.avgRating).toFixed(1)),
+    cell(priorityLabel(priority)),
+    cell(issueStatusLabel(status)),
+    actions,
+  );
+  tr.dataset.priority = priority;
+  tr.dataset.status = status;
+  return tr;
+}
+
+async function updateQuestionIssueStatus(questionId, nextStatus) {
+  const safeQuestionId = clean(questionId, 140);
+  if (!safeQuestionId) return;
+  const payload = {
+    status: nextStatus,
+    updatedAt: serverTimestamp(),
+  };
+  if (nextStatus === "fixed") {
+    Object.assign(payload, {
+      reportsCount: 0,
+      avgRating: null,
+      ratingCount: 0,
+      ratingSum: 0,
+      priority: "low",
+      fixedAt: serverTimestamp(),
+    });
+  }
+  await updateDoc(doc(db, "questionIssues", safeQuestionId), payload);
+  if (nextStatus === "fixed") {
+    try {
+      await deleteDoc(doc(db, "questionFeedback", safeQuestionId));
+    } catch {
+      // The review flag may not exist; fixing the issue should still succeed.
+    }
+  }
+  await loadQuestionQuality();
 }
 
 async function loadQuestionQuality() {
   if (!document.getElementById("questionQualityStatus")) return;
   try {
-    const [reportsSnapshot, ratingsSnapshot] = await Promise.all([
+    const [reportsSnapshot, ratingsSnapshot, issuesSnapshot] = await Promise.all([
       getDocs(query(collection(db, "questionReports"), orderBy("createdAt", "desc"))),
       getDocs(query(collection(db, "questionRatings"), orderBy("updatedAt", "desc"))),
+      getDocs(query(collection(db, "questionIssues"), orderBy("updatedAt", "desc"))),
     ]);
     questionReports = reportsSnapshot.docs.map((item) => ({ reportId: item.id, ...item.data() }));
     questionRatings = ratingsSnapshot.docs.map((item) => ({ ratingId: item.id, ...item.data() }));
+    questionIssues = issuesSnapshot.docs.map((item) => ({ questionIssueId: item.id, ...item.data() }));
     populateQuestionQualityFilters();
     renderQuestionQuality();
   } catch {
@@ -855,8 +968,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById(id)?.addEventListener("input", applyUserFilters);
     document.getElementById(id)?.addEventListener("change", applyUserFilters);
   });
-  ["questionQualityLessonFilter", "questionQualityIssueFilter"].forEach((id) => {
+  ["questionQualityLessonFilter", "questionQualityIssueFilter", "questionQualityPriorityFilter", "questionQualityStatusFilter"].forEach((id) => {
     document.getElementById(id)?.addEventListener("change", renderQuestionQuality);
+  });
+  document.getElementById("questionIssuesBody")?.addEventListener("click", async (event) => {
+    const action = event.target?.dataset?.questionIssueAction;
+    const questionId = event.target?.dataset?.questionId;
+    if (!action || !questionId) return;
+    event.target.disabled = true;
+    try {
+      await updateQuestionIssueStatus(questionId, action);
+    } catch (error) {
+      console.error("[admin] failed to update question issue", error);
+      document.getElementById("questionQualityStatus").textContent = "לא ניתן לעדכן את סטטוס השאלה כרגע.";
+      event.target.disabled = false;
+    }
   });
   document.getElementById("saveFeedbackReport")?.addEventListener("click", async () => {
     try {

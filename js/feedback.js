@@ -35,6 +35,93 @@ let lastFailedReport = null;
 let activeQuestionReport = null;
 const questionStatusCache = new Map();
 
+function toDate(value) {
+  if (!value) return null;
+  if (value.toDate) return value.toDate();
+  if (value instanceof Date) return value;
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function isAfterBaseline(value, baseline) {
+  if (!baseline) return true;
+  const date = toDate(value);
+  return !date || date.getTime() >= baseline.getTime();
+}
+
+function issuePriority(reportsCount, avgRating) {
+  if (reportsCount >= 3) return "high";
+  if (typeof avgRating === "number" && avgRating < 3) return "high";
+  if (typeof avgRating === "number" && avgRating >= 3 && avgRating <= 3.5) return "medium";
+  return "low";
+}
+
+async function updateQuestionIssue(questionId, lessonId, signal = {}) {
+  const safeQuestionId = clean(questionId, 140);
+  if (!db || !safeQuestionId) return;
+  const issueRef = doc(db, "questionIssues", safeQuestionId);
+  const currentSnapshot = await getDoc(issueRef);
+  const currentIssue = currentSnapshot.exists() ? currentSnapshot.data() : {};
+  const fixedAt = toDate(currentIssue.fixedAt);
+  let reportsCount = Number(currentIssue.reportsCount || 0);
+  let ratingCount = Number(currentIssue.ratingCount || 0);
+  let ratingSum = Number(currentIssue.ratingSum || 0);
+  const payload = {
+    questionId: safeQuestionId,
+    lessonId: clean(lessonId || currentIssue.lessonId || signal.lessonId, 120),
+    updatedAt: serverTimestamp(),
+  };
+
+  if (signal.type === "report") {
+    reportsCount += 1;
+    Object.assign(payload, {
+      lastReportedAt: serverTimestamp(),
+    });
+  }
+
+  if (signal.type === "rating") {
+    const previous = signal.previousRating;
+    const previousDate = toDate(previous?.updatedAt || previous?.createdAt);
+    const previousCountsAfterFix = previous && isAfterBaseline(previousDate, fixedAt);
+    const rating = Number(signal.rating || 0);
+    const delta = previousCountsAfterFix ? rating - Number(previous.rating || 0) : rating;
+    if (!previousCountsAfterFix) ratingCount += 1;
+    ratingSum += delta;
+  }
+
+  const avgRating = ratingCount ? Math.round((ratingSum / ratingCount) * 10) / 10 : null;
+  const priority = issuePriority(reportsCount, avgRating);
+  const hasActivity = reportsCount > 0 || ratingCount > 0 || signal.forceOpen;
+  const status = currentIssue.status === "in-progress" && hasActivity
+    ? "in-progress"
+    : hasActivity
+      ? "open"
+      : currentIssue.status || "open";
+
+  Object.assign(payload, {
+    reportsCount,
+    ratingCount,
+    ratingSum,
+    avgRating,
+    status,
+    priority,
+  });
+
+  await setDoc(issueRef, payload, { merge: true });
+
+  if (priority === "high") {
+    await setDoc(doc(db, "questionFeedback", safeQuestionId), {
+      questionId: safeQuestionId,
+      lessonId: clean(lessonId || currentIssue.lessonId || signal.lessonId, 120),
+      status: "needs-review",
+      lastIssueType: clean(signal.issueType || currentIssue.lastIssueType, 120),
+      lastLowRating: signal.rating && Number(signal.rating) < 3 ? Number(signal.rating) : currentIssue.lastLowRating || null,
+      lastReportedAt: signal.type === "report" ? serverTimestamp() : currentIssue.lastReportedAt || null,
+      updatedAt: serverTimestamp(),
+    }, { merge: true });
+    questionStatusCache.set(safeQuestionId, "needs-review");
+  }
+}
 function clean(value, max = 2000) {
   return window.CourseAuth?.sanitizeText
     ? window.CourseAuth.sanitizeText(value, max)
@@ -189,6 +276,11 @@ async function saveQuestionReportToFirestore(report) {
     userEmail: clean(auth.currentUser.email || activeProfile?.email, 320),
     createdAt: serverTimestamp(),
   });
+  await updateQuestionIssue(report.questionId, report.lessonId, {
+    type: "report",
+    issueType: report.issueType,
+    forceOpen: true,
+  });
   return ref.id;
 }
 
@@ -198,7 +290,10 @@ async function saveQuestionRating(question, rating) {
   const safeQuestionId = clean(question.questionId || question.id, 140);
   const safeRating = Math.max(1, Math.min(5, Number(rating || 0)));
   const ratingId = safeQuestionId + "_" + clean(auth.currentUser.uid, 180);
-  await setDoc(doc(db, "questionRatings", ratingId), {
+  const ratingRef = doc(db, "questionRatings", ratingId);
+  const previousRatingSnapshot = await getDoc(ratingRef);
+  const previousRating = previousRatingSnapshot.exists() ? previousRatingSnapshot.data() : null;
+  await setDoc(ratingRef, {
     ratingId,
     questionId: safeQuestionId,
     lessonId: clean(question.lessonId || question.relatedLessonId, 120),
@@ -207,6 +302,12 @@ async function saveQuestionRating(question, rating) {
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
   }, { merge: true });
+  await updateQuestionIssue(safeQuestionId, question.lessonId || question.relatedLessonId, {
+    type: "rating",
+    rating: safeRating,
+    previousRating,
+    forceOpen: safeRating < 4,
+  });
   if (safeRating < 3) {
     await setDoc(doc(db, "questionFeedback", safeQuestionId), {
       questionId: safeQuestionId,
@@ -215,6 +316,7 @@ async function saveQuestionRating(question, rating) {
       lastLowRating: safeRating,
       updatedAt: serverTimestamp(),
     }, { merge: true });
+    questionStatusCache.set(safeQuestionId, "needs-review");
   }
 }
 
@@ -488,8 +590,21 @@ window.CourseFeedback = {
         status = snapshot.exists() ? snapshot.data()?.status : "ok";
         questionStatusCache.set(safeQuestionId, status || "ok");
       }
+      let issuePriorityValue = "";
+      if (status !== "needs-review") {
+        const issueSnapshot = await getDoc(doc(db, "questionIssues", safeQuestionId));
+        if (issueSnapshot.exists()) {
+          issuePriorityValue = clean(issueSnapshot.data()?.priority, 40);
+          if (issuePriorityValue === "high") {
+            status = "needs-review";
+            questionStatusCache.set(safeQuestionId, status);
+          }
+        }
+      }
       if (status === "needs-review" && !container.querySelector(".question-review-flag")) {
-        const flag = el("p", "question-review-flag", "שאלה זו נמצאת בבדיקה");
+        const flag = el("p", "question-review-flag", issuePriorityValue === "high"
+          ? "שאלה זו דורשת בדיקה — ייתכן חוסר דיוק"
+          : "שאלה זו נמצאת בבדיקה");
         container.prepend(flag);
       }
     } catch {

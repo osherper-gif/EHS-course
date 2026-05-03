@@ -649,6 +649,21 @@ body.login-auth-check .login-layout {
   display: grid;
   gap: .75rem;
 }
+.question-issues-table td:first-child {
+  min-width: 260px;
+  max-width: 520px;
+}
+.question-issues-table td:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+.question-issues-table tr[data-priority="high"] td {
+  background: rgba(169, 53, 43, .06);
+}
+.question-issues-table tr[data-status="fixed"] {
+  opacity: .72;
+}
 .quality-item p,
 .quality-item small {
   display: block;
