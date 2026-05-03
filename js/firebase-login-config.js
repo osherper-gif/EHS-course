@@ -1,9 +1,11 @@
 import { getApp, getApps, initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import {
   getAuth,
+  getRedirectResult,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
+  signInWithRedirect,
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
 export const firebaseConfig = {
@@ -20,4 +22,4 @@ export const isFirebaseConfigured = Object.values(firebaseConfig).every((value) 
 export const app = isFirebaseConfigured ? (getApps().length ? getApp() : initializeApp(firebaseConfig)) : null;
 export const auth = app ? getAuth(app) : null;
 
-export { GoogleAuthProvider, onAuthStateChanged, signInWithPopup };
+export { getRedirectResult, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithRedirect };

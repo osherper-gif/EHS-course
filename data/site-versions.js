@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "stabilize-google-login-flow",
+    "versionNumber": "Stabilize Google Login Flow",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "fix: stabilize Google login flow",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "ייצוב מיידי של תהליך הכניסה עם Google גם בדפדפנים שבהם חלון הכניסה נחסם או מתעכב.",
+    "siteChanges": "נוסף מעבר גיבוי לכניסה באמצעות הפניה כאשר חלון הכניסה נחסם, במובייל, או כאשר הפעולה לא מסתיימת בזמן סביר.",
+    "fixedBugs": "תוקנה תקיעה שבה כפתור הכניסה נשאר על 'פותח התחברות...' ללא התקדמות.",
+    "uiUxChanges": "נוספה הודעת כשל ברורה והכפתור חוזר למצב פעיל כאשר הכניסה לא הושלמה.",
+    "securityChanges": "ללא שינוי בהרשאות או במדיניות הגישה.",
+    "contentChanges": "ללא שינוי בתוכן הלימודי.",
+    "firebaseChanges": "מסלול הכניסה משתמש בחלון Google כאשר אפשר, ועובר להפניה כאשר החלון נחסם או מתעכב.",
+    "releaseNotes": "שופר מנגנון הכניסה כדי למנוע מצב שבו המשתמש נשאר תקוע במסך הכניסה.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "restore-google-login-after-lazy-auth",
     "versionNumber": "Restore Google Login Stability",
     "date": "2026-05-03",
