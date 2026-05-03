@@ -47,6 +47,7 @@
     const toggle = document.getElementById(TOGGLE_ID);
     if (!panel || panel.hidden) return;
     panel.hidden = true;
+    document.body.classList.remove("accessibility-open");
     toggle?.setAttribute("aria-expanded", "false");
     if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
   }
@@ -57,6 +58,7 @@
     if (!panel) return;
     lastFocus = trigger || document.activeElement;
     panel.hidden = false;
+    document.body.classList.add("accessibility-open");
     toggle?.setAttribute("aria-expanded", "true");
     const first = focusable(panel)[0];
     first?.focus();
@@ -180,6 +182,11 @@
   });
 
   applyPrefs();
+  window.CourseAccessibility = {
+    open: () => openPanel(document.activeElement),
+    close: closePanel,
+    toggle: togglePanel,
+  };
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", createControls);
   } else {

@@ -72,12 +72,19 @@
     if (!body) return;
     body.replaceChildren(
       sheetLink("חוקים, תקנים וכלי שטח", href("pages/field-tools.html")),
-      sheetLink("עוזר AI", href("pages/ai-assistant.html")),
+      sheetButton("נגישות", () => {
+        closeSheet();
+        if (window.CourseAccessibility?.open) window.CourseAccessibility.open();
+        else document.getElementById("accessibilityToggle")?.click();
+      }),
       sheetButton("דווח תקלה", () => {
         closeSheet();
         if (window.CourseFeedback?.open) window.CourseFeedback.open();
         else document.getElementById("feedbackButton")?.click();
-      })
+      }),
+      sheetLink("פרטיות", href("pages/privacy.html")),
+      sheetLink("תנאי שימוש", href("pages/terms.html")),
+      sheetLink("הצהרת אחריות", href("pages/disclaimer.html"))
     );
     if (isAdmin(profile)) {
       body.append(sheetLink("ניהול משתמשים", href("admin.html")), sheetLink("ניהול גרסאות אתר", href("pages/version-management.html")));

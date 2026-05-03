@@ -2382,18 +2382,11 @@ body.feedback-open .m-admin-fab {
 }
 @media (max-width: 767px) {
   .feedback-button {
-    z-index: 1195;
-    bottom: calc(148px + env(safe-area-inset-bottom));
-    left: .75rem;
-    min-width: 112px;
-    min-height: 48px;
-    background: var(--brand);
-    color: #fff;
-    box-shadow: var(--shadow);
+    display: none !important;
   }
   .feedback-dialog {
     width: min(100%, calc(100vw - 1rem));
-    max-height: calc(100vh - 1.5rem);
+    max-height: calc(100vh - 1rem);
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   }
 }
@@ -2574,21 +2567,28 @@ html.a11y-high-contrast.dark {
 
 @media (max-width: 767px) {
   .accessibility-toggle {
-    inset-inline-start: .75rem;
-    bottom: calc(154px + env(safe-area-inset-bottom));
-    min-width: 88px;
+    display: none !important;
   }
 
   .accessibility-panel {
     inset-inline: .75rem;
-    bottom: calc(204px + env(safe-area-inset-bottom));
+    bottom: calc(.75rem + env(safe-area-inset-bottom));
     width: auto;
-    max-height: calc(100vh - 220px);
+    max-height: calc(100vh - 1.5rem);
     overflow: auto;
+    border-radius: 16px;
   }
 
   .footer-links {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 767px) {
+  body.accessibility-open .m-bottom-nav,
+  body.accessibility-open .m-lesson-progress,
+  body.accessibility-open .m-admin-fab {
+    display: none !important;
   }
 }
 
