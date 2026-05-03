@@ -152,9 +152,9 @@ function renderVersions() {
   versions.forEach((version) => {
     const tr = document.createElement("tr");
     tr.append(
-      cell((version.versionNumber || "-") + (version.commitHash ? " / " + version.commitHash : "")),
+      cell(version.versionNumber || "-"),
       cell([version.releaseDate || version.date, version.releaseTime || version.time].filter(Boolean).join(" ")),
-      cell(version.commitMessage || version.releaseNotes || "-"),
+      cell(version.releaseNotes || version.siteChanges || "-"),
       cell(statusLabel(version.status))
     );
     const actions = document.createElement("td");
@@ -204,7 +204,7 @@ function renderVersionCards() {
     const head = document.createElement("div");
     head.className = "m-admin-card__head";
     const h = document.createElement("h3");
-    h.textContent = (version.versionNumber || "-") + (version.commitHash ? " / " + version.commitHash : "");
+    h.textContent = version.versionNumber || "-";
     const st = document.createElement("span");
     st.className = "status-pill";
     st.textContent = statusLabel(version.status);
@@ -212,7 +212,7 @@ function renderVersionCards() {
     const actions = document.createElement("div");
     actions.className = "admin-actions-cell";
     actions.append(actionButton("פתח פרטים", "details", version.versionId), actionButton("עריכה", "edit", version.versionId), actionButton("מחיקה", "delete", version.versionId, version.status !== "draft" || usingBuiltinVersions), actionButton("סמן כפורסם", "publish", version.versionId, usingBuiltinVersions || version.status === "published" || version.status === "sent"), actionButton("שליחת מייל עדכון למשתמשים", "prepareEmail", version.versionId));
-    card.append(head, versionCardLine("תאריך", [version.releaseDate || version.date, version.releaseTime || version.time].filter(Boolean).join(" ")), versionCardLine("כותרת", version.commitMessage || version.releaseNotes || "-"), actions);
+    card.append(head, versionCardLine("תאריך", [version.releaseDate || version.date, version.releaseTime || version.time].filter(Boolean).join(" ")), versionCardLine("כותרת", version.releaseNotes || version.siteChanges || "-"), actions);
     container.append(card);
   });
 }
@@ -240,18 +240,17 @@ function renderDetails(version) {
   title.textContent = "גרסה " + (version.versionNumber || "-");
   const meta = document.createElement("p");
   meta.className = "muted-answer";
-  meta.textContent = "Commit: " + (version.commitHash || "-") + " | תאריך פרסום: " + (version.releaseDate || "-") + " " + (version.releaseTime || "");
+  meta.textContent = "תאריך פרסום: " + (version.releaseDate || "-") + " " + (version.releaseTime || "");
   box.append(
     title,
     meta,
-    detailRow("Commit message", version.commitMessage),
     detailRow("דרישות שהתווספו", version.addedRequirements),
     detailRow("שינויים באתר", version.siteChanges),
     detailRow("באגים שתוקנו", version.fixedBugs),
-    detailRow("שיפורי UI/UX", version.uiUxChanges),
+    detailRow("שיפורי חוויית שימוש", version.uiUxChanges),
     detailRow("שינויי אבטחה", version.securityChanges),
     detailRow("שינויי תוכן", version.contentChanges),
-    detailRow("שינויי Firebase/Auth/Firestore", version.firebaseChanges),
+    detailRow("שינויי התחברות והרשאות", version.firebaseChanges),
     detailRow("הערות שחרור", version.releaseNotes),
     detailRow("סטטוס מייל", statusLabel(version.emailStatus))
   );
@@ -265,14 +264,14 @@ async function loadVersions() {
     versions = builtinVersions().map(normalizeVersion);
     renderVersions();
     renderDetails(versions[0]);
-    setStatus("Firestore ריק. נטענו " + versions.length + " גרסאות מובנות מתוך data/site-versions.js. ניתן לייבא אותן ל-Firestore בלחיצה.");
+    setStatus("רשימת הגרסאות ריקה. נטענו " + versions.length + " גרסאות מובנות וניתן לשמור אותן בלחיצה.");
     return;
   }
   usingBuiltinVersions = false;
   versions = snapshot.docs.map((item) => normalizeVersion(item.data()));
   renderVersions();
   renderDetails(versions[0]);
-  setStatus("נטענו " + versions.length + " גרסאות מ-Firestore.");
+  setStatus("נטענו " + versions.length + " גרסאות.");
 }
 
 async function loadApprovedUsers() {
@@ -299,7 +298,7 @@ async function importBuiltinVersions() {
     }, { merge: true });
     imported += 1;
   }
-  setStatus(imported ? "יובאו " + imported + " גרסאות ל-Firestore." : "לא נוצרו כפילויות. כל הגרסאות כבר קיימות ב-Firestore.");
+  setStatus(imported ? "נשמרו " + imported + " גרסאות במערכת." : "לא נוצרו כפילויות. כל הגרסאות כבר קיימות במערכת.");
   await loadVersions();
 }
 
@@ -349,7 +348,6 @@ function mailText(version) {
     "עלה עדכון גרסה חדש באתר קורס ממונה בטיחות.",
     "",
     "מספר גרסה: " + (version.versionNumber || "-"),
-    "Commit: " + (version.commitHash || "-"),
     "תאריך: " + (version.releaseDate || "-") + " " + (version.releaseTime || ""),
     "",
     "תקציר שינויים:",
@@ -364,7 +362,7 @@ function mailText(version) {
     "שיפורי UI/UX:",
     version.uiUxChanges || "-",
     "",
-    "שינויי אבטחה / Firebase:",
+    "שינויי אבטחה והרשאות:",
     [version.securityChanges, version.firebaseChanges].filter(Boolean).join("\n") || "-",
     "",
     "קישור לאתר:",
@@ -402,7 +400,7 @@ async function prepareEmail(versionId) {
   if (emailList) emailList.value = list;
   if (emailText) emailText.value = mailText(version);
   await markEmailPrepared(version);
-  setStatus("רשימת תפוצה וטקסט מייל הוכנו. שליחה אוטומטית דורשת חיבור EmailJS / Firebase Function / SendGrid.");
+  setStatus("רשימת תפוצה וטקסט מייל הוכנו. שליחה אוטומטית דורשת חיבור שירות דיוור מאושר.");
   if (!usingBuiltinVersions) await loadVersions();
 }
 

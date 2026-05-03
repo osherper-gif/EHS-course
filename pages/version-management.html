@@ -30,8 +30,8 @@
     <section class="content-section">
       <div class="section-title"><h2>גרסה חדשה / עריכת גרסה</h2><p id="versionStatus">ממתין לאימות מנהל...</p></div>
       <div class="toolbar-panel">
-        <button class="btn" type="button" id="importBuiltinVersions">ייבא גרסאות ל-Firestore</button>
-        <span class="muted-answer">אם Firestore ריק, הגרסאות המובנות מוצגות מיד וניתן לייבא אותן בלחיצה.</span>
+        <button class="btn" type="button" id="importBuiltinVersions">ייבא גרסאות למערכת</button>
+        <span class="muted-answer">אם רשימת הגרסאות ריקה, הגרסאות המובנות מוצגות מיד וניתן לשמור אותן בלחיצה.</span>
       </div>
       <form id="versionForm" class="version-form">
         <input type="hidden" name="versionId">
@@ -42,10 +42,10 @@
         <label class="wide"><span>דרישות שהתווספו</span><textarea name="addedRequirements" rows="3"></textarea></label>
         <label class="wide"><span>שינויים באתר</span><textarea name="siteChanges" rows="3"></textarea></label>
         <label class="wide"><span>באגים שתוקנו</span><textarea name="fixedBugs" rows="3"></textarea></label>
-        <label class="wide"><span>שיפורי UI/UX</span><textarea name="uiUxChanges" rows="3"></textarea></label>
+        <label class="wide"><span>שיפורי חוויית שימוש</span><textarea name="uiUxChanges" rows="3"></textarea></label>
         <label class="wide"><span>שינויי אבטחה</span><textarea name="securityChanges" rows="3"></textarea></label>
         <label class="wide"><span>שינויי תוכן לימודי</span><textarea name="contentChanges" rows="3"></textarea></label>
-        <label class="wide"><span>שינויי Firebase/Auth/Firestore</span><textarea name="firebaseChanges" rows="3"></textarea></label>
+        <label class="wide"><span>שינויי התחברות והרשאות</span><textarea name="firebaseChanges" rows="3"></textarea></label>
         <label class="wide"><span>הערות שחרור</span><textarea name="releaseNotes" rows="4"></textarea></label>
         <div class="form-actions wide">
           <button class="btn" type="submit">שמור גרסה</button>
@@ -58,19 +58,19 @@
       <div class="section-title"><h2>גרסאות קיימות</h2><p>מחיקה אפשרית רק לגרסה בסטטוס טיוטה.</p></div>
       <div class="table-scroll">
         <table class="data-table admin-table version-table">
-          <thead><tr><th>גרסה / Commit</th><th>תאריך</th><th>כותרת</th><th>סטטוס</th><th>פעולות</th></tr></thead>
+          <thead><tr><th>גרסה</th><th>תאריך</th><th>כותרת</th><th>סטטוס</th><th>פעולות</th></tr></thead>
           <tbody id="versionsTableBody"></tbody>
         </table>
       </div>
     </section>
 
     <section class="content-section">
-      <div class="section-title"><h2>פרטי גרסה</h2><p>לחץ על “פתח פרטים” ליד גרסה כדי לראות את כל השדות הידועים מהיסטוריית הפיתוח.</p></div>
+      <div class="section-title"><h2>פרטי גרסה</h2><p>לחץ על “פתח פרטים” ליד גרסה כדי לראות את כל פרטי העדכון.</p></div>
       <article id="versionDetails" class="version-details-card"></article>
     </section>
 
     <section class="content-section">
-      <div class="section-title"><h2>הכנת מייל למשתמשים</h2><p>שליחה אוטומטית דורשת חיבור EmailJS / Firebase Function / SendGrid. כרגע המערכת מכינה רשימת תפוצה וטקסט מייל להעתקה.</p></div>
+      <div class="section-title"><h2>הכנת מייל למשתמשים</h2><p>שליחה אוטומטית דורשת חיבור שירות דיוור מאושר. כרגע המערכת מכינה רשימת תפוצה וטקסט מייל להעתקה.</p></div>
       <div class="mail-prep-grid">
         <label><span>רשימת מיילים</span><textarea id="versionEmailList" rows="6" readonly></textarea></label>
         <label><span>טקסט מייל</span><textarea id="versionEmailText" rows="10" readonly></textarea></label>

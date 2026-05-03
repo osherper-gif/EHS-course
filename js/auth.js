@@ -799,7 +799,7 @@ function initLoginPage() {
     message.dataset.type = type;
   };
   if (!isFirebaseConfigured) {
-    setMessage("יש להדביק firebaseConfig אמיתי לפני deploy. עד אז לא ניתן להתחבר.", "error");
+    setMessage("האתר עדיין לא מוכן להתחברות. יש להשלים את הגדרות המערכת לפני כניסה.", "error");
     return;
   }
   document.getElementById("googleLogin")?.addEventListener("click", async () => {
@@ -838,7 +838,7 @@ function guard() {
   if (!isFirebaseConfigured) {
     document.body.classList.remove("login-auth-check");
     if (isLoginPage) return initLoginPage();
-    showShellMessage("נדרש חיבור Firebase", "יש להדביק firebaseConfig אמיתי לפני deploy.", () => linkElement("לעמוד התחברות", loginUrl()));
+    showShellMessage("התחברות אינה זמינה כרגע", "יש להשלים את הגדרות המערכת לפני כניסה.", () => linkElement("לעמוד התחברות", loginUrl()));
     authReadyResolve?.(null);
     return;
   }
