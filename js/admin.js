@@ -1,4 +1,4 @@
-import {
+﻿import {
   ADMIN_EMAIL,
   db,
   collection,
@@ -324,6 +324,21 @@ function minutesSince(timestamp) {
   return Math.max(0, Math.floor((Date.now() - date.getTime()) / 60000));
 }
 
+function timestampDate(timestamp) {
+  if (timestamp?.toDate) return timestamp.toDate();
+  if (timestamp instanceof Date) return timestamp;
+  if (typeof timestamp === "string") {
+    const date = new Date(timestamp);
+    return Number.isNaN(date.getTime()) ? null : date;
+  }
+  return null;
+}
+
+function setAdminStat(name, value) {
+  const stat = document.querySelector('[data-admin-stat="' + name + '"] strong');
+  if (stat) stat.textContent = String(value);
+}
+
 function activeSessionCard(session) {
   const card = document.createElement("article");
   card.className = "active-user-card";
@@ -351,7 +366,16 @@ async function loadActiveSessions() {
       .map((item) => ({ uid: item.id, ...item.data() }))
       .filter((session) => minutesSince(session.lastSeenAt) <= 5)
       .sort((a, b) => minutesSince(a.lastSeenAt) - minutesSince(b.lastSeenAt));
+    const todayStart = new Date();
+    todayStart.setHours(0, 0, 0, 0);
+    const activeToday = snapshot.docs
+      .map((item) => item.data())
+      .filter((session) => {
+        const seen = timestampDate(session.lastSeenAt);
+        return seen && seen >= todayStart;
+      }).length;
     if (stat) stat.textContent = String(active.length);
+    setAdminStat("active-today", activeToday);
     if (status) status.textContent = "פעילים ב-5 הדקות האחרונות.";
     if (list) {
       list.replaceChildren();
@@ -406,6 +430,11 @@ function renderUsers(users, totalCount = users.length) {
   tbody.replaceChildren();
   users.forEach((user) => tbody.append(renderUserRow(user)));
   renderUserCards(users);
+  const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+  setAdminStat("registered-week", allUsers.filter((user) => {
+    const created = timestampDate(user.createdAt);
+    return created && created.getTime() >= weekAgo;
+  }).length);
   status.textContent = "נטענו " + totalCount + " משתמשים. מוצגים " + users.length + ".";
 }
 
@@ -526,6 +555,8 @@ async function loadFeedbackReports() {
   feedbackById = new Map(reports.map((report) => [clean(report.reportId, 180), report]));
   tbody.replaceChildren();
   reports.forEach((report) => tbody.append(renderFeedbackRow(report)));
+  setAdminStat("feedback-total", reports.length);
+  setAdminStat("feedback-open", reports.filter((report) => (report.status || "open") === "open").length);
   status.textContent = "נטענו " + snapshot.size + " דיווחים.";
 }
 
@@ -548,10 +579,12 @@ async function loadExamScores(users) {
   const status = document.getElementById("examScoresStatus");
   if (!tbody || !status) return;
   tbody.replaceChildren();
+  let totalAttempts = 0;
   for (const user of users) {
     try {
       const attempts = await getDocs(collection(db, "users", user.uid, "examAttempts"));
       const scores = attempts.docs.map((item) => Number(item.data().score || 0));
+      totalAttempts += scores.length;
       const last = attempts.docs[attempts.docs.length - 1]?.data();
       const tr = document.createElement("tr");
       tr.append(
@@ -567,6 +600,7 @@ async function loadExamScores(users) {
       tbody.append(tr);
     }
   }
+  setAdminStat("exams-completed", totalAttempts);
   status.textContent = "ציוני משתמשים נטענו.";
 }
 

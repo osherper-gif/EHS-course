@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "user-progress-engagement",
+    "versionNumber": "User Progress & Engagement",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: add user progress and engagement system",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "הוספת מעקב התקדמות אישי, סטטיסטיקות למידה והמלצות המשך כדי לעודד חזרה לאתר.",
+    "siteChanges": "דף הבית מציג כרטיס התקדמות, המשך פעילות, פעילות אחרונה, טעויות לחזרה ועדכוני אתר אחרונים.",
+    "fixedBugs": "לא רלוונטי.",
+    "uiUxChanges": "שופרו כרטיסי המשך למידה וחוויית משתמש חוזר בלי שינוי UI גדול.",
+    "securityChanges": "נוסף סנכרון סטטיסטיקות אופציונלי למשתמש המאושר בלבד; localStorage נשאר fallback.",
+    "contentChanges": "לא בוצע שינוי בתוכן הלימודי.",
+    "firebaseChanges": "נוספה תמיכה אופציונלית במסמך stats למשתמש לצורך סטטיסטיקות אישיות.",
+    "releaseNotes": "האתר זוכר טוב יותר איפה המשתמש עצר ומציג התקדמות, סטטיסטיקות והמלצות המשך.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "mobile-first-p2",
     "versionNumber": "Mobile First P2",
     "date": "2026-05-03",

@@ -66,6 +66,15 @@
         if (idx === selected && idx !== question.answer) btn.classList.add("wrong");
       });
       card.querySelector(".explanation").textContent = question.explanation;
+      const stats = window.CourseStorage?.stats?.();
+      if (stats && window.CourseStorage?.updateStats) {
+        const ok = selected === question.answer;
+        window.CourseStorage.updateStats({
+          totalQuestionsAnswered: Number(stats.totalQuestionsAnswered || 0) + 1,
+          totalCorrect: Number(stats.totalCorrect || 0) + (ok ? 1 : 0),
+          totalWrong: Number(stats.totalWrong || 0) + (ok ? 0 : 1),
+        });
+      }
       if (selected !== question.answer && window.CourseStorage?.recordMistake) {
         window.CourseStorage.recordMistake({
           questionId: question.id,

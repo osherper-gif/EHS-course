@@ -149,6 +149,24 @@ service cloud.firestore {
           && request.resource.data.userId == request.auth.uid;
         allow delete: if false;
       }
+
+      match /stats/{statsId} {
+        allow read: if isAdmin() || isApprovedSelf(uid);
+        allow create, update: if isApprovedSelf(uid)
+          && statsId == "summary"
+          && request.resource.data.userId == request.auth.uid
+          && request.resource.data.keys().hasOnly([
+            "userId",
+            "totalQuestionsAnswered",
+            "totalCorrect",
+            "totalWrong",
+            "lessonsCompleted",
+            "examsCompleted",
+            "gameXP",
+            "updatedAt"
+          ]);
+        allow delete: if false;
+      }
     }
 
     match /siteVersions/{versionId} {
@@ -215,6 +233,8 @@ service cloud.firestore {
           "completedStages",
           "currentUnit",
           "currentStage",
+          "difficulty",
+          "lastDifficultyRecommendation",
           "mistakes",
           "updatedAt"
         ]);

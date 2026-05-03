@@ -724,6 +724,25 @@ async function saveGameProgress(progress) {
   }
 }
 
+async function saveUserStats(stats) {
+  if (!db || !auth?.currentUser || !currentProfile || currentProfile.status !== APPROVED) return false;
+  try {
+    await setDoc(doc(db, "users", auth.currentUser.uid, "stats", "summary"), {
+      userId: auth.currentUser.uid,
+      totalQuestionsAnswered: Number(stats?.totalQuestionsAnswered || 0),
+      totalCorrect: Number(stats?.totalCorrect || 0),
+      totalWrong: Number(stats?.totalWrong || 0),
+      lessonsCompleted: Number(stats?.lessonsCompleted || 0),
+      examsCompleted: Number(stats?.examsCompleted || 0),
+      gameXP: Number(stats?.gameXP || 0),
+      updatedAt: serverTimestamp(),
+    }, { merge: true });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function hydrateProgressFromFirestore(uid) {
   if (!db || !window.CourseStorage) return;
   try {
@@ -949,6 +968,7 @@ window.CourseAuth = {
   syncProgress,
   saveExamAttempt,
   saveGameProgress,
+  saveUserStats,
   hebrewAuthError,
   isAdminEmail,
   isAdminProfile,

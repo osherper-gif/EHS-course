@@ -306,6 +306,7 @@
     attempts.push(attempt);
     saveAttempts(attempts);
     localStorage.setItem("safetyCourse:lastExamAttempt", JSON.stringify(attempt));
+    window.CourseStorage?.recordExamStats?.(attempt);
     if (window.CourseAuth?.saveExamAttempt) await window.CourseAuth.saveExamAttempt(attempt);
   }
 

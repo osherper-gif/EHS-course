@@ -158,6 +158,7 @@
     sessionStorage.setItem(ACTIVE_KEY, JSON.stringify(session));
     progress.currentStage = selectedStage;
     save(progress);
+    window.CourseStorage?.markLastGame?.({ unitId: progress.currentUnit || DEFAULT_UNIT, stageId: selectedStage });
     return session;
   }
 
@@ -231,6 +232,7 @@
     progress.lastStageResult = result;
     progress.lastDifficultyRecommendation = recommendation;
     save(progress);
+    window.CourseStorage?.setGameXp?.(progress.totalXp);
     sessionStorage.removeItem(ACTIVE_KEY);
     return result;
   }

@@ -86,6 +86,56 @@
     <!-- CONTINUE WHERE YOU LEFT OFF (rendered by home.js if available) -->
     <section id="continueWhereLeft" class="continue-card" hidden></section>
 
+    <section id="userProgressPanel" class="content-section user-progress-panel" aria-labelledby="userProgressTitle" hidden>
+      <div class="section-title">
+        <div>
+          <h2 id="userProgressTitle">ההתקדמות שלך</h2>
+          <p id="userProgressText">מעקב אישי קצר שיעזור לך לחזור בדיוק לנקודה הנכונה.</p>
+        </div>
+        <a id="userProgressContinue" class="btn" href="./pages/lesson-01.html">המשך</a>
+      </div>
+      <div class="m-progress-summary">
+        <div class="m-progress-ring" aria-label="אחוז השלמת הקורס"><strong id="courseProgressPercent">0%</strong><span>השלמת קורס</span></div>
+        <div class="m-progress-facts">
+          <p><strong>שיעור אחרון:</strong> <span id="lastLessonLabel">עדיין לא התחלת</span></p>
+          <p><strong>מבחן אחרון:</strong> <span id="lastExamLabel">עדיין לא בוצע</span></p>
+          <p><strong>אחוז הצלחה:</strong> <span id="successRateLabel">אין מספיק נתונים</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="newUserOnboarding" class="content-section user-progress-panel" aria-labelledby="newUserTitle" hidden>
+      <div class="section-title">
+        <div>
+          <h2 id="newUserTitle">איך להתחיל?</h2>
+          <p>מומלץ להתחיל בשיעור הראשון, ואז לעבור לתרגול קצר כדי לבדוק הבנה.</p>
+        </div>
+      </div>
+      <div class="next-actions">
+        <a class="next-action-chip" href="./pages/lesson-01.html">התחל שיעור ראשון</a>
+        <a class="next-action-chip" href="./pages/exam-questions.html">נסה מבחן ראשון</a>
+        <a class="next-action-chip" href="./pages/safety-game.html">פתח אתגר בטיחות</a>
+      </div>
+    </section>
+
+    <section id="whatsNewHome" class="content-section user-progress-panel" aria-labelledby="whatsNewHomeTitle" hidden>
+      <div class="section-title">
+        <div>
+          <h2 id="whatsNewHomeTitle">מה חדש באתר</h2>
+          <p>עדכונים אחרונים ששווה להכיר לפני שממשיכים ללמוד.</p>
+        </div>
+        <a class="btn secondary" href="./pages/version-management.html">ראה הכל</a>
+      </div>
+      <div id="whatsNewHomeList" class="m-update-list"></div>
+    </section>
+
+    <section id="recentActivityPanel" class="content-section user-progress-panel" aria-labelledby="recentActivityTitle" hidden>
+      <div class="section-title">
+        <h2 id="recentActivityTitle">פעילות אחרונה</h2>
+      </div>
+      <div id="recentActivityList" class="m-update-list"></div>
+    </section>
+
     <!-- NEXT ACTIONS -->
     <section aria-label="פעולות מומלצות">
       <h2 style="margin:.5rem 0.35rem;font-size:1.1rem;color:var(--muted);font-weight:700">מה כדאי לעשות עכשיו?</h2>
@@ -318,6 +368,7 @@
 </footer>
   <script src="./data/course-data.js"></script>
   <script src="./data/exam-questions.js"></script>
+  <script src="./data/site-versions.js"></script>
   <script src="./js/storage.js"></script>
   <script src="./js/search.js"></script>
   <script src="./js/quizzes.js"></script>

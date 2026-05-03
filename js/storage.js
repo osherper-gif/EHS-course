@@ -1,5 +1,29 @@
 (function () {
   const key = (name) => "safetyCourse:" + name;
+  const defaultStats = () => ({
+    totalQuestionsAnswered: 0,
+    totalCorrect: 0,
+    totalWrong: 0,
+    lessonsCompleted: 0,
+    examsCompleted: 0,
+    gameXP: 0,
+    updatedAt: Date.now(),
+  });
+
+  function normalizeStats(value) {
+    return {
+      ...defaultStats(),
+      ...(value || {}),
+      totalQuestionsAnswered: Number(value?.totalQuestionsAnswered || 0),
+      totalCorrect: Number(value?.totalCorrect || 0),
+      totalWrong: Number(value?.totalWrong || 0),
+      lessonsCompleted: Number(value?.lessonsCompleted || 0),
+      examsCompleted: Number(value?.examsCompleted || 0),
+      gameXP: Number(value?.gameXP || 0),
+      updatedAt: Number(value?.updatedAt || Date.now()),
+    };
+  }
+
   window.CourseStorage = {
     get(name, fallback = null) {
       try {
@@ -29,8 +53,33 @@
       const progress = this.progress();
       progress[id] = Boolean(complete);
       this.set("progress", progress);
+      this.updateStats({ lessonsCompleted: Object.values(progress).filter(Boolean).length });
       const notes = this.notes()[id] || "";
       window.CourseAuth?.syncProgress?.(id, Boolean(complete), notes);
+    },
+    stats() {
+      return normalizeStats(this.get("stats", defaultStats()));
+    },
+    saveStats(stats) {
+      const next = normalizeStats({ ...this.stats(), ...(stats || {}), updatedAt: Date.now() });
+      this.set("stats", next);
+      window.CourseAuth?.saveUserStats?.(next);
+      return next;
+    },
+    updateStats(partial) {
+      return this.saveStats(partial);
+    },
+    recordExamStats(attempt) {
+      const stats = this.stats();
+      return this.saveStats({
+        totalQuestionsAnswered: stats.totalQuestionsAnswered + Number(attempt?.totalQuestions || 0),
+        totalCorrect: stats.totalCorrect + Number(attempt?.correctCount || 0),
+        totalWrong: stats.totalWrong + Number(attempt?.wrongCount || 0),
+        examsCompleted: stats.examsCompleted + 1,
+      });
+    },
+    setGameXp(totalXp) {
+      return this.saveStats({ gameXP: Number(totalXp || 0) });
     },
     exportNotes() {
       const notes = this.notes();
@@ -80,6 +129,19 @@
     },
     lastExam() {
       return this.get("lastExam", null);
+    },
+    markLastGame(info) {
+      try {
+        this.set("lastGame", {
+          unitId: String(info?.unitId || "unit-foundations"),
+          stageId: String(info?.stageId || ""),
+          path: String(info?.path || "pages/safety-game.html"),
+          at: Date.now(),
+        });
+      } catch (_) { /* noop */ }
+    },
+    lastGame() {
+      return this.get("lastGame", null);
     },
     recordMistake(record) {
       const list = this.get("mistakes", []);
