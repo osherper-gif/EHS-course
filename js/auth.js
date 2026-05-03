@@ -10,9 +10,6 @@ import {
   isFirebaseConfigured,
   GoogleAuthProvider,
   signInWithPopup,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  updateProfile,
   onAuthStateChanged,
   signOut,
   doc,
@@ -35,6 +32,42 @@ const AUTH_CACHE_TTL = 5 * 60 * 1000;
 const LOADER_DELAY = 700;
 const AUTO_APPROVE_NEW_USERS_UNTIL = "2026-05-15T23:59:59+03:00";
 const APPROVAL_WELCOME_PREFIX = "ehsCourseApprovalWelcome:";
+const PROFILE_SURVEY_LOCAL_PREFIX = "ehsCourseProfileSurvey:";
+const AUTO_BETA_NOTICE_KEY = "ehsCourseAutoBetaNotice";
+const PROFILE_SURVEY_OPTIONS = {
+  useReason: [
+    "סטודנט בקורס ממונה בטיחות",
+    "ממונה בטיחות שרוצה להעמיק",
+    "עובד/מנהל בארגון",
+    "יועץ/איש מקצוע בתחום",
+    "מתעניין בתחום הבטיחות",
+    "אחר",
+  ],
+  learningStatus: [
+    "לפני קורס",
+    "במהלך קורס",
+    "אחרי קורס / לפני מבחן",
+    "ממונה בטיחות מוסמך",
+    "עובד בתחום הבטיחות",
+    "אחר",
+  ],
+  referralSource: [
+    "חבר/עמית",
+    "קבוצת WhatsApp",
+    "חיפוש Google",
+    "LinkedIn / רשת חברתית",
+    "קורס / מסגרת לימודית",
+    "אחר",
+  ],
+  sitePriority: [
+    "סיכומי שיעורים",
+    "שאלות ומבחנים",
+    "אתגר בטיחות",
+    "חוקים ותקנים",
+    "כלי שטח / Checklists",
+    "אחר",
+  ],
+};
 
 const isRootPage = !location.pathname.includes("/pages/");
 const pathPrefix = isRootPage ? "" : "../";
@@ -244,6 +277,180 @@ function showApprovalWelcome(profile) {
   }, 9000);
 }
 
+function hasProfileSurveyDecision(profile) {
+  return Boolean(profile?.profileSurveyCompletedAt || profile?.profileSurveySkippedAt || profile?.profileSurvey);
+}
+
+function profileSurveyLocalKey(profile) {
+  return PROFILE_SURVEY_LOCAL_PREFIX + sanitizeText(profile?.uid, 180);
+}
+
+function wasProfileSurveyHandledLocally(profile) {
+  try {
+    return localStorage.getItem(profileSurveyLocalKey(profile)) === "handled";
+  } catch {
+    return false;
+  }
+}
+
+function markProfileSurveyHandledLocally(profile) {
+  try {
+    localStorage.setItem(profileSurveyLocalKey(profile), "handled");
+  } catch {
+    // Optional local hint only.
+  }
+}
+
+function markAutoBetaNotice() {
+  try {
+    sessionStorage.setItem(AUTO_BETA_NOTICE_KEY, "1");
+  } catch {
+    // Non-critical UX hint.
+  }
+}
+
+function showAutoBetaNoticeIfNeeded() {
+  try {
+    if (sessionStorage.getItem(AUTO_BETA_NOTICE_KEY) !== "1") return;
+    sessionStorage.removeItem(AUTO_BETA_NOTICE_KEY);
+  } catch {
+    return;
+  }
+  const banner = document.createElement("div");
+  banner.className = "approval-welcome-banner";
+  const text = document.createElement("span");
+  text.textContent = "נרשמת בהצלחה. חשבונך אושר אוטומטית לתקופת הבטא, ואתה מועבר לאתר.";
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "icon-btn";
+  close.textContent = "×";
+  close.title = "סגור";
+  close.addEventListener("click", () => banner.remove());
+  banner.append(text, close);
+  document.body.prepend(banner);
+  window.setTimeout(() => banner.remove(), 9000);
+}
+
+function surveyField(labelText, name, options) {
+  const label = document.createElement("label");
+  const span = document.createElement("span");
+  span.textContent = labelText;
+  const select = document.createElement("select");
+  select.name = name;
+  select.required = true;
+  options.forEach((optionText) => {
+    const option = document.createElement("option");
+    option.value = optionText;
+    option.textContent = optionText;
+    select.append(option);
+  });
+  label.append(span, select);
+  return label;
+}
+
+function buildProfileSurveyDialog(profile) {
+  const overlay = document.createElement("div");
+  overlay.className = "profile-survey-overlay";
+  overlay.setAttribute("role", "dialog");
+  overlay.setAttribute("aria-modal", "true");
+  overlay.setAttribute("aria-labelledby", "profileSurveyTitle");
+
+  const dialog = document.createElement("section");
+  dialog.className = "profile-survey-dialog";
+  const title = document.createElement("h2");
+  title.id = "profileSurveyTitle";
+  title.textContent = "נשמח להכיר אותך כדי לשפר את האתר";
+  const intro = document.createElement("p");
+  intro.textContent = "השאלות הבאות אינן חובה. הן עוזרות לנו להבין מי משתמש באתר ואיך לשפר אותו.";
+
+  const form = document.createElement("form");
+  form.className = "profile-survey-form";
+  form.append(
+    surveyField("למה אתה משתמש באפליקציה?", "useReason", PROFILE_SURVEY_OPTIONS.useReason),
+    surveyField("מה הסטטוס שלך?", "learningStatus", PROFILE_SURVEY_OPTIONS.learningStatus),
+    surveyField("מאיפה הגעת לאפליקציה?", "referralSource", PROFILE_SURVEY_OPTIONS.referralSource),
+    surveyField("מה הכי חשוב לך באתר?", "sitePriority", PROFILE_SURVEY_OPTIONS.sitePriority)
+  );
+
+  const status = document.createElement("p");
+  status.className = "profile-survey-status";
+  status.setAttribute("role", "status");
+
+  const actions = document.createElement("div");
+  actions.className = "form-actions";
+  const save = document.createElement("button");
+  save.className = "btn";
+  save.type = "submit";
+  save.textContent = "שמור והמשך";
+  const skip = document.createElement("button");
+  skip.className = "btn secondary";
+  skip.type = "button";
+  skip.textContent = "דלג בינתיים";
+  actions.append(save, skip);
+  form.append(actions, status);
+
+  const closeSurvey = () => {
+    markProfileSurveyHandledLocally(profile);
+    overlay.remove();
+  };
+
+  skip.addEventListener("click", async () => {
+    skip.disabled = true;
+    status.textContent = "שומר דילוג...";
+    try {
+      await updateDoc(doc(db, "users", auth.currentUser.uid), {
+        profileSurveySkippedAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      });
+      profile.profileSurveySkippedAt = new Date();
+      closeSurvey();
+    } catch {
+      status.textContent = "לא ניתן היה לשמור כרגע. הדילוג נשמר מקומית.";
+      window.setTimeout(closeSurvey, 1200);
+    }
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    save.disabled = true;
+    status.textContent = "שומר תשובות...";
+    const formData = new FormData(form);
+    const profileSurvey = {
+      useReason: sanitizeText(formData.get("useReason"), 120),
+      learningStatus: sanitizeText(formData.get("learningStatus"), 120),
+      referralSource: sanitizeText(formData.get("referralSource"), 120),
+      sitePriority: sanitizeText(formData.get("sitePriority"), 120),
+    };
+    try {
+      await updateDoc(doc(db, "users", auth.currentUser.uid), {
+        profileSurvey,
+        profileSurveyCompletedAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      });
+      profile.profileSurvey = profileSurvey;
+      profile.profileSurveyCompletedAt = new Date();
+      closeSurvey();
+    } catch {
+      save.disabled = false;
+      status.textContent = "לא ניתן היה לשמור כרגע. אפשר לדלג ולענות בהמשך.";
+    }
+  });
+
+  dialog.append(title, intro, form);
+  overlay.append(dialog);
+  return overlay;
+}
+
+function maybeShowProfileSurvey(profile) {
+  if (isLoginPage || !isApprovedProfile(profile) || !auth?.currentUser || !db) return;
+  if (hasProfileSurveyDecision(profile) || wasProfileSurveyHandledLocally(profile)) return;
+  if (document.querySelector(".profile-survey-overlay")) return;
+  window.setTimeout(() => {
+    if (document.querySelector(".profile-survey-overlay")) return;
+    document.body.append(buildProfileSurveyDialog(profile));
+  }, 650);
+}
+
 function showLoading() {
   if (isLoginPage) return;
   clearTimeout(loaderTimer);
@@ -272,7 +479,9 @@ function hideShell() {
 }
 
 function providerName(user) {
-  return user.providerData?.[0]?.providerId || "password";
+  const providerId = user.providerData?.[0]?.providerId || "google.com";
+  if (providerId === "google.com") return "google";
+  return sanitizeText(providerId, 80);
 }
 
 function isAdminEmail(email) {
@@ -314,6 +523,7 @@ async function ensureUserProfile(user) {
     photoURL: sanitizeText(user.photoURL, 1000),
     provider: sanitizeText(providerName(user), 80),
     lastLoginAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
   };
 
   if (!snapshot.exists()) {
@@ -327,6 +537,7 @@ async function ensureUserProfile(user) {
       createdAt: serverTimestamp(),
     };
     await setDoc(ref, profile);
+    if (autoApprove) markAutoBetaNotice();
     if (!admin && profile.status === PENDING) {
       window.CourseEmailNotifications?.notifyPendingUser?.({ ...profile, uid: user.uid }).catch(() => null);
     }
@@ -412,10 +623,7 @@ function hebrewAuthError(error) {
     "auth/invalid-email": "כתובת האימייל אינה תקינה.",
     "auth/user-disabled": "המשתמש נחסם.",
     "auth/user-not-found": "לא נמצא משתמש עם פרטים אלה.",
-    "auth/wrong-password": "הסיסמה שגויה.",
     "auth/invalid-credential": "פרטי ההתחברות שגויים.",
-    "auth/email-already-in-use": "כתובת האימייל כבר רשומה.",
-    "auth/weak-password": "הסיסמה חלשה מדי. יש להזין לפחות 6 תווים.",
     "auth/popup-closed-by-user": "חלון ההתחברות נסגר לפני השלמת הפעולה.",
     "auth/network-request-failed": "שגיאת רשת. בדוק חיבור לאינטרנט ונסה שוב.",
   };
@@ -425,16 +633,6 @@ function hebrewAuthError(error) {
 async function googleLogin() {
   const provider = new GoogleAuthProvider();
   await signInWithPopup(auth, provider);
-}
-
-async function emailLogin(email, password) {
-  await signInWithEmailAndPassword(auth, sanitizeText(email, 320), password);
-}
-
-async function emailRegister(email, password, displayName) {
-  const credential = await createUserWithEmailAndPassword(auth, sanitizeText(email, 320), password);
-  const cleanName = sanitizeText(displayName, 180);
-  if (cleanName) await updateProfile(credential.user, { displayName: cleanName });
 }
 
 async function logout() {
@@ -593,31 +791,6 @@ function initLoginPage() {
       setMessage(hebrewAuthError(error), "error");
     }
   });
-  document.getElementById("emailLoginForm")?.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    try {
-      setMessage("מתחבר...");
-      await emailLogin(form.get("email"), form.get("password"));
-    } catch (error) {
-      setMessage(hebrewAuthError(error), "error");
-    }
-  });
-  document.getElementById("emailRegisterForm")?.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    try {
-      setMessage("יוצר משתמש...");
-      await emailRegister(form.get("email"), form.get("password"), form.get("displayName"));
-      if (isAutoApproveWindowActive()) {
-        setMessage("נרשמת בהצלחה. חשבונך אושר אוטומטית לתקופת הבטא, ואתה מועבר לאתר.");
-        return;
-      }
-      setMessage("נרשמת בהצלחה. חשבונך ממתין לאישור מנהל האתר. לאחר האישור תוכל להיכנס לאתר.");
-    } catch (error) {
-      setMessage(hebrewAuthError(error), "error");
-    }
-  });
 }
 
 function prefetchUrl(url) {
@@ -749,6 +922,8 @@ function guard() {
         revealAuthenticatedView(profile);
       }
       showApprovalWelcome(profile);
+      showAutoBetaNoticeIfNeeded();
+      maybeShowProfileSurvey(profile);
       authReadyResolve?.(profile);
       (async () => {
         await hydrateProgressFromFirestore(user.uid);

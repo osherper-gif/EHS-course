@@ -20,26 +20,13 @@
     <section class="login-hero">
       <p class="kicker">למידה פרטית</p>
       <h1>כניסה לקורס ממונה בטיחות</h1>
-      <p>האתר פרטי. משתמש חדש ייכנס לסטטוס ממתין עד אישור מנהל האתר. אתר לימודי פרטי להכנה לקורס ממונה בטיחות. התוכן נועד ללמידה בלבד ויש לאמת מול החוק, התקנות והתקנים העדכניים וגורם מוסמך.</p>
+      <p>הכניסה לאתר מתבצעת באמצעות חשבון Google בלבד, ללא סיסמה מקומית וללא אימות טלפון. בתקופת הבטא משתמשים חדשים עשויים לקבל אישור אוטומטי. התוכן נועד ללמידה בלבד ויש לאמת מול החוק, התקנות והתקנים העדכניים וגורם מוסמך.</p>
     </section>
     <section class="auth-panel">
       <div id="authMessage" class="auth-message" role="status"></div>
       <button id="googleLogin" class="btn google-btn" type="button">כניסה עם Google</button>
-      <div class="auth-forms-grid">
-        <form id="emailLoginForm" class="auth-form">
-          <h2>התחברות עם Email</h2>
-          <label><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
-          <label><span>סיסמה</span><input name="password" type="password" required autocomplete="current-password"></label>
-          <button class="btn" type="submit">התחברות</button>
-        </form>
-        <form id="emailRegisterForm" class="auth-form">
-          <h2>יצירת משתמש</h2>
-          <label><span>שם מלא</span><input name="displayName" type="text" autocomplete="name"></label>
-          <label><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
-          <label><span>סיסמה</span><input name="password" type="password" required minlength="6" autocomplete="new-password"></label>
-          <button class="btn secondary" type="submit">הרשמה</button>
-        </form>
-      </div>
+      <p class="field-help">הכניסה לאתר מתבצעת כעת באמצעות Google בלבד. אם נרשמת בעבר, מומלץ להשתמש באותו אימייל דרך חשבון Google.</p>
+      <p class="field-help">לא נאסף מספר טלפון, ואין באתר אימות SMS.</p>
       <p class="law-emphasis">האדמין הראשי: osherper@gmail.com</p>
     </section>
   </main>
@@ -55,8 +42,6 @@
   <p>טלפון: 054-4232490 | Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></p>
   <p class="footer-legal">כל הזכויות במבנה האתר, הסיכומים, השאלות, המשחק וכלי הלמידה שמורות. המידע נועד ללמידה והעשרה בלבד; יש לאמת מול החוק, התקנות, התקנים והגורמים המוסמכים העדכניים.</p>
 </footer>
-  <script src="./js/email-config.js"></script>
-  <script src="./js/email-notifications.js"></script>
   <script type="module" src="./js/auth.js"></script>
   <script src="./js/accessibility.js"></script>
 </body>

@@ -72,6 +72,9 @@
           </div>
           <div class="admin-search">
             <label><span>סינון לפי שם/אימייל/סטטוס</span><input type="search" id="usersSearch" placeholder="הקלידו לסינון..." autocomplete="off"></label>
+            <label><span>שאלון סטטיסטי</span><select id="surveyStatusFilter"><option value="">הכול</option><option value="completed">ענה לשאלון</option><option value="skipped">דילג</option><option value="none">לא ענה</option></select></label>
+            <label><span>סוג משתמש</span><select id="surveyUseFilter"><option value="">הכול</option><option>סטודנט בקורס ממונה בטיחות</option><option>ממונה בטיחות שרוצה להעמיק</option><option>עובד/מנהל בארגון</option><option>יועץ/איש מקצוע בתחום</option><option>מתעניין בתחום הבטיחות</option><option>אחר</option></select></label>
+            <label><span>מקור הגעה</span><select id="surveySourceFilter"><option value="">הכול</option><option>חבר/עמית</option><option>קבוצת WhatsApp</option><option>חיפוש Google</option><option>LinkedIn / רשת חברתית</option><option>קורס / מסגרת לימודית</option><option>אחר</option></select></label>
           </div>
           <section class="active-users-panel" aria-labelledby="activeUsersTitle">
             <div class="section-title compact-title">
@@ -82,7 +85,7 @@
           </section>
           <div class="table-scroll">
             <table class="data-table admin-table">
-              <thead><tr><th>משתמש</th><th>תפקיד</th><th>סטטוס</th><th>Provider</th><th>נרשם</th><th>כניסה אחרונה</th><th>הודעת אישור</th><th>פעולות</th></tr></thead>
+              <thead><tr><th>משתמש</th><th>תפקיד</th><th>סטטוס</th><th>Provider</th><th>שאלון</th><th>למה משתמש באתר</th><th>סטטוס לימודי/מקצועי</th><th>מקור הגעה</th><th>מה חשוב לו</th><th>נרשם</th><th>כניסה אחרונה</th><th>הודעת אישור</th><th>פעולות</th></tr></thead>
               <tbody id="usersTableBody"></tbody>
             </table>
           </div>

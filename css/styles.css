@@ -229,6 +229,36 @@ body.admin-strict:not(.auth-approved) .site-footer {
 .auth-message { min-height: 2.5rem; border-radius: 6px; background: var(--surface-2); padding: .7rem .8rem; color: var(--text); }
 .auth-message[data-type="error"] { color: var(--accent); font-weight: 800; }
 .auth-state-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
+.profile-survey-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3300;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(13, 27, 38, .48);
+}
+.profile-survey-dialog {
+  width: min(680px, 100%);
+  max-height: min(90vh, 780px);
+  overflow: auto;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 22px 58px rgba(13, 27, 38, .28);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+.profile-survey-dialog h2 { margin-top: 0; }
+.profile-survey-form {
+  display: grid;
+  gap: .8rem;
+}
+.profile-survey-status {
+  min-height: 1.5rem;
+  color: var(--muted);
+  margin: 0;
+}
 .auth-inline-loader {
   position: fixed;
   top: .75rem;
@@ -2381,6 +2411,15 @@ body.feedback-open .m-admin-fab {
   display: none !important;
 }
 @media (max-width: 767px) {
+  .profile-survey-overlay {
+    place-items: end stretch;
+    padding: .5rem;
+  }
+  .profile-survey-dialog {
+    max-height: calc(100vh - 1rem);
+    border-radius: 16px 16px 0 0;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
   .feedback-button {
     display: none !important;
   }

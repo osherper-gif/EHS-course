@@ -75,7 +75,8 @@ service cloud.firestore {
         "approvedBy",
         "approvalMode",
         "createdAt",
-        "lastLoginAt"
+        "lastLoginAt",
+        "updatedAt"
       ]);
     }
 
@@ -117,6 +118,7 @@ service cloud.firestore {
             "photoURL",
             "provider",
             "lastLoginAt",
+            "updatedAt",
             "status",
             "approvedAt",
             "approvedBy",

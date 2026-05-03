@@ -13,6 +13,7 @@ import {
 let usersByUid = new Map();
 let preparedApproval = null;
 let feedbackById = new Map();
+let allUsers = [];
 
 function clean(value, max = 1000) {
   return window.CourseAuth?.sanitizeText
@@ -184,7 +185,12 @@ function renderUserRow(user) {
     userTd,
     cell(clean(user.role || "student", 60)),
     statusTd,
-    cell(clean(user.provider || "-", 80)),
+    cell(providerLabel(user.provider)),
+    cell(surveyStatusLabel(user)),
+    cell(surveyValue(user, "useReason")),
+    cell(surveyValue(user, "learningStatus")),
+    cell(surveyValue(user, "referralSource")),
+    cell(surveyValue(user, "sitePriority")),
     cell(fmt(user.createdAt)),
     cell(fmt(user.lastLoginAt)),
     renderApprovalCell(user),
@@ -206,6 +212,31 @@ function ensureCardContainer(tbodyId, containerId) {
     tableWrap?.after(container);
   }
   return container;
+}
+
+function surveyStatus(user) {
+  if (user?.profileSurveyCompletedAt || user?.profileSurvey) return "completed";
+  if (user?.profileSurveySkippedAt) return "skipped";
+  return "none";
+}
+
+function surveyStatusLabel(user) {
+  return {
+    completed: "ענה לשאלון",
+    skipped: "דילג",
+    none: "לא ענה",
+  }[surveyStatus(user)];
+}
+
+function surveyValue(user, key) {
+  return clean(user?.profileSurvey?.[key] || "-", 160);
+}
+
+function providerLabel(provider) {
+  const value = clean(provider || "-", 80);
+  if (value === "google" || value === "google.com") return "Google";
+  if (value === "password") return "Email/Password קיים";
+  return value;
 }
 function cardLine(label, value) {
   const row = document.createElement("p");
@@ -235,7 +266,21 @@ function renderUserCard(user) {
   actions.append(actionButton("אישור", "approved", disabled), actionButton("pending", "pending", disabled), actionButton("חסימה", "blocked", disabled));
   const approval = renderApprovalCell(user);
   approval.classList.add("m-admin-card__actions");
-  card.append(head, cardLine("אימייל", clean(user.email || "-", 320)), cardLine("תפקיד", clean(user.role || "student", 60)), cardLine("Provider", clean(user.provider || "-", 80)), cardLine("נרשם", fmt(user.createdAt)), cardLine("כניסה אחרונה", fmt(user.lastLoginAt)), approval, actions);
+  card.append(
+    head,
+    cardLine("אימייל", clean(user.email || "-", 320)),
+    cardLine("תפקיד", clean(user.role || "student", 60)),
+    cardLine("Provider", providerLabel(user.provider)),
+    cardLine("שאלון", surveyStatusLabel(user)),
+    cardLine("למה משתמש באתר", surveyValue(user, "useReason")),
+    cardLine("סטטוס לימודי/מקצועי", surveyValue(user, "learningStatus")),
+    cardLine("מקור הגעה", surveyValue(user, "referralSource")),
+    cardLine("מה חשוב לו", surveyValue(user, "sitePriority")),
+    cardLine("נרשם", fmt(user.createdAt)),
+    cardLine("כניסה אחרונה", fmt(user.lastLoginAt)),
+    approval,
+    actions
+  );
   return card;
 }
 function renderUserCards(users) {
@@ -325,6 +370,50 @@ async function loadActiveSessions() {
   }
 }
 
+function currentUserFilters() {
+  return {
+    query: clean(document.getElementById("usersSearch")?.value || "", 320).toLowerCase(),
+    survey: clean(document.getElementById("surveyStatusFilter")?.value || "", 40),
+    useReason: clean(document.getElementById("surveyUseFilter")?.value || "", 120),
+    source: clean(document.getElementById("surveySourceFilter")?.value || "", 120),
+  };
+}
+
+function userMatchesFilters(user, filters) {
+  const text = [
+    user.displayName,
+    user.email,
+    user.status,
+    user.role,
+    user.provider,
+    surveyStatusLabel(user),
+    user.profileSurvey?.useReason,
+    user.profileSurvey?.learningStatus,
+    user.profileSurvey?.referralSource,
+    user.profileSurvey?.sitePriority,
+  ].map((value) => clean(value, 320).toLowerCase()).join(" ");
+  if (filters.query && !text.includes(filters.query)) return false;
+  if (filters.survey && surveyStatus(user) !== filters.survey) return false;
+  if (filters.useReason && user.profileSurvey?.useReason !== filters.useReason) return false;
+  if (filters.source && user.profileSurvey?.referralSource !== filters.source) return false;
+  return true;
+}
+
+function renderUsers(users, totalCount = users.length) {
+  const tbody = document.getElementById("usersTableBody");
+  const status = document.getElementById("adminStatus");
+  if (!tbody || !status) return;
+  tbody.replaceChildren();
+  users.forEach((user) => tbody.append(renderUserRow(user)));
+  renderUserCards(users);
+  status.textContent = "נטענו " + totalCount + " משתמשים. מוצגים " + users.length + ".";
+}
+
+function applyUserFilters() {
+  const filters = currentUserFilters();
+  renderUsers(allUsers.filter((user) => userMatchesFilters(user, filters)), allUsers.length);
+}
+
 
 async function loadUsers() {
   const tbody = document.getElementById("usersTableBody");
@@ -333,11 +422,9 @@ async function loadUsers() {
   status.textContent = "טוען משתמשים...";
   const snapshot = await getDocs(query(collection(db, "users"), orderBy("createdAt", "desc")));
   const users = snapshot.docs.map((item) => item.data());
+  allUsers = users;
   usersByUid = new Map(users.map((user) => [clean(user.uid, 180), user]));
-  tbody.replaceChildren();
-  users.forEach((user) => tbody.append(renderUserRow(user)));
-  status.textContent = "נטענו " + snapshot.size + " משתמשים.";
-  renderUserCards(users);
+  applyUserFilters();
   await loadActiveSessions();
   await loadExamScores(users);
   await loadFeedbackReports();
@@ -604,6 +691,10 @@ document.addEventListener("click", async (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  ["usersSearch", "surveyStatusFilter", "surveyUseFilter", "surveySourceFilter"].forEach((id) => {
+    document.getElementById(id)?.addEventListener("input", applyUserFilters);
+    document.getElementById(id)?.addEventListener("change", applyUserFilters);
+  });
   document.getElementById("saveFeedbackReport")?.addEventListener("click", async () => {
     try {
       await updateFeedbackReport();

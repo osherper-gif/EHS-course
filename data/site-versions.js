@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "google-only-login-profile-survey",
+    "versionNumber": "Google Only Login + Optional Profile Survey",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: switch to Google only login with optional profile survey",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "מעבר לכניסה באמצעות Google בלבד והוספת שאלון סטטיסטי אופציונלי לאחר התחברות.",
+    "siteChanges": "מסך ההתחברות מציג רק כפתור כניסה עם Google. לאחר אישור משתמש מוצג שאלון אופציונלי עם אפשרות שמירה או דילוג.",
+    "fixedBugs": "הוסרו טפסי Email/Password מה-UI ומקוד ההתחברות כדי לצמצם בלבול ולמנוע ניהול סיסמאות מקומי.",
+    "uiUxChanges": "נוסף מודל שאלון קצר ונגיש, והאדמין יכול לראות ולסנן את נתוני השאלון בטבלת המשתמשים.",
+    "securityChanges": "לא נוסף Phone Auth, SMS או שירות בתשלום. משתמשים חסומים נשארים חסומים והאדמין הראשי נשאר מוגבל ל-osherper@gmail.com.",
+    "contentChanges": "עודכנו מדיניות הפרטיות ותנאי השימוש כך שישקפו Google-only login ושאלון אופציונלי.",
+    "firebaseChanges": "עודכנו מסמכי users עם provider=google ושדות profileSurvey/profileSurveyCompletedAt/profileSurveySkippedAt לפי בחירת המשתמש.",
+    "releaseNotes": "האתר עבר לכניסה באמצעות Google בלבד, ללא אימות טלפון וללא סיסמאות מקומיות. השאלון הסטטיסטי אופציונלי ומשמש לשיפור השירות.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "visual-learning-aids-site-search",
     "versionNumber": "Visual Learning Aids + Site Search",
     "date": "2026-05-03",
