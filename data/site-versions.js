@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "login-performance-optimization",
+    "versionNumber": "Login Performance Optimization",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "optimize login page load time",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "שיפור ביצועי דף הכניסה במובייל ללא שינוי תוכן או פיצ'רים.",
+    "siteChanges": "דף הכניסה טוען קובץ עיצוב קטן ומודול התחברות קל במקום טעינת מסלול האתר המלא.",
+    "fixedBugs": "צומצמה טעינה מיותרת בדף הכניסה.",
+    "uiUxChanges": "ללא שינוי עיצובי רחב; נשמרה חוויית כניסה פשוטה וברורה.",
+    "securityChanges": "ללא שינוי בהרשאות או במדיניות הגישה.",
+    "contentChanges": "ללא שינוי בתוכן הלימודי.",
+    "firebaseChanges": "טעינת רכיבי התחברות בלבד בתחילת דף הכניסה; שאר רכיבי המערכת נטענים רק לאחר צורך.",
+    "releaseNotes": "דף הכניסה קל יותר ונטען מהר יותר במובייל.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "user-friendly-language-cleanup",
     "versionNumber": "User-Friendly Language Cleanup",
     "date": "2026-05-03",
