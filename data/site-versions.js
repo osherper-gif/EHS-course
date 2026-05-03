@@ -1,5 +1,39 @@
 window.SITE_VERSIONS = [
   {
+    "versionNumber": "Safety Officer Lessons 1-3",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: add safety officer lessons 1-3 content and quizzes",
+    "addedRequirements": [
+      "שילוב תוכן שיעורים 1-3",
+      "עדכון מערך שאלות ייעודי לכל שיעור",
+      "הוספת טבלאות ותרשימים לימודיים"
+    ],
+    "siteChanges": [
+      "חיזוק שיעורים 1-2",
+      "יישור שיעור 3 לגורמים במערך הבטיחות",
+      "עדכון דף הבית ותוכנית הלימוד"
+    ],
+    "fixedBugs": [
+      "צמצום כפילות שאלות בין נושאים",
+      "החלפת שאלות אחזקה משיעור 3 בשאלות מערך בטיחות"
+    ],
+    "uiUxChanges": [
+      "טבלאות ותרשימי HTML/CSS ללמידה"
+    ],
+    "securityChanges": [],
+    "contentChanges": [
+      "חוק/פקודה/תקנה/תקן בזהירות משפטית",
+      "אחריות מערכתית ותפקיד ממונה בטיחות",
+      "תאונת עבודה, צווים, ניטור וסקר סיכונים"
+    ],
+    "firebaseChanges": [],
+    "releaseNotes": "עדכון תוכן לימודי ושאלות לשיעורים הראשונים, ללא שינויי התחברות או תשתית.",
+    "status": "published",
+    "emailStatus": "not_sent"
+  },
+  {
     "versionId": "home-page-clarity-and-engagement",
     "versionNumber": "Home Page Clarity and Engagement",
     "date": "2026-05-03",
