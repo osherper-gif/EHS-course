@@ -72,6 +72,7 @@
     if (!body) return;
     body.replaceChildren(
       sheetLink("חוקים, תקנים וכלי שטח", href("pages/field-tools.html")),
+      sheetLink("קצת עליי", href("pages/about-me.html")),
       sheetButton("נגישות", () => {
         closeSheet();
         if (window.CourseAccessibility?.open) window.CourseAccessibility.open();

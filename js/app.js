@@ -202,6 +202,30 @@
       }
     });
   }
+  function initAboutMeLinks() {
+    const inPages = location.pathname.includes("/pages/");
+    const aboutHref = inPages ? "about-me.html" : "./pages/about-me.html";
+    const isAboutPage = /\/about-me\.html$/.test(location.pathname);
+
+    document.querySelectorAll(".main-nav").forEach((nav) => {
+      if (nav.querySelector('a[href$="about-me.html"]')) return;
+      const link = document.createElement("a");
+      link.href = aboutHref;
+      link.textContent = "קצת עליי";
+      if (isAboutPage) link.setAttribute("aria-current", "page");
+      nav.append(link);
+    });
+
+    document.querySelectorAll(".footer-links").forEach((footer) => {
+      if (footer.querySelector('a[href$="about-me.html"]')) return;
+      const link = document.createElement("a");
+      link.href = aboutHref;
+      link.textContent = "קצת עליי";
+      if (isAboutPage) link.setAttribute("aria-current", "page");
+      const accessibility = footer.querySelector('[data-action="open-accessibility"]');
+      footer.insertBefore(link, accessibility || footer.firstChild);
+    });
+  }
   function initActions() {
     document.querySelectorAll('[data-action="print"]').forEach((btn) => btn.addEventListener("click", () => window.print()));
     document.querySelectorAll('[data-action="export-notes"]').forEach((btn) => btn.addEventListener("click", () => CourseStorage.exportNotes()));
@@ -232,6 +256,7 @@
     initNotes();
     initProgress();
     initExamDashboard();
+    initAboutMeLinks();
     initSiteSearch();
     initGlobalSearch();
     initGlossarySearch();

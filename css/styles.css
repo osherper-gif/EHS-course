@@ -745,6 +745,50 @@ body.login-auth-check .login-layout {
 .callout-tip     { border-color: var(--accent-2); background: color-mix(in srgb, var(--accent-2) 10%, var(--surface)); }
 .callout-ok      { border-color: var(--ok); background: var(--ok-soft); }
 
+/* ---- About Page ---- */
+.about-page {
+  max-width: 1120px;
+}
+.about-hero {
+  background: linear-gradient(120deg, rgba(18,108,131,.95), rgba(20,121,93,.84)), url("../assets/safety-pattern.svg");
+}
+.about-bullet-list {
+  margin: .75rem 0 0;
+  padding-inline-start: 1.35rem;
+}
+.about-bullet-list li {
+  margin-bottom: .55rem;
+}
+.about-timeline {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: .75rem;
+  margin: .75rem 0 0;
+  padding: 0;
+}
+.about-timeline li {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  min-height: 64px;
+  padding: .85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  font-weight: 800;
+}
+.about-timeline span {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: white;
+}
+
 /* ---- Modern Cards ---- */
 .card-modern {
   background: var(--surface);

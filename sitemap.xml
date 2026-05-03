@@ -25,6 +25,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ehs-course.web.app/pages/about-me.html</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://ehs-course.web.app/pages/lesson-01.html</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>

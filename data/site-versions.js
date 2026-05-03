@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "about-me-page",
+    "versionNumber": "About Me Page",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: add about me page",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "הוספת עמוד קצת עליי עם רקע מקצועי והשכלתי קצר של אושר פרץ.",
+    "siteChanges": "נוסף עמוד pages/about-me.html וקישורים מהניווט, מתפריט המובייל, מדף הבית ומהפוטר.",
+    "fixedBugs": "לא רלוונטי.",
+    "uiUxChanges": "נוספו כרטיס בדף הבית, קישור בתפריט ועוד במובייל, ועיצוב עמוד קצר באמצעות רכיבי האתר הקיימים.",
+    "securityChanges": "ללא שינוי במנגנוני Auth, Admin או Firestore.",
+    "contentChanges": "נוסף תוכן מקצועי קצר על השכלה, ניסיון, תחומי התמחות והסיבה להקמת האתר.",
+    "firebaseChanges": "פריסת Hosting בלבד.",
+    "releaseNotes": "עמוד קצת עליי מציג רקע מקצועי והשכלתי רלוונטי ללמידה, איכות, בטיחות והנדסת מערכות.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "google-only-login-profile-survey",
     "versionNumber": "Google Only Login + Optional Profile Survey",
     "date": "2026-05-03",
