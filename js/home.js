@@ -41,6 +41,10 @@
     return readJson("safetyCourse:examAttempts", []);
   }
 
+  function readExamDraft() {
+    return readJson("safetyCourse:mobileExamDraft", null);
+  }
+
   function statsWithDerivedValues() {
     const progress = window.CourseStorage?.progress?.() || {};
     const stats = window.CourseStorage?.stats?.() || {};
@@ -101,6 +105,127 @@
       if (!progress[id]) return id;
     }
     return "";
+  }
+
+  function recommendedAction(progress, mistakes, examDraft, lastExam) {
+    if (examDraft?.questionIds?.length) {
+      return {
+        title: "המשך מבחן",
+        text: "יש מבחן שהתחלת ועדיין לא סיימת. כדאי להשלים אותו לפני מעבר לנושא חדש.",
+        href: "./pages/exam-questions.html",
+        button: "המשך מבחן",
+        icon: "i-quiz",
+      };
+    }
+    const lastLesson = window.CourseStorage?.lastVisited?.();
+    const lessonHref = lastLesson?.lessonId && lessonHrefById(lastLesson.lessonId);
+    if (lessonHref && !progress[lastLesson.lessonId]) {
+      return {
+        title: "המשך שיעור",
+        text: lastLesson.title || findLessonTitle(lastLesson.lessonId) || "חזור לשיעור האחרון שפתחת.",
+        href: lessonHref,
+        button: "המשך שיעור",
+        icon: "i-book",
+      };
+    }
+    if (mistakes.length) {
+      return {
+        title: "חזור על טעויות",
+        text: "יש " + mistakes.length + " טעויות אחרונות. חזרה ממוקדת תיתן לך את השיפור הכי מהיר.",
+        href: "./pages/exam-questions.html?mode=mistakes",
+        button: "חזור על טעויות",
+        icon: "i-warning",
+      };
+    }
+    if (lastExam?.topic) {
+      return {
+        title: "המשך תרגול",
+        text: "אפשר להמשיך לתרגל את הנושא האחרון: " + lastExam.topic + ".",
+        href: "./pages/exam-questions.html",
+        button: "המשך תרגול",
+        icon: "i-quiz",
+      };
+    }
+    const nextLesson = nextIncompleteLesson(progress);
+    return {
+      title: nextLesson === "lesson-01" ? "התחל שיעור ראשון" : "המשך לשיעור הבא",
+      text: nextLesson ? (findLessonTitle(nextLesson) || nextLesson) : "כל השיעורים סומנו כהושלמו. מומלץ לעבור לתרגול מסכם.",
+      href: nextLesson ? "./pages/" + nextLesson + ".html" : "./pages/exam-questions.html",
+      button: nextLesson === "lesson-01" ? "התחל שיעור ראשון" : "פתח שיעור",
+      icon: "i-play",
+    };
+  }
+
+  function renderWhatNow() {
+    const host = document.getElementById("whatNowCard");
+    if (!host) return;
+    const progress = window.CourseStorage?.progress?.() || {};
+    const mistakes = window.CourseStorage?.mistakes?.() || [];
+    const stats = statsWithDerivedValues();
+    const answered = Number(stats.totalQuestionsAnswered || 0);
+    const correct = Number(stats.totalCorrect || 0);
+    const completed = Math.min(Number(stats.lessonsCompleted || 0), 12);
+    const percent = Math.round((completed / 12) * 100);
+    const successRate = answered ? Math.round((correct / answered) * 100) + "%" : "אין עדיין";
+    const action = recommendedAction(progress, mistakes, readExamDraft(), window.CourseStorage?.lastExam?.());
+    host.hidden = false;
+    host.innerHTML = ""
+      + '<div class="home-focus-main">'
+      +   '<div class="card-icon"><svg width="24" height="24" aria-hidden="true"><use href="./assets/icons.svg#' + escapeHtml(action.icon) + '"/></svg></div>'
+      +   '<div>'
+      +     '<p class="kicker">מה כדאי לך לעשות עכשיו</p>'
+      +     '<h2 id="whatNowTitle">' + escapeHtml(action.title) + '</h2>'
+      +     '<p>' + escapeHtml(action.text) + '</p>'
+      +   '</div>'
+      +   '<a class="btn primary" href="' + escapeHtml(action.href) + '">' + escapeHtml(action.button) + '</a>'
+      + '</div>'
+      + '<div class="home-progress-line" aria-label="התקדמות קורס"><span style="width:' + percent + '%"></span></div>'
+      + '<div class="home-mini-stats" aria-label="סטטיסטיקה אישית קצרה">'
+      +   '<span><strong>' + percent + '%</strong>השלמת קורס</span>'
+      +   '<span><strong>' + escapeHtml(successRate) + '</strong>אחוז הצלחה</span>'
+      +   '<span><strong>' + answered + '</strong>שאלות שנענו</span>'
+      + '</div>';
+  }
+
+  function renderMistakeReviewCard() {
+    const host = document.getElementById("mistakeReviewCard");
+    if (!host) return;
+    const mistakes = window.CourseStorage?.mistakes?.() || [];
+    if (!mistakes.length) {
+      host.hidden = true;
+      return;
+    }
+    host.hidden = false;
+    host.innerHTML = ""
+      + '<div class="section-title">'
+      +   '<div><h2 id="mistakeReviewTitle">חזרה על טעויות</h2><p>נשמרו ' + mistakes.length + ' טעויות אחרונות. זה המקום הכי יעיל להשתפר בו.</p></div>'
+      +   '<a class="btn" href="./pages/exam-questions.html?mode=mistakes">תרגל טעויות</a>'
+      + '</div>';
+  }
+
+  async function renderQuestionIssuesCard() {
+    const host = document.getElementById("questionIssuesHome");
+    if (!host) return;
+    try {
+      const { db, collection, getDocs } = await import("./firebase-config.js");
+      if (!db) return;
+      const snapshot = await getDocs(collection(db, "questionIssues"));
+      const issues = snapshot.docs
+        .map((item) => item.data())
+        .filter((item) => item.priority === "high" && item.status !== "fixed");
+      if (!issues.length) {
+        host.hidden = true;
+        return;
+      }
+      host.hidden = false;
+      host.innerHTML = ""
+        + '<div class="section-title">'
+        +   '<div><h2 id="questionIssuesHomeTitle">שאלות לבדיקה</h2><p>יש ' + issues.length + ' שאלות שסומנו לבדיקה מקצועית בעקבות דיווחים או דירוג נמוך.</p></div>'
+        +   '<a class="btn secondary" href="./pages/exam-questions.html">המשך לתרגל</a>'
+        + '</div>';
+    } catch {
+      host.hidden = true;
+    }
   }
 
   function renderNextActions() {
@@ -249,13 +374,19 @@
   }
 
   function init() {
+    renderWhatNow();
     renderContinue();
     renderUserProgress();
     renderNewUserOnboarding();
     renderNextActions();
+    renderMistakeReviewCard();
     renderWhatsNewHome();
     renderRecentActivity();
   }
+
+  document.addEventListener("course-auth-approved", () => {
+    renderQuestionIssuesCard();
+  });
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);

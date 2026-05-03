@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "home-page-clarity-and-engagement",
+    "versionNumber": "Home Page Clarity and Engagement",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: improve home page clarity and engagement",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "שיפור מסך הבית כך שהמשתמש יבין מיד מה הפעולה הבאה המומלצת.",
+    "siteChanges": "נוסף כרטיס פעולה מרכזי, התקדמות ויזואלית, סטטיסטיקה קצרה וכרטיסי חזרה על טעויות ושאלות לבדיקה.",
+    "fixedBugs": "צומצמה תחושת פיזור במסך הבית על ידי הצגת המלצה אחת ברורה בתחילת הדף.",
+    "uiUxChanges": "דף הבית מציג כעת המשך מבחן, המשך שיעור, חזרה על טעויות או התחלת שיעור ראשון לפי מצב המשתמש.",
+    "securityChanges": "ללא שינוי במנגנון הכניסה או בהרשאות.",
+    "contentChanges": "ללא שינוי בתוכן הלימודי או במאגר השאלות.",
+    "firebaseChanges": "קריאה להצגת שאלות בעדיפות גבוהה מתבצעת רק למשתמש מאושר ובהתאם להרשאות הקיימות.",
+    "releaseNotes": "מסך הבית ברור יותר: פעולה מומלצת אחת, התקדמות קצרה, טעויות לחזרה ושאלות שסומנו לבדיקה.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "question-quality-workflow",
     "versionNumber": "Question Quality Workflow",
     "date": "2026-05-03",
