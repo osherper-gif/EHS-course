@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "login-lazy-firebase-load",
+    "versionNumber": "Login Lazy Firebase Load",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "lazy load Firebase auth on user interaction",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "שיפור נוסף לביצועי דף הכניסה באמצעות טעינת התחברות רק לאחר לחיצת המשתמש.",
+    "siteChanges": "דף הכניסה אינו טוען את רכיבי ההתחברות החיצוניים בטעינה הראשונית; הם נטענים רק בלחיצה על כניסה עם Google.",
+    "fixedBugs": "צומצמה טעינת משאבים מוקדמת בדף הכניסה.",
+    "uiUxChanges": "נוסף מצב טעינה ברור בכפתור הכניסה בזמן פתיחת ההתחברות.",
+    "securityChanges": "ללא שינוי בהרשאות או במדיניות הגישה.",
+    "contentChanges": "ללא שינוי בתוכן.",
+    "firebaseChanges": "טעינת התחברות דינמית לאחר פעולת משתמש בלבד.",
+    "releaseNotes": "דף הכניסה קל יותר בטעינה הראשונית, והתחברות Google נטענת רק כאשר המשתמש מבקש להתחבר.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "login-performance-optimization",
     "versionNumber": "Login Performance Optimization",
     "date": "2026-05-03",

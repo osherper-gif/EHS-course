@@ -1,14 +1,7 @@
-import {
-  auth,
-  isFirebaseConfigured,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  signInWithPopup,
-} from "./firebase-login-config.js";
-
 const message = document.getElementById("authMessage");
 const googleButton = document.getElementById("googleLogin");
 let fullAuthLoaded = false;
+let loginFirebasePromise = null;
 
 function setMessage(text, type = "") {
   if (!message) return;
@@ -19,7 +12,14 @@ function setMessage(text, type = "") {
 function setBusy(isBusy) {
   if (!googleButton) return;
   googleButton.disabled = isBusy;
-  googleButton.textContent = isBusy ? "מתחבר..." : "כניסה עם Google";
+  googleButton.classList.toggle("is-loading", isBusy);
+  googleButton.setAttribute("aria-busy", isBusy ? "true" : "false");
+  googleButton.textContent = isBusy ? "פותח התחברות..." : "כניסה עם Google";
+}
+
+async function loadLoginFirebase() {
+  if (!loginFirebasePromise) loginFirebasePromise = import("./firebase-login-config.js");
+  return loginFirebasePromise;
 }
 
 async function loadFullAuthFlow() {
@@ -31,16 +31,20 @@ async function loadFullAuthFlow() {
 
 function initLogin() {
   document.body.classList.remove("login-auth-check");
-  if (!isFirebaseConfigured || !auth) {
-    setMessage("ההתחברות אינה זמינה כרגע. נסה שוב מאוחר יותר.", "error");
-    setBusy(false);
-    return;
-  }
 
   googleButton?.addEventListener("click", async () => {
     setBusy(true);
-    setMessage("פותח חלון כניסה מאובטח...", "info");
+    setMessage("פותח התחברות...", "info");
     try {
+      const {
+        auth,
+        isFirebaseConfigured,
+        GoogleAuthProvider,
+        signInWithPopup,
+      } = await loadLoginFirebase();
+      if (!isFirebaseConfigured || !auth) {
+        throw new Error("login-not-ready");
+      }
       const provider = new GoogleAuthProvider();
       provider.setCustomParameters({ prompt: "select_account" });
       await signInWithPopup(auth, provider);
@@ -51,16 +55,9 @@ function initLogin() {
       if (code.includes("popup-closed")) {
         setMessage("חלון הכניסה נסגר לפני השלמת הפעולה.", "error");
       } else {
-        setMessage("לא ניתן להשלים את הכניסה כרגע. נסה שוב.", "error");
+        setMessage("לא ניתן לפתוח התחברות כרגע, נסה שוב.", "error");
       }
     }
-  });
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) loadFullAuthFlow().catch(() => {
-      setBusy(false);
-      setMessage("לא ניתן להשלים את בדיקת ההרשאות כרגע. נסה לרענן את העמוד.", "error");
-    });
   });
 }
 
