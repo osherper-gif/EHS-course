@@ -1,4 +1,4 @@
-import { getApp, getApps, initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import {
   initializeAppCheck,
   ReCaptchaV3Provider,
@@ -41,7 +41,7 @@ export const appCheckSiteKey = "PASTE_RECAPTCHA_V3_SITE_KEY";
 export const isAppCheckConfigured =
   appCheckSiteKey && appCheckSiteKey !== "PASTE_RECAPTCHA_V3_SITE_KEY";
 
-export const app = isFirebaseConfigured ? (getApps().length ? getApp() : initializeApp(firebaseConfig)) : null;
+export const app = isFirebaseConfigured ? initializeApp(firebaseConfig) : null;
 export const appCheck =
   app && isAppCheckConfigured
     ? initializeAppCheck(app, {

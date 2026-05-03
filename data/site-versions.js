@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "rollback-login-to-last-known-working-flow",
+    "versionNumber": "Rollback Login To Stable Flow",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "fix: rollback login to last known working flow",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "החזרת מנגנון הכניסה למצב האחרון הידוע שעבד לפני ניסיונות אופטימיזציית דף הכניסה.",
+    "siteChanges": "דף הכניסה חזר לטעון את מסלול האימות הרגיל של האתר במקום מודול כניסה נפרד.",
+    "fixedBugs": "בוטלו ניסיונות טעינה ופיצול של קוד הכניסה שגרמו לתקיעה בכפתור Google.",
+    "uiUxChanges": "העדפה ליציבות התחברות על פני צמצום משקל דף הכניסה.",
+    "securityChanges": "ללא שינוי בהרשאות המשתמשים.",
+    "contentChanges": "ללא שינוי בתוכן הלימודי.",
+    "firebaseChanges": "שוחזר שימוש במסלול האימות הראשי של האתר כפי שהיה בקומיט 697a01e.",
+    "releaseNotes": "הכניסה עם Google הוחזרה למסלול הישן והיציב כדי לאפשר למשתמשים להיכנס לאתר.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "stabilize-google-login-flow",
     "versionNumber": "Stabilize Google Login Flow",
     "date": "2026-05-03",
