@@ -2279,6 +2279,7 @@ html[data-theme="dark"] { --muted: #c4d0da; }
 .m-bottom-nav, .m-sheet, .m-admin-cards { display: none; }
 @media (max-width: 1023px) {
   body.auth-protected.auth-approved { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+  body.m-sheet-open { overflow: hidden; }
   .site-header { position: static; }
   .main-nav { display: none !important; }
   .header-inner { gap: .65rem; }
@@ -2302,6 +2303,8 @@ html[data-theme="dark"] { --muted: #c4d0da; }
   .m-sheet__link { width: 100%; min-height: 48px; display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-2); color: var(--text); padding: .75rem .9rem; font: inherit; font-weight: 750; text-align: right; text-decoration: none; cursor: pointer; }
   #continueWhereLeft.m-home-continue { display: grid; grid-template-columns: 44px 1fr; gap: .75rem; align-items: center; padding: 1rem; border: 2px solid color-mix(in srgb, var(--brand), var(--border) 55%); }
   #continueWhereLeft.m-home-continue .btn { grid-column: 1 / -1; width: 100%; text-align: center; }
+  #continueWhereLeft.m-home-continue--p2 h3 { margin: 0 0 .25rem; }
+  .m-home-action-chip { justify-content: flex-start; text-align: start; }
   .m-exam-shell { display: grid; gap: .9rem; }
   .m-exam-top { display: flex; align-items: center; justify-content: space-between; gap: .75rem; color: var(--muted); }
   .m-exam-top strong { color: var(--text); }
@@ -2690,6 +2693,7 @@ html.a11y-high-contrast.dark {
   padding: 1rem;
 }
 .site-search-overlay[hidden] { display: none; }
+body.site-search-active { overflow: hidden; }
 .site-search-backdrop {
   position: absolute;
   inset: 0;
@@ -2882,11 +2886,32 @@ html.a11y-high-contrast.dark {
     padding-inline: .6rem;
     font-size: .86rem;
   }
+  .site-search-overlay {
+    place-items: end stretch;
+    padding: .5rem;
+  }
   .site-search-dialog {
     width: 100%;
     max-height: calc(100vh - 1rem);
+    min-height: min(82vh, 720px);
     border-radius: 16px 16px 0 0;
     align-self: end;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+  .site-search-field input {
+    min-height: 54px;
+    font-size: 1.05rem;
+  }
+  .site-search-hit {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-2);
+    padding: .85rem;
+  }
+  .site-search-title {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
   .visual-learning-grid {
     grid-template-columns: 1fr;

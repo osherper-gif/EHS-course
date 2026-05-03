@@ -119,6 +119,11 @@
     const topic = topicSelect.value;
     const count = countSelect.value;
     const pool = selectedPool(topic);
+    window.CourseStorage?.markLastExam?.({
+      topic: topic === LESSON_ONLY ? currentTopicLabel() : topic,
+      count,
+      path: "pages/exam-questions.html",
+    });
     activeQuestions = shuffle(pool).slice(0, count === "all" ? pool.length : Number(count)).map((q) => ({ ...q, shuffledOptions: shuffle(q.options) }));
     activeAnswers = {};
     markedQuestions = new Set();

@@ -99,6 +99,7 @@
     sheet.hidden = false;
     sheet.classList.add("is-open");
     document.body.classList.add("m-sheet-open");
+    document.querySelector(".m-bottom-nav__more")?.setAttribute("aria-expanded", "true");
     requestAnimationFrame(() => sheet.querySelector(".m-sheet__panel")?.focus());
   }
 
@@ -108,6 +109,7 @@
     sheet.classList.remove("is-open");
     document.body.classList.remove("m-sheet-open");
     sheet.hidden = true;
+    document.querySelector(".m-bottom-nav__more")?.setAttribute("aria-expanded", "false");
     if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
   }
 
@@ -142,6 +144,8 @@
     more.type = "button";
     more.className = "m-bottom-nav__item m-bottom-nav__more";
     more.setAttribute("aria-haspopup", "dialog");
+    more.setAttribute("aria-label", "פתח תפריט עוד");
+    more.setAttribute("aria-expanded", "false");
     more.innerHTML = '<span class="m-bottom-nav__icon">•••</span><span class="m-bottom-nav__label">עוד</span>';
     more.addEventListener("click", openSheet);
     nav.append(more);

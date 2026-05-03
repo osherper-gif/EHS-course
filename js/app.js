@@ -105,6 +105,17 @@
 
     let dialog;
     let lastFocus;
+    function trapSearchFocus(event) {
+      if (event.key === "Escape") { closeSearch(); return; }
+      if (event.key !== "Tab" || !dialog || dialog.hidden) return;
+      const focusable = [...dialog.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+        .filter((el) => el.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
     function closeSearch() {
       if (!dialog) return;
       dialog.hidden = true;
@@ -160,9 +171,7 @@
       dialog.addEventListener("click", (event) => {
         if (event.target.closest('[data-action="close-site-search"]')) closeSearch();
       });
-      dialog.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeSearch();
-      });
+      dialog.addEventListener("keydown", trapSearchFocus);
       return dialog;
     }
     openButton.addEventListener("click", async () => {
@@ -226,6 +235,23 @@
       footer.insertBefore(link, accessibility || footer.firstChild);
     });
   }
+  function initLastPageState() {
+    if (!window.CourseStorage || /\/login\.html$/.test(location.pathname)) return;
+    const lessonShell = document.querySelector(".lesson-shell[data-lesson-id]");
+    const lessonId = lessonShell?.dataset?.lessonId || "";
+    const pageTitle = document.body?.dataset?.pageTitle || document.querySelector("h1")?.textContent || document.title;
+    if (lessonId) {
+      window.CourseStorage.markLastVisited(lessonId, pageTitle);
+      window.CourseStorage.markLastPage({ title: pageTitle, type: "lesson" });
+      return;
+    }
+    const type = /exam-questions|quizzes/.test(location.pathname)
+      ? "exam"
+      : /safety-game|game-/.test(location.pathname)
+        ? "game"
+        : "page";
+    window.CourseStorage.markLastPage({ title: pageTitle, type });
+  }
   function initActions() {
     document.querySelectorAll('[data-action="print"]').forEach((btn) => btn.addEventListener("click", () => window.print()));
     document.querySelectorAll('[data-action="export-notes"]').forEach((btn) => btn.addEventListener("click", () => CourseStorage.exportNotes()));
@@ -257,6 +283,7 @@
     initProgress();
     initExamDashboard();
     initAboutMeLinks();
+    initLastPageState();
     initSiteSearch();
     initGlobalSearch();
     initGlossarySearch();

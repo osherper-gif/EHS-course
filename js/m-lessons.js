@@ -3,6 +3,7 @@
   const MOBILE_QUERY = "(max-width: 767px)";
   let sections = [];
   let progressBar = null;
+  let lastTocFocus = null;
 
   function isLessonPage() {
     return Boolean(document.querySelector(".lesson-shell[data-lesson-id]"));
@@ -35,9 +36,14 @@
     const button = document.createElement("button");
     button.type = "button";
     button.className = "m-lesson-accordion__toggle";
+    button.id = "m-lesson-toggle-" + String(index + 1).padStart(2, "0");
     button.setAttribute("aria-expanded", index < 2 ? "true" : "false");
+    button.setAttribute("aria-controls", "m-lesson-panel-" + String(index + 1).padStart(2, "0"));
     button.innerHTML = '<span></span><span aria-hidden="true">⌄</span>';
     button.firstElementChild.textContent = title;
+    body.id = "m-lesson-panel-" + String(index + 1).padStart(2, "0");
+    body.setAttribute("role", "region");
+    body.setAttribute("aria-labelledby", button.id);
     body.hidden = index >= 2;
     button.addEventListener("click", () => {
       const expanded = button.getAttribute("aria-expanded") === "true";
@@ -123,10 +129,12 @@
   }
 
   function openTocSheet() {
+    lastTocFocus = document.activeElement;
     renderToc();
     const sheet = ensureTocSheet();
     sheet.hidden = false;
     sheet.classList.add("is-open");
+    document.body.classList.add("m-sheet-open");
     requestAnimationFrame(() => sheet.querySelector(".m-sheet__panel")?.focus());
   }
 
@@ -135,6 +143,8 @@
     if (!sheet) return;
     sheet.classList.remove("is-open");
     sheet.hidden = true;
+    document.body.classList.remove("m-sheet-open");
+    if (lastTocFocus && typeof lastTocFocus.focus === "function") lastTocFocus.focus();
   }
 
   function updateProgress() {
@@ -147,6 +157,7 @@
 
   function init() {
     if (!isLessonPage()) return;
+    if (!isMobile()) return;
     sections = Array.from(document.querySelectorAll(".lesson-content > .lesson-section, main > .lesson-section, main > .related-panel"));
     sections.forEach((section, index) => {
       ensureId(section, index);
@@ -160,5 +171,8 @@
   document.addEventListener("DOMContentLoaded", init);
   document.addEventListener("course-auth-approved", init);
   window.addEventListener("scroll", updateProgress, { passive: true });
-  window.addEventListener("resize", updateProgress);
+  window.addEventListener("resize", () => {
+    init();
+    updateProgress();
+  });
 })();

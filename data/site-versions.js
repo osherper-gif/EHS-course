@@ -1,5 +1,24 @@
 window.SITE_VERSIONS = [
   {
+    "versionId": "mobile-first-p2",
+    "versionNumber": "Mobile First P2",
+    "date": "2026-05-03",
+    "time": "לא צוין",
+    "commitHash": "",
+    "commitMessage": "feat: mobile first P2 polish and performance",
+    "createdBy": "Osher Perets",
+    "addedRequirements": "ליטוש חוויית מובייל לאחר P1 ללא שינוי תוכן לימודי וללא שינוי במנגנוני Auth/Admin/Firestore.",
+    "siteChanges": "נוספה שמירת מצב אחרון לעמודים, שיעורים ומבחנים; דף הבית מציג המלצות המשך ממוקדות יותר; חיפוש מובייל שופר לתצוגת bottom sheet נוחה.",
+    "fixedBugs": "תוקן מצב שבו אקורדיוני שיעור יכלו להיווצר גם בדסקטופ ולשנות את מבנה הכותרות במסך רחב.",
+    "uiUxChanges": "שופרו כרטיס המשך למידה, פעולות מומלצות, מניעת גלילה מאחורי bottom sheets, focus trap בחיפוש, ו-aria/tap targets בתפריט המובייל.",
+    "securityChanges": "ללא שינוי בהרשאות או בכללי Firestore.",
+    "contentChanges": "ללא שינוי בתוכן לימודי.",
+    "firebaseChanges": "פריסת Hosting בלבד.",
+    "releaseNotes": "Mobile First P2 משפר יציבות ושימושיות במובייל: המשך למידה ברור יותר, חיפוש נוח יותר, שמירת מצב אחרון ותיקוני נגישות במסכים צרים.",
+    "status": "published",
+    "emailStatus": "notSent"
+  },
+  {
     "versionId": "about-me-page",
     "versionNumber": "About Me Page",
     "date": "2026-05-03",

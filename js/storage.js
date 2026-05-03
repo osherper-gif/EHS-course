@@ -55,6 +55,32 @@
     lastVisited() {
       return this.get("lastVisited", null);
     },
+    markLastPage(page) {
+      try {
+        this.set("lastPage", {
+          title: String(page?.title || document.body?.dataset?.pageTitle || document.title || ""),
+          path: String(page?.path || location.pathname + location.search + location.hash),
+          type: String(page?.type || "page"),
+          at: Date.now(),
+        });
+      } catch (_) { /* noop */ }
+    },
+    lastPage() {
+      return this.get("lastPage", null);
+    },
+    markLastExam(info) {
+      try {
+        this.set("lastExam", {
+          topic: String(info?.topic || ""),
+          count: String(info?.count || ""),
+          path: String(info?.path || "pages/exam-questions.html"),
+          at: Date.now(),
+        });
+      } catch (_) { /* noop */ }
+    },
+    lastExam() {
+      return this.get("lastExam", null);
+    },
     recordMistake(record) {
       const list = this.get("mistakes", []);
       list.push({
