@@ -3384,6 +3384,11 @@ body.site-search-active { overflow: hidden; }
 }
 .info-card[data-card-kind="action"] .info-title { color: #5a3690; }
 
+body:has(#examForm) .ui-modern-only,
+body:has(#quizLessonPicker) .ui-modern-only {
+  display: none;
+}
+
 
 /* Section accordion (uses native <details>, gracefully degrades) */
 .lesson-section-accordion {

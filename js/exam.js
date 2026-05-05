@@ -272,9 +272,7 @@
     top.className = "m-exam-top";
     const counter = document.createElement("strong");
     counter.textContent = "שאלה " + (index + 1) + " מתוך " + total;
-    const topic = document.createElement("span");
-    topic.textContent = q.topic;
-    top.append(counter, topic);
+    top.append(counter);
     const progress = document.createElement("div");
     progress.className = "m-exam-progress";
     const bar = document.createElement("span");
@@ -327,7 +325,7 @@
       const card = document.createElement("article");
       card.className = "question-card exam-question";
       const h = document.createElement("h2");
-      h.textContent = "שאלה " + (index + 1) + " · " + q.topic;
+      h.textContent = "שאלה " + (index + 1);
       const p = document.createElement("p");
       p.textContent = q.question;
       const answers = document.createElement("div");
@@ -446,7 +444,7 @@
         const details = document.createElement("details");
         details.open = true;
         const summary = document.createElement("summary");
-        summary.textContent = item.topic + " · " + item.question;
+        summary.textContent = item.question;
         const p = document.createElement("p");
         p.textContent = "בחרת: " + (item.selected || "לא נבחרה תשובה") + " | תשובה נכונה: " + item.correct;
         const exp = document.createElement("p");
@@ -463,7 +461,8 @@
     box.append(again);
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", async () => {
+    await window.CourseExamLoader?.hydrateExamQuestions?.();
     initTopicSelect();
     renderSummary();
     document.getElementById("startExam")?.addEventListener("click", startExam);

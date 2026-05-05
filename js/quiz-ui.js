@@ -93,12 +93,6 @@
         t1.textContent = lessonTitle(m.lessonId);
         tags.append(t1);
       }
-      if (m.topic) {
-        const t2 = document.createElement("span");
-        t2.className = "tag tag-neutral";
-        t2.textContent = m.topic;
-        tags.append(t2);
-      }
       li.append(q, meta, tags);
       ul.append(li);
     });

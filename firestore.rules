@@ -5,6 +5,14 @@ service cloud.firestore {
       return request.auth != null;
     }
 
+    function isSignedIn() {
+      return signedIn();
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
     function isMainAdmin() {
       return signedIn() && request.auth.token.email == "osherper@gmail.com";
     }
@@ -39,11 +47,30 @@ service cloud.firestore {
         && userDoc(request.auth.uid).data.status == "approved";
     }
 
+    function isApproved() {
+      return isAdmin() || isApprovedRequester();
+    }
+
     function validOwnImmutableFields() {
       return request.resource.data.uid == resource.data.uid
         && request.resource.data.email == resource.data.email
         && request.resource.data.role == resource.data.role
         && request.resource.data.status == resource.data.status;
+    }
+
+    function validOwnUserUpdateKeys() {
+      return request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+        "displayName",
+        "photoURL",
+        "provider",
+        "lastLoginAt",
+        "updatedAt",
+        "profileSurvey",
+        "profileSurveyCompletedAt",
+        "profileSurveySkippedAt",
+        "lastSeenVersionAt",
+        "lastSeenVersionUpdatedAt"
+      ]);
     }
 
     function noApprovalFieldChanges() {
@@ -111,8 +138,7 @@ service cloud.firestore {
 
       allow update: if isAdmin()
         || (
-          signedIn()
-          && request.auth.uid == uid
+          isOwner(uid)
           && autoBetaActive()
           && resource.data.status == "pending"
           && resource.data.role == "student"
@@ -133,16 +159,16 @@ service cloud.firestore {
           && validAutoBetaFields()
         )
         || (
-          signedIn()
-          && request.auth.uid == uid
+          isOwner(uid)
           && validOwnImmutableFields()
+          && validOwnUserUpdateKeys()
           && noApprovalFieldChanges()
         );
 
       allow delete: if false;
 
       match /progress/{lessonId} {
-        allow read: if isApprovedSelf(uid);
+        allow read: if isAdmin() || isApprovedSelf(uid);
         allow create, update: if isApprovedSelf(uid)
           && request.resource.data.lessonId == lessonId;
         allow delete: if false;
@@ -177,6 +203,30 @@ service cloud.firestore {
 
     match /siteVersions/{versionId} {
       allow read, create, update, delete: if isAdmin();
+    }
+
+    match /examQuestionPools/{lessonId} {
+      allow read: if isApproved();
+      allow create, update, delete: if isAdmin();
+
+      match /questions/{questionId} {
+        allow read: if isApproved();
+        allow create, update, delete: if isAdmin();
+      }
+    }
+
+    match /userProgress/{uid} {
+      allow read: if isAdmin() || isApprovedSelf(uid);
+      allow create, update: if isApprovedSelf(uid)
+        && request.resource.data.userId == request.auth.uid;
+      allow delete: if false;
+
+      match /{document=**} {
+        allow read: if isAdmin() || isApprovedSelf(uid);
+        allow create, update: if isApprovedSelf(uid)
+          && request.resource.data.userId == request.auth.uid;
+        allow delete: if false;
+      }
     }
 
     match /feedbackReports/{reportId} {

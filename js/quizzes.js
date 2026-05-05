@@ -39,7 +39,8 @@
       .replace(/"/g, "&quot;");
   }
 
-  function initQuiz() {
+  async function initQuiz() {
+    await window.CourseExamLoader?.hydrateExamQuestions?.();
     const start = document.getElementById("startQuiz");
     const lessonSelect = document.getElementById("quizLesson");
     const container = document.getElementById("quizContainer");

@@ -1,0 +1,15 @@
+{
+  "name": "ehs-course-site-tools",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local maintenance scripts for the EHS course site.",
+  "scripts": {
+    "migrate:exam-questions:dry": "node scripts/migrate-exam-questions-to-firestore.js",
+    "migrate:exam-questions:staging": "node scripts/migrate-exam-questions-to-firestore.js --write --project staging",
+    "check:links": "node scripts/check-links.js",
+    "audit:questions": "node scripts/audit-questions-quality.js"
+  },
+  "devDependencies": {
+    "firebase-admin": "^13.8.0"
+  }
+}
