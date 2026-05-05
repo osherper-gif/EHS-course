@@ -291,7 +291,7 @@
       feedback.replaceChildren();
       const message = document.createElement("p");
       message.textContent = correct
-        ? `נכון. צברת ${xp} XP. ${currentChallenge.explanation}`
+        ? `נכון. צברת ${xp} נקודות. ${currentChallenge.explanation}`
         : `לא מדויק. התשובה הנכונה: ${text(currentChallenge.correctAnswer)}. ${currentChallenge.explanation}`;
       const actions = document.createElement("div");
       actions.className = "m-game-feedback-actions";

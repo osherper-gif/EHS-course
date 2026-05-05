@@ -6,6 +6,7 @@
 
   if (document.documentElement) {
     document.documentElement.setAttribute("data-ui-mode", MODERN_MODE);
+    document.documentElement.classList.add("js-ready");
   }
 
   function applyMode() {

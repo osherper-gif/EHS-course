@@ -4156,6 +4156,11 @@ body.has-modern-lesson-overlay .site-main > .page-hero {
   display: none !important;
 }
 
+html.js-ready .syllabus-page .legacy-syllabus-section,
+html.js-ready .syllabus-page table.syllabus-table {
+  display: none !important;
+}
+
 .modern-info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
@@ -5330,6 +5335,74 @@ body.has-modern-lesson-overlay .site-main > .page-hero {
   .lesson-hero-actions,
   .hero-cta {
     width: 100%;
+  }
+}
+
+/* Safety game home: keep difficulty, stats and actions from overlapping. */
+body[data-game-page="home"] .game-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr);
+  grid-template-areas:
+    "intro difficulty"
+    "stats stats";
+  align-items: stretch;
+  justify-content: stretch;
+  gap: 12px;
+  max-height: none;
+  min-height: 0;
+  overflow: visible;
+}
+
+body[data-game-page="home"] .game-hero > div:first-child {
+  grid-area: intro;
+  min-width: 0;
+}
+
+body[data-game-page="home"] .game-hero .difficulty-picker {
+  grid-area: difficulty;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  align-self: stretch;
+  overflow: visible;
+}
+
+body[data-game-page="home"] .game-hero .game-hero-stats {
+  grid-area: stats;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body[data-game-page="home"] .game-hero .game-xp {
+  min-width: 0;
+  min-height: 72px;
+  padding: .65rem;
+  overflow-wrap: anywhere;
+}
+
+body[data-game-page="home"] .game-hero .hero-cta {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+body[data-game-page="home"] .game-hero .hero-cta .btn {
+  white-space: normal;
+}
+
+@media (max-width: 900px) {
+  body[data-game-page="home"] .game-hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "intro"
+      "difficulty"
+      "stats";
+  }
+}
+
+@media (max-width: 520px) {
+  body[data-game-page="home"] .game-hero .game-hero-stats {
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
   }
 }
 

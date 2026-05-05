@@ -293,7 +293,7 @@
     document.getElementById("lastExamLabel").textContent = lastAttempt ? (lastAttempt.topic || "מבחן") + " · " + lastAttempt.score + "%" : "עדיין לא בוצע";
     document.getElementById("successRateLabel").textContent = success + (answered ? " · " + answered + " שאלות" : "");
     const text = document.getElementById("userProgressText");
-    if (text) text.textContent = completed + "/12 שיעורים הושלמו · " + Number(stats.examsCompleted || 0) + " מבחנים · " + Number(stats.gameXP || 0) + " XP";
+    if (text) text.textContent = completed + "/12 שיעורים הושלמו · " + Number(stats.examsCompleted || 0) + " מבחנים · " + Number(stats.gameXP || 0) + " נקודות";
     const link = document.getElementById("userProgressContinue");
     if (link) link.href = continueHref || "./pages/lesson-01.html";
   }
@@ -354,7 +354,7 @@
     if (game && (Number(game.totalXp || 0) > 0 || game.currentStage)) {
       items.push({
         title: "אתגר בטיחות",
-        text: Number(game.totalXp || 0) + " XP · שלב " + (game.currentStage || "stage-01"),
+        text: Number(game.totalXp || 0) + " נקודות · שלב " + (game.currentStage || "stage-01"),
         at: new Date(game.updatedAt || Date.now()).getTime(),
         href: "./pages/safety-game.html",
       });

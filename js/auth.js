@@ -7,9 +7,13 @@ import {
   ADMIN_EMAIL,
   auth,
   db,
+  firebaseConfig,
+  firebaseEnvironment,
   isFirebaseConfigured,
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   onAuthStateChanged,
   signOut,
   doc,
@@ -74,6 +78,12 @@ const pathPrefix = isRootPage ? "" : "../";
 const pageName = location.pathname.split("/").pop() || "index.html";
 const isLoginPage = pageName === LOGIN_PAGE;
 const isAdminPage = pageName === ADMIN_PAGE || pageName === "version-management.html";
+console.info("[firebase] active config", {
+  hostname: window.location.hostname,
+  environment: firebaseEnvironment,
+  projectId: firebaseConfig?.projectId,
+  authDomain: firebaseConfig?.authDomain,
+});
 
 let currentProfile = null;
 let authReadyResolve;
@@ -118,6 +128,14 @@ function isApprovedProfile(profile) {
 
 function isAutoApproveWindowActive(date = new Date()) {
   return date.getTime() <= new Date(AUTO_APPROVE_NEW_USERS_UNTIL).getTime();
+}
+
+function isStagingHost() {
+  return window.location.hostname.includes("ehs-course-staging");
+}
+
+function shouldAutoApproveUser() {
+  return isStagingHost() || isAutoApproveWindowActive();
 }
 
 function autoApprovalFields() {
@@ -515,7 +533,9 @@ function revealAuthenticatedView(profile) {
 
 async function ensureUserProfile(user) {
   const ref = doc(db, "users", user.uid);
+  console.info("[auth] firestore getDoc users/" + user.uid + " start");
   const snapshot = await getDoc(ref);
+  console.info("[auth] firestore getDoc users/" + user.uid + " done", { exists: snapshot.exists() });
   const base = {
     uid: user.uid,
     email: sanitizeText(user.email, 320),
@@ -528,7 +548,7 @@ async function ensureUserProfile(user) {
 
   if (!snapshot.exists()) {
     const admin = isAdminEmail(user.email);
-    const autoApprove = !admin && isAutoApproveWindowActive();
+    const autoApprove = !admin && shouldAutoApproveUser();
     const profile = {
       ...base,
       role: admin ? "admin" : "student",
@@ -536,7 +556,13 @@ async function ensureUserProfile(user) {
       ...(autoApprove ? autoApprovalFields() : {}),
       createdAt: serverTimestamp(),
     };
+    console.info("[auth] firestore setDoc users/" + user.uid + " start", {
+      role: profile.role,
+      status: profile.status,
+      environment: isStagingHost() ? "staging" : "production",
+    });
     await setDoc(ref, profile);
+    console.info("[auth] firestore setDoc users/" + user.uid + " done");
     if (autoApprove) markAutoBetaNotice();
     if (!admin && profile.status === PENDING) {
       window.CourseEmailNotifications?.notifyPendingUser?.({ ...profile, uid: user.uid }).catch(() => null);
@@ -546,13 +572,19 @@ async function ensureUserProfile(user) {
 
   const existing = snapshot.data();
   const admin = isAdminEmail(user.email);
-  const autoApprovePending = !admin && existing.status === PENDING && isAutoApproveWindowActive();
+  const autoApprovePending = !admin && existing.status === PENDING && shouldAutoApproveUser();
   const updates = {
     ...base,
     ...(admin ? { role: "admin", status: APPROVED } : {}),
     ...(autoApprovePending ? autoApprovalFields() : {}),
   };
+  console.info("[auth] firestore updateDoc users/" + user.uid + " start", {
+    currentStatus: existing.status,
+    nextStatus: updates.status || existing.status,
+    environment: isStagingHost() ? "staging" : "production",
+  });
   await updateDoc(ref, updates);
+  console.info("[auth] firestore updateDoc users/" + user.uid + " done");
   return { ...existing, ...updates };
 }
 
@@ -632,7 +664,59 @@ function hebrewAuthError(error) {
 
 async function googleLogin() {
   const provider = new GoogleAuthProvider();
+  if (isStagingHost()) {
+    console.info("[auth] staging popup start");
+    try {
+      await signInWithPopup(auth, provider);
+      console.info("[auth] staging popup resolved");
+      return;
+    } catch (error) {
+      console.error("[auth] staging popup error:", error?.code, error?.message, error);
+      const redirectFallbackCodes = new Set([
+        "auth/cancelled-popup-request",
+        "auth/operation-not-supported-in-this-environment",
+        "auth/popup-blocked",
+        "auth/popup-closed-by-user",
+      ]);
+      const errorText = String(error?.message || "").toLowerCase();
+      const shouldUseRedirect =
+        redirectFallbackCodes.has(error?.code) ||
+        errorText.includes("window.closed") ||
+        errorText.includes("cross-origin-opener-policy");
+      if (!shouldUseRedirect) throw error;
+      console.info("[auth] staging redirect start", { reason: error?.code || error?.message || "unknown" });
+      await signInWithRedirect(auth, provider);
+      console.info("[auth] staging redirect returned without navigation");
+    }
+    return;
+  }
+  console.info("[auth] production popup start");
   await signInWithPopup(auth, provider);
+  console.info("[auth] production popup resolved");
+}
+
+async function handleRedirectLoginResult(setMessage) {
+  if (!isStagingHost() || !auth) return;
+  console.info("[auth] redirect result start");
+  try {
+    const result = await getRedirectResult(auth);
+    console.info("[auth] redirect result", {
+      hasResult: Boolean(result),
+      hasUser: Boolean(result?.user),
+      uid: result?.user?.uid || null,
+      email: result?.user?.email || null,
+    });
+    if (!result?.user) return;
+    setMessage?.("ההתחברות הושלמה. מעביר לאתר...");
+    const profile = await ensureUserProfile(result.user);
+    if (profile.status === APPROVED || isAdminProfile(profile)) {
+      cacheApprovedProfile(profile);
+      safeRedirect(homeUrl());
+    }
+  } catch (error) {
+    console.error("Login redirect error:", error?.code, error?.message, error);
+    setMessage?.("שגיאה בהתחברות: " + (error?.code || "unknown"), "error");
+  }
 }
 
 async function logout() {
@@ -802,12 +886,14 @@ function initLoginPage() {
     setMessage("האתר עדיין לא מוכן להתחברות. יש להשלים את הגדרות המערכת לפני כניסה.", "error");
     return;
   }
+  handleRedirectLoginResult(setMessage);
   document.getElementById("googleLogin")?.addEventListener("click", async () => {
     try {
       setMessage("מתחבר עם Google...");
       await googleLogin();
     } catch (error) {
-      setMessage(hebrewAuthError(error), "error");
+      console.error("Login error:", error?.code, error?.message, error);
+      setMessage("שגיאה בהתחברות: " + (error?.code || "unknown"), "error");
     }
   });
 }
@@ -884,11 +970,17 @@ function guard() {
       try {
         profile = await ensureUserProfile(user);
       } catch (error) {
+        console.error("[auth] firestore profile error:", error?.code, error?.message, error);
         if (fallbackProfile) {
-          authLog("firestore status failed");
+          authLog("firestore status failed", error?.code || error?.message || error);
           profile = fallbackProfile;
         } else {
-          authLog("firestore status failed");
+          authLog("firestore status failed", error?.code || error?.message || error);
+          const firestoreErrorMessage =
+            "לא הצלחנו לקבל או לשמור את סטטוס המשתמש כרגע. קוד שגיאה: " +
+            (error?.code || "unknown") +
+            ". הודעה: " +
+            (error?.message || "לא התקבל פירוט.");
           if (shownProfile) {
             authReadyResolve?.(currentProfile);
             return;
@@ -905,6 +997,8 @@ function guard() {
               return actions;
             }
           );
+          const shellParagraph = document.querySelector("#authStateShell p");
+          if (shellParagraph) shellParagraph.textContent = firestoreErrorMessage;
           authReadyResolve?.(null);
           return;
         }

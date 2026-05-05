@@ -30,7 +30,7 @@
     const difficulty = result.difficulty || progress.difficulty || "medium";
     setText("resultStageTitle", `שלב ${stage.order}: ${stage.title}`);
     setText("resultScore", `${result.score}%`);
-    setText("resultXp", `${result.xp} XP`);
+    setText("resultXp", `${result.xp} נקודות`);
     setText("resultCorrect", `${result.correct}/${result.total}`);
     setText("resultWrong", String(result.wrong));
     setText("resultDifficulty", result.difficultyLabel || state().difficultyLabel(difficulty));

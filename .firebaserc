@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "ehs-course"
+    "default": "ehs-course",
+    "staging": "ehs-course-staging"
   },
   "targets": {},
   "etags": {}
