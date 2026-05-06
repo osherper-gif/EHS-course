@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta name="robots" content="noindex,nofollow">
+  <title>ניהול האתר | קורס ממונה בטיחות</title>
+  <meta name="description" content="דף ניהול מרכזי לאדמין באתר קורס ממונה בטיחות.">
+  <script src="../js/ui-mode.js"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="auth-protected admin-strict admin-dashboard-page" data-page-title="ניהול האתר">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>ניהול האתר</small></span></a>
+      <nav class="main-nav" aria-label="ניווט ראשי">
+        <a href="../index.html">בית</a>
+        <a href="../admin.html">ניהול משתמשים</a>
+        <a href="telegram-preview.html">ניהול טלגרם</a>
+        <a href="version-management.html">ניהול גרסאות</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button>
+        <button class="icon-btn" type="button" data-action="print" title="הדפסה">⎙</button>
+      </div>
+    </div>
+    <div class="law-notice">עמוד זה זמין למנהל האתר בלבד</div>
+  </header>
+
+  <main id="main" class="site-main">
+    <nav class="breadcrumb" aria-label="היכן אני">
+      <a href="../index.html">בית</a>
+      <span aria-hidden="true">›</span>
+      <span>ניהול האתר</span>
+    </nav>
+
+    <section class="page-hero admin-dashboard-hero">
+      <div>
+        <p class="kicker">אדמין</p>
+        <h1>ניהול האתר</h1>
+        <p>מרכז קישורים מהיר לניהול, בדיקות, תוכן מוגן ותהליכי תחזוקה באתר.</p>
+      </div>
+    </section>
+
+    <section class="admin-dashboard-grid" aria-label="כרטיסי ניהול">
+      <article class="admin-dashboard-card">
+        <div class="admin-card-head">
+          <h2>ניהול טלגרם</h2>
+          <span class="status-pill" data-status="approved">פעיל</span>
+        </div>
+        <p>צפייה בתוכנית הודעות, הכנה לשיעורים וערוצי טלגרם.</p>
+        <a class="btn" href="telegram-preview.html">פתח ניהול טלגרם</a>
+      </article>
+
+      <article class="admin-dashboard-card">
+        <div class="admin-card-head">
+          <h2>ניהול משתמשים</h2>
+          <span class="status-pill" data-status="approved">פעיל</span>
+        </div>
+        <p>צפייה במשתמשים, סטטוס אישור, חסימה ותפקידים.</p>
+        <a class="btn" href="../admin.html">פתח ניהול משתמשים</a>
+      </article>
+
+      <article class="admin-dashboard-card">
+        <div class="admin-card-head">
+          <h2>ניהול דיווחים</h2>
+          <span class="status-pill" data-status="approved">פעיל</span>
+        </div>
+        <p>צפייה בדיווחי טעויות, שאלות בעייתיות ומשוב משתמשים.</p>
+        <a class="btn" href="../admin.html#feedback">פתח דיווחים</a>
+      </article>
+
+      <article class="admin-dashboard-card">
+        <div class="admin-card-head">
+          <h2>ניהול גרסאות אתר</h2>
+          <span class="status-pill" data-status="approved">פעיל</span>
+        </div>
+        <p>צפייה בהיסטוריית גרסאות ועדכונים.</p>
+        <a class="btn" href="version-management.html">פתח ניהול גרסאות</a>
+      </article>
+
+      <article class="admin-dashboard-card">
+        <div class="admin-card-head">
+          <h2>בקרת שאלות</h2>
+          <span class="status-pill" data-status="pending">בפיתוח</span>
+        </div>
+        <p>בדיקת מאגר שאלות, איכות שאלות וטעינה מ-Firestore. ניהול מלא בפיתוח.</p>
+        <a class="btn secondary" href="exam-questions.html">פתח שאלות</a>
+      </article>
+
+      <article class="admin-dashboard-card">
+        <div class="admin-card-head">
+          <h2>בדיקות מערכת</h2>
+          <span class="status-pill" data-status="pending">דורש בדיקה</span>
+        </div>
+        <p>קישורים לבדיקות ידניות: שיעורים, מבחנים, משחק, חיפוש ועמודי תוכן.</p>
+        <div class="admin-card-links">
+          <a href="syllabus.html">שיעורים</a>
+          <a href="quizzes.html">מבחנים</a>
+          <a href="safety-game.html">משחק</a>
+          <a href="standards.html">תקנים</a>
+        </div>
+      </article>
+
+      <article class="admin-dashboard-card admin-security-card">
+        <div class="admin-card-head">
+          <h2>אבטחת תוכן</h2>
+          <span class="status-pill" data-status="approved">מאובטח</span>
+        </div>
+        <p>מצב הגנות תוכן מרכזיות באתר.</p>
+        <ul class="admin-status-list">
+          <li>שאלות נטענות מ-Firestore</li>
+          <li>data/exam-questions.js חסום</li>
+          <li>search-index מצומצם</li>
+          <li>Telegram schedule admin-only</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-links" aria-label="קישורי אתר">
+      <a href="privacy.html">פרטיות</a>
+      <a href="terms.html">תנאי שימוש</a>
+      <a href="disclaimer.html">הצהרת אחריות</a>
+      <a href="about-me.html">קצת עליי</a>
+      <a href="#accessibility" data-action="open-accessibility">נגישות</a>
+      <a href="mailto:osherper@gmail.com">צור קשר</a>
+    </div>
+    <p>האתר נוצר על ידי אושר פרץ</p>
+    <p>טלפון: 054-4232490 | Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></p>
+  </footer>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/app.js"></script>
+  <script type="module" src="../js/auth.js"></script>
+  <script src="../js/accessibility.js"></script>
+</body>
+</html>

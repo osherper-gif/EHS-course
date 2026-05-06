@@ -6267,6 +6267,73 @@ h3,
   font-weight: 700;
 }
 
+.admin-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.admin-dashboard-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  border: 1px solid var(--border, #d5e1e8);
+  border-radius: 14px;
+  background: var(--surface, #fff);
+  box-shadow: 0 10px 28px rgba(15, 65, 87, 0.08);
+  padding: 16px;
+}
+
+.admin-dashboard-card p {
+  margin: 0;
+  color: var(--muted, #5f6f78);
+}
+
+.admin-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 10px;
+}
+
+.admin-card-head h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--brand-2, #0f4f66);
+}
+
+.admin-dashboard-card .btn {
+  margin-block-start: auto;
+  align-self: flex-start;
+}
+
+.admin-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-card-links a {
+  border: 1px solid var(--border, #d5e1e8);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: #f8fbfc;
+  text-decoration: none;
+}
+
+.admin-status-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-inline-start: 1.2rem;
+}
+
+.admin-security-card {
+  border-inline-start: 4px solid var(--success, #198754);
+}
+
 @media (max-width: 720px) {
   .telegram-join-form {
     grid-template-columns: 1fr;
