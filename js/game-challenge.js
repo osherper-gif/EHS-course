@@ -116,6 +116,17 @@
     return labels[value] || value || "רגיל";
   }
 
+  function shortDifficultyLabel(value) {
+    const labels = { easy: "קלה", medium: "בינונית", hard: "קשה" };
+    return labels[value] || value || "רגילה";
+  }
+
+  function getLowerDifficulty(currentDifficulty) {
+    if (currentDifficulty === "hard") return "medium";
+    if (currentDifficulty === "medium") return "easy";
+    return null;
+  }
+
   function renderAnswerArea() {
     const container = document.getElementById("answerArea");
     if (!container || !currentChallenge) return;
@@ -283,6 +294,25 @@
     render(session);
   }
 
+  function switchActiveDifficulty(nextDifficulty) {
+    console.log("switching to " + nextDifficulty);
+    const progress = state().load();
+    progress.difficulty = nextDifficulty;
+    state().save(progress);
+    const session = state().activeStage();
+    if (!session) return null;
+    session.difficulty = nextDifficulty;
+    session.correctStreak = 0;
+    session.wrongStreak = 0;
+    state().saveActiveStage(session);
+    console.log({
+      currentDifficulty: session.difficulty,
+      currentStage: session.stageId,
+      failCount: session.wrongStreak
+    });
+    return session;
+  }
+
   function showFeedback(correct, xp, session) {
     const feedback = document.getElementById("challengeFeedback");
     if (feedback) {
@@ -331,24 +361,30 @@
       button.className = "btn secondary";
       button.textContent = "עבור לרמה קשה";
       button.addEventListener("click", () => {
-        state().setDifficulty("hard");
-        adaptive.textContent = "הרמה הקשה תופעל בשלב הבא.";
+        switchActiveDifficulty("hard");
+        adaptive.textContent = "הרמה הקשה תופעל בשאלה הבאה.";
       });
       adaptive.append(textNode, button);
     } else if (session.wrongStreak >= 2) {
       adaptive.hidden = false;
       adaptive.className = "adaptive-suggestion is-warning";
+      const targetDifficulty = getLowerDifficulty(session.difficulty);
       const textNode = document.createElement("span");
-      textNode.textContent = "שתי טעויות ברצף. מומלץ לפתוח רמז או לחזור לרמה בינונית בשלב הבא.";
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "btn secondary";
-      button.textContent = "הפעל רמה בינונית";
-      button.addEventListener("click", () => {
-        state().setDifficulty("medium");
-        adaptive.textContent = "הרמה הבינונית תופעל בשלב הבא.";
-      });
-      adaptive.append(textNode, button);
+      textNode.textContent = targetDifficulty
+        ? "שתי טעויות ברצף. מומלץ לפתוח רמז או לרדת לרמה " + shortDifficultyLabel(targetDifficulty) + " בשאלה הבאה."
+        : "שתי טעויות ברצף. כדאי להשתמש ברמז, לנסות שוב או לחזור למסלול לחזרה קצרה.";
+      adaptive.append(textNode);
+      if (targetDifficulty) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "btn secondary";
+        button.textContent = "הפעל רמה " + shortDifficultyLabel(targetDifficulty);
+        button.addEventListener("click", () => {
+          switchActiveDifficulty(targetDifficulty);
+          adaptive.textContent = "הרמה ה" + shortDifficultyLabel(targetDifficulty) + " תופעל בשאלה הבאה.";
+        });
+        adaptive.append(button);
+      }
     }
   }
 
@@ -364,8 +400,22 @@
   }
 
   function nextChallenge() {
+    console.log("continue clicked");
     const session = state().activeStage();
+    if (!session) {
+      const requestedStage = params().get("stage") || state().firstOpenStage();
+      const restarted = state().startStage(requestedStage);
+      console.log("active stage was missing; restarted session", {
+        currentDifficulty: restarted.difficulty,
+        currentStage: restarted.stageId,
+        failCount: restarted.wrongStreak
+      });
+      render(restarted);
+      return;
+    }
     session.index += 1;
+    session.correctStreak = Number(session.correctStreak || 0);
+    session.wrongStreak = Number(session.wrongStreak || 0);
     state().saveActiveStage(session);
     const hint = document.getElementById("challengeHint");
     if (hint) hint.hidden = true;
