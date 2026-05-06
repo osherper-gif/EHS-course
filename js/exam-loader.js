@@ -7,9 +7,37 @@ import {
 (function () {
   const FIRESTORE_SOURCE = "firestore";
   const LOCAL_SOURCE = "local";
+  const UNAVAILABLE_SOURCE = "unavailable";
   let hydrationPromise = null;
   let hydratedQuestions = null;
+  let localQuestionsLoadPromise = null;
   let firestoreLessonsLoaded = 0;
+
+  function isLocalQuestionFallbackAllowed() {
+    const hostname = window.location.hostname;
+    return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "ehs-course-staging.web.app";
+  }
+
+  function getLocalQuestionsScriptSrc() {
+    return window.location.pathname.includes("/pages/") ? "../data/exam-questions.js" : "data/exam-questions.js";
+  }
+
+  function loadLocalQuestionsScript() {
+    if (Array.isArray(window.EXAM_QUESTIONS)) return Promise.resolve(true);
+    if (!isLocalQuestionFallbackAllowed()) return Promise.resolve(false);
+    if (localQuestionsLoadPromise) return localQuestionsLoadPromise;
+
+    localQuestionsLoadPromise = new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = getLocalQuestionsScriptSrc();
+      script.async = true;
+      script.onload = () => resolve(Array.isArray(window.EXAM_QUESTIONS));
+      script.onerror = () => resolve(false);
+      document.head.appendChild(script);
+    });
+
+    return localQuestionsLoadPromise;
+  }
 
   function localQuestions(lessonId) {
     const pool = Array.isArray(window.EXAM_QUESTIONS) ? window.EXAM_QUESTIONS : [];
@@ -59,6 +87,25 @@ import {
     return profile?.status === "approved" || profile?.role === "admin";
   }
 
+  function showQuestionLoadError() {
+    const message = "לא ניתן לטעון שאלות כעת. נסה שוב מאוחר יותר.";
+    const existing = document.querySelector("[data-exam-loader-error]");
+    if (existing) {
+      existing.textContent = message;
+      return;
+    }
+
+    const target = document.querySelector("#examResult, #examSummary, #quizContainer, .exam-dashboard, main");
+    if (!target) return;
+
+    const alert = document.createElement("div");
+    alert.dataset.examLoaderError = "true";
+    alert.className = "alert alert-warning";
+    alert.setAttribute("role", "alert");
+    alert.textContent = message;
+    target.prepend(alert);
+  }
+
   function waitForAuthReady(timeoutMs = 8000) {
     if (isApprovedProfile(window.CourseAuth?.profile)) return Promise.resolve(window.CourseAuth.profile);
     if (window.CourseAuthReady) {
@@ -82,14 +129,39 @@ import {
   }
 
   async function loadLessonQuestions(lessonId, options = {}) {
-    const fallback = () => {
-      console.info("[exam-loader] fallback to local questions", { lessonId: lessonId || "all" });
+    const fallback = async (reason) => {
+      if (!isLocalQuestionFallbackAllowed()) {
+        console.info("[exam-loader] local fallback blocked in production", {
+          lessonId: lessonId || "all",
+          reason: reason || "unknown",
+        });
+        window.CourseExamLoader.source = UNAVAILABLE_SOURCE;
+        showQuestionLoadError();
+        return [];
+      }
+
+      const loaded = await loadLocalQuestionsScript();
+      if (!loaded) {
+        console.info("[exam-loader] local questions unavailable", {
+          lessonId: lessonId || "all",
+          reason: reason || "unknown",
+        });
+        window.CourseExamLoader.source = UNAVAILABLE_SOURCE;
+        showQuestionLoadError();
+        return [];
+      }
+
+      console.info("[exam-loader] fallback to local questions", {
+        lessonId: lessonId || "all",
+        reason: reason || "unknown",
+      });
+      window.CourseExamLoader.source = LOCAL_SOURCE;
       return limitQuestions(sortQuestions(localQuestions(lessonId)), options.count);
     };
 
     const profile = await waitForAuthReady();
-    if (!isApprovedProfile(profile)) return fallback();
-    if (!db || !lessonId) return fallback();
+    if (!isApprovedProfile(profile)) return fallback("auth-not-approved");
+    if (!db || !lessonId) return fallback(!db ? "firestore-unavailable" : "missing-lesson-id");
 
     try {
       const snapshot = await getDocs(collection(db, "examQuestionPools", lessonId, "questions"));
@@ -101,7 +173,7 @@ import {
         }
       });
 
-      if (!questions.length) return fallback();
+      if (!questions.length) return fallback("empty-firestore-result");
       firestoreLessonsLoaded += 1;
       console.info("[exam-loader] loaded from firestore", { lessonId, count: questions.length });
       return limitQuestions(sortQuestions(questions), options.count);
@@ -110,7 +182,7 @@ import {
         lessonId,
         reason: error?.code || error?.message || "unknown",
       });
-      return limitQuestions(sortQuestions(localQuestions(lessonId)), options.count);
+      return fallback(error?.code || error?.message || "firestore-error");
     }
   }
 
@@ -121,6 +193,7 @@ import {
     hydrationPromise = (async () => {
       const lessonIds = Array.isArray(options.lessonIds) && options.lessonIds.length ? options.lessonIds : uniqueLessonIds();
       if (!lessonIds.length) {
+        await loadLocalQuestionsScript();
         hydratedQuestions = localQuestions();
         return hydratedQuestions;
       }
@@ -134,8 +207,10 @@ import {
         return hydratedQuestions;
       }
 
+      await loadLocalQuestionsScript();
       hydratedQuestions = localQuestions();
-      window.CourseExamLoader.source = LOCAL_SOURCE;
+      window.CourseExamLoader.source = hydratedQuestions.length ? LOCAL_SOURCE : UNAVAILABLE_SOURCE;
+      if (!hydratedQuestions.length && !isLocalQuestionFallbackAllowed()) showQuestionLoadError();
       return hydratedQuestions;
     })();
 
@@ -146,6 +221,7 @@ import {
     source: LOCAL_SOURCE,
     loadLessonQuestions,
     hydrateExamQuestions,
+    isLocalQuestionFallbackAllowed,
     get questions() {
       return hydratedQuestions || localQuestions();
     },
