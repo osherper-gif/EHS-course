@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta name="robots" content="noindex,nofollow">
+  <title>תצוגה מקדימה - הודעות טלגרם | קורס ממונה בטיחות</title>
+  <meta name="description" content="תצוגה מקדימה לאדמין בלבד של הודעות הכנה ותזכורת לטלגרם. אין שליחה בפועל.">
+  <script src="../js/ui-mode.js"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .telegram-preview-toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      max-width: 980px;
+    }
+
+    .telegram-preview-filters {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .telegram-preview-toolbar select,
+    .telegram-preview-toolbar input {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--border, #d5e1e8);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font: inherit;
+      background: var(--surface, #fff);
+      box-sizing: border-box;
+    }
+
+    .telegram-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-block-start: 10px;
+    }
+
+    .telegram-summary span,
+    .telegram-badges .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: #eef7fb;
+      color: #16475e;
+      font-size: 0.9rem;
+      border: 1px solid #d6e8ef;
+    }
+
+    .telegram-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .telegram-badges .tag-warning {
+      background: #fff4df;
+      color: #765000;
+      border-color: #f1cd89;
+    }
+
+    .telegram-badges .tag-muted {
+      background: #f1f5f7;
+      color: #52626d;
+      border-color: #dbe4e8;
+    }
+
+    .telegram-preview-card {
+      border: 1px solid var(--border, #d5e1e8);
+      border-radius: 14px;
+      background: var(--surface, #fff);
+      padding: 16px;
+      margin-block: 14px;
+      box-shadow: 0 10px 28px rgba(15, 65, 87, 0.08);
+    }
+
+    .telegram-preview-card-compact {
+      border-inline-start: 4px solid #0e7490;
+    }
+
+    .telegram-preview-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border, #d5e1e8);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    .telegram-preview-head h2 {
+      margin: 8px 0 4px;
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+
+    .telegram-preview-head p {
+      margin: 0;
+      color: var(--muted, #5f6f78);
+    }
+
+    .telegram-message-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .telegram-message-grid section {
+      min-width: 0;
+      border: 1px solid var(--border, #d5e1e8);
+      border-radius: 12px;
+      padding: 12px;
+      background: #f8fbfc;
+    }
+
+    .telegram-message-grid h3 {
+      margin-top: 0;
+    }
+
+    .telegram-message-grid pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: inherit;
+      line-height: 1.65;
+      background: #fff;
+      border: 1px solid var(--border, #d5e1e8);
+      border-radius: 10px;
+      padding: 12px;
+      min-height: 220px;
+      direction: rtl;
+    }
+
+    .telegram-card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    @media (max-width: 760px) {
+      .telegram-preview-filters,
+      .telegram-preview-head,
+      .telegram-message-grid {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+    }
+  </style>
+</head>
+<body class="auth-protected telegram-preview-page" data-page-title="תצוגה מקדימה - הודעות טלגרם">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>למידה, מבחנים וכלי שטח</small></span></a>
+      <nav class="main-nav" aria-label="ניווט ראשי">
+        <a href="../index.html">בית</a>
+        <a href="syllabus.html">שיעורים</a>
+        <a href="quizzes.html">תרגול ומבחנים</a>
+        <a href="safety-game.html">אתגר בטיחות</a>
+        <a href="field-tools.html">חוקים, תקנים וכלי שטח</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button>
+        <button class="icon-btn" type="button" data-action="print" title="הדפסה">⎙</button>
+      </div>
+    </div>
+    <div class="law-notice">יש לאמת מול החוק, התקנות והתקנים העדכניים וגורם מוסמך</div>
+  </header>
+
+  <main id="main" class="site-main">
+    <section class="page-hero">
+      <div>
+        <p class="kicker">Preview בלבד</p>
+        <h1>תצוגה מקדימה - הודעות טלגרם</h1>
+        <p>Generator פנימי להכנת הודעות הכנה ותזכורת עבור באר הדרכות - ממונה בטיחות - מחזור 215. אין שליחה בפועל.</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-title">
+        <h2>בחירת קורס וסינון</h2>
+        <p id="telegramSourceNote">מצב תצוגה מקדימה בלבד.</p>
+      </div>
+      <div class="telegram-preview-toolbar">
+        <label>
+          <span>קורס</span>
+          <select id="telegramCourseSelect" aria-label="בחירת קורס לתצוגה מקדימה"></select>
+        </label>
+        <div class="telegram-preview-filters">
+          <label>
+            <span>חיפוש לפי נושא</span>
+            <input id="telegramTopicSearch" type="search" placeholder="לדוגמה: עבודה בגובה, חשמל, חומרים מסוכנים">
+          </label>
+          <label>
+            <span>סינון</span>
+            <select id="telegramFilter" aria-label="סינון מפגשים">
+              <option value="all">כל המפגשים</option>
+              <option value="needs-review">דורש אימות בלבד</option>
+              <option value="with-site-lesson">רק עם שיעור באתר</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div id="telegramSummary" class="telegram-summary" aria-live="polite"></div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-title">
+        <h2>הודעות קרובות לשליחה</h2>
+        <p>מפגשים שמתקיימים ב-7 הימים הקרובים לפי התאריך הנוכחי. עדיין מדובר בתצוגה מקדימה בלבד.</p>
+      </div>
+      <div id="telegramUpcomingList"></div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-title">
+        <h2>מפגשים והודעות מוכנות</h2>
+        <p>אפשר להעתיק או לייצא הודעות לבדיקה ידנית. לא מתבצעת שליחה לטלגרם.</p>
+      </div>
+      <div id="telegramLessonsList"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-links" aria-label="קישורי אתר">
+      <a href="privacy.html">פרטיות</a>
+      <a href="terms.html">תנאי שימוש</a>
+      <a href="disclaimer.html">הצהרת אחריות</a>
+      <a href="about-me.html">קצת עליי</a>
+      <a href="#accessibility" data-action="open-accessibility">נגישות</a>
+      <a href="mailto:osherper@gmail.com">צור קשר</a>
+    </div>
+    <p>האתר נוצר על ידי אושר פרץ</p>
+    <p>טלפון: 054-4232490 | Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></p>
+  </footer>
+
+  <script src="../js/telegram-message-generator.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/search.js"></script>
+  <script src="../js/app.js"></script>
+  <script type="module" src="../js/auth.js"></script>
+  <script src="../js/accessibility.js"></script>
+</body>
+</html>

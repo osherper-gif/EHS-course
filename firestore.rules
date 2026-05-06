@@ -215,6 +215,14 @@ service cloud.firestore {
       }
     }
 
+    match /telegramCourseSchedules/{courseId} {
+      allow read, create, update, delete: if isAdmin();
+
+      match /lessons/{lessonId} {
+        allow read, create, update, delete: if isAdmin();
+      }
+    }
+
     match /userProgress/{uid} {
       allow read: if isAdmin() || isApprovedSelf(uid);
       allow create, update: if isApprovedSelf(uid)
