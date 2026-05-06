@@ -77,7 +77,7 @@ const isRootPage = !location.pathname.includes("/pages/");
 const pathPrefix = isRootPage ? "" : "../";
 const pageName = location.pathname.split("/").pop() || "index.html";
 const isLoginPage = pageName === LOGIN_PAGE;
-const isAdminPage = pageName === ADMIN_PAGE || pageName === "version-management.html";
+const isAdminPage = pageName === ADMIN_PAGE || pageName === "admin-dashboard.html" || pageName === "version-management.html";
 console.info("[firebase] active config", {
   hostname: window.location.hostname,
   environment: firebaseEnvironment,
@@ -111,6 +111,10 @@ function homeUrl() {
 
 function adminUrl() {
   return isRootPage ? ADMIN_PAGE : "../admin.html";
+}
+
+function adminDashboardUrl() {
+  return isRootPage ? "pages/admin-dashboard.html" : "admin-dashboard.html";
 }
 
 function versionManagementUrl() {
@@ -619,16 +623,11 @@ function decorateApprovedUser(profile) {
   const text = badge.querySelector("[data-user-greeting]");
   if (text) text.textContent = "שלום, " + label;
   if (isAdminProfile(profile) && !actions.querySelector(".admin-link")) {
-    const adminLink = document.createElement("a");
-    adminLink.className = "btn secondary admin-link";
-    adminLink.href = adminUrl();
-    adminLink.textContent = "ניהול משתמשים";
-    badge.after(adminLink);
-    const versionLink = document.createElement("a");
-    versionLink.className = "btn secondary admin-link";
-    versionLink.href = versionManagementUrl();
-    versionLink.textContent = "ניהול גרסאות אתר";
-    adminLink.after(versionLink);
+    const dashboardLink = document.createElement("a");
+    dashboardLink.className = "btn secondary admin-link";
+    dashboardLink.href = adminDashboardUrl();
+    dashboardLink.textContent = "ניהול האתר";
+    badge.after(dashboardLink);
   }
   if (!actions.querySelector('[data-action="logout"]')) {
     const logoutButton = document.createElement("button");
