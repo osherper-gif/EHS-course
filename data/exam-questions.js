@@ -1,6 +1,6 @@
 window.EXAM_QUESTIONS = [
   {
-    "id": "lesson-01-docx-01",
+    "id": "lesson-01-source-01",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מה ההבדל המעשי בין גורם סיכון לבין סיכון?",
@@ -17,7 +17,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-02",
+    "id": "lesson-01-source-02",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "באיזה מקרה תקן עשוי להיות מחייב בארגון?",
@@ -34,7 +34,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-03",
+    "id": "lesson-01-source-03",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מה מתאר נכון את היחס בין פקודת הבטיחות בעבודה לבין חוק ארגון הפיקוח על העבודה?",
@@ -51,7 +51,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-04",
+    "id": "lesson-01-source-04",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "עובדים מדווחים על רעש חריג חוזר אך אין פגיעה בפועל. כיצד נכון להתייחס לאירוע?",
@@ -68,7 +68,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-05",
+    "id": "lesson-01-source-05",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מה ההבדל בין תאונת עבודה לבין מחלת מקצוע מבחינת אופי ההתרחשות?",
@@ -85,7 +85,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-06",
+    "id": "lesson-01-source-06",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מה נכון לעשות כאשר מוכנס לארגון גורם סיכון חדש, למשל חומר או תהליך חדש?",
@@ -102,7 +102,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-07",
+    "id": "lesson-01-source-07",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מהי מטרת ניטור סביבתי בתחום הגיהות התעסוקתית?",
@@ -119,7 +119,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-08",
+    "id": "lesson-01-source-08",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מה מייחד ניטור ביולוגי לעומת ניטור סביבתי?",
@@ -136,7 +136,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-09",
+    "id": "lesson-01-source-09",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מהו סדר החשיבה הנכון בתהליך ז.ה.ב?",
@@ -153,7 +153,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-10",
+    "id": "lesson-01-source-10",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "במטריצת סיכון בסיסית, מה מייצג שילוב של חומרה גבוהה והסתברות גבוהה?",
@@ -170,7 +170,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-11",
+    "id": "lesson-01-source-11",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "איזו בקרה עדיפה לפי היררכיית הבקרות כאשר ניתן לסלק את המפגע?",
@@ -187,7 +187,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-12",
+    "id": "lesson-01-source-12",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מה נכון לומר על אחריות ממונה הבטיחות ביחס לאחריות ההנהלה?",
@@ -204,7 +204,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-13",
+    "id": "lesson-01-source-13",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "עובד יושב שעות מול מחשב ומתלונן על עומס. איזו דוגמה לבקרה מנהלית מתאימה?",
@@ -221,7 +221,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-14",
+    "id": "lesson-01-source-14",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "בבדיקת גג אסבסט לפני עבודה, מהו הצעד המקצועי הנכון?",
@@ -238,7 +238,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-15",
+    "id": "lesson-01-source-15",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מה צריך לכלול סקר מפגעים מקצועי?",
@@ -255,7 +255,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-16",
+    "id": "lesson-01-source-16",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מהי טעות מקצועית בניתוח כמעט תאונה?",
@@ -272,7 +272,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-17",
+    "id": "lesson-01-source-17",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מה נדרש כאשר נוהל פנימי סותר דרישה מחייבת עדכנית?",
@@ -289,7 +289,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-18",
+    "id": "lesson-01-source-18",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מה ההבדל בין מצב מסוכן לבין פעולה מסוכנת?",
@@ -306,7 +306,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-19",
+    "id": "lesson-01-source-19",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "מדוע חשוב ללמוד גם מתאונות וגם מכמעט תאונות?",
@@ -323,7 +323,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-01-docx-20",
+    "id": "lesson-01-source-20",
     "topic": "יסודות בטיחות, דין ומושגים",
     "relatedLessonId": "lesson-01",
     "question": "באיזה ניסוח עדיף להשתמש כאשר דרישה משפטית אינה ודאית?",
@@ -340,7 +340,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-01",
+    "id": "lesson-02-source-01",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "כיצד נכון להבחין בין חוק, פקודה, תקנה וצו בנושא בטיחות בעבודה?",
@@ -357,7 +357,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-02",
+    "id": "lesson-02-source-02",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מה נכון לגבי סמכויות מפקח עבודה בעת ביקור במקום עבודה?",
@@ -374,7 +374,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-03",
+    "id": "lesson-02-source-03",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מהו ההבדל העקרוני בין צו בטיחות לבין צו שיפור?",
@@ -391,7 +391,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-04",
+    "id": "lesson-02-source-04",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "באיזה מצב עשוי להישקל צו הפסקת עבודה?",
@@ -408,7 +408,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-05",
+    "id": "lesson-02-source-05",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מהו קשר סיבתי בהקשר של תאונת עבודה?",
@@ -425,7 +425,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-06",
+    "id": "lesson-02-source-06",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "עובד נפגע בעת הכנת קפה במהלך יום העבודה. מהי התשובה הזהירה והמקצועית?",
@@ -442,7 +442,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-07",
+    "id": "lesson-02-source-07",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "עובד סטה מהדרך הרגילה לעבודה ונפגע. מה נכון לומר?",
@@ -459,7 +459,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-08",
+    "id": "lesson-02-source-08",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "בקטטה במקום העבודה נפגע עובד. מהי התשובה המקצועית הזהירה?",
@@ -476,7 +476,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-09",
+    "id": "lesson-02-source-09",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מה נכון לומר על טופס 250 בהקשר של פגיעה בעבודה?",
@@ -493,7 +493,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-10",
+    "id": "lesson-02-source-10",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מה תפקיד ממונה הבטיחות לאחר אירוע פגיעה במקום העבודה?",
@@ -510,7 +510,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-11",
+    "id": "lesson-02-source-11",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "איזה תיעוד נדרש לאחר אירוע בטיחות כדי לאפשר למידה ומעקב?",
@@ -527,7 +527,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-12",
+    "id": "lesson-02-source-12",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "כיצד נכון להסביר אחריות קפידה בהקשר לימודי זהיר?",
@@ -544,7 +544,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-13",
+    "id": "lesson-02-source-13",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מה ההבדל בין יסוד עובדתי לבין יסוד נפשי בניתוח אחריות?",
@@ -561,7 +561,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-14",
+    "id": "lesson-02-source-14",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מהי רשלנות בהקשר בטיחותי כללי?",
@@ -578,7 +578,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-15",
+    "id": "lesson-02-source-15",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מהו צעד ראשון נכון בתהליך טיפול לאחר פגיעה בעבודה?",
@@ -595,7 +595,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-16",
+    "id": "lesson-02-source-16",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מהי טעות נפוצה לאחר אירוע בטיחות?",
@@ -612,7 +612,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-17",
+    "id": "lesson-02-source-17",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "כיצד נכון להשתמש בתרשים החלטה לשאלה האם מדובר בתאונת עבודה?",
@@ -629,7 +629,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-18",
+    "id": "lesson-02-source-18",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מה נכון לעשות כאשר מפקח עבודה מוציא צו שיפור?",
@@ -646,7 +646,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-19",
+    "id": "lesson-02-source-19",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מהו ניסוח מקצועי נכון לגבי הכרה בתאונת עבודה?",
@@ -663,7 +663,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-02-docx-20",
+    "id": "lesson-02-source-20",
     "topic": "ארגון מערך הבטיחות, פיקוח ותאונת עבודה",
     "relatedLessonId": "lesson-02",
     "question": "מה צריך לכלול תחקיר לאחר כמעט תאונה משמעותית?",
@@ -680,7 +680,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-01",
+    "id": "lesson-03-source-01",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מהו הרעיון המרכזי של מערך בטיחות ארגוני תקין?",
@@ -697,7 +697,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-02",
+    "id": "lesson-03-source-02",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מה נכון לומר על אחריות ראש הארגון או המעסיק?",
@@ -714,7 +714,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-03",
+    "id": "lesson-03-source-03",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "איזה ניסוח מתאים למדיניות בטיחות פנים ארגונית?",
@@ -731,7 +731,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-04",
+    "id": "lesson-03-source-04",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מהו תפקיד ממונה הבטיחות במערך הארגוני?",
@@ -748,7 +748,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-05",
+    "id": "lesson-03-source-05",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מה תפקידה של ועדת בטיחות בארגון?",
@@ -765,7 +765,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-06",
+    "id": "lesson-03-source-06",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "כיצד נאמן בטיחות תורם לדיווח מפגעים ולמעורבות עובדים בארגון?",
@@ -782,7 +782,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-07",
+    "id": "lesson-03-source-07",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מהי אחריות מנהלים ישירים במערך הבטיחות?",
@@ -799,7 +799,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-08",
+    "id": "lesson-03-source-08",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מהי חובת העובדים במסגרת מערך בטיחות מקצועי?",
@@ -816,7 +816,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-09",
+    "id": "lesson-03-source-09",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "פיגום קרס ללא נפגעים. כיצד נכון לסווג ולנהל את האירוע?",
@@ -833,7 +833,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-10",
+    "id": "lesson-03-source-10",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מה ההבדל בין מקרה מסוכן לבין כמעט תאונה?",
@@ -850,7 +850,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-11",
+    "id": "lesson-03-source-11",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "באילו תנאים נדרשים בעלי תפקידים ייעודיים כגון ממונה אש, קרינה או לייזר?",
@@ -867,7 +867,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-12",
+    "id": "lesson-03-source-12",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "בענף הבנייה, מה חשוב להבין לגבי מזמין, מבצע בנייה, מנהל עבודה, ממונה בטיחות ועוזר בטיחות?",
@@ -884,7 +884,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-13",
+    "id": "lesson-03-source-13",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מהו תפקיד בקר בטיחות בבנייה לפי ההבנה הלימודית הכללית?",
@@ -901,7 +901,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-14",
+    "id": "lesson-03-source-14",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מה תפקיד מינהל הבטיחות ואגף הפיקוח על העבודה במערך הרחב?",
@@ -918,7 +918,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-15",
+    "id": "lesson-03-source-15",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מה נכון לומר על מכון התקנים ותקינה בהקשר מערך הבטיחות?",
@@ -935,7 +935,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-16",
+    "id": "lesson-03-source-16",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "כיצד מודל PDCA מסייע בניהול בטיחות?",
@@ -952,7 +952,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-17",
+    "id": "lesson-03-source-17",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "איזה ניסוח אינו מתאים במדיניות בטיחות?",
@@ -969,7 +969,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-18",
+    "id": "lesson-03-source-18",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מהי הדרך הנכונה לטפל בממצא שעלתה בוועדת בטיחות?",
@@ -986,7 +986,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-19",
+    "id": "lesson-03-source-19",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "באירוע פיגום, מי צריך להיות חלק מהבדיקה הראשונית?",
@@ -1003,7 +1003,7 @@ window.EXAM_QUESTIONS = [
     "qualityStatus": "approved"
   },
   {
-    "id": "lesson-03-docx-20",
+    "id": "lesson-03-source-20",
     "topic": "גורמים במערך הבטיחות ואחריות מערכתית",
     "relatedLessonId": "lesson-03",
     "question": "מהי נקודת מפתח למבחן בנושא גורמים במערך הבטיחות?",
@@ -3313,5 +3313,4217 @@ window.EXAM_QUESTIONS = [
     "difficulty": "hard",
     "sourceNote": "חידוד מקצועי לפי עקרונות בטיחות וניהול סיכונים.",
     "qualityStatus": "approved"
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-01",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה מקים סעיף 1 לחוק?",
+    "options": [
+      "ועד עובדים בלבד",
+      "שירות פיקוח על העבודה",
+      "בית דין לעבודה",
+      "משרד הבריאות"
+    ],
+    "correctAnswer": "שירות פיקוח על העבודה",
+    "correctIndex": 1,
+    "explanation": "סעיף 1 מקים את שירות הפיקוח.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 1
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-02",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה תפקיד שירות הפיקוח?",
+    "options": [
+      "רק לתת קנסות",
+      "לפקח, להדריך ולקדם בטיחות וגיהות",
+      "לשלם שכר",
+      "להחליף מעסיקים"
+    ],
+    "correctAnswer": "לפקח, להדריך ולקדם בטיחות וגיהות",
+    "correctIndex": 1,
+    "explanation": "החוק מגדיר פיקוח והדרכה.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 2
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-03",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מי ממנה מפקחי עבודה?",
+    "options": [
+      "העובדים",
+      "שר העבודה",
+      "ועדת בטיחות",
+      "המוסד לביטוח לאומי"
+    ],
+    "correctAnswer": "שר העבודה",
+    "correctIndex": 1,
+    "explanation": "סעיף 2 קובע מינוי על ידי השר.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 3
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-04",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "האם מפקח רשאי להיכנס למקום עבודה?",
+    "options": [
+      "כן, לפי סמכויותיו",
+      "רק באישור העובד",
+      "רק אחרי תאונה",
+      "לא"
+    ],
+    "correctAnswer": "כן, לפי סמכויותיו",
+    "correctIndex": 0,
+    "explanation": "סעיף 3 מעניק סמכות כניסה.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 4
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-05",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה רשאי מפקח לבדוק?",
+    "options": [
+      "רק שכר",
+      "סדרי עבודה, מכונות, ציוד ותהליכים",
+      "רק נוכחות",
+      "רק חוזים"
+    ],
+    "correctAnswer": "סדרי עבודה, מכונות, ציוד ותהליכים",
+    "correctIndex": 1,
+    "explanation": "סעיף 3(2).",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 5
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-06",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מהו צו בטיחות?",
+    "options": [
+      "המלצה בלבד",
+      "הוראה להסרת סכנה או עצירת שימוש/עבודה",
+      "אישור עבודה",
+      "תעודת עובד"
+    ],
+    "correctAnswer": "הוראה להסרת סכנה או עצירת שימוש/עבודה",
+    "correctIndex": 1,
+    "explanation": "סעיף 6.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 6
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-07",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מי מוסמך להוציא צו בטיחות לפי סעיף 6?",
+    "options": [
+      "כל עובד",
+      "מפקח עבודה אזורי או מוסמך לכך",
+      "ועד עובדים",
+      "קבלן"
+    ],
+    "correctAnswer": "מפקח עבודה אזורי או מוסמך לכך",
+    "correctIndex": 1,
+    "explanation": "סעיף 6 וסעיף 6(ד).",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 7
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-08",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מהו צו שיפור?",
+    "options": [
+      "צו לתיקון הפרת חיקוק בטיחות/בריאות/גיהות",
+      "צו להעלאת שכר",
+      "צו פיטורין",
+      "צו חופשה"
+    ],
+    "correctAnswer": "צו לתיקון הפרת חיקוק בטיחות/בריאות/גיהות",
+    "correctIndex": 0,
+    "explanation": "סעיף 8א.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 8
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-09",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה התקופה המינימלית בצו שיפור?",
+    "options": [
+      "יום אחד",
+      "שבעה ימים",
+      "ארבעה עשר ימים",
+      "שנה"
+    ],
+    "correctAnswer": "ארבעה עשר ימים",
+    "correctIndex": 2,
+    "explanation": "סעיף 8א קובע שלא תפחת מ־14 ימים.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 9
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-10",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מתי חובה ועדת בטיחות?",
+    "options": [
+      "בכל עסק",
+      "במפעל עם 25 עובדים לפחות",
+      "רק בבנייה",
+      "רק במפעל ממשלתי"
+    ],
+    "correctAnswer": "במפעל עם 25 עובדים לפחות",
+    "correctIndex": 1,
+    "explanation": "סעיף 10.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 10
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-11",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "ועדת בטיחות מורכבת מ־",
+    "options": [
+      "עובדים בלבד",
+      "מעסיק בלבד",
+      "נציגי עובדים ונציגי מעסיק שווה בשווה",
+      "מפקחים בלבד"
+    ],
+    "correctAnswer": "נציגי עובדים ונציגי מעסיק שווה בשווה",
+    "correctIndex": 2,
+    "explanation": "סעיף 10.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 11
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-12",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה תפקיד ועדת בטיחות?",
+    "options": [
+      "רק לאשר חופשות",
+      "לברר תאונות ולהמליץ על מניעה",
+      "לשלם פיצויים",
+      "להחליף מפקחים"
+    ],
+    "correctAnswer": "לברר תאונות ולהמליץ על מניעה",
+    "correctIndex": 1,
+    "explanation": "סעיף 14.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 12
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-13",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מי הם נאמני בטיחות?",
+    "options": [
+      "עובדים הפועלים לשיפור בטיחות וגיהות",
+      "שוטרים",
+      "עורכי דין",
+      "ספקים"
+    ],
+    "correctAnswer": "עובדים הפועלים לשיפור בטיחות וגיהות",
+    "correctIndex": 0,
+    "explanation": "סעיפים 19–22.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 13
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-14",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "נאמן בטיחות רשאי להודיע על ליקויים למעסיק?",
+    "options": [
+      "כן, בכתב",
+      "לא",
+      "רק בעל פה",
+      "רק דרך עובד אחר"
+    ],
+    "correctAnswer": "כן, בכתב",
+    "correctIndex": 0,
+    "explanation": "סעיף 22(3).",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 14
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-15",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "האם אסור לפגוע בנאמן בטיחות בשל פעולתו?",
+    "options": [
+      "כן",
+      "לא",
+      "רק אם הוא מנהל",
+      "רק אם יש תאונה"
+    ],
+    "correctAnswer": "כן",
+    "correctIndex": 0,
+    "explanation": "סעיף 24.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 15
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-16",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה מטרת המוסד לבטיחות ולגיהות?",
+    "options": [
+      "קידום בטיחות וגיהות",
+      "גביית מיסים",
+      "פיקוח על בנקים",
+      "רישוי רכבים"
+    ],
+    "correctAnswer": "קידום בטיחות וגיהות",
+    "correctIndex": 0,
+    "explanation": "סעיף 26.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 16
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-17",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה קובע סעיף 35?",
+    "options": [
+      "שמירת סוד",
+      "שכר עובדים",
+      "בחירות",
+      "ציוד משרדי"
+    ],
+    "correctAnswer": "שמירת סוד",
+    "correctIndex": 0,
+    "explanation": "מומחה/עובד מוסד לא יגלה מידע שהגיע בתפקידו.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 17
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-18",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה קובע סעיף 42?",
+    "options": [
+      "החוק גורע מחוקים אחרים",
+      "החוק מוסיף ואינו גורע מחובות אחרות",
+      "אין צורך בתקנות",
+      "ועדה פטורה מחובות"
+    ],
+    "correctAnswer": "החוק מוסיף ואינו גורע מחובות אחרות",
+    "correctIndex": 1,
+    "explanation": "סעיף 42 קריטי.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 18
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-19",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "האם קיום צו פוטר מאחריות אזרחית?",
+    "options": [
+      "כן תמיד",
+      "לא בהכרח",
+      "רק בבנייה",
+      "רק אם אין נפגעים"
+    ],
+    "correctAnswer": "לא בהכרח",
+    "correctIndex": 1,
+    "explanation": "סעיף 8(ג).",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 19
+  },
+  {
+    "id": "labor-inspection-law-1954-easy-20",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מהי אחריות ממונה בטיחות לפי החוק?",
+    "options": [
+      "להחליף את המעסיק",
+      "להיות אדם מאומן הממונה על בטיחות, לפי הוראות ותקנות",
+      "לשלם פיצויים",
+      "לשמש שוטר"
+    ],
+    "correctAnswer": "להיות אדם מאומן הממונה על בטיחות, לפי הוראות ותקנות",
+    "correctIndex": 1,
+    "explanation": "סעיף 25.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 20
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-01",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מפקח נכנס למפעל ללא תיאום מוקדם. מה נכון?",
+    "options": [
+      "אסור לו תמיד",
+      "מותר לו לפי סעיף 3 אם יש יסוד להניח שמדובר במקום עבודה",
+      "רק עם צו בית משפט",
+      "רק אחרי תאונה"
+    ],
+    "correctAnswer": "מותר לו לפי סעיף 3 אם יש יסוד להניח שמדובר במקום עבודה",
+    "correctIndex": 1,
+    "explanation": "סמכות הכניסה רחבה.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 21
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-02",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מפקח דורש מסמכי הדרכה. מה נכון?",
+    "options": [
+      "אסור לו",
+      "מותר לו לבדוק מסמכים שחובה לנהלם",
+      "רק אם העובד מסכים",
+      "רק בית משפט רשאי"
+    ],
+    "correctAnswer": "מותר לו לבדוק מסמכים שחובה לנהלם",
+    "correctIndex": 1,
+    "explanation": "סעיף 3(5).",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 22
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-03",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מפקח מזהה סכנה מיידית במכונה. מה הכלי המתאים?",
+    "options": [
+      "צו בטיחות",
+      "פרוטוקול ועדה בלבד",
+      "חופשה לעובד",
+      "צו שכר"
+    ],
+    "correctAnswer": "צו בטיחות",
+    "correctIndex": 0,
+    "explanation": "סעיף 6.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 23
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-04",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "נמצא ליקוי תיעוד ללא סכנה מיידית. מה מתאים?",
+    "options": [
+      "צו שיפור",
+      "צו סגירת אתר אוטומטי",
+      "פיטורי עובד",
+      "אין טיפול"
+    ],
+    "correctAnswer": "צו שיפור",
+    "correctIndex": 0,
+    "explanation": "צו שיפור מתאים להפרת חיקוק.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 24
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-05",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "אתר בנייה שבו אירע מוות. מה קובע סעיף 6א?",
+    "options": [
+      "ממשיכים לעבוד",
+      "צו הפסקת עבודה לשני ימי עבודה",
+      "רק ועדה פנימית",
+      "אין חובה"
+    ],
+    "correctAnswer": "צו הפסקת עבודה לשני ימי עבודה",
+    "correctIndex": 1,
+    "explanation": "סעיף 6א.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 25
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-06",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מי משלם לעובד באתר שנסגר בצו לפי סעיף 6א?",
+    "options": [
+      "אף אחד",
+      "מעסיקו משלם שכר רגיל",
+      "ועדת בטיחות",
+      "העובד עצמו"
+    ],
+    "correctAnswer": "מעסיקו משלם שכר רגיל",
+    "correctIndex": 1,
+    "explanation": "סעיף 6א(ז).",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 26
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-07",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מפעל עם 20 עובדים רוצה ועדת בטיחות. האם אפשר?",
+    "options": [
+      "לא",
+      "כן, לפי הסכם בין העובדים והמעסיק",
+      "רק בהוראת משטרה",
+      "רק אם יש תאונה"
+    ],
+    "correctAnswer": "כן, לפי הסכם בין העובדים והמעסיק",
+    "correctIndex": 1,
+    "explanation": "סעיף 10 מאפשר הקמה בהסכם.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 27
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-08",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מעסיק לא מינה נציגים לוועדה. מה יכול לקרות?",
+    "options": [
+      "הוועדה בטלה תמיד",
+      "מפקח אזורי יכול לדרוש ואף למנות חברים",
+      "אין סנקציה",
+      "העובדים חייבים למנות במקומו"
+    ],
+    "correctAnswer": "מפקח אזורי יכול לדרוש ואף למנות חברים",
+    "correctIndex": 1,
+    "explanation": "סעיף 10(ב).",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 28
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-09",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "ועדת בטיחות המליצה לתקן ליקוי והמעסיק לא קיים. מה יכול מפקח לעשות?",
+    "options": [
+      "להורות בצו לבצע",
+      "כלום",
+      "לשלם לעובדים",
+      "לבטל את הוועדה"
+    ],
+    "correctAnswer": "להורות בצו לבצע",
+    "correctIndex": 0,
+    "explanation": "סעיף 14(ב).",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 29
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-10",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "נאמן בטיחות דיווח בכתב על ליקוי. המעסיק לא מתקן. מה עליו לעשות?",
+    "options": [
+      "להתעלם",
+      "למסור לנאמן הודעה מנומקת בכתב ולהעתיק למפקח",
+      "לפטר את הנאמן",
+      "להסתיר מידע"
+    ],
+    "correctAnswer": "למסור לנאמן הודעה מנומקת בכתב ולהעתיק למפקח",
+    "correctIndex": 1,
+    "explanation": "סעיף 23.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 30
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-11",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה משמעות סעיף 42?",
+    "options": [
+      "קיום חוק זה פוטר מכל חוק אחר",
+      "חוק זה מוסיף ואינו גורע",
+      "אין צורך בתקנות אחרות",
+      "צו בטיחות מחליף פקודה"
+    ],
+    "correctAnswer": "חוק זה מוסיף ואינו גורע",
+    "correctIndex": 1,
+    "explanation": "חובה לפי חוק זה אינה פוטרת מחובות אחרות.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 31
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-12",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה ההבדל בין צו בטיחות לצו שיפור?",
+    "options": [
+      "אין הבדל",
+      "צו בטיחות לסכנה; צו שיפור להפרת חיקוק לתיקון",
+      "צו שיפור תמיד חמור יותר",
+      "צו בטיחות ניתן רק לעובד"
+    ],
+    "correctAnswer": "צו בטיחות לסכנה; צו שיפור להפרת חיקוק לתיקון",
+    "correctIndex": 1,
+    "explanation": "סעיפים 6 ו־8א.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 32
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-13",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מפקח מבקש להביא מומחה. מתי?",
+    "options": [
+      "כשיש צורך בבדיקה מקצועית בשל סכנה",
+      "רק אם המעסיק מסכים",
+      "לעולם לא",
+      "רק בבית משפט"
+    ],
+    "correctAnswer": "כשיש צורך בבדיקה מקצועית בשל סכנה",
+    "correctIndex": 0,
+    "explanation": "סעיף 5.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 33
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-14",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מי רשאי להשתתף בוועדת בטיחות ללא זכות הצבעה?",
+    "options": [
+      "מפקח עבודה ונציג המוסד לבטיחות ולגיהות",
+      "רק מנכ״ל",
+      "רק עורך דין",
+      "רק קבלן"
+    ],
+    "correctAnswer": "מפקח עבודה ונציג המוסד לבטיחות ולגיהות",
+    "correctIndex": 0,
+    "explanation": "סעיף 13(ג).",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 34
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-15",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה תפקיד נאמן בטיחות ביחס למסמכים?",
+    "options": [
+      "אין לו זכות עיון",
+      "רשאי לעיין במסמכים רלוונטיים לבטיחות שחובה לנהלם",
+      "רשאי למחוק מסמכים",
+      "רשאי לקחת מסמכים לביתו"
+    ],
+    "correctAnswer": "רשאי לעיין במסמכים רלוונטיים לבטיחות שחובה לנהלם",
+    "correctIndex": 1,
+    "explanation": "סעיף 22(4).",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 35
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-16",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "האם אפשר לפגוע בתנאי עבודתו של חבר ועדת בטיחות בגלל פעילותו?",
+    "options": [
+      "כן",
+      "לא",
+      "רק אם הוא מתלונן",
+      "רק אם אין ועד עובדים"
+    ],
+    "correctAnswer": "לא",
+    "correctIndex": 1,
+    "explanation": "סעיף 17.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 36
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-17",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מי יכול להעביר נאמן בטיחות מכהונתו?",
+    "options": [
+      "כל עובד",
+      "מפקח העבודה הראשי, בתנאים שבחוק",
+      "לקוח",
+      "קבלן"
+    ],
+    "correctAnswer": "מפקח העבודה הראשי, בתנאים שבחוק",
+    "correctIndex": 1,
+    "explanation": "סעיף 37.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 37
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-18",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה משמעות אחריות נושא משרה לפי סעיף 36(ה)?",
+    "options": [
+      "מנהל לעולם אינו אחראי",
+      "מנהל פעיל עשוי להיות אחראי אלא אם הוכיח שלא ידע ונקט אמצעים",
+      "רק העובד אחראי",
+      "רק החברה אחראית"
+    ],
+    "correctAnswer": "מנהל פעיל עשוי להיות אחראי אלא אם הוכיח שלא ידע ונקט אמצעים",
+    "correctIndex": 1,
+    "explanation": "סעיף 36(ה).",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 38
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-19",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "ממונה בטיחות רואה שאין ועדת בטיחות במפעל עם 40 עובדים. מה עליו לעשות?",
+    "options": [
+      "להתעלם",
+      "להתריע בכתב להנהלה ולדרוש הקמה",
+      "להקים לבד בלי מעסיק",
+      "לפטר עובדים"
+    ],
+    "correctAnswer": "להתריע בכתב להנהלה ולדרוש הקמה",
+    "correctIndex": 1,
+    "explanation": "החובה על המעסיק, הממונה צריך להתריע.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 39
+  },
+  {
+    "id": "labor-inspection-law-1954-medium-20",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "האם ועדת בטיחות מחליפה את אחריות המעסיק?",
+    "options": [
+      "כן",
+      "לא",
+      "רק מעל 100 עובדים",
+      "רק בבנייה"
+    ],
+    "correctAnswer": "לא",
+    "correctIndex": 1,
+    "explanation": "הוועדה מייעצת, בודקת וממליצה; המעסיק עדיין אחראי.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 40
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-01",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מפקח שאינו אזורי הוציא צו בטיחות ללא הסמכה כתובה. מה הבעיה?",
+    "options": [
+      "אין בעיה",
+      "ייתכן חוסר סמכות לפי סעיף 6",
+      "העובד צריך לאשר",
+      "ועדת בטיחות מאשרת בדיעבד"
+    ],
+    "correctAnswer": "ייתכן חוסר סמכות לפי סעיף 6",
+    "correctIndex": 1,
+    "explanation": "סמכות צו בטיחות נתונה למפקח אזורי או מוסמך בכתב; פסיקה חיזקה זאת. (אתר החדשות דבר)",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 41
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-02",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מעסיק קיים ועדת בטיחות אך לא גידר מכונה מסוכנת. מה נכון?",
+    "options": [
+      "הוועדה פוטרת אותו",
+      "עדיין יש חובות לפי פקודת הבטיחות ותקנות אחרות",
+      "אין אחריות",
+      "רק הוועדה אחראית"
+    ],
+    "correctAnswer": "עדיין יש חובות לפי פקודת הבטיחות ותקנות אחרות",
+    "correctIndex": 1,
+    "explanation": "סעיף 42 — חוק זה מוסיף ולא גורע.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 42
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-03",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מפקח נתן צו שיפור והמעסיק ערער תוך 7 ימים. האם מותר להתעלם מהצו?",
+    "options": [
+      "כן תמיד",
+      "לא בהכרח; יש לבקש דחיית ביצוע מבית הדין",
+      "כן אם המעסיק בטוח שהוא צודק",
+      "רק אם אין ועדה"
+    ],
+    "correctAnswer": "לא בהכרח; יש לבקש דחיית ביצוע מבית הדין",
+    "correctIndex": 1,
+    "explanation": "סעיף 8ב מאפשר ערעור ובקשה לדחיית ביצוע.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 43
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-04",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "באתר בנייה לא מוסדר אירע מוות. המחזיק לא קיבל עדיין צו. מה נדרש?",
+    "options": [
+      "להמשיך לעבוד",
+      "להפסיק פעילות לשני ימי עבודה",
+      "לחכות לוועדה",
+      "רק לצלם"
+    ],
+    "correctAnswer": "להפסיק פעילות לשני ימי עבודה",
+    "correctIndex": 1,
+    "explanation": "סעיף 6א(ג).",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 44
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-05",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "עובד נפגע ממכונה מסוכנת, אך העובד גם הפר הוראת בטיחות. מה נכון?",
+    "options": [
+      "רק העובד אחראי",
+      "יש לבדוק גם אם המעסיק מנע טעות אנוש צפויה",
+      "אין צורך בתחקיר",
+      "רק נאמן בטיחות אחראי"
+    ],
+    "correctAnswer": "יש לבדוק גם אם המעסיק מנע טעות אנוש צפויה",
+    "correctIndex": 1,
+    "explanation": "פסיקה מדגישה שהמעסיק צריך להגן גם מפני טעויות צפויות. (לב-טייב)",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 45
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-06",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "ועדת בטיחות המליצה על הדרכה חוזרת, המעסיק לא קיים, ומפקח נתן צו. אי קיום הצו ייחשב כמו מה?",
+    "options": [
+      "אי קיום צו שיפור",
+      "איחור רגיל",
+      "עניין משמעתי בלבד",
+      "עבירה של העובדים"
+    ],
+    "correctAnswer": "אי קיום צו שיפור",
+    "correctIndex": 0,
+    "explanation": "סעיף 14(ג).",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 46
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-07",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "ממונה בטיחות מונה, אבל לא ניתנו לו זמן, גישה למסמכים או סמכות מעשית. מה נכון?",
+    "options": [
+      "המינוי מספיק",
+      "המעסיק חייב לאפשר ביצוע תפקיד; מינוי פורמלי אינו מספיק",
+      "הממונה פטור מכל פעולה",
+      "העובדים אחראים"
+    ],
+    "correctAnswer": "המעסיק חייב לאפשר ביצוע תפקיד; מינוי פורמלי אינו מספיק",
+    "correctIndex": 1,
+    "explanation": "תפקיד ממונה דורש אמצעים, תיעוד וגישה.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 47
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-08",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "נאמן בטיחות מדווח על ליקוי, והמעסיק מתקן חלקית בלי לנמק. מה החובה הנכונה?",
+    "options": [
+      "אין חובה לנמק",
+      "אם לא תיקן כנדרש, עליו למסור הודעה מנומקת ולהעתיק למפקח",
+      "לפטר את הנאמן",
+      "להמתין לתאונה"
+    ],
+    "correctAnswer": "אם לא תיקן כנדרש, עליו למסור הודעה מנומקת ולהעתיק למפקח",
+    "correctIndex": 1,
+    "explanation": "סעיף 23.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 48
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-09",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "האם מתן צו בטיחות מונע תביעה אזרחית של נפגע?",
+    "options": [
+      "כן",
+      "לא",
+      "רק אם הצו בוצע",
+      "רק אם אין ביטוח"
+    ],
+    "correctAnswer": "לא",
+    "correctIndex": 1,
+    "explanation": "סעיף 8(ג) — הצו אינו פוטר מאחריות אחרת.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 49
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-10",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מפקח דורש בדיקת חומר גלם לפי סעיף 3(7). המעסיק מסרב. מה הסיכון?",
+    "options": [
+      "אין סיכון",
+      "עבירה לפי סעיף 36(ד)",
+      "רק הערה",
+      "רק ועדה פנימית"
+    ],
+    "correctAnswer": "עבירה לפי סעיף 36(ד)",
+    "correctIndex": 1,
+    "explanation": "סעיף 36(ד).",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 50
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-11",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "חברה הפרה את החוק. האם רק החברה יכולה להיות אשמה?",
+    "options": [
+      "כן",
+      "לא; גם מנהל פעיל/בא כוח/שותף פעיל עשוי להיות אחראי",
+      "רק העובד",
+      "רק ועדה"
+    ],
+    "correctAnswer": "לא; גם מנהל פעיל/בא כוח/שותף פעיל עשוי להיות אחראי",
+    "correctIndex": 1,
+    "explanation": "סעיף 36(ה).",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 51
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-12",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה ההגנה האפשרית לנושא משרה לפי סעיף 36(ה)?",
+    "options": [
+      "“לא הייתי בשטח” בלבד",
+      "הוכחה שלא ידע ונקט כל האמצעים הנאותים",
+      "“יש ממונה בטיחות”",
+      "“העובד חתם”"
+    ],
+    "correctAnswer": "הוכחה שלא ידע ונקט כל האמצעים הנאותים",
+    "correctIndex": 1,
+    "explanation": "לשון הסעיף.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 52
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-13",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מהי הטעות בהסתמכות על ממונה בטיחות בלבד?",
+    "options": [
+      "אין טעות",
+      "החוק מטיל מערכת חובות על המעסיק, ועדה, נאמנים ומנהלים",
+      "ממונה הוא בעל סמכות מוחלטת",
+      "הממונה מחליף מפקח"
+    ],
+    "correctAnswer": "החוק מטיל מערכת חובות על המעסיק, ועדה, נאמנים ומנהלים",
+    "correctIndex": 1,
+    "explanation": "אחריות מערכתית.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 53
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-14",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מפעל לא שולח פרוטוקולים למפקח. מה המשמעות?",
+    "options": [
+      "אין משמעות",
+      "הפרת חובת דיווח לפי סעיף 15 ועלולה להיות עבירה לפי סעיף 36(ג)",
+      "רק בעיה פנימית",
+      "העובדים אחראים"
+    ],
+    "correctAnswer": "הפרת חובת דיווח לפי סעיף 15 ועלולה להיות עבירה לפי סעיף 36(ג)",
+    "correctIndex": 1,
+    "explanation": "חובת שליחת מסמכים.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 54
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-15",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מפקח מצלם תהליך עבודה מסוכן. האם זה בסמכותו?",
+    "options": [
+      "כן",
+      "לא",
+      "רק עם אישור עובד",
+      "רק בבית משפט"
+    ],
+    "correctAnswer": "כן",
+    "correctIndex": 0,
+    "explanation": "סעיף 3(6).",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 55
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-16",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מדוע סעיף 8ד חשוב לממונה בטיחות?",
+    "options": [
+      "הוא עוסק בשכר",
+      "הוא מחייב תוכנית בטיחות ועדכון בעקבות שינויים",
+      "הוא מבטל ועדות",
+      "הוא מתיר אי־תיעוד"
+    ],
+    "correctAnswer": "הוא מחייב תוכנית בטיחות ועדכון בעקבות שינויים",
+    "correctIndex": 1,
+    "explanation": "תוכנית בטיחות היא כלי מרכזי לממונה.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 56
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-17",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "עובד באתר סגור בצו 6א לא הגיע לעבודה. האם המעסיק פטור משכרו?",
+    "options": [
+      "כן",
+      "לא; החוק קובע שכר רגיל לתקופת הסגירה",
+      "רק אם העובד ותיק",
+      "רק אם אין תאונה"
+    ],
+    "correctAnswer": "לא; החוק קובע שכר רגיל לתקופת הסגירה",
+    "correctIndex": 1,
+    "explanation": "סעיף 6א(ז).",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 57
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-18",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מה עדיף לממונה בטיחות לאחר קבלת צו?",
+    "options": [
+      "לשמור בעל פה",
+      "לפתוח מעקב מתועד: דרישות, אחריות, לו״ז, הוכחות, סגירה",
+      "להמתין למפקח",
+      "להעביר לעובד"
+    ],
+    "correctAnswer": "לפתוח מעקב מתועד: דרישות, אחריות, לו״ז, הוכחות, סגירה",
+    "correctIndex": 1,
+    "explanation": "ניהול צו דורש תיעוד ובקרה.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 58
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-19",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "האם תקן פנימי יכול לסתור חוק?",
+    "options": [
+      "כן",
+      "לא",
+      "רק אם המנכ״ל אישר",
+      "רק אם העובדים חתמו"
+    ],
+    "correctAnswer": "לא",
+    "correctIndex": 1,
+    "explanation": "היררכיית הדין — חוק ותקנות גוברים.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 59
+  },
+  {
+    "id": "labor-inspection-law-1954-hard-20",
+    "topic": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
+    "relatedLessonId": "labor-inspection-law-1954",
+    "lessonId": "labor-inspection-law-1954",
+    "question": "מהו המשפט המדויק ביותר לגבי חוק ארגון הפיקוח?",
+    "options": [
+      "הוא מחליף את פקודת הבטיחות",
+      "הוא מוסיף מערכת פיקוח, ועדות, נאמנים, ממונים וצווים, ואינו גורע מחובות אחרות",
+      "הוא חל רק על משרדים",
+      "הוא עוסק רק בשכר"
+    ],
+    "correctAnswer": "הוא מוסיף מערכת פיקוח, ועדות, נאמנים, ממונים וצווים, ואינו גורע מחובות אחרות",
+    "correctIndex": 1,
+    "explanation": "זו מהות החוק וסעיף 42.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא חוק ארגון הפיקוח על העבודה, תשי״ד–1954; יש לאמת מול נוסח החוק והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 60
+  },
+  {
+    "id": "work-safety-ordinance-1970-easy-01",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מה עוסקת בעיקר פקודת הבטיחות בעבודה?",
+    "options": [
+      "רק בזכויות שכר",
+      "בתנאי בריאות, בטיחות ורווחה במקום העבודה",
+      "רק בביטוח לאומי",
+      "רק בחופשות עובדים"
+    ],
+    "correctIndex": 1,
+    "explanation": "הפקודה מפרטת דרישות מעשיות לבטיחות, בריאות ורווחה.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 1
+  },
+  {
+    "id": "work-safety-ordinance-1970-easy-02",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מהי חובת גידור מכונות?",
+    "options": [
+      "גידור לפי רצון העובד",
+      "גידור חלקים מסוכנים לבטח",
+      "גידור רק אחרי תאונה",
+      "אין חובה"
+    ],
+    "correctIndex": 1,
+    "explanation": "הפקודה מחייבת גידור חלקים מסוכנים במכונות.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 2
+  },
+  {
+    "id": "work-safety-ordinance-1970-easy-03",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מעל איזה גובה מתייחסת הפקודה לנפילה של יותר משני מטר?",
+    "options": [
+      "50 ס״מ",
+      "1 מטר",
+      "2 מטרים",
+      "5 מטרים"
+    ],
+    "correctIndex": 2,
+    "explanation": "סעיף ההגנה מפני נפילה מתייחס לנפילה של יותר משני מטרים.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 3
+  },
+  {
+    "id": "work-safety-ordinance-1970-easy-04",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "כל כמה זמן נבדקת מכונת הרמה?",
+    "options": [
+      "כל חודש",
+      "כל 6 חודשים",
+      "כל 14 חודשים לפחות",
+      "כל 5 שנים"
+    ],
+    "correctIndex": 2,
+    "explanation": "מכונת הרמה נבדקת לפחות אחת ל־14 חודשים.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 4
+  },
+  {
+    "id": "work-safety-ordinance-1970-easy-05",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "כל כמה זמן נבדקים אביזרי הרמה?",
+    "options": [
+      "כל 6 חודשים לפחות",
+      "כל 14 חודשים",
+      "כל 26 חודשים",
+      "אין חובה"
+    ],
+    "correctAnswer": "כל 6 חודשים לפחות\nב. כל 14 חודשים\nג. כל 26 חודשים\nד. אין חובה",
+    "correctIndex": 0,
+    "explanation": "שרשרות, חבלים ואביזרי הרמה נבדקים לפחות אחת ל־6 חודשים.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 5
+  },
+  {
+    "id": "work-safety-ordinance-1970-easy-06",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "כל כמה זמן נבדק דוד קיטור?",
+    "options": [
+      "6 חודשים",
+      "14 חודשים",
+      "26 חודשים",
+      "4 שנים"
+    ],
+    "correctIndex": 1,
+    "explanation": "דוד קיטור נבדק לפחות אחת ל־14 חודשים.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 6
+  },
+  {
+    "id": "work-safety-ordinance-1970-easy-07",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "כל כמה זמן נבדק קולט אוויר?",
+    "options": [
+      "6 חודשים",
+      "14 חודשים",
+      "26 חודשים",
+      "12 חודשים"
+    ],
+    "correctIndex": 2,
+    "explanation": "קולט אוויר נבדק לפחות אחת ל־26 חודשים, בכפוף לחריגים.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 7
+  },
+  {
+    "id": "work-safety-ordinance-1970-easy-08",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מה חייב עובד לעשות אם סופק לו התקן בטיחות?",
+    "options": [
+      "להשתמש בו",
+      "להחליט לבד",
+      "לשמור במחסן",
+      "להעביר לחבר"
+    ],
+    "correctAnswer": "להשתמש בו\nב. להחליט לבד\nג. לשמור במחסן\nד. להעביר לחבר",
+    "correctIndex": 0,
+    "explanation": "סעיף 204 מחייב עובד להשתמש באמצעים שסופקו לבטיחותו.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 8
+  },
+  {
+    "id": "work-safety-ordinance-1970-easy-09",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מה אסור לעשות בדלת יציאת חירום?",
+    "options": [
+      "לסמן אותה",
+      "להשאיר גישה פנויה",
+      "לנעול כך שלא ניתן לפתוח מבפנים",
+      "לתרגל יציאה דרכה"
+    ],
+    "correctIndex": 2,
+    "explanation": "אסור לנעול דלתות באופן שמונע פתיחה קלה מבפנים כשיש אנשים במקום.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 9
+  },
+  {
+    "id": "work-safety-ordinance-1970-easy-10",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "כמה זמן מראש יש להודיע על פתיחת מפעל?",
+    "options": [
+      "יום אחד",
+      "7 ימים",
+      "10 ימים",
+      "חודשיים"
+    ],
+    "correctIndex": 2,
+    "explanation": "סעיף 195 דורש הודעה לפחות 10 ימים מראש.",
+    "difficulty": "easy",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 10
+  },
+  {
+    "id": "work-safety-ordinance-1970-medium-01",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מה ההבדל בין אביזר הרמה למכונת הרמה?",
+    "options": [
+      "אין הבדל",
+      "אביזר מחבר עומס; מכונה מרימה/מורידה/מחזיקה עומס",
+      "אביזר תמיד חשמלי",
+      "מכונה לא צריכה בדיקה"
+    ],
+    "correctIndex": 1,
+    "explanation": "אביזר הרמה הוא כמו שאקל/מענב/וו; מכונת הרמה היא עגורן, מלגזה, כננת וכו’.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 11
+  },
+  {
+    "id": "work-safety-ordinance-1970-medium-02",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מכונה פועלת ללא מגן כי “המגן מפריע לעבודה”. מה נכון?",
+    "options": [
+      "מותר אם העובד ותיק",
+      "אסור, אלא אם מתקיים חריג חוקי מבוקר",
+      "מותר במשמרת לילה",
+      "מותר אם יש קסדה"
+    ],
+    "correctIndex": 1,
+    "explanation": "גידור חייב להיות במקומו כאשר החלקים בתנועה, למעט חריגים מוגדרים.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 12
+  },
+  {
+    "id": "work-safety-ordinance-1970-medium-03",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מה נדרש לפני כניסה למקום מוקף עם חשש לאדים מסוכנים?",
+    "options": [
+      "רק קסדה",
+      "בדיקה, סילוק אדים, ציוד נשימה/חבל/משגיח לפי הצורך",
+      "אישור בעל פה בלבד",
+      "להיכנס מהר"
+    ],
+    "correctIndex": 1,
+    "explanation": "הפקודה דורשת אמצעים מעשיים לסילוק אדים, בדיקה וציוד מתאים.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 13
+  },
+  {
+    "id": "work-safety-ordinance-1970-medium-04",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "עובד אוכל בחדר שבו מבוצע תהליך עם חומר רעיל. מה הבעיה?",
+    "options": [
+      "אין בעיה אם הוא רחוק מהמכונה",
+      "אסור לאכול, לשתות או לעשן בחדר עם תהליך מסוכן לבריאות",
+      "מותר אם יש חלון",
+      "מותר בהפסקה קצרה"
+    ],
+    "correctIndex": 1,
+    "explanation": "הפקודה אוסרת אכילה, שתייה ועישון בחדר שבו מבוצע תהליך מסוכן לבריאות.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 14
+  },
+  {
+    "id": "work-safety-ordinance-1970-medium-05",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מה המשמעות של “עומס עבודה בטוח”?",
+    "options": [
+      "משקל מומלץ בלבד",
+      "העומס המרבי המותר לשימוש בטוח",
+      "משקל ממוצע",
+      "עומס לפי תחושת המפעיל"
+    ],
+    "correctIndex": 1,
+    "explanation": "אסור לעבור עומס עבודה בטוח באביזרי הרמה ומכונות הרמה.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 15
+  },
+  {
+    "id": "work-safety-ordinance-1970-medium-06",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מה עושה ממונה בטיחות כאשר תסקיר קולט אוויר אינו בתוקף?",
+    "options": [
+      "ממשיך שימוש אם אין רעש",
+      "ממליץ לעצור שימוש עד בדיקה ואישור",
+      "מחכה לתאונה",
+      "מסתפק בשלט"
+    ],
+    "correctIndex": 1,
+    "explanation": "קולט אוויר הוא מתקן לחץ; ללא תסקיר בתוקף קיים סיכון מהותי.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 16
+  },
+  {
+    "id": "work-safety-ordinance-1970-medium-07",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מה תפקיד פנקס המפעל?",
+    "options": [
+      "רישום שכר בלבד",
+      "תיעוד פרטים, תסקירים, תאונות, פטורים ומידע שנקבע",
+      "רשימת אורחים",
+      "תחליף להדרכה"
+    ],
+    "correctIndex": 1,
+    "explanation": "פנקס המפעל הוא מסמך בקרה מרכזי לפי הפקודה.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 17
+  },
+  {
+    "id": "work-safety-ordinance-1970-medium-08",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מי אחראי להשתמש בציוד מגן שסופק?",
+    "options": [
+      "רק המעסיק",
+      "העובד חייב להשתמש, והמעסיק חייב לספק, להדריך ולפקח",
+      "אף אחד",
+      "רק ממונה הבטיחות"
+    ],
+    "correctIndex": 1,
+    "explanation": "יש חובה על העובד להשתמש, אך החובה הניהולית נשארת אצל המעסיק.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 18
+  },
+  {
+    "id": "work-safety-ordinance-1970-medium-09",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מהי הטעות באמירה “מעלית חדשה לא צריכה בדיקה כי היא חדשה”?",
+    "options": [
+      "אין טעות",
+      "מעלית חדשה חייבת בדיקה ותסקיר לפני שימוש",
+      "רק מעלית ישנה חייבת בדיקה",
+      "רק דרגנוע חייב בדיקה"
+    ],
+    "correctIndex": 1,
+    "explanation": "הפעלה ראשונה של מעלית דורשת בדיקה יסודית ותסקיר.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 19
+  },
+  {
+    "id": "work-safety-ordinance-1970-medium-10",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מה נכון לגבי ריתוך על מכל שהיה בו חומר דליק?",
+    "options": [
+      "מותר אם המכל ריק",
+      "אסור עד שננקטו אמצעים לסילוק החומר והאדים או הפיכתם לבלתי דליקים/נפיצים",
+      "מותר אם יש מטף",
+      "מותר בשטח פתוח בלבד"
+    ],
+    "correctIndex": 1,
+    "explanation": "מכל “ריק” עדיין עלול להכיל אדים דליקים.",
+    "difficulty": "medium",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 20
+  },
+  {
+    "id": "work-safety-ordinance-1970-hard-01",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "במפעל נמצאו אביזרי הרמה בדוקים, אך ללא לוח עומסי עבודה וללא סימון ברור. מה נכון?",
+    "options": [
+      "מותר להשתמש אם נראים טוב",
+      "אין להשתמש באביזר שאין לגביו רישום או סימון עומס עבודה בטוח",
+      "מותר אם המפעיל מנוסה",
+      "מותר עד הבדיקה הבאה"
+    ],
+    "correctIndex": 1,
+    "explanation": "הפקודה דורשת לוח עומסים או סימון ברור.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 21
+  },
+  {
+    "id": "work-safety-ordinance-1970-hard-02",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "עובד מבצע סיכה בממסרת בתנועה ללא מינוי בכתב. מה הבעיה?",
+    "options": [
+      "אין בעיה אם הוא ותיק",
+      "פעולה כזו מותרת רק בתנאים מוגדרים, לאדם כשיר וממונה בכתב",
+      "מספיק שהוא לובש כפפות",
+      "אין צורך בהכשרה"
+    ],
+    "correctIndex": 1,
+    "explanation": "הפקודה מגבילה מאוד פעולה במכונות/ממסרת בתנועה.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 22
+  },
+  {
+    "id": "work-safety-ordinance-1970-hard-03",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מעלית נבדקה לפני 7 חודשים. האם מותר להשתמש בה?",
+    "options": [
+      "כן",
+      "לא, אם מדובר במעלית רגילה שחייבת בדיקה תוך 6 חודשים שקדמו לשימוש",
+      "כן אם היא נראית תקינה",
+      "כן אם השומר אישר"
+    ],
+    "correctIndex": 1,
+    "explanation": "מעלית רגילה מחייבת בדיקה תוך 6 חודשים שקדמו לשימוש.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 23
+  },
+  {
+    "id": "work-safety-ordinance-1970-hard-04",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "דרגנוע עבר תיקון מהותי. מה נדרש לפני הפעלה?",
+    "options": [
+      "הפעלה רגילה",
+      "בדיקה ואישור של בודק מוסמך",
+      "רק ניקוי",
+      "אישור מנהל קניון"
+    ],
+    "correctIndex": 1,
+    "explanation": "שינוי/תיקון מהותי בדרגנוע מחייב בדיקה ואישור.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 24
+  },
+  {
+    "id": "work-safety-ordinance-1970-hard-05",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "האם עובד רשאי להסיר התקן בטיחות אם הוא מאט את העבודה?",
+    "options": [
+      "כן",
+      "לא",
+      "רק אם הוא עובד ותיק",
+      "רק בלילה"
+    ],
+    "correctIndex": 1,
+    "explanation": "סעיף 203 אוסר פגיעה או שימוש לרעה בהתקני בטיחות.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 25
+  },
+  {
+    "id": "work-safety-ordinance-1970-hard-06",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מכונת הרמה נבדקה לפני 13 חודשים, אך התסקיר מציין תנאי הפעלה שלא קוימו. מה נכון?",
+    "options": [
+      "מותר להשתמש כי הבדיקה בתוקף",
+      "אין להסתפק בתוקף; חייבים לקיים תנאי התסקיר",
+      "התסקיר לא מחייב",
+      "רק העובד אחראי"
+    ],
+    "correctIndex": 1,
+    "explanation": "תסקיר אינו רק תאריך; תנאיו מחייבים להפעלה בטוחה.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 26
+  },
+  {
+    "id": "work-safety-ordinance-1970-hard-07",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מפעל קיים ועדת בטיחות לפי חוק הפיקוח, אך לא קיים דרישות גידור לפי הפקודה. מה נכון?",
+    "options": [
+      "ועדת בטיחות פוטרת מגידור",
+      "הפקודה עדיין מחייבת גידור",
+      "אין חובה אם יש ממונה",
+      "רק המפקח מחליט"
+    ],
+    "correctIndex": 1,
+    "explanation": "קיום חובה לפי דין אחד אינו פוטר מקיום חובה אחרת.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 27
+  },
+  {
+    "id": "work-safety-ordinance-1970-hard-08",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "עובד נכנס למקום מוקף לאחר פתיחת מכסה בלבד, ללא בדיקת אווירה. מה הכשל?",
+    "options": [
+      "אין כשל",
+      "כניסה ללא בדיקת סיכוני אדים/חמצן וללא אמצעים כנדרש",
+      "רק חוסר קסדה",
+      "רק חוסר שילוט"
+    ],
+    "correctIndex": 1,
+    "explanation": "מקום מוקף מחייב בדיקה ואמצעי בטיחות לפני כניסה.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 28
+  },
+  {
+    "id": "work-safety-ordinance-1970-hard-09",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "באתר בנייה החלו עבודות שיימשכו שלושה חודשים. מתי יש להודיע למפקח?",
+    "options": [
+      "אין צורך",
+      "לא יאוחר מ־7 ימים לאחר התחלתן",
+      "אחרי סיום העבודה",
+      "רק במקרה תאונה"
+    ],
+    "correctIndex": 1,
+    "explanation": "סעיף 192 מחייב הודעה למפקח בבנייה/בנייה הנדסית, למעט חריג של פחות מ־6 שבועות.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 29
+  },
+  {
+    "id": "work-safety-ordinance-1970-hard-10",
+    "topic": "פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970",
+    "relatedLessonId": "work-safety-ordinance-1970",
+    "lessonId": "work-safety-ordinance-1970",
+    "question": "מהו העיקרון המקצועי החשוב ביותר לממונה בטיחות לפי הפקודה?",
+    "options": [
+      "להסתפק בהדרכה כללית",
+      "לוודא שהדרישות הפיזיות, התפעוליות והתיעודיות מתקיימות בפועל",
+      "להטיל אחריות על העובדים בלבד",
+      "להמתין לביקורת מפקח"
+    ],
+    "correctIndex": 1,
+    "explanation": "הפקודה היא דין ביצועי: גידור, בדיקות, תסקירים, ציוד, סביבת עבודה, רווחה ותיעוד.",
+    "difficulty": "hard",
+    "sourceNote": "ממערך השיעור בנושא פקודת הבטיחות בעבודה [נוסח חדש], תש״ל–1970; יש לאמת מול נוסח הפקודה והתקנות העדכניים בעת שימוש מקצועי.",
+    "qualityStatus": "approved",
+    "order": 30
+  },
+  {
+    "id": "lesson-01-source-01",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מה ההבדל בין חוק לתקנה?",
+    "options": [
+      "חוק הוא המלצה ותקנה מחייבת",
+      "חוק נחקק בכנסת, תקנה מפרטת יישום מכוח חוק",
+      "תקנה תמיד גוברת על חוק",
+      "אין הבדל"
+    ],
+    "correctAnswer": "חוק נחקק בכנסת, תקנה מפרטת יישום מכוח חוק",
+    "correctIndex": 1,
+    "explanation": "חוק הוא מקור ראשי. תקנה היא חקיקת משנה מכוח חוק ואינה אמורה לסתור אותו.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 1
+  },
+  {
+    "id": "lesson-01-source-02",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מה ההבדל בין נוהל להוראת עבודה?",
+    "options": [
+      "נוהל מסביר איך, הוראת עבודה מסבירה למה",
+      "נוהל מסביר מה עושים, הוראת עבודה מסבירה איך לבצע פעולה",
+      "שניהם זהים",
+      "הוראת עבודה מיועדת רק להנהלה"
+    ],
+    "correctAnswer": "נוהל מסביר מה עושים, הוראת עבודה מסבירה איך לבצע פעולה",
+    "correctIndex": 1,
+    "explanation": "נוהל הוא תהליכי ורחב; הוראת עבודה היא מעשית וממוקדת בפעולה.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 2
+  },
+  {
+    "id": "lesson-01-source-03",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהו גורם סיכון?",
+    "options": [
+      "רק תאונה שכבר קרתה",
+      "מקור בעל פוטנציאל לגרום נזק",
+      "טופס הדרכה",
+      "עובד שלא חתם"
+    ],
+    "correctAnswer": "מקור בעל פוטנציאל לגרום נזק",
+    "correctIndex": 1,
+    "explanation": "חשמל, רעש, מכונה, גובה וחומר כימי הם גורמי סיכון.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 3
+  },
+  {
+    "id": "lesson-01-source-04",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהו מפגע?",
+    "options": [
+      "מקור סיכון שאי אפשר לטפל בו",
+      "ליקוי או מצב לא תקין שיש לתקן או להסיר",
+      "כל עובד חדש",
+      "כל תקן מקצועי"
+    ],
+    "correctAnswer": "ליקוי או מצב לא תקין שיש לתקן או להסיר",
+    "correctIndex": 1,
+    "explanation": "כבל חשוף, מעבר חסום או מגן חסר הם מפגעים.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 4
+  },
+  {
+    "id": "lesson-01-source-05",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מה נכון לגבי סיכון?",
+    "options": [
+      "תמיד אפשר לסלק אותו לחלוטין",
+      "תמיד אסור לעבוד כשיש סיכון",
+      "יש לנהל, להפחית ולבקר אותו",
+      "אין צורך לתעד אותו"
+    ],
+    "correctAnswer": "יש לנהל, להפחית ולבקר אותו",
+    "correctIndex": 2,
+    "explanation": "לא כל סיכון ניתן לסילוק, אך חובה לנהל אותו ולצמצם אותו לרמה קבילה.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 5
+  },
+  {
+    "id": "lesson-01-source-06",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהי כמעט תאונה?",
+    "options": [
+      "תאונה עם נפגע קשה",
+      "אירוע שהיה עלול לגרום נזק אך הסתיים ללא פגיעה",
+      "מחלת מקצוע",
+      "בדיקה רפואית"
+    ],
+    "correctAnswer": "אירוע שהיה עלול לגרום נזק אך הסתיים ללא פגיעה",
+    "correctIndex": 1,
+    "explanation": "כמעט תאונה היא מקור חשוב ללמידה לפני שנגרם נזק.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 6
+  },
+  {
+    "id": "lesson-01-source-07",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהי מחלת מקצוע?",
+    "options": [
+      "כל מחלה שהעובד טוען שנגרמה בעבודה",
+      "מחלה שמתפתחת עקב תנאי עבודה וצריכה לעמוד בדרישות ההכרה הרלוונטיות",
+      "תאונה פתאומית",
+      "פגיעה שאינה קשורה לחשיפה"
+    ],
+    "correctAnswer": "מחלה שמתפתחת עקב תנאי עבודה וצריכה לעמוד בדרישות ההכרה הרלוונטיות",
+    "correctIndex": 1,
+    "explanation": "מחלת מקצוע דורשת קשר לחשיפה תעסוקתית ולעיתים גם הופעה ברשימות הרלוונטיות לפי הדין.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 7
+  },
+  {
+    "id": "lesson-01-source-08",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מה עדיף להפחתת חשיפה לאבק?",
+    "options": [
+      "רק מסכה",
+      "יניקה מקומית ובקרה במקור",
+      "שלט “זהירות” בלבד",
+      "חתימת עובד בלבד"
+    ],
+    "correctAnswer": "יניקה מקומית ובקרה במקור",
+    "correctIndex": 1,
+    "explanation": "לפי היררכיית בקרות, בקרה הנדסית במקור עדיפה על הסתמכות בלעדית על PPE.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 8
+  },
+  {
+    "id": "lesson-01-source-09",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מי נושא באחריות הכוללת לבטיחות?",
+    "options": [
+      "ממונה הבטיחות בלבד",
+      "תופס המפעל / המעסיק / ההנהלה",
+      "העובד החדש",
+      "מכון התקנים"
+    ],
+    "correctAnswer": "תופס המפעל / המעסיק / ההנהלה",
+    "correctIndex": 1,
+    "explanation": "ממונה הבטיחות הוא יועץ מקצועי, אך האחריות הכוללת של המעסיק אינה עוברת אליו.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 9
+  },
+  {
+    "id": "lesson-01-source-10",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מה נכון לגבי הכנסת גורם סיכון חדש?",
+    "options": [
+      "אין צורך לעדכן את ממונה הבטיחות",
+      "יש לזהות, להעריך ולבקר את הסיכון לפני הביצוע",
+      "מספיק לתת קסדה",
+      "האחריות רק על העובד"
+    ],
+    "correctAnswer": "יש לזהות, להעריך ולבקר את הסיכון לפני הביצוע",
+    "correctIndex": 1,
+    "explanation": "שינוי, קבלן, חומר או מכונה חדשה מחייבים בדיקה מוקדמת ובקרות.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 10
+  },
+  {
+    "id": "lesson-01-source-11",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מה נכון לגבי עבודה בגובה?",
+    "options": [
+      "רק עבודה על גג נחשבת עבודה בגובה",
+      "עבודה שבה עובד עלול ליפול לעומק העולה על 2 מטרים נחשבת עבודה בגובה",
+      "עבודה בגובה אינה דורשת הדרכה",
+      "רק קבלן צריך הכשרה"
+    ],
+    "correctAnswer": "עבודה שבה עובד עלול ליפול לעומק העולה על 2 מטרים נחשבת עבודה בגובה",
+    "correctIndex": 1,
+    "explanation": "תקנות עבודה בגובה מתייחסות גם לגישה למקום העבודה כאשר קיימת אפשרות נפילה לעומק העולה על 2 מטרים.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 11
+  },
+  {
+    "id": "lesson-01-source-12",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהי הטעות באמירה “העובד לא נזהר ולכן אין מה לבדוק”?",
+    "options": [
+      "אין טעות",
+      "צריך לבדוק גם את המערכת, הבקרות, ההדרכה, הפיקוח והסביבה",
+      "צריך לבדוק רק את העובד",
+      "צריך לסגור את התיק מיד"
+    ],
+    "correctAnswer": "צריך לבדוק גם את המערכת, הבקרות, ההדרכה, הפיקוח והסביבה",
+    "correctIndex": 1,
+    "explanation": "חקירת בטיחות מחפשת גורמי שורש, לא רק אשמה אישית.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 12
+  },
+  {
+    "id": "lesson-01-source-13",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהו ניטור תעסוקתי?",
+    "options": [
+      "בדיקה של השפעת המפעל על הסביבה החיצונית",
+      "בדיקת חשיפת העובד בסביבת העבודה",
+      "בדיקת תשלום שכר",
+      "בדיקת תקן מוצר בלבד"
+    ],
+    "correctAnswer": "בדיקת חשיפת העובד בסביבת העבודה",
+    "correctIndex": 1,
+    "explanation": "ניטור תעסוקתי בוחן את החשיפה של העובד לגורמים מזיקים.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 13
+  },
+  {
+    "id": "lesson-01-source-14",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהו ניטור סביבתי?",
+    "options": [
+      "בדיקת השפעת מקום העבודה על הסביבה",
+      "בדיקת דם לעובד",
+      "בדיקת כשירות ממונה",
+      "בדיקת סולם"
+    ],
+    "correctAnswer": "בדיקת השפעת מקום העבודה על הסביבה",
+    "correctIndex": 0,
+    "explanation": "ניטור סביבתי בוחן פליטות, רעש והשפעה מעבר לעובד או מעבר לגדר.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 14
+  },
+  {
+    "id": "lesson-01-source-15",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהו ניטור ביולוגי?",
+    "options": [
+      "בדיקת השפעת חומר בגוף העובד",
+      "בדיקת רעש סביבתי",
+      "בדיקת תקן סולם",
+      "בדיקת נוהל בלבד"
+    ],
+    "correctAnswer": "בדיקת השפעת חומר בגוף העובד",
+    "correctIndex": 0,
+    "explanation": "ניטור ביולוגי יכול לכלול דם, שתן או מדד חשיפה בגוף.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 15
+  },
+  {
+    "id": "lesson-01-source-16",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהו תפקיד ממונה בטיחות כאשר מנהל מבקש להתעלם מליקוי חמור?",
+    "options": [
+      "להתעלם",
+      "לתעד, להתריע ולפעול לפי דין ומקצועיות",
+      "להעביר אחריות לעובד",
+      "להמתין לתאונה"
+    ],
+    "correctAnswer": "לתעד, להתריע ולפעול לפי דין ומקצועיות",
+    "correctIndex": 1,
+    "explanation": "ממונה בטיחות חייב לשמור על עצמאות מקצועית ועל דרישות הדין.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 16
+  },
+  {
+    "id": "lesson-01-source-17",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהו סקר מפגעים?",
+    "options": [
+      "בדיקה רפואית",
+      "תהליך שיטתי לאיתור ליקויים ומפגעים",
+      "רשימת עובדים",
+      "תעודת הכשרה"
+    ],
+    "correctAnswer": "תהליך שיטתי לאיתור ליקויים ומפגעים",
+    "correctIndex": 1,
+    "explanation": "סקר מפגעים מאתר ליקויים לפני שהם הופכים לאירועים.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 17
+  },
+  {
+    "id": "lesson-01-source-18",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהו עיקרון ז.ה.ב?",
+    "options": [
+      "זימון, הכשרה, ביצוע",
+      "זיהוי, הערכה, בקרה",
+      "זיכוי, העברה, בדיקה",
+      "זיכרון, היערכות, ביקור"
+    ],
+    "correctAnswer": "זיהוי, הערכה, בקרה",
+    "correctIndex": 1,
+    "explanation": "זהו מודל בסיסי לניהול סיכונים.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 18
+  },
+  {
+    "id": "lesson-01-source-19",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מה נכון לגבי ציוד מגן אישי?",
+    "options": [
+      "הוא תמיד הפתרון הראשון",
+      "הוא בדרך כלל קו הגנה אחרון",
+      "הוא מחליף הדרכה",
+      "הוא מבטל צורך בבקרה הנדסית"
+    ],
+    "correctAnswer": "הוא בדרך כלל קו הגנה אחרון",
+    "correctIndex": 1,
+    "explanation": "PPE חשוב, אך לפי היררכיית בקרות הוא לאחר סילוק, החלפה ובקרה הנדסית/מנהלית.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 19
+  },
+  {
+    "id": "lesson-01-source-20",
+    "topic": "יסודות תורת הבטיחות",
+    "relatedLessonId": "lesson-01",
+    "lessonId": "lesson-01",
+    "question": "מהו המסר המרכזי של השיעור?",
+    "options": [
+      "בטיחות היא רק טפסים",
+      "בטיחות היא ניהול שיטתי של סיכונים לפני תאונה",
+      "ממונה בטיחות אחראי לבדו",
+      "כמעט תאונה אינה חשובה"
+    ],
+    "correctAnswer": "בטיחות היא ניהול שיטתי של סיכונים לפני תאונה",
+    "correctIndex": 1,
+    "explanation": "השיעור מדגיש בטיחות יזומה, ניהול סיכונים, תיעוד, למידה ושיפור מתמיד.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור יסודות תורת הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 20
+  },
+  {
+    "id": "lesson-02-source-01",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהו חוק?",
+    "options": [
+      "המלצה בלבד",
+      "מקור דין שנחקק בכנסת",
+      "נוהל פנימי של חברה",
+      "תקן מקצועי בלבד"
+    ],
+    "correctAnswer": "מקור דין שנחקק בכנסת",
+    "correctIndex": 1,
+    "explanation": "חוק הוא מקור דין ראשי שנחקק בכנסת ומחייב את הציבור.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 1
+  },
+  {
+    "id": "lesson-02-source-02",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהי פקודה?",
+    "options": [
+      "מסמך שאינו מחייב",
+      "מקור דין היסטורי שעדיין מחייב אם לא בוטל",
+      "הוראת עבודה פנימית",
+      "המלצה של מפקח"
+    ],
+    "correctAnswer": "מקור דין היסטורי שעדיין מחייב אם לא בוטל",
+    "correctIndex": 1,
+    "explanation": "פקודה יכולה להיות ישנה, אך כל עוד היא בתוקף היא מחייבת.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 2
+  },
+  {
+    "id": "lesson-02-source-03",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהי תקנה?",
+    "options": [
+      "פירוט מעשי מכוח חוק או פקודה",
+      "החלטת עובד",
+      "פרוטוקול ועדה",
+      "שלט באתר"
+    ],
+    "correctAnswer": "פירוט מעשי מכוח חוק או פקודה",
+    "correctIndex": 0,
+    "explanation": "תקנות מפרטות את אופן יישום החוק או הפקודה.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 3
+  },
+  {
+    "id": "lesson-02-source-04",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהו צו?",
+    "options": [
+      "הוראה מחייבת של גורם מוסמך",
+      "המלצה בלבד",
+      "תקן בינלאומי",
+      "מסמך הדרכה"
+    ],
+    "correctAnswer": "הוראה מחייבת של גורם מוסמך",
+    "correctIndex": 0,
+    "explanation": "צו בטיחות או צו שיפור הם הוראות מחייבות.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 4
+  },
+  {
+    "id": "lesson-02-source-05",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "חוק ארגון הפיקוח עוסק בעיקר ב־",
+    "options": [
+      "מי מפקח ומה סמכותו",
+      "איך לתכנן בניין",
+      "איך לחשב שכר",
+      "איך להפעיל מכונה מסוימת"
+    ],
+    "correctAnswer": "מי מפקח ומה סמכותו",
+    "correctIndex": 0,
+    "explanation": "החוק עוסק במערך הפיקוח, בעלי תפקידים וסמכויות.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 5
+  },
+  {
+    "id": "lesson-02-source-06",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "פקודת הבטיחות בעבודה עוסקת בעיקר ב־",
+    "options": [
+      "דרישות מעשיות בשטח",
+      "חופשות עובדים",
+      "דיני מס",
+      "ביטוח רכב"
+    ],
+    "correctAnswer": "דרישות מעשיות בשטח",
+    "correctIndex": 0,
+    "explanation": "הפקודה קובעת דרישות מעשיות כגון מכונות, ציוד, מתקנים וסביבת עבודה.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 6
+  },
+  {
+    "id": "lesson-02-source-07",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מי הוא מפקח עבודה?",
+    "options": [
+      "עובד רגיל במפעל",
+      "בעל סמכות פיקוח לפי חוק",
+      "נאמן בטיחות בלבד",
+      "קבלן חוץ"
+    ],
+    "correctAnswer": "בעל סמכות פיקוח לפי חוק",
+    "correctIndex": 1,
+    "explanation": "מפקח עבודה פועל מכוח החוק ובעל סמכויות פיקוח.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 7
+  },
+  {
+    "id": "lesson-02-source-08",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "האם מפקח עבודה רשאי לבדוק מסמכים?",
+    "options": [
+      "כן",
+      "לא",
+      "רק אם העובד מסכים",
+      "רק בבית משפט"
+    ],
+    "correctAnswer": "כן",
+    "correctIndex": 0,
+    "explanation": "מפקח רשאי לדרוש ולעיין במסמכים רלוונטיים לפי סמכויותיו.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 8
+  },
+  {
+    "id": "lesson-02-source-09",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "צו בטיחות ניתן כאשר:",
+    "options": [
+      "יש סכנה לשלום או בריאות אדם",
+      "עובד מבקש חופשה",
+      "חסר קפה במטבח",
+      "יש איחור בשכר"
+    ],
+    "correctAnswer": "יש סכנה לשלום או בריאות אדם",
+    "correctIndex": 0,
+    "explanation": "צו בטיחות מיועד לסכנות בטיחות ובריאות.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 9
+  },
+  {
+    "id": "lesson-02-source-10",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "צו שיפור מתאים בעיקר כאשר:",
+    "options": [
+      "קיימת הפרת דרישה שצריך לתקן",
+      "אין שום ליקוי",
+      "עובד רוצה לעבור תפקיד",
+      "יש צורך בפרסום שיווקי"
+    ],
+    "correctAnswer": "קיימת הפרת דרישה שצריך לתקן",
+    "correctIndex": 0,
+    "explanation": "צו שיפור נועד לתקן הפרות או ליקויים.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 10
+  },
+  {
+    "id": "lesson-02-source-11",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהו טופס 250?",
+    "options": [
+      "אישור סופי לתאונת עבודה",
+      "טופס להפניה לטיפול רפואי ראשוני לעובד שכיר שנפגע",
+      "תסקיר עגורן",
+      "צו בטיחות"
+    ],
+    "correctAnswer": "טופס להפניה לטיפול רפואי ראשוני לעובד שכיר שנפגע",
+    "correctIndex": 1,
+    "explanation": "הטופס מאפשר טיפול רפואי ראשוני, אך אינו הכרה סופית.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 11
+  },
+  {
+    "id": "lesson-02-source-12",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "תאונת עבודה דורשת בדרך כלל:",
+    "options": [
+      "אירוע פתאומי וקשר לעבודה",
+      "רק נזק לרכוש",
+      "רק חתימה של מנהל",
+      "רק צילום"
+    ],
+    "correctAnswer": "אירוע פתאומי וקשר לעבודה",
+    "correctIndex": 0,
+    "explanation": "נדרשים אירוע, קשר לעבודה וקשר סיבתי לנזק.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 12
+  },
+  {
+    "id": "lesson-02-source-13",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "האם כל פגיעה במקום העבודה היא תאונת עבודה?",
+    "options": [
+      "כן תמיד",
+      "לא בהכרח",
+      "רק אם יש עד",
+      "רק אם העובד ותיק"
+    ],
+    "correctAnswer": "לא בהכרח",
+    "correctIndex": 1,
+    "explanation": "צריך לבדוק קשר לעבודה ונסיבות.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 13
+  },
+  {
+    "id": "lesson-02-source-14",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהו קשר סיבתי?",
+    "options": [
+      "קשר בין העבודה לבין הפגיעה",
+      "קשר בין עובדים בלבד",
+      "קשר עם ביטוח רכב",
+      "קשר חברתי"
+    ],
+    "correctAnswer": "קשר בין העבודה לבין הפגיעה",
+    "correctIndex": 0,
+    "explanation": "הקשר הסיבתי בודק אם העבודה גרמה או תרמה לנזק.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 14
+  },
+  {
+    "id": "lesson-02-source-15",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מה תפקיד ממונה בטיחות?",
+    "options": [
+      "ייעוץ, בקרה, תיעוד והתרעה",
+      "להחליף את המעסיק",
+      "לשלם פיצוי",
+      "לכתוב תלושי שכר"
+    ],
+    "correctAnswer": "ייעוץ, בקרה, תיעוד והתרעה",
+    "correctIndex": 0,
+    "explanation": "הממונה הוא גורם מקצועי, לא מחליף אחריות מעסיק.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 15
+  },
+  {
+    "id": "lesson-02-source-16",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מה נכון לגבי קבלנים?",
+    "options": [
+      "אין צורך לנהל אותם",
+      "יש לנהל כשירות, הדרכה, תיאום ופיקוח",
+      "הם אינם קשורים לבטיחות",
+      "הם תמיד פטורים מהדרכה"
+    ],
+    "correctAnswer": "יש לנהל כשירות, הדרכה, תיאום ופיקוח",
+    "correctIndex": 1,
+    "explanation": "קבלן בשטח הארגון הוא מקור סיכון שצריך לנהל.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 16
+  },
+  {
+    "id": "lesson-02-source-17",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהו יסוד עובדתי?",
+    "options": [
+      "המעשה או המחדל בפועל",
+      "מצב רוח של העובד",
+      "טופס 250",
+      "תקן ISO"
+    ],
+    "correctAnswer": "המעשה או המחדל בפועל",
+    "correctIndex": 0,
+    "explanation": "יסוד עובדתי הוא מה שנעשה או לא נעשה בפועל.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 17
+  },
+  {
+    "id": "lesson-02-source-18",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהו יסוד נפשי?",
+    "options": [
+      "כוונה, מודעות או יחס נפשי למעשה",
+      "משקל העובד",
+      "צבע הציוד",
+      "זמן ההפסקה"
+    ],
+    "correctAnswer": "כוונה, מודעות או יחס נפשי למעשה",
+    "correctIndex": 0,
+    "explanation": "יסוד נפשי מתייחס למודעות, כוונה או רשלנות לפי הדין.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 18
+  },
+  {
+    "id": "lesson-02-source-19",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "היעדר כוונה לפגוע:",
+    "options": [
+      "תמיד מבטל אחריות",
+      "לא בהכרח מבטל אחריות, כי ייתכן רשלנות",
+      "מוכיח שאין תאונה",
+      "מחייב פיצוי אוטומטי"
+    ],
+    "correctAnswer": "לא בהכרח מבטל אחריות, כי ייתכן רשלנות",
+    "correctIndex": 1,
+    "explanation": "גם ללא כוונה יכולה להיות רשלנות.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 19
+  },
+  {
+    "id": "lesson-02-source-20",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהי חקירה תחת אזהרה?",
+    "options": [
+      "שיחה רגילה",
+      "חקירה כאשר קיים חשד לעבירה",
+      "הדרכת בטיחות",
+      "ביקורת ציוד"
+    ],
+    "correctAnswer": "חקירה כאשר קיים חשד לעבירה",
+    "correctIndex": 1,
+    "explanation": "חקירה תחת אזהרה מצביעה על חשד וצריך להתייחס אליה ברצינות.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 20
+  },
+  {
+    "id": "lesson-02-source-21",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מה ההבדל המרכזי בין חוק ארגון הפיקוח לבין פקודת הבטיחות?",
+    "options": [
+      "אין הבדל",
+      "חוק ארגון הפיקוח עוסק במי מפקח, והפקודה עוסקת בדרישות ביצוע בשטח",
+      "הפקודה עוסקת רק בביטוח לאומי",
+      "חוק ארגון הפיקוח עוסק רק בשכר"
+    ],
+    "correctAnswer": "חוק ארגון הפיקוח עוסק במי מפקח, והפקודה עוסקת בדרישות ביצוע בשטח",
+    "correctIndex": 1,
+    "explanation": "זו הבחנה מרכזית בשיעור: “מי” מול “מה”.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 21
+  },
+  {
+    "id": "lesson-02-source-22",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "ממונה בטיחות טוען שפקודת הבטיחות לא רלוונטית כי היא ישנה. מה נכון?",
+    "options": [
+      "הוא צודק",
+      "הוא טועה; פקודה מחייבת כל עוד היא בתוקף",
+      "רק תקנים מחייבים",
+      "רק נהלים מחייבים"
+    ],
+    "correctAnswer": "הוא טועה; פקודה מחייבת כל עוד היא בתוקף",
+    "correctIndex": 1,
+    "explanation": "גיל מקור הדין אינו מבטל את תוקפו.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 22
+  },
+  {
+    "id": "lesson-02-source-23",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מפקח עבודה מבקש לראות תסקיר של ציוד הרמה. מה נכון?",
+    "options": [
+      "אין לו סמכות",
+      "יש לו סמכות לבדוק מסמכים רלוונטיים",
+      "רק המנכ״ל רשאי לראות",
+      "רק העובד רשאי להציג"
+    ],
+    "correctAnswer": "יש לו סמכות לבדוק מסמכים רלוונטיים",
+    "correctIndex": 1,
+    "explanation": "מסמכי בטיחות רלוונטיים הם חלק מסמכויות בדיקה.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 23
+  },
+  {
+    "id": "lesson-02-source-24",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מכונה פועלת ללא מגן, ויש סכנת הילכדות. איזה כלי אכיפה מתאים?",
+    "options": [
+      "צו בטיחות",
+      "טופס 250",
+      "שאלון שביעות רצון",
+      "היתר חופשה"
+    ],
+    "correctAnswer": "צו בטיחות",
+    "correctIndex": 0,
+    "explanation": "קיימת סכנה לשלום העובדים ולכן צו בטיחות מתאים.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 24
+  },
+  {
+    "id": "lesson-02-source-25",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "אין תיעוד הדרכות מסודר, אך אין סכנה מיידית. איזה צו עשוי להתאים?",
+    "options": [
+      "צו שיפור",
+      "צו הפסקת עבודה באתר בנייה",
+      "טופס 250",
+      "תעודת מחלה"
+    ],
+    "correctAnswer": "צו שיפור",
+    "correctIndex": 0,
+    "explanation": "מדובר בהפרה או ליקוי שדורש תיקון.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 25
+  },
+  {
+    "id": "lesson-02-source-26",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "עובד נפגע בדרך לעבודה לאחר סטייה משמעותית לסידור אישי. מה נכון?",
+    "options": [
+      "תמיד תאונת עבודה",
+      "ייתכן שהקשר לעבודה נותק",
+      "תמיד תאונה פלילית",
+      "אין צורך לבדוק"
+    ],
+    "correctAnswer": "ייתכן שהקשר לעבודה נותק",
+    "correctIndex": 1,
+    "explanation": "סטייה אישית מהותית עשויה לנתק את הקשר.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 26
+  },
+  {
+    "id": "lesson-02-source-27",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "עובד נפגע מאלימות לקוח בגלל תפקידו. מה נכון?",
+    "options": [
+      "לעולם לא תאונת עבודה",
+      "עשוי להיות קשר לעבודה",
+      "רק אם העובד חתם על טופס",
+      "רק אם קרה במפעל"
+    ],
+    "correctAnswer": "עשוי להיות קשר לעבודה",
+    "correctIndex": 1,
+    "explanation": "אלימות הנובעת מהתפקיד עשויה להיות קשורה לעבודה.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 27
+  },
+  {
+    "id": "lesson-02-source-28",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מה נכון לגבי טופס 250?",
+    "options": [
+      "הוא קובע סופית שמדובר בתאונת עבודה",
+      "הוא מאפשר טיפול רפואי ראשוני אך אינו הכרעה סופית",
+      "הוא מחליף תביעה לביטוח לאומי",
+      "הוא צו בטיחות"
+    ],
+    "correctAnswer": "הוא מאפשר טיפול רפואי ראשוני אך אינו הכרעה סופית",
+    "correctIndex": 1,
+    "explanation": "ההכרה הסופית נעשית על ידי ביטוח לאומי או בית הדין.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 28
+  },
+  {
+    "id": "lesson-02-source-29",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהו מאזן הסתברויות?",
+    "options": [
+      "רף הוכחה אזרחי",
+      "רף הוכחה פלילי בלבד",
+      "בדיקת ציוד",
+      "טופס הדרכה"
+    ],
+    "correctAnswer": "רף הוכחה אזרחי",
+    "correctIndex": 0,
+    "explanation": "במשפט אזרחי נדרש שהגרסה תהיה מסתברת יותר.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 29
+  },
+  {
+    "id": "lesson-02-source-30",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהו “מעבר לספק סביר”?",
+    "options": [
+      "רף הוכחה פלילי",
+      "תסקיר בודק",
+      "צו שיפור",
+      "הדרכת עובד"
+    ],
+    "correctAnswer": "רף הוכחה פלילי",
+    "correctIndex": 0,
+    "explanation": "במשפט פלילי הרף גבוה יותר.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 30
+  },
+  {
+    "id": "lesson-02-source-31",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "קבלן נכנס לאתר ללא הדרכה ונפגע. מה ייבדק?",
+    "options": [
+      "רק אם הקבלן ותיק",
+      "מי הזמין, מי הדריך, האם היה תיאום, הרשאה ופיקוח",
+      "רק אם היה מזג אוויר טוב",
+      "רק אם היה שלט"
+    ],
+    "correctAnswer": "מי הזמין, מי הדריך, האם היה תיאום, הרשאה ופיקוח",
+    "correctIndex": 1,
+    "explanation": "ניהול קבלנים הוא חלק ממערך הבטיחות.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 31
+  },
+  {
+    "id": "lesson-02-source-32",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מה נכון לגבי חקירה תחת אזהרה?",
+    "options": [
+      "אין צורך להתייעץ",
+      "יש לענות אמת, לא לנחש, ולהסתמך על תיעוד",
+      "מומלץ להמציא תשובה",
+      "אין משמעות משפטית"
+    ],
+    "correctAnswer": "יש לענות אמת, לא לנחש, ולהסתמך על תיעוד",
+    "correctIndex": 1,
+    "explanation": "חקירה תחת אזהרה עלולה להוביל להליך משפטי.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 32
+  },
+  {
+    "id": "lesson-02-source-33",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מנהל מבקש לא לתעד ליקוי כדי “לא להסתבך”. מה על ממונה בטיחות לעשות?",
+    "options": [
+      "להסכים",
+      "לתעד, להתריע ולפעול לפי דין",
+      "למחוק את הממצא",
+      "להעביר לעובד"
+    ],
+    "correctAnswer": "לתעד, להתריע ולפעול לפי דין",
+    "correctIndex": 1,
+    "explanation": "ממונה בטיחות חייב עצמאות מקצועית.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 33
+  },
+  {
+    "id": "lesson-02-source-34",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מה משמעות צו הפסקת עבודה באתר בנייה לאחר תאונה קשה?",
+    "options": [
+      "המלצה בלבד",
+      "עצירת פעילות לפי סמכות דין",
+      "טופס רפואי",
+      "תעודת סיום עבודה"
+    ],
+    "correctAnswer": "עצירת פעילות לפי סמכות דין",
+    "correctIndex": 1,
+    "explanation": "מדובר בכלי אכיפה מחייב.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 34
+  },
+  {
+    "id": "lesson-02-source-35",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מדוע חשוב שלט באתר בנייה?",
+    "options": [
+      "רק לפרסום",
+      "לזיהוי מבצע הבנייה, מנהל העבודה ומהות העבודה",
+      "כדי לקשט את האתר",
+      "כדי להחליף הדרכה"
+    ],
+    "correctAnswer": "לזיהוי מבצע הבנייה, מנהל העבודה ומהות העבודה",
+    "correctIndex": 1,
+    "explanation": "השלט מסייע לזיהוי אחריות וגורמים מוסמכים.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 35
+  },
+  {
+    "id": "lesson-02-source-36",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהי רשלנות?",
+    "options": [
+      "אי נקיטת זהירות סבירה",
+      "פעולה מכוונת בלבד",
+      "טופס רפואי",
+      "תקן רשמי"
+    ],
+    "correctAnswer": "אי נקיטת זהירות סבירה",
+    "correctIndex": 0,
+    "explanation": "רשלנות יכולה להתקיים גם ללא כוונה לפגוע.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 36
+  },
+  {
+    "id": "lesson-02-source-37",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מה שואלים בתחקיר תאונה טוב?",
+    "options": [
+      "רק מי אשם",
+      "מה במערכת אפשר את האירוע",
+      "רק מי צילם",
+      "רק מי מילא טופס 250"
+    ],
+    "correctAnswer": "מה במערכת אפשר את האירוע",
+    "correctIndex": 1,
+    "explanation": "תחקיר מקצועי מחפש גורמי שורש.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 37
+  },
+  {
+    "id": "lesson-02-source-38",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מה נכון לגבי כמעט תאונה?",
+    "options": [
+      "אין צורך לטפל כי אין נפגע",
+      "צריך לתעד וללמוד כדי למנוע תאונה",
+      "היא תמיד עבירה פלילית",
+      "היא תמיד מחלת מקצוע"
+    ],
+    "correctAnswer": "צריך לתעד וללמוד כדי למנוע תאונה",
+    "correctIndex": 1,
+    "explanation": "כמעט תאונה היא הזדמנות למניעה.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 38
+  },
+  {
+    "id": "lesson-02-source-39",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מפקח שואל מי אישר עבודה ליד חשמל ואין מסמך. מה הבעיה?",
+    "options": [
+      "אין בעיה",
+      "כשל תיעודי וניהולי אפשרי",
+      "רק בעיית ניקיון",
+      "רק בעיית שכר"
+    ],
+    "correctAnswer": "כשל תיעודי וניהולי אפשרי",
+    "correctIndex": 1,
+    "explanation": "עבודה מסוכנת דורשת תיעוד, הרשאה ובקרה.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 39
+  },
+  {
+    "id": "lesson-02-source-40",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מה המשפט הנכון ביותר?",
+    "options": [
+      "בטיחות היא רק ציוד מגן",
+      "בטיחות היא מערכת של דין, ניהול, תיעוד ובקרה",
+      "בטיחות היא אחריות העובד בלבד",
+      "בטיחות היא רק לאחר תאונה"
+    ],
+    "correctAnswer": "בטיחות היא מערכת של דין, ניהול, תיעוד ובקרה",
+    "correctIndex": 1,
+    "explanation": "זה המסר המרכזי של השיעור.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 40
+  },
+  {
+    "id": "lesson-02-source-41",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מפקח עבודה מגיע לאתר לאחר תאונת חשמל ושואל את מנהל האתר מי ניתק את המתח. אין תיעוד. מה המשמעות המקצועית?",
+    "options": [
+      "אין בעיה אם העובד אומר שהיה ניתוק",
+      "קיים כשל אפשרי בניהול עבודה מסוכנת ותיעוד בקרה קריטית",
+      "זו רק בעיית שכר",
+      "זה מוכיח שאין אחריות"
+    ],
+    "correctAnswer": "קיים כשל אפשרי בניהול עבודה מסוכנת ותיעוד בקרה קריטית",
+    "correctIndex": 1,
+    "explanation": "בעבודות חשמל נדרש תהליך מבוקר: ניתוק, נעילה, בדיקת היעדר מתח ותיעוד.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 41
+  },
+  {
+    "id": "lesson-02-source-42",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "עובד נפגע כמה שעות לאחר אירוע לחץ חריג בעבודה. מה נדרש כדי לבחון הכרה כתאונת עבודה?",
+    "options": [
+      "רק להוכיח שהיה בעבודה באותו יום",
+      "לבדוק קשר עובדתי ורפואי בין האירוע בעבודה לנזק",
+      "רק לתת טופס 250",
+      "רק לבדוק אם הוא עובד ותיק"
+    ],
+    "correctAnswer": "לבדוק קשר עובדתי ורפואי בין האירוע בעבודה לנזק",
+    "correctIndex": 1,
+    "explanation": "הקשר לא חייב להיות מיידי, אך חייב להיות מוכח.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 42
+  },
+  {
+    "id": "lesson-02-source-43",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מנהל טוען שאין אחריות פלילית כי “לא התכוונתי שייפגע עובד”. מה נכון?",
+    "options": [
+      "היעדר כוונה תמיד פוטר",
+      "ייתכן עדיין אחריות ברשלנות",
+      "רק העובד אחראי",
+      "אין דבר כזה רשלנות"
+    ],
+    "correctAnswer": "ייתכן עדיין אחריות ברשלנות",
+    "correctIndex": 1,
+    "explanation": "תאונות עבודה רבות נבחנות דרך רשלנות ולא כוונה.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 43
+  },
+  {
+    "id": "lesson-02-source-44",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "איזו תשובה מתארת נכון את ההבדל בין אזרחי לפלילי?",
+    "options": [
+      "בפלילי נדרש מאזן הסתברויות ובאזרחי מעבר לספק סביר",
+      "באזרחי נדרש מאזן הסתברויות ובפלילי מעבר לספק סביר",
+      "אין הבדל",
+      "אזרחי תמיד מסתיים במאסר"
+    ],
+    "correctAnswer": "באזרחי נדרש מאזן הסתברויות ובפלילי מעבר לספק סביר",
+    "correctIndex": 1,
+    "explanation": "רף ההוכחה הפלילי גבוה יותר.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 44
+  },
+  {
+    "id": "lesson-02-source-45",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "באתר בנייה חסר שלט עם פרטי מבצע הבנייה ומנהל העבודה. למה זה חשוב?",
+    "options": [
+      "זה רק עניין אסתטי",
+      "זה פוגע בזיהוי בעלי אחריות באתר",
+      "זה מוכיח שאין תאונות",
+      "זה מחליף מנהל עבודה"
+    ],
+    "correctAnswer": "זה פוגע בזיהוי בעלי אחריות באתר",
+    "correctIndex": 1,
+    "explanation": "שלט האתר מסייע לזיהוי הגורמים האחראים.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 45
+  },
+  {
+    "id": "lesson-02-source-46",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "ממונה בטיחות אישר עבודה מסוכנת בלי לבדוק דרישות דין כי הופעל עליו לחץ. מה הבעיה?",
+    "options": [
+      "אין בעיה אם המנהל ביקש",
+      "פגיעה בעצמאות המקצועית וחשיפה לאחריות",
+      "זה תפקידו לאשר הכול",
+      "החוק לא רלוונטי"
+    ],
+    "correctAnswer": "פגיעה בעצמאות המקצועית וחשיפה לאחריות",
+    "correctIndex": 1,
+    "explanation": "הממונה אינו חותמת גומי וחייב לפעול לפי דין.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 46
+  },
+  {
+    "id": "lesson-02-source-47",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מפקח יכול להתייחס גם ל”מחדל” כמקור סכנה. מה המשמעות?",
+    "options": [
+      "רק פעולה אקטיבית מסוכנת רלוונטית",
+      "גם אי ביצוע פעולה נדרשת יכול להצדיק צו בטיחות",
+      "מחדל אינו קשור לבטיחות",
+      "רק עובד יכול לבצע מחדל"
+    ],
+    "correctAnswer": "גם אי ביצוע פעולה נדרשת יכול להצדיק צו בטיחות",
+    "correctIndex": 1,
+    "explanation": "אי גידור, אי ניתוק חשמל או אי הדרכה הם דוגמאות למחדלים מסוכנים.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 47
+  },
+  {
+    "id": "lesson-02-source-48",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "חברה קיבלה צו בטיחות למכונה, תיקנה את המגן אך לא קיבלה אישור מתאים לביטול הצו. מה נכון?",
+    "options": [
+      "מותר להפעיל מיד",
+      "יש לוודא שהצו בוטל או שהתקבל אישור מתאים לפני חזרה לשימוש",
+      "העובד מחליט",
+      "אין משמעות לצו לאחר תיקון"
+    ],
+    "correctAnswer": "יש לוודא שהצו בוטל או שהתקבל אישור מתאים לפני חזרה לשימוש",
+    "correctIndex": 1,
+    "explanation": "צו הוא הוראה מחייבת ויש לנהל סגירה מסודרת.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 48
+  },
+  {
+    "id": "lesson-02-source-49",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "קבלן מקצועי מאוד הגיע לבצע עבודה חמה, אך לא עבר תדריך אתר. מה הכשל?",
+    "options": [
+      "אין כשל כי הוא מקצועי",
+      "כשל בקליטת קבלן ותיאום סיכוני אתר",
+      "רק בעיית לבוש",
+      "רק בעיית תשלום"
+    ],
+    "correctAnswer": "כשל בקליטת קבלן ותיאום סיכוני אתר",
+    "correctIndex": 1,
+    "explanation": "גם קבלן מומחה לא מכיר בהכרח את סיכוני האתר.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 49
+  },
+  {
+    "id": "lesson-02-source-50",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "עובד נפגע בקטטה עם עובד אחר. מה השאלה המרכזית?",
+    "options": [
+      "האם זה קרה בשטח העבודה בלבד",
+      "האם הקטטה קשורה לעבודה או לעניין אישי מנותק",
+      "האם יש מצלמה",
+      "האם העובד קיבל שכר"
+    ],
+    "correctAnswer": "האם הקטטה קשורה לעבודה או לעניין אישי מנותק",
+    "correctIndex": 1,
+    "explanation": "הקשר לעבודה הוא הגורם המרכזי.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 50
+  },
+  {
+    "id": "lesson-02-source-51",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "איזה ממצא בתחקיר מעיד על כשל מערכתי ולא רק אישי?",
+    "options": [
+      "העובד “לא שם לב”",
+      "לא הייתה הדרכה, לא היה נוהל, לא הייתה הרשאה ולא היה פיקוח",
+      "העובד הגיע בזמן",
+      "העובד חתם על כניסה"
+    ],
+    "correctAnswer": "לא הייתה הדרכה, לא היה נוהל, לא הייתה הרשאה ולא היה פיקוח",
+    "correctIndex": 1,
+    "explanation": "היעדר בקרות הוא כשל מערכתי.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 51
+  },
+  {
+    "id": "lesson-02-source-52",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מפקח עבודה מבקש לחקור עובד שנמצא במקום העבודה. מה נכון?",
+    "options": [
+      "אסור לו תמיד",
+      "יש לו סמכות לחקור אנשים רלוונטיים במסגרת תפקידו",
+      "רק מנכ״ל יכול להיחקר",
+      "רק עובד שנפגע יכול להיחקר"
+    ],
+    "correctAnswer": "יש לו סמכות לחקור אנשים רלוונטיים במסגרת תפקידו",
+    "correctIndex": 1,
+    "explanation": "סמכויות מפקח כוללות בירור וחקירה.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 52
+  },
+  {
+    "id": "lesson-02-source-53",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "נוהל ארגוני מאפשר עבודה ליד חשמל ללא ניתוק אם “זה קצר”. מה נכון?",
+    "options": [
+      "הנוהל מחייב כי הוא פנימי",
+      "נוהל אינו יכול להקל מדרישות דין ובטיחות מחייבות",
+      "מותר אם העובד ותיק",
+      "מותר אם אין מפקח"
+    ],
+    "correctAnswer": "נוהל אינו יכול להקל מדרישות דין ובטיחות מחייבות",
+    "correctIndex": 1,
+    "explanation": "נוהל פנימי לא גובר על דין או דרישת בטיחות מחייבת.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 53
+  },
+  {
+    "id": "lesson-02-source-54",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהי הדרך הטובה ביותר להגן מקצועית על ממונה בטיחות?",
+    "options": [
+      "לא לתעד כלום",
+      "לתעד סיכונים, המלצות, התרעות ומעקב סגירה",
+      "להסכים לכל דרישת הנהלה",
+      "להימנע מביקורות"
+    ],
+    "correctAnswer": "לתעד סיכונים, המלצות, התרעות ומעקב סגירה",
+    "correctIndex": 1,
+    "explanation": "תיעוד מקצועי הוא חלק מהתפקיד ומההגנה.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 54
+  },
+  {
+    "id": "lesson-02-source-55",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "ממונה בטיחות מזהה סכנה מיידית אך המנהל מתנגד לעצירת העבודה. מה עליו לעשות?",
+    "options": [
+      "להמשיך כרגיל",
+      "להתריע, לתעד, להסלים ולפעול לפי סמכותו והדין",
+      "להמתין לתאונה",
+      "למחוק את הממצא"
+    ],
+    "correctAnswer": "להתריע, לתעד, להסלים ולפעול לפי סמכותו והדין",
+    "correctIndex": 1,
+    "explanation": "סכנה מיידית מחייבת פעולה מקצועית ולא התעלמות.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 55
+  },
+  {
+    "id": "lesson-02-source-56",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "בתביעה אזרחית לאחר תאונה, מה המשמעות של 51%?",
+    "options": [
+      "צריך ודאות מוחלטת",
+      "מספיק שהגרסה מסתברת יותר מהגרסה הנגדית",
+      "אין צורך בראיות",
+      "זה רף פלילי"
+    ],
+    "correctAnswer": "מספיק שהגרסה מסתברת יותר מהגרסה הנגדית",
+    "correctIndex": 1,
+    "explanation": "זהו עיקרון מאזן ההסתברויות.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 56
+  },
+  {
+    "id": "lesson-02-source-57",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מה עלול לקרות אם ארגון מסתמך רק על “לא קרו תאונות עד היום”?",
+    "options": [
+      "זו הוכחה לבטיחות מלאה",
+      "הוא מתעלם מסיכונים וכמעט תאונות שעלולים להתממש בעתיד",
+      "זה מחליף סקר סיכונים",
+      "זה מחליף הדרכה"
+    ],
+    "correctAnswer": "הוא מתעלם מסיכונים וכמעט תאונות שעלולים להתממש בעתיד",
+    "correctIndex": 1,
+    "explanation": "העדר תאונות בעבר אינו הוכחה לשליטה בסיכון.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 57
+  },
+  {
+    "id": "lesson-02-source-58",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מדוע חשוב להבחין בין צו בטיחות לצו שיפור?",
+    "options": [
+      "אין חשיבות",
+      "כי צו בטיחות נוגע לסכנה ויכול לעצור פעילות, וצו שיפור מתקן הפרה בתוך זמן",
+      "כי צו שיפור תמיד חמור יותר",
+      "כי צו בטיחות לא מחייב"
+    ],
+    "correctAnswer": "כי צו בטיחות נוגע לסכנה ויכול לעצור פעילות, וצו שיפור מתקן הפרה בתוך זמן",
+    "correctIndex": 1,
+    "explanation": "הבחנה זו חשובה להבנת דחיפות וסוג האכיפה.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 58
+  },
+  {
+    "id": "lesson-02-source-59",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "קבלן נפגע, והמזמין טוען: “הוא לא עובד שלי”. מה נכון?",
+    "options": [
+      "זה תמיד פוטר את המזמין",
+      "יש לבדוק שליטה, תיאום, הדרכה, פיקוח וסיכוני האתר",
+      "רק הקבלן אחראי תמיד",
+      "אין צורך בתחקיר"
+    ],
+    "correctAnswer": "יש לבדוק שליטה, תיאום, הדרכה, פיקוח וסיכוני האתר",
+    "correctIndex": 1,
+    "explanation": "אחריות אינה נקבעת רק לפי יחסי עובד־מעביד.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 59
+  },
+  {
+    "id": "lesson-02-source-60",
+    "topic": "ארגון מערך הבטיחות",
+    "relatedLessonId": "lesson-02",
+    "lessonId": "lesson-02",
+    "question": "מהו המשפט המדויק ביותר לשיעור?",
+    "options": [
+      "ממונה בטיחות צריך רק למלא טפסים",
+      "ממונה בטיחות צריך להבין דין, סיכונים, תיעוד, פיקוח ואחריות",
+      "רק העובדים אחראים לבטיחות",
+      "חוק לא חשוב אם יש נוהל"
+    ],
+    "correctAnswer": "ממונה בטיחות צריך להבין דין, סיכונים, תיעוד, פיקוח ואחריות",
+    "correctIndex": 1,
+    "explanation": "זו מהות השיעור: בטיחות כמערכת משפטית וניהולית.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: מערך שיעור ארגון מערך הבטיחות; יש לאמת דרישות מקצועיות מול מקור מוסמך בעת שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 60
+  },
+  {
+    "id": "iso-45001-2018-01",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהי מטרת ISO 45001?",
+    "options": [
+      "להחליף את חוקי הבטיחות",
+      "לקבוע מערכת ניהול לבטיחות ובריאות בתעסוקה",
+      "לקבוע מחירי ציוד מגן",
+      "להחליף את ממונה הבטיחות"
+    ],
+    "correctAnswer": "לקבוע מערכת ניהול לבטיחות ובריאות בתעסוקה",
+    "correctIndex": 1,
+    "explanation": "ISO 45001 הוא תקן למערכת ניהול בטיחות ובריאות בתעסוקה. הוא לא מחליף חוקים ותקנות, אלא מסייע לארגון לנהל סיכונים, לעמוד בדרישות דין ולשפר ביצועי בטיחות.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 1
+  },
+  {
+    "id": "iso-45001-2018-02",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהו גורם סיכון לפי התקן?",
+    "options": [
+      "אדם שנפגע",
+      "מקור בעל פוטנציאל לגרום פציעה או פגיעה בבריאות",
+      "טופס הדרכה",
+      "מדד ביצוע"
+    ],
+    "correctAnswer": "מקור בעל פוטנציאל לגרום פציעה או פגיעה בבריאות",
+    "correctIndex": 1,
+    "explanation": "גורם סיכון הוא מקור אפשרי לנזק, לדוגמה מכונה, רעש, חומר כימי, עבודה בגובה או עומס עבודה חריג.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 2
+  },
+  {
+    "id": "iso-45001-2018-03",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהו סיכון בב״ת?",
+    "options": [
+      "רק תאונה שכבר קרתה",
+      "שילוב של סבירות וחומרת פגיעה אפשרית",
+      "נוהל עבודה",
+      "מדיניות הנהלה"
+    ],
+    "correctAnswer": "שילוב של סבירות וחומרת פגיעה אפשרית",
+    "correctIndex": 1,
+    "explanation": "סיכון בבטיחות ובריאות בתעסוקה הוא שילוב של הסבירות להתרחשות אירוע מסוכן או חשיפה מסוכנת ושל חומרת הפגיעה האפשרית.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 3
+  },
+  {
+    "id": "iso-45001-2018-04",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהו מחזור PDCA?",
+    "options": [
+      "ציוד מגן אישי",
+      "תכנן, בצע, בדוק, פעל",
+      "פקודת בטיחות",
+      "רשימת עובדים"
+    ],
+    "correctAnswer": "תכנן, בצע, בדוק, פעל",
+    "correctIndex": 1,
+    "explanation": "התקן מבוסס על מחזור שיפור מתמיד: תכנון פעולות, ביצוע, בדיקה של התוצאות, ופעולה לשיפור.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 4
+  },
+  {
+    "id": "iso-45001-2018-05",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מי נושא באחריות הכוללת למערכת ניהול הבב״ת?",
+    "options": [
+      "ההנהלה הבכירה",
+      "עובד חדש",
+      "קבלן חיצוני בלבד",
+      "מבקר חיצוני"
+    ],
+    "correctAnswer": "ההנהלה הבכירה",
+    "correctIndex": 0,
+    "explanation": "ההנהלה הבכירה יכולה להאציל סמכויות, אך לפי רוח התקן היא ממשיכה לשאת באחריות הכוללת לאפקטיביות מערכת ניהול הבטיחות.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 5
+  },
+  {
+    "id": "iso-45001-2018-06",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהי מדיניות בטיחות ובריאות בתעסוקה?",
+    "options": [
+      "רשימת נוכחות",
+      "כוונות וכיוון של הארגון למניעת פציעה ופגיעה בבריאות",
+      "רק שלט בכניסה",
+      "מסמך שמיועד רק לממונה בטיחות"
+    ],
+    "correctAnswer": "כוונות וכיוון של הארגון למניעת פציעה ופגיעה בבריאות",
+    "correctIndex": 1,
+    "explanation": "מדיניות הבב״ת היא הצהרת מחויבות של ההנהלה לסביבת עבודה בטוחה ובריאה, עמידה בדרישות דין, הפחתת סיכונים ושיפור מתמיד.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 6
+  },
+  {
+    "id": "iso-45001-2018-07",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהי תקרית בטיחות לפי ISO 45001?",
+    "options": [
+      "רק תאונה עם נפגע",
+      "התרחשות שנגרמת בשל העבודה או במהלכה, העלולה להוביל או מובילה לפציעה או פגיעה בבריאות",
+      "רק עבירת משמעת",
+      "רק ליקוי במסמך"
+    ],
+    "correctAnswer": "התרחשות שנגרמת בשל העבודה או במהלכה, העלולה להוביל או מובילה לפציעה או פגיעה בבריאות",
+    "correctIndex": 1,
+    "explanation": "תקרית בטיחות כוללת גם תאונות וגם כמעט תאונות, כלומר גם אירוע שלא גרם בפועל לנזק אך היה יכול לגרום.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 7
+  },
+  {
+    "id": "iso-45001-2018-08",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהו מידע מתועד?",
+    "options": [
+      "רק נייר חתום",
+      "מידע שהארגון נדרש לבקר ולתחזק, בכל פורמט",
+      "רק סרטון הדרכה",
+      "רק מסמך משפטי"
+    ],
+    "correctAnswer": "מידע שהארגון נדרש לבקר ולתחזק, בכל פורמט",
+    "correctIndex": 1,
+    "explanation": "מידע מתועד יכול להיות נייר, קובץ מחשב, צילום, רשומה, נוהל, טופס או כל מדיה אחרת שהארגון מבקר ושומר.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 8
+  },
+  {
+    "id": "iso-45001-2018-09",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהו שיפור מתמיד?",
+    "options": [
+      "פעולה חד־פעמית",
+      "פעילות חוזרת ונשנית לשיפור ביצועים",
+      "רק החלפת ציוד",
+      "רק קנס לאחר תאונה"
+    ],
+    "correctAnswer": "פעילות חוזרת ונשנית לשיפור ביצועים",
+    "correctIndex": 1,
+    "explanation": "שיפור מתמיד הוא פעילות שיטתית ומתמשכת לאורך זמן, לא בהכרח בכל התחומים בו־זמנית, לשיפור ביצועי הבטיחות.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 9
+  },
+  {
+    "id": "iso-45001-2018-10",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "האם ISO 45001 קובע מספרים כמו “בדיקת מעלית כל 6 חודשים”?",
+    "options": [
+      "כן, תמיד",
+      "לא; מספרים כאלה מגיעים בדרך כלל מחוק, פקודה או תקנות",
+      "רק אם הממונה מחליט",
+      "רק באתר בנייה"
+    ],
+    "correctAnswer": "לא; מספרים כאלה מגיעים בדרך כלל מחוק, פקודה או תקנות",
+    "correctIndex": 1,
+    "explanation": "התקן קובע דרישות לניהול מערכת. הוא מחייב לזהות ולעמוד בדרישות דין, אבל לא מחליף את הפקודה והתקנות שבהן מופיעים מועדים טכניים מחייבים.",
+    "difficulty": "easy",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 10
+  },
+  {
+    "id": "iso-45001-2018-11",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מה ההבדל בין “התייעצות” לבין “שיתוף” עובדים?",
+    "options": [
+      "אין הבדל",
+      "התייעצות היא בירור עמדות לפני החלטה; שיתוף הוא מעורבות בקבלת החלטות",
+      "שיתוף מיועד רק למנהלים",
+      "התייעצות היא רק פרסום הודעה בלוח מודעות"
+    ],
+    "correctAnswer": "התייעצות היא בירור עמדות לפני החלטה; שיתוף הוא מעורבות בקבלת החלטות",
+    "correctIndex": 1,
+    "explanation": "התקן מבחין בין התייעצות לבין שיתוף. התייעצות היא שמיעת עמדות לפני החלטה, בעוד שיתוף הוא מעורבות פעילה יותר בתהליכים כמו זיהוי סיכונים, בחירת בקרות וחקירת אירועים.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 11
+  },
+  {
+    "id": "iso-45001-2018-12",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהו מדרג הבקרות הנכון לפי התקן?",
+    "options": [
+      "PPE → הדרכה → הנדסה → החלפה → סילוק",
+      "סילוק → החלפה → בקרות הנדסיות/ארגון מחדש → בקרות מנהלתיות → PPE",
+      "הדרכה → PPE → סילוק → החלפה",
+      "שילוט → חתימה → קסדה → תחקיר"
+    ],
+    "correctAnswer": "סילוק → החלפה → בקרות הנדסיות/ארגון מחדש → בקרות מנהלתיות → PPE",
+    "correctIndex": 1,
+    "explanation": "התקן קובע מדרג בקרות: קודם מנסים לסלק את גורם הסיכון, אחר כך להחליף למסוכן פחות, אחר כך בקרות הנדסיות, אחר כך בקרות מנהלתיות והדרכה, ורק בסוף ציוד מגן אישי.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 12
+  },
+  {
+    "id": "iso-45001-2018-13",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מדוע PPE אינו הפתרון הראשון לפי ISO 45001?",
+    "options": [
+      "כי אסור להשתמש בו",
+      "כי הוא תלוי בהתנהגות העובד ואינו מסלק את הסיכון במקור",
+      "כי הוא תמיד יקר מדי",
+      "כי הוא מיועד רק למבקרים"
+    ],
+    "correctAnswer": "כי הוא תלוי בהתנהגות העובד ואינו מסלק את הסיכון במקור",
+    "correctIndex": 1,
+    "explanation": "ציוד מגן אישי חשוב, אבל הוא קו הגנה אחרון. פתרונות כמו סילוק סיכון, החלפה או בקרה הנדסית מגנים טוב יותר כי הם מפחיתים או מסירים את הסיכון במקור.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 13
+  },
+  {
+    "id": "iso-45001-2018-14",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מה נדרש כאשר ארגון מכניס שינוי בתהליך, ציוד או כוח אדם?",
+    "options": [
+      "להמשיך כרגיל",
+      "לבצע ניהול שינויים ולבחון השפעות בטיחות ובריאות",
+      "לעדכן רק את מחלקת הכספים",
+      "להמתין למבדק חיצוני"
+    ],
+    "correctAnswer": "לבצע ניהול שינויים ולבחון השפעות בטיחות ובריאות",
+    "correctIndex": 1,
+    "explanation": "סעיף ניהול שינויים דורש לזהות ולבקר שינויים זמניים או קבועים שעלולים להשפיע על ביצועי הבטיחות, לפני שהם גורמים לסיכונים חדשים.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 14
+  },
+  {
+    "id": "iso-45001-2018-15",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהו מרשם דרישות דין בהקשר ISO 45001?",
+    "options": [
+      "רשימת עובדים",
+      "ריכוז הדרישות החוקיות והאחרות החלות על הארגון בתחום הבטיחות והבריאות",
+      "טופס תלונות לקוח",
+      "רשימת ציוד משרדי"
+    ],
+    "correctAnswer": "ריכוז הדרישות החוקיות והאחרות החלות על הארגון בתחום הבטיחות והבריאות",
+    "correctIndex": 1,
+    "explanation": "התקן דורש שהארגון יזהה דרישות דין ודרישות אחרות, יבין כיצד הן חלות עליו, יעדכן אותן וישמור מידע מתועד.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 15
+  },
+  {
+    "id": "iso-45001-2018-16",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מה תפקיד סקר הנהלה במערכת ISO 45001?",
+    "options": [
+      "להחליף מבדק פנימי",
+      "לאפשר להנהלה לסקור התאמה, הלימות ואפקטיביות של המערכת ולקבל החלטות",
+      "לשמש הדרכת עובדים",
+      "לשמש רק אירוע טקסי שנתי"
+    ],
+    "correctAnswer": "לאפשר להנהלה לסקור התאמה, הלימות ואפקטיביות של המערכת ולקבל החלטות",
+    "correctIndex": 1,
+    "explanation": "סקר הנהלה הוא מנגנון ניהולי. הוא בוחן נתונים, אירועים, מבדקים, דרישות דין, משאבים, מטרות והזדמנויות לשיפור, ומוביל להחלטות ופעולות.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 16
+  },
+  {
+    "id": "iso-45001-2018-17",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהי אי־התאמה?",
+    "options": [
+      "מילוי דרישה",
+      "אי מילוי של דרישה",
+      "תאונה בלבד",
+      "ציוד מגן אישי"
+    ],
+    "correctAnswer": "אי מילוי של דרישה",
+    "correctIndex": 1,
+    "explanation": "אי־התאמה היא מצב שבו דרישה לא מולאה. הדרישה יכולה להיות דרישת תקן, דרישת חוק, נוהל פנימי או דרישה שהארגון קבע לעצמו.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 17
+  },
+  {
+    "id": "iso-45001-2018-18",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהי פעולה מתקנת?",
+    "options": [
+      "פעולה לסילוק גורמי אי־התאמה או תקרית ולמניעת הישנות",
+      "רק תיקון זמני",
+      "מילוי טופס בלבד",
+      "פעולה שמבוצעת רק אחרי מבדק חיצוני"
+    ],
+    "correctAnswer": "פעולה לסילוק גורמי אי־התאמה או תקרית ולמניעת הישנות",
+    "correctIndex": 0,
+    "explanation": "פעולה מתקנת אינה רק “לתקן עכשיו”. היא צריכה לטפל בגורם השורש כדי שהבעיה לא תחזור באותו מקום או במקום אחר.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 18
+  },
+  {
+    "id": "iso-45001-2018-19",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מה התקן דורש ביחס לקבלנים?",
+    "options": [
+      "שאין צורך לשלוט בהם כי הם חיצוניים",
+      "לתאם איתם, לזהות סיכונים, להעריך ולבקר את סיכוני הבב״ת שלהם ושל הארגון",
+      "להסתפק בחתימה שלהם בלבד",
+      "לא להכניס אותם למערכת הבטיחות"
+    ],
+    "correctAnswer": "לתאם איתם, לזהות סיכונים, להעריך ולבקר את סיכוני הבב״ת שלהם ושל הארגון",
+    "correctIndex": 1,
+    "explanation": "התקן דורש שהארגון יוודא שגם קבלנים ועובדיהם עומדים בדרישות מערכת הבטיחות הרלוונטיות, ושתהליכי הרכש יכללו קריטריוני בטיחות לבחירת קבלנים.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 19
+  },
+  {
+    "id": "iso-45001-2018-20",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "איזה מדד הוא מדד מוביל?",
+    "options": [
+      "מספר תאונות שאירעו בשנה",
+      "מספר ימי היעדרות לאחר תאונה",
+      "אחוז פעולות מתקנות שנסגרו בזמן",
+      "מספר עובדים שנפגעו"
+    ],
+    "correctAnswer": "אחוז פעולות מתקנות שנסגרו בזמן",
+    "correctIndex": 2,
+    "explanation": "מדד מוביל מודד פעולות שמסייעות למנוע תאונות לפני שהן מתרחשות. אחוז סגירת פעולות מתקנות בזמן הוא מדד מניעתי. מספר תאונות הוא מדד תוצאה.",
+    "difficulty": "medium",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 20
+  },
+  {
+    "id": "iso-45001-2018-21",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "ארגון הגדיר תחום חלות שמוציא ממנו מחסן שבו יש מלגזות וחומרים מסוכנים, כדי “לפשט את ההתעדה”. מה הבעיה?",
+    "options": [
+      "אין בעיה, הארגון רשאי להוציא כל אזור",
+      "תחום החלות לא אמור לשמש להחרגת פעילות שיש לה השפעה על ביצועי הבב״ת או להתחמקות מדרישות",
+      "זה מותר אם המחסן קטן",
+      "התקן לא עוסק בתחום חלות"
+    ],
+    "correctAnswer": "תחום החלות לא אמור לשמש להחרגת פעילות שיש לה השפעה על ביצועי הבב״ת או להתחמקות מדרישות",
+    "correctIndex": 1,
+    "explanation": "תחום החלות צריך להיות אמיתי ולא מטעה. אי אפשר להוציא מהמערכת פעילות שיש לה השפעה על ביצועי הבטיחות רק כדי להקל על המערכת או ההתעדה.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 21
+  },
+  {
+    "id": "iso-45001-2018-22",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "בארגון קיימת מדיניות בטיחות חתומה, אך העובדים אינם מכירים אותה ואין מטרות או פעולות. מה נכון?",
+    "options": [
+      "זה מספיק כי יש מסמך חתום",
+      "המדיניות אינה אפקטיבית אם אינה מתוקשרת, מיושמת ומשמשת בסיס למטרות",
+      "התקן דורש רק חתימת מנכ״ל",
+      "מדיניות אינה קשורה לעובדים"
+    ],
+    "correctAnswer": "המדיניות אינה אפקטיבית אם אינה מתוקשרת, מיושמת ומשמשת בסיס למטרות",
+    "correctIndex": 1,
+    "explanation": "המדיניות צריכה להיות זמינה כמידע מתועד, מתוקשרת בארגון, רלוונטית, ולהוות מסגרת למטרות הבב״ת. מסמך שאינו מוטמע אינו מספיק.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 22
+  },
+  {
+    "id": "iso-45001-2018-23",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "בחקירת כמעט תאונה נקבע: “העובד לא שם לב”. מה חסר לפי גישת ISO 45001?",
+    "options": [
+      "כלום, זו חקירה מלאה",
+      "חקירת גורמי שורש: תהליך, ציוד, הדרכה, עומס, סביבת עבודה ובקרות",
+      "רק חתימת העובד",
+      "רק דיווח לביטוח לאומי"
+    ],
+    "correctAnswer": "חקירת גורמי שורש: תהליך, ציוד, הדרכה, עומס, סביבת עבודה ובקרות",
+    "correctIndex": 1,
+    "explanation": "התקן דורש חקירה שמטרתה למנוע הישנות. “לא שם לב” הוא תיאור התנהגותי, לא ניתוח גורם שורש. צריך לבדוק מדוע לא שם לב ומה במערכת אפשר את האירוע.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 23
+  },
+  {
+    "id": "iso-45001-2018-24",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהי המשמעות של “להבטיח” בתקן, בהקשר אחריות הנהלה?",
+    "options": [
+      "אפשר להעביר גם את האחריות הכוללת לאחר",
+      "אפשר להאציל ביצוע, אבל הנשיאה באחריות נשארת אצל ההנהלה",
+      "הממונה בטיחות אחראי במקום ההנהלה",
+      "העובדים מחליטים לבד"
+    ],
+    "correctAnswer": "אפשר להאציל ביצוע, אבל הנשיאה באחריות נשארת אצל ההנהלה",
+    "correctIndex": 1,
+    "explanation": "לפי ההבהרות בנספח, אפשר להאציל אחריות ביצועית, אך לא את הנשיאה באחריות לכך שהפעולה מתבצעת ומשיגה את מטרתה.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 24
+  },
+  {
+    "id": "iso-45001-2018-25",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "קבלן מבצע ריתוך באתר. הוא מקצועי, אך לא עבר תדריך אתר ולא נבדקו אישוריו. מהי אי־ההתאמה המרכזית לפי ISO 45001?",
+    "options": [
+      "אין אי־התאמה כי הקבלן מומחה",
+      "כשל בתהליך רכש/קבלנים, תיאום, כשירות ובקרה על סיכוני קבלן",
+      "רק בעיית ציוד מגן",
+      "רק בעיה של הקבלן עצמו"
+    ],
+    "correctAnswer": "כשל בתהליך רכש/קבלנים, תיאום, כשירות ובקרה על סיכוני קבלן",
+    "correctIndex": 1,
+    "explanation": "התקן מדגיש שתהליכי רכש וקבלנים צריכים לזהות ולבקר סיכונים הנובעים מפעילות הקבלן, מפעילות הארגון המשפיעה על הקבלן, ומהשפעה על מחזיקי עניין אחרים.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 25
+  },
+  {
+    "id": "iso-45001-2018-26",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "ארגון מודד רק מספר תאונות שנתי, ואין לו מדדים על סגירת מפגעים, כשירות, תסקירים או פעולות מתקנות. מה הבעיה?",
+    "options": [
+      "אין בעיה, תאונות מספיקות",
+      "מדידת תאונות בלבד היא תגובתית ואינה מספקת תמונה מלאה של אפקטיביות המערכת",
+      "התקן אוסר מדדים",
+      "צריך למדוד רק עלויות"
+    ],
+    "correctAnswer": "מדידת תאונות בלבד היא תגובתית ואינה מספקת תמונה מלאה של אפקטיביות המערכת",
+    "correctIndex": 1,
+    "explanation": "ISO 45001 דורש ניטור, מדידה, ניתוח והערכת ביצועים, כולל אפקטיביות בקרות והתקדמות למטרות. מדדי תאונות בלבד הם מדדי תוצאה מאוחרים.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 26
+  },
+  {
+    "id": "iso-45001-2018-27",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "עובדים חוששים לדווח על כמעט תאונות כי “יענישו אותם”. איזה סעיף נפגע בעיקר?",
+    "options": [
+      "מדידה בלבד",
+      "מנהיגות, תרבות, הגנה על עובדים, התייעצות ושיתוף",
+      "רכש בלבד",
+      "בקרת מסמכים בלבד"
+    ],
+    "correctAnswer": "מנהיגות, תרבות, הגנה על עובדים, התייעצות ושיתוף",
+    "correctIndex": 1,
+    "explanation": "התקן דורש מההנהלה לקדם תרבות תומכת, להגן על עובדים מפני התנכלות בדיווח, וליצור מנגנוני התייעצות ושיתוף. פחד מדיווח פוגע בליבת המערכת.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 27
+  },
+  {
+    "id": "iso-45001-2018-28",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "ארגון ביצע פעולה מתקנת אחרי תאונה אך לא בדק את האפקטיביות שלה. מה חסר?",
+    "options": [
+      "רק חתימה",
+      "סקירת אפקטיביות הפעולה המתקנת",
+      "תשלום לעובד",
+      "הצבת שלט בלבד"
+    ],
+    "correctAnswer": "סקירת אפקטיביות הפעולה המתקנת",
+    "correctIndex": 1,
+    "explanation": "התקן דורש לסקור את האפקטיביות של פעולות שננקטו, כולל פעולות מתקנות. אחרת לא יודעים אם גורם השורש טופל באמת.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 28
+  },
+  {
+    "id": "iso-45001-2018-29",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "הוכנס חומר כימי חדש לארגון ללא בדיקת SDS, הדרכה, אחסון, אוורור או ציוד מגן. איזה תהליך כשל?",
+    "options": [
+      "רק סקר הנהלה",
+      "ניהול שינויים ורכש בטיחותי",
+      "רק מדיניות",
+      "רק מבדק פנימי"
+    ],
+    "correctAnswer": "ניהול שינויים ורכש בטיחותי",
+    "correctIndex": 1,
+    "explanation": "הכנסת חומר חדש היא שינוי וגם רכש. התקן דורש לבקר רכש ולנהל שינויים המשפיעים על ביצועי הבטיחות, כולל זיהוי סיכונים ובקרות לפני השימוש.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 29
+  },
+  {
+    "id": "iso-45001-2018-30",
+    "topic": "ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה",
+    "category": "iso-45001-2018",
+    "tags": [
+      "ISO 45001",
+      "PDCA",
+      "מערכת ניהול בטיחות",
+      "דרישות דין",
+      "שיפור מתמיד"
+    ],
+    "relatedLessonId": "iso-45001-2018",
+    "lessonId": "iso-45001-2018",
+    "question": "מהו המשפט המדויק ביותר לגבי ISO 45001 והחוק?",
+    "options": [
+      "ISO 45001 מעל החוק",
+      "החוק מעל התקן; התקן מסייע לנהל עמידה בדרישות דין ודרישות אחרות",
+      "התקן מבטל תקנות",
+      "אם יש התעדה לתקן, אין צורך בצווי בטיחות"
+    ],
+    "correctAnswer": "החוק מעל התקן; התקן מסייע לנהל עמידה בדרישות דין ודרישות אחרות",
+    "correctIndex": 1,
+    "explanation": "התקן אינו גובר על חוק, פקודה או תקנה. הוא מערכת ניהול שמחייבת לזהות, ליישם, לעקוב ולשפר את העמידה בדרישות דין ודרישות אחרות.",
+    "difficulty": "hard",
+    "sourceNote": "מקור: ISO-45001-first-edition_2018.source; תוכן לימודי מקומי, יש לאמת מול מקור מוסמך לפני שימוש מחייב.",
+    "qualityStatus": "approved",
+    "order": 30
   }
 ];
