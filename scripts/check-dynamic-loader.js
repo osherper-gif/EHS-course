@@ -3,13 +3,16 @@ const path = require('path');
 
 const flagsPath = path.join(__dirname, '..', 'js', 'dynamic-content-flags.js');
 const loaderPath = path.join(__dirname, '..', 'js', 'dynamic-content-loader.js');
+const mockPath = path.join(__dirname, '..', 'data', 'dynamic', 'mock-content.js');
 
 function resetModules() {
   delete require.cache[require.resolve(flagsPath)];
   delete require.cache[require.resolve(loaderPath)];
+  delete require.cache[require.resolve(mockPath)];
   delete global.DynamicContentFlags;
   delete global.DynamicContentFlagService;
   delete global.DynamicContentLoader;
+  delete global.MockDynamicContent;
 }
 
 async function run() {
@@ -71,6 +74,43 @@ async function run() {
     source: 'fallback',
     reason: 'no-firebase'
   });
+
+  const mockFlagOffResult = await loader.loadDynamicContent(
+    'lesson-01',
+    () => ({ source: 'fallback', reason: 'mock-off' }),
+    {}
+  );
+
+  assert.deepStrictEqual(mockFlagOffResult, {
+    source: 'fallback',
+    reason: 'mock-off'
+  });
+
+  resetModules();
+  global.DynamicContentFlags = {
+    enabled: true,
+    debug: false,
+    useMockDynamicContent: true
+  };
+  require(flagsPath);
+  loader = require(loaderPath);
+
+  const mockResult = await loader.loadDynamicContent(
+    'lesson-01',
+    () => ({ source: 'fallback', reason: 'mock-missing' }),
+    {}
+  );
+
+  assert.strictEqual(mockResult.id, 'lesson-01');
+  assert.strictEqual(mockResult.type, 'lesson');
+  assert.strictEqual(mockResult.source, 'mock');
+  assert.strictEqual(Array.isArray(mockResult.blocks), true);
+  assert.strictEqual(mockResult.blocks[0].type, 'callout');
+
+  resetModules();
+  global.DynamicContentFlags = { enabled: true, debug: false };
+  require(flagsPath);
+  loader = require(loaderPath);
 
   const attemptedWrites = [];
   const readOnlyResult = await loader.loadDynamicContent(

@@ -3,7 +3,8 @@
 
   var DEFAULT_FLAGS = Object.freeze({
     enabled: false,
-    debug: false
+    debug: false,
+    useMockDynamicContent: false
   });
 
   function readRuntimeFlags() {
@@ -20,7 +21,8 @@
 
     return {
       enabled: runtimeFlags.enabled === true,
-      debug: runtimeFlags.debug === true
+      debug: runtimeFlags.debug === true,
+      useMockDynamicContent: runtimeFlags.useMockDynamicContent === true
     };
   }
 
@@ -32,11 +34,18 @@
     return getDynamicContentFlags().debug === true;
   }
 
+  function isMockDynamicContentEnabled() {
+    var flags = getDynamicContentFlags();
+
+    return flags.enabled === true && flags.useMockDynamicContent === true;
+  }
+
   var api = {
     DEFAULT_FLAGS: DEFAULT_FLAGS,
     getDynamicContentFlags: getDynamicContentFlags,
     isDynamicContentEnabled: isDynamicContentEnabled,
-    isDynamicContentDebugEnabled: isDynamicContentDebugEnabled
+    isDynamicContentDebugEnabled: isDynamicContentDebugEnabled,
+    isMockDynamicContentEnabled: isMockDynamicContentEnabled
   };
 
   if (typeof module !== 'undefined' && module.exports) {

@@ -2,6 +2,7 @@
   'use strict';
 
   var flagService = resolveFlagService();
+  var mockContentService = resolveMockContentService();
 
   function resolveFlagService() {
     if (typeof require === 'function') {
@@ -18,6 +19,25 @@
       },
       isDynamicContentDebugEnabled: function isDynamicContentDebugEnabled() {
         return false;
+      },
+      isMockDynamicContentEnabled: function isMockDynamicContentEnabled() {
+        return false;
+      }
+    };
+  }
+
+  function resolveMockContentService() {
+    if (typeof require === 'function') {
+      try {
+        return require('../data/dynamic/mock-content.js');
+      } catch (error) {
+        // Mock content is optional. Static fallback remains the default path.
+      }
+    }
+
+    return globalScope.MockDynamicContent || {
+      getMockDynamicContent: function getMockDynamicContent() {
+        return null;
       }
     };
   }
@@ -86,6 +106,20 @@
     }
 
     try {
+      if (
+        typeof flagService.isMockDynamicContentEnabled === 'function' &&
+        flagService.isMockDynamicContentEnabled()
+      ) {
+        var mockDynamicValue = mockContentService.getMockDynamicContent(topicId);
+
+        if (hasDynamicContentValue(mockDynamicValue)) {
+          return mockDynamicValue;
+        }
+
+        debugLog('Mock dynamic content unavailable; using fallback', { topicId: topicId });
+        return resolveFallback(fallbackProvider, 'mock-dynamic-data-unavailable');
+      }
+
       if (typeof safeOptions.dynamicProvider === 'function') {
         var localDynamicValue = await safeOptions.dynamicProvider(topicId);
 
