@@ -1037,6 +1037,7 @@
 <p>בטיחות אמיתית מתחילה לפני התאונה — בזיהוי מוקדם, בניהול סיכונים, בדיווח, בתיעוד, בבקרה ובאחריות מקצועית.</p></div></details></div>
 </section>
 <!-- SOURCE_HUB:lesson-01:END -->
+<section id="dynamic-content-preview" class="content-section" hidden data-dynamic-preview="lesson-01"></section>
 <section class="related-panel" data-related-block="unified">
       <h2>ראה גם</h2>
       <div class="related-links"><a class="btn secondary" href="exam-questions.html?lesson=lesson-01">שאלות השיעור</a><a class="btn secondary" href="quizzes.html">תרגול ומבחנים</a><a class="btn secondary" href="exam-questions.html">מבחן לפי נושא</a></div>
@@ -1065,17 +1066,33 @@
   <script src="../js/accessibility.js"></script>
   <script src="../js/lesson-source-hub.js"></script>
   <script src="../js/dynamic-content-flags.js"></script>
+  <script src="../data/dynamic/mock-content.js"></script>
   <script src="../js/dynamic-content-loader.js"></script>
+  <script src="../js/dynamic-content-renderer.js"></script>
   <script>
     (function initLesson01DynamicLoaderProbe() {
       'use strict';
 
-      if (!window.DynamicContentLoader) {
+      if (!window.DynamicContentLoader || !window.DynamicContentRenderer) {
+        return;
+      }
+
+      var previewContainer = document.getElementById('dynamic-content-preview');
+
+      if (!previewContainer) {
         return;
       }
 
       window.DynamicContentLoader.loadDynamicContent('lesson-01', function staticFallback() {
         return null;
+      }).then(function renderPreview(dynamicContent) {
+        if (!dynamicContent) {
+          return;
+        }
+
+        window.DynamicContentRenderer.renderDynamicContentPreview(previewContainer, dynamicContent);
+      }).catch(function ignoreDynamicPreviewError() {
+        previewContainer.hidden = true;
       });
     })();
   </script>
