@@ -1069,33 +1069,7 @@
   <script src="../data/dynamic/mock-content.js"></script>
   <script src="../js/dynamic-content-loader.js"></script>
   <script src="../js/dynamic-content-renderer.js"></script>
-  <script>
-    (function initLesson01DynamicLoaderProbe() {
-      'use strict';
-
-      if (!window.DynamicContentLoader || !window.DynamicContentRenderer) {
-        return;
-      }
-
-      var previewContainer = document.getElementById('dynamic-content-preview');
-
-      if (!previewContainer) {
-        return;
-      }
-
-      window.DynamicContentLoader.loadDynamicContent('lesson-01', function staticFallback() {
-        return null;
-      }).then(function renderPreview(dynamicContent) {
-        if (!dynamicContent) {
-          return;
-        }
-
-        window.DynamicContentRenderer.renderDynamicContentPreview(previewContainer, dynamicContent);
-      }).catch(function ignoreDynamicPreviewError() {
-        previewContainer.hidden = true;
-      });
-    })();
-  </script>
+  <script src="../js/lesson-01-dynamic-hook.js"></script>
   <script src="../js/lesson-ui.js" defer></script>
 </body>
 </html>

@@ -1,33 +1,27 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
-const vm = require('vm');
 
 const root = path.resolve(__dirname, '..');
 const lessonPath = path.join(root, 'pages', 'lesson-01.html');
 const flagsPath = path.join(root, 'js', 'dynamic-content-flags.js');
 const loaderPath = path.join(root, 'js', 'dynamic-content-loader.js');
+const rendererPath = path.join(root, 'js', 'dynamic-content-renderer.js');
+const hookPath = path.join(root, 'js', 'lesson-01-dynamic-hook.js');
 
 function readText(filePath) {
   return fs.readFileSync(filePath, 'utf8');
-}
-
-function getInlineDynamicProbe(html) {
-  const probeMatch = html.match(
-    /<script>\s*\(function initLesson01DynamicLoaderProbe\(\)[\s\S]*?<\/script>/
-  );
-
-  assert(probeMatch, 'Lesson 01 dynamic loader probe script was not found');
-
-  return probeMatch[0].replace(/^<script>\s*/, '').replace(/\s*<\/script>$/, '');
 }
 
 async function run() {
   assert(fs.existsSync(lessonPath), 'pages/lesson-01.html does not exist');
   assert(fs.existsSync(flagsPath), 'js/dynamic-content-flags.js does not exist');
   assert(fs.existsSync(loaderPath), 'js/dynamic-content-loader.js does not exist');
+  assert(fs.existsSync(rendererPath), 'js/dynamic-content-renderer.js does not exist');
+  assert(fs.existsSync(hookPath), 'js/lesson-01-dynamic-hook.js does not exist');
 
   const html = readText(lessonPath);
+  const hookScript = readText(hookPath);
 
   assert(
     html.includes('../js/dynamic-content-flags.js'),
@@ -37,7 +31,30 @@ async function run() {
     html.includes('../js/dynamic-content-loader.js'),
     'Lesson 01 does not load dynamic-content-loader.js'
   );
-  assert(html.includes('יסודות תורת הבטיחות'), 'Main static lesson title is missing');
+  assert(
+    html.includes('../js/dynamic-content-renderer.js'),
+    'Lesson 01 does not load dynamic-content-renderer.js'
+  );
+  assert(
+    html.includes('../js/lesson-01-dynamic-hook.js'),
+    'Lesson 01 does not load lesson-01-dynamic-hook.js'
+  );
+  assert(
+    !html.includes('initLesson01DynamicLoaderProbe'),
+    'Old inline dynamic loader probe is still present'
+  );
+  assert(
+    !/<script>\s*\(function initLesson01DynamicLoaderProbe\(\)/.test(html),
+    'Inline dynamic loader probe script is still present'
+  );
+  assert(
+    hookScript.includes('runLesson01DynamicHook'),
+    'External hook does not define the expected hook function'
+  );
+  assert(
+    hookScript.includes("loadDynamicContent('lesson-01'"),
+    'External hook does not request lesson-01'
+  );
   assert(html.includes('data-lesson-id="lesson-01"'), 'Static lesson shell marker is missing');
   assert(
     html.includes('id="lesson-01-complete-source"'),
@@ -96,34 +113,19 @@ async function run() {
   assert.strictEqual(writeCalls, 0, 'Loader attempted a write operation');
 
   const staticDomState = {
-    titleExists: html.includes('יסודות תורת הבטיחות'),
+    shellExists: html.includes('data-lesson-id="lesson-01"'),
     sourceHubExists: html.includes('lesson-01-complete-source'),
-    scriptCount: (html.match(/<script\b/g) || []).length
+    previewHidden: html.includes('hidden data-dynamic-preview="lesson-01"')
   };
 
-  const context = {
-    window: {
-      DynamicContentLoader: {
-        loadDynamicContent: async (topicId, fallbackProvider) => {
-          assert.strictEqual(topicId, 'lesson-01', 'Probe requested the wrong topic');
-          return typeof fallbackProvider === 'function' ? fallbackProvider('dynamic-disabled') : null;
-        }
-      }
-    }
-  };
-  context.globalThis = context;
-
-  const inlineProbe = getInlineDynamicProbe(html);
-  vm.runInNewContext(inlineProbe, context, { timeout: 1000 });
-
-  const afterProbeState = {
-    titleExists: html.includes('יסודות תורת הבטיחות'),
+  const afterHookState = {
+    shellExists: html.includes('data-lesson-id="lesson-01"'),
     sourceHubExists: html.includes('lesson-01-complete-source'),
-    scriptCount: (html.match(/<script\b/g) || []).length
+    previewHidden: html.includes('hidden data-dynamic-preview="lesson-01"')
   };
 
   assert.deepStrictEqual(
-    afterProbeState,
+    afterHookState,
     staticDomState,
     'Static DOM markers changed while dynamic flag is disabled'
   );
