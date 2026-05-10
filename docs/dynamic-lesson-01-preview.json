@@ -1,0 +1,203 @@
+{
+  "id": "lesson-01",
+  "type": "lesson",
+  "title": "יסודות תורת הבטיחות",
+  "source": "static-html-extract",
+  "extractedAt": "2026-05-10T17:38:09.524Z",
+  "sourcePath": "pages/lesson-01.html",
+  "blocks": [
+    {
+      "id": "lesson-01-block-01",
+      "type": "paragraph",
+      "title": "מושגי יסוד",
+      "body": "סקירה מהירה — לפירוט מקצועי המשך לפרקים בהמשך.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 1
+    },
+    {
+      "id": "lesson-01-block-02",
+      "type": "paragraph",
+      "title": "תהליך ז.ה.ב — שלבי הליבה",
+      "body": "איתור גורמי הסיכון, האוכלוסייה החשופה והמפגעים בשטח.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 2
+    },
+    {
+      "id": "lesson-01-block-03",
+      "type": "paragraph",
+      "title": "תמצית המפגש",
+      "body": "השיעור מגדיר את שפת הבסיס של המקצוע: חוק, תקנה, נוהל, תקן, שני חוקי היסוד בבטיחות, סיכון, מפגע, גורם סיכון, תקרית, תאונת עבודה, מחלת מקצוע, גיהות, ניטור, סקר מפגעים ותהליך ז.ה.ב.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 3
+    },
+    {
+      "id": "lesson-01-block-04",
+      "type": "paragraph",
+      "title": "הרחבה מלאה על בסיס ידע מקצועי בתחום הבטיחות",
+      "body": "יסודות תורת הבטיחות הם הבסיס לשפה מקצועית אחידה. כאשר ממונה בטיחות מסייר בשטח הוא לא מסתפק בתחושת בטן אלא מסווג את הממצא: האם מדובר בסיכון, במפגע, בגורם סיכון, בתקרית, בכמעט תאונה או בחובה חוקית. הסיווג קובע את סדר הפעולה: מפגע ברור מסולק או מגודר מיד; סיכון שאינו ניתן לסילוק מלא מנוהל באמצעות הערכה, בקרות, הדרכה, תיעוד ומעקב.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 4
+    },
+    {
+      "id": "lesson-01-block-05",
+      "type": "paragraph",
+      "title": "תהליכי עבודה",
+      "body": "תהליכי עבודה",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 5
+    },
+    {
+      "id": "lesson-01-block-06",
+      "type": "paragraph",
+      "title": "בקרות ואמצעי מניעה",
+      "body": "בקרות ואמצעי מניעה",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 6
+    },
+    {
+      "id": "lesson-01-block-07",
+      "type": "paragraph",
+      "title": "טבלאות ותרשימים ללמידה",
+      "body": "במבחן חשוב להסביר מה עושים בכל שלב ולא רק למנות את השלבים.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 7
+    },
+    {
+      "id": "lesson-01-block-08",
+      "type": "paragraph",
+      "title": "חידוד מקצועי: שפת הבטיחות מהשיעור",
+      "body": "השפה המקצועית בשיעור זה נועדה למנוע בלבול בין מקור חובה, מסמך פנימי, סיכון בשטח ואירוע שכבר התרחש. כאשר משתמשים במונחים באופן מדויק, קל יותר להחליט מי אחראי, מה צריך לתעד, ומהי הבקרה הנכונה.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 8
+    },
+    {
+      "id": "lesson-01-block-09",
+      "type": "paragraph",
+      "title": "שאלות מבחן – שיעור זה",
+      "body": "השאלות הבאות משויכות לנושא המפגש בלבד ומופיעות גם בעמוד שאלות למבחן.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 9
+    },
+    {
+      "id": "lesson-01-block-10",
+      "type": "paragraph",
+      "title": "1. נושאי השיעור",
+      "body": "1. נושאי השיעור",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 10
+    },
+    {
+      "id": "lesson-01-block-11",
+      "type": "paragraph",
+      "title": "2. הגדרת חוק",
+      "body": "חוק (מונח משפטי המגדיר מהו חוק מדינה) הוא הוראה רשמית מחייבת , מנוסח בכתב, באופן משפטי אחיד וברור, מחייב את כלל התושבים וניתן לאכיפה.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 11
+    },
+    {
+      "id": "lesson-01-block-12",
+      "type": "paragraph",
+      "title": "3. תקנה / הוראת עבודה / נהלים",
+      "body": "כלל / דרישה חוקתית שיש לפעול על-פיהם.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 12
+    },
+    {
+      "id": "lesson-01-block-13",
+      "type": "paragraph",
+      "title": "4. תקן",
+      "body": "הוא מפרט או שיטה מקובלים , ואף במקרים מסוימים מחייבים, ליישום בתחום מסוים (בתעשייה, בשירותים, וכיו\"ב).",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 13
+    },
+    {
+      "id": "lesson-01-block-14",
+      "type": "paragraph",
+      "title": "5. שני חוקי היסוד בבטיחות - בישראל",
+      "body": "שני חוקי היסוד בבטיחות בישראל ניזונים מהחוקה הבריטית (אנגליה, סקוטלנד, וויילס, צפון אירלנד).",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 14
+    },
+    {
+      "id": "lesson-01-block-15",
+      "type": "paragraph",
+      "title": "6. חוק ה\"מי\" וחוק ה\"מה\"",
+      "body": "שני חוקים אלה הם הבסיס למערך הבטיחות והגיהות בעבודה במדינת ישראל.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 15
+    },
+    {
+      "id": "lesson-01-block-16",
+      "type": "paragraph",
+      "title": "7. פקודת הבטיחות בעבודה",
+      "body": "7. פקודת הבטיחות בעבודה",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 16
+    },
+    {
+      "id": "lesson-01-block-17",
+      "type": "paragraph",
+      "title": "8. רקע היסטורי",
+      "body": "פקודת הבטיחות בעבודה היא חוק ארכאי :",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 17
+    },
+    {
+      "id": "lesson-01-block-18",
+      "type": "paragraph",
+      "title": "9. חוק ארגון הפיקוח על העבודה",
+      "body": "מבנה החוק:",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 18
+    },
+    {
+      "id": "lesson-01-block-19",
+      "type": "paragraph",
+      "title": "10. מושגי יסוד בבטיחות",
+      "body": "10. מושגי יסוד בבטיחות",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 19
+    },
+    {
+      "id": "lesson-01-block-20",
+      "type": "paragraph",
+      "title": "11. סיכון",
+      "body": "סיכון - תחום או מצב לא בטוח. הדבר מהווה בעיה בטיחותית שאינה ניתנת לסילוק מוחלט .",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 20
+    },
+    {
+      "id": "lesson-01-block-21",
+      "type": "paragraph",
+      "title": "12. מפגע",
+      "body": "ליקוי / מחדל בטיחותי שנוצר במקום העבודה, העלול לגרום נזק לאדם, לרכוש או לסביבה וניתן לסילוק מוחלט, עם איתורו .",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 21
+    },
+    {
+      "id": "lesson-01-block-22",
+      "type": "paragraph",
+      "title": "13. תאונת עבודה - הגורמים",
+      "body": "העובד.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 22
+    },
+    {
+      "id": "lesson-01-block-23",
+      "type": "paragraph",
+      "title": "14. גורם סיכון ותקרית",
+      "body": "גורם שיש בו פוטנציאל לגרימת פגיעה בבריאות או נזק אחר לאדם, לרכוש או לסביבה.",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 23
+    },
+    {
+      "id": "lesson-01-block-24",
+      "type": "paragraph",
+      "title": "15. הגדרת תאונת עבודה",
+      "body": "אירוע פתאומי , בו נפגע עובד:",
+      "sourceSelector": "section.lesson-section, section.content-section",
+      "order": 24
+    }
+  ],
+  "warnings": []
+}
