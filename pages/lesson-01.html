@@ -1064,6 +1064,21 @@
 <script type="module" src="../js/auth.js"></script>
   <script src="../js/accessibility.js"></script>
   <script src="../js/lesson-source-hub.js"></script>
+  <script src="../js/dynamic-content-flags.js"></script>
+  <script src="../js/dynamic-content-loader.js"></script>
+  <script>
+    (function initLesson01DynamicLoaderProbe() {
+      'use strict';
+
+      if (!window.DynamicContentLoader) {
+        return;
+      }
+
+      window.DynamicContentLoader.loadDynamicContent('lesson-01', function staticFallback() {
+        return null;
+      });
+    })();
+  </script>
   <script src="../js/lesson-ui.js" defer></script>
 </body>
 </html>
