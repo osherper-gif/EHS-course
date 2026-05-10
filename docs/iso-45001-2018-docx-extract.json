@@ -1,0 +1,4568 @@
+{
+  "source": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\2.ארגון מערך הבטיחות\\ISO-45001-first-edition_2018.docx",
+  "paragraphCount": 650,
+  "tableCount": 22,
+  "blocks": [
+    {
+      "type": "paragraph",
+      "index": 1,
+      "style": "Normal",
+      "text": "📘 סיכום מורחב — ת״י ISO 45001:2018"
+    },
+    {
+      "type": "paragraph",
+      "index": 2,
+      "style": "Normal",
+      "text": "מערכות ניהול בטיחות ובריאות בתעסוקה — דרישות והנחיות לשימוש"
+    },
+    {
+      "type": "paragraph",
+      "index": 3,
+      "style": "Normal",
+      "text": "מבוסס על התקן המצורף: ת״י 45001:2018, שהוא תרגום עברי זהה לתקן הבין־לאומי ISO 45001:2018, ובא במקום ת״י 18001/OHSAS 18001 הישן ."
+    },
+    {
+      "type": "paragraph",
+      "index": 5,
+      "style": "Normal",
+      "text": "1. מהות התקן"
+    },
+    {
+      "type": "paragraph",
+      "index": 6,
+      "style": "Normal",
+      "text": "ISO 45001 הוא תקן למערכת ניהול בטיחות ובריאות בתעסוקה. הוא אינו רק “רשימת בדיקות”, אלא שיטה ניהולית מלאה שמטרתה לאפשר לארגון לנהל סיכוני בטיחות ובריאות, למנוע פציעה ופגיעה בבריאות, לשפר ביצועים ולעמוד בדרישות דין ודרישות אחרות."
+    },
+    {
+      "type": "paragraph",
+      "index": 7,
+      "style": "Normal",
+      "text": "ציטוט קצר מהתקן"
+    },
+    {
+      "type": "paragraph",
+      "index": 8,
+      "style": "Normal",
+      "text": "“תקן זה קובע דרישות למערכת ניהול בטיחות ובריאות בתעסוקה... כדי לאפשר לארגונים לספק מקומות עבודה בטוחים ובריאים...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 9,
+      "style": "Normal",
+      "text": "הסבר לממונה בטיחות"
+    },
+    {
+      "type": "paragraph",
+      "index": 10,
+      "style": "Normal",
+      "text": "התקן לא מחליף חוק, תקנות או פקודות. להפך — הוא מחייב את הארגון לזהות את הדרישות החוקיות החלות עליו ולנהל אותן כחלק ממערכת הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 11,
+      "style": "Normal",
+      "text": "חוק / פקודה / תקנה"
+    },
+    {
+      "type": "paragraph",
+      "index": 12,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 13,
+      "style": "Normal",
+      "text": "דרישות חובה"
+    },
+    {
+      "type": "paragraph",
+      "index": 14,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 15,
+      "style": "Normal",
+      "text": "ISO 45001"
+    },
+    {
+      "type": "paragraph",
+      "index": 16,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 17,
+      "style": "Normal",
+      "text": "שיטה ניהולית לוודא שהדרישות מזוהות, מיושמות, נבדקות ומשתפרות"
+    },
+    {
+      "type": "paragraph",
+      "index": 19,
+      "style": "Normal",
+      "text": "2. מטרת מערכת ניהול בטיחות ובריאות בתעסוקה"
+    },
+    {
+      "type": "paragraph",
+      "index": 20,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 21,
+      "style": "Normal",
+      "text": "“מטרתה של מערכת ניהול בב״ת היא לספק מסגרת לניהול סיכונים והזדמנויות בתחום הבב״ת.”"
+    },
+    {
+      "type": "paragraph",
+      "index": 22,
+      "style": "Normal",
+      "text": "הסבר"
+    },
+    {
+      "type": "paragraph",
+      "index": 23,
+      "style": "Normal",
+      "text": "התקן מתמקד בשני כיוונים:"
+    },
+    {
+      "type": "paragraph",
+      "index": 24,
+      "style": "Normal",
+      "text": "כלומר, הארגון לא אמור לפעול רק אחרי תאונות. הוא צריך לזהות מראש מה עלול להשתבש, ולבנות מערכת שמונעת זאת."
+    },
+    {
+      "type": "paragraph",
+      "index": 25,
+      "style": "Normal",
+      "text": "דוגמה"
+    },
+    {
+      "type": "paragraph",
+      "index": 26,
+      "style": "Normal",
+      "text": "במפעל שבו יש מלגזות, התקן לא מסתפק בשאלה “האם הייתה תאונה?”. הוא דורש לבדוק:"
+    },
+    {
+      "type": "paragraph",
+      "index": 27,
+      "style": "Normal",
+      "text": "האם זוהו מסלולי נסיעה והולכי רגל?"
+    },
+    {
+      "type": "paragraph",
+      "index": 28,
+      "style": "Normal",
+      "text": "האם קיימים סיכונים בממשק בין מלגזה לעובדים?"
+    },
+    {
+      "type": "paragraph",
+      "index": 29,
+      "style": "Normal",
+      "text": "האם יש נוהל?"
+    },
+    {
+      "type": "paragraph",
+      "index": 30,
+      "style": "Normal",
+      "text": "האם הנהגים כשירים?"
+    },
+    {
+      "type": "paragraph",
+      "index": 31,
+      "style": "Normal",
+      "text": "האם יש תצפיות?"
+    },
+    {
+      "type": "paragraph",
+      "index": 32,
+      "style": "Normal",
+      "text": "האם אירועי כמעט תאונה מדווחים?"
+    },
+    {
+      "type": "paragraph",
+      "index": 33,
+      "style": "Normal",
+      "text": "האם יש מדדים?"
+    },
+    {
+      "type": "paragraph",
+      "index": 34,
+      "style": "Normal",
+      "text": "האם ההנהלה סוקרת את הביצועים?"
+    },
+    {
+      "type": "paragraph",
+      "index": 36,
+      "style": "Normal",
+      "text": "3. מחזור PDCA — תכנן, בצע, בדוק, פעל"
+    },
+    {
+      "type": "paragraph",
+      "index": 37,
+      "style": "Normal",
+      "text": "התקן מבוסס על מחזור שיפור מתמיד: Plan–Do–Check–Act. בתקן מופיע תרשים שמחבר בין PDCA לבין סעיפי התקן: הקשר הארגון, מנהיגות ושיתוף עובדים במרכז, סביבם תכנון, תמיכה ותפעול, הערכת ביצועים ושיפור ."
+    },
+    {
+      "type": "paragraph",
+      "index": 38,
+      "style": "Normal",
+      "text": "תכנן PLAN"
+    },
+    {
+      "type": "paragraph",
+      "index": 39,
+      "style": "Normal",
+      "text": "זיהוי סיכונים, דרישות דין, מטרות ותוכניות"
+    },
+    {
+      "type": "paragraph",
+      "index": 40,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 41,
+      "style": "Normal",
+      "text": "בצע DO"
+    },
+    {
+      "type": "paragraph",
+      "index": 42,
+      "style": "Normal",
+      "text": "יישום בקרות, הדרכות, תפעול, חירום, רכש וקבלנים"
+    },
+    {
+      "type": "paragraph",
+      "index": 43,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 44,
+      "style": "Normal",
+      "text": "בדוק CHECK"
+    },
+    {
+      "type": "paragraph",
+      "index": 45,
+      "style": "Normal",
+      "text": "ניטור, מדידה, מבדקים, הערכת עמידה בדרישות"
+    },
+    {
+      "type": "paragraph",
+      "index": 46,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 47,
+      "style": "Normal",
+      "text": "פעל ACT"
+    },
+    {
+      "type": "paragraph",
+      "index": 48,
+      "style": "Normal",
+      "text": "פעולה מתקנת, חקירת אירועים, שיפור מתמיד"
+    },
+    {
+      "type": "paragraph",
+      "index": 49,
+      "style": "Normal",
+      "text": "דוגמה בשטח"
+    },
+    {
+      "type": "paragraph",
+      "index": 51,
+      "style": "Normal",
+      "text": "4. חלות התקן"
+    },
+    {
+      "type": "paragraph",
+      "index": 52,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 53,
+      "style": "Normal",
+      "text": "“תקן זה ישים לכל ארגון, ללא תלות בגודל, בסוג ובפעילויות שלו.”"
+    },
+    {
+      "type": "paragraph",
+      "index": 54,
+      "style": "Normal",
+      "text": "הסבר"
+    },
+    {
+      "type": "paragraph",
+      "index": 55,
+      "style": "Normal",
+      "text": "התקן מתאים לכל ארגון:"
+    },
+    {
+      "type": "paragraph",
+      "index": 56,
+      "style": "Normal",
+      "text": "מפעל."
+    },
+    {
+      "type": "paragraph",
+      "index": 57,
+      "style": "Normal",
+      "text": "אתר בנייה."
+    },
+    {
+      "type": "paragraph",
+      "index": 58,
+      "style": "Normal",
+      "text": "מעבדה."
+    },
+    {
+      "type": "paragraph",
+      "index": 59,
+      "style": "Normal",
+      "text": "מחסן."
+    },
+    {
+      "type": "paragraph",
+      "index": 60,
+      "style": "Normal",
+      "text": "בית חולים."
+    },
+    {
+      "type": "paragraph",
+      "index": 61,
+      "style": "Normal",
+      "text": "חברת שירותים."
+    },
+    {
+      "type": "paragraph",
+      "index": 62,
+      "style": "Normal",
+      "text": "רשות מקומית."
+    },
+    {
+      "type": "paragraph",
+      "index": 63,
+      "style": "Normal",
+      "text": "מוסד חינוכי."
+    },
+    {
+      "type": "paragraph",
+      "index": 64,
+      "style": "Normal",
+      "text": "חברת הייטק עם מעבדות או שטח תפעולי."
+    },
+    {
+      "type": "paragraph",
+      "index": 65,
+      "style": "Normal",
+      "text": "התקן אינו קובע דרישות טכניות כמו “בדיקת מעלית כל 6 חודשים” או “אביזרי הרמה כל 6 חודשים”. הדרישות האלה מגיעות מהחוק והתקנות. התקן דורש שהארגון יזהה את הדרישות האלה, ינהל אותן, יוודא עמידה בהן וישמור מידע מתועד."
+    },
+    {
+      "type": "paragraph",
+      "index": 67,
+      "style": "Normal",
+      "text": "5. מושגים מרכזיים בתקן"
+    },
+    {
+      "type": "paragraph",
+      "index": 68,
+      "style": "Normal",
+      "text": "5.1 גורם סיכון"
+    },
+    {
+      "type": "paragraph",
+      "index": 69,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 70,
+      "style": "Normal",
+      "text": "“גורם סיכון — מקור בעל פוטנציאל לגרום פציעה ופגיעה בבריאות.”"
+    },
+    {
+      "type": "paragraph",
+      "index": 71,
+      "style": "Normal",
+      "text": "הסבר"
+    },
+    {
+      "type": "paragraph",
+      "index": 72,
+      "style": "Normal",
+      "text": "גורם סיכון הוא המקור האפשרי לנזק."
+    },
+    {
+      "type": "paragraph",
+      "index": 73,
+      "style": "Normal",
+      "text": "דוגמאות:"
+    },
+    {
+      "type": "paragraph",
+      "index": 74,
+      "style": "Normal",
+      "text": "מכונה עם חלק נע."
+    },
+    {
+      "type": "paragraph",
+      "index": 75,
+      "style": "Normal",
+      "text": "עבודה בגובה."
+    },
+    {
+      "type": "paragraph",
+      "index": 76,
+      "style": "Normal",
+      "text": "חומר כימי."
+    },
+    {
+      "type": "paragraph",
+      "index": 77,
+      "style": "Normal",
+      "text": "רעש."
+    },
+    {
+      "type": "paragraph",
+      "index": 78,
+      "style": "Normal",
+      "text": "אבק."
+    },
+    {
+      "type": "paragraph",
+      "index": 79,
+      "style": "Normal",
+      "text": "עומס חום."
+    },
+    {
+      "type": "paragraph",
+      "index": 80,
+      "style": "Normal",
+      "text": "עבודה לבד."
+    },
+    {
+      "type": "paragraph",
+      "index": 81,
+      "style": "Normal",
+      "text": "לחץ עבודה חריג."
+    },
+    {
+      "type": "paragraph",
+      "index": 82,
+      "style": "Normal",
+      "text": "קבלן לא מוכשר."
+    },
+    {
+      "type": "paragraph",
+      "index": 83,
+      "style": "Normal",
+      "text": "מלגזה באזור הולכי רגל."
+    },
+    {
+      "type": "paragraph",
+      "index": 85,
+      "style": "Normal",
+      "text": "5.2 סיכון בב״ת"
+    },
+    {
+      "type": "paragraph",
+      "index": 86,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 87,
+      "style": "Normal",
+      "text": "“שילוב של הסבירות להתרחשות אירועים מסוכנים... עם חומרת הפציעה והפגיעה בבריאות...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 88,
+      "style": "Normal",
+      "text": "הסבר"
+    },
+    {
+      "type": "paragraph",
+      "index": 89,
+      "style": "Normal",
+      "text": "סיכון הוא לא רק “מה עלול לקרות”, אלא שילוב של:"
+    },
+    {
+      "type": "paragraph",
+      "index": 90,
+      "style": "Normal",
+      "text": "סיכון = סבירות × חומרה"
+    },
+    {
+      "type": "paragraph",
+      "index": 91,
+      "style": "Normal",
+      "text": "דוגמה:"
+    },
+    {
+      "type": "paragraph",
+      "index": 92,
+      "style": "Normal",
+      "text": "גורם סיכון: עבודה על גג."
+    },
+    {
+      "type": "paragraph",
+      "index": 93,
+      "style": "Normal",
+      "text": "אירוע מסוכן: נפילה."
+    },
+    {
+      "type": "paragraph",
+      "index": 94,
+      "style": "Normal",
+      "text": "חומרה: מוות או פציעה קשה."
+    },
+    {
+      "type": "paragraph",
+      "index": 95,
+      "style": "Normal",
+      "text": "סבירות: תלויה בגידור, רתמה, הדרכה, תנאי מזג אוויר ופיקוח."
+    },
+    {
+      "type": "paragraph",
+      "index": 97,
+      "style": "Normal",
+      "text": "5.3 תקרית בטיחות"
+    },
+    {
+      "type": "paragraph",
+      "index": 98,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 99,
+      "style": "Normal",
+      "text": "“התרחשות הנגרמת בשל העבודה או במהלכה, העלולה להוביל, או המובילה, לפציעה או פגיעה בבריאות.”"
+    },
+    {
+      "type": "paragraph",
+      "index": 100,
+      "style": "Normal",
+      "text": "הסבר"
+    },
+    {
+      "type": "paragraph",
+      "index": 101,
+      "style": "Normal",
+      "text": "תקרית בטיחות כוללת גם תאונה וגם כמעט תאונה."
+    },
+    {
+      "type": "paragraph",
+      "index": 102,
+      "style": "Normal",
+      "text": "התקן דורש להתייחס גם לכמעט תאונה, כי היא הזדמנות למנוע תאונה אמיתית."
+    },
+    {
+      "type": "paragraph",
+      "index": 104,
+      "style": "Normal",
+      "text": "6. סעיף 4 — הקשר הארגון"
+    },
+    {
+      "type": "paragraph",
+      "index": 105,
+      "style": "Normal",
+      "text": "הארגון חייב להבין את ההקשר שבו הוא פועל: פנימי וחיצוני."
+    },
+    {
+      "type": "paragraph",
+      "index": 106,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 107,
+      "style": "Normal",
+      "text": "“הארגון יקבע נושאים חיצוניים ופנימיים הרלוונטיים לייעודו...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 108,
+      "style": "Normal",
+      "text": "הסבר"
+    },
+    {
+      "type": "paragraph",
+      "index": 109,
+      "style": "Normal",
+      "text": "התקן דורש להבין מה משפיע על מערכת הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 110,
+      "style": "Normal",
+      "text": "דוגמאות לנושאים חיצוניים"
+    },
+    {
+      "type": "paragraph",
+      "index": 111,
+      "style": "Normal",
+      "text": "דוגמאות לנושאים פנימיים"
+    },
+    {
+      "type": "paragraph",
+      "index": 112,
+      "style": "Normal",
+      "text": "דגש לממונה בטיחות"
+    },
+    {
+      "type": "paragraph",
+      "index": 113,
+      "style": "Normal",
+      "text": "ממונה בטיחות צריך לתרגם את “הקשר הארגון” לרשימת סיכונים והזדמנויות. לדוגמה: אם יש הרבה עובדים זמניים — נדרש חיזוק תהליך קליטה והדרכה."
+    },
+    {
+      "type": "paragraph",
+      "index": 115,
+      "style": "Normal",
+      "text": "7. מחזיקי עניין"
+    },
+    {
+      "type": "paragraph",
+      "index": 116,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 117,
+      "style": "Normal",
+      "text": "“הארגון יקבע... מיהם מחזיקי העניין... ומהם הצרכים והציפיות הרלוונטיים...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 118,
+      "style": "Normal",
+      "text": "הסבר"
+    },
+    {
+      "type": "paragraph",
+      "index": 119,
+      "style": "Normal",
+      "text": "מחזיקי עניין הם כל מי שמשפיע או מושפע מהבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 121,
+      "style": "Normal",
+      "text": "8. תחום החלות של המערכת"
+    },
+    {
+      "type": "paragraph",
+      "index": 122,
+      "style": "Normal",
+      "text": "הארגון צריך להגדיר מה כלול במערכת ניהול הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 123,
+      "style": "Normal",
+      "text": "דוגמה לתחום חלות טוב"
+    },
+    {
+      "type": "paragraph",
+      "index": 124,
+      "style": "Normal",
+      "text": "מערכת ניהול הבטיחות חלה על כלל פעילות הייצור, האחזקה, המחסן,"
+    },
+    {
+      "type": "paragraph",
+      "index": 125,
+      "style": "Normal",
+      "text": "המעבדות, עבודות הקבלנים, עבודות התחזוקה והפעילות הלוגיסטית באתר החברה."
+    },
+    {
+      "type": "paragraph",
+      "index": 126,
+      "style": "Normal",
+      "text": "טעות נפוצה"
+    },
+    {
+      "type": "paragraph",
+      "index": 127,
+      "style": "Normal",
+      "text": "להוציא מתחום החלות אזור מסוכן כדי “להקל” על ההתעדה."
+    },
+    {
+      "type": "paragraph",
+      "index": 128,
+      "style": "Normal",
+      "text": "התקן מבהיר שתחום החלות לא אמור לשמש כדי להתחמק מפעילויות שיש להן השפעה על ביצועי הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 130,
+      "style": "Normal",
+      "text": "9. סעיף 5 — מנהיגות ושיתוף עובדים"
+    },
+    {
+      "type": "paragraph",
+      "index": 131,
+      "style": "Normal",
+      "text": "9.1 מנהיגות ומחויבות ההנהלה"
+    },
+    {
+      "type": "paragraph",
+      "index": 132,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 133,
+      "style": "Normal",
+      "text": "“ההנהלה הבכירה תוכיח מנהיגות ומחויבות...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 134,
+      "style": "Normal",
+      "text": "התקן דורש מההנהלה:"
+    },
+    {
+      "type": "paragraph",
+      "index": 135,
+      "style": "Normal",
+      "text": "לשאת באחריות כוללת."
+    },
+    {
+      "type": "paragraph",
+      "index": 136,
+      "style": "Normal",
+      "text": "להבטיח מדיניות ומטרות."
+    },
+    {
+      "type": "paragraph",
+      "index": 137,
+      "style": "Normal",
+      "text": "לשלב בטיחות בתהליכים העסקיים."
+    },
+    {
+      "type": "paragraph",
+      "index": 138,
+      "style": "Normal",
+      "text": "לספק משאבים."
+    },
+    {
+      "type": "paragraph",
+      "index": 139,
+      "style": "Normal",
+      "text": "לקדם תרבות בטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 140,
+      "style": "Normal",
+      "text": "להגן על עובדים שמדווחים."
+    },
+    {
+      "type": "paragraph",
+      "index": 141,
+      "style": "Normal",
+      "text": "לתמוך בוועדות בטיחות ובריאות."
+    },
+    {
+      "type": "paragraph",
+      "index": 142,
+      "style": "Normal",
+      "text": "דגש חשוב"
+    },
+    {
+      "type": "paragraph",
+      "index": 143,
+      "style": "Normal",
+      "text": "אפשר להאציל סמכות."
+    },
+    {
+      "type": "paragraph",
+      "index": 144,
+      "style": "Normal",
+      "text": "אי אפשר להאציל אחריות כוללת."
+    },
+    {
+      "type": "paragraph",
+      "index": 145,
+      "style": "Normal",
+      "text": "גם אם יש ממונה בטיחות, ההנהלה הבכירה עדיין נושאת באחריות למערכת."
+    },
+    {
+      "type": "paragraph",
+      "index": 147,
+      "style": "Normal",
+      "text": "9.2 מדיניות בטיחות ובריאות בתעסוקה"
+    },
+    {
+      "type": "paragraph",
+      "index": 148,
+      "style": "Normal",
+      "text": "המדיניות צריכה לכלול מחויבות:"
+    },
+    {
+      "type": "paragraph",
+      "index": 149,
+      "style": "Normal",
+      "text": "לספק תנאי עבודה בטוחים ובריאים."
+    },
+    {
+      "type": "paragraph",
+      "index": 150,
+      "style": "Normal",
+      "text": "לעמוד בדרישות דין ודרישות אחרות."
+    },
+    {
+      "type": "paragraph",
+      "index": 151,
+      "style": "Normal",
+      "text": "לסלק גורמי סיכון ולצמצם סיכונים."
+    },
+    {
+      "type": "paragraph",
+      "index": 152,
+      "style": "Normal",
+      "text": "לשיפור מתמיד."
+    },
+    {
+      "type": "paragraph",
+      "index": 153,
+      "style": "Normal",
+      "text": "להתייעצות עם עובדים ולשיתופם."
+    },
+    {
+      "type": "paragraph",
+      "index": 154,
+      "style": "Normal",
+      "text": "דוגמה למדיניות טובה"
+    },
+    {
+      "type": "paragraph",
+      "index": 155,
+      "style": "Normal",
+      "text": "הארגון מחויב לספק סביבת עבודה בטוחה ובריאה,"
+    },
+    {
+      "type": "paragraph",
+      "index": 156,
+      "style": "Normal",
+      "text": "למנוע פציעה ופגיעה בבריאות,"
+    },
+    {
+      "type": "paragraph",
+      "index": 157,
+      "style": "Normal",
+      "text": "לעמוד בדרישות הדין והדרישות האחרות החלות עליו,"
+    },
+    {
+      "type": "paragraph",
+      "index": 158,
+      "style": "Normal",
+      "text": "לסלק גורמי סיכון ולצמצם סיכוני בטיחות ובריאות,"
+    },
+    {
+      "type": "paragraph",
+      "index": 159,
+      "style": "Normal",
+      "text": "לשתף עובדים בתהליכי הבטיחות,"
+    },
+    {
+      "type": "paragraph",
+      "index": 160,
+      "style": "Normal",
+      "text": "ולשפר בהתמדה את ביצועי מערכת ניהול הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 161,
+      "style": "Normal",
+      "text": "טבלת ניסוחים"
+    },
+    {
+      "type": "paragraph",
+      "index": 163,
+      "style": "Normal",
+      "text": "10. סעיף 5.4 — התייעצות עם עובדים ושיתוף עובדים"
+    },
+    {
+      "type": "paragraph",
+      "index": 164,
+      "style": "Normal",
+      "text": "זה אחד הסעיפים החשובים ביותר בתקן."
+    },
+    {
+      "type": "paragraph",
+      "index": 165,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 166,
+      "style": "Normal",
+      "text": "“הארגון יקבע, יישם ויתחזק תהליכים להתייעצות עם עובדים ולשיתוף עובדים...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 167,
+      "style": "Normal",
+      "text": "ההבדל בין התייעצות לשיתוף"
+    },
+    {
+      "type": "paragraph",
+      "index": 168,
+      "style": "Normal",
+      "text": "דוגמאות להתייעצות"
+    },
+    {
+      "type": "paragraph",
+      "index": 169,
+      "style": "Normal",
+      "text": "לפני שינוי נוהל עבודה."
+    },
+    {
+      "type": "paragraph",
+      "index": 170,
+      "style": "Normal",
+      "text": "לפני קביעת מטרות בטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 171,
+      "style": "Normal",
+      "text": "לפני קביעת אופן עמידה בדרישות חוק."
+    },
+    {
+      "type": "paragraph",
+      "index": 172,
+      "style": "Normal",
+      "text": "לפני בחירת בקרות לקבלנים."
+    },
+    {
+      "type": "paragraph",
+      "index": 173,
+      "style": "Normal",
+      "text": "דוגמאות לשיתוף"
+    },
+    {
+      "type": "paragraph",
+      "index": 174,
+      "style": "Normal",
+      "text": "זיהוי גורמי סיכון."
+    },
+    {
+      "type": "paragraph",
+      "index": 175,
+      "style": "Normal",
+      "text": "הערכת סיכונים."
+    },
+    {
+      "type": "paragraph",
+      "index": 176,
+      "style": "Normal",
+      "text": "בחירת אמצעי בקרה."
+    },
+    {
+      "type": "paragraph",
+      "index": 177,
+      "style": "Normal",
+      "text": "חקירת אירועי בטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 178,
+      "style": "Normal",
+      "text": "קביעת פעולות מתקנות."
+    },
+    {
+      "type": "paragraph",
+      "index": 179,
+      "style": "Normal",
+      "text": "דגש לממונה בטיחות"
+    },
+    {
+      "type": "paragraph",
+      "index": 180,
+      "style": "Normal",
+      "text": "ממונה בטיחות טוב לא רק “בודק את העובדים”, אלא לומד מהם. העובד יודע איך העבודה מתבצעת בפועל, ולא רק איך היא כתובה בנוהל."
+    },
+    {
+      "type": "paragraph",
+      "index": 182,
+      "style": "Normal",
+      "text": "11. סעיף 6 — תכנון"
+    },
+    {
+      "type": "paragraph",
+      "index": 183,
+      "style": "Normal",
+      "text": "11.1 זיהוי סיכונים והזדמנויות"
+    },
+    {
+      "type": "paragraph",
+      "index": 184,
+      "style": "Normal",
+      "text": "הארגון צריך לזהות:"
+    },
+    {
+      "type": "paragraph",
+      "index": 185,
+      "style": "Normal",
+      "text": "גורמי סיכון."
+    },
+    {
+      "type": "paragraph",
+      "index": 186,
+      "style": "Normal",
+      "text": "סיכוני בטיחות ובריאות."
+    },
+    {
+      "type": "paragraph",
+      "index": 187,
+      "style": "Normal",
+      "text": "הזדמנויות לשיפור."
+    },
+    {
+      "type": "paragraph",
+      "index": 188,
+      "style": "Normal",
+      "text": "דרישות דין ודרישות אחרות."
+    },
+    {
+      "type": "paragraph",
+      "index": 189,
+      "style": "Normal",
+      "text": "תרשים"
+    },
+    {
+      "type": "paragraph",
+      "index": 190,
+      "style": "Normal",
+      "text": "הקשר הארגון"
+    },
+    {
+      "type": "paragraph",
+      "index": 191,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 192,
+      "style": "Normal",
+      "text": "מחזיקי עניין"
+    },
+    {
+      "type": "paragraph",
+      "index": 193,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 194,
+      "style": "Normal",
+      "text": "תחום החלות"
+    },
+    {
+      "type": "paragraph",
+      "index": 195,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 196,
+      "style": "Normal",
+      "text": "זיהוי גורמי סיכון"
+    },
+    {
+      "type": "paragraph",
+      "index": 197,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 198,
+      "style": "Normal",
+      "text": "הערכת סיכונים והזדמנויות"
+    },
+    {
+      "type": "paragraph",
+      "index": 199,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 200,
+      "style": "Normal",
+      "text": "קביעת פעולות"
+    },
+    {
+      "type": "paragraph",
+      "index": 201,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 202,
+      "style": "Normal",
+      "text": "מטרות ותוכניות"
+    },
+    {
+      "type": "paragraph",
+      "index": 204,
+      "style": "Normal",
+      "text": "11.2 זיהוי גורמי סיכון"
+    },
+    {
+      "type": "paragraph",
+      "index": 205,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 206,
+      "style": "Normal",
+      "text": "“הארגון יקבע, יישם ויתחזק תהליכים לזיהוי גורמי סיכון באופן שוטף ופרואקטיבי.”"
+    },
+    {
+      "type": "paragraph",
+      "index": 207,
+      "style": "Normal",
+      "text": "הסבר"
+    },
+    {
+      "type": "paragraph",
+      "index": 208,
+      "style": "Normal",
+      "text": "זיהוי סיכונים אינו אירוע חד־פעמי. הוא צריך להיות מתמשך."
+    },
+    {
+      "type": "paragraph",
+      "index": 209,
+      "style": "Normal",
+      "text": "התקן דורש להביא בחשבון בין היתר:"
+    },
+    {
+      "type": "paragraph",
+      "index": 211,
+      "style": "Normal",
+      "text": "12. דרישות דין ודרישות אחרות"
+    },
+    {
+      "type": "paragraph",
+      "index": 212,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 213,
+      "style": "Normal",
+      "text": "“הארגון יקבע, יישם ויתחזק תהליכים כדי לברר מהן הדרישות-על-פי-דין והדרישות האחרות העדכניות...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 214,
+      "style": "Normal",
+      "text": "הסבר"
+    },
+    {
+      "type": "paragraph",
+      "index": 215,
+      "style": "Normal",
+      "text": "זה הסעיף שמחבר בין התקן לבין החקיקה."
+    },
+    {
+      "type": "paragraph",
+      "index": 216,
+      "style": "Normal",
+      "text": "דוגמאות לדרישות דין בישראל"
+    },
+    {
+      "type": "paragraph",
+      "index": 217,
+      "style": "Normal",
+      "text": "דגש לממונה"
+    },
+    {
+      "type": "paragraph",
+      "index": 218,
+      "style": "Normal",
+      "text": "ממונה בטיחות צריך להחזיק מרשם דרישות דין:"
+    },
+    {
+      "type": "paragraph",
+      "index": 220,
+      "style": "Normal",
+      "text": "13. מטרות בטיחות ובריאות"
+    },
+    {
+      "type": "paragraph",
+      "index": 221,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 222,
+      "style": "Normal",
+      "text": "“הארגון יקבע מטרות בב״ת בפונקציות וברמות הרלוונטיות...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 223,
+      "style": "Normal",
+      "text": "מטרות צריכות להיות"
+    },
+    {
+      "type": "paragraph",
+      "index": 224,
+      "style": "Normal",
+      "text": "דוגמאות למטרות טובות"
+    },
+    {
+      "type": "paragraph",
+      "index": 225,
+      "style": "Normal",
+      "text": "טעות נפוצה"
+    },
+    {
+      "type": "paragraph",
+      "index": 226,
+      "style": "Normal",
+      "text": "מטרה כמו “אפס תאונות” יכולה להיות חזון, אבל כיעד ניהולי צריך גם מטרות תפעוליות שמקדמות אותו: הדרכות, בקרות, סגירת מפגעים, תצפיות, פעולות מתקנות."
+    },
+    {
+      "type": "paragraph",
+      "index": 228,
+      "style": "Normal",
+      "text": "14. סעיף 7 — תמיכה"
+    },
+    {
+      "type": "paragraph",
+      "index": 229,
+      "style": "Normal",
+      "text": "14.1 משאבים"
+    },
+    {
+      "type": "paragraph",
+      "index": 230,
+      "style": "Normal",
+      "text": "הארגון חייב לספק משאבים למערכת הבטיחות:"
+    },
+    {
+      "type": "paragraph",
+      "index": 231,
+      "style": "Normal",
+      "text": "כוח אדם."
+    },
+    {
+      "type": "paragraph",
+      "index": 232,
+      "style": "Normal",
+      "text": "זמן."
+    },
+    {
+      "type": "paragraph",
+      "index": 233,
+      "style": "Normal",
+      "text": "תקציב."
+    },
+    {
+      "type": "paragraph",
+      "index": 234,
+      "style": "Normal",
+      "text": "ציוד."
+    },
+    {
+      "type": "paragraph",
+      "index": 235,
+      "style": "Normal",
+      "text": "מערכות מידע."
+    },
+    {
+      "type": "paragraph",
+      "index": 236,
+      "style": "Normal",
+      "text": "יועצים."
+    },
+    {
+      "type": "paragraph",
+      "index": 237,
+      "style": "Normal",
+      "text": "הכשרות."
+    },
+    {
+      "type": "paragraph",
+      "index": 238,
+      "style": "Normal",
+      "text": "מערכות חירום."
+    },
+    {
+      "type": "paragraph",
+      "index": 239,
+      "style": "Normal",
+      "text": "דוגמה"
+    },
+    {
+      "type": "paragraph",
+      "index": 240,
+      "style": "Normal",
+      "text": "אם סקר סיכונים מצא צורך במערכת יניקה מקומית, אך ההנהלה לא מקצה תקציב — מערכת הניהול אינה אפקטיבית."
+    },
+    {
+      "type": "paragraph",
+      "index": 242,
+      "style": "Normal",
+      "text": "14.2 כשירות"
+    },
+    {
+      "type": "paragraph",
+      "index": 243,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 244,
+      "style": "Normal",
+      "text": "“הארגון... יבטיח שהעובדים כשירים... על בסיס של השכלה, הדרכה או ניסיון נאותים.”"
+    },
+    {
+      "type": "paragraph",
+      "index": 245,
+      "style": "Normal",
+      "text": "הסבר"
+    },
+    {
+      "type": "paragraph",
+      "index": 246,
+      "style": "Normal",
+      "text": "כשירות אינה רק הדרכה. כשירות היא שילוב של:"
+    },
+    {
+      "type": "paragraph",
+      "index": 247,
+      "style": "Normal",
+      "text": "ידע + מיומנות + ניסיון + הבנה של הסיכונים"
+    },
+    {
+      "type": "paragraph",
+      "index": 248,
+      "style": "Normal",
+      "text": "דוגמה"
+    },
+    {
+      "type": "paragraph",
+      "index": 249,
+      "style": "Normal",
+      "text": "עובד שהשתתף בהדרכת מלגזה אך לא יודע ליישם בפועל — אינו בהכרח כשיר."
+    },
+    {
+      "type": "paragraph",
+      "index": 250,
+      "style": "Normal",
+      "text": "Checklist כשירות"
+    },
+    {
+      "type": "paragraph",
+      "index": 251,
+      "style": "Normal",
+      "text": "האם הוגדרו דרישות כשירות לתפקיד?"
+    },
+    {
+      "type": "paragraph",
+      "index": 252,
+      "style": "Normal",
+      "text": "האם העובד עבר הדרכה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 253,
+      "style": "Normal",
+      "text": "האם נבדקה הבנה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 254,
+      "style": "Normal",
+      "text": "האם יש תיעוד?"
+    },
+    {
+      "type": "paragraph",
+      "index": 255,
+      "style": "Normal",
+      "text": "האם נדרש ריענון?"
+    },
+    {
+      "type": "paragraph",
+      "index": 256,
+      "style": "Normal",
+      "text": "האם השינוי בתפקיד מחייב כשירות חדשה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 258,
+      "style": "Normal",
+      "text": "14.3 מודעות"
+    },
+    {
+      "type": "paragraph",
+      "index": 259,
+      "style": "Normal",
+      "text": "העובדים צריכים להיות מודעים ל:"
+    },
+    {
+      "type": "paragraph",
+      "index": 260,
+      "style": "Normal",
+      "text": "מדיניות הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 261,
+      "style": "Normal",
+      "text": "מטרות הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 262,
+      "style": "Normal",
+      "text": "תרומתם למערכת."
+    },
+    {
+      "type": "paragraph",
+      "index": 263,
+      "style": "Normal",
+      "text": "תוצאות אי עמידה בדרישות."
+    },
+    {
+      "type": "paragraph",
+      "index": 264,
+      "style": "Normal",
+      "text": "תקריות ותוצאות חקירה."
+    },
+    {
+      "type": "paragraph",
+      "index": 265,
+      "style": "Normal",
+      "text": "גורמי סיכון וסיכונים רלוונטיים."
+    },
+    {
+      "type": "paragraph",
+      "index": 266,
+      "style": "Normal",
+      "text": "זכותם להתרחק מסכנה מיידית וחמורה."
+    },
+    {
+      "type": "paragraph",
+      "index": 267,
+      "style": "Normal",
+      "text": "דגש חשוב"
+    },
+    {
+      "type": "paragraph",
+      "index": 268,
+      "style": "Normal",
+      "text": "התקן מציין את יכולת העובדים להתרחק ממצבים שלדעתם מהווים סכנה מיידית וחמורה לחיים או לבריאות, ואת ההסדרים להגנה עליהם מהשלכות לא מוצדקות ."
+    },
+    {
+      "type": "paragraph",
+      "index": 270,
+      "style": "Normal",
+      "text": "15. תקשורת"
+    },
+    {
+      "type": "paragraph",
+      "index": 271,
+      "style": "Normal",
+      "text": "הארגון צריך לקבוע:"
+    },
+    {
+      "type": "paragraph",
+      "index": 272,
+      "style": "Normal",
+      "text": "מה מתקשרים."
+    },
+    {
+      "type": "paragraph",
+      "index": 273,
+      "style": "Normal",
+      "text": "מתי."
+    },
+    {
+      "type": "paragraph",
+      "index": 274,
+      "style": "Normal",
+      "text": "למי."
+    },
+    {
+      "type": "paragraph",
+      "index": 275,
+      "style": "Normal",
+      "text": "איך."
+    },
+    {
+      "type": "paragraph",
+      "index": 276,
+      "style": "Normal",
+      "text": "באיזו שפה."
+    },
+    {
+      "type": "paragraph",
+      "index": 277,
+      "style": "Normal",
+      "text": "באיזו רמת הבנה."
+    },
+    {
+      "type": "paragraph",
+      "index": 278,
+      "style": "Normal",
+      "text": "מי אחראי."
+    },
+    {
+      "type": "paragraph",
+      "index": 279,
+      "style": "Normal",
+      "text": "דוגמה"
+    },
+    {
+      "type": "paragraph",
+      "index": 280,
+      "style": "Normal",
+      "text": "הדרכת בטיחות בעברית לעובדים שאינם קוראים עברית אינה תקשורת אפקטיבית."
+    },
+    {
+      "type": "paragraph",
+      "index": 281,
+      "style": "Normal",
+      "text": "טבלת תקשורת"
+    },
+    {
+      "type": "paragraph",
+      "index": 283,
+      "style": "Normal",
+      "text": "16. מידע מתועד"
+    },
+    {
+      "type": "paragraph",
+      "index": 284,
+      "style": "Normal",
+      "text": "הסבר"
+    },
+    {
+      "type": "paragraph",
+      "index": 285,
+      "style": "Normal",
+      "text": "“מידע מתועד” כולל מסמכים ורשומות:"
+    },
+    {
+      "type": "paragraph",
+      "index": 286,
+      "style": "Normal",
+      "text": "מדיניות."
+    },
+    {
+      "type": "paragraph",
+      "index": 287,
+      "style": "Normal",
+      "text": "נהלים."
+    },
+    {
+      "type": "paragraph",
+      "index": 288,
+      "style": "Normal",
+      "text": "הערכות סיכונים."
+    },
+    {
+      "type": "paragraph",
+      "index": 289,
+      "style": "Normal",
+      "text": "מרשם דרישות דין."
+    },
+    {
+      "type": "paragraph",
+      "index": 290,
+      "style": "Normal",
+      "text": "תוכניות עבודה."
+    },
+    {
+      "type": "paragraph",
+      "index": 291,
+      "style": "Normal",
+      "text": "הדרכות."
+    },
+    {
+      "type": "paragraph",
+      "index": 292,
+      "style": "Normal",
+      "text": "תסקירים."
+    },
+    {
+      "type": "paragraph",
+      "index": 293,
+      "style": "Normal",
+      "text": "מבדקים."
+    },
+    {
+      "type": "paragraph",
+      "index": 294,
+      "style": "Normal",
+      "text": "סקר הנהלה."
+    },
+    {
+      "type": "paragraph",
+      "index": 295,
+      "style": "Normal",
+      "text": "חקירות אירועים."
+    },
+    {
+      "type": "paragraph",
+      "index": 296,
+      "style": "Normal",
+      "text": "פעולות מתקנות."
+    },
+    {
+      "type": "paragraph",
+      "index": 297,
+      "style": "Normal",
+      "text": "דגש"
+    },
+    {
+      "type": "paragraph",
+      "index": 298,
+      "style": "Normal",
+      "text": "מה שלא מתועד — קשה להוכיח."
+    },
+    {
+      "type": "paragraph",
+      "index": 299,
+      "style": "Normal",
+      "text": "מה שלא מבוקר — עלול להיות לא מעודכן."
+    },
+    {
+      "type": "paragraph",
+      "index": 301,
+      "style": "Normal",
+      "text": "17. סעיף 8 — תפעול"
+    },
+    {
+      "type": "paragraph",
+      "index": 302,
+      "style": "Normal",
+      "text": "17.1 בקרה תפעולית"
+    },
+    {
+      "type": "paragraph",
+      "index": 303,
+      "style": "Normal",
+      "text": "הארגון צריך לתכנן ולבקר את התהליכים הדרושים כדי לעמוד בדרישות מערכת הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 304,
+      "style": "Normal",
+      "text": "דוגמאות לבקרות"
+    },
+    {
+      "type": "paragraph",
+      "index": 306,
+      "style": "Normal",
+      "text": "18. מדרג הבקרות"
+    },
+    {
+      "type": "paragraph",
+      "index": 307,
+      "style": "Normal",
+      "text": "זה אחד הנושאים החשובים ביותר בתקן."
+    },
+    {
+      "type": "paragraph",
+      "index": 308,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 309,
+      "style": "Normal",
+      "text": "“הארגון... יתחזק תהליכים לסילוק גורמי סיכון ולהפחתת סיכוני בב״ת באמצעות מדרג הבקרות...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 310,
+      "style": "Normal",
+      "text": "1. סילוק גורם הסיכון"
+    },
+    {
+      "type": "paragraph",
+      "index": 311,
+      "style": "Normal",
+      "text": "2. החלפה בגורם מסוכן פחות"
+    },
+    {
+      "type": "paragraph",
+      "index": 312,
+      "style": "Normal",
+      "text": "3. בקרות הנדסיות וארגון מחדש"
+    },
+    {
+      "type": "paragraph",
+      "index": 313,
+      "style": "Normal",
+      "text": "4. בקרות מנהלתיות והדרכה"
+    },
+    {
+      "type": "paragraph",
+      "index": 314,
+      "style": "Normal",
+      "text": "5. ציוד מגן אישי"
+    },
+    {
+      "type": "paragraph",
+      "index": 315,
+      "style": "Normal",
+      "text": "דוגמה: רעש"
+    },
+    {
+      "type": "paragraph",
+      "index": 316,
+      "style": "Normal",
+      "text": "דגש למבחן"
+    },
+    {
+      "type": "paragraph",
+      "index": 317,
+      "style": "Normal",
+      "text": "ציוד מגן אישי הוא השלב האחרון במדרג, לא הפתרון הראשון."
+    },
+    {
+      "type": "paragraph",
+      "index": 319,
+      "style": "Normal",
+      "text": "19. ניהול שינויים"
+    },
+    {
+      "type": "paragraph",
+      "index": 320,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 321,
+      "style": "Normal",
+      "text": "“הארגון יקבע תהליכים ליישום ולבקרה של שינויים מתוכננים זמניים וקבועים...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 322,
+      "style": "Normal",
+      "text": "דוגמאות לשינויים שמחייבים בדיקת בטיחות"
+    },
+    {
+      "type": "paragraph",
+      "index": 323,
+      "style": "Normal",
+      "text": "ציוד חדש."
+    },
+    {
+      "type": "paragraph",
+      "index": 324,
+      "style": "Normal",
+      "text": "חומר חדש."
+    },
+    {
+      "type": "paragraph",
+      "index": 325,
+      "style": "Normal",
+      "text": "שינוי סידור קו."
+    },
+    {
+      "type": "paragraph",
+      "index": 326,
+      "style": "Normal",
+      "text": "שינוי כוח אדם."
+    },
+    {
+      "type": "paragraph",
+      "index": 327,
+      "style": "Normal",
+      "text": "שינוי שעות עבודה."
+    },
+    {
+      "type": "paragraph",
+      "index": 328,
+      "style": "Normal",
+      "text": "שינוי קבלן."
+    },
+    {
+      "type": "paragraph",
+      "index": 329,
+      "style": "Normal",
+      "text": "שינוי רגולטורי."
+    },
+    {
+      "type": "paragraph",
+      "index": 330,
+      "style": "Normal",
+      "text": "שינוי בטכנולוגיה."
+    },
+    {
+      "type": "paragraph",
+      "index": 331,
+      "style": "Normal",
+      "text": "שינוי תהליך."
+    },
+    {
+      "type": "paragraph",
+      "index": 332,
+      "style": "Normal",
+      "text": "דוגמה"
+    },
+    {
+      "type": "paragraph",
+      "index": 333,
+      "style": "Normal",
+      "text": "מכניסים חומר ניקוי חדש. לפני שימוש צריך לבדוק:"
+    },
+    {
+      "type": "paragraph",
+      "index": 334,
+      "style": "Normal",
+      "text": "גיליון בטיחות SDS."
+    },
+    {
+      "type": "paragraph",
+      "index": 335,
+      "style": "Normal",
+      "text": "סיכוני חשיפה."
+    },
+    {
+      "type": "paragraph",
+      "index": 336,
+      "style": "Normal",
+      "text": "אחסון."
+    },
+    {
+      "type": "paragraph",
+      "index": 337,
+      "style": "Normal",
+      "text": "תגובה עם חומרים קיימים."
+    },
+    {
+      "type": "paragraph",
+      "index": 338,
+      "style": "Normal",
+      "text": "ציוד מגן."
+    },
+    {
+      "type": "paragraph",
+      "index": 339,
+      "style": "Normal",
+      "text": "הדרכת עובדים."
+    },
+    {
+      "type": "paragraph",
+      "index": 340,
+      "style": "Normal",
+      "text": "טיפול בשפך."
+    },
+    {
+      "type": "paragraph",
+      "index": 342,
+      "style": "Normal",
+      "text": "20. רכש, קבלנים ומיקור חוץ"
+    },
+    {
+      "type": "paragraph",
+      "index": 343,
+      "style": "Normal",
+      "text": "20.1 רכש"
+    },
+    {
+      "type": "paragraph",
+      "index": 344,
+      "style": "Normal",
+      "text": "הארגון צריך לוודא שמוצרים ושירותים שנרכשים מתאימים למערכת הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 345,
+      "style": "Normal",
+      "text": "דוגמה"
+    },
+    {
+      "type": "paragraph",
+      "index": 346,
+      "style": "Normal",
+      "text": "לא רוכשים מכונה רק לפי מחיר. בודקים:"
+    },
+    {
+      "type": "paragraph",
+      "index": 347,
+      "style": "Normal",
+      "text": "תקינה."
+    },
+    {
+      "type": "paragraph",
+      "index": 348,
+      "style": "Normal",
+      "text": "מיגונים."
+    },
+    {
+      "type": "paragraph",
+      "index": 349,
+      "style": "Normal",
+      "text": "הוראות יצרן."
+    },
+    {
+      "type": "paragraph",
+      "index": 350,
+      "style": "Normal",
+      "text": "דרישות תחזוקה."
+    },
+    {
+      "type": "paragraph",
+      "index": 351,
+      "style": "Normal",
+      "text": "רעש."
+    },
+    {
+      "type": "paragraph",
+      "index": 352,
+      "style": "Normal",
+      "text": "פליטות."
+    },
+    {
+      "type": "paragraph",
+      "index": 353,
+      "style": "Normal",
+      "text": "הדרכה."
+    },
+    {
+      "type": "paragraph",
+      "index": 354,
+      "style": "Normal",
+      "text": "חלקי חילוף."
+    },
+    {
+      "type": "paragraph",
+      "index": 355,
+      "style": "Normal",
+      "text": "התאמה לעובדים."
+    },
+    {
+      "type": "paragraph",
+      "index": 357,
+      "style": "Normal",
+      "text": "20.2 קבלנים"
+    },
+    {
+      "type": "paragraph",
+      "index": 358,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 359,
+      "style": "Normal",
+      "text": "“הארגון יבטיח שהקבלנים ועובדיהם עומדים בדרישות של מערכת ניהול הבב״ת שלו.”"
+    },
+    {
+      "type": "paragraph",
+      "index": 360,
+      "style": "Normal",
+      "text": "דוגמה"
+    },
+    {
+      "type": "paragraph",
+      "index": 361,
+      "style": "Normal",
+      "text": "קבלן אחזקה שמגיע לבצע ריתוך:"
+    },
+    {
+      "type": "paragraph",
+      "index": 362,
+      "style": "Normal",
+      "text": "אישור עבודה חמה."
+    },
+    {
+      "type": "paragraph",
+      "index": 363,
+      "style": "Normal",
+      "text": "בדיקת אזור."
+    },
+    {
+      "type": "paragraph",
+      "index": 364,
+      "style": "Normal",
+      "text": "מטף."
+    },
+    {
+      "type": "paragraph",
+      "index": 365,
+      "style": "Normal",
+      "text": "השגחה."
+    },
+    {
+      "type": "paragraph",
+      "index": 366,
+      "style": "Normal",
+      "text": "סילוק חומרים דליקים."
+    },
+    {
+      "type": "paragraph",
+      "index": 367,
+      "style": "Normal",
+      "text": "תעודות כשירות."
+    },
+    {
+      "type": "paragraph",
+      "index": 368,
+      "style": "Normal",
+      "text": "תדריך בטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 369,
+      "style": "Normal",
+      "text": "תיאום עם פעילות האתר."
+    },
+    {
+      "type": "paragraph",
+      "index": 370,
+      "style": "Normal",
+      "text": "דגש"
+    },
+    {
+      "type": "paragraph",
+      "index": 371,
+      "style": "Normal",
+      "text": "קבלן אינו “בעיה של מישהו אחר”."
+    },
+    {
+      "type": "paragraph",
+      "index": 372,
+      "style": "Normal",
+      "text": "הארגון חייב לתאם, לבקר ולוודא כשירות."
+    },
+    {
+      "type": "paragraph",
+      "index": 374,
+      "style": "Normal",
+      "text": "21. מוכנות ותגובה לחירום"
+    },
+    {
+      "type": "paragraph",
+      "index": 375,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 376,
+      "style": "Normal",
+      "text": "“הארגון יקבע, יישם ויתחזק את התהליכים הנחוצים כדי להתכונן ולהגיב למצבי חירום פוטנציאליים...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 377,
+      "style": "Normal",
+      "text": "מערכת חירום צריכה לכלול"
+    },
+    {
+      "type": "paragraph",
+      "index": 379,
+      "style": "Normal",
+      "text": "22. סעיף 9 — הערכת ביצועים"
+    },
+    {
+      "type": "paragraph",
+      "index": 380,
+      "style": "Normal",
+      "text": "22.1 ניטור ומדידה"
+    },
+    {
+      "type": "paragraph",
+      "index": 381,
+      "style": "Normal",
+      "text": "הארגון צריך לקבוע:"
+    },
+    {
+      "type": "paragraph",
+      "index": 382,
+      "style": "Normal",
+      "text": "מה מודדים."
+    },
+    {
+      "type": "paragraph",
+      "index": 383,
+      "style": "Normal",
+      "text": "איך מודדים."
+    },
+    {
+      "type": "paragraph",
+      "index": 384,
+      "style": "Normal",
+      "text": "מתי מודדים."
+    },
+    {
+      "type": "paragraph",
+      "index": 385,
+      "style": "Normal",
+      "text": "מי מודד."
+    },
+    {
+      "type": "paragraph",
+      "index": 386,
+      "style": "Normal",
+      "text": "איך מנתחים."
+    },
+    {
+      "type": "paragraph",
+      "index": 387,
+      "style": "Normal",
+      "text": "למי מדווחים."
+    },
+    {
+      "type": "paragraph",
+      "index": 388,
+      "style": "Normal",
+      "text": "מדדים אפשריים"
+    },
+    {
+      "type": "paragraph",
+      "index": 389,
+      "style": "Normal",
+      "text": "דגש חשוב"
+    },
+    {
+      "type": "paragraph",
+      "index": 390,
+      "style": "Normal",
+      "text": "מדד טוב אינו רק “כמה תאונות היו”. מדדים מובילים עוזרים למנוע תאונות לפני שהן קורות."
+    },
+    {
+      "type": "paragraph",
+      "index": 392,
+      "style": "Normal",
+      "text": "22.2 הערכת עמידה בדרישות"
+    },
+    {
+      "type": "paragraph",
+      "index": 393,
+      "style": "Normal",
+      "text": "הארגון חייב לבדוק עמידה בדרישות דין ודרישות אחרות."
+    },
+    {
+      "type": "paragraph",
+      "index": 394,
+      "style": "Normal",
+      "text": "דוגמה"
+    },
+    {
+      "type": "paragraph",
+      "index": 396,
+      "style": "Normal",
+      "text": "23. מבדק פנימי"
+    },
+    {
+      "type": "paragraph",
+      "index": 397,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 398,
+      "style": "Normal",
+      "text": "“הארגון יערוך, בפרקי זמן מתוכננים, מבדקים פנימיים...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 399,
+      "style": "Normal",
+      "text": "מטרת המבדק"
+    },
+    {
+      "type": "paragraph",
+      "index": 400,
+      "style": "Normal",
+      "text": "לבדוק אם מערכת הבטיחות:"
+    },
+    {
+      "type": "paragraph",
+      "index": 401,
+      "style": "Normal",
+      "text": "מתאימה לדרישות התקן."
+    },
+    {
+      "type": "paragraph",
+      "index": 402,
+      "style": "Normal",
+      "text": "מתאימה לדרישות הארגון."
+    },
+    {
+      "type": "paragraph",
+      "index": 403,
+      "style": "Normal",
+      "text": "מיושמת בפועל."
+    },
+    {
+      "type": "paragraph",
+      "index": 404,
+      "style": "Normal",
+      "text": "אפקטיבית."
+    },
+    {
+      "type": "paragraph",
+      "index": 405,
+      "style": "Normal",
+      "text": "דוגמה לממצאי מבדק"
+    },
+    {
+      "type": "paragraph",
+      "index": 407,
+      "style": "Normal",
+      "text": "24. סקר הנהלה"
+    },
+    {
+      "type": "paragraph",
+      "index": 408,
+      "style": "Normal",
+      "text": "סקר הנהלה הוא אחד הכלים המרכזיים שבהם ההנהלה מוכיחה מעורבות."
+    },
+    {
+      "type": "paragraph",
+      "index": 409,
+      "style": "Normal",
+      "text": "בסקר הנהלה יש לבדוק"
+    },
+    {
+      "type": "paragraph",
+      "index": 410,
+      "style": "Normal",
+      "text": "פעולות מסקרים קודמים."
+    },
+    {
+      "type": "paragraph",
+      "index": 411,
+      "style": "Normal",
+      "text": "שינויים פנימיים וחיצוניים."
+    },
+    {
+      "type": "paragraph",
+      "index": 412,
+      "style": "Normal",
+      "text": "דרישות דין."
+    },
+    {
+      "type": "paragraph",
+      "index": 413,
+      "style": "Normal",
+      "text": "סיכונים והזדמנויות."
+    },
+    {
+      "type": "paragraph",
+      "index": 414,
+      "style": "Normal",
+      "text": "השגת מטרות."
+    },
+    {
+      "type": "paragraph",
+      "index": 415,
+      "style": "Normal",
+      "text": "תקריות ואי התאמות."
+    },
+    {
+      "type": "paragraph",
+      "index": 416,
+      "style": "Normal",
+      "text": "תוצאות ניטור."
+    },
+    {
+      "type": "paragraph",
+      "index": 417,
+      "style": "Normal",
+      "text": "תוצאות מבדקים."
+    },
+    {
+      "type": "paragraph",
+      "index": 418,
+      "style": "Normal",
+      "text": "שיתוף עובדים."
+    },
+    {
+      "type": "paragraph",
+      "index": 419,
+      "style": "Normal",
+      "text": "משאבים."
+    },
+    {
+      "type": "paragraph",
+      "index": 420,
+      "style": "Normal",
+      "text": "הזדמנויות לשיפור."
+    },
+    {
+      "type": "paragraph",
+      "index": 421,
+      "style": "Normal",
+      "text": "דגש"
+    },
+    {
+      "type": "paragraph",
+      "index": 422,
+      "style": "Normal",
+      "text": "סקר הנהלה אינו “ישיבת סיכום”. הוא מנגנון קבלת החלטות."
+    },
+    {
+      "type": "paragraph",
+      "index": 423,
+      "style": "Normal",
+      "text": "נתונים → ניתוח → החלטות → משאבים → פעולות → מעקב"
+    },
+    {
+      "type": "paragraph",
+      "index": 425,
+      "style": "Normal",
+      "text": "25. סעיף 10 — שיפור"
+    },
+    {
+      "type": "paragraph",
+      "index": 426,
+      "style": "Normal",
+      "text": "25.1 תקרית בטיחות, אי התאמה ופעולה מתקנת"
+    },
+    {
+      "type": "paragraph",
+      "index": 427,
+      "style": "Normal",
+      "text": "ציטוט קצר"
+    },
+    {
+      "type": "paragraph",
+      "index": 428,
+      "style": "Normal",
+      "text": "“הארגון יקבע, יישם ויתחזק תהליכים, לרבות דיווח, חקירה ונקיטת פעולה...”"
+    },
+    {
+      "type": "paragraph",
+      "index": 429,
+      "style": "Normal",
+      "text": "לאחר אירוע יש לבצע"
+    },
+    {
+      "type": "paragraph",
+      "index": 430,
+      "style": "Normal",
+      "text": "תגובה מיידית"
+    },
+    {
+      "type": "paragraph",
+      "index": 431,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 432,
+      "style": "Normal",
+      "text": "בקרת מצב ותיקון ראשוני"
+    },
+    {
+      "type": "paragraph",
+      "index": 433,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 434,
+      "style": "Normal",
+      "text": "חקירה"
+    },
+    {
+      "type": "paragraph",
+      "index": 435,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 436,
+      "style": "Normal",
+      "text": "זיהוי גורמי שורש"
+    },
+    {
+      "type": "paragraph",
+      "index": 437,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 438,
+      "style": "Normal",
+      "text": "בדיקת אירועים דומים"
+    },
+    {
+      "type": "paragraph",
+      "index": 439,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 440,
+      "style": "Normal",
+      "text": "פעולה מתקנת לפי מדרג הבקרות"
+    },
+    {
+      "type": "paragraph",
+      "index": 441,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 442,
+      "style": "Normal",
+      "text": "בדיקת אפקטיביות"
+    },
+    {
+      "type": "paragraph",
+      "index": 443,
+      "style": "Normal",
+      "text": "↓"
+    },
+    {
+      "type": "paragraph",
+      "index": 444,
+      "style": "Normal",
+      "text": "עדכון מערכת הבטיחות"
+    },
+    {
+      "type": "paragraph",
+      "index": 445,
+      "style": "Normal",
+      "text": "דוגמה"
+    },
+    {
+      "type": "paragraph",
+      "index": 446,
+      "style": "Normal",
+      "text": "אירוע: עובד כמעט נפגע ממלגזה."
+    },
+    {
+      "type": "paragraph",
+      "index": 447,
+      "style": "Normal",
+      "text": "חקירה טובה לא תסתפק ב:\n“העובד לא הסתכל”."
+    },
+    {
+      "type": "paragraph",
+      "index": 448,
+      "style": "Normal",
+      "text": "היא תבדוק:"
+    },
+    {
+      "type": "paragraph",
+      "index": 449,
+      "style": "Normal",
+      "text": "האם יש הפרדת נתיבים?"
+    },
+    {
+      "type": "paragraph",
+      "index": 450,
+      "style": "Normal",
+      "text": "האם הנהג הוכשר?"
+    },
+    {
+      "type": "paragraph",
+      "index": 451,
+      "style": "Normal",
+      "text": "האם יש עומס עבודה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 452,
+      "style": "Normal",
+      "text": "האם יש שדה ראייה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 453,
+      "style": "Normal",
+      "text": "האם יש תאורה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 454,
+      "style": "Normal",
+      "text": "האם הוגדרה זכות קדימה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 455,
+      "style": "Normal",
+      "text": "האם היו אירועים דומים?"
+    },
+    {
+      "type": "paragraph",
+      "index": 456,
+      "style": "Normal",
+      "text": "האם התדריך היה ברור?"
+    },
+    {
+      "type": "paragraph",
+      "index": 457,
+      "style": "Normal",
+      "text": "האם יש תרבות דיווח?"
+    },
+    {
+      "type": "paragraph",
+      "index": 459,
+      "style": "Normal",
+      "text": "26. שיפור מתמיד"
+    },
+    {
+      "type": "paragraph",
+      "index": 460,
+      "style": "Normal",
+      "text": "התקן דורש לשפר בהתמדה את התאמת המערכת, הלימותה והאפקטיביות שלה."
+    },
+    {
+      "type": "paragraph",
+      "index": 461,
+      "style": "Normal",
+      "text": "דוגמאות לשיפור"
+    },
+    {
+      "type": "paragraph",
+      "index": 463,
+      "style": "Normal",
+      "text": "27. טבלת השוואה: חוק מול תקן"
+    },
+    {
+      "type": "paragraph",
+      "index": 465,
+      "style": "Normal",
+      "text": "28. Checklist לממונה בטיחות לפי ISO 45001"
+    },
+    {
+      "type": "paragraph",
+      "index": 466,
+      "style": "Normal",
+      "text": "הקשר ותחום חלות"
+    },
+    {
+      "type": "paragraph",
+      "index": 467,
+      "style": "Normal",
+      "text": "הוגדר תחום חלות מערכת הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 468,
+      "style": "Normal",
+      "text": "זוהו נושאים פנימיים וחיצוניים."
+    },
+    {
+      "type": "paragraph",
+      "index": 469,
+      "style": "Normal",
+      "text": "זוהו מחזיקי עניין."
+    },
+    {
+      "type": "paragraph",
+      "index": 470,
+      "style": "Normal",
+      "text": "אין החרגה מטעה של פעילות מסוכנת."
+    },
+    {
+      "type": "paragraph",
+      "index": 471,
+      "style": "Normal",
+      "text": "מנהיגות"
+    },
+    {
+      "type": "paragraph",
+      "index": 472,
+      "style": "Normal",
+      "text": "קיימת מדיניות חתומה ומעודכנת."
+    },
+    {
+      "type": "paragraph",
+      "index": 473,
+      "style": "Normal",
+      "text": "ההנהלה משתתפת בסקר הנהלה."
+    },
+    {
+      "type": "paragraph",
+      "index": 474,
+      "style": "Normal",
+      "text": "קיימים משאבים."
+    },
+    {
+      "type": "paragraph",
+      "index": 475,
+      "style": "Normal",
+      "text": "קיימת הגנה על מדווחים."
+    },
+    {
+      "type": "paragraph",
+      "index": 476,
+      "style": "Normal",
+      "text": "קיימות ועדות/מנגנוני שיתוף."
+    },
+    {
+      "type": "paragraph",
+      "index": 477,
+      "style": "Normal",
+      "text": "תכנון"
+    },
+    {
+      "type": "paragraph",
+      "index": 478,
+      "style": "Normal",
+      "text": "קיימת שיטת זיהוי גורמי סיכון."
+    },
+    {
+      "type": "paragraph",
+      "index": 479,
+      "style": "Normal",
+      "text": "קיימת הערכת סיכונים."
+    },
+    {
+      "type": "paragraph",
+      "index": 480,
+      "style": "Normal",
+      "text": "קיימת הערכת הזדמנויות."
+    },
+    {
+      "type": "paragraph",
+      "index": 481,
+      "style": "Normal",
+      "text": "קיים מרשם דרישות דין."
+    },
+    {
+      "type": "paragraph",
+      "index": 482,
+      "style": "Normal",
+      "text": "קיימות מטרות מדידות."
+    },
+    {
+      "type": "paragraph",
+      "index": 483,
+      "style": "Normal",
+      "text": "תמיכה"
+    },
+    {
+      "type": "paragraph",
+      "index": 484,
+      "style": "Normal",
+      "text": "כשירות מוגדרת לכל תפקיד מסוכן."
+    },
+    {
+      "type": "paragraph",
+      "index": 485,
+      "style": "Normal",
+      "text": "הדרכות מתועדות."
+    },
+    {
+      "type": "paragraph",
+      "index": 486,
+      "style": "Normal",
+      "text": "קיימת תקשורת מותאמת שפה ותרבות."
+    },
+    {
+      "type": "paragraph",
+      "index": 487,
+      "style": "Normal",
+      "text": "מידע מתועד מבוקר."
+    },
+    {
+      "type": "paragraph",
+      "index": 488,
+      "style": "Normal",
+      "text": "תפעול"
+    },
+    {
+      "type": "paragraph",
+      "index": 489,
+      "style": "Normal",
+      "text": "בקרות מוגדרות לפי מדרג הבקרות."
+    },
+    {
+      "type": "paragraph",
+      "index": 490,
+      "style": "Normal",
+      "text": "קיים ניהול שינויים."
+    },
+    {
+      "type": "paragraph",
+      "index": 491,
+      "style": "Normal",
+      "text": "קיים תהליך רכש בטיחותי."
+    },
+    {
+      "type": "paragraph",
+      "index": 492,
+      "style": "Normal",
+      "text": "קבלנים נבדקים ומבוקרים."
+    },
+    {
+      "type": "paragraph",
+      "index": 493,
+      "style": "Normal",
+      "text": "קיימת מוכנות לחירום."
+    },
+    {
+      "type": "paragraph",
+      "index": 494,
+      "style": "Normal",
+      "text": "הערכת ביצועים"
+    },
+    {
+      "type": "paragraph",
+      "index": 495,
+      "style": "Normal",
+      "text": "קיימים מדדי בטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 496,
+      "style": "Normal",
+      "text": "מבוצעת הערכת עמידה בדרישות דין."
+    },
+    {
+      "type": "paragraph",
+      "index": 497,
+      "style": "Normal",
+      "text": "מבוצעים מבדקים פנימיים."
+    },
+    {
+      "type": "paragraph",
+      "index": 498,
+      "style": "Normal",
+      "text": "מתקיים סקר הנהלה."
+    },
+    {
+      "type": "paragraph",
+      "index": 499,
+      "style": "Normal",
+      "text": "שיפור"
+    },
+    {
+      "type": "paragraph",
+      "index": 500,
+      "style": "Normal",
+      "text": "אירועים נחקרים."
+    },
+    {
+      "type": "paragraph",
+      "index": 501,
+      "style": "Normal",
+      "text": "כמעט תאונות מטופלות."
+    },
+    {
+      "type": "paragraph",
+      "index": 502,
+      "style": "Normal",
+      "text": "פעולות מתקנות נבדקות לאפקטיביות."
+    },
+    {
+      "type": "paragraph",
+      "index": 503,
+      "style": "Normal",
+      "text": "יש ראיות לשיפור מתמיד."
+    },
+    {
+      "type": "paragraph",
+      "index": 505,
+      "style": "Normal",
+      "text": "29. תרשים מסכם"
+    },
+    {
+      "type": "paragraph",
+      "index": 506,
+      "style": "Normal",
+      "text": "ISO 45001"
+    },
+    {
+      "type": "paragraph",
+      "index": 507,
+      "style": "Normal",
+      "text": "│"
+    },
+    {
+      "type": "paragraph",
+      "index": 508,
+      "style": "Normal",
+      "text": "├── 4 הקשר הארגון"
+    },
+    {
+      "type": "paragraph",
+      "index": 509,
+      "style": "Normal",
+      "text": "│   ├── נושאים פנימיים וחיצוניים"
+    },
+    {
+      "type": "paragraph",
+      "index": 510,
+      "style": "Normal",
+      "text": "│   ├── מחזיקי עניין"
+    },
+    {
+      "type": "paragraph",
+      "index": 511,
+      "style": "Normal",
+      "text": "│   └── תחום חלות"
+    },
+    {
+      "type": "paragraph",
+      "index": 512,
+      "style": "Normal",
+      "text": "│"
+    },
+    {
+      "type": "paragraph",
+      "index": 513,
+      "style": "Normal",
+      "text": "├── 5 מנהיגות ושיתוף עובדים"
+    },
+    {
+      "type": "paragraph",
+      "index": 514,
+      "style": "Normal",
+      "text": "│   ├── אחריות הנהלה"
+    },
+    {
+      "type": "paragraph",
+      "index": 515,
+      "style": "Normal",
+      "text": "│   ├── מדיניות"
+    },
+    {
+      "type": "paragraph",
+      "index": 516,
+      "style": "Normal",
+      "text": "│   ├── תפקידים וסמכויות"
+    },
+    {
+      "type": "paragraph",
+      "index": 517,
+      "style": "Normal",
+      "text": "│   └── התייעצות ושיתוף"
+    },
+    {
+      "type": "paragraph",
+      "index": 518,
+      "style": "Normal",
+      "text": "│"
+    },
+    {
+      "type": "paragraph",
+      "index": 519,
+      "style": "Normal",
+      "text": "├── 6 תכנון"
+    },
+    {
+      "type": "paragraph",
+      "index": 520,
+      "style": "Normal",
+      "text": "│   ├── גורמי סיכון"
+    },
+    {
+      "type": "paragraph",
+      "index": 521,
+      "style": "Normal",
+      "text": "│   ├── סיכונים והזדמנויות"
+    },
+    {
+      "type": "paragraph",
+      "index": 522,
+      "style": "Normal",
+      "text": "│   ├── דרישות דין"
+    },
+    {
+      "type": "paragraph",
+      "index": 523,
+      "style": "Normal",
+      "text": "│   └── מטרות"
+    },
+    {
+      "type": "paragraph",
+      "index": 524,
+      "style": "Normal",
+      "text": "│"
+    },
+    {
+      "type": "paragraph",
+      "index": 525,
+      "style": "Normal",
+      "text": "├── 7 תמיכה"
+    },
+    {
+      "type": "paragraph",
+      "index": 526,
+      "style": "Normal",
+      "text": "│   ├── משאבים"
+    },
+    {
+      "type": "paragraph",
+      "index": 527,
+      "style": "Normal",
+      "text": "│   ├── כשירות"
+    },
+    {
+      "type": "paragraph",
+      "index": 528,
+      "style": "Normal",
+      "text": "│   ├── מודעות"
+    },
+    {
+      "type": "paragraph",
+      "index": 529,
+      "style": "Normal",
+      "text": "│   ├── תקשורת"
+    },
+    {
+      "type": "paragraph",
+      "index": 530,
+      "style": "Normal",
+      "text": "│   └── מידע מתועד"
+    },
+    {
+      "type": "paragraph",
+      "index": 531,
+      "style": "Normal",
+      "text": "│"
+    },
+    {
+      "type": "paragraph",
+      "index": 532,
+      "style": "Normal",
+      "text": "├── 8 תפעול"
+    },
+    {
+      "type": "paragraph",
+      "index": 533,
+      "style": "Normal",
+      "text": "│   ├── בקרות"
+    },
+    {
+      "type": "paragraph",
+      "index": 534,
+      "style": "Normal",
+      "text": "│   ├── מדרג בקרות"
+    },
+    {
+      "type": "paragraph",
+      "index": 535,
+      "style": "Normal",
+      "text": "│   ├── ניהול שינויים"
+    },
+    {
+      "type": "paragraph",
+      "index": 536,
+      "style": "Normal",
+      "text": "│   ├── רכש וקבלנים"
+    },
+    {
+      "type": "paragraph",
+      "index": 537,
+      "style": "Normal",
+      "text": "│   └── חירום"
+    },
+    {
+      "type": "paragraph",
+      "index": 538,
+      "style": "Normal",
+      "text": "│"
+    },
+    {
+      "type": "paragraph",
+      "index": 539,
+      "style": "Normal",
+      "text": "├── 9 הערכת ביצועים"
+    },
+    {
+      "type": "paragraph",
+      "index": 540,
+      "style": "Normal",
+      "text": "│   ├── ניטור ומדידה"
+    },
+    {
+      "type": "paragraph",
+      "index": 541,
+      "style": "Normal",
+      "text": "│   ├── עמידה בדרישות"
+    },
+    {
+      "type": "paragraph",
+      "index": 542,
+      "style": "Normal",
+      "text": "│   ├── מבדק פנימי"
+    },
+    {
+      "type": "paragraph",
+      "index": 543,
+      "style": "Normal",
+      "text": "│   └── סקר הנהלה"
+    },
+    {
+      "type": "paragraph",
+      "index": 544,
+      "style": "Normal",
+      "text": "│"
+    },
+    {
+      "type": "paragraph",
+      "index": 545,
+      "style": "Normal",
+      "text": "└── 10 שיפור"
+    },
+    {
+      "type": "paragraph",
+      "index": 546,
+      "style": "Normal",
+      "text": "├── תקריות ואי התאמות"
+    },
+    {
+      "type": "paragraph",
+      "index": 547,
+      "style": "Normal",
+      "text": "├── פעולה מתקנת"
+    },
+    {
+      "type": "paragraph",
+      "index": 548,
+      "style": "Normal",
+      "text": "└── שיפור מתמיד"
+    },
+    {
+      "type": "paragraph",
+      "index": 552,
+      "style": "Normal",
+      "text": "🧪 שאלות אמריקאיות — ISO 45001"
+    },
+    {
+      "type": "paragraph",
+      "index": 553,
+      "style": "Normal",
+      "text": "כולל תשובות והסברים"
+    },
+    {
+      "type": "paragraph",
+      "index": 555,
+      "style": "Normal",
+      "text": "רמה קלה — 10 שאלות"
+    },
+    {
+      "type": "paragraph",
+      "index": 556,
+      "style": "Normal",
+      "text": "שאלה 1"
+    },
+    {
+      "type": "paragraph",
+      "index": 557,
+      "style": "Normal",
+      "text": "מהי מטרת ISO 45001?"
+    },
+    {
+      "type": "paragraph",
+      "index": 558,
+      "style": "Normal",
+      "text": "א. להחליף את חוקי הבטיחות\nב. לקבוע מערכת ניהול לבטיחות ובריאות בתעסוקה\nג. לקבוע מחירי ציוד מגן\nד. להחליף את ממונה הבטיחות"
+    },
+    {
+      "type": "paragraph",
+      "index": 559,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: ISO 45001 הוא תקן למערכת ניהול בטיחות ובריאות בתעסוקה. הוא לא מחליף חוקים ותקנות, אלא מסייע לארגון לנהל סיכונים, לעמוד בדרישות דין ולשפר ביצועי בטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 561,
+      "style": "Normal",
+      "text": "שאלה 2"
+    },
+    {
+      "type": "paragraph",
+      "index": 562,
+      "style": "Normal",
+      "text": "מהו גורם סיכון לפי התקן?"
+    },
+    {
+      "type": "paragraph",
+      "index": 563,
+      "style": "Normal",
+      "text": "א. אדם שנפגע\nב. מקור בעל פוטנציאל לגרום פציעה או פגיעה בבריאות\nג. טופס הדרכה\nד. מדד ביצוע"
+    },
+    {
+      "type": "paragraph",
+      "index": 564,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: גורם סיכון הוא מקור אפשרי לנזק, לדוגמה מכונה, רעש, חומר כימי, עבודה בגובה או עומס עבודה חריג."
+    },
+    {
+      "type": "paragraph",
+      "index": 566,
+      "style": "Normal",
+      "text": "שאלה 3"
+    },
+    {
+      "type": "paragraph",
+      "index": 567,
+      "style": "Normal",
+      "text": "מהו סיכון בב״ת?"
+    },
+    {
+      "type": "paragraph",
+      "index": 568,
+      "style": "Normal",
+      "text": "א. רק תאונה שכבר קרתה\nב. שילוב של סבירות וחומרת פגיעה אפשרית\nג. נוהל עבודה\nד. מדיניות הנהלה"
+    },
+    {
+      "type": "paragraph",
+      "index": 569,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: סיכון בבטיחות ובריאות בתעסוקה הוא שילוב של הסבירות להתרחשות אירוע מסוכן או חשיפה מסוכנת ושל חומרת הפגיעה האפשרית."
+    },
+    {
+      "type": "paragraph",
+      "index": 571,
+      "style": "Normal",
+      "text": "שאלה 4"
+    },
+    {
+      "type": "paragraph",
+      "index": 572,
+      "style": "Normal",
+      "text": "מהו מחזור PDCA?"
+    },
+    {
+      "type": "paragraph",
+      "index": 573,
+      "style": "Normal",
+      "text": "א. ציוד מגן אישי\nב. תכנן, בצע, בדוק, פעל\nג. פקודת בטיחות\nד. רשימת עובדים"
+    },
+    {
+      "type": "paragraph",
+      "index": 574,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: התקן מבוסס על מחזור שיפור מתמיד: תכנון פעולות, ביצוע, בדיקה של התוצאות, ופעולה לשיפור."
+    },
+    {
+      "type": "paragraph",
+      "index": 576,
+      "style": "Normal",
+      "text": "שאלה 5"
+    },
+    {
+      "type": "paragraph",
+      "index": 577,
+      "style": "Normal",
+      "text": "מי נושא באחריות הכוללת למערכת ניהול הבב״ת?"
+    },
+    {
+      "type": "paragraph",
+      "index": 578,
+      "style": "Normal",
+      "text": "א. ההנהלה הבכירה\nב. עובד חדש\nג. קבלן חיצוני בלבד\nד. מבקר חיצוני"
+    },
+    {
+      "type": "paragraph",
+      "index": 579,
+      "style": "Normal",
+      "text": "תשובה נכונה: א\nהסבר: ההנהלה הבכירה יכולה להאציל סמכויות, אך לפי רוח התקן היא ממשיכה לשאת באחריות הכוללת לאפקטיביות מערכת ניהול הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 581,
+      "style": "Normal",
+      "text": "שאלה 6"
+    },
+    {
+      "type": "paragraph",
+      "index": 582,
+      "style": "Normal",
+      "text": "מהי מדיניות בטיחות ובריאות בתעסוקה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 583,
+      "style": "Normal",
+      "text": "א. רשימת נוכחות\nב. כוונות וכיוון של הארגון למניעת פציעה ופגיעה בבריאות\nג. רק שלט בכניסה\nד. מסמך שמיועד רק לממונה בטיחות"
+    },
+    {
+      "type": "paragraph",
+      "index": 584,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: מדיניות הבב״ת היא הצהרת מחויבות של ההנהלה לסביבת עבודה בטוחה ובריאה, עמידה בדרישות דין, הפחתת סיכונים ושיפור מתמיד."
+    },
+    {
+      "type": "paragraph",
+      "index": 586,
+      "style": "Normal",
+      "text": "שאלה 7"
+    },
+    {
+      "type": "paragraph",
+      "index": 587,
+      "style": "Normal",
+      "text": "מהי תקרית בטיחות לפי ISO 45001?"
+    },
+    {
+      "type": "paragraph",
+      "index": 588,
+      "style": "Normal",
+      "text": "א. רק תאונה עם נפגע\nב. התרחשות שנגרמת בשל העבודה או במהלכה, העלולה להוביל או מובילה לפציעה או פגיעה בבריאות\nג. רק עבירת משמעת\nד. רק ליקוי במסמך"
+    },
+    {
+      "type": "paragraph",
+      "index": 589,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: תקרית בטיחות כוללת גם תאונות וגם כמעט תאונות, כלומר גם אירוע שלא גרם בפועל לנזק אך היה יכול לגרום."
+    },
+    {
+      "type": "paragraph",
+      "index": 591,
+      "style": "Normal",
+      "text": "שאלה 8"
+    },
+    {
+      "type": "paragraph",
+      "index": 592,
+      "style": "Normal",
+      "text": "מהו מידע מתועד?"
+    },
+    {
+      "type": "paragraph",
+      "index": 593,
+      "style": "Normal",
+      "text": "א. רק נייר חתום\nב. מידע שהארגון נדרש לבקר ולתחזק, בכל פורמט\nג. רק סרטון הדרכה\nד. רק מסמך משפטי"
+    },
+    {
+      "type": "paragraph",
+      "index": 594,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: מידע מתועד יכול להיות נייר, קובץ מחשב, צילום, רשומה, נוהל, טופס או כל מדיה אחרת שהארגון מבקר ושומר."
+    },
+    {
+      "type": "paragraph",
+      "index": 596,
+      "style": "Normal",
+      "text": "שאלה 9"
+    },
+    {
+      "type": "paragraph",
+      "index": 597,
+      "style": "Normal",
+      "text": "מהו שיפור מתמיד?"
+    },
+    {
+      "type": "paragraph",
+      "index": 598,
+      "style": "Normal",
+      "text": "א. פעולה חד־פעמית\nב. פעילות חוזרת ונשנית לשיפור ביצועים\nג. רק החלפת ציוד\nד. רק קנס לאחר תאונה"
+    },
+    {
+      "type": "paragraph",
+      "index": 599,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: שיפור מתמיד הוא פעילות שיטתית ומתמשכת לאורך זמן, לא בהכרח בכל התחומים בו־זמנית, לשיפור ביצועי הבטיחות."
+    },
+    {
+      "type": "paragraph",
+      "index": 601,
+      "style": "Normal",
+      "text": "שאלה 10"
+    },
+    {
+      "type": "paragraph",
+      "index": 602,
+      "style": "Normal",
+      "text": "האם ISO 45001 קובע מספרים כמו “בדיקת מעלית כל 6 חודשים”?"
+    },
+    {
+      "type": "paragraph",
+      "index": 603,
+      "style": "Normal",
+      "text": "א. כן, תמיד\nב. לא; מספרים כאלה מגיעים בדרך כלל מחוק, פקודה או תקנות\nג. רק אם הממונה מחליט\nד. רק באתר בנייה"
+    },
+    {
+      "type": "paragraph",
+      "index": 604,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: התקן קובע דרישות לניהול מערכת. הוא מחייב לזהות ולעמוד בדרישות דין, אבל לא מחליף את הפקודה והתקנות שבהן מופיעים מועדים טכניים מחייבים."
+    },
+    {
+      "type": "paragraph",
+      "index": 606,
+      "style": "Normal",
+      "text": "רמה בינונית — 10 שאלות"
+    },
+    {
+      "type": "paragraph",
+      "index": 607,
+      "style": "Normal",
+      "text": "שאלה 11"
+    },
+    {
+      "type": "paragraph",
+      "index": 608,
+      "style": "Normal",
+      "text": "מה ההבדל בין “התייעצות” לבין “שיתוף” עובדים?"
+    },
+    {
+      "type": "paragraph",
+      "index": 609,
+      "style": "Normal",
+      "text": "א. אין הבדל\nב. התייעצות היא בירור עמדות לפני החלטה; שיתוף הוא מעורבות בקבלת החלטות\nג. שיתוף מיועד רק למנהלים\nד. התייעצות היא רק פרסום הודעה בלוח מודעות"
+    },
+    {
+      "type": "paragraph",
+      "index": 610,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: התקן מבחין בין התייעצות לבין שיתוף. התייעצות היא שמיעת עמדות לפני החלטה, בעוד שיתוף הוא מעורבות פעילה יותר בתהליכים כמו זיהוי סיכונים, בחירת בקרות וחקירת אירועים."
+    },
+    {
+      "type": "paragraph",
+      "index": 612,
+      "style": "Normal",
+      "text": "שאלה 12"
+    },
+    {
+      "type": "paragraph",
+      "index": 613,
+      "style": "Normal",
+      "text": "מהו מדרג הבקרות הנכון לפי התקן?"
+    },
+    {
+      "type": "paragraph",
+      "index": 614,
+      "style": "Normal",
+      "text": "א. PPE → הדרכה → הנדסה → החלפה → סילוק\nב. סילוק → החלפה → בקרות הנדסיות/ארגון מחדש → בקרות מנהלתיות → PPE\nג. הדרכה → PPE → סילוק → החלפה\nד. שילוט → חתימה → קסדה → תחקיר"
+    },
+    {
+      "type": "paragraph",
+      "index": 615,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: התקן קובע מדרג בקרות: קודם מנסים לסלק את גורם הסיכון, אחר כך להחליף למסוכן פחות, אחר כך בקרות הנדסיות, אחר כך בקרות מנהלתיות והדרכה, ורק בסוף ציוד מגן אישי."
+    },
+    {
+      "type": "paragraph",
+      "index": 617,
+      "style": "Normal",
+      "text": "שאלה 13"
+    },
+    {
+      "type": "paragraph",
+      "index": 618,
+      "style": "Normal",
+      "text": "מדוע PPE אינו הפתרון הראשון לפי ISO 45001?"
+    },
+    {
+      "type": "paragraph",
+      "index": 619,
+      "style": "Normal",
+      "text": "א. כי אסור להשתמש בו\nב. כי הוא תלוי בהתנהגות העובד ואינו מסלק את הסיכון במקור\nג. כי הוא תמיד יקר מדי\nד. כי הוא מיועד רק למבקרים"
+    },
+    {
+      "type": "paragraph",
+      "index": 620,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: ציוד מגן אישי חשוב, אבל הוא קו הגנה אחרון. פתרונות כמו סילוק סיכון, החלפה או בקרה הנדסית מגנים טוב יותר כי הם מפחיתים או מסירים את הסיכון במקור."
+    },
+    {
+      "type": "paragraph",
+      "index": 622,
+      "style": "Normal",
+      "text": "שאלה 14"
+    },
+    {
+      "type": "paragraph",
+      "index": 623,
+      "style": "Normal",
+      "text": "מה נדרש כאשר ארגון מכניס שינוי בתהליך, ציוד או כוח אדם?"
+    },
+    {
+      "type": "paragraph",
+      "index": 624,
+      "style": "Normal",
+      "text": "א. להמשיך כרגיל\nב. לבצע ניהול שינויים ולבחון השפעות בטיחות ובריאות\nג. לעדכן רק את מחלקת הכספים\nד. להמתין למבדק חיצוני"
+    },
+    {
+      "type": "paragraph",
+      "index": 625,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: סעיף ניהול שינויים דורש לזהות ולבקר שינויים זמניים או קבועים שעלולים להשפיע על ביצועי הבטיחות, לפני שהם גורמים לסיכונים חדשים."
+    },
+    {
+      "type": "paragraph",
+      "index": 627,
+      "style": "Normal",
+      "text": "שאלה 15"
+    },
+    {
+      "type": "paragraph",
+      "index": 628,
+      "style": "Normal",
+      "text": "מהו מרשם דרישות דין בהקשר ISO 45001?"
+    },
+    {
+      "type": "paragraph",
+      "index": 629,
+      "style": "Normal",
+      "text": "א. רשימת עובדים\nב. ריכוז הדרישות החוקיות והאחרות החלות על הארגון בתחום הבטיחות והבריאות\nג. טופס תלונות לקוח\nד. רשימת ציוד משרדי"
+    },
+    {
+      "type": "paragraph",
+      "index": 630,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: התקן דורש שהארגון יזהה דרישות דין ודרישות אחרות, יבין כיצד הן חלות עליו, יעדכן אותן וישמור מידע מתועד."
+    },
+    {
+      "type": "paragraph",
+      "index": 632,
+      "style": "Normal",
+      "text": "שאלה 16"
+    },
+    {
+      "type": "paragraph",
+      "index": 633,
+      "style": "Normal",
+      "text": "מה תפקיד סקר הנהלה במערכת ISO 45001?"
+    },
+    {
+      "type": "paragraph",
+      "index": 634,
+      "style": "Normal",
+      "text": "א. להחליף מבדק פנימי\nב. לאפשר להנהלה לסקור התאמה, הלימות ואפקטיביות של המערכת ולקבל החלטות\nג. לשמש הדרכת עובדים\nד. לשמש רק אירוע טקסי שנתי"
+    },
+    {
+      "type": "paragraph",
+      "index": 635,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: סקר הנהלה הוא מנגנון ניהולי. הוא בוחן נתונים, אירועים, מבדקים, דרישות דין, משאבים, מטרות והזדמנויות לשיפור, ומוביל להחלטות ופעולות."
+    },
+    {
+      "type": "paragraph",
+      "index": 637,
+      "style": "Normal",
+      "text": "שאלה 17"
+    },
+    {
+      "type": "paragraph",
+      "index": 638,
+      "style": "Normal",
+      "text": "מהי אי־התאמה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 639,
+      "style": "Normal",
+      "text": "א. מילוי דרישה\nב. אי מילוי של דרישה\nג. תאונה בלבד\nד. ציוד מגן אישי"
+    },
+    {
+      "type": "paragraph",
+      "index": 640,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: אי־התאמה היא מצב שבו דרישה לא מולאה. הדרישה יכולה להיות דרישת תקן, דרישת חוק, נוהל פנימי או דרישה שהארגון קבע לעצמו."
+    },
+    {
+      "type": "paragraph",
+      "index": 642,
+      "style": "Normal",
+      "text": "שאלה 18"
+    },
+    {
+      "type": "paragraph",
+      "index": 643,
+      "style": "Normal",
+      "text": "מהי פעולה מתקנת?"
+    },
+    {
+      "type": "paragraph",
+      "index": 644,
+      "style": "Normal",
+      "text": "א. פעולה לסילוק גורמי אי־התאמה או תקרית ולמניעת הישנות\nב. רק תיקון זמני\nג. מילוי טופס בלבד\nד. פעולה שמבוצעת רק אחרי מבדק חיצוני"
+    },
+    {
+      "type": "paragraph",
+      "index": 645,
+      "style": "Normal",
+      "text": "תשובה נכונה: א\nהסבר: פעולה מתקנת אינה רק “לתקן עכשיו”. היא צריכה לטפל בגורם השורש כדי שהבעיה לא תחזור באותו מקום או במקום אחר."
+    },
+    {
+      "type": "paragraph",
+      "index": 647,
+      "style": "Normal",
+      "text": "שאלה 19"
+    },
+    {
+      "type": "paragraph",
+      "index": 648,
+      "style": "Normal",
+      "text": "מה התקן דורש ביחס לקבלנים?"
+    },
+    {
+      "type": "paragraph",
+      "index": 649,
+      "style": "Normal",
+      "text": "א. שאין צורך לשלוט בהם כי הם חיצוניים\nב. לתאם איתם, לזהות סיכונים, להעריך ולבקר את סיכוני הבב״ת שלהם ושל הארגון\nג. להסתפק בחתימה שלהם בלבד\nד. לא להכניס אותם למערכת הבטיחות"
+    },
+    {
+      "type": "paragraph",
+      "index": 650,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: התקן דורש שהארגון יוודא שגם קבלנים ועובדיהם עומדים בדרישות מערכת הבטיחות הרלוונטיות, ושתהליכי הרכש יכללו קריטריוני בטיחות לבחירת קבלנים."
+    },
+    {
+      "type": "paragraph",
+      "index": 652,
+      "style": "Normal",
+      "text": "שאלה 20"
+    },
+    {
+      "type": "paragraph",
+      "index": 653,
+      "style": "Normal",
+      "text": "איזה מדד הוא מדד מוביל?"
+    },
+    {
+      "type": "paragraph",
+      "index": 654,
+      "style": "Normal",
+      "text": "א. מספר תאונות שאירעו בשנה\nב. מספר ימי היעדרות לאחר תאונה\nג. אחוז פעולות מתקנות שנסגרו בזמן\nד. מספר עובדים שנפגעו"
+    },
+    {
+      "type": "paragraph",
+      "index": 655,
+      "style": "Normal",
+      "text": "תשובה נכונה: ג\nהסבר: מדד מוביל מודד פעולות שמסייעות למנוע תאונות לפני שהן מתרחשות. אחוז סגירת פעולות מתקנות בזמן הוא מדד מניעתי. מספר תאונות הוא מדד תוצאה."
+    },
+    {
+      "type": "paragraph",
+      "index": 657,
+      "style": "Normal",
+      "text": "רמה קשה — 10 שאלות"
+    },
+    {
+      "type": "paragraph",
+      "index": 658,
+      "style": "Normal",
+      "text": "שאלה 21"
+    },
+    {
+      "type": "paragraph",
+      "index": 659,
+      "style": "Normal",
+      "text": "ארגון הגדיר תחום חלות שמוציא ממנו מחסן שבו יש מלגזות וחומרים מסוכנים, כדי “לפשט את ההתעדה”. מה הבעיה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 660,
+      "style": "Normal",
+      "text": "א. אין בעיה, הארגון רשאי להוציא כל אזור\nב. תחום החלות לא אמור לשמש להחרגת פעילות שיש לה השפעה על ביצועי הבב״ת או להתחמקות מדרישות\nג. זה מותר אם המחסן קטן\nד. התקן לא עוסק בתחום חלות"
+    },
+    {
+      "type": "paragraph",
+      "index": 661,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: תחום החלות צריך להיות אמיתי ולא מטעה. אי אפשר להוציא מהמערכת פעילות שיש לה השפעה על ביצועי הבטיחות רק כדי להקל על המערכת או ההתעדה."
+    },
+    {
+      "type": "paragraph",
+      "index": 663,
+      "style": "Normal",
+      "text": "שאלה 22"
+    },
+    {
+      "type": "paragraph",
+      "index": 664,
+      "style": "Normal",
+      "text": "בארגון קיימת מדיניות בטיחות חתומה, אך העובדים אינם מכירים אותה ואין מטרות או פעולות. מה נכון?"
+    },
+    {
+      "type": "paragraph",
+      "index": 665,
+      "style": "Normal",
+      "text": "א. זה מספיק כי יש מסמך חתום\nב. המדיניות אינה אפקטיבית אם אינה מתוקשרת, מיושמת ומשמשת בסיס למטרות\nג. התקן דורש רק חתימת מנכ״ל\nד. מדיניות אינה קשורה לעובדים"
+    },
+    {
+      "type": "paragraph",
+      "index": 666,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: המדיניות צריכה להיות זמינה כמידע מתועד, מתוקשרת בארגון, רלוונטית, ולהוות מסגרת למטרות הבב״ת. מסמך שאינו מוטמע אינו מספיק."
+    },
+    {
+      "type": "paragraph",
+      "index": 668,
+      "style": "Normal",
+      "text": "שאלה 23"
+    },
+    {
+      "type": "paragraph",
+      "index": 669,
+      "style": "Normal",
+      "text": "בחקירת כמעט תאונה נקבע: “העובד לא שם לב”. מה חסר לפי גישת ISO 45001?"
+    },
+    {
+      "type": "paragraph",
+      "index": 670,
+      "style": "Normal",
+      "text": "א. כלום, זו חקירה מלאה\nב. חקירת גורמי שורש: תהליך, ציוד, הדרכה, עומס, סביבת עבודה ובקרות\nג. רק חתימת העובד\nד. רק דיווח לביטוח לאומי"
+    },
+    {
+      "type": "paragraph",
+      "index": 671,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: התקן דורש חקירה שמטרתה למנוע הישנות. “לא שם לב” הוא תיאור התנהגותי, לא ניתוח גורם שורש. צריך לבדוק מדוע לא שם לב ומה במערכת אפשר את האירוע."
+    },
+    {
+      "type": "paragraph",
+      "index": 673,
+      "style": "Normal",
+      "text": "שאלה 24"
+    },
+    {
+      "type": "paragraph",
+      "index": 674,
+      "style": "Normal",
+      "text": "מהי המשמעות של “להבטיח” בתקן, בהקשר אחריות הנהלה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 675,
+      "style": "Normal",
+      "text": "א. אפשר להעביר גם את האחריות הכוללת לאחר\nב. אפשר להאציל ביצוע, אבל הנשיאה באחריות נשארת אצל ההנהלה\nג. הממונה בטיחות אחראי במקום ההנהלה\nד. העובדים מחליטים לבד"
+    },
+    {
+      "type": "paragraph",
+      "index": 676,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: לפי ההבהרות בנספח, אפשר להאציל אחריות ביצועית, אך לא את הנשיאה באחריות לכך שהפעולה מתבצעת ומשיגה את מטרתה."
+    },
+    {
+      "type": "paragraph",
+      "index": 678,
+      "style": "Normal",
+      "text": "שאלה 25"
+    },
+    {
+      "type": "paragraph",
+      "index": 679,
+      "style": "Normal",
+      "text": "קבלן מבצע ריתוך באתר. הוא מקצועי, אך לא עבר תדריך אתר ולא נבדקו אישוריו. מהי אי־ההתאמה המרכזית לפי ISO 45001?"
+    },
+    {
+      "type": "paragraph",
+      "index": 680,
+      "style": "Normal",
+      "text": "א. אין אי־התאמה כי הקבלן מומחה\nב. כשל בתהליך רכש/קבלנים, תיאום, כשירות ובקרה על סיכוני קבלן\nג. רק בעיית ציוד מגן\nד. רק בעיה של הקבלן עצמו"
+    },
+    {
+      "type": "paragraph",
+      "index": 681,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: התקן מדגיש שתהליכי רכש וקבלנים צריכים לזהות ולבקר סיכונים הנובעים מפעילות הקבלן, מפעילות הארגון המשפיעה על הקבלן, ומהשפעה על מחזיקי עניין אחרים."
+    },
+    {
+      "type": "paragraph",
+      "index": 683,
+      "style": "Normal",
+      "text": "שאלה 26"
+    },
+    {
+      "type": "paragraph",
+      "index": 684,
+      "style": "Normal",
+      "text": "ארגון מודד רק מספר תאונות שנתי, ואין לו מדדים על סגירת מפגעים, כשירות, תסקירים או פעולות מתקנות. מה הבעיה?"
+    },
+    {
+      "type": "paragraph",
+      "index": 685,
+      "style": "Normal",
+      "text": "א. אין בעיה, תאונות מספיקות\nב. מדידת תאונות בלבד היא תגובתית ואינה מספקת תמונה מלאה של אפקטיביות המערכת\nג. התקן אוסר מדדים\nד. צריך למדוד רק עלויות"
+    },
+    {
+      "type": "paragraph",
+      "index": 686,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: ISO 45001 דורש ניטור, מדידה, ניתוח והערכת ביצועים, כולל אפקטיביות בקרות והתקדמות למטרות. מדדי תאונות בלבד הם מדדי תוצאה מאוחרים."
+    },
+    {
+      "type": "paragraph",
+      "index": 688,
+      "style": "Normal",
+      "text": "שאלה 27"
+    },
+    {
+      "type": "paragraph",
+      "index": 689,
+      "style": "Normal",
+      "text": "עובדים חוששים לדווח על כמעט תאונות כי “יענישו אותם”. איזה סעיף נפגע בעיקר?"
+    },
+    {
+      "type": "paragraph",
+      "index": 690,
+      "style": "Normal",
+      "text": "א. מדידה בלבד\nב. מנהיגות, תרבות, הגנה על עובדים, התייעצות ושיתוף\nג. רכש בלבד\nד. בקרת מסמכים בלבד"
+    },
+    {
+      "type": "paragraph",
+      "index": 691,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: התקן דורש מההנהלה לקדם תרבות תומכת, להגן על עובדים מפני התנכלות בדיווח, וליצור מנגנוני התייעצות ושיתוף. פחד מדיווח פוגע בליבת המערכת."
+    },
+    {
+      "type": "paragraph",
+      "index": 693,
+      "style": "Normal",
+      "text": "שאלה 28"
+    },
+    {
+      "type": "paragraph",
+      "index": 694,
+      "style": "Normal",
+      "text": "ארגון ביצע פעולה מתקנת אחרי תאונה אך לא בדק את האפקטיביות שלה. מה חסר?"
+    },
+    {
+      "type": "paragraph",
+      "index": 695,
+      "style": "Normal",
+      "text": "א. רק חתימה\nב. סקירת אפקטיביות הפעולה המתקנת\nג. תשלום לעובד\nד. הצבת שלט בלבד"
+    },
+    {
+      "type": "paragraph",
+      "index": 696,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: התקן דורש לסקור את האפקטיביות של פעולות שננקטו, כולל פעולות מתקנות. אחרת לא יודעים אם גורם השורש טופל באמת."
+    },
+    {
+      "type": "paragraph",
+      "index": 698,
+      "style": "Normal",
+      "text": "שאלה 29"
+    },
+    {
+      "type": "paragraph",
+      "index": 699,
+      "style": "Normal",
+      "text": "הוכנס חומר כימי חדש לארגון ללא בדיקת SDS, הדרכה, אחסון, אוורור או ציוד מגן. איזה תהליך כשל?"
+    },
+    {
+      "type": "paragraph",
+      "index": 700,
+      "style": "Normal",
+      "text": "א. רק סקר הנהלה\nב. ניהול שינויים ורכש בטיחותי\nג. רק מדיניות\nד. רק מבדק פנימי"
+    },
+    {
+      "type": "paragraph",
+      "index": 701,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: הכנסת חומר חדש היא שינוי וגם רכש. התקן דורש לבקר רכש ולנהל שינויים המשפיעים על ביצועי הבטיחות, כולל זיהוי סיכונים ובקרות לפני השימוש."
+    },
+    {
+      "type": "paragraph",
+      "index": 703,
+      "style": "Normal",
+      "text": "שאלה 30"
+    },
+    {
+      "type": "paragraph",
+      "index": 704,
+      "style": "Normal",
+      "text": "מהו המשפט המדויק ביותר לגבי ISO 45001 והחוק?"
+    },
+    {
+      "type": "paragraph",
+      "index": 705,
+      "style": "Normal",
+      "text": "א. ISO 45001 מעל החוק\nב. החוק מעל התקן; התקן מסייע לנהל עמידה בדרישות דין ודרישות אחרות\nג. התקן מבטל תקנות\nד. אם יש התעדה לתקן, אין צורך בצווי בטיחות"
+    },
+    {
+      "type": "paragraph",
+      "index": 706,
+      "style": "Normal",
+      "text": "תשובה נכונה: ב\nהסבר: התקן אינו גובר על חוק, פקודה או תקנה. הוא מערכת ניהול שמחייבת לזהות, ליישם, לעקוב ולשפר את העמידה בדרישות דין ודרישות אחרות."
+    },
+    {
+      "type": "paragraph",
+      "index": 708,
+      "style": "Normal",
+      "text": "סיכום קצר לזכירה"
+    },
+    {
+      "type": "paragraph",
+      "index": 709,
+      "style": "Normal",
+      "text": "ISO 45001 ="
+    },
+    {
+      "type": "paragraph",
+      "index": 710,
+      "style": "Normal",
+      "text": "מנהיגות"
+    },
+    {
+      "type": "paragraph",
+      "index": 711,
+      "style": "Normal",
+      "text": "+ שיתוף עובדים"
+    },
+    {
+      "type": "paragraph",
+      "index": 712,
+      "style": "Normal",
+      "text": "+ זיהוי סיכונים"
+    },
+    {
+      "type": "paragraph",
+      "index": 713,
+      "style": "Normal",
+      "text": "+ עמידה בדרישות דין"
+    },
+    {
+      "type": "paragraph",
+      "index": 714,
+      "style": "Normal",
+      "text": "+ מדרג בקרות"
+    },
+    {
+      "type": "paragraph",
+      "index": 715,
+      "style": "Normal",
+      "text": "+ ניהול שינויים"
+    },
+    {
+      "type": "paragraph",
+      "index": 716,
+      "style": "Normal",
+      "text": "+ קבלנים ורכש"
+    },
+    {
+      "type": "paragraph",
+      "index": 717,
+      "style": "Normal",
+      "text": "+ מדדים ומבדקים"
+    },
+    {
+      "type": "paragraph",
+      "index": 718,
+      "style": "Normal",
+      "text": "+ סקר הנהלה"
+    },
+    {
+      "type": "paragraph",
+      "index": 719,
+      "style": "Normal",
+      "text": "+ חקירה ושיפור מתמיד"
+    },
+    {
+      "type": "paragraph",
+      "index": 720,
+      "style": "Normal",
+      "text": "המשפט החשוב ביותר:"
+    },
+    {
+      "type": "paragraph",
+      "index": 721,
+      "style": "Normal",
+      "text": "התקן אינו מחליף חוק — הוא בונה מערכת שמוודאת שהחוק, התקנות, הסיכונים והבקרות מנוהלים באופן שיטתי ומתועד."
+    }
+  ],
+  "tables": [
+    {
+      "index": 0,
+      "rows": [
+        [
+          "כיוון",
+          "משמעות"
+        ],
+        [
+          "ניהול סיכונים",
+          "זיהוי גורמי סיכון, הערכת סיכונים, הפחתה ובקרה"
+        ],
+        [
+          "ניהול הזדמנויות",
+          "שיפור בטיחות, שיפור תרבות, שיפור שיטות עבודה"
+        ]
+      ]
+    },
+    {
+      "index": 1,
+      "rows": [
+        [
+          "שלב",
+          "דוגמה במפעל"
+        ],
+        [
+          "תכנן",
+          "מזהים סיכון הילכדות במכונה"
+        ],
+        [
+          "בצע",
+          "מתקינים מגן, הדרכה ונוהל נעילה ותיוג"
+        ],
+        [
+          "בדוק",
+          "בודקים אם העובדים משתמשים נכון במגן"
+        ],
+        [
+          "פעל",
+          "אם נמצאה עקיפה של מגן — חוקרים, מתקנים ומעדכנים שיטה"
+        ]
+      ]
+    },
+    {
+      "index": 2,
+      "rows": [
+        [
+          "סוג",
+          "דוגמה"
+        ],
+        [
+          "תאונה",
+          "עובד נפגע ממלגזה"
+        ],
+        [
+          "כמעט תאונה",
+          "מלגזה כמעט פגעה בעובד"
+        ],
+        [
+          "אירוע ללא פגיעה",
+          "מטען נפל ליד עובד"
+        ],
+        [
+          "אירוע מערכת",
+          "עובד נכנס לאזור מסוכן בלי הרשאה"
+        ]
+      ]
+    },
+    {
+      "index": 3,
+      "rows": [
+        [
+          "נושא",
+          "דוגמה"
+        ],
+        [
+          "רגולציה",
+          "שינוי בתקנות עבודה בגובה"
+        ],
+        [
+          "טכנולוגיה",
+          "הכנסת רובוטים או מכונות חדשות"
+        ],
+        [
+          "קבלנים",
+          "תלות בתחזוקה חיצונית"
+        ],
+        [
+          "סביבה עסקית",
+          "לחץ אספקות וזמני ביצוע"
+        ],
+        [
+          "שכנים/קהילה",
+          "פעילות שעלולה להשפיע מחוץ לגדר"
+        ]
+      ]
+    },
+    {
+      "index": 4,
+      "rows": [
+        [
+          "נושא",
+          "דוגמה"
+        ],
+        [
+          "תרבות ארגונית",
+          "“מסיימים מהר גם אם לא בטוח”"
+        ],
+        [
+          "משאבים",
+          "מחסור בתקציב לתחזוקה"
+        ],
+        [
+          "כוח אדם",
+          "עובדים חדשים או זמניים"
+        ],
+        [
+          "ידע",
+          "חוסר כשירות בעבודה עם חומרים"
+        ],
+        [
+          "תהליכים",
+          "שינויים תכופים בקווי ייצור"
+        ]
+      ]
+    },
+    {
+      "index": 5,
+      "rows": [
+        [
+          "מחזיק עניין",
+          "ציפייה אפשרית"
+        ],
+        [
+          "עובדים",
+          "סביבת עבודה בטוחה, הדרכה, מיגון"
+        ],
+        [
+          "הנהלה",
+          "עמידה בדין, הפחתת תאונות, רציפות תפעולית"
+        ],
+        [
+          "קבלנים",
+          "דרישות ברורות לפני עבודה"
+        ],
+        [
+          "לקוחות",
+          "עבודה בטוחה באתרם"
+        ],
+        [
+          "רגולטור",
+          "עמידה בחוק ובתקנות"
+        ],
+        [
+          "שכנים",
+          "מניעת השפעות מסוכנות מחוץ לאתר"
+        ],
+        [
+          "חברות ביטוח",
+          "ניהול סיכונים ותיעוד"
+        ]
+      ]
+    },
+    {
+      "index": 6,
+      "rows": [
+        [
+          "ניסוח חלש",
+          "למה בעייתי",
+          "ניסוח נכון יותר"
+        ],
+        [
+          "“נשתדל לשמור על בטיחות”",
+          "לא מחייב",
+          "“הארגון מחויב למניעת פציעה ופגיעה בבריאות”"
+        ],
+        [
+          "“הממונה אחראי לבטיחות”",
+          "מעביר אחריות לא נכון",
+          "“האחריות חלה על כלל הדרגים בהתאם לתפקידם”"
+        ],
+        [
+          "“נפעל לפי החוק ככל האפשר”",
+          "לא תקין",
+          "“הארגון מחויב לעמידה בדרישות דין ודרישות אחרות”"
+        ]
+      ]
+    },
+    {
+      "index": 7,
+      "rows": [
+        [
+          "מושג",
+          "משמעות"
+        ],
+        [
+          "התייעצות",
+          "שומעים את דעת העובדים לפני החלטה"
+        ],
+        [
+          "שיתוף",
+          "העובדים מעורבים בקבלת החלטות וביישום"
+        ]
+      ]
+    },
+    {
+      "index": 8,
+      "rows": [
+        [
+          "תחום",
+          "דוגמאות"
+        ],
+        [
+          "אופן ארגון העבודה",
+          "עומס, שעות עבודה, לחץ, הטרדה"
+        ],
+        [
+          "ציוד וחומרים",
+          "מכונות, חומרים מסוכנים, תשתיות"
+        ],
+        [
+          "גורמי אנוש",
+          "עייפות, טעות, מגבלות אנוש"
+        ],
+        [
+          "אירועים קודמים",
+          "תאונות, כמעט תאונות"
+        ],
+        [
+          "מצבי חירום",
+          "אש, דליפה, רעידת אדמה"
+        ],
+        [
+          "אנשים",
+          "עובדים, קבלנים, מבקרים, שכנים"
+        ],
+        [
+          "שינויים",
+          "ציוד חדש, תהליך חדש, שינוי רגולטורי"
+        ]
+      ]
+    },
+    {
+      "index": 9,
+      "rows": [
+        [
+          "מקור",
+          "דוגמה"
+        ],
+        [
+          "פקודת הבטיחות בעבודה",
+          "מכונות, הרמה, מעליות, מתקני לחץ"
+        ],
+        [
+          "חוק ארגון הפיקוח על העבודה",
+          "ממונה בטיחות, ועדות, נאמנים, צווים"
+        ],
+        [
+          "תקנות עבודה בגובה",
+          "הכשרה, ציוד, תנאים"
+        ],
+        [
+          "תקנות ציוד מגן אישי",
+          "התאמה, אספקה ושימוש"
+        ],
+        [
+          "תקנות מסירת מידע והדרכת עובדים",
+          "הדרכות ותיעוד"
+        ],
+        [
+          "תקנות גיהות",
+          "חשיפה לרעש, אבק, חומרים מזיקים"
+        ]
+      ]
+    },
+    {
+      "index": 10,
+      "rows": [
+        [
+          "דרישה",
+          "מקור",
+          "למי חלה",
+          "מה צריך לעשות",
+          "תדירות",
+          "ראיה"
+        ],
+        [
+          "בדיקת אביזרי הרמה",
+          "פקודת הבטיחות",
+          "מחסן/אחזקה",
+          "בדיקת בודק מוסמך",
+          "6 חודשים",
+          "תסקיר"
+        ],
+        [
+          "הדרכת עובדים",
+          "תקנות הדרכה",
+          "כלל עובדים",
+          "הדרכה ותיעוד",
+          "לפי צורך/שינוי",
+          "טופס הדרכה"
+        ],
+        [
+          "עבודה בגובה",
+          "תקנות עבודה בגובה",
+          "עובדים בגובה",
+          "הכשרה וציוד",
+          "לפי תוקף",
+          "תעודה"
+        ]
+      ]
+    },
+    {
+      "index": 11,
+      "rows": [
+        [
+          "דרישה",
+          "הסבר"
+        ],
+        [
+          "עקביות עם המדיניות",
+          "לא לסתור את ההתחייבות לבטיחות"
+        ],
+        [
+          "מדידות או ניתנות להערכה",
+          "לא רק סיסמה"
+        ],
+        [
+          "מבוססות סיכונים",
+          "קשורות לסיכונים אמיתיים"
+        ],
+        [
+          "מנוטרות",
+          "יש מעקב"
+        ],
+        [
+          "מתוקשרות",
+          "העובדים מכירים"
+        ],
+        [
+          "מעודכנות",
+          "משתנות לפי צורך"
+        ]
+      ]
+    },
+    {
+      "index": 12,
+      "rows": [
+        [
+          "מטרה",
+          "מדד"
+        ],
+        [
+          "להפחית כמעט תאונות לא מדווחות",
+          "עלייה של 30% בדיווח כמעט תאונות"
+        ],
+        [
+          "לשפר כשירות קבלנים",
+          "100% קבלנים קריטיים עברו בדיקת כשירות"
+        ],
+        [
+          "להפחית סיכוני מלגזות",
+          "הפרדת 80% מנתיבי הולכי רגל ומלגזות"
+        ],
+        [
+          "לשפר מוכנות חירום",
+          "ביצוע 2 תרגילים בשנה"
+        ]
+      ]
+    },
+    {
+      "index": 13,
+      "rows": [
+        [
+          "נושא",
+          "קהל יעד",
+          "אמצעי"
+        ],
+        [
+          "אירוע בטיחות",
+          "עובדים רלוונטיים",
+          "תדריך בטיחות"
+        ],
+        [
+          "שינוי נוהל",
+          "מנהלים ועובדים",
+          "הדרכה + חתימה"
+        ],
+        [
+          "עבודת קבלן",
+          "קבלנים ומנהל אתר",
+          "תיאום לפני עבודה"
+        ],
+        [
+          "מצב חירום",
+          "כלל האתר",
+          "תרגיל, שילוט, כריזה"
+        ],
+        [
+          "דרישת דין חדשה",
+          "הנהלה וממונה",
+          "עדכון מרשם דין"
+        ]
+      ]
+    },
+    {
+      "index": 14,
+      "rows": [
+        [
+          "סיכון",
+          "בקרה"
+        ],
+        [
+          "מלגזות",
+          "נתיבים, הדרכה, מהירות, הפרדה"
+        ],
+        [
+          "עבודה בגובה",
+          "תכנון, ציוד, הרשאה, פיקוח"
+        ],
+        [
+          "חומרים מסוכנים",
+          "SDS, אחסון, אוורור, מיגון"
+        ],
+        [
+          "מכונות",
+          "גידור, נעילה ותיוג, תחזוקה"
+        ],
+        [
+          "קבלנים",
+          "אישור, תדריך, פיקוח, הרשאות"
+        ]
+      ]
+    },
+    {
+      "index": 15,
+      "rows": [
+        [
+          "מדרג",
+          "פתרון"
+        ],
+        [
+          "סילוק",
+          "ביטול תהליך רועש"
+        ],
+        [
+          "החלפה",
+          "מכונה שקטה יותר"
+        ],
+        [
+          "הנדסי",
+          "בידוד אקוסטי"
+        ],
+        [
+          "מנהלתי",
+          "הגבלת זמן חשיפה"
+        ],
+        [
+          "PPE",
+          "אטמי אוזניים"
+        ]
+      ]
+    },
+    {
+      "index": 16,
+      "rows": [
+        [
+          "רכיב",
+          "דוגמה"
+        ],
+        [
+          "זיהוי תרחישים",
+          "אש, דליפה, רעידת אדמה, פציעה"
+        ],
+        [
+          "תגובה מתוכננת",
+          "נוהל, צוות, ציוד"
+        ],
+        [
+          "הדרכה",
+          "בעלי תפקידים ועובדים"
+        ],
+        [
+          "תרגול",
+          "תרגילים תקופתיים"
+        ],
+        [
+          "הערכה",
+          "הפקת לקחים"
+        ],
+        [
+          "תקשורת",
+          "עובדים, קבלנים, רשויות"
+        ],
+        [
+          "תיעוד",
+          "תוכניות ותרגילים"
+        ]
+      ]
+    },
+    {
+      "index": 17,
+      "rows": [
+        [
+          "סוג מדד",
+          "דוגמה"
+        ],
+        [
+          "מדד תוצאה",
+          "מספר תאונות"
+        ],
+        [
+          "מדד מוביל",
+          "אחוז סגירת מפגעים בזמן"
+        ],
+        [
+          "מדד כשירות",
+          "אחוז עובדים שעברו הדרכה"
+        ],
+        [
+          "מדד תפעולי",
+          "מספר תצפיות בטיחות"
+        ],
+        [
+          "מדד חוקי",
+          "אחוז תסקירים בתוקף"
+        ],
+        [
+          "מדד תרבות",
+          "מספר דיווחי כמעט תאונה"
+        ]
+      ]
+    },
+    {
+      "index": 18,
+      "rows": [
+        [
+          "דרישה",
+          "בדיקה"
+        ],
+        [
+          "תסקירי הרמה",
+          "האם בתוקף?"
+        ],
+        [
+          "הדרכות",
+          "האם בוצעו ותועדו?"
+        ],
+        [
+          "ציוד מגן",
+          "האם סופק ונעשה בו שימוש?"
+        ],
+        [
+          "עבודה בגובה",
+          "האם העובדים מוסמכים?"
+        ],
+        [
+          "כיבוי אש",
+          "האם ציוד בתוקף?"
+        ]
+      ]
+    },
+    {
+      "index": 19,
+      "rows": [
+        [
+          "ממצא",
+          "סוג"
+        ],
+        [
+          "אין מרשם דרישות דין מעודכן",
+          "אי התאמה"
+        ],
+        [
+          "הדרכות בוצעו אך ללא בדיקת הבנה",
+          "חולשה"
+        ],
+        [
+          "קבלנים לא נבדקים לפני כניסה",
+          "אי התאמה"
+        ],
+        [
+          "דיווח כמעט תאונה עלה",
+          "הזדמנות חיובית"
+        ]
+      ]
+    },
+    {
+      "index": 20,
+      "rows": [
+        [
+          "תחום",
+          "שיפור"
+        ],
+        [
+          "טכנולוגיה",
+          "חיישני קרבה למלגזות"
+        ],
+        [
+          "הדרכה",
+          "סימולטור לעבודה בגובה"
+        ],
+        [
+          "תהליך",
+          "היתר עבודה דיגיטלי"
+        ],
+        [
+          "תרבות",
+          "עידוד דיווח כמעט תאונה"
+        ],
+        [
+          "תכנון",
+          "הפרדת הולכי רגל וכלים"
+        ],
+        [
+          "בריאות",
+          "תוכנית להפחתת רעש"
+        ]
+      ]
+    },
+    {
+      "index": 21,
+      "rows": [
+        [
+          "נושא",
+          "חוק/תקנה/פקודה",
+          "ISO 45001"
+        ],
+        [
+          "מעמד",
+          "מחייב משפטית כאשר חל",
+          "וולונטרי אלא אם אומץ בחוזה/דרישה"
+        ],
+        [
+          "מטרה",
+          "קביעת חובות מינימום",
+          "מערכת ניהול ושיפור"
+        ],
+        [
+          "דוגמה",
+          "בדיקת אביזרי הרמה כל 6 חודשים",
+          "לוודא שיש תהליך לזיהוי, מעקב ובקרה"
+        ],
+        [
+          "אכיפה",
+          "רגולטור, צווים, ענישה",
+          "מבדקים, התעדה, דרישות לקוח"
+        ],
+        [
+          "אחריות",
+          "לפי דין",
+          "לפי מערכת ניהול ואחריות הנהלה"
+        ],
+        [
+          "תיעוד",
+          "לפי דרישות דין",
+          "מידע מתועד לפי צורך ודרישת התקן"
+        ]
+      ]
+    }
+  ]
+}

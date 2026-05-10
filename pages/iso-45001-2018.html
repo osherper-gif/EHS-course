@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta name="description" content="ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה - Learning Hub מלא ללמידת התקן, כולל PDCA, סעיפים 4 עד 10, מדרג בקרות, תפעול, מדידה ושיפור.">
+  <title>ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה | קורס ממונה בטיחות</title>
+  <script src="../js/ui-mode.js"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page-title="ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה" class="auth-protected">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>למידה, מבחנים וכלי שטח</small></span></a><nav class="main-nav" aria-label="ניווט ראשי"><a href="../index.html">בית</a><a href="syllabus.html">שיעורים</a><a href="quizzes.html">תרגול ומבחנים</a><a href="safety-game.html">אתגר בטיחות</a><a href="field-tools.html">חוקים, תקנים וכלי שטח</a><a href="ai-assistant.html">עוזר AI</a></nav><div class="header-actions"><button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button><button class="icon-btn" type="button" data-action="print" title="הדפסה">⎙</button></div></div><div class="law-notice">יש לאמת מול החוק, התקנות והתקנים העדכניים וגורם מוסמך</div></header>
+  <main id="main" class="site-main law-lesson-page labor-law-page iso-lesson-page">
+    <nav class="breadcrumb" aria-label="היכן אני"><a href="../index.html">בית</a><span aria-hidden="true">›</span><a href="field-tools.html">חוקים, תקנים וכלי שטח</a><span aria-hidden="true">›</span><span>ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה</span></nav>
+    <section class="page-hero law-hero-modern"><div><p class="kicker">תקן ניהול בטיחות</p><h1>ת״י ISO 45001:2018 — מערכות ניהול בטיחות ובריאות בתעסוקה</h1><p>דף זה נבנה מתוך מערך השיעור המלא: מהות התקן, PDCA, סעיפים 4–10, דוגמאות, טבלאות, תרשימים וכרטיס תרגול המחובר למאגר השאלות המקומי.</p><div class="related-links"><a class="btn" href="field-tools.html#iso-45001-tool">חזרה לכלי שטח</a><a class="btn secondary" href="exam-questions.html?lesson=iso-45001-2018">שאלות למבחן</a><a class="btn secondary" href="safety-game.html#iso-45001-game">אתגר בטיחות</a><a class="btn secondary" href="quizzes.html#iso-45001-practice">תרגול</a></div></div></section>
+    <section class="content-section"><h2>ניווט פנימי</h2><div class="related-links law-internal-nav"><a href="#iso-section-01">מבוא לתקן</a><a href="#iso-section-02">1. מהות התקן</a><a href="#iso-section-03">2. מטרת מערכת ניהול בטיחות ובריאות בתעסוקה</a><a href="#iso-section-04">3. מחזור PDCA — תכנן, בצע, בדוק, פעל</a><a href="#iso-section-05">4. חלות התקן</a><a href="#iso-section-06">5. מושגים מרכזיים בתקן</a><a href="#iso-section-07">5.1 גורם סיכון</a><a href="#iso-section-08">5.2 סיכון בב״ת</a><a href="#iso-section-09">5.3 תקרית בטיחות</a><a href="#iso-section-10">6. סעיף 4 — הקשר הארגון</a><a href="#iso-section-11">7. מחזיקי עניין</a><a href="#iso-section-12">8. תחום החלות של המערכת</a><a href="#iso-section-13">9. סעיף 5 — מנהיגות ושיתוף עובדים</a><a href="#iso-section-14">9.1 מנהיגות ומחויבות ההנהלה</a><a href="#iso-section-15">9.2 מדיניות בטיחות ובריאות בתעסוקה</a><a href="#iso-section-16">טבלת ניסוחים</a><a href="#iso-section-17">10. סעיף 5.4 — התייעצות עם עובדים ושיתוף עובדים</a><a href="#iso-section-18">11. סעיף 6 — תכנון</a></div></section>
+    <section class="content-section law-source-note"><h2>מקור והערת שימוש</h2><p>התוכן נלקח מהמקור הלימודי המקומי ששולב באתר. הדף מיועד ללמידה ואינו מחליף בדיקה מול מקור מוסמך, נוסח תקן רשמי, חוק, תקנה או גורם מקצועי מוסמך.</p></section>
+    <section class="content-section lesson-source-hub" id="iso-45001-content"><div class="section-title"><h2>Learning Hub מלא לתקן ISO 45001</h2><p>כל תוכן המסמך מוצג כאן כפרקים נפתחים כדי לאפשר למידה הדרגתית בלי לוותר על מידע.</p></div><div class="lesson-source-controls"><label><span>חיפוש בתוך הדף</span><input type="search" data-source-search placeholder="חפש PDCA, מנהיגות, מידע מתועד, ניהול שינויים..."></label><div class="lesson-source-actions"><button class="btn secondary" type="button" data-source-open-all>פתח הכל</button><button class="btn secondary" type="button" data-source-close-all>סגור הכל</button></div></div><div class="lesson-source-filters" aria-label="סינון פרקים"><button class="lesson-source-filter is-active" type="button" data-source-filter="all">הכל</button><button class="lesson-source-filter" type="button" data-source-filter="essence">מהות התקן</button><button class="lesson-source-filter" type="button" data-source-filter="context">הקשר ותחום חלות</button><button class="lesson-source-filter" type="button" data-source-filter="leadership">מנהיגות ושיתוף</button><button class="lesson-source-filter" type="button" data-source-filter="planning">תכנון</button><button class="lesson-source-filter" type="button" data-source-filter="support">תמיכה</button><button class="lesson-source-filter" type="button" data-source-filter="operation">תפעול</button><button class="lesson-source-filter" type="button" data-source-filter="performance">הערכת ביצועים</button><button class="lesson-source-filter" type="button" data-source-filter="improvement">שיפור</button><button class="lesson-source-filter" type="button" data-source-filter="checklist">Checklist</button><button class="lesson-source-filter" type="button" data-source-filter="comparison">השוואות</button><button class="lesson-source-filter" type="button" data-source-filter="summary">סיכום</button></div><div class="lesson-source-diagrams" aria-label="תרשימי ISO 45001"><article class="lesson-visual-card"><h3>PDCA</h3><div class="lesson-flow"><span>Plan - תכנון</span><span>Do - ביצוע</span><span>Check - בדיקה</span><span>Act - פעולה ושיפור</span></div></article><article class="lesson-visual-card"><h3>הקשר בין דין לתקן</h3><div class="lesson-flow"><span>חוק / פקודה / תקנה</span><span>דרישות חובה</span><span>ISO 45001</span><span>מערכת ניהול</span></div></article><article class="lesson-visual-card"><h3>סעיפי התקן</h3><div class="lesson-flow"><span>4 הקשר הארגון</span><span>5 מנהיגות</span><span>6 תכנון</span><span>7 תמיכה</span><span>8 תפעול</span><span>9 הערכת ביצועים</span><span>10 שיפור</span></div></article><article class="lesson-visual-card"><h3>מדרג בקרות</h3><div class="lesson-flow"><span>סילוק</span><span>החלפה</span><span>בקרות הנדסיות</span><span>בקרות מנהלתיות</span><span>PPE</span></div></article><article class="lesson-visual-card"><h3>ניהול שינויים</h3><div class="lesson-flow"><span>שינוי</span><span>זיהוי סיכונים</span><span>הערכת סיכון</span><span>בקרות</span><span>הדרכה</span><span>אישור</span><span>מעקב</span></div></article><article class="lesson-visual-card"><h3>טיפול בתקרית</h3><div class="lesson-flow"><span>תגובה מיידית</span><span>חקירה</span><span>גורמי שורש</span><span>פעולה מתקנת</span><span>בדיקת אפקטיביות</span><span>שיפור</span></div></article><article class="lesson-visual-card"><h3>מחזיקי עניין</h3><div class="lesson-flow"><span>עובדים</span><span>הנהלה</span><span>קבלנים</span><span>לקוחות</span><span>רגולטור</span><span>שכנים</span><span>ביטוח</span></div></article><article class="lesson-visual-card"><h3>חוק מול תקן</h3><div class="lesson-flow"><span>חוק: חובה משפטית</span><span>תקן: מערכת ניהול</span><span>התקן אינו מחליף דין</span><span>התקן מסייע ליישום ובקרה</span></div></article></div><div class="lesson-practice-card" id="iso-45001-practice-card"><div><p class="kicker">תרגול</p><h3>תרגול ISO 45001 — 30 שאלות</h3><p>השאלות אינן מוצגות כרשימה ארוכה בדף. הן זמינות במאגר השאלות המקומי, באזור התרגול ובאתגר הבטיחות.</p></div><div class="related-links"><a class="btn" href="exam-questions.html?lesson=iso-45001-2018">שאלות למבחן</a><a class="btn secondary" href="quizzes.html#iso-45001-practice">תרגול</a><a class="btn secondary" href="safety-game.html#iso-45001-game">אתגר בטיחות</a></div></div><div class="lesson-source-chapters"><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-01" open><summary><span>מבוא לתקן<small> • 1</small></span></summary><div class="lesson-source-body"><p>📘 סיכום מורחב — ת״י ISO 45001:2018</p>
+<p>מערכות ניהול בטיחות ובריאות בתעסוקה — דרישות והנחיות לשימוש</p>
+<p>מבוסס על התקן המצורף: ת״י 45001:2018, שהוא תרגום עברי זהה לתקן הבין־לאומי ISO 45001:2018, ובא במקום ת״י 18001/OHSAS 18001 הישן .</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-02"><summary><span>1. מהות התקן<small> • 2</small></span></summary><div class="lesson-source-body"><p>ISO 45001 הוא תקן למערכת ניהול בטיחות ובריאות בתעסוקה. הוא אינו רק “רשימת בדיקות”, אלא שיטה ניהולית מלאה שמטרתה לאפשר לארגון לנהל סיכוני בטיחות ובריאות, למנוע פציעה ופגיעה בבריאות, לשפר ביצועים ולעמוד בדרישות דין ודרישות אחרות.</p>
+<p>ציטוט קצר מהתקן</p>
+<p>“תקן זה קובע דרישות למערכת ניהול בטיחות ובריאות בתעסוקה... כדי לאפשר לארגונים לספק מקומות עבודה בטוחים ובריאים...”</p>
+<p>הסבר לממונה בטיחות</p>
+<p>התקן לא מחליף חוק, תקנות או פקודות. להפך — הוא מחייב את הארגון לזהות את הדרישות החוקיות החלות עליו ולנהל אותן כחלק ממערכת הבטיחות.</p>
+<p>חוק / פקודה / תקנה</p>
+<p>↓</p>
+<p>דרישות חובה</p>
+<p>↓</p>
+<p>ISO 45001</p>
+<p>↓</p>
+<p>שיטה ניהולית לוודא שהדרישות מזוהות, מיושמות, נבדקות ומשתפרות</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-03"><summary><span>2. מטרת מערכת ניהול בטיחות ובריאות בתעסוקה<small> • 3</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“מטרתה של מערכת ניהול בב״ת היא לספק מסגרת לניהול סיכונים והזדמנויות בתחום הבב״ת.”</p>
+<p>הסבר</p>
+<p>התקן מתמקד בשני כיוונים:</p>
+<p>כלומר, הארגון לא אמור לפעול רק אחרי תאונות. הוא צריך לזהות מראש מה עלול להשתבש, ולבנות מערכת שמונעת זאת.</p>
+<p>דוגמה</p>
+<p>במפעל שבו יש מלגזות, התקן לא מסתפק בשאלה “האם הייתה תאונה?”. הוא דורש לבדוק:</p>
+<p>האם זוהו מסלולי נסיעה והולכי רגל?</p>
+<p>האם קיימים סיכונים בממשק בין מלגזה לעובדים?</p>
+<p>האם יש נוהל?</p>
+<p>האם הנהגים כשירים?</p>
+<p>האם יש תצפיות?</p>
+<p>האם אירועי כמעט תאונה מדווחים?</p>
+<p>האם יש מדדים?</p>
+<p>האם ההנהלה סוקרת את הביצועים?</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="pdca" id="iso-section-04"><summary><span>3. מחזור PDCA — תכנן, בצע, בדוק, פעל<small> • 4</small></span></summary><div class="lesson-source-body"><p>התקן מבוסס על מחזור שיפור מתמיד: Plan–Do–Check–Act. בתקן מופיע תרשים שמחבר בין PDCA לבין סעיפי התקן: הקשר הארגון, מנהיגות ושיתוף עובדים במרכז, סביבם תכנון, תמיכה ותפעול, הערכת ביצועים ושיפור .</p>
+<p>תכנן PLAN</p>
+<p>זיהוי סיכונים, דרישות דין, מטרות ותוכניות</p>
+<p>↓</p>
+<p>בצע DO</p>
+<p>יישום בקרות, הדרכות, תפעול, חירום, רכש וקבלנים</p>
+<p>↓</p>
+<p>בדוק CHECK</p>
+<p>ניטור, מדידה, מבדקים, הערכת עמידה בדרישות</p>
+<p>↓</p>
+<p>פעל ACT</p>
+<p>פעולה מתקנת, חקירת אירועים, שיפור מתמיד</p>
+<p>דוגמה בשטח</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="context" id="iso-section-05"><summary><span>4. חלות התקן<small> • 5</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“תקן זה ישים לכל ארגון, ללא תלות בגודל, בסוג ובפעילויות שלו.”</p>
+<p>הסבר</p>
+<p>התקן מתאים לכל ארגון:</p>
+<p>מפעל.</p>
+<p>אתר בנייה.</p>
+<p>מעבדה.</p>
+<p>מחסן.</p>
+<p>בית חולים.</p>
+<p>חברת שירותים.</p>
+<p>רשות מקומית.</p>
+<p>מוסד חינוכי.</p>
+<p>חברת הייטק עם מעבדות או שטח תפעולי.</p>
+<p>התקן אינו קובע דרישות טכניות כמו “בדיקת מעלית כל 6 חודשים” או “אביזרי הרמה כל 6 חודשים”. הדרישות האלה מגיעות מהחוק והתקנות. התקן דורש שהארגון יזהה את הדרישות האלה, ינהל אותן, יוודא עמידה בהן וישמור מידע מתועד.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-06"><summary><span>5. מושגים מרכזיים בתקן<small> • 6</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 5. מושגים מרכזיים בתקן • 6. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-07"><summary><span>5.1 גורם סיכון<small> • 7</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“גורם סיכון — מקור בעל פוטנציאל לגרום פציעה ופגיעה בבריאות.”</p>
+<p>הסבר</p>
+<p>גורם סיכון הוא המקור האפשרי לנזק.</p>
+<p>דוגמאות:</p>
+<p>מכונה עם חלק נע.</p>
+<p>עבודה בגובה.</p>
+<p>חומר כימי.</p>
+<p>רעש.</p>
+<p>אבק.</p>
+<p>עומס חום.</p>
+<p>עבודה לבד.</p>
+<p>לחץ עבודה חריג.</p>
+<p>קבלן לא מוכשר.</p>
+<p>מלגזה באזור הולכי רגל.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-08"><summary><span>5.2 סיכון בב״ת<small> • 8</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“שילוב של הסבירות להתרחשות אירועים מסוכנים... עם חומרת הפציעה והפגיעה בבריאות...”</p>
+<p>הסבר</p>
+<p>סיכון הוא לא רק “מה עלול לקרות”, אלא שילוב של:</p>
+<p>סיכון = סבירות × חומרה</p>
+<p>דוגמה:</p>
+<p>גורם סיכון: עבודה על גג.</p>
+<p>אירוע מסוכן: נפילה.</p>
+<p>חומרה: מוות או פציעה קשה.</p>
+<p>סבירות: תלויה בגידור, רתמה, הדרכה, תנאי מזג אוויר ופיקוח.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="improvement" id="iso-section-09"><summary><span>5.3 תקרית בטיחות<small> • 9</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“התרחשות הנגרמת בשל העבודה או במהלכה, העלולה להוביל, או המובילה, לפציעה או פגיעה בבריאות.”</p>
+<p>הסבר</p>
+<p>תקרית בטיחות כוללת גם תאונה וגם כמעט תאונה.</p>
+<p>התקן דורש להתייחס גם לכמעט תאונה, כי היא הזדמנות למנוע תאונה אמיתית.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="context" id="iso-section-10"><summary><span>6. סעיף 4 — הקשר הארגון<small> • 10</small></span></summary><div class="lesson-source-body"><p>הארגון חייב להבין את ההקשר שבו הוא פועל: פנימי וחיצוני.</p>
+<p>ציטוט קצר</p>
+<p>“הארגון יקבע נושאים חיצוניים ופנימיים הרלוונטיים לייעודו...”</p>
+<p>הסבר</p>
+<p>התקן דורש להבין מה משפיע על מערכת הבטיחות.</p>
+<p>דוגמאות לנושאים חיצוניים</p>
+<p>דוגמאות לנושאים פנימיים</p>
+<p>דגש לממונה בטיחות</p>
+<p>ממונה בטיחות צריך לתרגם את “הקשר הארגון” לרשימת סיכונים והזדמנויות. לדוגמה: אם יש הרבה עובדים זמניים — נדרש חיזוק תהליך קליטה והדרכה.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="context" id="iso-section-11"><summary><span>7. מחזיקי עניין<small> • 11</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“הארגון יקבע... מיהם מחזיקי העניין... ומהם הצרכים והציפיות הרלוונטיים...”</p>
+<p>הסבר</p>
+<p>מחזיקי עניין הם כל מי שמשפיע או מושפע מהבטיחות.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="context" id="iso-section-12"><summary><span>8. תחום החלות של המערכת<small> • 12</small></span></summary><div class="lesson-source-body"><p>הארגון צריך להגדיר מה כלול במערכת ניהול הבטיחות.</p>
+<p>דוגמה לתחום חלות טוב</p>
+<p>מערכת ניהול הבטיחות חלה על כלל פעילות הייצור, האחזקה, המחסן,</p>
+<p>המעבדות, עבודות הקבלנים, עבודות התחזוקה והפעילות הלוגיסטית באתר החברה.</p>
+<p>טעות נפוצה</p>
+<p>להוציא מתחום החלות אזור מסוכן כדי “להקל” על ההתעדה.</p>
+<p>התקן מבהיר שתחום החלות לא אמור לשמש כדי להתחמק מפעילויות שיש להן השפעה על ביצועי הבטיחות.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="leadership" id="iso-section-13"><summary><span>9. סעיף 5 — מנהיגות ושיתוף עובדים<small> • 13</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 9. סעיף 5 — מנהיגות ושיתוף עובדים • 13. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="leadership" id="iso-section-14"><summary><span>9.1 מנהיגות ומחויבות ההנהלה<small> • 14</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“ההנהלה הבכירה תוכיח מנהיגות ומחויבות...”</p>
+<p>התקן דורש מההנהלה:</p>
+<p>לשאת באחריות כוללת.</p>
+<p>להבטיח מדיניות ומטרות.</p>
+<p>לשלב בטיחות בתהליכים העסקיים.</p>
+<p>לספק משאבים.</p>
+<p>לקדם תרבות בטיחות.</p>
+<p>להגן על עובדים שמדווחים.</p>
+<p>לתמוך בוועדות בטיחות ובריאות.</p>
+<p>דגש חשוב</p>
+<p>אפשר להאציל סמכות.</p>
+<p>אי אפשר להאציל אחריות כוללת.</p>
+<p>גם אם יש ממונה בטיחות, ההנהלה הבכירה עדיין נושאת באחריות למערכת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="leadership" id="iso-section-15"><summary><span>9.2 מדיניות בטיחות ובריאות בתעסוקה<small> • 15</small></span></summary><div class="lesson-source-body"><p>המדיניות צריכה לכלול מחויבות:</p>
+<p>לספק תנאי עבודה בטוחים ובריאים.</p>
+<p>לעמוד בדרישות דין ודרישות אחרות.</p>
+<p>לסלק גורמי סיכון ולצמצם סיכונים.</p>
+<p>לשיפור מתמיד.</p>
+<p>להתייעצות עם עובדים ולשיתופם.</p>
+<p>דוגמה למדיניות טובה</p>
+<p>הארגון מחויב לספק סביבת עבודה בטוחה ובריאה,</p>
+<p>למנוע פציעה ופגיעה בבריאות,</p>
+<p>לעמוד בדרישות הדין והדרישות האחרות החלות עליו,</p>
+<p>לסלק גורמי סיכון ולצמצם סיכוני בטיחות ובריאות,</p>
+<p>לשתף עובדים בתהליכי הבטיחות,</p>
+<p>ולשפר בהתמדה את ביצועי מערכת ניהול הבטיחות.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="comparison" id="iso-section-16"><summary><span>טבלת ניסוחים<small> • 16</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: טבלת ניסוחים • 16. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="leadership" id="iso-section-17"><summary><span>10. סעיף 5.4 — התייעצות עם עובדים ושיתוף עובדים<small> • 17</small></span></summary><div class="lesson-source-body"><p>זה אחד הסעיפים החשובים ביותר בתקן.</p>
+<p>ציטוט קצר</p>
+<p>“הארגון יקבע, יישם ויתחזק תהליכים להתייעצות עם עובדים ולשיתוף עובדים...”</p>
+<p>ההבדל בין התייעצות לשיתוף</p>
+<p>דוגמאות להתייעצות</p>
+<p>לפני שינוי נוהל עבודה.</p>
+<p>לפני קביעת מטרות בטיחות.</p>
+<p>לפני קביעת אופן עמידה בדרישות חוק.</p>
+<p>לפני בחירת בקרות לקבלנים.</p>
+<p>דוגמאות לשיתוף</p>
+<p>זיהוי גורמי סיכון.</p>
+<p>הערכת סיכונים.</p>
+<p>בחירת אמצעי בקרה.</p>
+<p>חקירת אירועי בטיחות.</p>
+<p>קביעת פעולות מתקנות.</p>
+<p>דגש לממונה בטיחות</p>
+<p>ממונה בטיחות טוב לא רק “בודק את העובדים”, אלא לומד מהם. העובד יודע איך העבודה מתבצעת בפועל, ולא רק איך היא כתובה בנוהל.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="planning" id="iso-section-18"><summary><span>11. סעיף 6 — תכנון<small> • 18</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 11. סעיף 6 — תכנון • 18. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-19"><summary><span>11.1 זיהוי סיכונים והזדמנויות<small> • 19</small></span></summary><div class="lesson-source-body"><p>הארגון צריך לזהות:</p>
+<p>גורמי סיכון.</p>
+<p>סיכוני בטיחות ובריאות.</p>
+<p>הזדמנויות לשיפור.</p>
+<p>דרישות דין ודרישות אחרות.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="diagrams" id="iso-section-20"><summary><span>תרשים<small> • 20</small></span></summary><div class="lesson-source-body"><p>הקשר הארגון</p>
+<p>↓</p>
+<p>מחזיקי עניין</p>
+<p>↓</p>
+<p>תחום החלות</p>
+<p>↓</p>
+<p>זיהוי גורמי סיכון</p>
+<p>↓</p>
+<p>הערכת סיכונים והזדמנויות</p>
+<p>↓</p>
+<p>קביעת פעולות</p>
+<p>↓</p>
+<p>מטרות ותוכניות</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="planning" id="iso-section-21"><summary><span>11.2 זיהוי גורמי סיכון<small> • 21</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“הארגון יקבע, יישם ויתחזק תהליכים לזיהוי גורמי סיכון באופן שוטף ופרואקטיבי.”</p>
+<p>הסבר</p>
+<p>זיהוי סיכונים אינו אירוע חד־פעמי. הוא צריך להיות מתמשך.</p>
+<p>התקן דורש להביא בחשבון בין היתר:</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="planning" id="iso-section-22"><summary><span>12. דרישות דין ודרישות אחרות<small> • 22</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“הארגון יקבע, יישם ויתחזק תהליכים כדי לברר מהן הדרישות-על-פי-דין והדרישות האחרות העדכניות...”</p>
+<p>הסבר</p>
+<p>זה הסעיף שמחבר בין התקן לבין החקיקה.</p>
+<p>דוגמאות לדרישות דין בישראל</p>
+<p>דגש לממונה</p>
+<p>ממונה בטיחות צריך להחזיק מרשם דרישות דין:</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="planning" id="iso-section-23"><summary><span>13. מטרות בטיחות ובריאות<small> • 23</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“הארגון יקבע מטרות בב״ת בפונקציות וברמות הרלוונטיות...”</p>
+<p>מטרות צריכות להיות</p>
+<p>דוגמאות למטרות טובות</p>
+<p>טעות נפוצה</p>
+<p>מטרה כמו “אפס תאונות” יכולה להיות חזון, אבל כיעד ניהולי צריך גם מטרות תפעוליות שמקדמות אותו: הדרכות, בקרות, סגירת מפגעים, תצפיות, פעולות מתקנות.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="support" id="iso-section-24"><summary><span>14. סעיף 7 — תמיכה<small> • 24</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 14. סעיף 7 — תמיכה • 24. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="support" id="iso-section-25"><summary><span>14.1 משאבים<small> • 25</small></span></summary><div class="lesson-source-body"><p>הארגון חייב לספק משאבים למערכת הבטיחות:</p>
+<p>כוח אדם.</p>
+<p>זמן.</p>
+<p>תקציב.</p>
+<p>ציוד.</p>
+<p>מערכות מידע.</p>
+<p>יועצים.</p>
+<p>הכשרות.</p>
+<p>מערכות חירום.</p>
+<p>דוגמה</p>
+<p>אם סקר סיכונים מצא צורך במערכת יניקה מקומית, אך ההנהלה לא מקצה תקציב — מערכת הניהול אינה אפקטיבית.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="support" id="iso-section-26"><summary><span>14.2 כשירות<small> • 26</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“הארגון... יבטיח שהעובדים כשירים... על בסיס של השכלה, הדרכה או ניסיון נאותים.”</p>
+<p>הסבר</p>
+<p>כשירות אינה רק הדרכה. כשירות היא שילוב של:</p>
+<p>ידע + מיומנות + ניסיון + הבנה של הסיכונים</p>
+<p>דוגמה</p>
+<p>עובד שהשתתף בהדרכת מלגזה אך לא יודע ליישם בפועל — אינו בהכרח כשיר.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="support" id="iso-section-27"><summary><span>Checklist כשירות<small> • 27</small></span></summary><div class="lesson-source-body"><p>האם הוגדרו דרישות כשירות לתפקיד?</p>
+<p>האם העובד עבר הדרכה?</p>
+<p>האם נבדקה הבנה?</p>
+<p>האם יש תיעוד?</p>
+<p>האם נדרש ריענון?</p>
+<p>האם השינוי בתפקיד מחייב כשירות חדשה?</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="support" id="iso-section-28"><summary><span>14.3 מודעות<small> • 28</small></span></summary><div class="lesson-source-body"><p>העובדים צריכים להיות מודעים ל:</p>
+<p>מדיניות הבטיחות.</p>
+<p>מטרות הבטיחות.</p>
+<p>תרומתם למערכת.</p>
+<p>תוצאות אי עמידה בדרישות.</p>
+<p>תקריות ותוצאות חקירה.</p>
+<p>גורמי סיכון וסיכונים רלוונטיים.</p>
+<p>זכותם להתרחק מסכנה מיידית וחמורה.</p>
+<p>דגש חשוב</p>
+<p>התקן מציין את יכולת העובדים להתרחק ממצבים שלדעתם מהווים סכנה מיידית וחמורה לחיים או לבריאות, ואת ההסדרים להגנה עליהם מהשלכות לא מוצדקות .</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="support" id="iso-section-29"><summary><span>15. תקשורת<small> • 29</small></span></summary><div class="lesson-source-body"><p>הארגון צריך לקבוע:</p>
+<p>מה מתקשרים.</p>
+<p>מתי.</p>
+<p>למי.</p>
+<p>איך.</p>
+<p>באיזו שפה.</p>
+<p>באיזו רמת הבנה.</p>
+<p>מי אחראי.</p>
+<p>דוגמה</p>
+<p>הדרכת בטיחות בעברית לעובדים שאינם קוראים עברית אינה תקשורת אפקטיבית.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="support" id="iso-section-30"><summary><span>טבלת תקשורת<small> • 30</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: טבלת תקשורת • 30. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="support" id="iso-section-31"><summary><span>16. מידע מתועד<small> • 31</small></span></summary><div class="lesson-source-body"><p>הסבר</p>
+<p>“מידע מתועד” כולל מסמכים ורשומות:</p>
+<p>מדיניות.</p>
+<p>נהלים.</p>
+<p>הערכות סיכונים.</p>
+<p>מרשם דרישות דין.</p>
+<p>תוכניות עבודה.</p>
+<p>הדרכות.</p>
+<p>תסקירים.</p>
+<p>מבדקים.</p>
+<p>סקר הנהלה.</p>
+<p>חקירות אירועים.</p>
+<p>פעולות מתקנות.</p>
+<p>דגש</p>
+<p>מה שלא מתועד — קשה להוכיח.</p>
+<p>מה שלא מבוקר — עלול להיות לא מעודכן.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="operation" id="iso-section-32"><summary><span>17. סעיף 8 — תפעול<small> • 32</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 17. סעיף 8 — תפעול • 32. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="operation" id="iso-section-33"><summary><span>17.1 בקרה תפעולית<small> • 33</small></span></summary><div class="lesson-source-body"><p>הארגון צריך לתכנן ולבקר את התהליכים הדרושים כדי לעמוד בדרישות מערכת הבטיחות.</p>
+<p>דוגמאות לבקרות</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="operation" id="iso-section-34"><summary><span>18. מדרג הבקרות<small> • 34</small></span></summary><div class="lesson-source-body"><p>זה אחד הנושאים החשובים ביותר בתקן.</p>
+<p>ציטוט קצר</p>
+<p>“הארגון... יתחזק תהליכים לסילוק גורמי סיכון ולהפחתת סיכוני בב״ת באמצעות מדרג הבקרות...”</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-35"><summary><span>1. סילוק גורם הסיכון<small> • 35</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 1. סילוק גורם הסיכון • 35. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-36"><summary><span>2. החלפה בגורם מסוכן פחות<small> • 36</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 2. החלפה בגורם מסוכן פחות • 36. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-37"><summary><span>3. בקרות הנדסיות וארגון מחדש<small> • 37</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 3. בקרות הנדסיות וארגון מחדש • 37. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-38"><summary><span>4. בקרות מנהלתיות והדרכה<small> • 38</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 4. בקרות מנהלתיות והדרכה • 38. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-39"><summary><span>5. ציוד מגן אישי<small> • 39</small></span></summary><div class="lesson-source-body"><p>דוגמה: רעש</p>
+<p>דגש למבחן</p>
+<p>ציוד מגן אישי הוא השלב האחרון במדרג, לא הפתרון הראשון.</p><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 5. ציוד מגן אישי • 39. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="operation" id="iso-section-40"><summary><span>19. ניהול שינויים<small> • 40</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“הארגון יקבע תהליכים ליישום ולבקרה של שינויים מתוכננים זמניים וקבועים...”</p>
+<p>דוגמאות לשינויים שמחייבים בדיקת בטיחות</p>
+<p>ציוד חדש.</p>
+<p>חומר חדש.</p>
+<p>שינוי סידור קו.</p>
+<p>שינוי כוח אדם.</p>
+<p>שינוי שעות עבודה.</p>
+<p>שינוי קבלן.</p>
+<p>שינוי רגולטורי.</p>
+<p>שינוי בטכנולוגיה.</p>
+<p>שינוי תהליך.</p>
+<p>דוגמה</p>
+<p>מכניסים חומר ניקוי חדש. לפני שימוש צריך לבדוק:</p>
+<p>גיליון בטיחות SDS.</p>
+<p>סיכוני חשיפה.</p>
+<p>אחסון.</p>
+<p>תגובה עם חומרים קיימים.</p>
+<p>ציוד מגן.</p>
+<p>הדרכת עובדים.</p>
+<p>טיפול בשפך.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="operation" id="iso-section-41"><summary><span>20. רכש, קבלנים ומיקור חוץ<small> • 41</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 20. רכש, קבלנים ומיקור חוץ • 41. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="operation" id="iso-section-42"><summary><span>20.1 רכש<small> • 42</small></span></summary><div class="lesson-source-body"><p>הארגון צריך לוודא שמוצרים ושירותים שנרכשים מתאימים למערכת הבטיחות.</p>
+<p>דוגמה</p>
+<p>לא רוכשים מכונה רק לפי מחיר. בודקים:</p>
+<p>תקינה.</p>
+<p>מיגונים.</p>
+<p>הוראות יצרן.</p>
+<p>דרישות תחזוקה.</p>
+<p>רעש.</p>
+<p>פליטות.</p>
+<p>הדרכה.</p>
+<p>חלקי חילוף.</p>
+<p>התאמה לעובדים.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="operation" id="iso-section-43"><summary><span>20.2 קבלנים<small> • 43</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“הארגון יבטיח שהקבלנים ועובדיהם עומדים בדרישות של מערכת ניהול הבב״ת שלו.”</p>
+<p>דוגמה</p>
+<p>קבלן אחזקה שמגיע לבצע ריתוך:</p>
+<p>אישור עבודה חמה.</p>
+<p>בדיקת אזור.</p>
+<p>מטף.</p>
+<p>השגחה.</p>
+<p>סילוק חומרים דליקים.</p>
+<p>תעודות כשירות.</p>
+<p>תדריך בטיחות.</p>
+<p>תיאום עם פעילות האתר.</p>
+<p>דגש</p>
+<p>קבלן אינו “בעיה של מישהו אחר”.</p>
+<p>הארגון חייב לתאם, לבקר ולוודא כשירות.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="operation" id="iso-section-44"><summary><span>21. מוכנות ותגובה לחירום<small> • 44</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“הארגון יקבע, יישם ויתחזק את התהליכים הנחוצים כדי להתכונן ולהגיב למצבי חירום פוטנציאליים...”</p>
+<p>מערכת חירום צריכה לכלול</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="performance" id="iso-section-45"><summary><span>22. סעיף 9 — הערכת ביצועים<small> • 45</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 22. סעיף 9 — הערכת ביצועים • 45. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="performance" id="iso-section-46"><summary><span>22.1 ניטור ומדידה<small> • 46</small></span></summary><div class="lesson-source-body"><p>הארגון צריך לקבוע:</p>
+<p>מה מודדים.</p>
+<p>איך מודדים.</p>
+<p>מתי מודדים.</p>
+<p>מי מודד.</p>
+<p>איך מנתחים.</p>
+<p>למי מדווחים.</p>
+<p>מדדים אפשריים</p>
+<p>דגש חשוב</p>
+<p>מדד טוב אינו רק “כמה תאונות היו”. מדדים מובילים עוזרים למנוע תאונות לפני שהן קורות.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="essence" id="iso-section-47"><summary><span>22.2 הערכת עמידה בדרישות<small> • 47</small></span></summary><div class="lesson-source-body"><p>הארגון חייב לבדוק עמידה בדרישות דין ודרישות אחרות.</p>
+<p>דוגמה</p><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 22.2 הערכת עמידה בדרישות • 47. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="performance" id="iso-section-48"><summary><span>23. מבדק פנימי<small> • 48</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“הארגון יערוך, בפרקי זמן מתוכננים, מבדקים פנימיים...”</p>
+<p>מטרת המבדק</p>
+<p>לבדוק אם מערכת הבטיחות:</p>
+<p>מתאימה לדרישות התקן.</p>
+<p>מתאימה לדרישות הארגון.</p>
+<p>מיושמת בפועל.</p>
+<p>אפקטיבית.</p>
+<p>דוגמה לממצאי מבדק</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="performance" id="iso-section-49"><summary><span>24. סקר הנהלה<small> • 49</small></span></summary><div class="lesson-source-body"><p>סקר הנהלה הוא אחד הכלים המרכזיים שבהם ההנהלה מוכיחה מעורבות.</p>
+<p>בסקר הנהלה יש לבדוק</p>
+<p>פעולות מסקרים קודמים.</p>
+<p>שינויים פנימיים וחיצוניים.</p>
+<p>דרישות דין.</p>
+<p>סיכונים והזדמנויות.</p>
+<p>השגת מטרות.</p>
+<p>תקריות ואי התאמות.</p>
+<p>תוצאות ניטור.</p>
+<p>תוצאות מבדקים.</p>
+<p>שיתוף עובדים.</p>
+<p>משאבים.</p>
+<p>הזדמנויות לשיפור.</p>
+<p>דגש</p>
+<p>סקר הנהלה אינו “ישיבת סיכום”. הוא מנגנון קבלת החלטות.</p>
+<p>נתונים → ניתוח → החלטות → משאבים → פעולות → מעקב</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="improvement" id="iso-section-50"><summary><span>25. סעיף 10 — שיפור<small> • 50</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 25. סעיף 10 — שיפור • 50. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="improvement" id="iso-section-51"><summary><span>25.1 תקרית בטיחות, אי התאמה ופעולה מתקנת<small> • 51</small></span></summary><div class="lesson-source-body"><p>ציטוט קצר</p>
+<p>“הארגון יקבע, יישם ויתחזק תהליכים, לרבות דיווח, חקירה ונקיטת פעולה...”</p>
+<p>לאחר אירוע יש לבצע</p>
+<p>תגובה מיידית</p>
+<p>↓</p>
+<p>בקרת מצב ותיקון ראשוני</p>
+<p>↓</p>
+<p>חקירה</p>
+<p>↓</p>
+<p>זיהוי גורמי שורש</p>
+<p>↓</p>
+<p>בדיקת אירועים דומים</p>
+<p>↓</p>
+<p>פעולה מתקנת לפי מדרג הבקרות</p>
+<p>↓</p>
+<p>בדיקת אפקטיביות</p>
+<p>↓</p>
+<p>עדכון מערכת הבטיחות</p>
+<p>דוגמה</p>
+<p>אירוע: עובד כמעט נפגע ממלגזה.</p>
+<p>חקירה טובה לא תסתפק ב:
+“העובד לא הסתכל”.</p>
+<p>היא תבדוק:</p>
+<p>האם יש הפרדת נתיבים?</p>
+<p>האם הנהג הוכשר?</p>
+<p>האם יש עומס עבודה?</p>
+<p>האם יש שדה ראייה?</p>
+<p>האם יש תאורה?</p>
+<p>האם הוגדרה זכות קדימה?</p>
+<p>האם היו אירועים דומים?</p>
+<p>האם התדריך היה ברור?</p>
+<p>האם יש תרבות דיווח?</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="improvement" id="iso-section-52"><summary><span>26. שיפור מתמיד<small> • 52</small></span></summary><div class="lesson-source-body"><p>התקן דורש לשפר בהתמדה את התאמת המערכת, הלימותה והאפקטיביות שלה.</p>
+<p>דוגמאות לשיפור</p><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 26. שיפור מתמיד • 52. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="comparison" id="iso-section-53"><summary><span>27. טבלת השוואה: חוק מול תקן<small> • 53</small></span></summary><div class="lesson-source-body"><p class="lesson-safe-note">פרק זה משמש כנקודת מסגרת ללמידת הנושא: 27. טבלת השוואה: חוק מול תקן • 53. בעת הלמידה יש לחבר את הכותרת להגדרות, לדוגמאות השטח, לבקרות, לתיעוד ולאימות מול מקור מוסמך כאשר מדובר בדרישה מחייבת.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="checklist" id="iso-section-54"><summary><span>28. Checklist לממונה בטיחות לפי ISO 45001<small> • 54</small></span></summary><div class="lesson-source-body"><p>הקשר ותחום חלות</p>
+<p>הוגדר תחום חלות מערכת הבטיחות.</p>
+<p>זוהו נושאים פנימיים וחיצוניים.</p>
+<p>זוהו מחזיקי עניין.</p>
+<p>אין החרגה מטעה של פעילות מסוכנת.</p>
+<p>מנהיגות</p>
+<p>קיימת מדיניות חתומה ומעודכנת.</p>
+<p>ההנהלה משתתפת בסקר הנהלה.</p>
+<p>קיימים משאבים.</p>
+<p>קיימת הגנה על מדווחים.</p>
+<p>קיימות ועדות/מנגנוני שיתוף.</p>
+<p>תכנון</p>
+<p>קיימת שיטת זיהוי גורמי סיכון.</p>
+<p>קיימת הערכת סיכונים.</p>
+<p>קיימת הערכת הזדמנויות.</p>
+<p>קיים מרשם דרישות דין.</p>
+<p>קיימות מטרות מדידות.</p>
+<p>תמיכה</p>
+<p>כשירות מוגדרת לכל תפקיד מסוכן.</p>
+<p>הדרכות מתועדות.</p>
+<p>קיימת תקשורת מותאמת שפה ותרבות.</p>
+<p>מידע מתועד מבוקר.</p>
+<p>תפעול</p>
+<p>בקרות מוגדרות לפי מדרג הבקרות.</p>
+<p>קיים ניהול שינויים.</p>
+<p>קיים תהליך רכש בטיחותי.</p>
+<p>קבלנים נבדקים ומבוקרים.</p>
+<p>קיימת מוכנות לחירום.</p>
+<p>הערכת ביצועים</p>
+<p>קיימים מדדי בטיחות.</p>
+<p>מבוצעת הערכת עמידה בדרישות דין.</p>
+<p>מבוצעים מבדקים פנימיים.</p>
+<p>מתקיים סקר הנהלה.</p>
+<p>שיפור</p>
+<p>אירועים נחקרים.</p>
+<p>כמעט תאונות מטופלות.</p>
+<p>פעולות מתקנות נבדקות לאפקטיביות.</p>
+<p>יש ראיות לשיפור מתמיד.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="diagrams" id="iso-section-55"><summary><span>29. תרשים מסכם<small> • 55</small></span></summary><div class="lesson-source-body"><p>ISO 45001</p>
+<p>│</p>
+<p>├── 4 הקשר הארגון</p>
+<p>│   ├── נושאים פנימיים וחיצוניים</p>
+<p>│   ├── מחזיקי עניין</p>
+<p>│   └── תחום חלות</p>
+<p>│</p>
+<p>├── 5 מנהיגות ושיתוף עובדים</p>
+<p>│   ├── אחריות הנהלה</p>
+<p>│   ├── מדיניות</p>
+<p>│   ├── תפקידים וסמכויות</p>
+<p>│   └── התייעצות ושיתוף</p>
+<p>│</p>
+<p>├── 6 תכנון</p>
+<p>│   ├── גורמי סיכון</p>
+<p>│   ├── סיכונים והזדמנויות</p>
+<p>│   ├── דרישות דין</p>
+<p>│   └── מטרות</p>
+<p>│</p>
+<p>├── 7 תמיכה</p>
+<p>│   ├── משאבים</p>
+<p>│   ├── כשירות</p>
+<p>│   ├── מודעות</p>
+<p>│   ├── תקשורת</p>
+<p>│   └── מידע מתועד</p>
+<p>│</p>
+<p>├── 8 תפעול</p>
+<p>│   ├── בקרות</p>
+<p>│   ├── מדרג בקרות</p>
+<p>│   ├── ניהול שינויים</p>
+<p>│   ├── רכש וקבלנים</p>
+<p>│   └── חירום</p>
+<p>│</p>
+<p>├── 9 הערכת ביצועים</p>
+<p>│   ├── ניטור ומדידה</p>
+<p>│   ├── עמידה בדרישות</p>
+<p>│   ├── מבדק פנימי</p>
+<p>│   └── סקר הנהלה</p>
+<p>│</p>
+<p>└── 10 שיפור</p>
+<p>├── תקריות ואי התאמות</p>
+<p>├── פעולה מתקנת</p>
+<p>└── שיפור מתמיד</p>
+<p>🧪 שאלות אמריקאיות — ISO 45001</p>
+<p>כולל תשובות והסברים</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="summary" id="iso-section-56"><summary><span>סיכום קצר לזכירה<small> • 56</small></span></summary><div class="lesson-source-body"><p>ISO 45001 =</p>
+<p>מנהיגות</p>
+<p>+ שיתוף עובדים</p>
+<p>+ זיהוי סיכונים</p>
+<p>+ עמידה בדרישות דין</p>
+<p>+ מדרג בקרות</p>
+<p>+ ניהול שינויים</p>
+<p>+ קבלנים ורכש</p>
+<p>+ מדדים ומבדקים</p>
+<p>+ סקר הנהלה</p>
+<p>+ חקירה ושיפור מתמיד</p>
+<p>המשפט החשוב ביותר:</p>
+<p>התקן אינו מחליף חוק — הוא בונה מערכת שמוודאת שהחוק, התקנות, הסיכונים והבקרות מנוהלים באופן שיטתי ומתועד.</p></div></details><details class="lesson-source-chapter" data-source-chapter data-topic="comparison" id="iso-section-tables"><summary><span>טבלאות מתוך המסמך<small> • מקור</small></span></summary><div class="lesson-source-body"><h3>טבלה 1</h3><div class="table-wrap"><table><tr><th>כיוון</th><th>משמעות</th></tr><tr><td>ניהול סיכונים</td><td>זיהוי גורמי סיכון, הערכת סיכונים, הפחתה ובקרה</td></tr><tr><td>ניהול הזדמנויות</td><td>שיפור בטיחות, שיפור תרבות, שיפור שיטות עבודה</td></tr></table></div><h3>טבלה 2</h3><div class="table-wrap"><table><tr><th>שלב</th><th>דוגמה במפעל</th></tr><tr><td>תכנן</td><td>מזהים סיכון הילכדות במכונה</td></tr><tr><td>בצע</td><td>מתקינים מגן, הדרכה ונוהל נעילה ותיוג</td></tr><tr><td>בדוק</td><td>בודקים אם העובדים משתמשים נכון במגן</td></tr><tr><td>פעל</td><td>אם נמצאה עקיפה של מגן — חוקרים, מתקנים ומעדכנים שיטה</td></tr></table></div><h3>טבלה 3</h3><div class="table-wrap"><table><tr><th>סוג</th><th>דוגמה</th></tr><tr><td>תאונה</td><td>עובד נפגע ממלגזה</td></tr><tr><td>כמעט תאונה</td><td>מלגזה כמעט פגעה בעובד</td></tr><tr><td>אירוע ללא פגיעה</td><td>מטען נפל ליד עובד</td></tr><tr><td>אירוע מערכת</td><td>עובד נכנס לאזור מסוכן בלי הרשאה</td></tr></table></div><h3>טבלה 4</h3><div class="table-wrap"><table><tr><th>נושא</th><th>דוגמה</th></tr><tr><td>רגולציה</td><td>שינוי בתקנות עבודה בגובה</td></tr><tr><td>טכנולוגיה</td><td>הכנסת רובוטים או מכונות חדשות</td></tr><tr><td>קבלנים</td><td>תלות בתחזוקה חיצונית</td></tr><tr><td>סביבה עסקית</td><td>לחץ אספקות וזמני ביצוע</td></tr><tr><td>שכנים/קהילה</td><td>פעילות שעלולה להשפיע מחוץ לגדר</td></tr></table></div><h3>טבלה 5</h3><div class="table-wrap"><table><tr><th>נושא</th><th>דוגמה</th></tr><tr><td>תרבות ארגונית</td><td>“מסיימים מהר גם אם לא בטוח”</td></tr><tr><td>משאבים</td><td>מחסור בתקציב לתחזוקה</td></tr><tr><td>כוח אדם</td><td>עובדים חדשים או זמניים</td></tr><tr><td>ידע</td><td>חוסר כשירות בעבודה עם חומרים</td></tr><tr><td>תהליכים</td><td>שינויים תכופים בקווי ייצור</td></tr></table></div><h3>טבלה 6</h3><div class="table-wrap"><table><tr><th>מחזיק עניין</th><th>ציפייה אפשרית</th></tr><tr><td>עובדים</td><td>סביבת עבודה בטוחה, הדרכה, מיגון</td></tr><tr><td>הנהלה</td><td>עמידה בדין, הפחתת תאונות, רציפות תפעולית</td></tr><tr><td>קבלנים</td><td>דרישות ברורות לפני עבודה</td></tr><tr><td>לקוחות</td><td>עבודה בטוחה באתרם</td></tr><tr><td>רגולטור</td><td>עמידה בחוק ובתקנות</td></tr><tr><td>שכנים</td><td>מניעת השפעות מסוכנות מחוץ לאתר</td></tr><tr><td>חברות ביטוח</td><td>ניהול סיכונים ותיעוד</td></tr></table></div><h3>טבלה 7</h3><div class="table-wrap"><table><tr><th>ניסוח חלש</th><th>למה בעייתי</th><th>ניסוח נכון יותר</th></tr><tr><td>“נשתדל לשמור על בטיחות”</td><td>לא מחייב</td><td>“הארגון מחויב למניעת פציעה ופגיעה בבריאות”</td></tr><tr><td>“הממונה אחראי לבטיחות”</td><td>מעביר אחריות לא נכון</td><td>“האחריות חלה על כלל הדרגים בהתאם לתפקידם”</td></tr><tr><td>“נפעל לפי החוק ככל האפשר”</td><td>לא תקין</td><td>“הארגון מחויב לעמידה בדרישות דין ודרישות אחרות”</td></tr></table></div><h3>טבלה 8</h3><div class="table-wrap"><table><tr><th>מושג</th><th>משמעות</th></tr><tr><td>התייעצות</td><td>שומעים את דעת העובדים לפני החלטה</td></tr><tr><td>שיתוף</td><td>העובדים מעורבים בקבלת החלטות וביישום</td></tr></table></div><h3>טבלה 9</h3><div class="table-wrap"><table><tr><th>תחום</th><th>דוגמאות</th></tr><tr><td>אופן ארגון העבודה</td><td>עומס, שעות עבודה, לחץ, הטרדה</td></tr><tr><td>ציוד וחומרים</td><td>מכונות, חומרים מסוכנים, תשתיות</td></tr><tr><td>גורמי אנוש</td><td>עייפות, טעות, מגבלות אנוש</td></tr><tr><td>אירועים קודמים</td><td>תאונות, כמעט תאונות</td></tr><tr><td>מצבי חירום</td><td>אש, דליפה, רעידת אדמה</td></tr><tr><td>אנשים</td><td>עובדים, קבלנים, מבקרים, שכנים</td></tr><tr><td>שינויים</td><td>ציוד חדש, תהליך חדש, שינוי רגולטורי</td></tr></table></div><h3>טבלה 10</h3><div class="table-wrap"><table><tr><th>מקור</th><th>דוגמה</th></tr><tr><td>פקודת הבטיחות בעבודה</td><td>מכונות, הרמה, מעליות, מתקני לחץ</td></tr><tr><td>חוק ארגון הפיקוח על העבודה</td><td>ממונה בטיחות, ועדות, נאמנים, צווים</td></tr><tr><td>תקנות עבודה בגובה</td><td>הכשרה, ציוד, תנאים</td></tr><tr><td>תקנות ציוד מגן אישי</td><td>התאמה, אספקה ושימוש</td></tr><tr><td>תקנות מסירת מידע והדרכת עובדים</td><td>הדרכות ותיעוד</td></tr><tr><td>תקנות גיהות</td><td>חשיפה לרעש, אבק, חומרים מזיקים</td></tr></table></div><h3>טבלה 11</h3><div class="table-wrap"><table><tr><th>דרישה</th><th>מקור</th><th>למי חלה</th><th>מה צריך לעשות</th><th>תדירות</th><th>ראיה</th></tr><tr><td>בדיקת אביזרי הרמה</td><td>פקודת הבטיחות</td><td>מחסן/אחזקה</td><td>בדיקת בודק מוסמך</td><td>6 חודשים</td><td>תסקיר</td></tr><tr><td>הדרכת עובדים</td><td>תקנות הדרכה</td><td>כלל עובדים</td><td>הדרכה ותיעוד</td><td>לפי צורך/שינוי</td><td>טופס הדרכה</td></tr><tr><td>עבודה בגובה</td><td>תקנות עבודה בגובה</td><td>עובדים בגובה</td><td>הכשרה וציוד</td><td>לפי תוקף</td><td>תעודה</td></tr></table></div><h3>טבלה 12</h3><div class="table-wrap"><table><tr><th>דרישה</th><th>הסבר</th></tr><tr><td>עקביות עם המדיניות</td><td>לא לסתור את ההתחייבות לבטיחות</td></tr><tr><td>מדידות או ניתנות להערכה</td><td>לא רק סיסמה</td></tr><tr><td>מבוססות סיכונים</td><td>קשורות לסיכונים אמיתיים</td></tr><tr><td>מנוטרות</td><td>יש מעקב</td></tr><tr><td>מתוקשרות</td><td>העובדים מכירים</td></tr><tr><td>מעודכנות</td><td>משתנות לפי צורך</td></tr></table></div><h3>טבלה 13</h3><div class="table-wrap"><table><tr><th>מטרה</th><th>מדד</th></tr><tr><td>להפחית כמעט תאונות לא מדווחות</td><td>עלייה של 30% בדיווח כמעט תאונות</td></tr><tr><td>לשפר כשירות קבלנים</td><td>100% קבלנים קריטיים עברו בדיקת כשירות</td></tr><tr><td>להפחית סיכוני מלגזות</td><td>הפרדת 80% מנתיבי הולכי רגל ומלגזות</td></tr><tr><td>לשפר מוכנות חירום</td><td>ביצוע 2 תרגילים בשנה</td></tr></table></div><h3>טבלה 14</h3><div class="table-wrap"><table><tr><th>נושא</th><th>קהל יעד</th><th>אמצעי</th></tr><tr><td>אירוע בטיחות</td><td>עובדים רלוונטיים</td><td>תדריך בטיחות</td></tr><tr><td>שינוי נוהל</td><td>מנהלים ועובדים</td><td>הדרכה + חתימה</td></tr><tr><td>עבודת קבלן</td><td>קבלנים ומנהל אתר</td><td>תיאום לפני עבודה</td></tr><tr><td>מצב חירום</td><td>כלל האתר</td><td>תרגיל, שילוט, כריזה</td></tr><tr><td>דרישת דין חדשה</td><td>הנהלה וממונה</td><td>עדכון מרשם דין</td></tr></table></div><h3>טבלה 15</h3><div class="table-wrap"><table><tr><th>סיכון</th><th>בקרה</th></tr><tr><td>מלגזות</td><td>נתיבים, הדרכה, מהירות, הפרדה</td></tr><tr><td>עבודה בגובה</td><td>תכנון, ציוד, הרשאה, פיקוח</td></tr><tr><td>חומרים מסוכנים</td><td>SDS, אחסון, אוורור, מיגון</td></tr><tr><td>מכונות</td><td>גידור, נעילה ותיוג, תחזוקה</td></tr><tr><td>קבלנים</td><td>אישור, תדריך, פיקוח, הרשאות</td></tr></table></div><h3>טבלה 16</h3><div class="table-wrap"><table><tr><th>מדרג</th><th>פתרון</th></tr><tr><td>סילוק</td><td>ביטול תהליך רועש</td></tr><tr><td>החלפה</td><td>מכונה שקטה יותר</td></tr><tr><td>הנדסי</td><td>בידוד אקוסטי</td></tr><tr><td>מנהלתי</td><td>הגבלת זמן חשיפה</td></tr><tr><td>PPE</td><td>אטמי אוזניים</td></tr></table></div><h3>טבלה 17</h3><div class="table-wrap"><table><tr><th>רכיב</th><th>דוגמה</th></tr><tr><td>זיהוי תרחישים</td><td>אש, דליפה, רעידת אדמה, פציעה</td></tr><tr><td>תגובה מתוכננת</td><td>נוהל, צוות, ציוד</td></tr><tr><td>הדרכה</td><td>בעלי תפקידים ועובדים</td></tr><tr><td>תרגול</td><td>תרגילים תקופתיים</td></tr><tr><td>הערכה</td><td>הפקת לקחים</td></tr><tr><td>תקשורת</td><td>עובדים, קבלנים, רשויות</td></tr><tr><td>תיעוד</td><td>תוכניות ותרגילים</td></tr></table></div><h3>טבלה 18</h3><div class="table-wrap"><table><tr><th>סוג מדד</th><th>דוגמה</th></tr><tr><td>מדד תוצאה</td><td>מספר תאונות</td></tr><tr><td>מדד מוביל</td><td>אחוז סגירת מפגעים בזמן</td></tr><tr><td>מדד כשירות</td><td>אחוז עובדים שעברו הדרכה</td></tr><tr><td>מדד תפעולי</td><td>מספר תצפיות בטיחות</td></tr><tr><td>מדד חוקי</td><td>אחוז תסקירים בתוקף</td></tr><tr><td>מדד תרבות</td><td>מספר דיווחי כמעט תאונה</td></tr></table></div><h3>טבלה 19</h3><div class="table-wrap"><table><tr><th>דרישה</th><th>בדיקה</th></tr><tr><td>תסקירי הרמה</td><td>האם בתוקף?</td></tr><tr><td>הדרכות</td><td>האם בוצעו ותועדו?</td></tr><tr><td>ציוד מגן</td><td>האם סופק ונעשה בו שימוש?</td></tr><tr><td>עבודה בגובה</td><td>האם העובדים מוסמכים?</td></tr><tr><td>כיבוי אש</td><td>האם ציוד בתוקף?</td></tr></table></div><h3>טבלה 20</h3><div class="table-wrap"><table><tr><th>ממצא</th><th>סוג</th></tr><tr><td>אין מרשם דרישות דין מעודכן</td><td>אי התאמה</td></tr><tr><td>הדרכות בוצעו אך ללא בדיקת הבנה</td><td>חולשה</td></tr><tr><td>קבלנים לא נבדקים לפני כניסה</td><td>אי התאמה</td></tr><tr><td>דיווח כמעט תאונה עלה</td><td>הזדמנות חיובית</td></tr></table></div><h3>טבלה 21</h3><div class="table-wrap"><table><tr><th>תחום</th><th>שיפור</th></tr><tr><td>טכנולוגיה</td><td>חיישני קרבה למלגזות</td></tr><tr><td>הדרכה</td><td>סימולטור לעבודה בגובה</td></tr><tr><td>תהליך</td><td>היתר עבודה דיגיטלי</td></tr><tr><td>תרבות</td><td>עידוד דיווח כמעט תאונה</td></tr><tr><td>תכנון</td><td>הפרדת הולכי רגל וכלים</td></tr><tr><td>בריאות</td><td>תוכנית להפחתת רעש</td></tr></table></div><h3>טבלה 22</h3><div class="table-wrap"><table><tr><th>נושא</th><th>חוק/תקנה/פקודה</th><th>ISO 45001</th></tr><tr><td>מעמד</td><td>מחייב משפטית כאשר חל</td><td>וולונטרי אלא אם אומץ בחוזה/דרישה</td></tr><tr><td>מטרה</td><td>קביעת חובות מינימום</td><td>מערכת ניהול ושיפור</td></tr><tr><td>דוגמה</td><td>בדיקת אביזרי הרמה כל 6 חודשים</td><td>לוודא שיש תהליך לזיהוי, מעקב ובקרה</td></tr><tr><td>אכיפה</td><td>רגולטור, צווים, ענישה</td><td>מבדקים, התעדה, דרישות לקוח</td></tr><tr><td>אחריות</td><td>לפי דין</td><td>לפי מערכת ניהול ואחריות הנהלה</td></tr><tr><td>תיעוד</td><td>לפי דרישות דין</td><td>מידע מתועד לפי צורך ודרישת התקן</td></tr></table></div></div></details></div></section>
+    <section class="related-panel"><h2>קישורים קשורים</h2><div class="related-links"><a class="btn secondary" href="field-tools.html#iso-45001-tool">כלי שטח</a><a class="btn secondary" href="standards.html#iso-45001-2018">תקנים</a><a class="btn secondary" href="laws.html#iso-45001-2018">חוקים ותקנים</a><a class="btn secondary" href="quizzes.html#iso-45001-practice">תרגול ומבחנים</a></div></section>
+  </main>
+  <footer class="site-footer" role="contentinfo"><div class="footer-links" aria-label="קישורי אתר"><a href="privacy.html">פרטיות</a><a href="terms.html">תנאי שימוש</a><a href="disclaimer.html">הצהרת אחריות</a><a href="#accessibility" data-action="open-accessibility">נגישות</a></div></footer>
+  <script src="../data/course-data.js"></script><script src="../js/storage.js"></script><script src="../data/search-index.js"></script><script src="../js/search.js"></script><script src="../js/quizzes.js"></script><script src="../js/ai-assistant.js"></script><script src="../js/app.js"></script><script src="../js/lesson-source-hub.js"></script><script type="module" src="../js/auth.js"></script><script src="../js/accessibility.js"></script>
+</body>
+</html>
