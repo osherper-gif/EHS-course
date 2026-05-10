@@ -130,6 +130,30 @@ async function run() {
   });
   assert.strictEqual(attemptedWrites.length, 0);
 
+  const firestoreFlagOffResult = await loader.loadDynamicContent(
+    'lesson-01',
+    () => ({ source: 'fallback', reason: 'firestore-flag-off' }),
+    {
+      firestoreProvider: {
+        read: async () => ({ source: 'dynamic-read' })
+      }
+    }
+  );
+
+  assert.deepStrictEqual(firestoreFlagOffResult, {
+    source: 'fallback',
+    reason: 'firestore-flag-off'
+  });
+
+  resetModules();
+  global.DynamicContentFlags = {
+    enabled: true,
+    debug: false,
+    useFirestoreReadOnly: true
+  };
+  require(flagsPath);
+  loader = require(loaderPath);
+
   const dynamicReadResult = await loader.loadDynamicContent(
     'lesson-01',
     () => ({ source: 'fallback' }),

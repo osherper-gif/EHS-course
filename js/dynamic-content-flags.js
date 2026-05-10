@@ -4,7 +4,8 @@
   var DEFAULT_FLAGS = Object.freeze({
     enabled: false,
     debug: false,
-    useMockDynamicContent: false
+    useMockDynamicContent: false,
+    useFirestoreReadOnly: false
   });
 
   function readRuntimeFlags() {
@@ -22,7 +23,8 @@
     return {
       enabled: runtimeFlags.enabled === true,
       debug: runtimeFlags.debug === true,
-      useMockDynamicContent: runtimeFlags.useMockDynamicContent === true
+      useMockDynamicContent: runtimeFlags.useMockDynamicContent === true,
+      useFirestoreReadOnly: runtimeFlags.useFirestoreReadOnly === true
     };
   }
 
@@ -40,12 +42,19 @@
     return flags.enabled === true && flags.useMockDynamicContent === true;
   }
 
+  function isFirestoreReadOnlyEnabled() {
+    var flags = getDynamicContentFlags();
+
+    return flags.enabled === true && flags.useFirestoreReadOnly === true;
+  }
+
   var api = {
     DEFAULT_FLAGS: DEFAULT_FLAGS,
     getDynamicContentFlags: getDynamicContentFlags,
     isDynamicContentEnabled: isDynamicContentEnabled,
     isDynamicContentDebugEnabled: isDynamicContentDebugEnabled,
-    isMockDynamicContentEnabled: isMockDynamicContentEnabled
+    isMockDynamicContentEnabled: isMockDynamicContentEnabled,
+    isFirestoreReadOnlyEnabled: isFirestoreReadOnlyEnabled
   };
 
   if (typeof module !== 'undefined' && module.exports) {

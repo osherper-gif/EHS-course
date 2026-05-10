@@ -131,6 +131,14 @@
         return resolveFallback(fallbackProvider, 'empty-dynamic-data');
       }
 
+      if (
+        typeof flagService.isFirestoreReadOnlyEnabled !== 'function' ||
+        !flagService.isFirestoreReadOnlyEnabled()
+      ) {
+        debugLog('Firestore read-only flag disabled; using fallback', { topicId: topicId });
+        return resolveFallback(fallbackProvider, 'firestore-readonly-disabled');
+      }
+
       if (!hasFirestoreReadCapability(safeOptions.firestoreProvider)) {
         debugLog('Firestore read provider unavailable; using fallback', { topicId: topicId });
         return resolveFallback(fallbackProvider, 'firestore-unavailable');
