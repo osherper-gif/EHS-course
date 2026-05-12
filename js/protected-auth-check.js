@@ -1,13 +1,30 @@
 import {
   auth,
+  collection,
   db,
   doc,
   firebaseConfig,
   firebaseEnvironment,
   getDoc,
+  getDocs,
   onAuthStateChanged,
+  query,
   signOut,
 } from "./firebase-config.js";
+import { limit } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+const PREVIEW_COLLECTION = "protectedQuestionPreviews";
+const FORBIDDEN_ANSWER_FIELDS = new Set([
+  "correctAnswer",
+  "correctAnswerId",
+  "correctIndex",
+  "answerKey",
+  "solution",
+  "isCorrect",
+  "explanation",
+  "pointsByAnswer",
+  "scoring",
+]);
 
 const state = {
   unsubscribe: null,
@@ -19,6 +36,9 @@ const state = {
     firestoreReadAttempted: false,
     firestoreReadSuccess: false,
     approved: "unknown",
+    previewReadAttempted: false,
+    previewReadSuccess: false,
+    previewQuestionCount: 0,
     finalState: "checking-auth",
   },
 };
@@ -30,6 +50,8 @@ const elements = {
   actions: document.getElementById("protected-auth-check-actions"),
   debugPanel: document.getElementById("protected-auth-check-debug-panel"),
   debug: document.getElementById("protected-auth-check-debug"),
+  previewSection: document.getElementById("protected-preview-section"),
+  previewList: document.getElementById("protected-preview-list"),
 };
 
 function setText(element, value) {
@@ -101,6 +123,11 @@ function updateDebug(nextDebug) {
   renderDefinitionList(elements.debug, state.debug);
 }
 
+function hidePreview() {
+  if (elements.previewSection) elements.previewSection.hidden = true;
+  elements.previewList?.replaceChildren();
+}
+
 function renderState(nextState, title, message) {
   document.body.dataset.authCheckState = nextState;
   setText(elements.heading, title);
@@ -110,12 +137,22 @@ function renderState(nextState, title, message) {
   updateDebug({ finalState: nextState });
 }
 
+function resetPreviewDebug() {
+  return {
+    previewReadAttempted: false,
+    previewReadSuccess: false,
+    previewQuestionCount: 0,
+  };
+}
+
 function renderCheckingAuth() {
+  hidePreview();
   updateDebug({
     authState: "checking-auth",
     firestoreReadAttempted: false,
     firestoreReadSuccess: false,
     approved: "unknown",
+    ...resetPreviewDebug(),
   });
   renderState("checking-auth", "בודק התחברות...", "בודק התחברות...");
   renderDetails({
@@ -128,11 +165,13 @@ function renderCheckingAuth() {
 
 function renderUnauthenticated() {
   state.approvalReadUid = "";
+  hidePreview();
   updateDebug({
     authState: "unauthenticated",
     uid: "",
     email: "",
     approved: "unknown",
+    ...resetPreviewDebug(),
   });
   renderState("unauthenticated", "לא מחובר", "לא מחובר");
   renderDetails({
@@ -151,6 +190,7 @@ function displayNameForUser(user) {
 }
 
 function renderCheckingApproval(user) {
+  hidePreview();
   updateDebug({
     authState: "authenticated",
     uid: user?.uid || "",
@@ -158,6 +198,7 @@ function renderCheckingApproval(user) {
     firestoreReadAttempted: true,
     firestoreReadSuccess: false,
     approved: "unknown",
+    ...resetPreviewDebug(),
   });
   renderState("checking-approval", "בודק אישור...", "בודק האם המשתמש מאושר לצפייה בתוכן מוגן.");
   renderDetails({
@@ -167,6 +208,20 @@ function renderCheckingApproval(user) {
     environment: firebaseEnvironment,
     projectId: firebaseConfig?.projectId || "",
   });
+}
+
+function appendAuthenticatedActions(user) {
+  elements.actions?.append(
+    makeLink("חזרה לדף הבית", "../index.html", "btn secondary"),
+    makeButton("התנתקות", async () => {
+      try {
+        renderCheckingAuth();
+        await signOut(auth);
+      } catch (error) {
+        renderApprovalError(user, error);
+      }
+    })
+  );
 }
 
 function renderApproved(user) {
@@ -189,27 +244,138 @@ function renderApproved(user) {
   });
   elements.actions?.append(
     makeButton("המשך לשלב הבא", () => {
-      setText(elements.message, "זהו placeholder בלבד לשלב הבא. עדיין אין שאלות בדף זה.");
-    }),
-    makeLink("חזרה לדף הבית", "../index.html", "btn secondary"),
-    makeButton("התנתקות", async () => {
-      try {
-        renderCheckingAuth();
-        await signOut(auth);
-      } catch (error) {
-        renderApprovalError(user, error);
-      }
+      setText(elements.message, "זהו placeholder בלבד לשלב הבא. עדיין אין בדיקת תשובה או ניקוד בדף זה.");
     })
   );
+  appendAuthenticatedActions(user);
+}
+
+function renderNoPreviewQuestions(user) {
+  hidePreview();
+  updateDebug({
+    authState: "authenticated",
+    uid: user?.uid || "",
+    email: user?.email || "",
+    previewReadAttempted: true,
+    previewReadSuccess: true,
+    previewQuestionCount: 0,
+  });
+  renderState("no-preview-questions", "אין שאלות Preview", "המשתמש מאושר, אך עדיין אין שאלות preview זמינות להצגה.");
+  renderDetails({
+    state: "no-preview-questions",
+    uid: user?.uid || "",
+    email: user?.email || "",
+    collection: PREVIEW_COLLECTION,
+    environment: firebaseEnvironment,
+    projectId: firebaseConfig?.projectId || "",
+  });
+  appendAuthenticatedActions(user);
+}
+
+function renderPreviewLoadError(user, error) {
+  hidePreview();
+  const code = error?.code || "preview-load-error";
+  updateDebug({
+    authState: "authenticated",
+    uid: user?.uid || "",
+    email: user?.email || "",
+    previewReadAttempted: true,
+    previewReadSuccess: false,
+  });
+  renderState("preview-load-error", "שגיאת טעינת Preview", "לא ניתן לטעון כרגע את שאלות ה-preview. נסו שוב מאוחר יותר.");
+  renderDetails({
+    state: "preview-load-error",
+    uid: user?.uid || "",
+    email: user?.email || "",
+    collection: PREVIEW_COLLECTION,
+    code,
+    message: error?.message || "",
+    environment: firebaseEnvironment,
+    projectId: firebaseConfig?.projectId || "",
+  });
+  appendAuthenticatedActions(user);
+}
+
+function containsForbiddenAnswerField(value) {
+  if (!value || typeof value !== "object") return false;
+
+  if (Array.isArray(value)) {
+    return value.some((item) => containsForbiddenAnswerField(item));
+  }
+
+  return Object.entries(value).some(([key, item]) => {
+    return FORBIDDEN_ANSWER_FIELDS.has(key) || containsForbiddenAnswerField(item);
+  });
+}
+
+function sanitizeOption(option, index) {
+  if (typeof option === "string") return option;
+  if (!option || typeof option !== "object") return `אפשרות ${index + 1}`;
+
+  return {
+    id: option.id || option.value || `option-${index + 1}`,
+    text: option.text || option.label || String(option.value || ""),
+  };
+}
+
+function sanitizePreviewQuestion(id, data) {
+  if (containsForbiddenAnswerField(data)) {
+    throw new Error("Preview question contains forbidden answer fields.");
+  }
+
+  return {
+    id: data.id || id,
+    lessonId: data.lessonId || "",
+    topic: data.topic || "",
+    difficulty: data.difficulty || "",
+    questionText: data.questionText || "",
+    options: Array.isArray(data.options) ? data.options.map(sanitizeOption) : [],
+  };
+}
+
+function renderPreviewQuestions(questions) {
+  if (!elements.previewSection || !elements.previewList) return;
+
+  elements.previewList.replaceChildren();
+  questions.forEach((question) => {
+    const card = document.createElement("article");
+    card.className = "content-card";
+
+    const meta = document.createElement("p");
+    meta.className = "kicker";
+    meta.textContent = [question.lessonId, question.topic].filter(Boolean).join(" · ");
+
+    const difficulty = document.createElement("span");
+    difficulty.className = "tag";
+    difficulty.textContent = question.difficulty || "preview";
+
+    const title = document.createElement("h3");
+    title.textContent = question.questionText;
+
+    const options = document.createElement("ul");
+    options.className = "checklist";
+    question.options.forEach((option) => {
+      const item = document.createElement("li");
+      item.textContent = typeof option === "string" ? option : option.text;
+      options.append(item);
+    });
+
+    card.append(meta, difficulty, title, options);
+    elements.previewList.append(card);
+  });
+
+  elements.previewSection.hidden = false;
 }
 
 function renderNotApproved(user) {
+  hidePreview();
   updateDebug({
     authState: "authenticated",
     uid: user?.uid || "",
     email: user?.email || "",
     firestoreReadSuccess: true,
     approved: false,
+    ...resetPreviewDebug(),
   });
   renderState("not-approved", "המשתמש מחובר אך טרם אושר", "המשתמש מחובר אך טרם אושר לצפייה בתוכן המוגן.");
   renderDetails({
@@ -219,22 +385,13 @@ function renderNotApproved(user) {
     environment: firebaseEnvironment,
     projectId: firebaseConfig?.projectId || "",
   });
-  elements.actions?.append(
-    makeLink("חזרה לדף הבית", "../index.html"),
-    makeButton("התנתקות", async () => {
-      try {
-        renderCheckingAuth();
-        await signOut(auth);
-      } catch (error) {
-        renderApprovalError(user, error);
-      }
-    })
-  );
+  appendAuthenticatedActions(user);
 }
 
 function renderAuthError(error) {
+  hidePreview();
   const code = error?.code || "auth-error";
-  updateDebug({ authState: "auth-error", approved: "unknown" });
+  updateDebug({ authState: "auth-error", approved: "unknown", ...resetPreviewDebug() });
   renderState("auth-error", "שגיאת התחברות", "לא ניתן להשלים את בדיקת ההתחברות כרגע.");
   renderDetails({
     state: "auth-error",
@@ -250,6 +407,7 @@ function renderAuthError(error) {
 }
 
 function renderApprovalError(user, error) {
+  hidePreview();
   const code = error?.code || "approval-error";
   updateDebug({
     authState: user ? "authenticated" : "unknown",
@@ -257,6 +415,7 @@ function renderApprovalError(user, error) {
     email: user?.email || "",
     firestoreReadSuccess: false,
     approved: "unknown",
+    ...resetPreviewDebug(),
   });
   renderState("approval-error", "שגיאת בדיקת אישור", "לא ניתן לאמת כרגע את הרשאת המשתמש. נסו שוב מאוחר יותר.");
   renderDetails({
@@ -268,17 +427,7 @@ function renderApprovalError(user, error) {
     environment: firebaseEnvironment,
     projectId: firebaseConfig?.projectId || "",
   });
-  elements.actions?.append(
-    makeLink("חזרה לדף הבית", "../index.html"),
-    makeButton("התנתקות", async () => {
-      try {
-        renderCheckingAuth();
-        await signOut(auth);
-      } catch (signOutError) {
-        renderAuthError(signOutError);
-      }
-    })
-  );
+  appendAuthenticatedActions(user);
 }
 
 async function waitForAuthReady() {
@@ -302,14 +451,56 @@ async function readApproval(user) {
   return snapshot.data()?.approved === true;
 }
 
+async function readPreviewQuestions(user) {
+  updateDebug({
+    uid: user?.uid || "",
+    email: user?.email || "",
+    previewReadAttempted: true,
+    previewReadSuccess: false,
+    previewQuestionCount: 0,
+  });
+
+  const previewQuery = query(collection(db, PREVIEW_COLLECTION), limit(3));
+  const snapshot = await getDocs(previewQuery);
+  const questions = snapshot.docs.map((previewDoc) => {
+    return sanitizePreviewQuestion(previewDoc.id, previewDoc.data());
+  });
+
+  updateDebug({
+    previewReadSuccess: true,
+    previewQuestionCount: questions.length,
+  });
+
+  return questions;
+}
+
+async function loadApprovedPreview(user) {
+  renderApproved(user);
+
+  try {
+    const questions = await readPreviewQuestions(user);
+    if (!questions.length) {
+      renderNoPreviewQuestions(user);
+      return;
+    }
+
+    renderPreviewQuestions(questions);
+  } catch (error) {
+    renderPreviewLoadError(user, error);
+  }
+}
+
 async function handleAuthenticatedUser(user) {
   if (state.approvalReadUid === user.uid) return;
   state.approvalReadUid = user.uid;
 
   try {
     const approved = await readApproval(user);
-    if (approved) renderApproved(user);
-    else renderNotApproved(user);
+    if (approved) {
+      loadApprovedPreview(user);
+    } else {
+      renderNotApproved(user);
+    }
   } catch (error) {
     renderApprovalError(user, error);
   }

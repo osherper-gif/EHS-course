@@ -215,6 +215,30 @@ service cloud.firestore {
       }
     }
 
+    match /protectedQuestionPreviews/{questionId} {
+      allow read: if (isAdmin()
+          || (
+            signedIn()
+            && hasUserDoc(request.auth.uid)
+            && (
+              userDoc(request.auth.uid).data.status == "approved"
+              || userDoc(request.auth.uid).data.approved == true
+            )
+          ))
+        && !resource.data.keys().hasAny([
+          "correctAnswer",
+          "correctAnswerId",
+          "correctIndex",
+          "answerKey",
+          "solution",
+          "isCorrect",
+          "explanation",
+          "pointsByAnswer",
+          "scoring"
+        ]);
+      allow create, update, delete: if false;
+    }
+
     match /telegramCourseSchedules/{courseId} {
       allow read, create, update, delete: if isAdmin();
 

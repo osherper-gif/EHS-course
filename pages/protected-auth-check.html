@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.gstatic.com https://*.googleapis.com https://*.firebaseio.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="דף בדיקת Auth ואישור משתמש ל־staging עבור Protected Questions Phase 2, ללא שאלות וללא redirect אוטומטי.">
+  <meta name="description" content="דף בדיקת Auth, אישור משתמש ו־preview מוגן ל־staging עבור Protected Questions Phase 3, ללא תשובות וללא redirect אוטומטי.">
   <title>בדיקת התחברות מוגנת | קורס ממונה בטיחות</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body class="auth-check-page" data-page-title="בדיקת התחברות מוגנת">
   <main id="main" class="login-layout protected-auth-check-layout" aria-labelledby="auth-check-title">
     <section class="login-hero">
-      <p class="kicker">Protected Questions · Phase 2</p>
-      <h1 id="auth-check-title">בדיקת התחברות ואישור</h1>
-      <p>דף זה בודק את Firebase Auth הקיים, ולאחר התחברות קורא פעם אחת את מסמך המשתמש לצורך אישור. אין טעינת שאלות ואין redirect אוטומטי.</p>
+      <p class="kicker">Protected Questions · Phase 3</p>
+      <h1 id="auth-check-title">בדיקת התחברות, אישור ו־Preview</h1>
+      <p>דף זה בודק את Firebase Auth הקיים, קורא את מסמך המשתמש לצורך אישור, ומציג עד 3 שאלות preview ללא תשובות. אין בדיקת תשובה ואין redirect אוטומטי.</p>
     </section>
 
     <section class="auth-panel" aria-live="polite">
@@ -29,6 +29,12 @@
       <p class="kicker">Debug</p>
       <h2>מצב בדיקה</h2>
       <dl class="auth-debug-list" id="protected-auth-check-debug"></dl>
+    </section>
+
+    <section class="auth-panel" id="protected-preview-section" hidden>
+      <p class="kicker">Read-only</p>
+      <h2>Preview Questions</h2>
+      <div class="cards-grid" id="protected-preview-list"></div>
     </section>
   </main>
 
