@@ -158,6 +158,56 @@ Payload אסור:
 - אין תשובות בצד לקוח.
 - rollback נבדק.
 
+
+## Phase 0 — Baseline Verification Checklist
+
+Phase 0 הוא שער חובה לפני כל כתיבת קוד של Protected Questions. מטרתו להוכיח שה־baseline של האתר תקין, כדי שלא נבנה מנגנון מוגן מעל בעיית Auth, redirect או runtime קיימת.
+
+### בדיקות חובה ידניות ואוטומטיות
+
+1. Login עם Google עובד ב־staging.
+2. Logout עובד.
+3. אחרי logout לא מוצג “שלום, [שם משתמש]”.
+4. דף הבית נטען.
+5. שיעורים נטענים.
+6. תרגול ומבחנים נטען.
+7. שאלות למבחן נטען.
+8. אין `auth/argument-error` בקונסול.
+9. אין redirect loops.
+10. אין protected-question runtime files ב־staging.
+11. אין דף `protected-question-pilot.html` ב־staging.
+12. אין שינוי ב־production.
+
+### Definition of Done
+
+Phase 0 נחשב גמור רק כאשר כל התנאים הבאים מתקיימים:
+
+- `git status --short` נקי לפני בדיקות ולפני כל deploy ל־staging.
+- `npm.cmd run check:links` עובר.
+- בדיקת login/logout ידנית ב־staging עברה בהצלחה.
+- בדיקה ידנית מאשרת שאחרי logout אין badge או greeting של משתמש מחובר.
+- דפי public מרכזיים נטענים ב־staging: `index.html`, `pages/syllabus.html`, `pages/quizzes.html`, `pages/exam-questions.html`.
+- דף `pages/protected-question-pilot.html` אינו קיים או מחזיר 404.
+- אין קבצי runtime בשם `protected-question-*` שנפרסים ל־staging.
+- אין שינוי ב־`auth.js`, `login.html`, `firestore.rules` או `firebase-config.js` במסגרת Phase 0, אלא אם Phase 0 עצמו נכשל והוחלט במפורש לתקן baseline לפני המשך.
+- production לא נפרס ולא שונה.
+
+### Rollback criteria
+
+יש לעצור ולחזור ל־baseline יציב אם מתקיים אחד מהבאים:
+
+- Google login לא נפתח או מחזיר שגיאה כגון `auth/argument-error`.
+- logout אינו מנקה את מצב המשתמש מה־UI.
+- מופיע redirect מאוחר או loop ל־`login.html`.
+- דף public מרכזי נשבר בעקבות שינוי שנועד ל־Protected Questions.
+- קובץ protected runtime או דף pilot מופיע ב־staging לפני Phase 1.
+- נדרש שינוי ב־Auth, Rules או Firebase config לפני שה־baseline אומת ידנית.
+- קיים חשש ש־production השתנה או נפרס בטעות.
+
+### החלטת שער
+
+לא מתחילים Phase 1 לפני ש־Phase 0 עובר גם ידנית וגם אוטומטית. אם Phase 0 נכשל, העבודה חוזרת לתיקון baseline בלבד; לא מוסיפים דף pilot, לא מוסיפים protected source, ולא משנים rules עד שה־baseline יציב.
+
 ## 4. מודל משתמשים
 
 ### guest
@@ -301,3 +351,4 @@ Payload אסור:
 - האם נדרש login לכל תרגול או רק לשאלות מוגנות.
 - איך מודדים הצלחה של pilot לפני rollout.
 - מי מאשר שינויי `firestore.rules` ו־Auth לפני כתיבת קוד.
+
