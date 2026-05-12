@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.gstatic.com https://*.googleapis.com https://*.firebaseio.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="דף בדיקת Auth עצמאי ל־staging עבור Protected Questions Phase 1, ללא שאלות וללא redirect אוטומטי.">
+  <title>בדיקת התחברות מוגנת | קורס ממונה בטיחות</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="auth-check-page" data-page-title="בדיקת התחברות מוגנת">
+  <main id="main" class="login-layout protected-auth-check-layout" aria-labelledby="auth-check-title">
+    <section class="login-hero">
+      <p class="kicker">Protected Questions · Phase 1</p>
+      <h1 id="auth-check-title">בדיקת התחברות עצמאית</h1>
+      <p>דף זה בודק רק את מצב Firebase Auth הקיים. אין בדיקת אישור, אין טעינת שאלות, אין Firestore ואין redirect אוטומטי.</p>
+    </section>
+
+    <section class="auth-panel" aria-live="polite">
+      <p class="kicker">מצב Auth</p>
+      <h2 id="protected-auth-check-heading">בודק התחברות...</h2>
+      <p id="protected-auth-check-message" class="auth-message" data-state="checking-auth">בודק התחברות...</p>
+      <dl class="auth-debug-list" id="protected-auth-check-details" hidden></dl>
+      <div class="related-links" id="protected-auth-check-actions"></div>
+    </section>
+  </main>
+
+  <script type="module" src="../js/protected-auth-check.js"></script>
+</body>
+</html>
