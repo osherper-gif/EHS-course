@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.gstatic.com https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="כלי staging מקומי לאישור משתמשים לצורך בדיקות Protected Questions.">
+  <title>אישור משתמשים ל־staging | קורס ממונה בטיחות</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="auth-check-page" data-page-title="אישור משתמשים ל־staging">
+  <main id="main" class="login-layout protected-auth-check-layout" aria-labelledby="staging-approval-title">
+    <section class="login-hero">
+      <p class="kicker">Staging admin tool</p>
+      <h1 id="staging-approval-title">אישור משתמשים לבדיקות</h1>
+      <p>כלי זה פעיל רק ב־staging/local ומיועד לסימון משתמש כמאושר לצורך בדיקות Protected Questions.</p>
+    </section>
+
+    <section class="auth-panel" aria-live="polite">
+      <p class="kicker">מצב הכלי</p>
+      <h2 id="approval-tool-heading">בודק הרשאות...</h2>
+      <p id="approval-tool-message" class="auth-message">בודק הרשאות...</p>
+      <dl class="auth-debug-list" id="approval-tool-details"></dl>
+      <div class="related-links" id="approval-tool-actions"></div>
+    </section>
+
+    <section class="auth-panel" id="approval-tool-form-panel" hidden>
+      <p class="kicker">Target user</p>
+      <h2>עדכון סטטוס אישור</h2>
+      <label for="target-user-uid">UID של משתמש יעד</label>
+      <input id="target-user-uid" type="text" dir="ltr" autocomplete="off" placeholder="tlxA78hBiRgAwfl9fzgVBJ57gxj1">
+      <div class="related-links">
+        <button class="btn" type="button" id="approve-user-button">אשר משתמש</button>
+        <button class="btn secondary" type="button" id="revoke-user-button">בטל אישור</button>
+      </div>
+      <p id="approval-tool-result" class="auth-message"></p>
+    </section>
+  </main>
+
+  <script type="module" src="../js/admin/staging-user-approval.js"></script>
+</body>
+</html>

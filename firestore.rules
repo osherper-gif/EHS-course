@@ -47,6 +47,16 @@ service cloud.firestore {
         && userDoc(request.auth.uid).data.status == "approved";
     }
 
+    function isApprovedAdminToolUser() {
+      return signedIn()
+        && hasUserDoc(request.auth.uid)
+        && (
+          userDoc(request.auth.uid).data.role == "admin"
+          || userDoc(request.auth.uid).data.admin == true
+        )
+        && userDoc(request.auth.uid).data.approved == true;
+    }
+
     function isApproved() {
       return isAdmin() || isApprovedRequester();
     }
@@ -75,13 +85,52 @@ service cloud.firestore {
 
     function noApprovalFieldChanges() {
       return !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+        "approved",
+        "approvalStatus",
         "approvedAt",
         "approvedBy",
+        "updatedBy",
         "approvalEmailStatus",
         "approvalEmailSentAt",
         "approvalEmailSentBy",
         "approvalEmailPreparedAt",
         "approvalEmailPreparedBy"
+      ]);
+    }
+
+    function validStagingApprovalToolUpdate(uid) {
+      return isApprovedAdminToolUser()
+        && request.auth.uid != uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          "approved",
+          "approvalStatus",
+          "approvedAt",
+          "approvedBy",
+          "updatedAt",
+          "updatedBy"
+        ])
+        && (
+          (
+            request.resource.data.approved == true
+            && request.resource.data.approvalStatus == "approved"
+            && request.resource.data.approvedBy == request.auth.uid
+          )
+          ||
+          (
+            request.resource.data.approved == false
+            && request.resource.data.approvalStatus == "not-approved"
+            && request.resource.data.updatedBy == request.auth.uid
+          )
+        );
+    }
+
+    function noStagingApprovalToolFieldChanges() {
+      return !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+        "approved",
+        "approvalStatus",
+        "approvedAt",
+        "approvedBy",
+        "updatedBy"
       ]);
     }
 
@@ -136,7 +185,11 @@ service cloud.firestore {
             && validAutoBetaFields())
         );
 
-      allow update: if isAdmin()
+      allow update: if validStagingApprovalToolUpdate(uid)
+        || (
+          isAdmin()
+          && noStagingApprovalToolFieldChanges()
+        )
         || (
           isOwner(uid)
           && autoBetaActive()
