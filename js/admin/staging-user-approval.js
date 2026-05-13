@@ -11,6 +11,8 @@ import {
   updateDoc,
 } from "../firebase-config.js";
 
+const BOOTSTRAP_ADMIN_EMAIL = "osherper@gmail.com";
+
 const elements = {
   heading: document.getElementById("approval-tool-heading"),
   message: document.getElementById("approval-tool-message"),
@@ -21,6 +23,9 @@ const elements = {
   approveButton: document.getElementById("approve-user-button"),
   revokeButton: document.getElementById("revoke-user-button"),
   result: document.getElementById("approval-tool-result"),
+  bootstrapPanel: document.getElementById("bootstrap-approval-panel"),
+  bootstrapButton: document.getElementById("bootstrap-current-admin-button"),
+  bootstrapResult: document.getElementById("bootstrap-approval-result"),
 };
 
 const state = {
@@ -83,6 +88,7 @@ function renderState(nextState, title, message, details = {}) {
   });
   clearActions();
   if (elements.formPanel) elements.formPanel.hidden = true;
+  if (elements.bootstrapPanel) elements.bootstrapPanel.hidden = true;
 }
 
 function renderBlockedProduction() {
@@ -97,6 +103,35 @@ function renderUnauthenticated() {
 
 function isApprovedAdmin(userDocData) {
   return (userDocData?.role === "admin" || userDocData?.admin === true) && userDocData?.approved === true;
+}
+
+function isBootstrapEligible(user, userDocData) {
+  return isStagingOrLocal()
+    && user?.email === BOOTSTRAP_ADMIN_EMAIL
+    && (userDocData?.role === "admin" || userDocData?.admin === true)
+    && userDocData?.approved !== true;
+}
+
+function setBootstrapResult(message, isError = false) {
+  if (!elements.bootstrapResult) return;
+  elements.bootstrapResult.textContent = message;
+  elements.bootstrapResult.dataset.state = isError ? "error" : "success";
+}
+
+function renderBootstrapMode(user, userDocData) {
+  renderState("bootstrap-available", "Staging bootstrap mode", "המשתמש הוא admin קיים אך עדיין לא approved. ניתן לאשר את המשתמש המחובר בלבד.", {
+    uid: user?.uid || "",
+    email: user?.email || "",
+    role: userDocData?.role || "",
+    admin: userDocData?.admin === true,
+    approved: userDocData?.approved === true,
+  });
+  state.currentUser = user;
+  if (elements.bootstrapPanel) elements.bootstrapPanel.hidden = false;
+  elements.actions?.append(
+    makeLink("חזרה לדף הבית", "../index.html"),
+    makeButton("התנתקות", async () => signOut(auth))
+  );
 }
 
 function renderNotAdmin(user, userDocData) {
@@ -203,6 +238,42 @@ async function updateTargetApproval(approved) {
   }
 }
 
+async function bootstrapCurrentAdmin() {
+  const adminUser = state.currentUser;
+
+  if (!adminUser || adminUser.email !== BOOTSTRAP_ADMIN_EMAIL) {
+    setBootstrapResult("Bootstrap מותר רק למשתמש admin הראשי בסביבת staging.", true);
+    return;
+  }
+
+  try {
+    setBootstrapResult("בודק מסמך admin נוכחי...");
+    const { ref, snapshot } = await loadUserDoc(adminUser.uid);
+    if (!snapshot.exists()) {
+      setBootstrapResult("מסמך admin לא נמצא.", true);
+      return;
+    }
+
+    if (!isBootstrapEligible(adminUser, snapshot.data())) {
+      setBootstrapResult("המשתמש המחובר אינו עומד בתנאי bootstrap.", true);
+      return;
+    }
+
+    await updateDoc(ref, {
+      approved: true,
+      approvalStatus: "approved",
+      approvedAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+      bootstrapApproved: true,
+    });
+
+    setBootstrapResult("Bootstrap הושלם. המשתמש המחובר אושר.");
+    await handleUser(adminUser);
+  } catch (error) {
+    setBootstrapResult(`Bootstrap נכשל: ${error?.code || error?.message || "unknown error"}`, true);
+  }
+}
+
 async function waitForAuthReady() {
   if (typeof auth?.authStateReady === "function") {
     await auth.authStateReady();
@@ -222,6 +293,11 @@ async function handleUser(user) {
       email: user.email || "",
     });
     const { snapshot } = await loadUserDoc(user.uid);
+    if (snapshot.exists() && isBootstrapEligible(user, snapshot.data())) {
+      renderBootstrapMode(user, snapshot.data());
+      return;
+    }
+
     if (!snapshot.exists() || !isApprovedAdmin(snapshot.data())) {
       renderNotAdmin(user, snapshot.exists() ? snapshot.data() : {});
       return;
@@ -236,6 +312,7 @@ async function handleUser(user) {
 function bindActions() {
   elements.approveButton?.addEventListener("click", () => updateTargetApproval(true));
   elements.revokeButton?.addEventListener("click", () => updateTargetApproval(false));
+  elements.bootstrapButton?.addEventListener("click", bootstrapCurrentAdmin);
 }
 
 async function init() {

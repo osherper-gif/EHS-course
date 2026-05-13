@@ -25,6 +25,14 @@
       <div class="related-links" id="approval-tool-actions"></div>
     </section>
 
+    <section class="auth-panel" id="bootstrap-approval-panel" hidden>
+      <p class="kicker">Staging bootstrap mode</p>
+      <h2>Bootstrap approve current admin</h2>
+      <p>מצב זה מיועד רק לאישור ראשוני של admin קיים בסביבת staging/local. הוא לא מאפשר אישור משתמש אחר.</p>
+      <button class="btn" type="button" id="bootstrap-current-admin-button">Bootstrap approve current admin</button>
+      <p id="bootstrap-approval-result" class="auth-message"></p>
+    </section>
+
     <section class="auth-panel" id="approval-tool-form-panel" hidden>
       <p class="kicker">Target user</p>
       <h2>עדכון סטטוס אישור</h2>
