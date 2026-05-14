@@ -78,6 +78,7 @@ const pathPrefix = isRootPage ? "" : "../";
 const pageName = location.pathname.split("/").pop() || "index.html";
 const isLoginPage = pageName === LOGIN_PAGE;
 const isAdminPage = pageName === ADMIN_PAGE || pageName === "admin-dashboard.html" || pageName === "version-management.html";
+const isAuthOptionalPage = document.body?.dataset.authMode === "optional";
 console.info("[firebase] active config", {
   hostname: window.location.hostname,
   environment: firebaseEnvironment,
@@ -941,7 +942,7 @@ function guard() {
     document.body.classList.add("auth-cache-ready");
     revealAuthenticatedView(cached);
     alreadyRevealed = true;
-  } else if (!isLoginPage) {
+  } else if (!isLoginPage && !isAuthOptionalPage) {
     showLoading();
   }
   if (isLoginPage) initLoginPage();
@@ -953,7 +954,7 @@ function guard() {
         clearCachedProfile();
         currentProfile = null;
         authReadyResolve?.(null);
-        if (!isLoginPage) safeRedirect(loginUrl());
+        if (!isLoginPage && !isAuthOptionalPage) safeRedirect(loginUrl());
         return;
       }
       authLog("user detected");
@@ -980,6 +981,10 @@ function guard() {
             (error?.code || "unknown") +
             ". הודעה: " +
             (error?.message || "לא התקבל פירוט.");
+          if (isAuthOptionalPage) {
+            authReadyResolve?.(null);
+            return;
+          }
           if (shownProfile) {
             authReadyResolve?.(currentProfile);
             return;
@@ -1019,6 +1024,12 @@ function guard() {
       }
       if (profile.status !== APPROVED) {
         authLog(profile.status === BLOCKED ? "blocked" : "pending");
+        if (isAuthOptionalPage) {
+          currentProfile = profile;
+          window.CourseAuth.profile = profile;
+          authReadyResolve?.(profile);
+          return;
+        }
         clearCachedProfile();
         window.CoursePresence?.stopPresence?.();
         renderNotApproved(profile);
