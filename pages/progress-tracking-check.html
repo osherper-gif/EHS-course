@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.gstatic.com https://*.googleapis.com https://*.firebaseio.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="דף בדיקה עצמאי לשמירת התקדמות משתמש ב־staging, ללא שמירת תשובות נכונות או answer keys.">
+  <title>בדיקת שמירת התקדמות | קורס ממונה בטיחות</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="auth-check-page" data-page-title="בדיקת שמירת התקדמות">
+  <main id="main" class="login-layout protected-auth-check-layout" aria-labelledby="progress-check-title">
+    <section class="login-hero">
+      <p class="kicker">Adaptive Learning · Phase A</p>
+      <h1 id="progress-check-title">בדיקת שמירת התקדמות</h1>
+      <p>דף עצמאי לבדיקת כתיבה וקריאה של התקדמות משתמש ב־Firestore staging. הדף אינו שומר answer keys, אינו מפעיל המלצות ואינו משנה את מערכת המבחנים.</p>
+    </section>
+
+    <section class="auth-panel" aria-live="polite">
+      <p class="kicker">מצב משתמש</p>
+      <h2 id="progress-check-heading">בודק התחברות...</h2>
+      <p id="progress-check-message" class="auth-message" data-state="checking-auth">בודק התחברות...</p>
+      <dl class="auth-debug-list" id="progress-check-user-details" hidden></dl>
+      <div class="related-links" id="progress-check-actions"></div>
+    </section>
+
+    <section class="auth-panel" id="progress-check-controls" hidden>
+      <p class="kicker">פעולות בדיקה</p>
+      <h2>Progress demo</h2>
+      <p>הפעולות כותבות רק למסמך הדגמה: <code>users/{uid}/progress/demo-question-001</code>.</p>
+      <div class="related-links">
+        <button class="btn" type="button" id="progress-viewed-button">רשום צפייה בשאלת בדיקה</button>
+        <button class="btn" type="button" id="progress-answered-button">רשום מענה לשאלת בדיקה</button>
+        <button class="btn secondary" type="button" id="progress-load-button">טען התקדמות</button>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <p class="kicker">Debug</p>
+      <h2>מצב בדיקה</h2>
+      <dl class="auth-debug-list" id="progress-check-debug"></dl>
+    </section>
+
+    <section class="auth-panel" id="progress-check-result-panel" hidden>
+      <p class="kicker">Progress document</p>
+      <h2>מסמך התקדמות</h2>
+      <pre id="progress-check-result" dir="ltr"></pre>
+    </section>
+  </main>
+
+  <script type="module" src="../js/progress-tracking-check.js"></script>
+</body>
+</html>

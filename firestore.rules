@@ -134,6 +134,31 @@ service cloud.firestore {
       ]);
     }
 
+    function validProgressKeys() {
+      return request.resource.data.keys().hasOnly([
+        "questionId",
+        "lessonId",
+        "topic",
+        "subTopic",
+        "difficulty",
+        "viewedAt",
+        "answeredAt",
+        "selectedOptionId",
+        "isCorrect",
+        "attemptsCount",
+        "lastSeenAt"
+      ]);
+    }
+
+    function noProgressAnswerLeakage() {
+      return !request.resource.data.keys().hasAny([
+        "correctAnswer",
+        "answerKey",
+        "solution",
+        "fullQuestionPayload"
+      ]);
+    }
+
     function autoBetaActive() {
       return request.time < timestamp.date(2026, 5, 16);
     }
@@ -220,10 +245,12 @@ service cloud.firestore {
 
       allow delete: if false;
 
-      match /progress/{lessonId} {
-        allow read: if isAdmin() || isApprovedSelf(uid);
-        allow create, update: if isApprovedSelf(uid)
-          && request.resource.data.lessonId == lessonId;
+      match /progress/{progressId} {
+        allow read: if isOwner(uid);
+        allow create, update: if isOwner(uid)
+          && request.resource.data.questionId == progressId
+          && validProgressKeys()
+          && noProgressAnswerLeakage();
         allow delete: if false;
       }
 
