@@ -25,6 +25,115 @@
   --radius-pill: 999px;
 }
 
+/* ---- Adaptive Learning Phase D dashboard ---- */
+.learner-dashboard-page {
+  background: var(--bg);
+}
+.learner-dashboard {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0 2.5rem;
+  display: grid;
+  gap: 1rem;
+}
+.learner-dashboard-hero,
+.learner-dashboard-card {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+.learner-dashboard-hero {
+  padding: clamp(1rem, 3vw, 1.5rem);
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: white;
+}
+.learner-dashboard-hero h1 {
+  margin: .25rem 0 .5rem;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1.05;
+}
+.learner-dashboard-hero p:not(.kicker) {
+  max-width: 760px;
+  margin: 0;
+}
+.learner-dashboard-card {
+  padding: clamp(1rem, 2.5vw, 1.25rem);
+}
+.learner-dashboard-card h2,
+.learner-dashboard-card h3 {
+  margin-top: 0;
+}
+.learner-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.learner-summary-card {
+  grid-column: 1 / -1;
+}
+.learner-topic-list {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+}
+.learner-topic-list li {
+  margin-block: .35rem;
+  line-height: 1.55;
+}
+.learner-test-tools .related-links,
+.learner-status-card .related-links {
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.learner-test-tools .btn,
+.learner-status-card .btn {
+  min-height: 44px;
+}
+.learner-dashboard pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.learner-dashboard .table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.learner-dashboard table {
+  min-width: 560px;
+}
+@media (max-width: 720px) {
+  .learner-dashboard {
+    width: min(100% - 1rem, 100%);
+    padding-block: .5rem 1.25rem;
+    gap: .75rem;
+  }
+  .learner-dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: .75rem;
+  }
+  .learner-dashboard-hero,
+  .learner-dashboard-card {
+    padding: .95rem;
+  }
+  .learner-dashboard-hero h1 {
+    font-size: 2rem;
+  }
+  .learner-test-tools .related-links,
+  .learner-status-card .related-links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .learner-test-tools .btn,
+  .learner-status-card .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 html[data-theme="dark"] {
   color-scheme: dark;
   --bg: #0f1820;

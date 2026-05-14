@@ -43,7 +43,9 @@ const elements = {
   message: document.getElementById("progress-check-message"),
   userDetails: document.getElementById("progress-check-user-details"),
   actions: document.getElementById("progress-check-actions"),
+  dashboardContent: document.getElementById("learner-dashboard-content"),
   controls: document.getElementById("progress-check-controls"),
+  debugPanel: document.getElementById("progress-debug-panel"),
   debug: document.getElementById("progress-check-debug"),
   resultPanel: document.getElementById("progress-check-result-panel"),
   result: document.getElementById("progress-check-result"),
@@ -52,9 +54,6 @@ const elements = {
   statsSummary: document.getElementById("progress-stats-summary"),
   topicStatsTable: document.getElementById("progress-topic-stats-table"),
   difficultyStatsTable: document.getElementById("progress-difficulty-stats-table"),
-  recommendationsPanel: document.getElementById("learning-recommendations-panel"),
-  recommendationsEmpty: document.getElementById("learning-recommendations-empty"),
-  recommendationsSummary: document.getElementById("learning-recommendations-summary"),
   weakTopicsList: document.getElementById("weak-topics-list"),
   strongTopicsList: document.getElementById("strong-topics-list"),
   recommendedTopicsList: document.getElementById("recommended-topics-list"),
@@ -66,6 +65,17 @@ const elements = {
 
 function setText(element, value) {
   if (element) element.textContent = value;
+}
+
+function readDebugFlag() {
+  try {
+    const rawFlags = window.localStorage.getItem("ehsDynamicContentFlags");
+    if (!rawFlags) return false;
+    const flags = JSON.parse(rawFlags);
+    return flags?.debug === true;
+  } catch (error) {
+    return false;
+  }
 }
 
 function renderDefinitionList(list, items) {
@@ -83,6 +93,14 @@ function renderDefinitionList(list, items) {
 
 function updateDebug(nextState = {}) {
   Object.assign(state, nextState);
+
+  if (!readDebugFlag()) {
+    if (elements.debugPanel) elements.debugPanel.hidden = true;
+    if (elements.resultPanel) elements.resultPanel.hidden = true;
+    return;
+  }
+
+  if (elements.debugPanel) elements.debugPanel.hidden = false;
   renderDefinitionList(elements.debug, {
     environment: firebaseEnvironment,
     projectId: firebaseConfig?.projectId || "",
@@ -131,6 +149,17 @@ function makeButton(text, onClick, className = "btn secondary") {
 function setControlsEnabled(enabled) {
   [elements.viewedButton, elements.answeredButton, elements.loadButton].forEach((button) => {
     if (button) button.disabled = !enabled;
+  });
+}
+
+function hideDashboardPanels() {
+  [
+    elements.dashboardContent,
+    elements.controls,
+    elements.resultPanel,
+    elements.statsPanel,
+  ].forEach((panel) => {
+    if (panel) panel.hidden = true;
   });
 }
 
@@ -221,9 +250,7 @@ async function recordAnswered() {
 }
 
 function formatProgressForDisplay(progress) {
-  if (!progress) {
-    return "No progress document found.";
-  }
+  if (!progress) return "No progress document found.";
 
   const safeProgress = { ...progress };
   FORBIDDEN_PROGRESS_FIELDS.forEach((field) => {
@@ -247,6 +274,11 @@ function isCorrect(progress) {
 function percent(correct, answered) {
   if (!answered) return "0%";
   return `${Math.round((correct / answered) * 100)}%`;
+}
+
+function accuracyValue(row) {
+  if (!row.answered) return 0;
+  return Math.round((row.correct / row.answered) * 100);
 }
 
 function makeEmptyBucket(label) {
@@ -303,11 +335,6 @@ function calculateStats(progressDocs) {
   };
 }
 
-function accuracyValue(row) {
-  if (!row.answered) return 0;
-  return Math.round((row.correct / row.answered) * 100);
-}
-
 function classifyTopics(topicRows) {
   const weakTopics = topicRows.filter((topic) => topic.answered >= 1 && accuracyValue(topic) < 70);
   const strongTopics = topicRows.filter((topic) => topic.answered >= 1 && accuracyValue(topic) >= 85);
@@ -342,11 +369,11 @@ function calculateDifficultyRecommendation(difficultyRows) {
   }
 
   if (medium.answered >= 1 && accuracyValue(medium) >= 85) {
-    return "הביצועים ב־medium טובים. אפשר לנסות שאלות hard בהדרגה.";
+    return "הביצועים ב-medium טובים. אפשר לנסות שאלות hard בהדרגה.";
   }
 
   if (easy.answered >= 1 && accuracyValue(easy) >= 85) {
-    return "הביצועים ב־easy טובים. מומלץ לעבור לתרגול medium.";
+    return "הביצועים ב-easy טובים. מומלץ לעבור לתרגול medium.";
   }
 
   return "נדרש עוד תרגול לפני המלצת רמת קושי ברורה.";
@@ -370,48 +397,6 @@ function renderList(list, items, emptyText, formatter) {
   });
 }
 
-function renderRecommendations(stats, hasProgress) {
-  const topicGroups = classifyTopics(stats.topics);
-  const difficultyRecommendation = calculateDifficultyRecommendation(stats.difficulties);
-
-  if (elements.recommendationsPanel) elements.recommendationsPanel.hidden = false;
-  if (elements.recommendationsEmpty) elements.recommendationsEmpty.hidden = hasProgress;
-
-  renderDefinitionList(elements.recommendationsSummary, {
-    weakTopics: topicGroups.weakTopics.length,
-    strongTopics: topicGroups.strongTopics.length,
-    needsMoreData: topicGroups.needsMoreData.length,
-    recommendedTopics: topicGroups.recommendedTopics.length,
-  });
-
-  renderList(
-    elements.weakTopicsList,
-    topicGroups.weakTopics,
-    "לא זוהו נושאים חלשים לפי הנתונים הקיימים.",
-    (topic) => `${topic.label} (${accuracyValue(topic)}% דיוק, ${topic.answered} מענה/ים)`
-  );
-  renderList(
-    elements.strongTopicsList,
-    topicGroups.strongTopics,
-    "עדיין אין מספיק נתונים לזיהוי נושאים חזקים.",
-    (topic) => `${topic.label} (${accuracyValue(topic)}% דיוק)`
-  );
-  renderList(
-    elements.recommendedTopicsList,
-    topicGroups.recommendedTopics,
-    "עדיין אין מספיק נתונים לתרגול מומלץ.",
-    (topic) => `${topic.label} - ${topic.answered ? `${topic.answered} מענה/ים` : "נדרשת התחלת תרגול"}`
-  );
-  setText(elements.difficultyRecommendationText, difficultyRecommendation);
-
-  updateDebug({
-    weakTopicsCount: topicGroups.weakTopics.length,
-    strongTopicsCount: topicGroups.strongTopics.length,
-    recommendedTopicsCount: topicGroups.recommendedTopics.length,
-    difficultyRecommendation,
-  });
-}
-
 function renderStatsTable(table, rows) {
   const body = table?.querySelector("tbody");
   if (!body) return;
@@ -428,10 +413,43 @@ function renderStatsTable(table, rows) {
   });
 }
 
+function renderRecommendations(stats, hasProgress) {
+  const topicGroups = classifyTopics(stats.topics);
+  const difficultyRecommendation = calculateDifficultyRecommendation(stats.difficulties);
+
+  renderList(
+    elements.weakTopicsList,
+    topicGroups.weakTopics,
+    hasProgress ? "לא זוהו נושאים חלשים לפי הנתונים הקיימים." : "אין עדיין מספיק נתונים.",
+    (topic) => `${topic.label} (${accuracyValue(topic)}% דיוק, ${topic.answered} מענה/ים)`
+  );
+  renderList(
+    elements.strongTopicsList,
+    topicGroups.strongTopics,
+    hasProgress ? "עדיין אין מספיק נתונים לזיהוי נושאים חזקים." : "אין עדיין מספיק נתונים.",
+    (topic) => `${topic.label} (${accuracyValue(topic)}% דיוק)`
+  );
+  renderList(
+    elements.recommendedTopicsList,
+    topicGroups.recommendedTopics,
+    hasProgress ? "עדיין אין מספיק נתונים לתרגול מומלץ." : "עדיין אין מספיק נתונים להמלצות.",
+    (topic) => `${topic.label} - ${topic.answered ? `${topic.answered} מענה/ים` : "נדרשת התחלת תרגול"}`
+  );
+  setText(elements.difficultyRecommendationText, hasProgress ? difficultyRecommendation : "עדיין אין מספיק נתונים להמלצות.");
+
+  updateDebug({
+    weakTopicsCount: topicGroups.weakTopics.length,
+    strongTopicsCount: topicGroups.strongTopics.length,
+    recommendedTopicsCount: topicGroups.recommendedTopics.length,
+    difficultyRecommendation,
+  });
+}
+
 function renderProgressStats(progressDocs) {
   const stats = calculateStats(progressDocs);
   const hasProgress = progressDocs.length > 0;
 
+  if (elements.dashboardContent) elements.dashboardContent.hidden = false;
   if (elements.statsPanel) elements.statsPanel.hidden = false;
   if (elements.statsEmpty) elements.statsEmpty.hidden = hasProgress;
 
@@ -468,8 +486,10 @@ async function loadProgress() {
   setControlsEnabled(false);
   try {
     const progress = await loadExistingProgress();
-    if (elements.resultPanel) elements.resultPanel.hidden = false;
-    setText(elements.result, formatProgressForDisplay(progress));
+    if (readDebugFlag() && elements.resultPanel) {
+      elements.resultPanel.hidden = false;
+      setText(elements.result, formatProgressForDisplay(progress));
+    }
     const allProgress = await loadAllProgressDocs();
     renderProgressStats(allProgress);
   } catch (error) {
@@ -484,15 +504,8 @@ async function loadProgress() {
   }
 }
 
-function renderCheckingAuth() {
-  state.user = null;
-  if (elements.controls) elements.controls.hidden = true;
-  if (elements.resultPanel) elements.resultPanel.hidden = true;
-  if (elements.statsPanel) elements.statsPanel.hidden = true;
-  if (elements.recommendationsPanel) elements.recommendationsPanel.hidden = true;
-  elements.actions?.replaceChildren();
-  setPanelState("checking-auth", "בודק התחברות...", "בודק התחברות...");
-  updateDebug({
+function resetProgressDebug() {
+  return {
     writeAttempted: false,
     writeSuccess: false,
     readSuccess: false,
@@ -506,16 +519,21 @@ function renderCheckingAuth() {
     recommendedTopicsCount: 0,
     difficultyRecommendation: "",
     lastError: "",
-  });
+  };
+}
+
+function renderCheckingAuth() {
+  state.user = null;
+  hideDashboardPanels();
+  elements.actions?.replaceChildren();
+  setPanelState("checking-auth", "בודק התחברות...", "בודק התחברות...");
+  updateDebug(resetProgressDebug());
 }
 
 function renderUnauthenticated() {
   state.user = null;
-  if (elements.controls) elements.controls.hidden = true;
-  if (elements.resultPanel) elements.resultPanel.hidden = true;
-  if (elements.statsPanel) elements.statsPanel.hidden = true;
-  if (elements.recommendationsPanel) elements.recommendationsPanel.hidden = true;
-  setPanelState("unauthenticated", "נדרשת התחברות", "כדי לבדוק שמירת התקדמות יש להתחבר.");
+  hideDashboardPanels();
+  setPanelState("unauthenticated", "נדרשת התחברות", "כדי לצפות בלוח ההתקדמות יש להתחבר.");
   elements.actions?.replaceChildren(
     makeLink("מעבר להתחברות", "../login.html"),
     makeLink("חזרה לדף הבית", "../index.html", "btn secondary")
@@ -524,13 +542,13 @@ function renderUnauthenticated() {
     elements.userDetails.hidden = true;
     elements.userDetails.replaceChildren();
   }
-  updateDebug();
+  updateDebug(resetProgressDebug());
 }
 
 function renderAuthenticated(user) {
   state.user = user;
   if (elements.controls) elements.controls.hidden = false;
-  setPanelState("authenticated", "משתמש מחובר", `מחובר כ: ${user.displayName || user.email || user.uid}`);
+  setPanelState("authenticated", "לוח התקדמות פעיל", `מחובר כ: ${user.displayName || user.email || user.uid}`);
   elements.actions?.replaceChildren(
     makeLink("חזרה לדף הבית", "../index.html", "btn secondary"),
     makeButton("התנתקות", async () => {
