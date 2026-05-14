@@ -5,6 +5,8 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**",
+      "docs/**",
+      "reports/**",
       "data/exam-questions.js",
       "data/telegram-schedules.js"
     ],
