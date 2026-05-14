@@ -86,6 +86,25 @@
         </table>
       </div>
     </section>
+
+    <section class="auth-panel" id="learning-recommendations-panel" hidden>
+      <p class="kicker">Adaptive Learning · Phase C</p>
+      <h2>המלצות לימוד</h2>
+      <p id="learning-recommendations-empty" hidden>עדיין אין מספיק נתונים להמלצות.</p>
+      <dl class="auth-debug-list" id="learning-recommendations-summary"></dl>
+
+      <h3>נושאים חלשים</h3>
+      <ul id="weak-topics-list"></ul>
+
+      <h3>נושאים חזקים</h3>
+      <ul id="strong-topics-list"></ul>
+
+      <h3>מומלץ לתרגל עכשיו</h3>
+      <ol id="recommended-topics-list"></ol>
+
+      <h3>המלצת רמת קושי</h3>
+      <p id="difficulty-recommendation-text"></p>
+    </section>
   </main>
 
   <script type="module" src="../js/progress-tracking-check.js"></script>

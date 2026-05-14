@@ -31,6 +31,10 @@ const state = {
   statsCalculated: false,
   topicsCount: 0,
   difficultiesCount: 0,
+  weakTopicsCount: 0,
+  strongTopicsCount: 0,
+  recommendedTopicsCount: 0,
+  difficultyRecommendation: "",
   lastError: "",
 };
 
@@ -48,6 +52,13 @@ const elements = {
   statsSummary: document.getElementById("progress-stats-summary"),
   topicStatsTable: document.getElementById("progress-topic-stats-table"),
   difficultyStatsTable: document.getElementById("progress-difficulty-stats-table"),
+  recommendationsPanel: document.getElementById("learning-recommendations-panel"),
+  recommendationsEmpty: document.getElementById("learning-recommendations-empty"),
+  recommendationsSummary: document.getElementById("learning-recommendations-summary"),
+  weakTopicsList: document.getElementById("weak-topics-list"),
+  strongTopicsList: document.getElementById("strong-topics-list"),
+  recommendedTopicsList: document.getElementById("recommended-topics-list"),
+  difficultyRecommendationText: document.getElementById("difficulty-recommendation-text"),
   viewedButton: document.getElementById("progress-viewed-button"),
   answeredButton: document.getElementById("progress-answered-button"),
   loadButton: document.getElementById("progress-load-button"),
@@ -85,6 +96,10 @@ function updateDebug(nextState = {}) {
     statsCalculated: state.statsCalculated,
     topicsCount: state.topicsCount,
     difficultiesCount: state.difficultiesCount,
+    weakTopicsCount: state.weakTopicsCount,
+    strongTopicsCount: state.strongTopicsCount,
+    recommendedTopicsCount: state.recommendedTopicsCount,
+    difficultyRecommendation: state.difficultyRecommendation,
     lastError: state.lastError,
   });
 }
@@ -288,6 +303,115 @@ function calculateStats(progressDocs) {
   };
 }
 
+function accuracyValue(row) {
+  if (!row.answered) return 0;
+  return Math.round((row.correct / row.answered) * 100);
+}
+
+function classifyTopics(topicRows) {
+  const weakTopics = topicRows.filter((topic) => topic.answered >= 1 && accuracyValue(topic) < 70);
+  const strongTopics = topicRows.filter((topic) => topic.answered >= 1 && accuracyValue(topic) >= 85);
+  const needsMoreData = topicRows.filter((topic) => topic.viewed > 0 && topic.answered === 0);
+  const fewAnswers = topicRows
+    .filter((topic) => topic.answered > 0 && topic.answered < 3 && !weakTopics.includes(topic))
+    .sort((a, b) => a.answered - b.answered || a.label.localeCompare(b.label));
+
+  const recommendedTopics = [...weakTopics, ...needsMoreData, ...fewAnswers].filter(
+    (topic, index, items) => items.findIndex((candidate) => candidate.label === topic.label) === index
+  );
+
+  return {
+    weakTopics,
+    strongTopics,
+    needsMoreData,
+    recommendedTopics,
+  };
+}
+
+function difficultyByLabel(difficultyRows, label) {
+  return difficultyRows.find((row) => row.label === label) || makeEmptyBucket(label);
+}
+
+function calculateDifficultyRecommendation(difficultyRows) {
+  const easy = difficultyByLabel(difficultyRows, "easy");
+  const medium = difficultyByLabel(difficultyRows, "medium");
+  const hard = difficultyByLabel(difficultyRows, "hard");
+
+  if (hard.answered >= 1 && accuracyValue(hard) < 70) {
+    return "כדאי לחזור זמנית לרמת medium ולחזק את הבסיס לפני hard.";
+  }
+
+  if (medium.answered >= 1 && accuracyValue(medium) >= 85) {
+    return "הביצועים ב־medium טובים. אפשר לנסות שאלות hard בהדרגה.";
+  }
+
+  if (easy.answered >= 1 && accuracyValue(easy) >= 85) {
+    return "הביצועים ב־easy טובים. מומלץ לעבור לתרגול medium.";
+  }
+
+  return "נדרש עוד תרגול לפני המלצת רמת קושי ברורה.";
+}
+
+function renderList(list, items, emptyText, formatter) {
+  if (!list) return;
+  list.replaceChildren();
+
+  if (!items.length) {
+    const item = document.createElement("li");
+    item.textContent = emptyText;
+    list.append(item);
+    return;
+  }
+
+  items.forEach((entry) => {
+    const item = document.createElement("li");
+    item.textContent = formatter(entry);
+    list.append(item);
+  });
+}
+
+function renderRecommendations(stats, hasProgress) {
+  const topicGroups = classifyTopics(stats.topics);
+  const difficultyRecommendation = calculateDifficultyRecommendation(stats.difficulties);
+
+  if (elements.recommendationsPanel) elements.recommendationsPanel.hidden = false;
+  if (elements.recommendationsEmpty) elements.recommendationsEmpty.hidden = hasProgress;
+
+  renderDefinitionList(elements.recommendationsSummary, {
+    weakTopics: topicGroups.weakTopics.length,
+    strongTopics: topicGroups.strongTopics.length,
+    needsMoreData: topicGroups.needsMoreData.length,
+    recommendedTopics: topicGroups.recommendedTopics.length,
+  });
+
+  renderList(
+    elements.weakTopicsList,
+    topicGroups.weakTopics,
+    "לא זוהו נושאים חלשים לפי הנתונים הקיימים.",
+    (topic) => `${topic.label} (${accuracyValue(topic)}% דיוק, ${topic.answered} מענה/ים)`
+  );
+  renderList(
+    elements.strongTopicsList,
+    topicGroups.strongTopics,
+    "עדיין אין מספיק נתונים לזיהוי נושאים חזקים.",
+    (topic) => `${topic.label} (${accuracyValue(topic)}% דיוק)`
+  );
+  renderList(
+    elements.recommendedTopicsList,
+    topicGroups.recommendedTopics,
+    "עדיין אין מספיק נתונים לתרגול מומלץ.",
+    (topic) => `${topic.label} - ${topic.answered ? `${topic.answered} מענה/ים` : "נדרשת התחלת תרגול"}`
+  );
+  setText(elements.difficultyRecommendationText, difficultyRecommendation);
+
+  updateDebug({
+    weakTopicsCount: topicGroups.weakTopics.length,
+    strongTopicsCount: topicGroups.strongTopics.length,
+    recommendedTopicsCount: topicGroups.recommendedTopics.length,
+    difficultyRecommendation,
+  });
+}
+
 function renderStatsTable(table, rows) {
   const body = table?.querySelector("tbody");
   if (!body) return;
@@ -319,6 +443,7 @@ function renderProgressStats(progressDocs) {
   });
   renderStatsTable(elements.topicStatsTable, stats.topics);
   renderStatsTable(elements.difficultyStatsTable, stats.difficulties);
+  renderRecommendations(stats, hasProgress);
 
   updateDebug({
     progressDocsCount: progressDocs.length,
@@ -364,6 +489,7 @@ function renderCheckingAuth() {
   if (elements.controls) elements.controls.hidden = true;
   if (elements.resultPanel) elements.resultPanel.hidden = true;
   if (elements.statsPanel) elements.statsPanel.hidden = true;
+  if (elements.recommendationsPanel) elements.recommendationsPanel.hidden = true;
   elements.actions?.replaceChildren();
   setPanelState("checking-auth", "בודק התחברות...", "בודק התחברות...");
   updateDebug({
@@ -375,6 +501,10 @@ function renderCheckingAuth() {
     statsCalculated: false,
     topicsCount: 0,
     difficultiesCount: 0,
+    weakTopicsCount: 0,
+    strongTopicsCount: 0,
+    recommendedTopicsCount: 0,
+    difficultyRecommendation: "",
     lastError: "",
   });
 }
@@ -384,6 +514,7 @@ function renderUnauthenticated() {
   if (elements.controls) elements.controls.hidden = true;
   if (elements.resultPanel) elements.resultPanel.hidden = true;
   if (elements.statsPanel) elements.statsPanel.hidden = true;
+  if (elements.recommendationsPanel) elements.recommendationsPanel.hidden = true;
   setPanelState("unauthenticated", "נדרשת התחברות", "כדי לבדוק שמירת התקדמות יש להתחבר.");
   elements.actions?.replaceChildren(
     makeLink("מעבר להתחברות", "../login.html"),
