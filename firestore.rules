@@ -124,27 +124,6 @@ service cloud.firestore {
         );
     }
 
-    function validStagingAdminBootstrap(uid) {
-      return signedIn()
-        && request.auth.uid == uid
-        && request.auth.token.email == "osherper@gmail.com"
-        && resource.data.email == "osherper@gmail.com"
-        && (
-          resource.data.role == "admin"
-          || resource.data.admin == true
-        )
-        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
-          "approved",
-          "approvalStatus",
-          "approvedAt",
-          "updatedAt",
-          "bootstrapApproved"
-        ])
-        && request.resource.data.approved == true
-        && request.resource.data.approvalStatus == "approved"
-        && request.resource.data.bootstrapApproved == true;
-    }
-
     function noStagingApprovalToolFieldChanges() {
       return !request.resource.data.diff(resource.data).affectedKeys().hasAny([
         "approved",
@@ -206,8 +185,7 @@ service cloud.firestore {
             && validAutoBetaFields())
         );
 
-      allow update: if validStagingAdminBootstrap(uid)
-        || validStagingApprovalToolUpdate(uid)
+      allow update: if validStagingApprovalToolUpdate(uid)
         || (
           isAdmin()
           && noStagingApprovalToolFieldChanges()
