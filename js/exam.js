@@ -130,6 +130,7 @@
     mobileExamIndex = 0;
     loadMatchingDraft();
     renderExam();
+    activeQuestions.forEach((question) => emitProgressTelemetry("question-viewed", question));
     document.getElementById("examResult")?.replaceChildren();
     const form = document.getElementById("examForm");
     if (form) form.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -219,6 +220,22 @@
       correctAnswer: q.correctAnswer || "",
       selectedAnswer: activeAnswers[q.id] || "",
     };
+  }
+
+  function emitProgressTelemetry(eventType, question, extra = {}) {
+    if (!question?.id) return;
+    window.dispatchEvent(new CustomEvent("course-progress-telemetry", {
+      detail: {
+        eventType,
+        questionId: question.id,
+        lessonId: question.relatedLessonId || "",
+        topic: question.topic || "",
+        subTopic: question.subTopic || "",
+        difficulty: question.difficulty || "easy",
+        source: "exam",
+        ...extra,
+      },
+    }));
   }
 
   function buildQuestionReportButton(q) {
@@ -368,6 +385,11 @@
     const answers = activeQuestions.map((q) => {
       const selected = activeAnswers[q.id] || "";
       const ok = selected === q.correctAnswer;
+      const selectedIndex = Array.isArray(q.shuffledOptions) ? q.shuffledOptions.indexOf(selected) : -1;
+      emitProgressTelemetry("answer-submitted", q, {
+        selectedOptionId: selectedIndex >= 0 ? `option-${selectedIndex}` : "",
+        isCorrect: ok,
+      });
       if (ok) correct += 1;
       else {
         wrong.push({ question: q.question, selected, correct: q.correctAnswer, explanation: q.explanation, topic: q.topic });
