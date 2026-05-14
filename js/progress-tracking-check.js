@@ -35,6 +35,9 @@ const state = {
   strongTopicsCount: 0,
   recommendedTopicsCount: 0,
   difficultyRecommendation: "",
+  telemetryEventsCaptured: 0,
+  lastTelemetryEvent: "",
+  realQuestionsTrackedCount: 0,
   lastError: "",
 };
 
@@ -118,6 +121,9 @@ function updateDebug(nextState = {}) {
     strongTopicsCount: state.strongTopicsCount,
     recommendedTopicsCount: state.recommendedTopicsCount,
     difficultyRecommendation: state.difficultyRecommendation,
+    telemetryEventsCaptured: state.telemetryEventsCaptured,
+    lastTelemetryEvent: state.lastTelemetryEvent,
+    realQuestionsTrackedCount: state.realQuestionsTrackedCount,
     lastError: state.lastError,
   });
 }
@@ -448,6 +454,8 @@ function renderRecommendations(stats, hasProgress) {
 function renderProgressStats(progressDocs) {
   const stats = calculateStats(progressDocs);
   const hasProgress = progressDocs.length > 0;
+  const realQuestionsTrackedCount = progressDocs.filter((progress) => progress.questionId !== DEMO_QUESTION_ID).length;
+  const telemetryDebug = readTelemetryDebug();
 
   if (elements.dashboardContent) elements.dashboardContent.hidden = false;
   if (elements.statsPanel) elements.statsPanel.hidden = false;
@@ -468,7 +476,24 @@ function renderProgressStats(progressDocs) {
     statsCalculated: true,
     topicsCount: stats.topics.length,
     difficultiesCount: stats.difficulties.length,
+    telemetryEventsCaptured: telemetryDebug.telemetryEventsCaptured,
+    lastTelemetryEvent: telemetryDebug.lastTelemetryEvent,
+    realQuestionsTrackedCount,
   });
+}
+
+function readTelemetryDebug() {
+  try {
+    const rawDebug = window.localStorage.getItem("ehsProgressTelemetryDebug");
+    if (!rawDebug) return { telemetryEventsCaptured: 0, lastTelemetryEvent: "" };
+    const debug = JSON.parse(rawDebug);
+    return {
+      telemetryEventsCaptured: Number(debug?.telemetryEventsCaptured || 0),
+      lastTelemetryEvent: String(debug?.lastTelemetryEvent || ""),
+    };
+  } catch (error) {
+    return { telemetryEventsCaptured: 0, lastTelemetryEvent: "" };
+  }
 }
 
 async function loadAllProgressDocs() {
@@ -518,6 +543,9 @@ function resetProgressDebug() {
     strongTopicsCount: 0,
     recommendedTopicsCount: 0,
     difficultyRecommendation: "",
+    telemetryEventsCaptured: 0,
+    lastTelemetryEvent: "",
+    realQuestionsTrackedCount: 0,
     lastError: "",
   };
 }

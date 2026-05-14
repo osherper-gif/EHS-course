@@ -56,6 +56,7 @@
       questions.forEach((q) => {
         const card = container.querySelector('[data-question="' + q.id.replace(/"/g, '\\"') + '"]');
         if (card) window.CourseFeedback?.showQuestionStatus?.(q.id, card);
+        emitProgressTelemetry("question-viewed", q);
       });
     });
     container.addEventListener("click", (event) => {
@@ -97,6 +98,7 @@
       const question = activeQuizQuestions.get(card.dataset.question);
       if (!question) return;
       const selected = Number(button.dataset.answer);
+      const ok = selected === question.answer;
       card.querySelectorAll("[data-answer]").forEach((btn) => {
         btn.disabled = true;
         const idx = Number(btn.dataset.answer);
@@ -106,7 +108,6 @@
       card.querySelector(".explanation").textContent = question.explanation;
       const stats = window.CourseStorage?.stats?.();
       if (stats && window.CourseStorage?.updateStats) {
-        const ok = selected === question.answer;
         window.CourseStorage.updateStats({
           totalQuestionsAnswered: Number(stats.totalQuestionsAnswered || 0) + 1,
           totalCorrect: Number(stats.totalCorrect || 0) + (ok ? 1 : 0),
@@ -123,7 +124,27 @@
           chosen: question.options[selected],
         });
       }
+      emitProgressTelemetry("answer-submitted", question, {
+        selectedOptionId: `option-${selected}`,
+        isCorrect: ok,
+      });
     });
+  }
+
+  function emitProgressTelemetry(eventType, question, extra = {}) {
+    if (!question?.id) return;
+    window.dispatchEvent(new CustomEvent("course-progress-telemetry", {
+      detail: {
+        eventType,
+        questionId: question.id,
+        lessonId: question.lessonId || "",
+        topic: question.topic || "",
+        subTopic: question.subTopic || "",
+        difficulty: question.difficulty || "easy",
+        source: "quiz",
+        ...extra,
+      },
+    }));
   }
 
   function renderQuestion(q, index) {

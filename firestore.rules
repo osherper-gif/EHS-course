@@ -146,7 +146,8 @@ service cloud.firestore {
         "selectedOptionId",
         "isCorrect",
         "attemptsCount",
-        "lastSeenAt"
+        "lastSeenAt",
+        "source"
       ]);
     }
 
@@ -157,6 +158,11 @@ service cloud.firestore {
         "solution",
         "fullQuestionPayload"
       ]);
+    }
+
+    function validProgressSource() {
+      return !request.resource.data.keys().hasAny(["source"])
+        || request.resource.data.source in ["quiz", "exam", "practice"];
     }
 
     function autoBetaActive() {
@@ -250,7 +256,8 @@ service cloud.firestore {
         allow create, update: if isOwner(uid)
           && request.resource.data.questionId == progressId
           && validProgressKeys()
-          && noProgressAnswerLeakage();
+          && noProgressAnswerLeakage()
+          && validProgressSource();
         allow delete: if false;
       }
 
