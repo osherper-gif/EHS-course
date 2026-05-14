@@ -47,6 +47,45 @@
       <h2>מסמך התקדמות</h2>
       <pre id="progress-check-result" dir="ltr"></pre>
     </section>
+
+    <section class="auth-panel" id="progress-stats-panel" hidden>
+      <p class="kicker">Read-only stats</p>
+      <h2>Topic Statistics</h2>
+      <p id="progress-stats-empty" hidden>אין עדיין נתוני התקדמות.</p>
+      <dl class="auth-debug-list" id="progress-stats-summary"></dl>
+
+      <h3>Topic Stats</h3>
+      <div class="table-wrap">
+        <table id="progress-topic-stats-table">
+          <thead>
+            <tr>
+              <th>topic</th>
+              <th>viewed</th>
+              <th>answered</th>
+              <th>correct</th>
+              <th>accuracy</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3>Difficulty Stats</h3>
+      <div class="table-wrap">
+        <table id="progress-difficulty-stats-table">
+          <thead>
+            <tr>
+              <th>difficulty</th>
+              <th>viewed</th>
+              <th>answered</th>
+              <th>correct</th>
+              <th>accuracy</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
   </main>
 
   <script type="module" src="../js/progress-tracking-check.js"></script>

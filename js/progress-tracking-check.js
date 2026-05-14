@@ -1,10 +1,12 @@
 import {
   auth,
+  collection,
   db,
   doc,
   firebaseConfig,
   firebaseEnvironment,
   getDoc,
+  getDocs,
   onAuthStateChanged,
   serverTimestamp,
   setDoc,
@@ -25,6 +27,10 @@ const state = {
   writeSuccess: false,
   readSuccess: false,
   progressDocExists: false,
+  progressDocsCount: 0,
+  statsCalculated: false,
+  topicsCount: 0,
+  difficultiesCount: 0,
   lastError: "",
 };
 
@@ -37,6 +43,11 @@ const elements = {
   debug: document.getElementById("progress-check-debug"),
   resultPanel: document.getElementById("progress-check-result-panel"),
   result: document.getElementById("progress-check-result"),
+  statsPanel: document.getElementById("progress-stats-panel"),
+  statsEmpty: document.getElementById("progress-stats-empty"),
+  statsSummary: document.getElementById("progress-stats-summary"),
+  topicStatsTable: document.getElementById("progress-topic-stats-table"),
+  difficultyStatsTable: document.getElementById("progress-difficulty-stats-table"),
   viewedButton: document.getElementById("progress-viewed-button"),
   answeredButton: document.getElementById("progress-answered-button"),
   loadButton: document.getElementById("progress-load-button"),
@@ -70,6 +81,10 @@ function updateDebug(nextState = {}) {
     writeSuccess: state.writeSuccess,
     readSuccess: state.readSuccess,
     progressDocExists: state.progressDocExists,
+    progressDocsCount: state.progressDocsCount,
+    statsCalculated: state.statsCalculated,
+    topicsCount: state.topicsCount,
+    difficultiesCount: state.difficultiesCount,
     lastError: state.lastError,
   });
 }
@@ -106,6 +121,10 @@ function setControlsEnabled(enabled) {
 
 function progressDocRef(uid) {
   return doc(db, "users", uid, "progress", DEMO_QUESTION_ID);
+}
+
+function progressCollectionRef(uid) {
+  return collection(db, "users", uid, "progress");
 }
 
 function assertSafeProgressPayload(payload) {
@@ -198,6 +217,126 @@ function formatProgressForDisplay(progress) {
   return JSON.stringify(safeProgress, null, 2);
 }
 
+function hasViewed(progress) {
+  return Boolean(progress?.viewedAt || progress?.lastSeenAt);
+}
+
+function hasAnswered(progress) {
+  return Boolean(progress?.answeredAt || progress?.selectedOptionId);
+}
+
+function isCorrect(progress) {
+  return progress?.isCorrect === true;
+}
+
+function percent(correct, answered) {
+  if (!answered) return "0%";
+  return `${Math.round((correct / answered) * 100)}%`;
+}
+
+function makeEmptyBucket(label) {
+  return {
+    label,
+    viewed: 0,
+    answered: 0,
+    correct: 0,
+  };
+}
+
+function addProgressToBucket(bucket, progress) {
+  if (hasViewed(progress)) bucket.viewed += 1;
+  if (hasAnswered(progress)) bucket.answered += 1;
+  if (isCorrect(progress)) bucket.correct += 1;
+}
+
+function calculateStats(progressDocs) {
+  const summary = {
+    totalViewed: 0,
+    totalAnswered: 0,
+    totalCorrect: 0,
+    accuracyPercent: "0%",
+  };
+  const topics = new Map();
+  const difficulties = new Map([
+    ["easy", makeEmptyBucket("easy")],
+    ["medium", makeEmptyBucket("medium")],
+    ["hard", makeEmptyBucket("hard")],
+  ]);
+
+  progressDocs.forEach((progress) => {
+    if (hasViewed(progress)) summary.totalViewed += 1;
+    if (hasAnswered(progress)) summary.totalAnswered += 1;
+    if (isCorrect(progress)) summary.totalCorrect += 1;
+
+    const topic = progress.topic || "unknown";
+    if (!topics.has(topic)) topics.set(topic, makeEmptyBucket(topic));
+    addProgressToBucket(topics.get(topic), progress);
+
+    const difficulty = ["easy", "medium", "hard"].includes(progress.difficulty)
+      ? progress.difficulty
+      : "unknown";
+    if (!difficulties.has(difficulty)) difficulties.set(difficulty, makeEmptyBucket(difficulty));
+    addProgressToBucket(difficulties.get(difficulty), progress);
+  });
+
+  summary.accuracyPercent = percent(summary.totalCorrect, summary.totalAnswered);
+
+  return {
+    summary,
+    topics: [...topics.values()],
+    difficulties: [...difficulties.values()],
+  };
+}
+
+function renderStatsTable(table, rows) {
+  const body = table?.querySelector("tbody");
+  if (!body) return;
+  body.replaceChildren();
+
+  rows.forEach((row) => {
+    const tr = document.createElement("tr");
+    [row.label, row.viewed, row.answered, row.correct, percent(row.correct, row.answered)].forEach((value) => {
+      const td = document.createElement("td");
+      td.textContent = String(value);
+      tr.append(td);
+    });
+    body.append(tr);
+  });
+}
+
+function renderProgressStats(progressDocs) {
+  const stats = calculateStats(progressDocs);
+  const hasProgress = progressDocs.length > 0;
+
+  if (elements.statsPanel) elements.statsPanel.hidden = false;
+  if (elements.statsEmpty) elements.statsEmpty.hidden = hasProgress;
+
+  renderDefinitionList(elements.statsSummary, {
+    totalViewed: stats.summary.totalViewed,
+    totalAnswered: stats.summary.totalAnswered,
+    totalCorrect: stats.summary.totalCorrect,
+    accuracyPercent: stats.summary.accuracyPercent,
+  });
+  renderStatsTable(elements.topicStatsTable, stats.topics);
+  renderStatsTable(elements.difficultyStatsTable, stats.difficulties);
+
+  updateDebug({
+    progressDocsCount: progressDocs.length,
+    statsCalculated: true,
+    topicsCount: stats.topics.length,
+    difficultiesCount: stats.difficulties.length,
+  });
+}
+
+async function loadAllProgressDocs() {
+  if (!state.user) return [];
+  const snapshot = await getDocs(progressCollectionRef(state.user.uid));
+  return snapshot.docs.map((progressDoc) => ({
+    id: progressDoc.id,
+    ...progressDoc.data(),
+  }));
+}
+
 async function loadProgress() {
   if (!state.user) return;
 
@@ -206,10 +345,13 @@ async function loadProgress() {
     const progress = await loadExistingProgress();
     if (elements.resultPanel) elements.resultPanel.hidden = false;
     setText(elements.result, formatProgressForDisplay(progress));
+    const allProgress = await loadAllProgressDocs();
+    renderProgressStats(allProgress);
   } catch (error) {
     updateDebug({
       readSuccess: false,
       progressDocExists: false,
+      statsCalculated: false,
       lastError: error?.message || "Failed to load progress.",
     });
   } finally {
@@ -221,6 +363,7 @@ function renderCheckingAuth() {
   state.user = null;
   if (elements.controls) elements.controls.hidden = true;
   if (elements.resultPanel) elements.resultPanel.hidden = true;
+  if (elements.statsPanel) elements.statsPanel.hidden = true;
   elements.actions?.replaceChildren();
   setPanelState("checking-auth", "בודק התחברות...", "בודק התחברות...");
   updateDebug({
@@ -228,6 +371,10 @@ function renderCheckingAuth() {
     writeSuccess: false,
     readSuccess: false,
     progressDocExists: false,
+    progressDocsCount: 0,
+    statsCalculated: false,
+    topicsCount: 0,
+    difficultiesCount: 0,
     lastError: "",
   });
 }
@@ -236,6 +383,7 @@ function renderUnauthenticated() {
   state.user = null;
   if (elements.controls) elements.controls.hidden = true;
   if (elements.resultPanel) elements.resultPanel.hidden = true;
+  if (elements.statsPanel) elements.statsPanel.hidden = true;
   setPanelState("unauthenticated", "נדרשת התחברות", "כדי לבדוק שמירת התקדמות יש להתחבר.");
   elements.actions?.replaceChildren(
     makeLink("מעבר להתחברות", "../login.html"),
@@ -270,6 +418,7 @@ function renderAuthenticated(user) {
   });
   if (elements.userDetails) elements.userDetails.hidden = false;
   updateDebug({ user, lastError: "" });
+  loadProgress();
 }
 
 function bindEvents() {
