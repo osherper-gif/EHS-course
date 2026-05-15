@@ -99,7 +99,13 @@ function shouldShowTestTools() {
 }
 
 function updateTestToolsVisibility() {
-  if (elements.controls) elements.controls.hidden = !shouldShowTestTools() || !state.user;
+  if (!elements.controls) return;
+  if (!shouldShowTestTools()) {
+    elements.controls.hidden = true;
+    elements.controls.replaceChildren();
+    return;
+  }
+  elements.controls.hidden = !state.user;
 }
 
 function renderDefinitionList(list, items) {
