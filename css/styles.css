@@ -83,6 +83,16 @@
   margin-block: .35rem;
   line-height: 1.55;
 }
+.learner-topic-list li:has(.btn) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .75rem;
+  align-items: center;
+}
+.learner-topic-list .btn {
+  min-height: 40px;
+  white-space: nowrap;
+}
 .learner-test-tools .related-links,
 .learner-status-card .related-links {
   align-items: stretch;
@@ -131,6 +141,14 @@
   .learner-status-card .btn {
     width: 100%;
     text-align: center;
+  }
+  .learner-topic-list li:has(.btn) {
+    grid-template-columns: 1fr;
+  }
+  .learner-topic-list .btn {
+    width: 100%;
+    text-align: center;
+    white-space: normal;
   }
 }
 

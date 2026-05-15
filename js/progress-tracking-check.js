@@ -35,6 +35,9 @@ const state = {
   strongTopicsCount: 0,
   recommendedTopicsCount: 0,
   difficultyRecommendation: "",
+  generatedRecommendationsCount: 0,
+  lastRecommendedTopic: "",
+  lastPracticeLaunchTarget: "",
   telemetryEventsCaptured: 0,
   lastTelemetryEvent: "",
   realQuestionsTrackedCount: 0,
@@ -55,12 +58,17 @@ const elements = {
   statsPanel: document.getElementById("progress-stats-panel"),
   statsEmpty: document.getElementById("progress-stats-empty"),
   statsSummary: document.getElementById("progress-stats-summary"),
+  lastPracticeSummary: document.getElementById("last-practice-summary"),
+  lastPracticeDetails: document.getElementById("last-practice-details"),
+  lastPracticeActions: document.getElementById("last-practice-actions"),
   topicStatsTable: document.getElementById("progress-topic-stats-table"),
   difficultyStatsTable: document.getElementById("progress-difficulty-stats-table"),
   weakTopicsList: document.getElementById("weak-topics-list"),
+  weakPracticeList: document.getElementById("weak-practice-list"),
   strongTopicsList: document.getElementById("strong-topics-list"),
   recommendedTopicsList: document.getElementById("recommended-topics-list"),
   difficultyRecommendationText: document.getElementById("difficulty-recommendation-text"),
+  difficultyPracticeActions: document.getElementById("difficulty-practice-actions"),
   viewedButton: document.getElementById("progress-viewed-button"),
   answeredButton: document.getElementById("progress-answered-button"),
   loadButton: document.getElementById("progress-load-button"),
@@ -121,6 +129,9 @@ function updateDebug(nextState = {}) {
     strongTopicsCount: state.strongTopicsCount,
     recommendedTopicsCount: state.recommendedTopicsCount,
     difficultyRecommendation: state.difficultyRecommendation,
+    generatedRecommendationsCount: state.generatedRecommendationsCount,
+    lastRecommendedTopic: state.lastRecommendedTopic,
+    lastPracticeLaunchTarget: state.lastPracticeLaunchTarget,
     telemetryEventsCaptured: state.telemetryEventsCaptured,
     lastTelemetryEvent: state.lastTelemetryEvent,
     realQuestionsTrackedCount: state.realQuestionsTrackedCount,
@@ -150,6 +161,42 @@ function makeButton(text, onClick, className = "btn secondary") {
   button.textContent = text;
   button.addEventListener("click", onClick);
   return button;
+}
+
+function timestampMillis(value) {
+  if (!value) return 0;
+  if (typeof value.toMillis === "function") return value.toMillis();
+  if (typeof value.seconds === "number") return value.seconds * 1000;
+  if (value instanceof Date) return value.getTime();
+  const parsed = Date.parse(String(value));
+  return Number.isNaN(parsed) ? 0 : parsed;
+}
+
+function latestProgressTime(progress) {
+  return Math.max(
+    timestampMillis(progress?.lastSeenAt),
+    timestampMillis(progress?.answeredAt),
+    timestampMillis(progress?.viewedAt)
+  );
+}
+
+function buildPracticeTarget({ source = "", topic = "", lessonId = "", difficulty = "" } = {}) {
+  const query = new URLSearchParams();
+  if (topic) query.set("topic", topic);
+  if (lessonId) query.set("lesson", lessonId);
+  if (difficulty) query.set("difficulty", difficulty);
+  const suffix = query.toString() ? `?${query.toString()}` : "";
+
+  if (source === "exam") return `exam-questions.html${suffix}#simulation`;
+  if (source === "practice") return `exam-questions.html${suffix}`;
+  return `quizzes.html${suffix}#lessonPicker`;
+}
+
+function notePracticeLaunch(target, topic = "") {
+  updateDebug({
+    lastPracticeLaunchTarget: target,
+    lastRecommendedTopic: topic,
+  });
 }
 
 function setControlsEnabled(enabled) {
@@ -385,6 +432,42 @@ function calculateDifficultyRecommendation(difficultyRows) {
   return "נדרש עוד תרגול לפני המלצת רמת קושי ברורה.";
 }
 
+function difficultyPracticePlan(difficultyRows) {
+  const easy = difficultyByLabel(difficultyRows, "easy");
+  const medium = difficultyByLabel(difficultyRows, "medium");
+  const hard = difficultyByLabel(difficultyRows, "hard");
+
+  if (hard.answered >= 1 && accuracyValue(hard) < 70) {
+    return {
+      label: "מומלץ לחזור ל־medium",
+      difficulty: "medium",
+      target: buildPracticeTarget({ source: "exam", difficulty: "medium" }),
+    };
+  }
+
+  if (medium.answered >= 1 && accuracyValue(medium) >= 85) {
+    return {
+      label: "מומלץ לעבור ל־hard",
+      difficulty: "hard",
+      target: buildPracticeTarget({ source: "exam", difficulty: "hard" }),
+    };
+  }
+
+  if (easy.answered >= 1 && accuracyValue(easy) >= 85) {
+    return {
+      label: "מומלץ לעבור ל־medium",
+      difficulty: "medium",
+      target: buildPracticeTarget({ source: "exam", difficulty: "medium" }),
+    };
+  }
+
+  return {
+    label: "התחל תרגול בסיסי",
+    difficulty: "easy",
+    target: buildPracticeTarget({ source: "quiz", difficulty: "easy" }),
+  };
+}
+
 function renderList(list, items, emptyText, formatter) {
   if (!list) return;
   list.replaceChildren();
@@ -401,6 +484,64 @@ function renderList(list, items, emptyText, formatter) {
     item.textContent = formatter(entry);
     list.append(item);
   });
+}
+
+function renderActionList(list, items, emptyText, formatter) {
+  if (!list) return;
+  list.replaceChildren();
+
+  if (!items.length) {
+    const item = document.createElement("li");
+    item.textContent = emptyText;
+    list.append(item);
+    return;
+  }
+
+  items.forEach((entry) => {
+    const item = document.createElement("li");
+    const text = document.createElement("span");
+    text.textContent = formatter(entry);
+    const link = makeLink("תרגל עכשיו", buildPracticeTarget({ source: "exam", topic: entry.label }), "btn secondary");
+    link.addEventListener("click", () => notePracticeLaunch(link.href, entry.label));
+    item.append(text, link);
+    list.append(item);
+  });
+}
+
+function latestProgress(progressDocs) {
+  return [...progressDocs]
+    .filter((progress) => latestProgressTime(progress) > 0)
+    .sort((a, b) => latestProgressTime(b) - latestProgressTime(a))[0] || null;
+}
+
+function renderContinuePractice(progressDocs) {
+  const lastProgress = latestProgress(progressDocs);
+  elements.lastPracticeActions?.replaceChildren();
+  elements.lastPracticeDetails?.replaceChildren();
+
+  if (!lastProgress) {
+    setText(elements.lastPracticeSummary, "אין עדיין פעילות אחרונה.");
+    return;
+  }
+
+  const source = lastProgress.source || "quiz";
+  const target = buildPracticeTarget({
+    source,
+    topic: lastProgress.topic || "",
+    lessonId: lastProgress.lessonId || "",
+    difficulty: lastProgress.difficulty || "",
+  });
+
+  setText(elements.lastPracticeSummary, "אפשר להמשיך מהנושא האחרון שתורגל.");
+  renderDefinitionList(elements.lastPracticeDetails, {
+    topic: lastProgress.topic || "unknown",
+    lessonId: lastProgress.lessonId || "",
+    source,
+  });
+
+  const link = makeLink("המשך תרגול", target);
+  link.addEventListener("click", () => notePracticeLaunch(target, lastProgress.topic || ""));
+  elements.lastPracticeActions?.append(link);
 }
 
 function renderStatsTable(table, rows) {
@@ -422,6 +563,8 @@ function renderStatsTable(table, rows) {
 function renderRecommendations(stats, hasProgress) {
   const topicGroups = classifyTopics(stats.topics);
   const difficultyRecommendation = calculateDifficultyRecommendation(stats.difficulties);
+  const difficultyPlan = difficultyPracticePlan(stats.difficulties);
+  const visibleRecommendations = topicGroups.recommendedTopics.slice(0, 3);
 
   renderList(
     elements.weakTopicsList,
@@ -435,19 +578,33 @@ function renderRecommendations(stats, hasProgress) {
     hasProgress ? "עדיין אין מספיק נתונים לזיהוי נושאים חזקים." : "אין עדיין מספיק נתונים.",
     (topic) => `${topic.label} (${accuracyValue(topic)}% דיוק)`
   );
-  renderList(
+  renderActionList(
+    elements.weakPracticeList,
+    topicGroups.weakTopics,
+    hasProgress ? "אין כרגע נושאים חלשים." : "אין עדיין מספיק נתונים.",
+    (topic) => `${topic.label} (${accuracyValue(topic)}% דיוק, ${topic.answered} ניסיון/ות)`
+  );
+  renderActionList(
     elements.recommendedTopicsList,
-    topicGroups.recommendedTopics,
+    visibleRecommendations,
     hasProgress ? "עדיין אין מספיק נתונים לתרגול מומלץ." : "עדיין אין מספיק נתונים להמלצות.",
     (topic) => `${topic.label} - ${topic.answered ? `${topic.answered} מענה/ים` : "נדרשת התחלת תרגול"}`
   );
   setText(elements.difficultyRecommendationText, hasProgress ? difficultyRecommendation : "עדיין אין מספיק נתונים להמלצות.");
+  elements.difficultyPracticeActions?.replaceChildren();
+  if (hasProgress) {
+    const link = makeLink("התחל תרגול מומלץ", difficultyPlan.target);
+    link.addEventListener("click", () => notePracticeLaunch(difficultyPlan.target, difficultyPlan.difficulty));
+    elements.difficultyPracticeActions?.append(link);
+  }
 
   updateDebug({
     weakTopicsCount: topicGroups.weakTopics.length,
     strongTopicsCount: topicGroups.strongTopics.length,
-    recommendedTopicsCount: topicGroups.recommendedTopics.length,
+    recommendedTopicsCount: visibleRecommendations.length,
     difficultyRecommendation,
+    generatedRecommendationsCount: visibleRecommendations.length + topicGroups.weakTopics.length + (hasProgress ? 1 : 0),
+    lastRecommendedTopic: visibleRecommendations[0]?.label || "",
   });
 }
 
@@ -469,6 +626,7 @@ function renderProgressStats(progressDocs) {
   });
   renderStatsTable(elements.topicStatsTable, stats.topics);
   renderStatsTable(elements.difficultyStatsTable, stats.difficulties);
+  renderContinuePractice(progressDocs);
   renderRecommendations(stats, hasProgress);
 
   updateDebug({
@@ -543,6 +701,9 @@ function resetProgressDebug() {
     strongTopicsCount: 0,
     recommendedTopicsCount: 0,
     difficultyRecommendation: "",
+    generatedRecommendationsCount: 0,
+    lastRecommendedTopic: "",
+    lastPracticeLaunchTarget: "",
     telemetryEventsCaptured: 0,
     lastTelemetryEvent: "",
     realQuestionsTrackedCount: 0,
