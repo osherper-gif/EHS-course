@@ -98,14 +98,57 @@ function shouldShowTestTools() {
   return isStagingOrLocalHost() || readDebugFlag();
 }
 
+function ensureTestToolsPanel() {
+  if (elements.controls) return elements.controls;
+
+  const panel = document.createElement("section");
+  panel.className = "learner-dashboard-card learner-test-tools";
+  panel.id = "progress-check-controls";
+  panel.hidden = true;
+
+  const kicker = document.createElement("p");
+  kicker.className = "kicker";
+  kicker.textContent = "staging בלבד";
+  const title = document.createElement("h2");
+  title.textContent = "כלי בדיקה — staging בלבד";
+  const description = document.createElement("p");
+  description.append("הכפתורים כותבים רק למסמך הדגמה: ");
+  const code = document.createElement("code");
+  code.textContent = "users/{uid}/progress/demo-question-001";
+  description.append(code, ".");
+
+  const actions = document.createElement("div");
+  actions.className = "related-links";
+  const viewedButton = makeButton("רשום צפייה בשאלת בדיקה", recordViewed, "btn");
+  viewedButton.id = "progress-viewed-button";
+  const answeredButton = makeButton("רשום מענה לשאלת בדיקה", recordAnswered, "btn");
+  answeredButton.id = "progress-answered-button";
+  const loadButton = makeButton("טען התקדמות", loadProgress);
+  loadButton.id = "progress-load-button";
+  actions.append(viewedButton, answeredButton, loadButton);
+
+  panel.append(kicker, title, description, actions);
+  elements.debugPanel?.before(panel);
+  elements.controls = panel;
+  elements.viewedButton = viewedButton;
+  elements.answeredButton = answeredButton;
+  elements.loadButton = loadButton;
+  return panel;
+}
+
 function updateTestToolsVisibility() {
-  if (!elements.controls) return;
   if (!shouldShowTestTools()) {
-    elements.controls.hidden = true;
-    elements.controls.replaceChildren();
+    if (elements.controls) {
+      elements.controls.remove();
+      elements.controls = null;
+      elements.viewedButton = null;
+      elements.answeredButton = null;
+      elements.loadButton = null;
+    }
     return;
   }
-  elements.controls.hidden = !state.user;
+  const panel = ensureTestToolsPanel();
+  panel.hidden = !state.user;
 }
 
 function renderDefinitionList(list, items) {
