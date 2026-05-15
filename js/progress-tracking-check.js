@@ -89,6 +89,19 @@ function readDebugFlag() {
   }
 }
 
+function isStagingOrLocalHost() {
+  const hostname = window.location.hostname;
+  return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "ehs-course-staging.web.app";
+}
+
+function shouldShowTestTools() {
+  return isStagingOrLocalHost() || readDebugFlag();
+}
+
+function updateTestToolsVisibility() {
+  if (elements.controls) elements.controls.hidden = !shouldShowTestTools() || !state.user;
+}
+
 function renderDefinitionList(list, items) {
   if (!list) return;
   list.replaceChildren();
@@ -108,10 +121,12 @@ function updateDebug(nextState = {}) {
   if (!readDebugFlag()) {
     if (elements.debugPanel) elements.debugPanel.hidden = true;
     if (elements.resultPanel) elements.resultPanel.hidden = true;
+    updateTestToolsVisibility();
     return;
   }
 
   if (elements.debugPanel) elements.debugPanel.hidden = false;
+  updateTestToolsVisibility();
   renderDefinitionList(elements.debug, {
     environment: firebaseEnvironment,
     projectId: firebaseConfig?.projectId || "",
@@ -736,7 +751,7 @@ function renderUnauthenticated() {
 
 function renderAuthenticated(user) {
   state.user = user;
-  if (elements.controls) elements.controls.hidden = false;
+  updateTestToolsVisibility();
   setPanelState("authenticated", "לוח התקדמות פעיל", `מחובר כ: ${user.displayName || user.email || user.uid}`);
   elements.actions?.replaceChildren(
     makeLink("חזרה לדף הבית", "../index.html", "btn secondary"),
