@@ -73,22 +73,19 @@ service cloud.firestore {
       return request.resource.data.uid == resource.data.uid
         && request.resource.data.email == resource.data.email
         && request.resource.data.role == resource.data.role
-        && request.resource.data.status == resource.data.status;
+        && request.resource.data.admin == resource.data.admin
+        && request.resource.data.status == resource.data.status
+        && request.resource.data.blocked == resource.data.blocked
+        && request.resource.data.accessMode == resource.data.accessMode;
     }
 
     function validOwnUserUpdateKeys() {
       return request.resource.data.diff(resource.data).affectedKeys().hasOnly([
         "displayName",
         "photoURL",
-        "provider",
         "lastLoginAt",
-        "updatedAt",
-        "profileSurvey",
-        "profileSurveyCompletedAt",
-        "profileSurveySkippedAt",
-        "lastSeenVersionAt",
-        "lastSeenVersionUpdatedAt",
-        "accessMode"
+        "lastSeenAt",
+        "updatedAt"
       ]);
     }
 
@@ -174,24 +171,45 @@ service cloud.firestore {
         || request.resource.data.source in ["quiz", "exam", "practice"];
     }
 
-    function validUserCreateKeys() {
+    function validSelfUserCreateKeys() {
       return request.resource.data.keys().hasOnly([
         "uid",
         "email",
         "displayName",
         "photoURL",
-        "provider",
+        "status",
+        "blocked",
+        "accessMode",
+        "createdAt",
+        "lastLoginAt",
+        "lastSeenAt",
+        "updatedAt"
+      ]);
+    }
+
+    function validMainAdminCreateKeys() {
+      return request.resource.data.keys().hasOnly([
+        "uid",
+        "email",
+        "displayName",
+        "photoURL",
         "role",
         "status",
         "blocked",
         "accessMode",
-        "approvedAt",
-        "approvedBy",
-        "approvalMode",
         "createdAt",
         "lastLoginAt",
+        "lastSeenAt",
         "updatedAt"
       ]);
+    }
+
+    function validSelfUserCreateDefaults() {
+      return request.resource.data.uid == request.auth.uid
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.status == "active"
+        && request.resource.data.blocked == false
+        && request.resource.data.accessMode == "open-google";
     }
 
     match /users/{uid} {
@@ -199,19 +217,18 @@ service cloud.firestore {
 
       allow create: if signedIn()
         && request.auth.uid == uid
-        && validUserCreateKeys()
         && request.resource.data.uid == request.auth.uid
         && request.resource.data.email == request.auth.token.email
         && (
           (request.auth.token.email == "osherper@gmail.com"
+            && validMainAdminCreateKeys()
             && request.resource.data.role == "admin"
-            && request.resource.data.status == "approved")
+            && request.resource.data.status == "approved"
+            && request.resource.data.blocked == false)
           ||
           (request.auth.token.email != "osherper@gmail.com"
-            && request.resource.data.role == "student"
-            && request.resource.data.status == "active"
-            && request.resource.data.blocked == false
-            && request.resource.data.accessMode == "open-google")
+            && validSelfUserCreateKeys()
+            && validSelfUserCreateDefaults())
         );
 
       allow update: if validStagingApprovalToolUpdate(uid)
@@ -223,24 +240,6 @@ service cloud.firestore {
           isOwner(uid)
           && resource.data.status != "blocked"
           && resource.data.blocked != true
-          && resource.data.role == "student"
-          && request.resource.data.uid == resource.data.uid
-          && request.resource.data.email == resource.data.email
-          && request.resource.data.role == resource.data.role
-          && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
-            "displayName",
-            "photoURL",
-            "provider",
-            "lastLoginAt",
-            "updatedAt",
-            "status",
-            "accessMode"
-          ])
-          && request.resource.data.status == "active"
-          && request.resource.data.accessMode == "open-google"
-        )
-        || (
-          isOwner(uid)
           && validOwnImmutableFields()
           && validOwnUserUpdateKeys()
           && noApprovalFieldChanges()
@@ -249,8 +248,8 @@ service cloud.firestore {
       allow delete: if false;
 
       match /progress/{progressId} {
-        allow read: if isOwner(uid);
-        allow create, update: if isOwner(uid)
+        allow read: if isApprovedSelf(uid);
+        allow create, update: if isApprovedSelf(uid)
           && request.resource.data.questionId == progressId
           && validProgressKeys()
           && noProgressAnswerLeakage()

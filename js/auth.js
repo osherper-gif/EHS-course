@@ -507,7 +507,6 @@ async function ensureUserProfile(user) {
     email: sanitizeText(user.email, 320),
     displayName: sanitizeText(user.displayName || user.email, 180),
     photoURL: sanitizeText(user.photoURL, 1000),
-    provider: sanitizeText(providerName(user), 80),
     lastLoginAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
   };
@@ -516,12 +515,12 @@ async function ensureUserProfile(user) {
     const admin = isAdminEmail(user.email);
     const profile = {
       ...base,
-      role: admin ? "admin" : "student",
       status: admin ? APPROVED : ACTIVE,
       blocked: false,
       accessMode: "open-google",
       createdAt: serverTimestamp(),
     };
+    if (admin) profile.role = "admin";
     console.info("[auth] firestore setDoc users/" + user.uid + " start", {
       role: profile.role,
       status: profile.status,
@@ -534,11 +533,12 @@ async function ensureUserProfile(user) {
 
   const existing = snapshot.data();
   const admin = isAdminEmail(user.email);
-  const blocked = existing.blocked === true || existing.status === BLOCKED;
   const updates = {
-    ...base,
+    displayName: base.displayName,
+    photoURL: base.photoURL,
+    lastLoginAt: base.lastLoginAt,
+    updatedAt: base.updatedAt,
     ...(admin ? { role: "admin", status: APPROVED } : {}),
-    ...(!admin && !blocked && existing.status !== ACTIVE ? { status: ACTIVE, accessMode: "open-google" } : {}),
   };
   console.info("[auth] firestore updateDoc users/" + user.uid + " start", {
     currentStatus: existing.status,
