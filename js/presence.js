@@ -29,7 +29,7 @@ function isLoginPage() {
 function canSendHeartbeat(profile) {
   if (!db || !auth?.currentUser || !profile || isLoginPage()) return false;
   if (profile.uid !== auth.currentUser.uid) return false;
-  return profile.role === "admin" || profile.status === "approved";
+  return profile.blocked !== true && profile.status !== "blocked";
 }
 
 async function sendHeartbeat() {

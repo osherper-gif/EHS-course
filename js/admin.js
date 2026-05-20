@@ -12,6 +12,7 @@
 } from "./firebase-config.js";
 
 let usersByUid = new Map();
+let progressByUid = new Map();
 let preparedApproval = null;
 let feedbackById = new Map();
 let allUsers = [];
@@ -36,8 +37,26 @@ function statusLabel(status) {
   return {
     pending: "ממתין לאישור",
     approved: "מאושר",
+    active: "פעיל",
     blocked: "חסום",
   }[status] || status || "-";
+}
+
+function isAdminUser(user) {
+  return user?.role === "admin" || user?.admin === true || clean(user?.email, 320).toLowerCase() === ADMIN_EMAIL;
+}
+
+function userAccessStatus(user) {
+  if (user?.blocked === true || user?.status === "blocked") return "blocked";
+  return "active";
+}
+
+function statusPill(value, label = statusLabel(value)) {
+  const span = document.createElement("span");
+  span.className = "status-pill";
+  span.dataset.status = value;
+  span.textContent = label;
+  return span;
 }
 
 function approvalStatusLabel(status) {
@@ -70,6 +89,17 @@ function actionButton(text, status, disabled) {
   button.className = status === "blocked" ? "btn danger" : status === "pending" ? "btn secondary" : "btn";
   button.type = "button";
   button.dataset.status = status;
+  button.textContent = text;
+  button.disabled = disabled;
+  return button;
+}
+
+function crmActionButton(text, action, uid, danger = false, disabled = false) {
+  const button = document.createElement("button");
+  button.className = danger ? "btn danger" : "btn secondary";
+  button.type = "button";
+  button.dataset.userAction = action;
+  button.dataset.uid = uid;
   button.textContent = text;
   button.disabled = disabled;
   return button;
@@ -146,6 +176,37 @@ function renderApprovalCell(user) {
   return td;
 }
 
+function progressSummary(uid) {
+  const docs = progressByUid.get(clean(uid, 180)) || [];
+  const answeredDocs = docs.filter((item) => item.answeredAt || item.selectedOptionId);
+  const correct = answeredDocs.filter((item) => item.isCorrect === true).length;
+  const byTopic = new Map();
+  let lastActivityAt = null;
+  docs.forEach((item) => {
+    const topic = clean(item.topic || item.lessonId || "כללי", 120);
+    const current = byTopic.get(topic) || { answered: 0, correct: 0 };
+    if (item.answeredAt || item.selectedOptionId) {
+      current.answered += 1;
+      if (item.isCorrect === true) current.correct += 1;
+    }
+    byTopic.set(topic, current);
+    const seen = timestampDate(item.answeredAt) || timestampDate(item.lastSeenAt) || timestampDate(item.viewedAt);
+    if (seen && (!lastActivityAt || seen > lastActivityAt)) lastActivityAt = seen;
+  });
+  const weakTopics = Array.from(byTopic.entries())
+    .filter(([, item]) => item.answered > 0 && Math.round((item.correct / item.answered) * 100) < 70)
+    .map(([topic]) => topic)
+    .slice(0, 3);
+  return {
+    viewed: docs.length,
+    answered: answeredDocs.length,
+    correct,
+    accuracyPercent: answeredDocs.length ? Math.round((correct / answeredDocs.length) * 100) : 0,
+    weakTopics,
+    lastActivityAt,
+  };
+}
+
 function renderUserRow(user) {
   const tr = document.createElement("tr");
   tr.dataset.uid = clean(user.uid, 180);
@@ -160,44 +221,38 @@ function renderUserRow(user) {
     img.alt = "";
     wrap.append(img);
   }
-  const text = document.createElement("span");
   const name = document.createElement("strong");
-  name.textContent = clean(user.displayName || "-");
-  const email = document.createElement("small");
-  email.textContent = clean(user.email || "-", 320);
-  text.append(name, email);
-  wrap.append(text);
+  name.textContent = clean(user.displayName || user.email || "-");
+  wrap.append(name);
   userTd.append(wrap);
 
   const statusTd = document.createElement("td");
-  const status = document.createElement("span");
-  status.className = "status-pill";
-  status.dataset.status = clean(user.status || "pending", 40);
-  status.textContent = statusLabel(user.status);
-  statusTd.append(status);
+  statusTd.append(statusPill(userAccessStatus(user)));
 
   const actionsTd = document.createElement("td");
   actionsTd.className = "admin-actions-cell";
-  const disabled = user.email === ADMIN_EMAIL;
+  const uid = clean(user.uid, 180);
+  const blocked = userAccessStatus(user) === "blocked";
+  const admin = isAdminUser(user);
+  const protectedMainAdmin = clean(user.email, 320).toLowerCase() === ADMIN_EMAIL;
   actionsTd.append(
-    actionButton("אישור", "approved", disabled),
-    actionButton("pending", "pending", disabled),
-    actionButton("חסימה", "blocked", disabled)
+    crmActionButton("צפה בפרופיל", "view-profile", uid),
+    blocked ? crmActionButton("בטל חסימה", "unblock", uid) : crmActionButton("חסום משתמש", "block", uid, true, protectedMainAdmin),
+    admin ? crmActionButton("הסר admin", "remove-admin", uid, true, protectedMainAdmin) : crmActionButton("הפוך ל-admin", "make-admin", uid),
+    crmActionButton("אפס התקדמות", "reset-progress", uid, true)
   );
 
+  const progress = progressSummary(user.uid);
   tr.append(
     userTd,
-    cell(clean(user.role || "student", 60)),
+    cell(clean(user.email || "-", 320)),
+    cell(admin ? "admin" : clean(user.role || "student", 60)),
     statusTd,
-    cell(providerLabel(user.provider)),
-    cell(surveyStatusLabel(user)),
-    cell(surveyValue(user, "useReason")),
-    cell(surveyValue(user, "learningStatus")),
-    cell(surveyValue(user, "referralSource")),
-    cell(surveyValue(user, "sitePriority")),
-    cell(fmt(user.createdAt)),
     cell(fmt(user.lastLoginAt)),
-    renderApprovalCell(user),
+    cell(fmt(progress.lastActivityAt)),
+    cell(String(progress.answered)),
+    cell(progress.answered ? progress.accuracyPercent + "%" : "-"),
+    cell(progress.weakTopics.join(", ") || "-"),
     actionsTd
   );
   return tr;
@@ -261,28 +316,32 @@ function renderUserCard(user) {
   title.textContent = clean(user.displayName || user.email || "משתמש", 320);
   const status = document.createElement("span");
   status.className = "status-pill";
-  status.dataset.status = clean(user.status || "pending", 40);
-  status.textContent = statusLabel(user.status);
+  status.dataset.status = userAccessStatus(user);
+  status.textContent = statusLabel(userAccessStatus(user));
   head.append(title, status);
   const actions = document.createElement("div");
   actions.className = "admin-actions-cell";
-  const disabled = user.email === ADMIN_EMAIL;
-  actions.append(actionButton("אישור", "approved", disabled), actionButton("pending", "pending", disabled), actionButton("חסימה", "blocked", disabled));
-  const approval = renderApprovalCell(user);
-  approval.classList.add("m-admin-card__actions");
+  const uid = clean(user.uid, 180);
+  const protectedMainAdmin = clean(user.email, 320).toLowerCase() === ADMIN_EMAIL;
+  const admin = isAdminUser(user);
+  const blocked = userAccessStatus(user) === "blocked";
+  actions.append(
+    crmActionButton("צפה בפרופיל", "view-profile", uid),
+    blocked ? crmActionButton("בטל חסימה", "unblock", uid) : crmActionButton("חסום משתמש", "block", uid, true, protectedMainAdmin),
+    admin ? crmActionButton("הסר admin", "remove-admin", uid, true, protectedMainAdmin) : crmActionButton("הפוך ל-admin", "make-admin", uid),
+    crmActionButton("אפס התקדמות", "reset-progress", uid, true)
+  );
+  const progress = progressSummary(uid);
   card.append(
     head,
     cardLine("אימייל", clean(user.email || "-", 320)),
-    cardLine("תפקיד", clean(user.role || "student", 60)),
+    cardLine("תפקיד", admin ? "admin" : clean(user.role || "student", 60)),
     cardLine("Provider", providerLabel(user.provider)),
-    cardLine("שאלון", surveyStatusLabel(user)),
-    cardLine("למה משתמש באתר", surveyValue(user, "useReason")),
-    cardLine("סטטוס לימודי/מקצועי", surveyValue(user, "learningStatus")),
-    cardLine("מקור הגעה", surveyValue(user, "referralSource")),
-    cardLine("מה חשוב לו", surveyValue(user, "sitePriority")),
-    cardLine("נרשם", fmt(user.createdAt)),
     cardLine("כניסה אחרונה", fmt(user.lastLoginAt)),
-    approval,
+    cardLine("פעילות אחרונה", fmt(progress.lastActivityAt)),
+    cardLine("שאלות שנענו", String(progress.answered)),
+    cardLine("אחוז הצלחה", progress.answered ? progress.accuracyPercent + "%" : "-"),
+    cardLine("נושאים חלשים", progress.weakTopics.join(", ") || "-"),
     actions
   );
   return card;
@@ -635,9 +694,9 @@ async function loadActiveSessions() {
 function currentUserFilters() {
   return {
     query: clean(document.getElementById("usersSearch")?.value || "", 320).toLowerCase(),
-    survey: clean(document.getElementById("surveyStatusFilter")?.value || "", 40),
-    useReason: clean(document.getElementById("surveyUseFilter")?.value || "", 120),
-    source: clean(document.getElementById("surveySourceFilter")?.value || "", 120),
+    status: clean(document.getElementById("usersStatusFilter")?.value || "", 40),
+    activity: clean(document.getElementById("usersActivityFilter")?.value || "", 40),
+    sort: clean(document.getElementById("usersSort")?.value || "lastLogin", 40),
   };
 }
 
@@ -654,11 +713,29 @@ function userMatchesFilters(user, filters) {
     user.profileSurvey?.referralSource,
     user.profileSurvey?.sitePriority,
   ].map((value) => clean(value, 320).toLowerCase()).join(" ");
+  const summary = progressSummary(user.uid);
+  const seen = timestampDate(user.lastLoginAt) || summary.lastActivityAt;
+  const activeThisWeek = seen && seen.getTime() >= Date.now() - 7 * 24 * 60 * 60 * 1000;
   if (filters.query && !text.includes(filters.query)) return false;
-  if (filters.survey && surveyStatus(user) !== filters.survey) return false;
-  if (filters.useReason && user.profileSurvey?.useReason !== filters.useReason) return false;
-  if (filters.source && user.profileSurvey?.referralSource !== filters.source) return false;
+  if (filters.status === "active" && userAccessStatus(user) !== "active") return false;
+  if (filters.status === "blocked" && userAccessStatus(user) !== "blocked") return false;
+  if (filters.status === "admin" && !isAdminUser(user)) return false;
+  if (filters.activity === "week" && !activeThisWeek) return false;
+  if (filters.activity === "none" && (summary.viewed > 0 || activeThisWeek)) return false;
+  if (filters.activity === "progress" && summary.viewed === 0) return false;
   return true;
+}
+
+function sortUsers(users, sortKey) {
+  return users.slice().sort((a, b) => {
+    const aSummary = progressSummary(a.uid);
+    const bSummary = progressSummary(b.uid);
+    if (sortKey === "answered") return bSummary.answered - aSummary.answered;
+    if (sortKey === "accuracy") return bSummary.accuracyPercent - aSummary.accuracyPercent;
+    const aDate = timestampDate(a.lastLoginAt)?.getTime() || aSummary.lastActivityAt?.getTime() || 0;
+    const bDate = timestampDate(b.lastLoginAt)?.getTime() || bSummary.lastActivityAt?.getTime() || 0;
+    return bDate - aDate;
+  });
 }
 
 function renderUsers(users, totalCount = users.length) {
@@ -669,6 +746,11 @@ function renderUsers(users, totalCount = users.length) {
   users.forEach((user) => tbody.append(renderUserRow(user)));
   renderUserCards(users);
   const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+  setAdminStat("users-total", allUsers.length);
+  setAdminStat("users-active", allUsers.filter((user) => userAccessStatus(user) === "active").length);
+  setAdminStat("users-blocked", allUsers.filter((user) => userAccessStatus(user) === "blocked").length);
+  setAdminStat("users-admin", allUsers.filter(isAdminUser).length);
+  setAdminStat("users-with-progress", allUsers.filter((user) => progressSummary(user.uid).viewed > 0).length);
   setAdminStat("registered-week", allUsers.filter((user) => {
     const created = timestampDate(user.createdAt);
     return created && created.getTime() >= weekAgo;
@@ -678,9 +760,22 @@ function renderUsers(users, totalCount = users.length) {
 
 function applyUserFilters() {
   const filters = currentUserFilters();
-  renderUsers(allUsers.filter((user) => userMatchesFilters(user, filters)), allUsers.length);
+  renderUsers(sortUsers(allUsers.filter((user) => userMatchesFilters(user, filters)), filters.sort), allUsers.length);
 }
 
+async function loadUserProgressSummaries(users) {
+  progressByUid = new Map();
+  await Promise.all(users.map(async (user) => {
+    const uid = clean(user.uid, 180);
+    if (!uid) return;
+    try {
+      const snapshot = await getDocs(collection(db, "users", uid, "progress"));
+      progressByUid.set(uid, snapshot.docs.map((item) => ({ progressId: item.id, ...item.data() })));
+    } catch {
+      progressByUid.set(uid, []);
+    }
+  }));
+}
 
 async function loadUsers() {
   const tbody = document.getElementById("usersTableBody");
@@ -691,6 +786,7 @@ async function loadUsers() {
   const users = snapshot.docs.map((item) => item.data());
   allUsers = users;
   usersByUid = new Map(users.map((user) => [clean(user.uid, 180), user]));
+  await loadUserProgressSummaries(users);
   applyUserFilters();
   await loadActiveSessions();
   await loadExamScores(users);
@@ -878,6 +974,102 @@ async function updateStatus(uid, nextStatus) {
   if (approvedUser) showPreparedApproval(approvedUser);
 }
 
+function confirmationText(action, user) {
+  const label = clean(user?.displayName || user?.email || user?.uid || "משתמש", 180);
+  return {
+    block: "לחסום את המשתמש " + label + "?",
+    unblock: "לבטל חסימה למשתמש " + label + "?",
+    "make-admin": "להפוך את " + label + " למנהל? פעולה זו נותנת הרשאות ניהול.",
+    "remove-admin": "להסיר הרשאת admin מ-" + label + "?",
+    "reset-progress": "לאפס את כל ההתקדמות של " + label + "? פעולה זו בלתי הפיכה.",
+  }[action] || "להמשיך?";
+}
+
+async function updateUserAccess(uid, action) {
+  const safeUid = clean(uid, 180);
+  const user = usersByUid.get(safeUid);
+  if (!user) return;
+  if (!window.confirm(confirmationText(action, user))) return;
+
+  const ref = doc(db, "users", safeUid);
+  if (action === "block") {
+    await updateDoc(ref, { blocked: true, status: "blocked", updatedAt: serverTimestamp(), updatedBy: clean(window.CourseAuth?.profile?.email || ADMIN_EMAIL, 320) });
+  } else if (action === "unblock") {
+    await updateDoc(ref, { blocked: false, status: "active", accessMode: "open-google", updatedAt: serverTimestamp(), updatedBy: clean(window.CourseAuth?.profile?.email || ADMIN_EMAIL, 320) });
+  } else if (action === "make-admin") {
+    await updateDoc(ref, { role: "admin", admin: true, blocked: false, status: "active", updatedAt: serverTimestamp(), updatedBy: clean(window.CourseAuth?.profile?.email || ADMIN_EMAIL, 320) });
+  } else if (action === "remove-admin") {
+    await updateDoc(ref, { role: "student", admin: false, updatedAt: serverTimestamp(), updatedBy: clean(window.CourseAuth?.profile?.email || ADMIN_EMAIL, 320) });
+  }
+  await loadUsers();
+}
+
+async function resetUserProgress(uid) {
+  const safeUid = clean(uid, 180);
+  const user = usersByUid.get(safeUid);
+  if (!user || !window.confirm(confirmationText("reset-progress", user))) return;
+  const snapshot = await getDocs(collection(db, "users", safeUid, "progress"));
+  await Promise.all(snapshot.docs.map((item) => deleteDoc(doc(db, "users", safeUid, "progress", item.id))));
+  document.getElementById("adminStatus").textContent = "התקדמות המשתמש אופסה.";
+  await loadUsers();
+}
+
+function userProfileLine(label, value) {
+  const row = document.createElement("p");
+  const strong = document.createElement("strong");
+  strong.textContent = label;
+  const span = document.createElement("span");
+  span.textContent = value || "-";
+  row.append(strong, span);
+  return row;
+}
+
+function showUserProfile(uid) {
+  const safeUid = clean(uid, 180);
+  const user = usersByUid.get(safeUid);
+  const panel = document.getElementById("userProfilePanel");
+  if (!user || !panel) return;
+  const summary = progressSummary(safeUid);
+  panel.hidden = false;
+  panel.replaceChildren();
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "icon-btn";
+  close.textContent = "×";
+  close.title = "סגור";
+  close.addEventListener("click", () => {
+    panel.hidden = true;
+  });
+  const title = document.createElement("h2");
+  title.textContent = clean(user.displayName || user.email || "פרופיל משתמש", 180);
+  const actions = document.createElement("div");
+  actions.className = "admin-actions-cell";
+  const blocked = userAccessStatus(user) === "blocked";
+  const admin = isAdminUser(user);
+  const protectedMainAdmin = clean(user.email, 320).toLowerCase() === ADMIN_EMAIL;
+  actions.append(
+    blocked ? crmActionButton("בטל חסימה", "unblock", safeUid) : crmActionButton("חסום משתמש", "block", safeUid, true, protectedMainAdmin),
+    admin ? crmActionButton("הסר admin", "remove-admin", safeUid, true, protectedMainAdmin) : crmActionButton("הפוך ל-admin", "make-admin", safeUid),
+    crmActionButton("אפס התקדמות", "reset-progress", safeUid, true)
+  );
+  panel.append(
+    close,
+    title,
+    userProfileLine("אימייל", clean(user.email, 320)),
+    userProfileLine("uid", safeUid),
+    userProfileLine("סטטוס", statusLabel(userAccessStatus(user))),
+    userProfileLine("תפקיד", admin ? "admin" : clean(user.role || "student", 60)),
+    userProfileLine("תאריך יצירה", fmt(user.createdAt)),
+    userProfileLine("כניסה אחרונה", fmt(user.lastLoginAt)),
+    userProfileLine("שאלות שנענו", String(summary.answered)),
+    userProfileLine("אחוז הצלחה", summary.answered ? summary.accuracyPercent + "%" : "-"),
+    userProfileLine("נושאים חזקים", "-"),
+    userProfileLine("נושאים חלשים", summary.weakTopics.join(", ") || "-"),
+    userProfileLine("פעילות אחרונה", fmt(summary.lastActivityAt)),
+    actions
+  );
+}
+
 async function handleActionLink() {
   const params = new URLSearchParams(location.search);
   const uid = params.get("uid");
@@ -932,7 +1124,25 @@ document.addEventListener("click", async (event) => {
     return;
   }
 
-  const statusButton = event.target.closest("[data-status]");
+  const userActionButton = event.target.closest("[data-user-action]");
+  if (userActionButton) {
+    const action = clean(userActionButton.dataset.userAction, 60);
+    const uid = clean(userActionButton.dataset.uid, 180);
+    userActionButton.disabled = true;
+    try {
+      if (action === "view-profile") showUserProfile(uid);
+      else if (action === "reset-progress") await resetUserProgress(uid);
+      else await updateUserAccess(uid, action);
+    } catch (error) {
+      console.error("[admin] user action failed", error);
+      document.getElementById("adminStatus").textContent = "שגיאה בביצוע הפעולה.";
+    } finally {
+      userActionButton.disabled = false;
+    }
+    return;
+  }
+
+  const statusButton = event.target.closest("button[data-status]");
   if (statusButton) {
     const row = statusButton.closest("[data-uid]");
     if (!row) return;
@@ -964,7 +1174,7 @@ document.addEventListener("click", async (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  ["usersSearch", "surveyStatusFilter", "surveyUseFilter", "surveySourceFilter"].forEach((id) => {
+  ["usersSearch", "usersStatusFilter", "usersActivityFilter", "usersSort"].forEach((id) => {
     document.getElementById(id)?.addEventListener("input", applyUserFilters);
     document.getElementById(id)?.addEventListener("change", applyUserFilters);
   });

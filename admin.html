@@ -35,19 +35,21 @@
       </div>
     </section>
 
-    <section class="admin-mini-stats" aria-label="סיכום מהיר">
-      <div class="metric-modern" data-admin-stat="users-pending"><strong>—</strong><span>משתמשים ממתינים</span></div>
-      <div class="metric-modern metric-ok" data-admin-stat="users-approved"><strong>—</strong><span>משתמשים מאושרים</span></div>
+    <section class="admin-mini-stats crm-user-stats" aria-label="סיכום משתמשים">
+      <div class="metric-modern" data-admin-stat="users-total"><strong>—</strong><span>סה״כ משתמשים</span></div>
+      <div class="metric-modern metric-ok" data-admin-stat="users-active"><strong>—</strong><span>משתמשים פעילים</span></div>
       <div class="metric-modern metric-warn" data-admin-stat="users-blocked"><strong>—</strong><span>משתמשים חסומים</span></div>
+      <div class="metric-modern metric-accent" data-admin-stat="registered-week"><strong>—</strong><span>משתמשים חדשים השבוע</span></div>
+      <div class="metric-modern metric-ok" data-admin-stat="users-with-progress"><strong>—</strong><span>משתמשים עם פעילות למידה</span></div>
+      <div class="metric-modern metric-accent" data-admin-stat="users-admin"><strong>—</strong><span>משתמשי admin</span></div>
       <div class="metric-modern metric-ok" data-admin-stat="active-now"><strong>—</strong><span>משתמשים פעילים כרגע<br><small>פעילים ב-5 הדקות האחרונות</small></span></div>
       <div class="metric-modern metric-ok" data-admin-stat="active-today"><strong>—</strong><span>משתמשים פעילים היום</span></div>
-      <div class="metric-modern metric-accent" data-admin-stat="registered-week"><strong>—</strong><span>נרשמו השבוע</span></div>
       <div class="metric-modern metric-accent" data-admin-stat="exams-completed"><strong>—</strong><span>מבחנים שבוצעו</span></div>
       <div class="metric-modern metric-warn" data-admin-stat="feedback-total"><strong>—</strong><span>דיווחים שהתקבלו</span></div>
       <div class="metric-modern metric-accent" data-admin-stat="feedback-open"><strong>—</strong><span>דיווחים פתוחים</span></div>
     </section>
-    <section class="toolbar-panel admin-only-panel" aria-label="מצב בטא">
-      <span class="status-pill" data-status="approved">מצב בטא: אישור אוטומטי פעיל עד 15.5.2026</span>
+    <section class="toolbar-panel admin-only-panel" aria-label="מצב גישה">
+      <span class="status-pill" data-status="approved">מצב גישה פתוח: כל משתמש Google פעיל אלא אם נחסם</span>
     </section>
 
     <section class="content-section admin-section">
@@ -73,14 +75,14 @@
       <section class="admin-panel is-active" data-admin-panel="users">
         <section class="content-section admin-section">
           <div class="section-title">
-            <h2>משתמשים</h2>
+            <h2>ניהול משתמשים</h2>
             <p id="adminStatus">ממתין לאימות מנהל...</p>
           </div>
-          <div class="admin-search">
-            <label><span>סינון לפי שם/אימייל/סטטוס</span><input type="search" id="usersSearch" placeholder="הקלידו לסינון..." autocomplete="off"></label>
-            <label><span>שאלון סטטיסטי</span><select id="surveyStatusFilter"><option value="">הכול</option><option value="completed">ענה לשאלון</option><option value="skipped">דילג</option><option value="none">לא ענה</option></select></label>
-            <label><span>סוג משתמש</span><select id="surveyUseFilter"><option value="">הכול</option><option>סטודנט בקורס ממונה בטיחות</option><option>ממונה בטיחות שרוצה להעמיק</option><option>עובד/מנהל בארגון</option><option>יועץ/איש מקצוע בתחום</option><option>מתעניין בתחום הבטיחות</option><option>אחר</option></select></label>
-            <label><span>מקור הגעה</span><select id="surveySourceFilter"><option value="">הכול</option><option>חבר/עמית</option><option>קבוצת WhatsApp</option><option>חיפוש Google</option><option>LinkedIn / רשת חברתית</option><option>קורס / מסגרת לימודית</option><option>אחר</option></select></label>
+          <div class="admin-search crm-user-filters">
+            <label><span>חיפוש שם/אימייל</span><input type="search" id="usersSearch" placeholder="חיפוש משתמש..." autocomplete="off"></label>
+            <label><span>סטטוס</span><select id="usersStatusFilter"><option value="">הכול</option><option value="active">active</option><option value="blocked">blocked</option><option value="admin">admin</option></select></label>
+            <label><span>פעילות</span><select id="usersActivityFilter"><option value="">הכול</option><option value="week">פעיל השבוע</option><option value="none">ללא פעילות</option><option value="progress">עם progress</option></select></label>
+            <label><span>מיון</span><select id="usersSort"><option value="lastLogin">כניסה אחרונה</option><option value="answered">שאלות שנענו</option><option value="accuracy">אחוז הצלחה</option></select></label>
           </div>
           <section class="active-users-panel" aria-labelledby="activeUsersTitle">
             <div class="section-title compact-title">
@@ -91,11 +93,13 @@
           </section>
           <div class="table-scroll">
             <div class="table-responsive"><table class="data-table admin-table">
-              <thead><tr><th>משתמש</th><th>תפקיד</th><th>סטטוס</th><th>Provider</th><th>שאלון</th><th>למה משתמש באתר</th><th>סטטוס לימודי/מקצועי</th><th>מקור הגעה</th><th>מה חשוב לו</th><th>נרשם</th><th>כניסה אחרונה</th><th>הודעת אישור</th><th>פעולות</th></tr></thead>
+              <thead><tr><th>שם</th><th>אימייל</th><th>תפקיד</th><th>סטטוס</th><th>כניסה אחרונה</th><th>פעילות אחרונה</th><th>מספר שאלות שנענו</th><th>אחוז הצלחה</th><th>נושאים חלשים</th><th>פעולות</th></tr></thead>
               <tbody id="usersTableBody"></tbody>
             </table></div>
           </div>
         </section>
+
+        <aside id="userProfilePanel" class="crm-user-profile" hidden aria-live="polite"></aside>
 
         <section id="approvalMessagePanel" class="content-section admin-section" hidden>
           <div class="section-title">

@@ -30,7 +30,12 @@ service cloud.firestore {
         || (
           signedIn()
           && hasUserDoc(request.auth.uid)
-          && userDoc(request.auth.uid).data.role == "admin"
+          && (
+            userDoc(request.auth.uid).data.role == "admin"
+            || userDoc(request.auth.uid).data.admin == true
+          )
+          && userDoc(request.auth.uid).data.blocked != true
+          && userDoc(request.auth.uid).data.status != "blocked"
         );
     }
 
@@ -38,13 +43,15 @@ service cloud.firestore {
       return signedIn()
         && request.auth.uid == uid
         && hasUserDoc(uid)
-        && userDoc(uid).data.status == "approved";
+        && userDoc(uid).data.blocked != true
+        && userDoc(uid).data.status != "blocked";
     }
 
     function isApprovedRequester() {
       return signedIn()
         && hasUserDoc(request.auth.uid)
-        && userDoc(request.auth.uid).data.status == "approved";
+        && userDoc(request.auth.uid).data.blocked != true
+        && userDoc(request.auth.uid).data.status != "blocked";
     }
 
     function isApprovedAdminToolUser() {
@@ -54,7 +61,8 @@ service cloud.firestore {
           userDoc(request.auth.uid).data.role == "admin"
           || userDoc(request.auth.uid).data.admin == true
         )
-        && userDoc(request.auth.uid).data.approved == true;
+        && userDoc(request.auth.uid).data.blocked != true
+        && userDoc(request.auth.uid).data.status != "blocked";
     }
 
     function isApproved() {
@@ -79,7 +87,8 @@ service cloud.firestore {
         "profileSurveyCompletedAt",
         "profileSurveySkippedAt",
         "lastSeenVersionAt",
-        "lastSeenVersionUpdatedAt"
+        "lastSeenVersionUpdatedAt",
+        "accessMode"
       ]);
     }
 
@@ -165,16 +174,6 @@ service cloud.firestore {
         || request.resource.data.source in ["quiz", "exam", "practice"];
     }
 
-    function autoBetaActive() {
-      return request.time < timestamp.date(2026, 5, 16);
-    }
-
-    function validAutoBetaFields() {
-      return request.resource.data.status == "approved"
-        && request.resource.data.approvedBy == "auto-beta"
-        && request.resource.data.approvalMode == "auto-beta-14-days";
-    }
-
     function validUserCreateKeys() {
       return request.resource.data.keys().hasOnly([
         "uid",
@@ -184,6 +183,8 @@ service cloud.firestore {
         "provider",
         "role",
         "status",
+        "blocked",
+        "accessMode",
         "approvedAt",
         "approvedBy",
         "approvalMode",
@@ -208,12 +209,9 @@ service cloud.firestore {
           ||
           (request.auth.token.email != "osherper@gmail.com"
             && request.resource.data.role == "student"
-            && request.resource.data.status == "pending")
-          ||
-          (request.auth.token.email != "osherper@gmail.com"
-            && autoBetaActive()
-            && request.resource.data.role == "student"
-            && validAutoBetaFields())
+            && request.resource.data.status == "active"
+            && request.resource.data.blocked == false
+            && request.resource.data.accessMode == "open-google")
         );
 
       allow update: if validStagingApprovalToolUpdate(uid)
@@ -223,8 +221,8 @@ service cloud.firestore {
         )
         || (
           isOwner(uid)
-          && autoBetaActive()
-          && resource.data.status == "pending"
+          && resource.data.status != "blocked"
+          && resource.data.blocked != true
           && resource.data.role == "student"
           && request.resource.data.uid == resource.data.uid
           && request.resource.data.email == resource.data.email
@@ -236,11 +234,10 @@ service cloud.firestore {
             "lastLoginAt",
             "updatedAt",
             "status",
-            "approvedAt",
-            "approvedBy",
-            "approvalMode"
+            "accessMode"
           ])
-          && validAutoBetaFields()
+          && request.resource.data.status == "active"
+          && request.resource.data.accessMode == "open-google"
         )
         || (
           isOwner(uid)
@@ -258,7 +255,7 @@ service cloud.firestore {
           && validProgressKeys()
           && noProgressAnswerLeakage()
           && validProgressSource();
-        allow delete: if false;
+        allow delete: if isAdmin();
       }
 
       match /examAttempts/{attemptId} {
@@ -307,10 +304,8 @@ service cloud.firestore {
           || (
             signedIn()
             && hasUserDoc(request.auth.uid)
-            && (
-              userDoc(request.auth.uid).data.status == "approved"
-              || userDoc(request.auth.uid).data.approved == true
-            )
+            && userDoc(request.auth.uid).data.blocked != true
+            && userDoc(request.auth.uid).data.status != "blocked"
           ))
         && !resource.data.keys().hasAny([
           "correctAnswer",

@@ -27,17 +27,15 @@ import {
 
 const LOGIN_PAGE = "login.html";
 const ADMIN_PAGE = "admin.html";
+const ACTIVE = "active";
 const APPROVED = "approved";
-const PENDING = "pending";
 const BLOCKED = "blocked";
 const MAX_TEXT = 5000;
 const AUTH_CACHE_KEY = "ehsCourseAuthCache";
 const AUTH_CACHE_TTL = 5 * 60 * 1000;
 const LOADER_DELAY = 700;
-const AUTO_APPROVE_NEW_USERS_UNTIL = "2026-05-15T23:59:59+03:00";
 const APPROVAL_WELCOME_PREFIX = "ehsCourseApprovalWelcome:";
 const PROFILE_SURVEY_LOCAL_PREFIX = "ehsCourseProfileSurvey:";
-const AUTO_BETA_NOTICE_KEY = "ehsCourseAutoBetaNotice";
 const PROFILE_SURVEY_OPTIONS = {
   useReason: [
     "סטודנט בקורס ממונה בטיחות",
@@ -127,29 +125,20 @@ function safeRedirect(url) {
   location.href = url;
 }
 
-function isApprovedProfile(profile) {
-  return profile?.status === APPROVED || profile?.role === "admin";
+function isBlockedProfile(profile) {
+  return profile?.blocked === true || profile?.status === BLOCKED;
 }
 
-function isAutoApproveWindowActive(date = new Date()) {
-  return date.getTime() <= new Date(AUTO_APPROVE_NEW_USERS_UNTIL).getTime();
+function isAllowedProfile(profile) {
+  return Boolean(profile) && !isBlockedProfile(profile);
+}
+
+function isApprovedProfile(profile) {
+  return isAllowedProfile(profile);
 }
 
 function isStagingHost() {
   return window.location.hostname.includes("ehs-course-staging");
-}
-
-function shouldAutoApproveUser() {
-  return isStagingHost() || isAutoApproveWindowActive();
-}
-
-function autoApprovalFields() {
-  return {
-    status: APPROVED,
-    approvedAt: serverTimestamp(),
-    approvedBy: "auto-beta",
-    approvalMode: "auto-beta-14-days",
-  };
 }
 
 function profileForCache(profile) {
@@ -159,6 +148,7 @@ function profileForCache(profile) {
     displayName: sanitizeText(profile?.displayName || profile?.email, 180),
     role: sanitizeText(profile?.role, 40),
     status: sanitizeText(profile?.status, 40),
+    blocked: profile?.blocked === true,
     photoURL: sanitizeText(profile?.photoURL, 1000),
     lastAuthCheck: Date.now(),
   };
@@ -324,36 +314,6 @@ function markProfileSurveyHandledLocally(profile) {
   }
 }
 
-function markAutoBetaNotice() {
-  try {
-    sessionStorage.setItem(AUTO_BETA_NOTICE_KEY, "1");
-  } catch {
-    // Non-critical UX hint.
-  }
-}
-
-function showAutoBetaNoticeIfNeeded() {
-  try {
-    if (sessionStorage.getItem(AUTO_BETA_NOTICE_KEY) !== "1") return;
-    sessionStorage.removeItem(AUTO_BETA_NOTICE_KEY);
-  } catch {
-    return;
-  }
-  const banner = document.createElement("div");
-  banner.className = "approval-welcome-banner";
-  const text = document.createElement("span");
-  text.textContent = "נרשמת בהצלחה. חשבונך אושר אוטומטית לתקופת הבטא, ואתה מועבר לאתר.";
-  const close = document.createElement("button");
-  close.type = "button";
-  close.className = "icon-btn";
-  close.textContent = "×";
-  close.title = "סגור";
-  close.addEventListener("click", () => banner.remove());
-  banner.append(text, close);
-  document.body.prepend(banner);
-  window.setTimeout(() => banner.remove(), 9000);
-}
-
 function surveyField(labelText, name, options) {
   const label = document.createElement("label");
   const span = document.createElement("span");
@@ -512,7 +472,7 @@ function isAdminEmail(email) {
 }
 
 function isAdminProfile(profile) {
-  return profile?.role === "admin" || isAdminEmail(profile?.email);
+  return profile?.role === "admin" || profile?.admin === true || isAdminEmail(profile?.email);
 }
 
 function provisionalProfileFromUser(user) {
@@ -524,7 +484,8 @@ function provisionalProfileFromUser(user) {
     photoURL: sanitizeText(user?.photoURL, 1000),
     provider: sanitizeText(providerName(user), 80),
     role: admin ? "admin" : "student",
-    status: APPROVED,
+    status: admin ? APPROVED : ACTIVE,
+    blocked: false,
   };
 }
 
@@ -553,12 +514,12 @@ async function ensureUserProfile(user) {
 
   if (!snapshot.exists()) {
     const admin = isAdminEmail(user.email);
-    const autoApprove = !admin && shouldAutoApproveUser();
     const profile = {
       ...base,
       role: admin ? "admin" : "student",
-      status: admin || autoApprove ? APPROVED : PENDING,
-      ...(autoApprove ? autoApprovalFields() : {}),
+      status: admin ? APPROVED : ACTIVE,
+      blocked: false,
+      accessMode: "open-google",
       createdAt: serverTimestamp(),
     };
     console.info("[auth] firestore setDoc users/" + user.uid + " start", {
@@ -568,20 +529,16 @@ async function ensureUserProfile(user) {
     });
     await setDoc(ref, profile);
     console.info("[auth] firestore setDoc users/" + user.uid + " done");
-    if (autoApprove) markAutoBetaNotice();
-    if (!admin && profile.status === PENDING) {
-      window.CourseEmailNotifications?.notifyPendingUser?.({ ...profile, uid: user.uid }).catch(() => null);
-    }
     return { ...profile, createdAt: new Date(), lastLoginAt: new Date() };
   }
 
   const existing = snapshot.data();
   const admin = isAdminEmail(user.email);
-  const autoApprovePending = !admin && existing.status === PENDING && shouldAutoApproveUser();
+  const blocked = existing.blocked === true || existing.status === BLOCKED;
   const updates = {
     ...base,
     ...(admin ? { role: "admin", status: APPROVED } : {}),
-    ...(autoApprovePending ? autoApprovalFields() : {}),
+    ...(!admin && !blocked && existing.status !== ACTIVE ? { status: ACTIVE, accessMode: "open-google" } : {}),
   };
   console.info("[auth] firestore updateDoc users/" + user.uid + " start", {
     currentStatus: existing.status,
@@ -642,10 +599,10 @@ function decorateApprovedUser(profile) {
 }
 
 function renderNotApproved(profile) {
-  if (profile.status === BLOCKED) {
+  if (isBlockedProfile(profile)) {
     showShellMessage("אין הרשאת גישה", "הגישה שלך לאתר נחסמה. פנה למנהל האתר.", () => buttonElement("התנתקות", () => window.CourseAuth.logout()));
   } else {
-    showShellMessage("ממתין לאישור", "חשבונך עדיין ממתין לאישור מנהל האתר.", () => buttonElement("התנתקות", () => window.CourseAuth.logout()));
+    showShellMessage("אין הרשאת גישה", "לא ניתן לאמת כרגע את הגישה לחשבון. נסה לרענן או פנה למנהל האתר.", () => buttonElement("התנתקות", () => window.CourseAuth.logout()));
   }
 }
 
@@ -709,8 +666,8 @@ async function handleRedirectLoginResult(setMessage) {
     if (!result?.user) return;
     setMessage?.("ההתחברות הושלמה. מעביר לאתר...");
     const profile = await ensureUserProfile(result.user);
-    if (profile.status === APPROVED || isAdminProfile(profile)) {
-      cacheApprovedProfile(profile);
+    if (isAllowedProfile(profile)) {
+      saveCachedProfile(profile);
       safeRedirect(homeUrl());
     }
   } catch (error) {
@@ -727,7 +684,7 @@ async function logout() {
 }
 
 async function syncProgress(lessonId, completed, notes) {
-  if (!db || !auth?.currentUser || !currentProfile || currentProfile.status !== APPROVED) return false;
+  if (!db || !auth?.currentUser || !isAllowedProfile(currentProfile)) return false;
   try {
     await setDoc(doc(db, "users", auth.currentUser.uid, "progress", sanitizeText(lessonId, 120)), {
       lessonId: sanitizeText(lessonId, 120),
@@ -742,7 +699,7 @@ async function syncProgress(lessonId, completed, notes) {
 }
 
 async function updateLastSeenVersionAt(timestamp) {
-  if (!db || !auth?.currentUser || !currentProfile || currentProfile.status !== APPROVED) return false;
+  if (!db || !auth?.currentUser || !isAllowedProfile(currentProfile)) return false;
   try {
     await updateDoc(doc(db, "users", auth.currentUser.uid), {
       lastSeenVersionAt: sanitizeText(timestamp || new Date().toISOString(), 80),
@@ -755,7 +712,7 @@ async function updateLastSeenVersionAt(timestamp) {
 }
 
 async function saveExamAttempt(attempt) {
-  if (!db || !auth?.currentUser || !currentProfile || currentProfile.status !== APPROVED) return false;
+  if (!db || !auth?.currentUser || !isAllowedProfile(currentProfile)) return false;
   try {
     const attemptId = sanitizeText(attempt?.attemptId || "attempt-" + Date.now(), 140);
     await setDoc(doc(db, "users", auth.currentUser.uid, "examAttempts", attemptId), {
@@ -769,7 +726,6 @@ async function saveExamAttempt(attempt) {
       answers: Array.isArray(attempt?.answers) ? attempt.answers.slice(0, 200).map((answer) => ({
         id: sanitizeText(answer.id, 140),
         selected: sanitizeText(answer.selected, 1000),
-        correctAnswer: sanitizeText(answer.correctAnswer, 1000),
         isCorrect: Boolean(answer.isCorrect),
       })) : [],
       createdAt: serverTimestamp(),
@@ -781,7 +737,7 @@ async function saveExamAttempt(attempt) {
 }
 
 async function saveGameProgress(progress) {
-  if (!db || !auth?.currentUser || !currentProfile || currentProfile.status !== APPROVED) return false;
+  if (!db || !auth?.currentUser || !isAllowedProfile(currentProfile)) return false;
   try {
     await setDoc(doc(db, "gameProgress", auth.currentUser.uid), {
       userId: auth.currentUser.uid,
@@ -809,7 +765,7 @@ async function saveGameProgress(progress) {
 }
 
 async function saveUserStats(stats) {
-  if (!db || !auth?.currentUser || !currentProfile || currentProfile.status !== APPROVED) return false;
+  if (!db || !auth?.currentUser || !isAllowedProfile(currentProfile)) return false;
   try {
     await setDoc(doc(db, "users", auth.currentUser.uid, "stats", "summary"), {
       userId: auth.currentUser.uid,
@@ -961,8 +917,8 @@ function guard() {
       document.body.classList.add("auth-user-detected");
       const fallbackProfile = getCachedProfile();
       let shownProfile = alreadyRevealed;
-      if (!isLoginPage && !shownProfile && (!isAdminPage || isAdminEmail(user.email) || isAdminProfile(fallbackProfile))) {
-        revealAuthenticatedView(fallbackProfile || provisionalProfileFromUser(user));
+      if (!isLoginPage && !shownProfile && fallbackProfile && (!isAdminPage || isAdminEmail(user.email) || isAdminProfile(fallbackProfile))) {
+        revealAuthenticatedView(fallbackProfile);
         shownProfile = true;
       }
       authLog("firestore status start");
@@ -1011,7 +967,7 @@ function guard() {
       window.CourseAuth.profile = profile;
       if (isLoginPage) {
         document.body.classList.remove("login-auth-check");
-        if (profile.status === APPROVED) safeRedirect(homeUrl());
+        if (isAllowedProfile(profile)) safeRedirect(homeUrl());
         else renderNotApproved(profile);
         authReadyResolve?.(profile);
         return;
@@ -1022,8 +978,8 @@ function guard() {
         authReadyResolve?.(profile);
         return;
       }
-      if (profile.status !== APPROVED) {
-        authLog(profile.status === BLOCKED ? "blocked" : "pending");
+      if (!isAllowedProfile(profile)) {
+        authLog(isBlockedProfile(profile) ? "blocked" : "not allowed");
         if (isAuthOptionalPage) {
           currentProfile = profile;
           window.CourseAuth.profile = profile;
@@ -1036,7 +992,7 @@ function guard() {
         authReadyResolve?.(profile);
         return;
       }
-      authLog("approved");
+      authLog("allowed");
       saveCachedProfile(profile);
       if (shownProfile) {
         decorateApprovedUser(profile);
@@ -1045,7 +1001,6 @@ function guard() {
         revealAuthenticatedView(profile);
       }
       showApprovalWelcome(profile);
-      showAutoBetaNoticeIfNeeded();
       maybeShowProfileSurvey(profile);
       authReadyResolve?.(profile);
       (async () => {
@@ -1076,6 +1031,8 @@ window.CourseAuth = {
   hebrewAuthError,
   isAdminEmail,
   isAdminProfile,
+  isAllowedProfile,
+  isBlockedProfile,
   sanitizeText,
 };
 

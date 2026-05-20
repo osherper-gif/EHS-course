@@ -447,8 +447,9 @@ async function readApproval(user) {
   const snapshot = await getDoc(userRef);
   updateDebug({ firestoreReadSuccess: true });
 
-  if (!snapshot.exists()) return false;
-  return snapshot.data()?.approved === true;
+  if (!snapshot.exists()) return true;
+  const profile = snapshot.data();
+  return profile?.blocked !== true && profile?.status !== "blocked";
 }
 
 async function readPreviewQuestions(user) {

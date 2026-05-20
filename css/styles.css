@@ -1542,6 +1542,94 @@ html[data-theme="dark"] .admin-tabs button[aria-selected="true"] { color: var(--
   border-radius: var(--radius-sm);
   background: var(--surface);
 }
+
+.crm-user-stats .metric-modern {
+  min-block-size: 92px;
+}
+
+.crm-user-filters {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.4fr) repeat(3, minmax(160px, 1fr));
+  gap: .75rem;
+  align-items: end;
+}
+
+.crm-user-filters label,
+.crm-user-profile p {
+  min-width: 0;
+}
+
+.crm-user-filters input,
+.crm-user-filters select {
+  inline-size: 100%;
+  max-width: none;
+}
+
+.crm-user-profile {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: 0;
+  z-index: 2100;
+  inline-size: min(420px, 100vw);
+  overflow: auto;
+  padding: 1rem;
+  background: var(--surface);
+  border-inline-end: 1px solid var(--border);
+  box-shadow: -18px 0 44px rgba(13, 27, 38, .22);
+  display: grid;
+  align-content: start;
+  gap: .75rem;
+}
+
+.crm-user-profile[hidden] {
+  display: none;
+}
+
+.crm-user-profile h2 {
+  margin: 0;
+  padding-inline-end: 3rem;
+}
+
+.crm-user-profile > .icon-btn {
+  position: absolute;
+  inset-block-start: .75rem;
+  inset-inline-end: .75rem;
+}
+
+.crm-user-profile p {
+  margin: 0;
+  display: grid;
+  gap: .15rem;
+  padding: .65rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-2);
+}
+
+.crm-user-profile p strong {
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+.crm-user-profile p span {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .crm-user-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .crm-user-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .crm-user-profile {
+    inline-size: 100vw;
+  }
+}
 .active-user-card span,
 .active-user-card small,
 .muted-text {
