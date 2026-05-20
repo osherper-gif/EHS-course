@@ -67,6 +67,20 @@
 .learner-dashboard-card h3 {
   margin-top: 0;
 }
+.learner-dashboard-secondary {
+  opacity: .92;
+}
+.learner-dashboard-secondary h2,
+.learner-dashboard-secondary h3 {
+  font-size: 1.1rem;
+}
+.learner-privacy-note {
+  color: var(--muted);
+  background: var(--surface-2);
+}
+.learner-privacy-note p {
+  margin: 0;
+}
 .learner-dashboard-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

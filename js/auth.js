@@ -77,12 +77,6 @@ const pageName = location.pathname.split("/").pop() || "index.html";
 const isLoginPage = pageName === LOGIN_PAGE;
 const isAdminPage = pageName === ADMIN_PAGE || pageName === "admin-dashboard.html" || pageName === "version-management.html";
 const isAuthOptionalPage = document.body?.dataset.authMode === "optional";
-console.info("[firebase] active config", {
-  hostname: window.location.hostname,
-  environment: firebaseEnvironment,
-  projectId: firebaseConfig?.projectId,
-  authDomain: firebaseConfig?.authDomain,
-});
 
 let currentProfile = null;
 let authReadyResolve;
@@ -91,9 +85,23 @@ window.CourseAuthReady = new Promise((resolve) => {
   authReadyResolve = resolve;
 });
 
+function readAuthDebugFlag() {
+  try {
+    const flags = JSON.parse(localStorage.getItem("ehsDynamicContentFlags") || "{}");
+    return flags?.debug === true;
+  } catch {
+    return false;
+  }
+}
+
+function authDebugLog(message, detail) {
+  if (!readAuthDebugFlag()) return;
+  if (detail !== undefined) console.info(message, detail);
+  else console.info(message);
+}
+
 function authLog(message, detail) {
-  if (detail !== undefined) console.info(`[auth] ${message}`, detail);
-  else console.info(`[auth] ${message}`);
+  authDebugLog(`[auth] ${message}`, detail);
 }
 
 function sanitizeText(value, max = MAX_TEXT) {
@@ -110,6 +118,10 @@ function homeUrl() {
 
 function adminUrl() {
   return isRootPage ? ADMIN_PAGE : "../admin.html";
+}
+
+function myProgressUrl() {
+  return isRootPage ? "pages/my-progress.html" : "my-progress.html";
 }
 
 function adminDashboardUrl() {
@@ -472,7 +484,7 @@ function payloadKeys(payload) {
 }
 
 function logFirestoreOperation(stage, details) {
-  console.info("[auth][firestore]", stage, {
+  authDebugLog("[auth][firestore] " + stage, {
     operation: details?.operation || "",
     path: details?.path || "",
     payloadKeys: payloadKeys(details?.payload),
@@ -572,7 +584,7 @@ async function ensureUserProfile(user) {
       createdAt: serverTimestamp(),
     };
     if (admin) profile.role = "admin";
-    console.info("[auth] firestore profile create payload", {
+    authDebugLog("[auth] firestore profile create payload", {
       role: profile.role,
       status: profile.status,
       environment: isStagingHost() ? "staging" : "production",
@@ -591,7 +603,7 @@ async function ensureUserProfile(user) {
     updatedAt: base.updatedAt,
     ...(admin ? { role: "admin", status: APPROVED } : {}),
   };
-  console.info("[auth] firestore profile update payload", {
+  authDebugLog("[auth] firestore profile update payload", {
     currentStatus: existing.status,
     nextStatus: updates.status || existing.status,
     environment: isStagingHost() ? "staging" : "production",
@@ -631,6 +643,14 @@ function decorateApprovedUser(profile) {
   }
   const text = badge.querySelector("[data-user-greeting]");
   if (text) text.textContent = "שלום, " + label;
+  if (!actions.querySelector("#myProgressLink")) {
+    const progressLink = document.createElement("a");
+    progressLink.id = "myProgressLink";
+    progressLink.className = "btn secondary";
+    progressLink.href = myProgressUrl();
+    progressLink.textContent = "ההתקדמות שלי";
+    badge.after(progressLink);
+  }
   if (isAdminProfile(profile) && !actions.querySelector(".admin-link")) {
     const dashboardLink = document.createElement("a");
     dashboardLink.className = "btn secondary admin-link";
@@ -673,10 +693,10 @@ function hebrewAuthError(error) {
 async function googleLogin() {
   const provider = new GoogleAuthProvider();
   if (isStagingHost()) {
-    console.info("[auth] staging popup start");
+    authDebugLog("[auth] staging popup start");
     try {
       await signInWithPopup(auth, provider);
-      console.info("[auth] staging popup resolved");
+      authDebugLog("[auth] staging popup resolved");
       return;
     } catch (error) {
       console.error("[auth] staging popup error:", error?.code, error?.message, error);
@@ -692,23 +712,23 @@ async function googleLogin() {
         errorText.includes("window.closed") ||
         errorText.includes("cross-origin-opener-policy");
       if (!shouldUseRedirect) throw error;
-      console.info("[auth] staging redirect start", { reason: error?.code || error?.message || "unknown" });
+      authDebugLog("[auth] staging redirect start", { reason: error?.code || error?.message || "unknown" });
       await signInWithRedirect(auth, provider);
-      console.info("[auth] staging redirect returned without navigation");
+      authDebugLog("[auth] staging redirect returned without navigation");
     }
     return;
   }
-  console.info("[auth] production popup start");
+  authDebugLog("[auth] production popup start");
   await signInWithPopup(auth, provider);
-  console.info("[auth] production popup resolved");
+  authDebugLog("[auth] production popup resolved");
 }
 
 async function handleRedirectLoginResult(setMessage) {
   if (!isStagingHost() || !auth) return;
-  console.info("[auth] redirect result start");
+  authDebugLog("[auth] redirect result start");
   try {
     const result = await getRedirectResult(auth);
-    console.info("[auth] redirect result", {
+    authDebugLog("[auth] redirect result", {
       hasResult: Boolean(result),
       hasUser: Boolean(result?.user),
       uid: result?.user?.uid || null,

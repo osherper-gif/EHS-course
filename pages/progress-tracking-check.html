@@ -3,124 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.gstatic.com https://*.googleapis.com https://*.firebaseio.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self';">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="לוח התקדמות אישי ב-staging להצגת סיכום התקדמות, סטטיסטיקות נושאים והמלצות תרגול בסיסיות ללא AI וללא answer keys.">
-  <title>לוח התקדמות אישי | קורס ממונה בטיחות</title>
+  <meta http-equiv="refresh" content="0; url=my-progress.html">
+  <meta name="description" content="עמוד זה עבר לכתובת ההתקדמות האישית החדשה.">
+  <title>הפניה להתקדמות שלי | קורס ממונה בטיחות</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body class="learner-dashboard-page" data-page-title="לוח התקדמות אישי">
-  <main id="main" class="learner-dashboard" aria-labelledby="progress-check-title">
-    <section class="learner-dashboard-hero">
-      <p class="kicker">Adaptive Learning · Phase D</p>
-      <h1 id="progress-check-title">לוח התקדמות אישי</h1>
-      <p>מסך staging ראשוני להצגת התקדמות, נושאים חזקים, נושאים לחיזוק והמלצות תרגול בסיסיות. אין AI, אין ניקוד מבחן, ואין שמירת answer keys.</p>
-    </section>
-
-    <section class="learner-dashboard-card learner-status-card" aria-live="polite">
-      <p class="kicker">מצב משתמש</p>
-      <h2 id="progress-check-heading">בודק התחברות...</h2>
-      <p id="progress-check-message" class="auth-message" data-state="checking-auth">בודק התחברות...</p>
-      <dl class="auth-debug-list" id="progress-check-user-details" hidden></dl>
-      <div class="related-links" id="progress-check-actions"></div>
-    </section>
-
-    <section class="learner-dashboard-grid" id="learner-dashboard-content" hidden>
-      <article class="learner-dashboard-card learner-summary-card">
-        <p class="kicker">סיכום</p>
-        <h2>סיכום מצב</h2>
-        <p id="progress-stats-empty" hidden>אין עדיין נתוני התקדמות.</p>
-        <dl class="auth-debug-list" id="progress-stats-summary"></dl>
-      </article>
-
-      <article class="learner-dashboard-card">
-        <p class="kicker">המשך</p>
-        <h2>המשך מהמקום האחרון</h2>
-        <p id="last-practice-summary">אין עדיין פעילות אחרונה.</p>
-        <dl class="auth-debug-list" id="last-practice-details"></dl>
-        <div class="related-links" id="last-practice-actions"></div>
-      </article>
-
-      <article class="learner-dashboard-card">
-        <p class="kicker">חוזקות</p>
-        <h2>נושאים חזקים</h2>
-        <ul class="learner-topic-list" id="strong-topics-list"></ul>
-      </article>
-
-      <article class="learner-dashboard-card">
-        <p class="kicker">חיזוק</p>
-        <h2>נושאים לחיזוק</h2>
-        <ul class="learner-topic-list" id="weak-topics-list"></ul>
-      </article>
-
-      <article class="learner-dashboard-card">
-        <p class="kicker">תרגול</p>
-        <h2>מומלץ לתרגל עכשיו</h2>
-        <ol class="learner-topic-list" id="recommended-topics-list"></ol>
-      </article>
-
-      <article class="learner-dashboard-card">
-        <p class="kicker">חזרה</p>
-        <h2>חזור על נושאים חלשים</h2>
-        <ul class="learner-topic-list" id="weak-practice-list"></ul>
-      </article>
-
-      <article class="learner-dashboard-card">
-        <p class="kicker">רמה</p>
-        <h2>המלצת רמת קושי</h2>
-        <p id="difficulty-recommendation-text"></p>
-        <div class="related-links" id="difficulty-practice-actions"></div>
-      </article>
-    </section>
-
-    <section class="learner-dashboard-card" id="progress-stats-panel" hidden>
-      <p class="kicker">Read-only stats</p>
-      <h2>Topic Stats</h2>
-      <div class="table-wrap">
-        <table id="progress-topic-stats-table">
-          <thead>
-            <tr>
-              <th>topic</th>
-              <th>viewed</th>
-              <th>answered</th>
-              <th>correct</th>
-              <th>accuracy</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-
-      <h3>Difficulty Stats</h3>
-      <div class="table-wrap">
-        <table id="progress-difficulty-stats-table">
-          <thead>
-            <tr>
-              <th>difficulty</th>
-              <th>viewed</th>
-              <th>answered</th>
-              <th>correct</th>
-              <th>accuracy</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="learner-dashboard-card" id="progress-debug-panel" hidden>
-      <p class="kicker">Debug</p>
-      <h2>מצב בדיקה</h2>
-      <dl class="auth-debug-list" id="progress-check-debug"></dl>
-    </section>
-
-    <section class="learner-dashboard-card" id="progress-check-result-panel" hidden>
-      <p class="kicker">Progress document</p>
-      <h2>מסמך התקדמות</h2>
-      <pre id="progress-check-result" dir="ltr"></pre>
+<body class="learner-dashboard-page">
+  <main class="learner-dashboard" aria-labelledby="redirect-title">
+    <section class="learner-dashboard-card">
+      <p class="kicker">העמוד עבר</p>
+      <h1 id="redirect-title">ההתקדמות שלי עברה לכתובת חדשה</h1>
+      <p>אם ההפניה לא התבצעה אוטומטית, אפשר לפתוח את העמוד הרשמי כאן.</p>
+      <p><a class="btn" href="my-progress.html">פתח את ההתקדמות שלי</a></p>
     </section>
   </main>
-
-  <script type="module" src="../js/progress-tracking-check.js"></script>
 </body>
 </html>

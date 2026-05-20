@@ -834,7 +834,7 @@ function init() {
   bindEvents();
 
   if (!auth || !db) {
-    setPanelState("auth-error", "שגיאת תצורה", "Firebase אינו מוגדר בדף הבדיקה.");
+    setPanelState("auth-error", "שגיאת תצורה", "Firebase אינו מוגדר בדף ההתקדמות.");
     updateDebug({ lastError: "Firebase Auth or Firestore is not configured." });
     return;
   }
