@@ -31,11 +31,11 @@ service cloud.firestore {
           signedIn()
           && hasUserDoc(request.auth.uid)
           && (
-            userDoc(request.auth.uid).data.role == "admin"
-            || userDoc(request.auth.uid).data.admin == true
+            userDoc(request.auth.uid).data.get("role", "") == "admin"
+            || userDoc(request.auth.uid).data.get("admin", false) == true
           )
-          && userDoc(request.auth.uid).data.blocked != true
-          && userDoc(request.auth.uid).data.status != "blocked"
+          && userDoc(request.auth.uid).data.get("blocked", false) != true
+          && userDoc(request.auth.uid).data.get("status", "active") != "blocked"
         );
     }
 
@@ -43,26 +43,26 @@ service cloud.firestore {
       return signedIn()
         && request.auth.uid == uid
         && hasUserDoc(uid)
-        && userDoc(uid).data.blocked != true
-        && userDoc(uid).data.status != "blocked";
+        && userDoc(uid).data.get("blocked", false) != true
+        && userDoc(uid).data.get("status", "active") != "blocked";
     }
 
     function isApprovedRequester() {
       return signedIn()
         && hasUserDoc(request.auth.uid)
-        && userDoc(request.auth.uid).data.blocked != true
-        && userDoc(request.auth.uid).data.status != "blocked";
+        && userDoc(request.auth.uid).data.get("blocked", false) != true
+        && userDoc(request.auth.uid).data.get("status", "active") != "blocked";
     }
 
     function isApprovedAdminToolUser() {
       return signedIn()
         && hasUserDoc(request.auth.uid)
         && (
-          userDoc(request.auth.uid).data.role == "admin"
-          || userDoc(request.auth.uid).data.admin == true
+          userDoc(request.auth.uid).data.get("role", "") == "admin"
+          || userDoc(request.auth.uid).data.get("admin", false) == true
         )
-        && userDoc(request.auth.uid).data.blocked != true
-        && userDoc(request.auth.uid).data.status != "blocked";
+        && userDoc(request.auth.uid).data.get("blocked", false) != true
+        && userDoc(request.auth.uid).data.get("status", "active") != "blocked";
     }
 
     function isApproved() {
@@ -70,13 +70,13 @@ service cloud.firestore {
     }
 
     function validOwnImmutableFields() {
-      return request.resource.data.uid == resource.data.uid
-        && request.resource.data.email == resource.data.email
-        && request.resource.data.role == resource.data.role
-        && request.resource.data.admin == resource.data.admin
-        && request.resource.data.status == resource.data.status
-        && request.resource.data.blocked == resource.data.blocked
-        && request.resource.data.accessMode == resource.data.accessMode;
+      return request.resource.data.get("uid", "") == resource.data.get("uid", "")
+        && request.resource.data.get("email", "") == resource.data.get("email", "")
+        && request.resource.data.get("role", "") == resource.data.get("role", "")
+        && request.resource.data.get("admin", false) == resource.data.get("admin", false)
+        && request.resource.data.get("status", "active") == resource.data.get("status", "active")
+        && request.resource.data.get("blocked", false) == resource.data.get("blocked", false)
+        && request.resource.data.get("accessMode", "open-google") == resource.data.get("accessMode", "open-google");
     }
 
     function validOwnUserUpdateKeys() {
@@ -238,8 +238,8 @@ service cloud.firestore {
         )
         || (
           isOwner(uid)
-          && resource.data.status != "blocked"
-          && resource.data.blocked != true
+          && resource.data.get("status", "active") != "blocked"
+          && resource.data.get("blocked", false) != true
           && validOwnImmutableFields()
           && validOwnUserUpdateKeys()
           && noApprovalFieldChanges()
@@ -301,10 +301,10 @@ service cloud.firestore {
     match /protectedQuestionPreviews/{questionId} {
       allow read: if (isAdmin()
           || (
-            signedIn()
-            && hasUserDoc(request.auth.uid)
-            && userDoc(request.auth.uid).data.blocked != true
-            && userDoc(request.auth.uid).data.status != "blocked"
+          signedIn()
+          && hasUserDoc(request.auth.uid)
+            && userDoc(request.auth.uid).data.get("blocked", false) != true
+            && userDoc(request.auth.uid).data.get("status", "active") != "blocked"
           ))
         && !resource.data.keys().hasAny([
           "correctAnswer",

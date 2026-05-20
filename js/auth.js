@@ -467,6 +467,57 @@ function providerName(user) {
   return sanitizeText(providerId, 80);
 }
 
+function payloadKeys(payload) {
+  return Object.keys(payload || {}).sort();
+}
+
+function logFirestoreOperation(stage, details) {
+  console.info("[auth][firestore]", stage, {
+    operation: details?.operation || "",
+    path: details?.path || "",
+    payloadKeys: payloadKeys(details?.payload),
+    uid: details?.uid || "",
+    email: details?.email || "",
+    exists: details?.exists,
+    code: details?.error?.code || "",
+    message: details?.error?.message || "",
+  });
+}
+
+async function tracedGetDoc(ref, details = {}) {
+  logFirestoreOperation("start", { ...details, operation: "getDoc" });
+  try {
+    const snapshot = await getDoc(ref);
+    logFirestoreOperation("success", { ...details, operation: "getDoc", exists: snapshot.exists() });
+    return snapshot;
+  } catch (error) {
+    logFirestoreOperation("error", { ...details, operation: "getDoc", error });
+    throw error;
+  }
+}
+
+async function tracedSetDoc(ref, payload, details = {}) {
+  logFirestoreOperation("start", { ...details, operation: "setDoc", payload });
+  try {
+    await setDoc(ref, payload);
+    logFirestoreOperation("success", { ...details, operation: "setDoc", payload });
+  } catch (error) {
+    logFirestoreOperation("error", { ...details, operation: "setDoc", payload, error });
+    throw error;
+  }
+}
+
+async function tracedUpdateDoc(ref, payload, details = {}) {
+  logFirestoreOperation("start", { ...details, operation: "updateDoc", payload });
+  try {
+    await updateDoc(ref, payload);
+    logFirestoreOperation("success", { ...details, operation: "updateDoc", payload });
+  } catch (error) {
+    logFirestoreOperation("error", { ...details, operation: "updateDoc", payload, error });
+    throw error;
+  }
+}
+
 function isAdminEmail(email) {
   return String(email || "").toLowerCase() === ADMIN_EMAIL;
 }
@@ -499,9 +550,9 @@ function revealAuthenticatedView(profile) {
 
 async function ensureUserProfile(user) {
   const ref = doc(db, "users", user.uid);
-  console.info("[auth] firestore getDoc users/" + user.uid + " start");
-  const snapshot = await getDoc(ref);
-  console.info("[auth] firestore getDoc users/" + user.uid + " done", { exists: snapshot.exists() });
+  const profilePath = "users/" + user.uid;
+  const traceDetails = { path: profilePath, uid: user.uid, email: sanitizeText(user.email, 320) };
+  const snapshot = await tracedGetDoc(ref, traceDetails);
   const base = {
     uid: user.uid,
     email: sanitizeText(user.email, 320),
@@ -521,13 +572,13 @@ async function ensureUserProfile(user) {
       createdAt: serverTimestamp(),
     };
     if (admin) profile.role = "admin";
-    console.info("[auth] firestore setDoc users/" + user.uid + " start", {
+    console.info("[auth] firestore profile create payload", {
       role: profile.role,
       status: profile.status,
       environment: isStagingHost() ? "staging" : "production",
+      payloadKeys: payloadKeys(profile),
     });
-    await setDoc(ref, profile);
-    console.info("[auth] firestore setDoc users/" + user.uid + " done");
+    await tracedSetDoc(ref, profile, traceDetails);
     return { ...profile, createdAt: new Date(), lastLoginAt: new Date() };
   }
 
@@ -540,13 +591,13 @@ async function ensureUserProfile(user) {
     updatedAt: base.updatedAt,
     ...(admin ? { role: "admin", status: APPROVED } : {}),
   };
-  console.info("[auth] firestore updateDoc users/" + user.uid + " start", {
+  console.info("[auth] firestore profile update payload", {
     currentStatus: existing.status,
     nextStatus: updates.status || existing.status,
     environment: isStagingHost() ? "staging" : "production",
+    payloadKeys: payloadKeys(updates),
   });
-  await updateDoc(ref, updates);
-  console.info("[auth] firestore updateDoc users/" + user.uid + " done");
+  await tracedUpdateDoc(ref, updates, traceDetails);
   return { ...existing, ...updates };
 }
 
