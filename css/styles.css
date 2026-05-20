@@ -7665,3 +7665,402 @@ h3,
     block-size: .5rem;
   }
 }
+
+/* =========================================================================
+   UI MODERN LEARNING EXPERIENCE — START
+   Scope: visual polish only. No DOM changes, no JS logic changes.
+   Pages targeted: homepage (index.html), pages/quizzes.html,
+   pages/exam-questions.html, pages/my-progress.html, pages/syllabus.html,
+   shared header/navigation.
+   Conventions:
+     * Only :root tokens, no hard-coded colors except white/transparent.
+     * prefers-reduced-motion respected on every animation/transition.
+     * Selectors scoped via body attributes / page classes when needed.
+     * No !important except where mandatory to override stacked legacy.
+   ========================================================================= */
+
+/* ---- Variables (extending existing :root, NOT replacing) ---- */
+:root {
+  --uimle-elevation-hover: 0 14px 32px rgba(10, 79, 110, .14);
+  --uimle-elevation-card:  0 8px 22px rgba(13, 27, 38, .07);
+  --uimle-ring: 0 0 0 3px color-mix(in srgb, var(--brand) 26%, transparent);
+  --uimle-stripe-1: color-mix(in srgb, var(--brand) 18%, var(--surface));
+}
+html[data-theme="dark"] {
+  --uimle-elevation-hover: 0 14px 32px rgba(0, 0, 0, .55);
+  --uimle-elevation-card:  0 8px 22px rgba(0, 0, 0, .35);
+  --uimle-stripe-1: color-mix(in srgb, var(--brand) 26%, var(--surface));
+}
+
+/* ---- 1. Homepage hero — restore breathing room over EXTRA COMPACT ---- */
+/* The "EXTRA COMPACT HERO" block (~line 6097) flattens .hero-modern to a
+   120px-tall flex pill. On the homepage we want a real hero again, while
+   leaving lesson / game / login hero variants untouched. */
+body[data-page-title="דף הבית"] .hero-modern {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  max-height: none;
+  min-height: 220px;
+  padding: clamp(1.25rem, 3.6vw, 2.4rem) clamp(1rem, 3vw, 2.25rem);
+  margin-bottom: 1.25rem;
+  border-radius: var(--radius-lg);
+  align-items: center;
+  background-image:
+    radial-gradient(120% 80% at 0% 0%, rgba(255,255,255,.16) 0%, transparent 55%),
+    radial-gradient(80% 60% at 100% 100%, rgba(0,0,0,.18) 0%, transparent 60%),
+    linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+  box-shadow: 0 16px 38px rgba(7, 89, 133, .18);
+}
+body[data-page-title="דף הבית"] .hero-modern::before,
+body[data-page-title="דף הבית"] .hero-modern::after {
+  opacity: .14;
+}
+body[data-page-title="דף הבית"] .hero-modern h1 {
+  margin: .15rem 0 .5rem;
+  font-size: clamp(1.85rem, 3.4vw, 2.7rem);
+  font-weight: 800;
+  line-height: 1.15;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+body[data-page-title="דף הבית"] .hero-modern p {
+  margin: 0;
+  font-size: clamp(.98rem, 1.4vw, 1.08rem);
+  line-height: 1.6;
+  opacity: .94;
+  max-width: 56ch;
+}
+body[data-page-title="דף הבית"] .hero-modern .kicker {
+  display: inline-block;
+  margin: 0 0 .4rem;
+  padding: .28rem .7rem;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: #fff;
+  background: rgba(255, 255, 255, .18);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(1px);
+}
+body[data-page-title="דף הבית"] .hero-cta {
+  margin: 1.05rem 0 .6rem;
+  gap: .65rem;
+  flex: 0 0 auto;
+}
+body[data-page-title="דף הבית"] .hero-cta .btn {
+  min-height: 44px;
+  padding: .7rem 1.1rem;
+  font-size: .98rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  transition: transform .15s ease, box-shadow .18s ease, background-color .18s ease;
+}
+body[data-page-title="דף הבית"] .hero-cta .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .18);
+}
+body[data-page-title="דף הבית"] .hero-mini-stats {
+  display: flex;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  margin-top: .25rem;
+  opacity: .95;
+  font-size: .94rem;
+}
+body[data-page-title="דף הבית"] .hero-mini-stats span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .35rem;
+}
+body[data-page-title="דף הבית"] .hero-mini-stats strong {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-inline-end: 0;
+}
+body[data-page-title="דף הבית"] .hero-graphic { display: grid; place-items: center; }
+body[data-page-title="דף הבית"] .hero-graphic svg {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  opacity: .95;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, .18));
+}
+@media (max-width: 820px) {
+  body[data-page-title="דף הבית"] .hero-modern {
+    grid-template-columns: 1fr;
+    gap: .9rem;
+    min-height: 0;
+    padding: clamp(1.1rem, 4vw, 1.6rem);
+  }
+  body[data-page-title="דף הבית"] .hero-graphic { display: none; }
+  body[data-page-title="דף הבית"] .hero-modern h1 { font-size: 1.6rem; }
+  body[data-page-title="דף הבית"] .hero-mini-stats { gap: .95rem; }
+}
+
+/* ---- 2. Native <progress> styling — used on lesson cards & elsewhere ---- */
+progress {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 6px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  overflow: hidden;
+}
+progress::-webkit-progress-bar {
+  background: var(--surface-2);
+  border-radius: var(--radius-pill);
+}
+progress::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  border-radius: var(--radius-pill);
+  transition: width .35s ease;
+}
+progress::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  border-radius: var(--radius-pill);
+}
+progress[value="100"]::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--ok), color-mix(in srgb, var(--ok) 70%, white));
+}
+progress[value="100"]::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--ok), color-mix(in srgb, var(--ok) 70%, white));
+}
+
+/* ---- 3. Lesson cards — softer polish, no DOM change ---- */
+.lesson-card {
+  padding: 1.05rem;
+  box-shadow: var(--uimle-elevation-card);
+  transition:
+    transform .18s ease,
+    box-shadow .22s ease,
+    border-color .18s ease;
+}
+.lesson-card:hover {
+  box-shadow: var(--uimle-elevation-hover);
+  border-color: color-mix(in srgb, var(--brand) 32%, var(--border));
+}
+.lesson-card .lesson-num {
+  background: var(--brand-soft);
+  color: var(--brand-2);
+  font-weight: 900;
+  letter-spacing: .02em;
+  transition: background-color .18s ease;
+}
+.lesson-card:hover .lesson-num {
+  background: color-mix(in srgb, var(--brand) 22%, var(--surface));
+}
+.lesson-card h3 a {
+  color: var(--text);
+  border-bottom: 1px dashed transparent;
+  transition: border-color .18s ease, color .18s ease;
+}
+.lesson-card h3 a:hover {
+  text-decoration: none;
+  border-color: color-mix(in srgb, var(--brand) 60%, transparent);
+  color: var(--brand-2);
+}
+.lesson-card progress {
+  margin-top: .85rem;
+  height: 8px;
+}
+
+/* ---- 4. Section reveal (subtle, motion-respecting) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes uimleFadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  body[data-page-title="דף הבית"] .nav-hub-grid > .nav-hub-card,
+  body[data-page-title="דף הבית"] .dashboard-grid > .metric-modern,
+  body[data-page-title="דף הבית"] .lesson-grid > .lesson-card {
+    animation: uimleFadeUp .42s cubic-bezier(.21,.78,.34,1) both;
+    animation-delay: calc(var(--uimle-stagger, 0) * 35ms);
+  }
+  body[data-page-title="דף הבית"] .nav-hub-grid > .nav-hub-card:nth-child(1) { --uimle-stagger: 0; }
+  body[data-page-title="דף הבית"] .nav-hub-grid > .nav-hub-card:nth-child(2) { --uimle-stagger: 1; }
+  body[data-page-title="דף הבית"] .nav-hub-grid > .nav-hub-card:nth-child(3) { --uimle-stagger: 2; }
+  body[data-page-title="דף הבית"] .nav-hub-grid > .nav-hub-card:nth-child(4) { --uimle-stagger: 3; }
+  body[data-page-title="דף הבית"] .nav-hub-grid > .nav-hub-card:nth-child(5) { --uimle-stagger: 4; }
+  body[data-page-title="דף הבית"] .nav-hub-grid > .nav-hub-card:nth-child(6) { --uimle-stagger: 5; }
+  body[data-page-title="דף הבית"] .nav-hub-grid > .nav-hub-card:nth-child(7) { --uimle-stagger: 6; }
+  body[data-page-title="דף הבית"] .dashboard-grid > .metric-modern:nth-child(n+1) { --uimle-stagger: 0; }
+  body[data-page-title="דף הבית"] .dashboard-grid > .metric-modern:nth-child(n+2) { --uimle-stagger: 1; }
+  body[data-page-title="דף הבית"] .dashboard-grid > .metric-modern:nth-child(n+3) { --uimle-stagger: 2; }
+  body[data-page-title="דף הבית"] .dashboard-grid > .metric-modern:nth-child(n+4) { --uimle-stagger: 3; }
+}
+
+/* ---- 5. Header — scroll-state shadow + active-link indicator ---- */
+.site-header {
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.site-header.is-scrolled {
+  box-shadow: 0 6px 18px rgba(13, 27, 38, .07);
+  border-bottom-color: transparent;
+}
+html[data-theme="dark"] .site-header.is-scrolled {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+}
+.main-nav a {
+  transition: background-color .15s ease, color .15s ease;
+}
+.main-nav a[aria-current="page"] {
+  background: var(--brand-soft);
+  color: var(--brand-2);
+  font-weight: 800;
+  position: relative;
+}
+.main-nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  inset-inline: .55rem;
+  bottom: 2px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--brand);
+}
+html[data-theme="dark"] .main-nav a[aria-current="page"] { color: var(--brand); }
+
+/* ---- 6. Nav hub cards — gentle icon highlight on hover ---- */
+.nav-hub-card .card-icon {
+  transition: transform .2s ease, background-color .2s ease;
+}
+.nav-hub-card:hover .card-icon {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--brand) 22%, var(--surface));
+}
+
+/* ---- 7. Next-action chip — slightly stronger hover ---- */
+.next-action-chip {
+  font-size: .94rem;
+}
+.next-action-chip:focus-visible {
+  outline: none;
+  box-shadow: var(--uimle-ring);
+}
+
+/* ---- 8. Metric-modern — accent stripe on top ---- */
+.metric-modern {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform .18s ease, box-shadow .22s ease;
+}
+.metric-modern::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  opacity: .85;
+  pointer-events: none;
+}
+.metric-modern.metric-ok::before     { background: linear-gradient(90deg, var(--ok), color-mix(in srgb, var(--ok) 60%, white)); }
+.metric-modern.metric-warn::before   { background: linear-gradient(90deg, var(--warn), color-mix(in srgb, var(--warn) 60%, white)); }
+.metric-modern.metric-accent::before { background: linear-gradient(90deg, var(--accent-2), color-mix(in srgb, var(--accent-2) 60%, white)); }
+.metric-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--uimle-elevation-hover);
+}
+
+/* ---- 9. Difficulty chips — replace inline styles ---- */
+.difficulty-chip {
+  display: inline-block;
+  padding: .14rem .55rem;
+  border-radius: var(--radius-pill);
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1.6;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.difficulty-chip-easy {
+  background: var(--ok-soft);
+  color: var(--ok);
+  border-color: color-mix(in srgb, var(--ok) 30%, transparent);
+}
+.difficulty-chip-medium {
+  background: var(--warn-soft);
+  color: var(--warn);
+  border-color: color-mix(in srgb, var(--warn) 30%, transparent);
+}
+.difficulty-chip-hard {
+  background: var(--danger-soft);
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+}
+
+/* ---- 10. my-progress — visual upgrade for cards ---- */
+.learner-dashboard-card {
+  position: relative;
+  transition: box-shadow .22s ease, transform .18s ease, border-color .18s ease;
+}
+.learner-dashboard-card:hover {
+  box-shadow: var(--uimle-elevation-hover);
+  border-color: color-mix(in srgb, var(--brand) 30%, var(--border));
+}
+.learner-dashboard-card .kicker {
+  display: inline-block;
+  margin: 0 0 .35rem;
+  padding: .2rem .6rem;
+  border-radius: var(--radius-pill);
+  background: var(--brand-soft);
+  color: var(--brand-2);
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+html[data-theme="dark"] .learner-dashboard-card .kicker { color: var(--brand); }
+.learner-topic-list li {
+  padding-block: .35rem;
+  border-bottom: 1px dashed color-mix(in srgb, var(--border) 70%, transparent);
+}
+.learner-topic-list li:last-child { border-bottom: 0; }
+.learner-dashboard-hero {
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 38px rgba(7, 89, 133, .18);
+}
+.learner-dashboard-hero h1 {
+  font-size: clamp(1.85rem, 5vw, 2.6rem);
+}
+
+/* ---- 11. Buttons — focus visibility hardening ---- */
+.btn:focus-visible,
+.icon-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--uimle-ring);
+}
+
+/* ---- 12. Mobile guards (390px-class viewports) ---- */
+@media (max-width: 420px) {
+  .header-actions {
+    gap: .25rem;
+  }
+  body[data-page-title="דף הבית"] .hero-mini-stats {
+    gap: .6rem;
+    font-size: .88rem;
+  }
+  body[data-page-title="דף הבית"] .hero-mini-stats strong { font-size: 1.18rem; }
+  body[data-page-title="דף הבית"] .hero-cta .btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  .next-actions { gap: .45rem; }
+  .next-action-chip { padding: .5rem .75rem; }
+  .law-notice { font-size: .82rem; padding: .35rem .55rem; }
+}
+
+/* ---- 13. Reduced motion — kill micro-animations entirely ---- */
+@media (prefers-reduced-motion: reduce) {
+  body[data-page-title="דף הבית"] .hero-cta .btn:hover { transform: none; }
+  .lesson-card:hover { transform: none; }
+  .metric-modern:hover { transform: none; }
+  .nav-hub-card:hover .card-icon { transform: none; }
+  .next-action-chip:hover { transform: none; }
+}
+
+/* =========================================================================
+   UI MODERN LEARNING EXPERIENCE — END
+   ========================================================================= */

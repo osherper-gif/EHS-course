@@ -187,9 +187,32 @@
     close: closePanel,
     toggle: togglePanel,
   };
+
+  // UI Modern Learning Experience — header scroll shadow indicator.
+  // CSS-only would require :has(); this small listener works everywhere.
+  function setupScrollShadow() {
+    const header = document.querySelector(".site-header");
+    if (!header) return;
+    let ticking = false;
+    function update() {
+      ticking = false;
+      const scrolled = (window.scrollY || window.pageYOffset || 0) > 8;
+      header.classList.toggle("is-scrolled", scrolled);
+    }
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", createControls);
+    document.addEventListener("DOMContentLoaded", setupScrollShadow);
   } else {
     createControls();
+    setupScrollShadow();
   }
 })();
