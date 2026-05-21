@@ -8064,3 +8064,3413 @@ html[data-theme="dark"] .learner-dashboard-card .kicker { color: var(--brand); }
 /* =========================================================================
    UI MODERN LEARNING EXPERIENCE — END
    ========================================================================= */
+
+/* =========================================================================
+   IMMERSIVE LEARNING UI — START
+   Scope: opt-in via body.immersive-ui on selected pages.
+   Pages targeted: index.html, syllabus.html, quizzes.html, field-tools.html,
+   my-progress.html.
+   No DOM changes required besides the body class. All overrides scoped under
+   `body.immersive-ui`. prefers-reduced-motion respected.
+   ========================================================================= */
+
+/* ---- I-0. Theme tokens ---- */
+body.immersive-ui {
+  --imm-bg-1: #06101f;
+  --imm-bg-2: #0a182e;
+  --imm-bg-3: #0d213d;
+  --imm-text: #eaf2ff;
+  --imm-text-muted: #9ab0c9;
+  --imm-card-bg: rgba(14, 26, 48, 0.62);
+  --imm-card-bg-2: rgba(20, 36, 64, 0.55);
+  --imm-card-border: rgba(122, 200, 232, 0.18);
+  --imm-card-border-hi: rgba(122, 200, 232, 0.42);
+  --imm-accent: #5cbcd6;
+  --imm-accent-2: #b794f4;
+  --imm-accent-3: #f6a96b;
+  --imm-glow-cool: 0 0 32px rgba(92, 188, 214, 0.45);
+  --imm-glow-warm: 0 0 28px rgba(246, 169, 107, 0.35);
+  --imm-glow-pink: 0 0 32px rgba(183, 148, 244, 0.4);
+  --imm-shadow-card: 0 18px 48px rgba(0, 0, 0, 0.45);
+  --imm-shadow-card-hi: 0 28px 60px rgba(0, 0, 0, 0.55), 0 0 32px rgba(92, 188, 214, 0.22);
+  --imm-radius-card: 22px;
+  --imm-radius-pill: 999px;
+}
+
+/* ---- I-1. Body — dark immersive surface + animated background ---- */
+body.immersive-ui {
+  background-color: var(--imm-bg-1);
+  background-image:
+    radial-gradient(60% 50% at 12% 8%, rgba(92, 188, 214, 0.22), transparent 60%),
+    radial-gradient(50% 45% at 88% 22%, rgba(183, 148, 244, 0.18), transparent 60%),
+    radial-gradient(55% 50% at 50% 100%, rgba(246, 169, 107, 0.10), transparent 60%),
+    linear-gradient(180deg, #06101f 0%, #08152a 45%, #0c1d38 100%);
+  background-attachment: fixed;
+  color: var(--imm-text);
+  position: relative;
+  overflow-x: hidden;
+}
+body.immersive-ui::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 18%, rgba(255, 255, 255, 0.30), transparent 50%),
+    radial-gradient(1px 1px at 38% 72%, rgba(255, 255, 255, 0.22), transparent 50%),
+    radial-gradient(1.5px 1.5px at 67% 22%, rgba(255, 255, 255, 0.20), transparent 50%),
+    radial-gradient(1px 1px at 84% 64%, rgba(255, 255, 255, 0.25), transparent 50%),
+    radial-gradient(1px 1px at 22% 88%, rgba(255, 255, 255, 0.18), transparent 50%),
+    radial-gradient(1px 1px at 55% 47%, rgba(255, 255, 255, 0.15), transparent 50%);
+  background-size: 100% 100%;
+  opacity: .55;
+  pointer-events: none;
+  z-index: 0;
+  animation: immStars 60s linear infinite;
+}
+body.immersive-ui::after {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(92, 188, 214, 0.18), transparent 35%),
+    radial-gradient(circle at 85% 70%, rgba(183, 148, 244, 0.15), transparent 35%);
+  filter: blur(40px);
+  opacity: .9;
+  pointer-events: none;
+  z-index: 0;
+  animation: immOrbDrift 28s ease-in-out infinite alternate;
+}
+@keyframes immStars {
+  0%   { transform: translateY(0) translateX(0); }
+  50%  { transform: translateY(-22px) translateX(14px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+@keyframes immOrbDrift {
+  0%   { transform: translate(-8%, -4%) scale(1); }
+  100% { transform: translate(10%, 6%) scale(1.18); }
+}
+
+/* ---- I-2. Wider container + above-the-bg stacking ---- */
+body.immersive-ui .site-header,
+body.immersive-ui .site-main,
+body.immersive-ui .site-footer {
+  position: relative;
+  z-index: 1;
+}
+body.immersive-ui .site-main {
+  max-width: 1320px;
+  padding: 1.5rem 1.25rem 4rem;
+}
+@media (min-width: 1480px) {
+  body.immersive-ui .site-main { max-width: 1440px; }
+}
+
+/* ---- I-3. Header — glassmorphism + glowing brand ---- */
+body.immersive-ui .site-header {
+  background: rgba(8, 16, 32, 0.55);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid rgba(122, 200, 232, 0.10);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+body.immersive-ui .site-header.is-scrolled {
+  background: rgba(8, 16, 32, 0.82);
+  border-bottom-color: rgba(122, 200, 232, 0.18);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+body.immersive-ui .header-inner { padding: 1rem 1.25rem; }
+body.immersive-ui .brand { color: var(--imm-text); }
+body.immersive-ui .brand small { color: var(--imm-text-muted); }
+body.immersive-ui .brand-mark {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--imm-accent) 0%, var(--imm-accent-2) 100%);
+  box-shadow:
+    0 8px 24px rgba(92, 188, 214, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  font-weight: 900;
+  letter-spacing: .02em;
+  border-radius: 12px;
+}
+body.immersive-ui .main-nav a {
+  color: rgba(234, 242, 255, 0.78);
+  padding: .55rem .9rem;
+  border-radius: var(--imm-radius-pill);
+  font-weight: 650;
+  transition: background-color .2s ease, color .2s ease, box-shadow .2s ease, transform .15s ease;
+}
+body.immersive-ui .main-nav a:hover {
+  background: rgba(92, 188, 214, 0.14);
+  color: #fff;
+  text-decoration: none;
+}
+body.immersive-ui .main-nav a[aria-current="page"] {
+  background: linear-gradient(135deg, rgba(92, 188, 214, 0.28), rgba(183, 148, 244, 0.22));
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 6px 18px rgba(92, 188, 214, 0.35);
+}
+body.immersive-ui .main-nav a[aria-current="page"]::after { display: none; }
+body.immersive-ui .icon-btn {
+  background: rgba(20, 36, 64, 0.65);
+  border-color: rgba(122, 200, 232, 0.22);
+  color: var(--imm-text);
+  border-radius: 12px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: background-color .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+body.immersive-ui .icon-btn:hover {
+  background: rgba(92, 188, 214, 0.20);
+  box-shadow: 0 6px 18px rgba(92, 188, 214, 0.3);
+}
+body.immersive-ui .law-notice {
+  background: rgba(20, 36, 64, 0.45);
+  color: var(--imm-accent-3);
+  border-top-color: rgba(122, 200, 232, 0.10);
+  font-size: .88rem;
+  letter-spacing: .02em;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+body.immersive-ui .skip-link { background: var(--imm-accent); color: #06101f; }
+
+/* ---- I-4. Dramatic hero (homepage hero-modern) ---- */
+body.immersive-ui[data-page-title="דף הבית"] .hero-modern {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+  min-height: 460px;
+  max-height: none;
+  margin: 1rem 0 2rem;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  border-radius: 28px;
+  border: 1px solid rgba(122, 200, 232, 0.22);
+  background-image:
+    radial-gradient(120% 90% at 0% 0%, rgba(92, 188, 214, 0.35), transparent 55%),
+    radial-gradient(100% 80% at 100% 100%, rgba(183, 148, 244, 0.32), transparent 55%),
+    linear-gradient(135deg, #0a1f3a 0%, #14304f 50%, #1a3a64 100%);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  isolation: isolate;
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-modern::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -120px;
+  top: -120px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(92, 188, 214, 0.55), transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  animation: immHeroOrb 18s ease-in-out infinite alternate;
+  z-index: 0;
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-modern::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: -80px;
+  bottom: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(246, 169, 107, 0.42), transparent 70%);
+  filter: blur(55px);
+  pointer-events: none;
+  animation: immHeroOrb 22s ease-in-out infinite alternate-reverse;
+  z-index: 0;
+}
+@keyframes immHeroOrb {
+  from { transform: translate(0, 0) scale(1); opacity: .85; }
+  to   { transform: translate(70px, 50px) scale(1.18); opacity: 1; }
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-modern > * {
+  position: relative;
+  z-index: 1;
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-modern .kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 0 0 .85rem;
+  padding: .4rem .85rem;
+  border-radius: var(--imm-radius-pill);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(122, 200, 232, 0.25);
+  color: #ddeefb;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-modern .kicker::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--imm-accent);
+  box-shadow: 0 0 12px rgba(92, 188, 214, 0.8);
+  animation: immPulse 2s ease-in-out infinite;
+}
+@keyframes immPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .6; transform: scale(1.35); }
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-modern h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  background: linear-gradient(120deg, #ffffff 0%, #c8e6f7 45%, #d2b9ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 36px rgba(92, 188, 214, 0.18);
+  max-width: 18ch;
+  text-wrap: balance;
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-modern p {
+  margin: 0 0 1.4rem;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: #cfdbeb;
+  max-width: 54ch;
+  opacity: .95;
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin: 0 0 1.4rem;
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-cta .btn {
+  min-height: 50px;
+  padding: .85rem 1.4rem;
+  font-size: 1.02rem;
+  font-weight: 800;
+  border-radius: 14px;
+  transition: transform .18s ease, box-shadow .22s ease, background-color .2s ease;
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-cta .btn.primary {
+  background: linear-gradient(135deg, #5cbcd6 0%, #8c7af7 100%);
+  color: #06101f;
+  border-color: transparent;
+  box-shadow: 0 14px 30px rgba(92, 188, 214, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-cta .btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(92, 188, 214, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.18) inset;
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-cta .btn.ghost {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-cta .btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-mini-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  margin-top: .5rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  color: #cfdbeb;
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-mini-stats strong {
+  display: block;
+  margin-bottom: .15rem;
+  font-size: 1.7rem;
+  font-weight: 900;
+  background: linear-gradient(120deg, var(--imm-accent), var(--imm-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-mini-stats span {
+  display: flex;
+  flex-direction: column;
+  font-size: .9rem;
+  color: var(--imm-text-muted);
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-graphic { display: grid; place-items: center; }
+body.immersive-ui[data-page-title="דף הבית"] .hero-graphic svg {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  filter: drop-shadow(0 12px 40px rgba(92, 188, 214, 0.5));
+  animation: immFloat 7s ease-in-out infinite alternate;
+}
+@keyframes immFloat {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-12px); }
+}
+@media (max-width: 820px) {
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    min-height: 0;
+    padding: clamp(1.4rem, 5vw, 2rem);
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-graphic { display: none; }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-mini-stats { gap: 1rem; }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-mini-stats strong { font-size: 1.35rem; }
+}
+
+/* ---- I-5. Page-hero variant (for syllabus / quizzes / field-tools etc.) ---- */
+body.immersive-ui .page-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 0;
+  max-height: none;
+  margin: .25rem 0 1.6rem;
+  padding: clamp(1.6rem, 4vw, 2.4rem);
+  border-radius: 24px;
+  border: 1px solid rgba(122, 200, 232, 0.22);
+  background-image:
+    radial-gradient(80% 70% at 0% 0%, rgba(92, 188, 214, 0.28), transparent 55%),
+    radial-gradient(80% 70% at 100% 100%, rgba(183, 148, 244, 0.22), transparent 55%),
+    linear-gradient(135deg, #0b1f3a 0%, #143256 70%, #18386b 100%);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  isolation: isolate;
+}
+body.immersive-ui .page-hero::before {
+  content: "";
+  position: absolute;
+  inset-inline-end: -120px;
+  top: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(92, 188, 214, 0.45), transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+  animation: immHeroOrb 22s ease-in-out infinite alternate;
+}
+body.immersive-ui .page-hero > * { position: relative; z-index: 1; }
+body.immersive-ui .page-hero .kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem .75rem;
+  border-radius: var(--imm-radius-pill);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(122, 200, 232, 0.25);
+  color: #ddeefb;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+body.immersive-ui .page-hero h1 {
+  margin: .55rem 0 .6rem;
+  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+  font-weight: 900;
+  background: linear-gradient(120deg, #ffffff 0%, #d4ecfb 50%, #d7c1ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 28px rgba(92, 188, 214, 0.18);
+}
+body.immersive-ui .page-hero p {
+  margin: 0;
+  font-size: 1.04rem;
+  line-height: 1.65;
+  color: #cfdbeb;
+  max-width: 60ch;
+}
+
+/* ---- I-6. Floating cards (glass + glow) ---- */
+body.immersive-ui .nav-hub-card,
+body.immersive-ui .lesson-card,
+body.immersive-ui .hub-card,
+body.immersive-ui .term-card,
+body.immersive-ui .law-card,
+body.immersive-ui .professional-card,
+body.immersive-ui .checklist-card,
+body.immersive-ui .related-panel,
+body.immersive-ui .content-section,
+body.immersive-ui .toolbar-panel,
+body.immersive-ui .notes-panel,
+body.immersive-ui .quiz-app,
+body.immersive-ui .assistant-layout,
+body.immersive-ui .panel,
+body.immersive-ui .lesson-section,
+body.immersive-ui .search-hit,
+body.immersive-ui .question-card,
+body.immersive-ui .metric-modern,
+body.immersive-ui .metric,
+body.immersive-ui .professional-extension,
+body.immersive-ui .learner-dashboard-card {
+  background: var(--imm-card-bg);
+  border: 1px solid var(--imm-card-border);
+  border-radius: var(--imm-radius-card);
+  color: var(--imm-text);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: var(--imm-shadow-card), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  padding: 1.25rem;
+  transition:
+    transform .22s cubic-bezier(.22,.8,.34,1),
+    box-shadow .25s ease,
+    border-color .25s ease,
+    background-color .25s ease;
+}
+body.immersive-ui .nav-hub-card:hover,
+body.immersive-ui .lesson-card:hover,
+body.immersive-ui .hub-card:hover,
+body.immersive-ui .term-card:hover,
+body.immersive-ui .law-card:hover,
+body.immersive-ui .professional-card:hover,
+body.immersive-ui .checklist-card:hover,
+body.immersive-ui .metric-modern:hover,
+body.immersive-ui .question-card:hover,
+body.immersive-ui .learner-dashboard-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--imm-card-border-hi);
+  background: var(--imm-card-bg-2);
+  box-shadow: var(--imm-shadow-card-hi), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Bigger spacing for grids */
+body.immersive-ui .nav-hub-grid,
+body.immersive-ui .lesson-grid,
+body.immersive-ui .hub-grid,
+body.immersive-ui .term-grid,
+body.immersive-ui .law-grid,
+body.immersive-ui .dashboard-grid,
+body.immersive-ui .professional-grid,
+body.immersive-ui .checklist-grid {
+  gap: 1.25rem;
+}
+body.immersive-ui .nav-hub-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 1.25rem 0 1.75rem;
+}
+body.immersive-ui .nav-hub-card {
+  padding: 1.6rem 1.35rem;
+  display: grid;
+  gap: .9rem;
+}
+body.immersive-ui .nav-hub-card .card-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(92, 188, 214, 0.30), rgba(183, 148, 244, 0.25));
+  color: #fff;
+  font-size: 1.7rem;
+  box-shadow: 0 8px 24px rgba(92, 188, 214, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+body.immersive-ui .nav-hub-card .card-icon.ico-warn {
+  background: linear-gradient(135deg, rgba(246, 169, 107, 0.35), rgba(239, 108, 90, 0.30));
+  box-shadow: 0 8px 24px rgba(246, 169, 107, 0.4);
+}
+body.immersive-ui .nav-hub-card .card-icon.ico-ok {
+  background: linear-gradient(135deg, rgba(76, 194, 138, 0.32), rgba(92, 188, 214, 0.25));
+  box-shadow: 0 8px 24px rgba(76, 194, 138, 0.35);
+}
+body.immersive-ui .nav-hub-card .card-icon.ico-accent {
+  background: linear-gradient(135deg, rgba(183, 148, 244, 0.35), rgba(92, 188, 214, 0.25));
+  box-shadow: 0 8px 24px rgba(183, 148, 244, 0.4);
+}
+body.immersive-ui .nav-hub-card:hover .card-icon {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 14px 30px rgba(92, 188, 214, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+body.immersive-ui .nav-hub-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.005em;
+}
+body.immersive-ui .nav-hub-card p {
+  color: var(--imm-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---- I-7. Lesson cards (immersive) ---- */
+body.immersive-ui .lesson-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 1rem;
+  padding: 1.35rem 1.4rem;
+}
+body.immersive-ui .lesson-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+body.immersive-ui .lesson-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(92, 188, 214, 0.30), rgba(183, 148, 244, 0.22));
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: .02em;
+  box-shadow: 0 6px 18px rgba(92, 188, 214, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+body.immersive-ui .lesson-card:hover .lesson-num {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 24px rgba(92, 188, 214, 0.5);
+}
+body.immersive-ui .lesson-card h3 { margin: 0 0 .35rem; font-size: 1.18rem; }
+body.immersive-ui .lesson-card h3 a {
+  color: #fff;
+  font-weight: 800;
+  border-bottom: 1px dashed transparent;
+  transition: color .18s ease, border-color .18s ease;
+}
+body.immersive-ui .lesson-card h3 a:hover {
+  color: var(--imm-accent);
+  border-color: rgba(92, 188, 214, .65);
+  text-decoration: none;
+}
+body.immersive-ui .lesson-card p { color: var(--imm-text-muted); margin: .15rem 0 .55rem; line-height: 1.6; }
+body.immersive-ui .lesson-card progress {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+}
+body.immersive-ui progress::-webkit-progress-bar { background: rgba(255, 255, 255, 0.06); }
+body.immersive-ui progress::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--imm-accent), var(--imm-accent-2));
+  box-shadow: 0 0 14px rgba(92, 188, 214, 0.45);
+}
+body.immersive-ui progress::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--imm-accent), var(--imm-accent-2));
+}
+
+/* ---- I-8. Tags / chips on dark ---- */
+body.immersive-ui .chip-list span,
+body.immersive-ui .tag {
+  background: rgba(122, 200, 232, 0.12);
+  border-color: rgba(122, 200, 232, 0.30);
+  color: #d9ecfa;
+}
+body.immersive-ui .tag-info    { background: rgba(92, 188, 214, 0.18);  color: #cfeefa; border-color: rgba(92, 188, 214, 0.4); }
+body.immersive-ui .tag-warn    { background: rgba(246, 169, 107, 0.18); color: #ffd7a8; border-color: rgba(246, 169, 107, 0.4); }
+body.immersive-ui .tag-danger  { background: rgba(239, 108, 90, 0.22);  color: #ffc3b7; border-color: rgba(239, 108, 90, 0.4); }
+body.immersive-ui .tag-ok      { background: rgba(76, 194, 138, 0.22);  color: #b7f0d2; border-color: rgba(76, 194, 138, 0.4); }
+body.immersive-ui .tag-accent  { background: rgba(183, 148, 244, 0.22); color: #e3d2ff; border-color: rgba(183, 148, 244, 0.4); }
+body.immersive-ui .tag-neutral { background: rgba(255, 255, 255, 0.06); color: #c5d1e3; border-color: rgba(255, 255, 255, 0.18); }
+body.immersive-ui .difficulty-chip-easy   { background: rgba(76, 194, 138, 0.22); color: #b7f0d2; border-color: rgba(76, 194, 138, 0.4); }
+body.immersive-ui .difficulty-chip-medium { background: rgba(246, 169, 107, 0.20); color: #ffd7a8; border-color: rgba(246, 169, 107, 0.4); }
+body.immersive-ui .difficulty-chip-hard   { background: rgba(239, 108, 90, 0.22);  color: #ffc3b7; border-color: rgba(239, 108, 90, 0.4); }
+
+/* ---- I-9. Metrics + numbers glow ---- */
+body.immersive-ui .metric-modern,
+body.immersive-ui .metric {
+  text-align: center;
+  padding: 1.4rem 1rem;
+}
+body.immersive-ui .metric-modern strong,
+body.immersive-ui .metric strong {
+  font-size: 2.2rem;
+  font-weight: 900;
+  background: linear-gradient(120deg, var(--imm-accent), var(--imm-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -.01em;
+}
+body.immersive-ui .metric-modern.metric-ok strong     { background: linear-gradient(120deg, #4cc28a, #5cbcd6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+body.immersive-ui .metric-modern.metric-warn strong   { background: linear-gradient(120deg, #f6a96b, #ef6c5a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+body.immersive-ui .metric-modern.metric-accent strong { background: linear-gradient(120deg, #b794f4, #f6a96b); -webkit-background-clip: text; background-clip: text; color: transparent; }
+body.immersive-ui .metric-modern::before {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--imm-accent) 50%, transparent 100%);
+  opacity: .8;
+}
+body.immersive-ui .metric-modern span,
+body.immersive-ui .metric span {
+  color: var(--imm-text-muted);
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+/* ---- I-10. Section titles + buttons ---- */
+body.immersive-ui .section-title h2,
+body.immersive-ui .content-section h2,
+body.immersive-ui .lesson-section h2 {
+  color: #fff;
+  font-weight: 800;
+}
+body.immersive-ui .section-title p,
+body.immersive-ui .content-section p,
+body.immersive-ui .toolbar-panel label span,
+body.immersive-ui .breadcrumb,
+body.immersive-ui .meta-row,
+body.immersive-ui .field-help { color: var(--imm-text-muted); }
+body.immersive-ui .breadcrumb a { color: var(--imm-accent); }
+body.immersive-ui .breadcrumb a:hover { color: #fff; }
+body.immersive-ui a { color: var(--imm-accent); }
+body.immersive-ui a:hover { color: #fff; }
+body.immersive-ui .btn {
+  background: linear-gradient(135deg, var(--imm-accent) 0%, #4aa2bd 100%);
+  border-color: transparent;
+  color: #06101f;
+  font-weight: 800;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(92, 188, 214, 0.35);
+  transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease;
+}
+body.immersive-ui .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(92, 188, 214, 0.5);
+}
+body.immersive-ui .btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border: 1px solid rgba(122, 200, 232, 0.30);
+  box-shadow: none;
+}
+body.immersive-ui .btn.secondary:hover {
+  background: rgba(122, 200, 232, 0.18);
+  border-color: rgba(122, 200, 232, 0.55);
+}
+body.immersive-ui .btn.danger { background: linear-gradient(135deg, #ef6c5a, #c44a3a); color: #fff; }
+body.immersive-ui input,
+body.immersive-ui select,
+body.immersive-ui textarea {
+  background: rgba(8, 16, 32, 0.55);
+  color: var(--imm-text);
+  border-color: rgba(122, 200, 232, 0.22);
+  border-radius: 10px;
+}
+body.immersive-ui input:focus,
+body.immersive-ui select:focus,
+body.immersive-ui textarea:focus {
+  outline: none;
+  border-color: var(--imm-accent);
+  box-shadow: 0 0 0 3px rgba(92, 188, 214, 0.25);
+}
+
+/* ---- I-11. Continue-card + next-action ---- */
+body.immersive-ui .continue-card {
+  background: linear-gradient(135deg, rgba(92, 188, 214, 0.18), rgba(183, 148, 244, 0.12));
+  border-color: rgba(122, 200, 232, 0.35);
+  border-inline-start: 5px solid var(--imm-accent);
+  box-shadow: var(--imm-shadow-card), 0 0 24px rgba(92, 188, 214, 0.25);
+  border-radius: 20px;
+}
+body.immersive-ui .next-action-chip {
+  background: rgba(20, 36, 64, 0.7);
+  border-color: rgba(122, 200, 232, 0.25);
+  color: #d9ecfa;
+  padding: .65rem 1rem;
+  font-weight: 700;
+  transition: background-color .2s ease, border-color .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+body.immersive-ui .next-action-chip:hover {
+  background: rgba(92, 188, 214, 0.18);
+  border-color: rgba(122, 200, 232, 0.55);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(92, 188, 214, 0.3);
+}
+
+/* ---- I-12. m-progress (homepage user progress panel) ---- */
+body.immersive-ui .user-progress-panel { background: var(--imm-card-bg); }
+body.immersive-ui .m-progress-ring {
+  background: conic-gradient(var(--imm-accent) calc(var(--p, 0%) * 1), rgba(255, 255, 255, 0.08) 0);
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 0 30px rgba(92, 188, 214, 0.3);
+}
+body.immersive-ui .m-progress-ring::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  background: rgba(8, 16, 32, 0.85);
+  border-radius: 50%;
+}
+body.immersive-ui .m-progress-ring strong {
+  position: relative;
+  font-size: 1.6rem;
+  color: #fff;
+  background: linear-gradient(120deg, var(--imm-accent), var(--imm-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+body.immersive-ui .m-progress-ring span { position: relative; color: var(--imm-text-muted); font-size: .8rem; }
+
+/* ---- I-13. Tables on dark ---- */
+body.immersive-ui .data-table,
+body.immersive-ui table {
+  color: var(--imm-text);
+  background: transparent;
+}
+body.immersive-ui .data-table th,
+body.immersive-ui table th {
+  color: var(--imm-accent);
+  font-weight: 800;
+  border-bottom-color: rgba(122, 200, 232, 0.35);
+}
+body.immersive-ui .data-table td,
+body.immersive-ui table td {
+  border-bottom-color: rgba(122, 200, 232, 0.12);
+  color: #d9ecfa;
+}
+body.immersive-ui .table-wrap,
+body.immersive-ui .table-responsive,
+body.immersive-ui .table-scroll {
+  border-radius: 16px;
+  border-color: rgba(122, 200, 232, 0.18);
+}
+
+/* ---- I-14. Callouts on dark ---- */
+body.immersive-ui .callout,
+body.immersive-ui .source-content .definition-box,
+body.immersive-ui .source-content .law-box,
+body.immersive-ui .source-content .warning-box,
+body.immersive-ui .source-content .highlight,
+body.immersive-ui .study-template {
+  background: rgba(20, 36, 64, 0.62);
+  border-radius: 14px;
+  color: var(--imm-text);
+  border-inline-start-color: var(--imm-accent);
+}
+body.immersive-ui .callout-summary { border-color: var(--imm-accent);   background: rgba(92, 188, 214, 0.14); }
+body.immersive-ui .callout-exam    { border-color: var(--imm-accent-3); background: rgba(246, 169, 107, 0.14); }
+body.immersive-ui .callout-mistake { border-color: #ef6c5a;             background: rgba(239, 108, 90, 0.16); }
+body.immersive-ui .callout-tip     { border-color: var(--imm-accent-2); background: rgba(183, 148, 244, 0.14); }
+body.immersive-ui .callout-ok      { border-color: #4cc28a;             background: rgba(76, 194, 138, 0.16); }
+body.immersive-ui .callout strong  { color: #fff; }
+
+/* ---- I-15. Section reveal + initial entrance ---- */
+@media (prefers-reduced-motion: no-preference) {
+  body.immersive-ui main > section,
+  body.immersive-ui main > nav,
+  body.immersive-ui main > article,
+  body.immersive-ui main > .content-section,
+  body.immersive-ui main > .hub-grid,
+  body.immersive-ui main > .nav-hub-grid,
+  body.immersive-ui main > .dashboard-grid,
+  body.immersive-ui main > .lesson-grid {
+    animation: immReveal .65s cubic-bezier(.22,.8,.34,1) both;
+    animation-delay: calc(var(--imm-i, 0) * 70ms);
+  }
+  body.immersive-ui main > :nth-child(1) { --imm-i: 0; }
+  body.immersive-ui main > :nth-child(2) { --imm-i: 1; }
+  body.immersive-ui main > :nth-child(3) { --imm-i: 2; }
+  body.immersive-ui main > :nth-child(4) { --imm-i: 3; }
+  body.immersive-ui main > :nth-child(5) { --imm-i: 4; }
+  body.immersive-ui main > :nth-child(6) { --imm-i: 5; }
+  body.immersive-ui main > :nth-child(7) { --imm-i: 6; }
+  body.immersive-ui main > :nth-child(8) { --imm-i: 7; }
+  body.immersive-ui .nav-hub-grid > * { animation: immReveal .6s cubic-bezier(.22,.8,.34,1) both; }
+  body.immersive-ui .nav-hub-grid > :nth-child(1) { animation-delay: .05s; }
+  body.immersive-ui .nav-hub-grid > :nth-child(2) { animation-delay: .12s; }
+  body.immersive-ui .nav-hub-grid > :nth-child(3) { animation-delay: .19s; }
+  body.immersive-ui .nav-hub-grid > :nth-child(4) { animation-delay: .26s; }
+  body.immersive-ui .nav-hub-grid > :nth-child(5) { animation-delay: .33s; }
+  body.immersive-ui .nav-hub-grid > :nth-child(6) { animation-delay: .40s; }
+  body.immersive-ui .nav-hub-grid > :nth-child(7) { animation-delay: .47s; }
+  body.immersive-ui .lesson-grid > *,
+  body.immersive-ui .hub-grid > *,
+  body.immersive-ui .dashboard-grid > * {
+    animation: immReveal .6s cubic-bezier(.22,.8,.34,1) both;
+  }
+  body.immersive-ui .lesson-grid > :nth-child(odd)  { animation-delay: .07s; }
+  body.immersive-ui .lesson-grid > :nth-child(even) { animation-delay: .14s; }
+}
+@keyframes immReveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- I-16. Mobile bottom nav (already exists) ---- */
+@media (max-width: 1023px) {
+  body.immersive-ui .m-bottom-nav {
+    background: rgba(8, 16, 32, 0.85);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+    border-top: 1px solid rgba(122, 200, 232, 0.18);
+    box-shadow: 0 -16px 36px rgba(0, 0, 0, 0.55);
+  }
+  body.immersive-ui .m-bottom-nav__item {
+    color: var(--imm-text-muted);
+  }
+  body.immersive-ui .m-bottom-nav__item:hover,
+  body.immersive-ui .m-bottom-nav__item.is-active {
+    background: linear-gradient(135deg, rgba(92, 188, 214, 0.20), rgba(183, 148, 244, 0.15));
+    color: #fff;
+    box-shadow: 0 0 22px rgba(92, 188, 214, 0.4);
+  }
+}
+
+/* ---- I-17. Footer ---- */
+body.immersive-ui .site-footer {
+  margin-top: 3rem;
+  padding: 2.5rem 1rem 3rem;
+  border-top: 1px solid rgba(122, 200, 232, 0.12);
+  color: var(--imm-text-muted);
+  background: linear-gradient(180deg, transparent, rgba(8, 16, 32, 0.5));
+}
+body.immersive-ui .site-footer a { color: var(--imm-accent); }
+body.immersive-ui .site-footer a:hover { color: #fff; }
+body.immersive-ui .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* ---- I-18. Learning-flow strip (quizzes) ---- */
+body.immersive-ui .learning-flow {
+  background: rgba(20, 36, 64, 0.55);
+  border: 1px solid rgba(122, 200, 232, 0.20);
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  color: var(--imm-text);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+body.immersive-ui .learning-flow span { color: #d9ecfa; font-weight: 700; }
+body.immersive-ui .learning-flow span:nth-child(even) { color: var(--imm-accent); font-weight: 900; }
+
+/* ---- I-19. my-progress immersive variant ---- */
+body.immersive-ui.learner-dashboard-page,
+body.immersive-ui .learner-dashboard {
+  color: var(--imm-text);
+}
+body.immersive-ui .learner-dashboard {
+  width: min(1280px, calc(100% - 2rem));
+  padding: 1.5rem 0 3rem;
+  gap: 1.25rem;
+}
+body.immersive-ui .learner-dashboard-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(1.6rem, 4vw, 2.6rem);
+  border-radius: 28px;
+  border: 1px solid rgba(122, 200, 232, 0.22);
+  background-image:
+    radial-gradient(80% 70% at 0% 0%, rgba(92, 188, 214, 0.36), transparent 55%),
+    radial-gradient(80% 70% at 100% 100%, rgba(183, 148, 244, 0.30), transparent 55%),
+    linear-gradient(135deg, #0a1f3a 0%, #14304f 50%, #1a3a64 100%);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+body.immersive-ui .learner-dashboard-hero::before {
+  content: "";
+  position: absolute;
+  inset-inline-end: -100px;
+  bottom: -100px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(92, 188, 214, 0.5), transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+  animation: immHeroOrb 18s ease-in-out infinite alternate;
+}
+body.immersive-ui .learner-dashboard-hero > * { position: relative; z-index: 1; }
+body.immersive-ui .learner-dashboard-hero h1 {
+  margin: .45rem 0 .6rem;
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  font-weight: 900;
+  background: linear-gradient(120deg, #ffffff 0%, #c8e6f7 45%, #d2b9ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+body.immersive-ui .learner-dashboard-hero .kicker {
+  display: inline-flex;
+  padding: .35rem .75rem;
+  border-radius: var(--imm-radius-pill);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(122, 200, 232, 0.30);
+  color: #ddeefb;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+body.immersive-ui .learner-dashboard-card { padding: 1.4rem; }
+body.immersive-ui .learner-dashboard-card .kicker {
+  background: rgba(92, 188, 214, 0.18);
+  color: #cfeefa;
+  border: 1px solid rgba(122, 200, 232, 0.30);
+  padding: .22rem .65rem;
+}
+body.immersive-ui .learner-dashboard-card h2,
+body.immersive-ui .learner-dashboard-card h3 { color: #fff; margin-top: 0; }
+body.immersive-ui .learner-topic-list li {
+  color: #d9ecfa;
+  padding-block: .55rem;
+  border-bottom-color: rgba(122, 200, 232, 0.14);
+}
+body.immersive-ui .learner-privacy-note {
+  background: rgba(20, 36, 64, 0.55);
+  color: var(--imm-text-muted);
+}
+
+/* ---- I-20. Info cards (ui-modern-only on quizzes) ---- */
+body.immersive-ui .info-card {
+  background: rgba(20, 36, 64, 0.62);
+  border-color: rgba(122, 200, 232, 0.20);
+  color: #d9ecfa;
+}
+body.immersive-ui .info-card .info-title { color: #fff; }
+body.immersive-ui .info-card .info-body p { color: #d9ecfa; }
+body.immersive-ui .info-card .info-icon {
+  background: rgba(92, 188, 214, 0.18);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(92, 188, 214, 0.3);
+}
+
+/* ---- I-21. Status pill + admin elements (avoid breaking admin look) ---- */
+body.immersive-ui .status-pill {
+  background: rgba(20, 36, 64, 0.55);
+  color: var(--imm-accent-3);
+  border: 1px solid rgba(246, 169, 107, 0.30);
+}
+
+/* ---- I-22. Search results / chat / inputs / etc. ---- */
+body.immersive-ui .search-results .search-hit mark {
+  background: rgba(246, 169, 107, 0.30);
+  color: #fff;
+}
+body.immersive-ui .message { background: rgba(20, 36, 64, 0.62); border-color: rgba(122, 200, 232, 0.20); color: #d9ecfa; }
+body.immersive-ui .message.user { background: rgba(92, 188, 214, 0.20); color: #fff; }
+body.immersive-ui .chat-log { background: rgba(8, 16, 32, 0.55); border-radius: 14px; }
+
+body.immersive-ui .answer-list button {
+  background: rgba(20, 36, 64, 0.65);
+  border-color: rgba(122, 200, 232, 0.22);
+  color: #d9ecfa;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: background-color .2s ease, border-color .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+body.immersive-ui .answer-list button:hover {
+  background: rgba(92, 188, 214, 0.16);
+  border-color: rgba(122, 200, 232, 0.50);
+  transform: translateY(-1px);
+}
+body.immersive-ui .answer-list button.correct { border-color: rgba(76, 194, 138, 0.65); background: rgba(76, 194, 138, 0.20); }
+body.immersive-ui .answer-list button.wrong   { border-color: rgba(239, 108, 90, 0.65);  background: rgba(239, 108, 90, 0.20); }
+body.immersive-ui .exam-answer {
+  background: rgba(20, 36, 64, 0.55);
+  border-color: rgba(122, 200, 232, 0.22);
+  color: #d9ecfa;
+  border-radius: 12px;
+}
+body.immersive-ui .exam-result details { background: rgba(20, 36, 64, 0.62); border-color: rgba(122, 200, 232, 0.22); color: #d9ecfa; }
+
+/* ---- I-23. Field-tools specific (legal hierarchy) ---- */
+body.immersive-ui .legal-hierarchy {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+body.immersive-ui .legal-rank {
+  background: rgba(20, 36, 64, 0.62);
+  border: 1px solid rgba(122, 200, 232, 0.22);
+  border-radius: 18px;
+  padding: 1.1rem;
+  color: var(--imm-text);
+  display: grid;
+  gap: .35rem;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform .22s ease, box-shadow .25s ease, border-color .25s ease;
+}
+body.immersive-ui .legal-rank::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(92, 188, 214, 0.08), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+body.immersive-ui .legal-rank > * { position: relative; z-index: 1; }
+body.immersive-ui .legal-rank:hover {
+  transform: translateY(-4px);
+  border-color: rgba(122, 200, 232, 0.45);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.45), 0 0 24px rgba(92, 188, 214, 0.2);
+}
+body.immersive-ui .legal-rank-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--imm-accent), var(--imm-accent-2));
+  color: #06101f;
+  font-weight: 900;
+  box-shadow: 0 6px 16px rgba(92, 188, 214, 0.4);
+}
+body.immersive-ui .legal-rank-name { color: #fff; font-weight: 800; font-size: 1.1rem; }
+body.immersive-ui .legal-rank-desc { color: var(--imm-text-muted); line-height: 1.55; }
+body.immersive-ui .legal-rank-binding {
+  display: inline-block;
+  margin-top: .35rem;
+  padding: .2rem .65rem;
+  border-radius: var(--imm-radius-pill);
+  font-size: .78rem;
+  font-weight: 800;
+  background: rgba(76, 194, 138, 0.20);
+  color: #b7f0d2;
+  border: 1px solid rgba(76, 194, 138, 0.4);
+}
+body.immersive-ui .legal-rank-binding[data-binding="if-adopted"] {
+  background: rgba(246, 169, 107, 0.18);
+  color: #ffd7a8;
+  border-color: rgba(246, 169, 107, 0.4);
+}
+body.immersive-ui .legal-rank-binding[data-binding="optional"] {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--imm-text-muted);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ---- I-24. Syllabus table styled as a card list ---- */
+body.immersive-ui.syllabus-page .legacy-syllabus-section {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  box-shadow: none;
+}
+body.immersive-ui.syllabus-page .syllabus-table { background: transparent; }
+body.immersive-ui.syllabus-page .syllabus-table thead { display: none; }
+body.immersive-ui.syllabus-page .syllabus-table tbody {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+body.immersive-ui.syllabus-page .syllabus-table tr {
+  display: grid;
+  gap: .55rem;
+  background: var(--imm-card-bg);
+  border: 1px solid var(--imm-card-border);
+  border-radius: var(--imm-radius-card);
+  padding: 1.4rem;
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: var(--imm-shadow-card);
+  transition: transform .22s ease, box-shadow .25s ease, border-color .25s ease;
+}
+body.immersive-ui.syllabus-page .syllabus-table tr:hover {
+  transform: translateY(-5px);
+  border-color: var(--imm-card-border-hi);
+  box-shadow: var(--imm-shadow-card-hi);
+}
+body.immersive-ui.syllabus-page .syllabus-table td {
+  display: block;
+  border: 0;
+  padding: 0;
+  color: var(--imm-text);
+}
+body.immersive-ui.syllabus-page .syllabus-table td:nth-child(1) {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(92, 188, 214, 0.30), rgba(183, 148, 244, 0.22));
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.2rem;
+  box-shadow: 0 8px 22px rgba(92, 188, 214, 0.35);
+  margin-bottom: .35rem;
+}
+body.immersive-ui.syllabus-page .syllabus-table td:nth-child(2) {
+  font-size: 1.18rem;
+  font-weight: 800;
+}
+body.immersive-ui.syllabus-page .syllabus-table td:nth-child(2) a {
+  color: #fff;
+  border-bottom: 1px dashed transparent;
+}
+body.immersive-ui.syllabus-page .syllabus-table td:nth-child(2) a:hover { color: var(--imm-accent); border-bottom-color: rgba(92,188,214,.6); }
+body.immersive-ui.syllabus-page .syllabus-table td:nth-child(3) {
+  display: inline-block;
+  margin-inline-end: .4rem;
+  padding: .2rem .65rem;
+  border-radius: var(--imm-radius-pill);
+  background: rgba(92, 188, 214, 0.18);
+  color: #cfeefa;
+  font-size: .82rem;
+  font-weight: 700;
+  border: 1px solid rgba(122, 200, 232, 0.30);
+}
+body.immersive-ui.syllabus-page .syllabus-table td:nth-child(4) {
+  display: inline-block;
+  padding: .2rem .65rem;
+  border-radius: var(--imm-radius-pill);
+  background: rgba(76, 194, 138, 0.18);
+  color: #b7f0d2;
+  font-size: .82rem;
+  font-weight: 700;
+  border: 1px solid rgba(76, 194, 138, 0.4);
+}
+body.immersive-ui.syllabus-page .syllabus-table td:nth-child(5) {
+  color: var(--imm-text-muted);
+  font-size: .9rem;
+  margin-top: .25rem;
+}
+
+/* ---- I-25. Lesson picker (quizzes lesson-picker) ---- */
+body.immersive-ui .lesson-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+body.immersive-ui .quiz-app .toolbar-panel {
+  padding: 1.1rem;
+}
+
+/* ---- I-26. Force a unified container width on immersive pages ---- */
+body.immersive-ui main.site-main { width: 100%; }
+body.immersive-ui .toolbar-panel { padding: 1.2rem; }
+
+/* ---- I-27. Mobile guards for immersive ---- */
+@media (max-width: 480px) {
+  body.immersive-ui .site-main { padding: 1rem .85rem 3rem; }
+  body.immersive-ui .nav-hub-card { padding: 1.2rem 1rem; }
+  body.immersive-ui .lesson-card { padding: 1.15rem 1.1rem; grid-template-columns: 48px 1fr; gap: .8rem; }
+  body.immersive-ui .lesson-num { width: 48px; height: 48px; font-size: 1.15rem; }
+  body.immersive-ui .page-hero { padding: 1.35rem 1.1rem; border-radius: 18px; }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern { padding: 1.4rem; border-radius: 22px; }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern h1 { font-size: 2rem; }
+  body.immersive-ui .metric-modern strong, body.immersive-ui .metric strong { font-size: 1.8rem; }
+  body.immersive-ui.syllabus-page .syllabus-table tbody { grid-template-columns: 1fr; }
+}
+
+/* ---- I-28. Reduced-motion — kill all immersive motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  body.immersive-ui::before,
+  body.immersive-ui::after { animation: none; }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern::before,
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern::after,
+  body.immersive-ui .page-hero::before,
+  body.immersive-ui .learner-dashboard-hero::before { animation: none; }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-graphic svg { animation: none; }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern .kicker::before { animation: none; }
+  body.immersive-ui main > section,
+  body.immersive-ui .nav-hub-grid > *,
+  body.immersive-ui .lesson-grid > *,
+  body.immersive-ui .hub-grid > *,
+  body.immersive-ui .dashboard-grid > * { animation: none; }
+  body.immersive-ui .lesson-card:hover,
+  body.immersive-ui .nav-hub-card:hover,
+  body.immersive-ui .hub-card:hover,
+  body.immersive-ui .metric-modern:hover,
+  body.immersive-ui .learner-dashboard-card:hover,
+  body.immersive-ui .legal-rank:hover,
+  body.immersive-ui.syllabus-page .syllabus-table tr:hover { transform: none; }
+}
+
+/* ---- I-29. Accessibility - focus ring on immersive ---- */
+body.immersive-ui :focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(92, 188, 214, 0.55);
+  border-radius: 8px;
+}
+
+/* ---- I-30. Disable old EXTRA-COMPACT hero override on immersive ---- */
+body.immersive-ui .page-hero,
+body.immersive-ui .hero-modern,
+body.immersive-ui .game-hero,
+body.immersive-ui .login-hero,
+body.immersive-ui .lesson-hero-modern,
+body.immersive-ui .about-hero {
+  display: block;
+  align-items: initial;
+  justify-content: initial;
+  background-image: none; /* will be re-applied by specific selectors */
+}
+body.immersive-ui .page-hero {
+  background-image:
+    radial-gradient(80% 70% at 0% 0%, rgba(92, 188, 214, 0.28), transparent 55%),
+    radial-gradient(80% 70% at 100% 100%, rgba(183, 148, 244, 0.22), transparent 55%),
+    linear-gradient(135deg, #0b1f3a 0%, #143256 70%, #18386b 100%);
+}
+body.immersive-ui[data-page-title="דף הבית"] .hero-modern {
+  background-image:
+    radial-gradient(120% 90% at 0% 0%, rgba(92, 188, 214, 0.35), transparent 55%),
+    radial-gradient(100% 80% at 100% 100%, rgba(183, 148, 244, 0.32), transparent 55%),
+    linear-gradient(135deg, #0a1f3a 0%, #14304f 50%, #1a3a64 100%);
+}
+
+/* =========================================================================
+   IMMERSIVE LEARNING UI — END
+   ========================================================================= */
+
+/* =========================================================================
+   LEARNING APP SHELL — START
+   Layout-architecture overhaul (NOT just visual polish).
+   - Desktop (>=1024px): fixed left sidebar (RTL: visually on the right)
+     containing brand + vertical icon nav + utilities. Main content shifts
+     to fill the rest of the screen, much wider than before.
+   - Mobile (<1024px): everything reverts to the existing top-header +
+     bottom-nav layout; sidebar styling is fully unscoped.
+   - DOM-untouched. The same .site-header / .header-inner / .main-nav
+     elements are restyled into the sidebar.
+   - Scope: body.immersive-ui only.
+   ========================================================================= */
+
+@media (min-width: 1024px) {
+  /* ---- LAS-1. Body becomes the app frame ---- */
+  body.immersive-ui {
+    min-height: 100vh;
+    padding-inline-end: 280px; /* RTL: reserve right strip for sidebar */
+  }
+  /* the law-notice bar inside the header would otherwise become weird;
+     we will reposition it inside the sidebar bottom. */
+
+  /* ---- LAS-2. Site-header turns into a sidebar (RTL: anchored to the right) ---- */
+  body.immersive-ui .site-header {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    inset-inline-end: 0;
+    inset-inline-start: auto;
+    width: 280px;
+    height: 100vh;
+    border-bottom: 0;
+    border-inline-start: 1px solid rgba(122, 200, 232, 0.16);
+    background:
+      linear-gradient(180deg, rgba(8, 16, 32, 0.92) 0%, rgba(8, 16, 32, 0.78) 100%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    backdrop-filter: blur(22px) saturate(140%);
+    box-shadow: -24px 0 60px rgba(0, 0, 0, 0.4);
+    z-index: 60;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  /* glow stripe down the inside edge */
+  body.immersive-ui .site-header::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: -1px;
+    top: 12vh;
+    bottom: 12vh;
+    width: 2px;
+    background: linear-gradient(180deg, transparent, rgba(92, 188, 214, 0.55), rgba(183, 148, 244, 0.4), transparent);
+    filter: blur(1px);
+    pointer-events: none;
+  }
+  body.immersive-ui .site-header.is-scrolled {
+    box-shadow: -28px 0 70px rgba(0, 0, 0, 0.55);
+  }
+
+  /* ---- LAS-3. Header-inner: vertical column ---- */
+  body.immersive-ui .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    padding: 1.6rem 1.1rem 1.1rem;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  /* ---- LAS-4. Brand on top ---- */
+  body.immersive-ui .brand {
+    flex-direction: row;
+    gap: .75rem;
+    min-width: 0;
+    padding: .25rem .25rem .75rem;
+    border-bottom: 1px solid rgba(122, 200, 232, 0.12);
+  }
+  body.immersive-ui .brand strong {
+    color: #fff;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: -.01em;
+  }
+  body.immersive-ui .brand small {
+    color: var(--imm-text-muted);
+    font-size: .76rem;
+    line-height: 1.3;
+  }
+
+  /* ---- LAS-5. Main-nav: vertical icon list ---- */
+  body.immersive-ui .main-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .25rem;
+    margin: 0;
+    flex: 1 1 auto;
+  }
+  body.immersive-ui .main-nav a {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .75rem .9rem;
+    border-radius: 14px;
+    color: rgba(234, 242, 255, 0.78);
+    font-size: .98rem;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+    transition: background-color .2s ease, color .2s ease, transform .15s ease, box-shadow .2s ease;
+  }
+  body.immersive-ui .main-nav a:hover {
+    background: rgba(92, 188, 214, 0.10);
+    color: #fff;
+    transform: translateX(-3px); /* RTL: slide toward content (left) */
+  }
+  body.immersive-ui .main-nav a[aria-current="page"] {
+    background: linear-gradient(135deg, rgba(92, 188, 214, 0.32), rgba(183, 148, 244, 0.22));
+    color: #fff;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.10),
+      0 8px 22px rgba(92, 188, 214, 0.32);
+  }
+  body.immersive-ui .main-nav a[aria-current="page"]::before {
+    content: "";
+    position: absolute;
+    inset-inline-end: -1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 28px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, var(--imm-accent), var(--imm-accent-2));
+    box-shadow: 0 0 16px rgba(92, 188, 214, 0.7);
+  }
+  body.immersive-ui .main-nav a[aria-current="page"]::after { display: none; }
+
+  /* ---- LAS-6. Header-actions: utility row near bottom of sidebar ---- */
+  body.immersive-ui .header-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: .85rem .25rem 0;
+    border-top: 1px solid rgba(122, 200, 232, 0.12);
+    margin-top: .4rem;
+  }
+  body.immersive-ui .header-actions .icon-btn {
+    flex: 1 1 calc(50% - .5rem);
+    min-width: 0;
+    height: 42px;
+    border-radius: 11px;
+  }
+
+  /* ---- LAS-7. Law-notice: move into sidebar (small bottom strip) ---- */
+  body.immersive-ui .law-notice {
+    margin-top: auto;
+    border-top: 1px solid rgba(122, 200, 232, 0.12);
+    border-bottom: 0;
+    padding: 1rem .85rem;
+    text-align: start;
+    font-size: .78rem;
+    line-height: 1.45;
+    background: rgba(8, 16, 32, 0.55);
+    color: var(--imm-accent-3);
+  }
+
+  /* ---- LAS-8. Main area: full width minus sidebar ---- */
+  body.immersive-ui .site-main {
+    max-width: none;
+    width: 100%;
+    padding: 1.75rem 2.25rem 4rem;
+  }
+  body.immersive-ui .site-footer {
+    padding-inline: 2.25rem;
+  }
+}
+
+/* ---- LAS-9. Icons in vertical nav (via mask-image, inline data URI) ---- */
+@media (min-width: 1024px) {
+  body.immersive-ui .main-nav a::after {
+    content: "";
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    order: -1;
+    background-color: currentColor;
+    -webkit-mask-position: center;
+            mask-position: center;
+    -webkit-mask-size: 22px 22px;
+            mask-size: 22px 22px;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    transition: transform .2s ease;
+    opacity: .85;
+  }
+  body.immersive-ui .main-nav a:hover::after { opacity: 1; transform: scale(1.08); }
+  body.immersive-ui .main-nav a[aria-current="page"]::after { opacity: 1; }
+
+  /* Home / Bait */
+  body.immersive-ui .main-nav a[href$="index.html"]::after,
+  body.immersive-ui .main-nav a[href="../index.html"]::after,
+  body.immersive-ui .main-nav a[href="./index.html"]::after {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M3 11l9-8 9 8v9a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z'/></svg>");
+            mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M3 11l9-8 9 8v9a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z'/></svg>");
+  }
+  /* Syllabus / book */
+  body.immersive-ui .main-nav a[href$="syllabus.html"]::after {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z'/><path d='M4 4v12'/><path d='M8 8h6'/><path d='M8 12h6'/></svg>");
+            mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z'/><path d='M4 4v12'/><path d='M8 8h6'/><path d='M8 12h6'/></svg>");
+  }
+  /* Quizzes / check-square */
+  body.immersive-ui .main-nav a[href$="quizzes.html"]::after {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='3'/><path d='M9 12l2 2 4-4'/></svg>");
+            mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='3'/><path d='M9 12l2 2 4-4'/></svg>");
+  }
+  /* Safety-game / shield */
+  body.immersive-ui .main-nav a[href$="safety-game.html"]::after {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6z'/></svg>");
+            mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6z'/></svg>");
+  }
+  /* Field-tools / wrench */
+  body.immersive-ui .main-nav a[href$="field-tools.html"]::after {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2z'/></svg>");
+            mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2z'/></svg>");
+  }
+  /* AI-assistant / sparkle */
+  body.immersive-ui .main-nav a[href$="ai-assistant.html"]::after {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3v4M12 17v4M3 12h4M17 12h4M6.3 6.3l2.4 2.4M15.3 15.3l2.4 2.4M6.3 17.7l2.4-2.4M15.3 8.7l2.4-2.4'/></svg>");
+            mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3v4M12 17v4M3 12h4M17 12h4M6.3 6.3l2.4 2.4M15.3 15.3l2.4 2.4M6.3 17.7l2.4-2.4M15.3 8.7l2.4-2.4'/></svg>");
+  }
+}
+
+/* ---- LAS-10. Mega Hero: full-viewport drama ---- */
+@media (min-width: 1024px) {
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern {
+    min-height: 78vh;
+    max-height: 880px;
+    padding: clamp(3rem, 6vw, 5rem);
+    border-radius: 32px;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    gap: 3.5rem;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern h1 {
+    font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+    line-height: 1.02;
+    max-width: 16ch;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern p {
+    font-size: 1.18rem;
+    line-height: 1.7;
+    max-width: 58ch;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-cta .btn {
+    min-height: 56px;
+    padding: 1rem 1.6rem;
+    font-size: 1.08rem;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-mini-stats {
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.6rem;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-mini-stats strong {
+    font-size: 2.4rem;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .hero-graphic svg {
+    max-width: 360px;
+  }
+  /* scroll indicator below hero */
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern + section::before,
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern + #whatNowCard::before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 38px;
+    margin: -1.4rem auto 1.4rem;
+    background: linear-gradient(180deg, var(--imm-accent), transparent);
+    opacity: .55;
+    animation: immScrollHint 2.5s ease-in-out infinite;
+  }
+}
+@keyframes immScrollHint {
+  0%, 100% { transform: translateY(0); opacity: .35; }
+  50%      { transform: translateY(10px); opacity: .85; }
+}
+
+/* ---- LAS-11. Page-hero (sub-pages): also fills more viewport ---- */
+@media (min-width: 1024px) {
+  body.immersive-ui .page-hero {
+    min-height: 38vh;
+    padding: clamp(2.4rem, 5vw, 3.4rem) clamp(2rem, 4vw, 3rem);
+    border-radius: 28px;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  body.immersive-ui .page-hero h1 {
+    font-size: clamp(2rem, 4.4vw, 3.2rem);
+    line-height: 1.05;
+  }
+  body.immersive-ui .page-hero p {
+    font-size: 1.12rem;
+    max-width: 70ch;
+  }
+  body.immersive-ui .learner-dashboard-hero {
+    min-height: 36vh;
+    padding: clamp(2.4rem, 5vw, 3.4rem) clamp(2rem, 4vw, 3rem);
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  body.immersive-ui .learner-dashboard-hero h1 {
+    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  }
+}
+
+/* ---- LAS-12. Asymmetric dashboard zones (homepage) ---- */
+@media (min-width: 1024px) {
+  /* Continue card sits side-by-side with the dashboard-grid metrics:
+     2/3 + 1/3 split. We use CSS-only without DOM changes. */
+  body.immersive-ui[data-page-title="דף הבית"] .continue-card {
+    margin-bottom: 0;
+  }
+  /* Dashboard-grid into a 4-col rich grid */
+  body.immersive-ui[data-page-title="דף הבית"] .dashboard-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0 1.75rem;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .dashboard-grid .metric-modern:first-child,
+  body.immersive-ui[data-page-title="דף הבית"] .dashboard-grid .metric-modern:nth-child(5) {
+    grid-column: span 2;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .dashboard-grid .metric-modern:first-child strong,
+  body.immersive-ui[data-page-title="דף הבית"] .dashboard-grid .metric-modern:nth-child(5) strong {
+    font-size: 3rem;
+  }
+  /* Nav-hub-grid: asymmetric - first card is bigger, spans 2 cols */
+  body.immersive-ui[data-page-title="דף הבית"] .nav-hub-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .nav-hub-grid > :nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(92, 188, 214, 0.18), rgba(183, 148, 244, 0.14)) var(--imm-card-bg);
+    border-color: rgba(122, 200, 232, 0.32);
+    box-shadow: var(--imm-shadow-card-hi);
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .nav-hub-grid > :nth-child(1) .card-icon {
+    width: 84px;
+    height: 84px;
+    font-size: 2.4rem;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .nav-hub-grid > :nth-child(1) h3 {
+    font-size: 1.85rem;
+    line-height: 1.15;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] .nav-hub-grid > :nth-child(1) p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  /* Lesson grid: 3 cols on desktop, the first 2 lessons span larger */
+  body.immersive-ui[data-page-title="דף הבית"] .lesson-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+}
+
+/* ---- LAS-13. Layered section labels (visual hierarchy) ---- */
+@media (min-width: 1024px) {
+  body.immersive-ui .section-title {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-block: .35rem;
+  }
+  body.immersive-ui .section-title h2 {
+    font-size: 1.85rem;
+    font-weight: 900;
+    letter-spacing: -.01em;
+    margin: 0;
+  }
+  body.immersive-ui .section-title p {
+    margin: .35rem 0 0;
+    font-size: 1.02rem;
+    color: var(--imm-text-muted);
+  }
+  /* numeric prefix on h2 inside content-section / homepage */
+  body.immersive-ui[data-page-title="דף הבית"] main > section > .section-title h2::before,
+  body.immersive-ui[data-page-title="דף הבית"] main > section > h2::before {
+    content: counter(immSection, decimal-leading-zero);
+    counter-increment: immSection;
+    display: inline-block;
+    margin-inline-end: .8rem;
+    padding: .15rem .55rem;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    color: var(--imm-accent);
+    background: rgba(92, 188, 214, 0.14);
+    border: 1px solid rgba(92, 188, 214, 0.32);
+    border-radius: 999px;
+    vertical-align: middle;
+  }
+  body.immersive-ui[data-page-title="דף הבית"] main { counter-reset: immSection; }
+}
+
+/* ---- LAS-14. Floating panels — overlap via negative margin ---- */
+@media (min-width: 1024px) {
+  /* The continue-card slightly overlaps the hero below it */
+  body.immersive-ui[data-page-title="דף הבית"] .continue-card:not([hidden]) {
+    margin-top: -2.5rem;
+    position: relative;
+    z-index: 4;
+  }
+  /* user-progress-panel pulled up to nest near hero */
+  body.immersive-ui[data-page-title="דף הבית"] .user-progress-panel {
+    position: relative;
+    z-index: 3;
+  }
+  /* Section spacing breathes */
+  body.immersive-ui main > section { margin-bottom: 2.5rem; }
+  body.immersive-ui main > section:last-of-type { margin-bottom: 1rem; }
+
+  /* Toolbar-panel (search) sticky inside content area, narrower */
+  body.immersive-ui .toolbar-panel { max-width: 100%; }
+}
+
+/* ---- LAS-15. Syllabus + field-tools richer layouts ---- */
+@media (min-width: 1024px) {
+  /* Syllabus: 3 cols (instead of 2) */
+  body.immersive-ui.syllabus-page .syllabus-table tbody {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+  /* Quizzes: hub-grids wider with bigger first card */
+  body.immersive-ui[data-page-title="תרגול ומבחנים"] .hub-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+  body.immersive-ui[data-page-title="תרגול ומבחנים"] .hub-grid > :first-child {
+    grid-column: span 2;
+    grid-row: span 1;
+    background: linear-gradient(135deg, rgba(92, 188, 214, 0.20), rgba(183, 148, 244, 0.15)) var(--imm-card-bg);
+    border-color: rgba(122, 200, 232, 0.35);
+    padding: 1.8rem;
+  }
+  body.immersive-ui[data-page-title="תרגול ומבחנים"] .hub-grid > :first-child h2 {
+    font-size: 1.6rem;
+  }
+  /* Field-tools: legal-hierarchy as a horizontal flow on desktop */
+  body.immersive-ui[data-page-title="חוקים, תקנים וכלי שטח"] .legal-hierarchy {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  /* my-progress: dashboard grid expanded to 3 cols */
+  body.immersive-ui.learner-dashboard-page .learner-dashboard {
+    width: min(1280px, calc(100% - 3rem));
+  }
+  body.immersive-ui.learner-dashboard-page .learner-dashboard-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  body.immersive-ui.learner-dashboard-page .learner-summary-card { grid-column: 1 / -1; }
+}
+
+/* ---- LAS-16. Sub-page top-spacing (breadcrumb / hero margin) ---- */
+@media (min-width: 1024px) {
+  body.immersive-ui .breadcrumb {
+    margin-bottom: 1rem;
+    padding: .5rem .75rem;
+    font-size: .92rem;
+  }
+  body.immersive-ui .next-actions { margin: 1.5rem 0 2.5rem; gap: .75rem; }
+}
+
+/* ---- LAS-17. Mobile reset — restore original chrome ---- */
+@media (max-width: 1023px) {
+  body.immersive-ui { padding-inline-end: 0; }
+  body.immersive-ui .site-header {
+    position: sticky;
+    top: 0;
+    width: auto;
+    height: auto;
+    inset: auto;
+    border-inline-start: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    overflow: visible;
+    display: block;
+  }
+  body.immersive-ui .site-header::after { display: none; }
+  body.immersive-ui .header-inner {
+    flex-direction: row;
+    height: auto;
+    padding: 1rem 1.25rem;
+    overflow: visible;
+  }
+  body.immersive-ui .brand { border-bottom: 0; padding: 0; }
+  body.immersive-ui .main-nav { display: none; } /* rely on bottom-nav */
+  body.immersive-ui .header-actions {
+    border-top: 0;
+    padding: 0;
+    margin: 0;
+    flex-direction: row;
+  }
+  body.immersive-ui .law-notice {
+    margin: 0;
+    border-top: 1px solid rgba(122, 200, 232, 0.10);
+    border-bottom: 0;
+    text-align: center;
+  }
+}
+
+/* ---- LAS-18. Reduced motion — kill scroll-hint pulse ---- */
+@media (prefers-reduced-motion: reduce) {
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern + section::before,
+  body.immersive-ui[data-page-title="דף הבית"] .hero-modern + #whatNowCard::before { animation: none; }
+  body.immersive-ui .main-nav a:hover { transform: none; }
+}
+
+/* =========================================================================
+   LEARNING APP SHELL — END
+   ========================================================================= */
+
+/* =========================================================================
+   LEARNING APP SHELL — RTL SIDE FIX
+   Flip sidebar to the visual right (RTL reading-start side).
+   Pure side-overrides, no new layout rules.
+   ========================================================================= */
+@media (min-width: 1024px) {
+  body.immersive-ui {
+    padding-inline-end: 0;
+    padding-inline-start: 280px; /* RTL: pad the right side for sidebar */
+  }
+  body.immersive-ui .site-header {
+    inset-inline-end: auto;
+    inset-inline-start: 0;            /* RTL: pin to visual right */
+    border-inline-start: 0;
+    border-inline-end: 1px solid rgba(122, 200, 232, 0.16);
+    box-shadow: 24px 0 60px rgba(0, 0, 0, 0.4);
+  }
+  body.immersive-ui .site-header::after {
+    inset-inline-start: auto;
+    inset-inline-end: -1px;          /* glow on the inner (toward-content) edge */
+  }
+  body.immersive-ui .site-header.is-scrolled {
+    box-shadow: 28px 0 70px rgba(0, 0, 0, 0.55);
+  }
+  body.immersive-ui .main-nav a[aria-current="page"]::before {
+    inset-inline-end: auto;
+    inset-inline-start: -1.1rem;     /* accent bar on inner edge of sidebar */
+  }
+}
+
+/* =========================================================================
+   LMS PRO — START
+   Knowledge-base / documentation UI inspired by Linear (developers) + Notion.
+   Replaces the dark immersive theme. Pages opt-in via `body.lms-pro`.
+   - Default: clean light. Dark mode (html[data-theme="dark"]) is elegant
+     and calm, not cyberpunk.
+   - Layout: clean fixed sidebar (RTL: visual right), wide content area,
+     strong typography hierarchy, generous spacing.
+   - Patterns: callouts, accordions (<details>), badges, TOC, modular cards.
+   - No glow, no particles, no neon. Subtle motion only.
+   - Resets all stacked `body.immersive-ui` styles by NOT inheriting that
+     class on these pages — selectors below take over.
+   ========================================================================= */
+
+/* ---- P-0. Tokens ---- */
+body.lms-pro {
+  --pro-bg:           #fbfbfc;
+  --pro-bg-2:         #f6f7f8;
+  --pro-surface:      #ffffff;
+  --pro-surface-2:    #f4f5f7;
+  --pro-surface-hi:   #ebedf0;
+  --pro-border:       #e5e7ea;
+  --pro-border-strong:#d4d7dc;
+  --pro-text:         #1f2429;
+  --pro-text-muted:   #5b6470;
+  --pro-text-subtle:  #8b94a1;
+  --pro-brand:        #0a4f6e;
+  --pro-brand-2:      #073a55;
+  --pro-brand-soft:   rgba(10, 79, 110, 0.06);
+  --pro-brand-soft-2: rgba(10, 79, 110, 0.12);
+  --pro-accent:       #5e6ad2; /* Linear-blue accent for interactive */
+  --pro-shadow-card:  0 1px 2px rgba(15, 23, 42, .04), 0 1px 3px rgba(15, 23, 42, .04);
+  --pro-shadow-hover: 0 4px 12px rgba(15, 23, 42, .07);
+  --pro-radius-sm:    6px;
+  --pro-radius-md:    8px;
+  --pro-radius-lg:    12px;
+  --pro-radius-xl:    16px;
+}
+html[data-theme="dark"] body.lms-pro {
+  --pro-bg:           #181a1e;
+  --pro-bg-2:         #1c1f23;
+  --pro-surface:      #1f2329;
+  --pro-surface-2:    #262a31;
+  --pro-surface-hi:   #2e333b;
+  --pro-border:       #2d3138;
+  --pro-border-strong:#3a3f47;
+  --pro-text:         #e8ebef;
+  --pro-text-muted:   #9aa3af;
+  --pro-text-subtle:  #6b7280;
+  --pro-brand:        #7ab8d8;
+  --pro-brand-2:      #a7d0e6;
+  --pro-brand-soft:   rgba(122, 184, 216, 0.10);
+  --pro-brand-soft-2: rgba(122, 184, 216, 0.16);
+  --pro-accent:       #8b95e8;
+  --pro-shadow-card:  0 1px 2px rgba(0,0,0,.20), 0 1px 3px rgba(0,0,0,.20);
+  --pro-shadow-hover: 0 4px 12px rgba(0,0,0,.35);
+}
+
+/* ---- P-1. Body + global resets vs. the immersive layer ---- */
+body.lms-pro {
+  background-color: var(--pro-bg);
+  background-image: none;
+  color: var(--pro-text);
+  overflow-x: hidden;
+  font-feature-settings: "kern" 1, "liga" 1, "ss01" 1;
+}
+body.lms-pro::before,
+body.lms-pro::after {
+  content: none !important;
+  display: none !important;
+}
+body.lms-pro a { color: var(--pro-brand); }
+body.lms-pro a:hover { color: var(--pro-brand-2); }
+
+/* ---- P-2. Sidebar app shell (desktop) ---- */
+@media (min-width: 1024px) {
+  body.lms-pro {
+    padding-inline-start: 264px; /* RTL: right side */
+  }
+  body.lms-pro .site-header {
+    position: fixed;
+    top: 0; bottom: 0;
+    inset-inline-start: 0;
+    inset-inline-end: auto;
+    width: 264px;
+    height: 100vh;
+    background: var(--pro-surface);
+    border-inline-end: 1px solid var(--pro-border);
+    border-inline-start: 0;
+    border-bottom: 0;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 50;
+  }
+  body.lms-pro .site-header::after,
+  body.lms-pro .site-header::before { display: none; }
+  body.lms-pro .site-header.is-scrolled {
+    box-shadow: none;
+    border-inline-end-color: var(--pro-border);
+  }
+  body.lms-pro .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 1rem .85rem;
+    height: 100%;
+    max-width: none;
+    width: 100%;
+    overflow-y: auto;
+  }
+  /* Brand */
+  body.lms-pro .brand {
+    flex-direction: row;
+    gap: .6rem;
+    padding: .25rem .35rem .9rem;
+    margin: 0 0 .55rem;
+    border-bottom: 1px solid var(--pro-border);
+    min-width: 0;
+  }
+  body.lms-pro .brand:hover { background: transparent; }
+  body.lms-pro .brand-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    background: var(--pro-brand);
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 800;
+    box-shadow: none;
+  }
+  body.lms-pro .brand strong {
+    color: var(--pro-text);
+    font-size: .92rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+  body.lms-pro .brand small {
+    color: var(--pro-text-muted);
+    font-size: .73rem;
+  }
+}
+
+/* ---- P-3. Sidebar nav ---- */
+@media (min-width: 1024px) {
+  body.lms-pro .main-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1px;
+    margin: 0;
+    flex: 1 1 auto;
+  }
+  body.lms-pro .main-nav a {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .5rem .7rem;
+    border-radius: 6px;
+    color: var(--pro-text-muted);
+    font-size: .92rem;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    transition: background-color .12s ease, color .12s ease;
+    transform: none;
+  }
+  body.lms-pro .main-nav a:hover {
+    background: var(--pro-surface-2);
+    color: var(--pro-text);
+    text-decoration: none;
+    transform: none;
+    box-shadow: none;
+  }
+  body.lms-pro .main-nav a[aria-current="page"] {
+    background: var(--pro-surface-2);
+    color: var(--pro-text);
+    font-weight: 600;
+    box-shadow: none;
+  }
+  body.lms-pro .main-nav a[aria-current="page"]::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    inset-inline-end: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 18px;
+    background: var(--pro-brand);
+    border-radius: 2px;
+    box-shadow: none;
+  }
+  body.lms-pro .main-nav a[aria-current="page"]::after { opacity: 1; }
+  /* icons inherit from app-shell block (mask-image rules); recolor to muted */
+  body.lms-pro .main-nav a::after {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    -webkit-mask-size: 18px 18px;
+            mask-size: 18px 18px;
+    background-color: currentColor;
+    opacity: .8;
+    transform: none;
+  }
+  body.lms-pro .main-nav a:hover::after { opacity: 1; transform: none; }
+  body.lms-pro .main-nav a[aria-current="page"]::after { opacity: 1; color: var(--pro-brand); }
+
+  /* Header-actions (theme toggle + print) at sidebar bottom */
+  body.lms-pro .header-actions {
+    flex-direction: row;
+    gap: .35rem;
+    padding: .75rem .15rem 0;
+    margin-top: .35rem;
+    border-top: 1px solid var(--pro-border);
+    border-bottom: 0;
+  }
+  body.lms-pro .header-actions .icon-btn {
+    flex: 1 1 auto;
+    height: 34px;
+    background: var(--pro-surface);
+    border: 1px solid var(--pro-border-strong);
+    color: var(--pro-text-muted);
+    border-radius: 6px;
+    box-shadow: none;
+    font-size: .92rem;
+    transition: background-color .12s ease, color .12s ease;
+  }
+  body.lms-pro .header-actions .icon-btn:hover {
+    background: var(--pro-surface-2);
+    color: var(--pro-text);
+    transform: none;
+    box-shadow: none;
+  }
+  /* Law notice at bottom of sidebar */
+  body.lms-pro .law-notice {
+    margin: .75rem 0 0;
+    padding: .55rem .65rem;
+    background: var(--pro-surface-2);
+    border: 1px solid var(--pro-border);
+    border-radius: 6px;
+    color: var(--pro-text-muted);
+    font-size: .72rem;
+    line-height: 1.45;
+    text-align: start;
+    font-weight: 500;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+  }
+  body.lms-pro .skip-link {
+    background: var(--pro-text);
+    color: var(--pro-bg);
+  }
+}
+
+/* ---- P-4. Main content area: wide, centered, generous ---- */
+@media (min-width: 1024px) {
+  body.lms-pro .site-main {
+    max-width: 1080px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2.25rem 2.5rem 4rem;
+    position: relative;
+    z-index: 1;
+  }
+  body.lms-pro .site-footer {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2.5rem 2.5rem 3rem;
+    border-top: 1px solid var(--pro-border);
+    color: var(--pro-text-muted);
+    background: transparent;
+  }
+  body.lms-pro .site-footer a { color: var(--pro-text-muted); }
+  body.lms-pro .site-footer a:hover { color: var(--pro-text); text-decoration: underline; }
+}
+
+/* ---- P-5. Typography ---- */
+body.lms-pro {
+  font-size: 15px;
+  line-height: 1.65;
+}
+body.lms-pro h1, body.lms-pro h2, body.lms-pro h3, body.lms-pro h4 {
+  color: var(--pro-text);
+  letter-spacing: -.014em;
+  text-wrap: balance;
+}
+body.lms-pro h1 {
+  font-size: clamp(1.85rem, 2.6vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  text-shadow: none;
+  background: none;
+  -webkit-background-clip: initial;
+          background-clip: initial;
+  color: var(--pro-text);
+}
+body.lms-pro h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.5rem;
+}
+body.lms-pro h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+body.lms-pro p { color: var(--pro-text); }
+body.lms-pro .muted,
+body.lms-pro .field-help { color: var(--pro-text-muted); }
+
+/* ---- P-6. Hero / page-hero: documentation-style header strip ---- */
+body.lms-pro .hero-modern,
+body.lms-pro .page-hero,
+body.lms-pro .learner-dashboard-hero {
+  display: block;
+  background: transparent;
+  background-image: none !important;
+  border: 0;
+  border-bottom: 1px solid var(--pro-border);
+  box-shadow: none;
+  border-radius: 0;
+  padding: .25rem 0 1.5rem;
+  margin: 0 0 2rem;
+  min-height: 0;
+  max-height: none;
+  color: var(--pro-text);
+  overflow: visible;
+  isolation: auto;
+}
+body.lms-pro .hero-modern::before,
+body.lms-pro .hero-modern::after,
+body.lms-pro .page-hero::before,
+body.lms-pro .page-hero::after,
+body.lms-pro .learner-dashboard-hero::before,
+body.lms-pro .learner-dashboard-hero::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+body.lms-pro .hero-modern h1,
+body.lms-pro .page-hero h1,
+body.lms-pro .learner-dashboard-hero h1 {
+  background: none;
+  -webkit-background-clip: initial;
+          background-clip: initial;
+  color: var(--pro-text);
+  text-shadow: none;
+  margin: .25rem 0 .55rem;
+  font-size: clamp(1.85rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  max-width: 70ch;
+}
+body.lms-pro .hero-modern p,
+body.lms-pro .page-hero p,
+body.lms-pro .learner-dashboard-hero p:not(.kicker) {
+  color: var(--pro-text-muted);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  max-width: 72ch;
+  margin: 0;
+  opacity: 1;
+  text-wrap: pretty;
+}
+body.lms-pro .hero-modern .kicker,
+body.lms-pro .page-hero .kicker,
+body.lms-pro .learner-dashboard-hero .kicker {
+  display: inline-block;
+  margin: 0 0 .55rem;
+  padding: .18rem .5rem;
+  background: var(--pro-brand-soft);
+  border: 1px solid var(--pro-brand-soft-2);
+  color: var(--pro-brand-2);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+}
+body.lms-pro .hero-modern .kicker::before,
+body.lms-pro .page-hero .kicker::before,
+body.lms-pro .learner-dashboard-hero .kicker::before { content: none !important; display: none !important; }
+html[data-theme="dark"] body.lms-pro .hero-modern .kicker,
+html[data-theme="dark"] body.lms-pro .page-hero .kicker,
+html[data-theme="dark"] body.lms-pro .learner-dashboard-hero .kicker { color: var(--pro-brand); }
+
+body.lms-pro .hero-graphic { display: none; }
+
+body.lms-pro .hero-cta {
+  margin: 1rem 0 0;
+  gap: .55rem;
+}
+body.lms-pro .hero-cta .btn,
+body.lms-pro .btn {
+  min-height: 36px;
+  padding: .5rem .95rem;
+  font-size: .92rem;
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: none;
+  border: 1px solid var(--pro-text);
+  background: var(--pro-text);
+  color: var(--pro-bg);
+  transition: background-color .12s ease, border-color .12s ease;
+}
+body.lms-pro .hero-cta .btn:hover,
+body.lms-pro .btn:hover {
+  background: var(--pro-text-muted);
+  border-color: var(--pro-text-muted);
+  color: var(--pro-bg);
+  transform: none;
+  box-shadow: none;
+}
+body.lms-pro .hero-cta .btn.primary {
+  background: var(--pro-brand);
+  border-color: var(--pro-brand);
+  color: #fff;
+}
+body.lms-pro .hero-cta .btn.primary:hover {
+  background: var(--pro-brand-2);
+  border-color: var(--pro-brand-2);
+}
+body.lms-pro .hero-cta .btn.ghost,
+body.lms-pro .hero-cta .btn.secondary,
+body.lms-pro .btn.secondary {
+  background: var(--pro-surface);
+  color: var(--pro-text);
+  border: 1px solid var(--pro-border-strong);
+}
+body.lms-pro .hero-cta .btn.ghost:hover,
+body.lms-pro .hero-cta .btn.secondary:hover,
+body.lms-pro .btn.secondary:hover {
+  background: var(--pro-surface-2);
+  color: var(--pro-text);
+  border-color: var(--pro-border-strong);
+}
+body.lms-pro .btn.danger {
+  background: #b54330;
+  border-color: #b54330;
+  color: #fff;
+}
+body.lms-pro .hero-mini-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 1.5rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--pro-border);
+  border-bottom: 0;
+  color: var(--pro-text-muted);
+  opacity: 1;
+}
+body.lms-pro .hero-mini-stats span {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--pro-text-subtle);
+}
+body.lms-pro .hero-mini-stats strong {
+  background: none;
+  -webkit-background-clip: initial;
+          background-clip: initial;
+  color: var(--pro-text);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  text-transform: none;
+}
+
+/* ---- P-7. Cards (Notion-style: clean, subtle border + hover) ---- */
+body.lms-pro .nav-hub-card,
+body.lms-pro .lesson-card,
+body.lms-pro .hub-card,
+body.lms-pro .term-card,
+body.lms-pro .law-card,
+body.lms-pro .professional-card,
+body.lms-pro .checklist-card,
+body.lms-pro .related-panel,
+body.lms-pro .professional-extension,
+body.lms-pro .content-section,
+body.lms-pro .toolbar-panel,
+body.lms-pro .notes-panel,
+body.lms-pro .quiz-app,
+body.lms-pro .assistant-layout,
+body.lms-pro .panel,
+body.lms-pro .lesson-section,
+body.lms-pro .search-hit,
+body.lms-pro .question-card,
+body.lms-pro .metric-modern,
+body.lms-pro .metric,
+body.lms-pro .learner-dashboard-card,
+body.lms-pro .info-card,
+body.lms-pro .continue-card,
+body.lms-pro .user-progress-panel {
+  background: var(--pro-surface);
+  border: 1px solid var(--pro-border);
+  border-radius: 10px;
+  color: var(--pro-text);
+  padding: 1.25rem;
+  box-shadow: var(--pro-shadow-card);
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  transition: border-color .15s ease, box-shadow .18s ease;
+  position: relative;
+  isolation: auto;
+  overflow: visible;
+}
+body.lms-pro .nav-hub-card:hover,
+body.lms-pro .lesson-card:hover,
+body.lms-pro .hub-card:hover,
+body.lms-pro .term-card:hover,
+body.lms-pro .law-card:hover,
+body.lms-pro .professional-card:hover,
+body.lms-pro .metric-modern:hover,
+body.lms-pro .question-card:hover,
+body.lms-pro .learner-dashboard-card:hover,
+body.lms-pro .checklist-card:hover {
+  transform: none;
+  border-color: var(--pro-border-strong);
+  background: var(--pro-surface);
+  box-shadow: var(--pro-shadow-hover);
+}
+body.lms-pro .nav-hub-card { display: flex; flex-direction: column; gap: .55rem; padding: 1.35rem; }
+body.lms-pro .nav-hub-card h3 {
+  color: var(--pro-text);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -.01em;
+}
+body.lms-pro .nav-hub-card p {
+  color: var(--pro-text-muted);
+  font-size: .92rem;
+  line-height: 1.55;
+  margin: 0;
+}
+body.lms-pro .hub-card {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 1.35rem;
+}
+body.lms-pro .hub-card h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -.01em;
+}
+body.lms-pro .hub-card p { color: var(--pro-text-muted); font-size: .92rem; line-height: 1.55; margin: 0; }
+
+/* Card icons */
+body.lms-pro .card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--pro-surface-2);
+  color: var(--pro-brand);
+  font-size: 1rem;
+  box-shadow: none;
+  margin-bottom: .25rem;
+}
+body.lms-pro .nav-hub-card:hover .card-icon { background: var(--pro-surface-hi); transform: none; box-shadow: none; }
+body.lms-pro .card-icon.ico-ok     { color: var(--ok);     background: var(--ok-soft); }
+body.lms-pro .card-icon.ico-warn   { color: var(--warn);   background: var(--warn-soft); }
+body.lms-pro .card-icon.ico-danger { color: var(--danger); background: var(--danger-soft); }
+body.lms-pro .card-icon.ico-accent { color: var(--accent-2); background: color-mix(in srgb, var(--accent-2) 10%, var(--pro-surface)); }
+html[data-theme="dark"] body.lms-pro .card-icon { background: var(--pro-surface-2); }
+html[data-theme="dark"] body.lms-pro .card-icon.ico-ok     { background: rgba(76, 194, 138, 0.14); }
+html[data-theme="dark"] body.lms-pro .card-icon.ico-warn   { background: rgba(240, 169, 72, 0.14); }
+html[data-theme="dark"] body.lms-pro .card-icon.ico-danger { background: rgba(239, 108, 90, 0.14); }
+
+/* Lesson cards */
+body.lms-pro .lesson-card {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: .85rem;
+  padding: 1.15rem 1.25rem;
+}
+body.lms-pro .lesson-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--pro-surface-2);
+  color: var(--pro-brand);
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: none;
+}
+body.lms-pro .lesson-card:hover .lesson-num {
+  background: var(--pro-surface-hi);
+  box-shadow: none;
+  transform: none;
+}
+body.lms-pro .lesson-card h3 { margin: 0 0 .25rem; font-size: 1.02rem; }
+body.lms-pro .lesson-card h3 a {
+  color: var(--pro-text);
+  font-weight: 700;
+  border-bottom: 0;
+  text-decoration: none;
+}
+body.lms-pro .lesson-card h3 a:hover {
+  color: var(--pro-brand-2);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  border-bottom: 0;
+}
+body.lms-pro .lesson-card p { color: var(--pro-text-muted); font-size: .9rem; line-height: 1.55; margin: .15rem 0 .65rem; }
+
+/* Native progress reset for LMS */
+body.lms-pro progress {
+  height: 4px;
+  background: var(--pro-surface-2);
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+body.lms-pro progress::-webkit-progress-bar { background: var(--pro-surface-2); border-radius: 999px; }
+body.lms-pro progress::-webkit-progress-value {
+  background: var(--pro-brand);
+  border-radius: 999px;
+  box-shadow: none;
+}
+body.lms-pro progress::-moz-progress-bar {
+  background: var(--pro-brand);
+  border-radius: 999px;
+}
+body.lms-pro progress[value="100"]::-webkit-progress-value { background: var(--ok); }
+body.lms-pro progress[value="100"]::-moz-progress-bar { background: var(--ok); }
+
+/* ---- P-8. Metrics — Notion-style stat blocks ---- */
+body.lms-pro .metric-modern,
+body.lms-pro .metric {
+  padding: 1rem 1.1rem;
+  text-align: start;
+}
+body.lms-pro .metric-modern::before { content: none !important; display: none !important; }
+body.lms-pro .metric-modern strong,
+body.lms-pro .metric strong {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: none;
+  -webkit-background-clip: initial;
+          background-clip: initial;
+  color: var(--pro-text);
+  letter-spacing: -.015em;
+  margin-bottom: .15rem;
+}
+body.lms-pro .metric-modern.metric-ok     strong { color: var(--ok); }
+body.lms-pro .metric-modern.metric-warn   strong { color: var(--warn); }
+body.lms-pro .metric-modern.metric-accent strong { color: var(--accent-2); }
+html[data-theme="dark"] body.lms-pro .metric-modern.metric-ok     strong { color: #6bd3a3; }
+html[data-theme="dark"] body.lms-pro .metric-modern.metric-warn   strong { color: #f0b876; }
+html[data-theme="dark"] body.lms-pro .metric-modern.metric-accent strong { color: #b8a1f8; }
+body.lms-pro .metric-modern span,
+body.lms-pro .metric span {
+  color: var(--pro-text-muted);
+  font-size: .78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+/* ---- P-9. Section titles ---- */
+body.lms-pro .section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+body.lms-pro .section-title h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+  background: none;
+  -webkit-background-clip: initial;
+          background-clip: initial;
+  color: var(--pro-text);
+  letter-spacing: -.015em;
+}
+body.lms-pro .section-title h2::before { content: none !important; display: none !important; }
+body.lms-pro .section-title p {
+  color: var(--pro-text-muted);
+  font-size: .92rem;
+  margin: .2rem 0 0;
+}
+
+/* ---- P-10. Inputs (Linear-style: tight, focused) ---- */
+body.lms-pro input,
+body.lms-pro select,
+body.lms-pro textarea {
+  background: var(--pro-surface);
+  color: var(--pro-text);
+  border: 1px solid var(--pro-border-strong);
+  border-radius: 6px;
+  font-size: .92rem;
+  padding: .48rem .7rem;
+  transition: border-color .12s ease, box-shadow .12s ease;
+}
+body.lms-pro input:focus,
+body.lms-pro select:focus,
+body.lms-pro textarea:focus {
+  outline: none;
+  border-color: var(--pro-brand);
+  box-shadow: 0 0 0 3px var(--pro-brand-soft-2);
+}
+body.lms-pro label span {
+  color: var(--pro-text-muted);
+  font-size: .8rem;
+  font-weight: 600;
+  margin-bottom: .25rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ---- P-11. Breadcrumb (clean) ---- */
+body.lms-pro .breadcrumb {
+  background: transparent;
+  border: 0;
+  padding: 0 0 1.25rem;
+  margin: 0;
+  color: var(--pro-text-muted);
+  font-size: .85rem;
+  box-shadow: none;
+}
+body.lms-pro .breadcrumb a {
+  color: var(--pro-text-muted);
+  text-decoration: none;
+}
+body.lms-pro .breadcrumb a:hover {
+  color: var(--pro-text);
+  text-decoration: underline;
+}
+body.lms-pro .breadcrumb [aria-hidden="true"] {
+  color: var(--pro-text-subtle);
+  margin: 0 .35rem;
+}
+body.lms-pro .breadcrumb [aria-current],
+body.lms-pro .breadcrumb > span:last-child {
+  color: var(--pro-text);
+  font-weight: 600;
+}
+
+/* ---- P-12. Tags / chips / badges ---- */
+body.lms-pro .chip-list { gap: .35rem; margin: .55rem 0; }
+body.lms-pro .chip-list span,
+body.lms-pro .tag {
+  background: var(--pro-surface-2);
+  border: 1px solid var(--pro-border);
+  color: var(--pro-text-muted);
+  font-size: .72rem;
+  font-weight: 600;
+  padding: .12rem .5rem;
+  border-radius: 4px;
+  letter-spacing: .02em;
+}
+body.lms-pro .tag-info    { background: var(--pro-brand-soft); border-color: var(--pro-brand-soft-2); color: var(--pro-brand-2); }
+body.lms-pro .tag-warn    { background: rgba(196,116,2,.08); border-color: rgba(196,116,2,.22); color: #8d5301; }
+body.lms-pro .tag-danger  { background: rgba(165,42,28,.08); border-color: rgba(165,42,28,.22); color: #862419; }
+body.lms-pro .tag-ok      { background: rgba(31,122,77,.08); border-color: rgba(31,122,77,.22); color: #155838; }
+body.lms-pro .tag-accent  { background: rgba(107,63,160,.08); border-color: rgba(107,63,160,.22); color: #553388; }
+body.lms-pro .tag-neutral { background: var(--pro-surface-2); border-color: var(--pro-border); color: var(--pro-text-muted); }
+html[data-theme="dark"] body.lms-pro .tag-info    { color: var(--pro-brand-2); }
+html[data-theme="dark"] body.lms-pro .tag-warn    { color: #f0b876; background: rgba(240,169,72,.10); border-color: rgba(240,169,72,.25); }
+html[data-theme="dark"] body.lms-pro .tag-danger  { color: #ef9b8e; background: rgba(239,108,90,.10); border-color: rgba(239,108,90,.25); }
+html[data-theme="dark"] body.lms-pro .tag-ok      { color: #8bd9b1; background: rgba(76,194,138,.10); border-color: rgba(76,194,138,.25); }
+html[data-theme="dark"] body.lms-pro .tag-accent  { color: #c5b1f5; background: rgba(183,148,244,.10); border-color: rgba(183,148,244,.25); }
+
+/* difficulty chips */
+body.lms-pro .difficulty-chip-easy   { background: rgba(31,122,77,.08);  color: #155838; border-color: rgba(31,122,77,.25); }
+body.lms-pro .difficulty-chip-medium { background: rgba(196,116,2,.08);  color: #8d5301; border-color: rgba(196,116,2,.25); }
+body.lms-pro .difficulty-chip-hard   { background: rgba(165,42,28,.08);  color: #862419; border-color: rgba(165,42,28,.25); }
+html[data-theme="dark"] body.lms-pro .difficulty-chip-easy   { color: #8bd9b1; background: rgba(76,194,138,.10); }
+html[data-theme="dark"] body.lms-pro .difficulty-chip-medium { color: #f0b876; background: rgba(240,169,72,.10); }
+html[data-theme="dark"] body.lms-pro .difficulty-chip-hard   { color: #ef9b8e; background: rgba(239,108,90,.10); }
+
+/* ---- P-13. Callouts — unified documentation system ---- */
+body.lms-pro .callout,
+body.lms-pro .callout-summary,
+body.lms-pro .callout-exam,
+body.lms-pro .callout-mistake,
+body.lms-pro .callout-tip,
+body.lms-pro .callout-ok {
+  background: var(--pro-surface-2);
+  border: 1px solid var(--pro-border);
+  border-inline-start: 3px solid var(--pro-border-strong);
+  border-radius: 8px;
+  padding: .95rem 1.1rem;
+  margin: 1.1rem 0;
+  color: var(--pro-text);
+}
+body.lms-pro .callout strong { color: var(--pro-text); }
+body.lms-pro .callout p:last-child,
+body.lms-pro .callout ul:last-child { margin-bottom: 0; }
+body.lms-pro .callout-title {
+  font-weight: 700;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  margin: 0 0 .35rem;
+  font-size: .98rem;
+  color: var(--pro-text);
+}
+body.lms-pro .callout-summary {
+  border-inline-start-color: var(--pro-brand);
+  background: var(--pro-brand-soft);
+}
+body.lms-pro .callout-exam {
+  border-inline-start-color: #c47402;
+  background: rgba(196, 116, 2, .06);
+}
+body.lms-pro .callout-mistake {
+  border-inline-start-color: #b54330;
+  background: rgba(181, 67, 48, .06);
+}
+body.lms-pro .callout-tip {
+  border-inline-start-color: #6b3fa0;
+  background: rgba(107, 63, 160, .06);
+}
+body.lms-pro .callout-ok {
+  border-inline-start-color: var(--ok);
+  background: rgba(31, 122, 77, .06);
+}
+html[data-theme="dark"] body.lms-pro .callout-summary { background: rgba(122,184,216,.08); }
+html[data-theme="dark"] body.lms-pro .callout-exam    { background: rgba(240,169,72,.08); }
+html[data-theme="dark"] body.lms-pro .callout-mistake { background: rgba(239,108,90,.08); }
+html[data-theme="dark"] body.lms-pro .callout-tip     { background: rgba(183,148,244,.08); }
+html[data-theme="dark"] body.lms-pro .callout-ok      { background: rgba(76,194,138,.08); }
+
+/* New named callout types via data attribute */
+body.lms-pro [data-callout="legal"] {
+  display: block;
+  background: var(--pro-brand-soft);
+  border: 1px solid var(--pro-brand-soft-2);
+  border-inline-start: 3px solid var(--pro-brand);
+  border-radius: 8px;
+  padding: .95rem 1.1rem;
+  margin: 1.1rem 0;
+}
+body.lms-pro [data-callout="exam-tip"] {
+  display: block;
+  background: rgba(107, 63, 160, .06);
+  border: 1px solid rgba(107, 63, 160, .18);
+  border-inline-start: 3px solid #6b3fa0;
+  border-radius: 8px;
+  padding: .95rem 1.1rem;
+  margin: 1.1rem 0;
+}
+body.lms-pro [data-callout="important"] {
+  display: block;
+  background: rgba(196, 116, 2, .06);
+  border: 1px solid rgba(196, 116, 2, .22);
+  border-inline-start: 3px solid #c47402;
+  border-radius: 8px;
+  padding: .95rem 1.1rem;
+  margin: 1.1rem 0;
+}
+body.lms-pro [data-callout="common-mistake"] {
+  display: block;
+  background: rgba(181, 67, 48, .06);
+  border: 1px solid rgba(181, 67, 48, .22);
+  border-inline-start: 3px solid #b54330;
+  border-radius: 8px;
+  padding: .95rem 1.1rem;
+  margin: 1.1rem 0;
+}
+
+/* ---- P-14. Accordions — native <details> ---- */
+body.lms-pro details {
+  background: var(--pro-surface);
+  border: 1px solid var(--pro-border);
+  border-radius: 8px;
+  padding: 0;
+  margin-bottom: .55rem;
+  overflow: hidden;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+body.lms-pro details[open] {
+  border-color: var(--pro-border-strong);
+  box-shadow: var(--pro-shadow-card);
+}
+body.lms-pro details > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .85rem 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--pro-text);
+  user-select: none;
+  transition: background-color .12s ease;
+}
+body.lms-pro details > summary::-webkit-details-marker { display: none; }
+body.lms-pro details > summary::before {
+  content: "›";
+  display: inline-block;
+  width: 1em;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--pro-text-muted);
+  transition: transform .18s ease;
+}
+body.lms-pro details[open] > summary::before { transform: rotate(90deg); }
+body.lms-pro details > summary:hover {
+  background: var(--pro-surface-2);
+}
+body.lms-pro details > *:not(summary) {
+  padding: 0 1.1rem 1rem;
+  color: var(--pro-text);
+  line-height: 1.65;
+}
+body.lms-pro details > p:first-of-type:not(summary) { padding-top: 0; }
+
+/* ---- P-15. Tabs (CSS-only via :checked or HTML5 details/tabs) ---- */
+body.lms-pro .tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body.lms-pro .tabs-nav {
+  display: flex;
+  gap: .25rem;
+  border-bottom: 1px solid var(--pro-border);
+  padding: 0;
+  margin: 0;
+}
+body.lms-pro .tabs-nav button,
+body.lms-pro .tabs-nav a {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: .55rem .85rem;
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--pro-text-muted);
+  cursor: pointer;
+  border-radius: 0;
+  transition: color .12s ease, border-color .12s ease;
+}
+body.lms-pro .tabs-nav button:hover,
+body.lms-pro .tabs-nav a:hover {
+  color: var(--pro-text);
+}
+body.lms-pro .tabs-nav button[aria-selected="true"],
+body.lms-pro .tabs-nav a[aria-current="true"] {
+  color: var(--pro-text);
+  border-bottom-color: var(--pro-brand);
+}
+
+/* ---- P-16. TOC (sticky right-side, RTL-aware) ---- */
+body.lms-pro .toc {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-size: .88rem;
+  color: var(--pro-text-muted);
+}
+body.lms-pro .toc h4,
+body.lms-pro .toc-title {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--pro-text-subtle);
+  margin: 0 0 .55rem;
+}
+body.lms-pro .toc ul,
+body.lms-pro .toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-inline-start: 1px solid var(--pro-border);
+}
+body.lms-pro .toc li { margin: 0; }
+body.lms-pro .toc a {
+  display: block;
+  padding: .3rem .65rem;
+  font-size: .88rem;
+  color: var(--pro-text-muted);
+  text-decoration: none;
+  border-inline-start: 2px solid transparent;
+  margin-inline-start: -1px;
+  transition: color .12s ease, border-color .12s ease;
+}
+body.lms-pro .toc a:hover {
+  color: var(--pro-text);
+  border-inline-start-color: var(--pro-border-strong);
+}
+body.lms-pro .toc a.is-active,
+body.lms-pro .toc a[aria-current="true"] {
+  color: var(--pro-brand);
+  border-inline-start-color: var(--pro-brand);
+  font-weight: 600;
+}
+
+/* Page-with-toc layout */
+@media (min-width: 1100px) {
+  body.lms-pro .page-with-toc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  body.lms-pro .page-with-toc .toc-aside {
+    position: sticky;
+    top: 1.5rem;
+    align-self: start;
+    padding-inline-start: 1.25rem;
+  }
+}
+@media (max-width: 1099px) {
+  body.lms-pro .page-with-toc .toc-aside { display: none; }
+}
+
+/* ---- P-17. Tables — Notion-clean ---- */
+body.lms-pro .data-table,
+body.lms-pro table {
+  width: 100%;
+  background: transparent;
+  color: var(--pro-text);
+  border-collapse: collapse;
+}
+body.lms-pro .data-table th,
+body.lms-pro table th {
+  background: var(--pro-surface-2);
+  color: var(--pro-text-muted);
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--pro-border);
+  padding: .7rem .85rem;
+  text-align: start;
+}
+body.lms-pro .data-table td,
+body.lms-pro table td {
+  color: var(--pro-text);
+  border-bottom: 1px solid var(--pro-border);
+  padding: .75rem .85rem;
+  font-size: .94rem;
+  vertical-align: top;
+}
+body.lms-pro .data-table tr:last-child td,
+body.lms-pro table tr:last-child td { border-bottom: 0; }
+body.lms-pro .data-table tr:hover td,
+body.lms-pro table tbody tr:hover td { background: var(--pro-surface-2); }
+body.lms-pro .table-wrap,
+body.lms-pro .table-responsive,
+body.lms-pro .table-scroll {
+  background: var(--pro-surface);
+  border: 1px solid var(--pro-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Syllabus table fallback — keep table semantics, just style cleanly */
+body.lms-pro.syllabus-page .syllabus-table thead { display: table-header-group; }
+body.lms-pro.syllabus-page .syllabus-table tbody { display: table-row-group; }
+body.lms-pro.syllabus-page .syllabus-table tr { display: table-row; background: transparent; border: 0; box-shadow: none; padding: 0; }
+body.lms-pro.syllabus-page .syllabus-table td {
+  display: table-cell;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--pro-border);
+  padding: .75rem .85rem;
+  font-size: .94rem;
+  color: var(--pro-text);
+  margin: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  font-weight: normal;
+  box-shadow: none;
+}
+body.lms-pro.syllabus-page .syllabus-table td:nth-child(1) {
+  font-weight: 700;
+  color: var(--pro-text-muted);
+  width: 64px;
+  vertical-align: top;
+}
+body.lms-pro.syllabus-page .syllabus-table td:nth-child(2) {
+  font-weight: 600;
+}
+body.lms-pro.syllabus-page .syllabus-table td:nth-child(2) a {
+  color: var(--pro-text);
+  text-decoration: none;
+  border: 0;
+}
+body.lms-pro.syllabus-page .syllabus-table td:nth-child(2) a:hover {
+  color: var(--pro-brand-2);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+body.lms-pro.syllabus-page .syllabus-table td:nth-child(3),
+body.lms-pro.syllabus-page .syllabus-table td:nth-child(4) {
+  font-size: .82rem;
+  color: var(--pro-text-muted);
+}
+body.lms-pro.syllabus-page .syllabus-table td:nth-child(4) {
+  /* status pill */
+  font-weight: 600;
+}
+body.lms-pro.syllabus-page .syllabus-table td:nth-child(5) {
+  font-size: .85rem;
+  color: var(--pro-text-muted);
+}
+
+/* ---- P-18. Grids — modular, generous spacing ---- */
+body.lms-pro .nav-hub-grid,
+body.lms-pro .lesson-grid,
+body.lms-pro .hub-grid,
+body.lms-pro .dashboard-grid,
+body.lms-pro .professional-grid,
+body.lms-pro .checklist-grid,
+body.lms-pro .term-grid,
+body.lms-pro .law-grid {
+  gap: 1rem;
+}
+body.lms-pro .nav-hub-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+body.lms-pro .lesson-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+body.lms-pro .hub-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+body.lms-pro .dashboard-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+
+/* Reset asymmetric layouts from earlier blocks */
+body.lms-pro[data-page-title="דף הבית"] .nav-hub-grid > :nth-child(1),
+body.lms-pro[data-page-title="דף הבית"] .dashboard-grid > :nth-child(1),
+body.lms-pro[data-page-title="דף הבית"] .dashboard-grid > :nth-child(5),
+body.lms-pro[data-page-title="תרגול ומבחנים"] .hub-grid > :first-child {
+  grid-column: auto;
+  grid-row: auto;
+  background: var(--pro-surface);
+  border-color: var(--pro-border);
+  padding: 1.35rem;
+  box-shadow: var(--pro-shadow-card);
+}
+body.lms-pro[data-page-title="דף הבית"] .nav-hub-grid > :nth-child(1) .card-icon { width: 36px; height: 36px; font-size: 1rem; }
+body.lms-pro[data-page-title="דף הבית"] .nav-hub-grid > :nth-child(1) h3 { font-size: 1.05rem; }
+body.lms-pro[data-page-title="דף הבית"] .nav-hub-grid > :nth-child(1) p { font-size: .92rem; }
+body.lms-pro[data-page-title="דף הבית"] .dashboard-grid > :nth-child(1) strong,
+body.lms-pro[data-page-title="דף הבית"] .dashboard-grid > :nth-child(5) strong { font-size: 1.6rem; }
+
+/* Next-actions chips */
+body.lms-pro .next-actions { gap: .5rem; margin: 1rem 0 1.5rem; }
+body.lms-pro .next-action-chip {
+  background: var(--pro-surface);
+  border: 1px solid var(--pro-border-strong);
+  color: var(--pro-text);
+  padding: .45rem .8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: .88rem;
+  transition: background-color .12s ease, border-color .12s ease;
+  box-shadow: none;
+}
+body.lms-pro .next-action-chip:hover {
+  background: var(--pro-surface-2);
+  border-color: var(--pro-border-strong);
+  transform: none;
+  box-shadow: none;
+  color: var(--pro-text);
+}
+
+/* ---- P-19. my-progress (learner-dashboard) ---- */
+body.lms-pro.learner-dashboard-page,
+body.lms-pro .learner-dashboard {
+  background: var(--pro-bg);
+  color: var(--pro-text);
+}
+body.lms-pro .learner-dashboard {
+  width: min(1080px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.5rem 0 4rem;
+  display: grid;
+  gap: 1.25rem;
+}
+@media (min-width: 1024px) {
+  body.lms-pro .learner-dashboard {
+    width: 100%;
+    max-width: 1080px;
+    padding: 2.25rem 0 4rem;
+  }
+}
+body.lms-pro .learner-dashboard-hero {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0;
+  border-bottom: 1px solid var(--pro-border);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 0 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--pro-text);
+}
+body.lms-pro .learner-dashboard-hero h1 {
+  color: var(--pro-text);
+  background: none;
+  -webkit-background-clip: initial;
+          background-clip: initial;
+  font-size: clamp(1.85rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  margin: .25rem 0 .5rem;
+}
+body.lms-pro .learner-dashboard-card { padding: 1.25rem; }
+body.lms-pro .learner-dashboard-card .kicker {
+  display: inline-block;
+  margin: 0 0 .35rem;
+  padding: .14rem .5rem;
+  background: var(--pro-brand-soft);
+  border: 1px solid var(--pro-brand-soft-2);
+  color: var(--pro-brand-2);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+html[data-theme="dark"] body.lms-pro .learner-dashboard-card .kicker { color: var(--pro-brand); }
+body.lms-pro .learner-dashboard-card h2 { font-size: 1.05rem; font-weight: 700; margin: 0 0 .5rem; }
+body.lms-pro .learner-topic-list { padding: 0; margin: .35rem 0 0; list-style: none; }
+body.lms-pro .learner-topic-list li {
+  padding: .45rem 0;
+  border-bottom: 1px solid var(--pro-border);
+  color: var(--pro-text);
+  font-size: .94rem;
+  line-height: 1.5;
+}
+body.lms-pro .learner-topic-list li:last-child { border-bottom: 0; }
+body.lms-pro .learner-privacy-note {
+  background: var(--pro-surface-2);
+  color: var(--pro-text-muted);
+  border: 1px solid var(--pro-border);
+  font-size: .88rem;
+}
+@media (min-width: 1024px) {
+  body.lms-pro .learner-dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  body.lms-pro .learner-summary-card { grid-column: 1 / -1; }
+}
+
+/* ---- P-20. Continue card / user-progress panel ---- */
+body.lms-pro .continue-card {
+  border-inline-start: 3px solid var(--pro-brand);
+  background: var(--pro-brand-soft);
+  border-color: var(--pro-brand-soft-2);
+  padding: 1.1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: none;
+}
+body.lms-pro .continue-card h3 { color: var(--pro-text); }
+body.lms-pro .continue-card .meta-row { color: var(--pro-text-muted); }
+
+body.lms-pro .user-progress-panel {
+  background: var(--pro-surface);
+  padding: 1.25rem;
+}
+body.lms-pro .m-progress-summary {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+body.lms-pro .m-progress-ring {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: conic-gradient(var(--pro-brand) calc(var(--p, 0%) * 1), var(--pro-surface-2) 0) !important;
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: none;
+}
+body.lms-pro .m-progress-ring::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  background: var(--pro-surface);
+  border-radius: 50%;
+}
+body.lms-pro .m-progress-ring strong {
+  position: relative;
+  font-size: 1.05rem;
+  color: var(--pro-text);
+  background: none;
+  -webkit-background-clip: initial;
+          background-clip: initial;
+}
+body.lms-pro .m-progress-ring span { position: relative; color: var(--pro-text-muted); font-size: .72rem; }
+
+/* ---- P-21. info-card (ui-modern-only on quizzes/exam) ---- */
+body.lms-pro .info-card {
+  display: flex;
+  gap: .85rem;
+  background: var(--pro-surface);
+  border: 1px solid var(--pro-border);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+}
+body.lms-pro .info-card .info-icon {
+  background: var(--pro-surface-2);
+  color: var(--pro-text);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-shadow: none;
+  flex: 0 0 32px;
+  display: grid;
+  place-items: center;
+}
+body.lms-pro .info-card .info-title { color: var(--pro-text); font-weight: 700; }
+body.lms-pro .info-card .info-body p { color: var(--pro-text); }
+
+/* ---- P-22. learning-flow strip ---- */
+body.lms-pro .learning-flow {
+  background: var(--pro-surface-2);
+  border: 1px solid var(--pro-border);
+  border-radius: 8px;
+  padding: .55rem .85rem;
+  font-size: .88rem;
+  color: var(--pro-text-muted);
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  flex-wrap: wrap;
+}
+body.lms-pro .learning-flow span { color: var(--pro-text); font-weight: 600; }
+body.lms-pro .learning-flow span:nth-child(even) { color: var(--pro-text-subtle); font-weight: 500; }
+
+/* ---- P-23. Legal hierarchy (field-tools) ---- */
+body.lms-pro .legal-hierarchy {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+body.lms-pro .legal-rank {
+  background: var(--pro-surface);
+  border: 1px solid var(--pro-border);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  color: var(--pro-text);
+  display: grid;
+  gap: .35rem;
+  position: relative;
+  overflow: visible;
+  isolation: auto;
+  box-shadow: var(--pro-shadow-card);
+}
+body.lms-pro .legal-rank::before { content: none !important; display: none !important; }
+body.lms-pro .legal-rank:hover {
+  border-color: var(--pro-border-strong);
+  box-shadow: var(--pro-shadow-hover);
+  transform: none;
+}
+body.lms-pro .legal-rank-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--pro-surface-2);
+  color: var(--pro-brand);
+  font-size: .85rem;
+  font-weight: 700;
+  box-shadow: none;
+  display: inline-grid;
+  place-items: center;
+}
+body.lms-pro .legal-rank-name { color: var(--pro-text); font-weight: 700; font-size: 1rem; margin-top: .25rem; }
+body.lms-pro .legal-rank-desc { color: var(--pro-text-muted); line-height: 1.55; font-size: .92rem; }
+body.lms-pro .legal-rank-binding {
+  display: inline-block;
+  margin-top: .25rem;
+  padding: .1rem .5rem;
+  border-radius: 4px;
+  font-size: .7rem;
+  font-weight: 700;
+  background: rgba(31, 122, 77, .08);
+  color: #155838;
+  border: 1px solid rgba(31, 122, 77, .22);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+body.lms-pro .legal-rank-binding[data-binding="if-adopted"] {
+  background: rgba(196, 116, 2, .08);
+  color: #8d5301;
+  border-color: rgba(196, 116, 2, .22);
+}
+body.lms-pro .legal-rank-binding[data-binding="optional"] {
+  background: var(--pro-surface-2);
+  color: var(--pro-text-muted);
+  border-color: var(--pro-border);
+}
+html[data-theme="dark"] body.lms-pro .legal-rank-binding { color: #8bd9b1; background: rgba(76,194,138,.10); border-color: rgba(76,194,138,.25); }
+html[data-theme="dark"] body.lms-pro .legal-rank-binding[data-binding="if-adopted"] { color: #f0b876; background: rgba(240,169,72,.10); border-color: rgba(240,169,72,.25); }
+
+/* ---- P-24. Exam / quiz answer styling on light ---- */
+body.lms-pro .answer-list button,
+body.lms-pro .exam-answer {
+  background: var(--pro-surface);
+  border: 1px solid var(--pro-border-strong);
+  color: var(--pro-text);
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  font-size: .94rem;
+  font-weight: 500;
+  text-align: start;
+  transition: background-color .12s ease, border-color .12s ease;
+  box-shadow: none;
+}
+body.lms-pro .answer-list button:hover,
+body.lms-pro .exam-answer:hover {
+  background: var(--pro-surface-2);
+  border-color: var(--pro-border-strong);
+  transform: none;
+  box-shadow: none;
+}
+body.lms-pro .answer-list button.correct {
+  background: rgba(31, 122, 77, .08);
+  border-color: var(--ok);
+  color: #155838;
+}
+body.lms-pro .answer-list button.wrong {
+  background: rgba(181, 67, 48, .06);
+  border-color: #b54330;
+  color: #862419;
+}
+html[data-theme="dark"] body.lms-pro .answer-list button.correct { color: #8bd9b1; background: rgba(76,194,138,.10); }
+html[data-theme="dark"] body.lms-pro .answer-list button.wrong   { color: #ef9b8e; background: rgba(239,108,90,.10); }
+
+body.lms-pro .exam-result details { background: var(--pro-surface); border: 1px solid var(--pro-border); color: var(--pro-text); }
+
+/* ---- P-25. Bottom nav (mobile) — neutralize dark immersive ---- */
+@media (max-width: 1023px) {
+  body.lms-pro .m-bottom-nav {
+    background: var(--pro-surface);
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+    border-top: 1px solid var(--pro-border);
+    box-shadow: 0 -2px 8px rgba(15, 23, 42, .06);
+  }
+  body.lms-pro .m-bottom-nav__item { color: var(--pro-text-muted); }
+  body.lms-pro .m-bottom-nav__item:hover,
+  body.lms-pro .m-bottom-nav__item.is-active {
+    background: var(--pro-surface-2);
+    color: var(--pro-text);
+    box-shadow: none;
+  }
+}
+
+/* ---- P-26. Mobile layout reset ---- */
+@media (max-width: 1023px) {
+  body.lms-pro { padding-inline-start: 0; padding-inline-end: 0; }
+  body.lms-pro .site-header {
+    position: sticky;
+    top: 0;
+    width: auto;
+    height: auto;
+    inset: auto;
+    border-inline-end: 0;
+    border-bottom: 1px solid var(--pro-border);
+    box-shadow: none;
+    background: var(--pro-surface);
+    display: block;
+    overflow: visible;
+  }
+  body.lms-pro .site-header.is-scrolled { box-shadow: 0 2px 8px rgba(15, 23, 42, .05); }
+  body.lms-pro .header-inner {
+    flex-direction: row;
+    height: auto;
+    padding: .9rem 1rem;
+    overflow: visible;
+    gap: 1rem;
+  }
+  body.lms-pro .brand {
+    padding: 0; margin: 0; border-bottom: 0;
+  }
+  body.lms-pro .brand-mark { width: 36px; height: 36px; font-size: .9rem; }
+  body.lms-pro .main-nav { display: none; }
+  body.lms-pro .header-actions {
+    border-top: 0;
+    padding: 0;
+    margin: 0;
+    flex-direction: row;
+  }
+  body.lms-pro .law-notice {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid var(--pro-border);
+    border-radius: 0;
+    text-align: center;
+    background: var(--pro-surface-2);
+    color: var(--pro-text-muted);
+    padding: .45rem 1rem;
+    font-size: .78rem;
+  }
+  body.lms-pro .site-main { padding: 1.25rem 1rem 3rem; }
+  body.lms-pro .site-footer { padding: 2rem 1rem; }
+}
+
+@media (max-width: 480px) {
+  body.lms-pro .site-main { padding: 1rem .85rem 3rem; }
+  body.lms-pro .nav-hub-card { padding: 1.1rem; }
+  body.lms-pro .lesson-card { padding: 1rem 1.1rem; grid-template-columns: 36px 1fr; gap: .7rem; }
+  body.lms-pro .lesson-num { width: 36px; height: 36px; font-size: .9rem; }
+  body.lms-pro .hero-modern h1,
+  body.lms-pro .page-hero h1,
+  body.lms-pro .learner-dashboard-hero h1 { font-size: 1.65rem; }
+  body.lms-pro .hero-mini-stats { gap: 1.25rem; }
+  body.lms-pro .hero-mini-stats strong { font-size: 1.25rem; }
+}
+
+/* ---- P-27. Motion — minimal, subtle ---- */
+@media (prefers-reduced-motion: no-preference) {
+  body.lms-pro main > section,
+  body.lms-pro main > nav,
+  body.lms-pro .learner-dashboard > section,
+  body.lms-pro .learner-dashboard > article {
+    animation: lmsProFade .35s ease-out both;
+  }
+  body.lms-pro main > :nth-child(1),
+  body.lms-pro .learner-dashboard > :nth-child(1) { animation-delay: 0s; }
+  body.lms-pro main > :nth-child(2),
+  body.lms-pro .learner-dashboard > :nth-child(2) { animation-delay: .04s; }
+  body.lms-pro main > :nth-child(3),
+  body.lms-pro .learner-dashboard > :nth-child(3) { animation-delay: .08s; }
+  body.lms-pro main > :nth-child(4),
+  body.lms-pro .learner-dashboard > :nth-child(4) { animation-delay: .12s; }
+  body.lms-pro main > :nth-child(n+5),
+  body.lms-pro .learner-dashboard > :nth-child(n+5) { animation-delay: .16s; }
+}
+@keyframes lmsProFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.lms-pro * { animation: none !important; transition-duration: .01ms !important; }
+}
+
+/* Disable older block animations on lms-pro */
+body.lms-pro .nav-hub-grid > *,
+body.lms-pro .lesson-grid > *,
+body.lms-pro .hub-grid > *,
+body.lms-pro .dashboard-grid > * { animation: none; }
+
+/* ---- P-28. Focus visibility ---- */
+body.lms-pro :focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--pro-brand-soft-2);
+  border-radius: 4px;
+}
+body.lms-pro a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- P-29. Search results / chat polish ---- */
+body.lms-pro .search-results .search-hit mark {
+  background: rgba(196, 116, 2, .25);
+  color: var(--pro-text);
+  padding: 0 .15rem;
+  border-radius: 2px;
+}
+body.lms-pro .message { background: var(--pro-surface); border: 1px solid var(--pro-border); color: var(--pro-text); }
+body.lms-pro .message.user { background: var(--pro-brand-soft); border-color: var(--pro-brand-soft-2); color: var(--pro-text); }
+body.lms-pro .chat-log { background: var(--pro-surface-2); border-radius: 8px; }
+
+/* =========================================================================
+   LMS PRO — END
+   ========================================================================= */
