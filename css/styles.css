@@ -3352,6 +3352,7 @@ html[data-theme="dark"] { --muted: #c4d0da; }
 .m-bottom-nav, .m-sheet, .m-admin-cards { display: none; }
 @media (max-width: 1023px) {
   body.auth-protected.auth-approved { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+  body { --mobile-bottom-nav-height: 78px; }
   body.m-sheet-open { overflow: hidden; }
   .site-header { position: static; }
   .main-nav { display: none !important; }
@@ -11896,12 +11897,22 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
 }
 
 @media (max-width: 520px) {
+  main {
+    padding-bottom: calc(var(--mobile-bottom-nav-height, 78px) + env(safe-area-inset-bottom) + 4rem);
+  }
+
   body:not(.prototype-shell) .read-aloud-widget {
-    inset-inline: .75rem;
-    inset-block-end: .75rem;
+    inset-inline: auto .75rem;
+    inset-block-end: calc(var(--mobile-bottom-nav-height, 78px) + env(safe-area-inset-bottom) + 12px);
     width: auto;
-    max-height: 44vh;
+    max-width: min(430px, calc(100vw - 1.5rem));
+    max-height: calc(100vh - var(--mobile-bottom-nav-height, 78px) - env(safe-area-inset-bottom) - 7rem);
     overflow: auto;
+  }
+
+  body:not(.prototype-shell) .read-aloud-widget[data-state="open"] {
+    inset-inline: .75rem;
+    width: auto;
   }
 
   body:not(.prototype-shell) .read-aloud-settings select {

@@ -24,6 +24,7 @@ body.prototype-shell {
   --proto-sidebar-width: 270px;
   --proto-context-rail-width: clamp(240px, 21vw, 292px);
   --proto-topbar-height: 62px;
+  --mobile-bottom-nav-height: 78px;
   min-height: 100vh;
   display: block !important;
   width: 100%;
@@ -1130,7 +1131,7 @@ body.prototype-shell .knowledge-question {
   body.prototype-shell .proto-app-shell .site-main,
   body.prototype-shell .proto-app-shell .learner-dashboard {
     width: 100%;
-    padding: 1rem .85rem 3rem;
+    padding: 1rem .85rem calc(var(--mobile-bottom-nav-height, 78px) + env(safe-area-inset-bottom) + 4rem);
   }
 
   body.prototype-shell .page-with-toc,
@@ -1145,11 +1146,17 @@ body.prototype-shell .knowledge-question {
   }
 
   body.prototype-shell .read-aloud-widget {
-    inset-inline: .75rem;
-    inset-block-end: .75rem;
+    inset-inline: auto .75rem;
+    inset-block-end: calc(var(--mobile-bottom-nav-height, 78px) + env(safe-area-inset-bottom) + 12px);
     width: auto;
-    max-height: 44vh;
+    max-width: min(430px, calc(100vw - 1.5rem));
+    max-height: calc(100vh - var(--mobile-bottom-nav-height, 78px) - env(safe-area-inset-bottom) - 7rem);
     overflow: auto;
+  }
+
+  body.prototype-shell .read-aloud-widget[data-state="open"] {
+    inset-inline: .75rem;
+    width: auto;
   }
 }
 
@@ -1247,11 +1254,17 @@ body.prototype-shell .knowledge-question {
   }
 
   body.prototype-shell .read-aloud-widget {
-    inset-inline: .75rem;
-    inset-block-end: .75rem;
+    inset-inline: auto .75rem;
+    inset-block-end: calc(var(--mobile-bottom-nav-height, 78px) + env(safe-area-inset-bottom) + 12px);
     width: auto;
-    max-height: 44vh;
+    max-width: min(430px, calc(100vw - 1.5rem));
+    max-height: calc(100vh - var(--mobile-bottom-nav-height, 78px) - env(safe-area-inset-bottom) - 7rem);
     overflow: auto;
+  }
+
+  body.prototype-shell .read-aloud-widget[data-state="open"] {
+    inset-inline: .75rem;
+    width: auto;
   }
 
   body.prototype-shell .read-aloud-settings select {
