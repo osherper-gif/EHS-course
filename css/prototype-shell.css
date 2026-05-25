@@ -409,8 +409,8 @@ body.prototype-shell .proto-topbar-actions .icon-btn {
   white-space: nowrap;
 }
 
-body.prototype-shell > .site-header,
-body.prototype-shell .proto-app-shell > .site-header {
+body.prototype-shell[data-prototype-shell-ready="true"] > .site-header,
+body.prototype-shell[data-prototype-shell-ready="true"] .proto-app-shell > .site-header {
   display: none !important;
 }
 
