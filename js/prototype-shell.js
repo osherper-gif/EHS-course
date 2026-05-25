@@ -22,6 +22,7 @@
       label: "למידה",
       items: [
         { label: "דף הבית", href: rootPrefix + "index.html", icon: "⌂", match: /\/index\.html$|\/$/ },
+        { label: "מרכז הידע", href: rootPrefix + "pages/master-hub.html", icon: "◎", match: /\/pages\/master-hub\.html$/ },
         { label: "תוכנית לימוד", href: rootPrefix + "pages/syllabus.html", icon: "☰", match: /\/pages\/syllabus\.html$/ },
         { label: "תרגול ומבחנים", href: rootPrefix + "pages/quizzes.html", icon: "✓", match: /\/pages\/quizzes\.html$/ },
         { label: "ההתקדמות שלי", href: rootPrefix + "pages/my-progress.html", icon: "◌", match: /\/pages\/my-progress\.html$/ },
@@ -45,6 +46,7 @@
   }
 
   function resolvePageKind(path) {
+    if (/\/pages\/master-hub\.html$/.test(path)) return "master-hub";
     if (/\/pages\/syllabus\.html$/.test(path)) return "syllabus";
     if (/\/pages\/quizzes\.html$/.test(path)) return "quizzes";
     if (/\/pages\/my-progress\.html$/.test(path)) return "my-progress";
@@ -178,6 +180,7 @@
 
     const introByPage = {
       home: ["היום בקורס", "מרכז למידה", "המשך לשיעור הבא, תרגל שאלות קצרות או פתח כלי שטח מהירים."],
+      "master-hub": ["מרכז ידע", "כל הנושאים במקום אחד", "קפיצה מהירה לשיעורים, תרגול, חוקים, דגשי מבחן ונהלי חירום."],
       syllabus: ["תכנון", "מפת הקורס", "עברו בין יסודות, ניהול, סיכונים וחירום בצורה מסודרת."],
       quizzes: ["תרגול", "כוונון אישי", "תרגלו נושא אחד בכל פעם וחזרו לדשבורד כדי לבדוק מגמות."],
       "my-progress": ["התקדמות", "התמונה האישית", "הדשבורד מציג מגמות למידה מהחשבון המחובר."],
@@ -195,6 +198,13 @@
           { label: "תרגול מהיר", detail: "שאלות קצרות לחיזוק זיכרון." },
           { label: "כלי שטח", detail: "חוקים, תקנים וצ׳קליסטים." },
         ], { label: "פתח דשבורד", href: rootPrefix + "pages/my-progress.html" }),
+      ],
+      "master-hub": [
+        createRailCard("קיצורי ידע", [
+          { label: "שיעורים", detail: "מעבר לתוכנית הלימוד ולסיכומי שיעורים." },
+          { label: "תרגול ומבחנים", detail: "שאלות קצרות וסימולציה לפי נושא." },
+          { label: "חוקים וכלי שטח", detail: "מקורות, תקנים ונהלי עבודה בשטח." },
+        ], { label: "פתח תרגול", href: rootPrefix + "pages/quizzes.html" }),
       ],
       syllabus: [
         createRailCard("מסלול מומלץ", [
