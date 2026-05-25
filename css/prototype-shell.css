@@ -645,9 +645,10 @@ body.prototype-shell .content-section {
 body.prototype-shell[data-proto-page="field-tools"] .hub-grid,
 body.prototype-shell[data-proto-page="field-tools"] .org-type-grid,
 body.prototype-shell[data-proto-page="field-tools"] .visual-learning-grid,
-body.prototype-shell[data-proto-page="field-tools"] .professional-grid {
+body.prototype-shell[data-proto-page="field-tools"] .professional-grid,
+body.prototype-shell[data-proto-page="field-tools"] .legal-hierarchy {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 1rem;
   align-items: stretch;
   min-width: 0;
@@ -657,13 +658,15 @@ body.prototype-shell[data-proto-page="field-tools"] .professional-grid {
 body.prototype-shell[data-proto-page="field-tools"] .hub-card,
 body.prototype-shell[data-proto-page="field-tools"] .org-type-card,
 body.prototype-shell[data-proto-page="field-tools"] .diagram-card,
-body.prototype-shell[data-proto-page="field-tools"] .info-card {
+body.prototype-shell[data-proto-page="field-tools"] .info-card,
+body.prototype-shell[data-proto-page="field-tools"] .legal-rank {
   min-width: 0;
   max-width: 100%;
   height: 100%;
   writing-mode: horizontal-tb !important;
   text-orientation: mixed !important;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 body.prototype-shell[data-proto-page="field-tools"] .section-title,
@@ -672,6 +675,41 @@ body.prototype-shell[data-proto-page="field-tools"] .related-panel {
   min-width: 0;
   max-width: 100%;
   writing-mode: horizontal-tb !important;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+body.prototype-shell[data-proto-page="field-tools"] .legal-hierarchy {
+  margin: 1rem 0 0;
+}
+
+body.prototype-shell[data-proto-page="field-tools"] .legal-rank {
+  grid-template-columns: 36px minmax(0, 1fr) !important;
+  grid-auto-rows: auto;
+  align-items: start;
+  gap: .45rem .75rem;
+}
+
+body.prototype-shell[data-proto-page="field-tools"] .legal-rank-num {
+  grid-row: span 3;
+  flex: 0 0 auto;
+}
+
+body.prototype-shell[data-proto-page="field-tools"] .legal-rank-name,
+body.prototype-shell[data-proto-page="field-tools"] .legal-rank-desc,
+body.prototype-shell[data-proto-page="field-tools"] .legal-rank-binding {
+  grid-column: 2;
+  min-width: 0;
+  max-width: 100%;
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  overflow-wrap: break-word;
+  word-break: normal;
+  white-space: normal;
+}
+
+body.prototype-shell[data-proto-page="field-tools"] .legal-rank-binding {
+  justify-self: start;
 }
 
 body.prototype-shell[data-proto-page="field-tools"] .hub-card .btn,
