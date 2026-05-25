@@ -22,6 +22,7 @@ body.prototype-shell {
   --proto-radius-lg: 12px;
   --proto-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 10px 28px rgba(15, 23, 42, .05);
   --proto-sidebar-width: 270px;
+  --proto-context-rail-width: clamp(240px, 21vw, 292px);
   --proto-topbar-height: 62px;
   min-height: 100vh;
   display: block !important;
@@ -242,6 +243,95 @@ body.prototype-shell .proto-shell-note {
   line-height: 1.45;
 }
 
+body.prototype-shell .proto-context-rail {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-end: 0;
+  z-index: 55;
+  width: var(--proto-context-rail-width);
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  overflow: hidden auto;
+  padding: 1rem .9rem;
+  background: color-mix(in srgb, var(--proto-bg) 82%, var(--proto-surface));
+  border-inline-start: 1px solid var(--proto-border);
+}
+
+body.prototype-shell .proto-rail-header,
+body.prototype-shell .proto-rail-card {
+  border: 1px solid var(--proto-border);
+  border-radius: var(--proto-radius-lg);
+  background: var(--proto-surface);
+  box-shadow: var(--proto-shadow);
+}
+
+body.prototype-shell .proto-rail-header {
+  padding: 1rem;
+}
+
+body.prototype-shell .proto-rail-header h2,
+body.prototype-shell .proto-rail-card h2 {
+  margin: .15rem 0 .45rem;
+  color: var(--proto-text);
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+body.prototype-shell .proto-rail-header p:not(.kicker) {
+  margin: 0;
+  color: var(--proto-muted);
+  font-size: .86rem;
+  line-height: 1.6;
+}
+
+body.prototype-shell .proto-rail-card {
+  padding: .9rem;
+}
+
+body.prototype-shell .proto-rail-list {
+  display: grid;
+  gap: .65rem;
+  margin: .7rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.prototype-shell .proto-rail-list li {
+  display: grid;
+  gap: .18rem;
+  padding: .62rem .7rem;
+  border-radius: var(--proto-radius-sm);
+  background: var(--proto-surface-2);
+  min-width: 0;
+}
+
+body.prototype-shell .proto-rail-list strong {
+  color: var(--proto-text);
+  font-size: .88rem;
+}
+
+body.prototype-shell .proto-rail-list small {
+  color: var(--proto-muted);
+  font-size: .78rem;
+  line-height: 1.45;
+}
+
+body.prototype-shell .proto-rail-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  margin-top: .85rem;
+  padding: .45rem .75rem;
+  border: 1px solid var(--proto-border-strong);
+  border-radius: var(--proto-radius-sm);
+  background: var(--proto-brand);
+  color: #fff;
+  font-weight: 750;
+  text-decoration: none;
+}
+
 body.prototype-shell .proto-app-shell {
   min-height: 100vh;
   min-width: 0;
@@ -249,6 +339,7 @@ body.prototype-shell .proto-app-shell {
   max-width: 100vw;
   overflow-x: hidden;
   padding-inline-start: var(--proto-sidebar-width);
+  padding-inline-end: var(--proto-context-rail-width);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, .55), rgba(255, 255, 255, 0) 240px),
     var(--proto-bg);
@@ -256,7 +347,7 @@ body.prototype-shell .proto-app-shell {
 
 html[dir="rtl"] body.prototype-shell .proto-app-shell {
   padding-inline-start: var(--proto-sidebar-width);
-  padding-inline-end: 0;
+  padding-inline-end: var(--proto-context-rail-width);
 }
 
 @media (min-width: 1024px) {
@@ -284,7 +375,7 @@ html[dir="rtl"] body.prototype-shell .proto-app-shell {
     max-width: none;
     margin-inline: auto;
     padding-inline-start: calc(var(--proto-sidebar-width) + clamp(1rem, 3vw, 2.25rem));
-    padding-inline-end: clamp(1rem, 3vw, 2.25rem);
+    padding-inline-end: calc(var(--proto-context-rail-width) + clamp(1rem, 3vw, 2.25rem));
   }
 
   body.prototype-shell:not([data-prototype-shell-ready="true"]) .site-header .header-inner {
@@ -551,7 +642,60 @@ body.prototype-shell .content-section {
   overflow-wrap: anywhere;
 }
 
+body.prototype-shell[data-proto-page="field-tools"] .hub-grid,
+body.prototype-shell[data-proto-page="field-tools"] .org-type-grid,
+body.prototype-shell[data-proto-page="field-tools"] .visual-learning-grid,
+body.prototype-shell[data-proto-page="field-tools"] .professional-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+  min-width: 0;
+  max-width: 100%;
+}
+
+body.prototype-shell[data-proto-page="field-tools"] .hub-card,
+body.prototype-shell[data-proto-page="field-tools"] .org-type-card,
+body.prototype-shell[data-proto-page="field-tools"] .diagram-card,
+body.prototype-shell[data-proto-page="field-tools"] .info-card {
+  min-width: 0;
+  max-width: 100%;
+  height: 100%;
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  overflow-wrap: anywhere;
+}
+
+body.prototype-shell[data-proto-page="field-tools"] .section-title,
+body.prototype-shell[data-proto-page="field-tools"] .content-section,
+body.prototype-shell[data-proto-page="field-tools"] .related-panel {
+  min-width: 0;
+  max-width: 100%;
+  writing-mode: horizontal-tb !important;
+}
+
+body.prototype-shell[data-proto-page="field-tools"] .hub-card .btn,
+body.prototype-shell[data-proto-page="field-tools"] .related-panel .btn {
+  margin-top: auto;
+  align-self: flex-start;
+  white-space: normal;
+}
+
+body.prototype-shell[data-proto-page="my-progress"]:not(.proto-debug-enabled) .learner-test-tools,
+body.prototype-shell[data-proto-page="my-progress"]:not(.proto-debug-enabled) #progress-debug-panel,
+body.prototype-shell[data-proto-page="my-progress"]:not(.proto-debug-enabled) #progress-check-result-panel {
+  display: none !important;
+}
+
+body.prototype-shell[data-proto-page="my-progress"] .learner-dashboard-secondary {
+  opacity: .88;
+}
+
 @media (max-width: 1023px) {
+  body.prototype-shell .proto-context-rail {
+    display: none;
+  }
+
   body.prototype-shell .proto-sidebar {
     width: min(290px, calc(100vw - 2rem));
     transform: translateX(-120vw);
