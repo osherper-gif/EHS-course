@@ -149,7 +149,7 @@
   }
 
   function getRoot() {
-    return document.querySelector("[data-read-aloud-root]") || document.querySelector("main") || document.body;
+    return document.querySelector("[data-readable-content]") || document.querySelector("[data-read-aloud-root]") || document.querySelector("main") || document.body;
   }
 
   function getCurrentSection(root) {
