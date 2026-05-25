@@ -160,6 +160,7 @@
   function createContextRail() {
     const rail = el("aside", "proto-context-rail");
     rail.setAttribute("aria-label", "הקשר לימודי");
+    const knowledgeDomain = body.dataset.knowledgeDomain || "knowledge";
 
     const introByPage = {
       home: ["היום בקורס", "מרכז למידה", "המשך לשיעור הבא, תרגל שאלות קצרות או פתח כלי שטח מהירים."],
@@ -190,18 +191,7 @@
           { label: "חוקים וכלי שטח", detail: "מקורות, תקנים ונהלי עבודה בשטח." },
         ], { label: "פתח תרגול", href: rootPrefix + "pages/quizzes.html" }),
       ],
-      knowledge: [
-        createRailCard("איך ללמוד את העמוד", [
-          { label: "תקציר מנהלים", detail: "קבל תמונה מהירה לפני העומק המקצועי." },
-          { label: "דגשי מבחן", detail: "סמן מושגים, הבחנות ומלכודות נפוצות." },
-          { label: "הקראה", detail: "השתמש ברכיב ההקראה לסעיפים ארוכים." },
-        ], { label: "חזרה למרכז הידע", href: rootPrefix + "pages/master-hub.html" }),
-        createRailCard("חיבור לשטח", [
-          { label: "רגולציה", detail: "בדוק את שכבת החוק והתקן לפני יישום." },
-          { label: "RCA", detail: "חפש תנאי מערכת ולא רק טעות נקודתית." },
-          { label: "תרגול", detail: "חזור לשאלות קצרות אחרי קריאת העמוד." },
-        ], { label: "פתח תרגול", href: rootPrefix + "pages/quizzes.html" }),
-      ],
+      knowledge: createKnowledgeRailCards(knowledgeDomain),
       syllabus: [
         createRailCard("מסלול מומלץ", [
           { label: "יסודות ותפקידים", detail: "מפגשים 1-3" },
@@ -233,6 +223,69 @@
     };
     (cardsByPage[pageKind] || cardsByPage.home).forEach((card) => rail.append(card));
     return rail;
+  }
+
+  function createKnowledgeRailCards(domain) {
+    const domainCards = {
+      construction: [
+        { label: "פיגומים וחפירות", detail: "בדוק יציבות, עומסים, גידור וקריסת קרקע." },
+        { label: "רדיוס מנוף", detail: "עומס דינמי, תוואי הנפה ואזור הפרדה." },
+        { label: "רצף עבודה", detail: "תכנון פעולות מונע ממשקים מסוכנים." },
+      ],
+      hazmat: [
+        { label: "SDS לפני פעולה", detail: "זהה חומר, תגובה, מיגון ופינוי." },
+        { label: "אי-תאימות", detail: "הפרד חומצות, בסיסים, מחמצנים ודליקים." },
+        { label: "אוורור וחירום", detail: "בקר מקור חשיפה והכן תגובה לדליפה." },
+      ],
+      height: [
+        { label: "עיגון", detail: "בדוק נקודת עיגון, רתמה וחבל לפני עלייה." },
+        { label: "חילוץ", detail: "אין עבודה בגובה בלי תוכנית חילוץ." },
+        { label: "היררכיה", detail: "מנע נפילה לפני שימוש בבלימת נפילה." },
+      ],
+      loto: [
+        { label: "אימות אנרגיה", detail: "ניתוק אינו מספיק ללא בדיקת אפס אנרגיה." },
+        { label: "אנרגיה אגורה", detail: "לחץ, קפיץ, חום, גובה וסיבוב נשארים מסוכנים." },
+        { label: "SIMOPS", detail: "היתרי עבודה חייבים לדבר זה עם זה." },
+      ],
+      cranes: [
+        { label: "SWL ורדיוס", detail: "עומס בטוח תלוי ברדיוס, זווית ותנאי שטח." },
+        { label: "זוויות רצועה", detail: "זווית קטנה מגדילה מאמץ ברצועות." },
+        { label: "הרמה קריטית", detail: "תכנון, איתות, אזור סטרילי ובקרת רוח." },
+      ],
+      emergency: [
+        { label: "פיקוד ושליטה", detail: "תפקידים, תקשורת, פינוי ונקודת כינוס." },
+        { label: "תרחיש לפני ציוד", detail: "אש, דליפה, פציעה וחשמל דורשים תגובות שונות." },
+        { label: "לקחים", detail: "תרגיל טוב מסתיים בפעולות מתקנות." },
+      ],
+      regulation: [
+        { label: "סמכות מול חובה", detail: "הבחן בין מפקח, מחזיק מקום עבודה וממונה." },
+        { label: "צווים", detail: "צו בטיחות עוצר סיכון; צו שיפור דורש תיקון." },
+        { label: "תיעוד", detail: "בדיקה, הדרכה ודיווח הם חלק מהבקרה." },
+      ],
+      machines: [
+        { label: "נקודת תפיסה", detail: "חפש גזירה, מעיכה, משיכה וסיבוב." },
+        { label: "מיגון לא עוקפים", detail: "Interlock אינו קישוט אלא שכבת בקרה." },
+        { label: "תחזוקה", detail: "מיגון מכונות מתחבר ל־LOTO ו־PTW." },
+      ],
+      process: [
+        { label: "Barrier thinking", detail: "זהה מה מונע אירוע ומה מקטין תוצאה." },
+        { label: "Bowtie", detail: "גורמים משמאל, אירוע מרכזי, תוצאות מימין." },
+        { label: "MOC", detail: "שינוי קטן בתהליך עלול לעקוף בקרות." },
+      ],
+    };
+    const items = domainCards[domain] || [
+      { label: "תקציר מנהלים", detail: "קבל תמונה מהירה לפני העומק המקצועי." },
+      { label: "דגשי מבחן", detail: "סמן מושגים, הבחנות ומלכודות נפוצות." },
+      { label: "הקראה", detail: "השתמש ברכיב ההקראה לסעיפים ארוכים." },
+    ];
+    return [
+      createRailCard("דגשי שטח", items, { label: "חזרה למרכז הידע", href: rootPrefix + "pages/master-hub.html" }),
+      createRailCard("בדיקת למידה", [
+        { label: "Exam traps", detail: "פתח את סעיף המלכודות לפני תרגול." },
+        { label: "Checklist", detail: "הפוך ידע לפעולת שטח ברורה." },
+        { label: "Related topics", detail: "חבר רגולציה, הנדסה וגורם אנוש." },
+      ], { label: "פתח תרגול", href: rootPrefix + "pages/quizzes.html" }),
+    ];
   }
 
   function polishLearnerDashboard() {

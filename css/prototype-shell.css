@@ -1179,8 +1179,8 @@ body.prototype-shell .knowledge-question {
   body.prototype-shell .content-section,
   body.prototype-shell .learner-dashboard-card,
   body.prototype-shell .question-card {
-    width: calc(100vw - 3rem);
-    max-width: calc(100vw - 3rem);
+    width: calc(100vw - 4.5rem);
+    max-width: calc(100vw - 4.5rem);
     margin-inline: auto;
     box-sizing: border-box;
     border-radius: var(--proto-radius-md);
