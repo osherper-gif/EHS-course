@@ -473,35 +473,6 @@ body.prototype-shell .proto-page-label small {
   font-size: .74rem;
 }
 
-body.prototype-shell .proto-search {
-  position: relative;
-  flex: 1 1 auto;
-  min-width: 180px;
-  max-width: 480px;
-}
-
-body.prototype-shell .proto-search input {
-  width: 100%;
-  min-height: 38px;
-  padding: .45rem 2.15rem .45rem .8rem;
-  border: 1px solid var(--proto-border);
-  border-radius: var(--proto-radius-md);
-  background: var(--proto-surface-2);
-  color: var(--proto-text);
-  font: inherit;
-  font-size: .92rem;
-}
-
-body.prototype-shell .proto-search::before {
-  content: "⌕";
-  position: absolute;
-  inset-inline-end: .75rem;
-  top: 50%;
-  color: var(--proto-subtle);
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
 body.prototype-shell .proto-topbar-actions {
   display: flex;
   align-items: center;
@@ -943,10 +914,6 @@ body.prototype-shell .read-aloud-btn[data-read-action="read"] {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-
-  body.prototype-shell .proto-search {
-    display: none;
   }
 
   body.prototype-shell .proto-topbar-actions {

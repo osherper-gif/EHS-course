@@ -120,32 +120,14 @@
     const label = el("div", "proto-page-label");
     label.innerHTML = "<strong>" + pageTitle + "</strong><small>קורס ממונה בטיחות</small>";
 
-    const search = el("div", "proto-search");
-    const input = el("input");
-    input.type = "search";
-    input.placeholder = "חפש בקורס... Ctrl+K";
-    input.setAttribute("aria-label", "חיפוש בקורס");
-    input.addEventListener("input", () => {
-      const legacySearch = document.querySelector("[data-topbar-search]");
-      if (legacySearch && legacySearch !== input) {
-        legacySearch.value = input.value;
-        legacySearch.dispatchEvent(new Event("input", { bubbles: true }));
-      }
-    });
-    search.append(input);
-
     const actionsSlot = el("div", "proto-topbar-actions");
     const legacyActions = document.querySelector(".site-header .header-actions, .header-actions");
     if (legacyActions) {
       actionsSlot.append(legacyActions);
     }
 
-    topbar.append(menu, label, search, actionsSlot);
+    topbar.append(menu, label, actionsSlot);
     document.addEventListener("keydown", (event) => {
-      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
-        event.preventDefault();
-        input.focus();
-      }
       if (event.key === "Escape") {
         closeDrawer();
       }
