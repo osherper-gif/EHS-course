@@ -3434,7 +3434,7 @@ html[data-theme="dark"] { --muted: #c4d0da; }
   .m-lesson-progress {
     position: fixed;
     inset-inline: .75rem;
-    bottom: calc(76px + env(safe-area-inset-bottom));
+    bottom: 0;
     z-index: 1100;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -3442,15 +3442,35 @@ html[data-theme="dark"] { --muted: #c4d0da; }
     align-items: center;
     background: color-mix(in srgb, var(--surface), transparent 2%);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 14px 14px 0 0;
     box-shadow: var(--shadow);
-    padding: .55rem;
+    padding: .55rem .55rem calc(.55rem + env(safe-area-inset-bottom));
   }
   .m-lesson-progress__track { grid-column: 1 / -1; height: 7px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
   .m-lesson-progress__track span { display: block; height: 100%; width: 0; background: var(--brand); border-radius: inherit; }
   .m-lesson-progress button { min-height: 42px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-2); color: var(--text); font: inherit; font-weight: 750; }
   .m-lesson-toc-list { max-height: 62vh; overflow: auto; }
   .m-lesson-toc-list .m-sheet__link { justify-content: flex-start; line-height: 1.35; }
+}
+
+@media (max-width: 767px) {
+  body:has(.lesson-shell[data-lesson-id]) {
+    --lesson-mobile-action-bar-height: 112px;
+  }
+
+  body:has(.lesson-shell[data-lesson-id]) .m-bottom-nav {
+    display: none;
+  }
+
+  body:has(.lesson-shell[data-lesson-id]) main,
+  body:has(.lesson-shell[data-lesson-id]) .lesson-shell {
+    padding-bottom: calc(var(--lesson-mobile-action-bar-height, 112px) + env(safe-area-inset-bottom) + 2rem);
+  }
+
+  body:has(.lesson-shell[data-lesson-id]) .read-aloud-widget {
+    inset-block-end: calc(var(--lesson-mobile-action-bar-height, 112px) + env(safe-area-inset-bottom) + 12px);
+    max-height: calc(100vh - var(--lesson-mobile-action-bar-height, 112px) - env(safe-area-inset-bottom) - 7rem);
+  }
 }
 
 
