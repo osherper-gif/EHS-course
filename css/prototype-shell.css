@@ -288,16 +288,49 @@ html[dir="rtl"] body.prototype-shell .proto-app-shell {
   }
 
   body.prototype-shell:not([data-prototype-shell-ready="true"]) .site-header .header-inner {
+    display: flex !important;
     width: 100%;
+    max-width: none;
     min-height: 100%;
+    padding: 1rem .85rem;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
+    gap: .75rem;
   }
 
   body.prototype-shell:not([data-prototype-shell-ready="true"]) .site-header .main-nav {
+    display: flex !important;
     flex-direction: column;
     align-items: stretch;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 0;
+  }
+
+  body.prototype-shell:not([data-prototype-shell-ready="true"]) .site-header .main-nav a {
+    width: 100%;
+    min-height: 38px;
+    justify-content: flex-start;
+  }
+
+  body.prototype-shell:not([data-prototype-shell-ready="true"]) .site-header .brand {
+    min-width: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  body.prototype-shell:not([data-prototype-shell-ready="true"]) .site-header .header-actions {
+    margin-top: auto;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border-top: 1px solid var(--proto-border);
+    padding-top: .75rem;
+  }
+
+  body.prototype-shell:not([data-prototype-shell-ready="true"]) .law-notice {
+    display: none;
   }
 }
 
