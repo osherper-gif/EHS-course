@@ -521,6 +521,7 @@ body.prototype-shell .proto-app-shell .learner-dashboard {
   max-width: none;
   margin-inline: auto;
   padding: clamp(1rem, 2.4vw, 2rem) clamp(1rem, 3vw, 2.25rem) 4rem;
+  box-sizing: border-box;
 }
 
 body.prototype-shell .proto-app-shell .site-footer {
@@ -799,6 +800,39 @@ body.prototype-shell .read-aloud-widget {
   backdrop-filter: blur(12px);
 }
 
+body.prototype-shell .read-aloud-widget[data-state="minimized"] {
+  width: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+body.prototype-shell .read-aloud-launcher {
+  min-height: 44px;
+  padding: .65rem .9rem;
+  border: 1px solid var(--proto-border-strong);
+  border-radius: 999px;
+  background: var(--proto-brand);
+  color: #fff;
+  box-shadow: var(--proto-shadow);
+  font: inherit;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+body.prototype-shell .read-aloud-widget[data-state="open"] .read-aloud-launcher,
+body.prototype-shell .read-aloud-widget[data-state="minimized"] .read-aloud-panel {
+  display: none;
+}
+
+body.prototype-shell .read-aloud-panel-actions {
+  display: flex;
+  gap: .35rem;
+  align-items: center;
+}
+
 body.prototype-shell .read-aloud-header {
   display: flex;
   align-items: center;
@@ -861,6 +895,9 @@ body.prototype-shell .read-aloud-btn[data-read-action="read"] {
 body.prototype-shell .knowledge-schema-page {
   display: grid;
   gap: 1rem;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body.prototype-shell .knowledge-quick-grid,
@@ -949,6 +986,54 @@ body.prototype-shell .knowledge-accordion-body ul,
 body.prototype-shell .knowledge-accordion-body ol {
   margin: 0;
   padding-inline-start: 1.25rem;
+}
+
+body.prototype-shell .knowledge-reference-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: var(--proto-radius-md);
+  font-size: .94rem;
+}
+
+body.prototype-shell .knowledge-reference-table th,
+body.prototype-shell .knowledge-reference-table td {
+  border: 1px solid var(--proto-border);
+  padding: .7rem;
+  vertical-align: top;
+}
+
+body.prototype-shell .knowledge-reference-table th {
+  background: var(--proto-surface-2);
+  color: var(--proto-text);
+  text-align: start;
+}
+
+body.prototype-shell .knowledge-diagram {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr));
+  gap: .65rem;
+  align-items: stretch;
+}
+
+body.prototype-shell .knowledge-diagram span {
+  display: grid;
+  place-items: center;
+  min-height: 74px;
+  padding: .8rem;
+  border: 1px solid var(--proto-border);
+  border-radius: var(--proto-radius-md);
+  background: var(--proto-surface-2);
+  color: var(--proto-text);
+  font-weight: 800;
+  text-align: center;
+}
+
+body.prototype-shell .knowledge-question {
+  border: 1px solid var(--proto-border);
+  border-radius: var(--proto-radius-md);
+  padding: .85rem;
+  background: var(--proto-surface-2);
 }
 
 @media (max-width: 1023px) {
@@ -1094,6 +1179,10 @@ body.prototype-shell .knowledge-accordion-body ol {
   body.prototype-shell .content-section,
   body.prototype-shell .learner-dashboard-card,
   body.prototype-shell .question-card {
+    width: calc(100vw - 3rem);
+    max-width: calc(100vw - 3rem);
+    margin-inline: auto;
+    box-sizing: border-box;
     border-radius: var(--proto-radius-md);
     padding: .95rem;
   }
@@ -1129,7 +1218,26 @@ body.prototype-shell .knowledge-accordion-body ol {
   body.prototype-shell .hub-card h2,
   body.prototype-shell .content-section h2 {
     font-size: clamp(1.35rem, 8vw, 1.75rem);
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  body.prototype-shell .knowledge-schema-page,
+  body.prototype-shell .knowledge-schema-page > *,
+  body.prototype-shell .knowledge-card,
+  body.prototype-shell .knowledge-callout,
+  body.prototype-shell .knowledge-accordion,
+  body.prototype-shell .knowledge-accordion-body,
+  body.prototype-shell .knowledge-question {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  body.prototype-shell .kicker,
+  body.prototype-shell .content-meta-row,
+  body.prototype-shell .knowledge-pill {
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   body.prototype-shell .hub-card .btn,

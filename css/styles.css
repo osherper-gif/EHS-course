@@ -3607,8 +3607,8 @@ body.feedback-open .m-admin-fab {
 
 .accessibility-toggle {
   position: fixed;
-  inset-inline-start: .85rem;
-  bottom: calc(96px + env(safe-area-inset-bottom));
+  inset-inline-start: max(.85rem, env(safe-area-inset-left));
+  bottom: calc(3.9rem + env(safe-area-inset-bottom));
   z-index: 1220;
   min-width: 96px;
   min-height: 44px;
@@ -3624,8 +3624,8 @@ body.feedback-open .m-admin-fab {
 
 .accessibility-panel {
   position: fixed;
-  inset-inline-start: .85rem;
-  bottom: calc(148px + env(safe-area-inset-bottom));
+  inset-inline-start: max(.85rem, env(safe-area-inset-left));
+  bottom: calc(7rem + env(safe-area-inset-bottom));
   z-index: 3200;
   width: min(340px, calc(100vw - 1.7rem));
   background: var(--surface);
@@ -11790,7 +11790,7 @@ body.lms-pro .metric strong {
    ========================================================================= */
 body:not(.prototype-shell) .read-aloud-widget {
   position: fixed;
-  inset-inline-start: 1rem;
+  inset-inline-end: 1rem;
   inset-block-end: 1rem;
   z-index: 80;
   width: min(430px, calc(100vw - 2rem));
@@ -11801,6 +11801,39 @@ body:not(.prototype-shell) .read-aloud-widget {
   box-shadow: 0 10px 32px rgba(15, 23, 42, .12);
   color: var(--text, #132432);
   backdrop-filter: blur(10px);
+}
+
+body:not(.prototype-shell) .read-aloud-widget[data-state="minimized"] {
+  width: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+body:not(.prototype-shell) .read-aloud-launcher {
+  min-height: 44px;
+  padding: .65rem .9rem;
+  border: 1px solid var(--border, #d8e3ea);
+  border-radius: 999px;
+  background: var(--primary, #0a5b72);
+  color: #fff;
+  box-shadow: 0 10px 32px rgba(15, 23, 42, .14);
+  font: inherit;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+body:not(.prototype-shell) .read-aloud-widget[data-state="open"] .read-aloud-launcher,
+body:not(.prototype-shell) .read-aloud-widget[data-state="minimized"] .read-aloud-panel {
+  display: none;
+}
+
+body:not(.prototype-shell) .read-aloud-panel-actions {
+  display: flex;
+  gap: .35rem;
+  align-items: center;
 }
 
 body:not(.prototype-shell) .read-aloud-header {

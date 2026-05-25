@@ -34,9 +34,9 @@
 
   function loadPrefs() {
     try {
-      return Object.assign({ rate: 1, voiceURI: "", scope: "page" }, JSON.parse(localStorage.getItem(storageKey) || "{}"));
+      return Object.assign({ rate: 1, voiceURI: "", scope: "page", panelState: "minimized" }, JSON.parse(localStorage.getItem(storageKey) || "{}"));
     } catch (error) {
-      return { rate: 1, voiceURI: "", scope: "page" };
+      return { rate: 1, voiceURI: "", scope: "page", panelState: "minimized" };
     }
   }
 
@@ -64,12 +64,28 @@
     const widget = createElement("section", "read-aloud-widget");
     widget.id = widgetId;
     widget.setAttribute("aria-label", "כלי הקראה");
+    widget.dataset.state = prefs.panelState === "open" ? "open" : "minimized";
+
+    const launcher = createElement("button", "read-aloud-launcher", "🎧 הקראה");
+    launcher.type = "button";
+    launcher.dataset.readAction = "open";
+    launcher.setAttribute("aria-expanded", widget.dataset.state === "open" ? "true" : "false");
+    launcher.setAttribute("aria-controls", "readAloudPanel");
+    launcher.setAttribute("aria-label", "פתח כלי הקראה");
+
+    const panel = createElement("div", "read-aloud-panel");
+    panel.id = "readAloudPanel";
 
     const header = createElement("div", "read-aloud-header");
-    header.append(createElement("strong", "", "הקראה"));
+    const title = createElement("strong", "", "הקראה");
     const status = createElement("span", "read-aloud-status", isSupported ? "מוכן" : unsupportedMessage);
     status.id = "readAloudStatus";
-    header.append(status);
+    const panelActions = createElement("div", "read-aloud-panel-actions");
+    panelActions.append(
+      createButton("מזער", "minimize", "מזער כלי הקראה"),
+      createButton("×", "close", "סגור כלי הקראה")
+    );
+    header.append(title, status, panelActions);
 
     const controls = createElement("div", "read-aloud-controls");
     controls.append(
@@ -107,7 +123,8 @@
     voiceLabel.append(voiceSelect);
 
     settings.append(scopeLabel, rateLabel, voiceLabel);
-    widget.append(header, settings, controls);
+    panel.append(header, settings, controls);
+    widget.append(launcher, panel);
 
     widget.addEventListener("click", handleAction);
     scopeSelect.addEventListener("change", () => savePrefs({ scope: scopeSelect.value }));
@@ -137,10 +154,26 @@
     const button = event.target.closest("[data-read-action]");
     if (!button) return;
     const action = button.dataset.readAction;
+    if (action === "open") setPanelState("open");
+    if (action === "minimize") setPanelState("minimized");
+    if (action === "close") {
+      stop();
+      setPanelState("minimized");
+    }
     if (action === "read") read();
     if (action === "pause") pause();
     if (action === "resume") resume();
     if (action === "stop") stop();
+  }
+
+  function setPanelState(state) {
+    const widget = document.getElementById(widgetId);
+    if (!widget) return;
+    const nextState = state === "open" ? "open" : "minimized";
+    widget.dataset.state = nextState;
+    const launcher = widget.querySelector(".read-aloud-launcher");
+    if (launcher) launcher.setAttribute("aria-expanded", nextState === "open" ? "true" : "false");
+    savePrefs({ panelState: nextState });
   }
 
   function setStatus(text) {
@@ -175,14 +208,17 @@
 
   function read() {
     if (!isSupported) {
+      setPanelState("open");
       setStatus(unsupportedMessage);
       return;
     }
     const text = collectText();
     if (!text) {
+      setPanelState("open");
       setStatus("לא נמצא תוכן לימודי להקראה.");
       return;
     }
+    setPanelState("open");
     stop();
     currentUtterance = new SpeechSynthesisUtterance(text);
     currentUtterance.lang = "he-IL";
