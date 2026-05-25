@@ -12,6 +12,7 @@
   const rootPrefix = inPages ? "../" : "./";
   const pagePath = location.pathname.replace(/\\/g, "/");
   const pageTitle = body.dataset.pageTitle || document.title.split("|")[0].trim() || "קורס ממונה בטיחות";
+  let lastFocusBeforeDrawer = null;
 
   const navGroups = [
     {
@@ -44,13 +45,19 @@
     const sidebar = el("aside", "proto-sidebar");
     sidebar.setAttribute("aria-label", "ניווט ראשי");
 
+    const brandRow = el("div", "proto-brand-row");
     const brand = el("a", "proto-brand");
     brand.href = rootPrefix + "index.html";
     brand.innerHTML = [
       '<span class="proto-brand-mark" aria-hidden="true">EHS</span>',
       '<span class="proto-brand-text"><strong>קורס ממונה בטיחות</strong><small>Learning workspace</small></span>',
     ].join("");
-    sidebar.append(brand);
+    const closeButton = el("button", "proto-drawer-close", "×");
+    closeButton.type = "button";
+    closeButton.setAttribute("aria-label", "סגור תפריט");
+    closeButton.addEventListener("click", closeDrawer);
+    brandRow.append(brand, closeButton);
+    sidebar.append(brandRow);
 
     const nav = el("nav", "proto-sidebar-nav");
     nav.setAttribute("aria-label", "ניווט קורס");
@@ -64,7 +71,7 @@
           link.classList.add("is-active");
           link.setAttribute("aria-current", "page");
         }
-        link.addEventListener("click", () => body.classList.remove("proto-drawer-open"));
+        link.addEventListener("click", closeDrawer);
         nav.append(link);
       });
     });
@@ -84,7 +91,9 @@
     const menu = el("button", "proto-menu-btn", "☰");
     menu.type = "button";
     menu.setAttribute("aria-label", "פתח תפריט");
-    menu.addEventListener("click", () => body.classList.add("proto-drawer-open"));
+    menu.setAttribute("aria-controls", "prototypeShellSidebar");
+    menu.setAttribute("aria-expanded", "false");
+    menu.addEventListener("click", openDrawer);
 
     const label = el("div", "proto-page-label");
     label.innerHTML = "<strong>" + pageTitle + "</strong><small>קורס ממונה בטיחות</small>";
@@ -116,18 +125,43 @@
         input.focus();
       }
       if (event.key === "Escape") {
-        body.classList.remove("proto-drawer-open");
+        closeDrawer();
       }
     });
     return topbar;
   }
 
+  function updateDrawerState(isOpen) {
+    body.classList.toggle("proto-drawer-open", isOpen);
+    document.querySelectorAll(".proto-menu-btn").forEach((button) => {
+      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    const overlay = document.querySelector(".proto-drawer-overlay");
+    if (overlay) overlay.setAttribute("aria-hidden", isOpen ? "false" : "true");
+  }
+
+  function openDrawer() {
+    lastFocusBeforeDrawer = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    updateDrawerState(true);
+    const firstLink = document.querySelector(".proto-sidebar .proto-nav-item");
+    window.setTimeout(() => firstLink?.focus(), 0);
+  }
+
+  function closeDrawer() {
+    const wasOpen = body.classList.contains("proto-drawer-open");
+    updateDrawerState(false);
+    if (wasOpen && lastFocusBeforeDrawer && document.contains(lastFocusBeforeDrawer)) {
+      lastFocusBeforeDrawer.focus();
+    }
+  }
+
   function buildShell() {
     const overlay = el("div", "proto-drawer-overlay");
     overlay.setAttribute("aria-hidden", "true");
-    overlay.addEventListener("click", () => body.classList.remove("proto-drawer-open"));
+    overlay.addEventListener("click", closeDrawer);
 
     const sidebar = createSidebar();
+    sidebar.id = "prototypeShellSidebar";
     const appShell = el("div", "proto-app-shell");
     const topbar = createTopbar();
 

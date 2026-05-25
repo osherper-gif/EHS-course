@@ -72,11 +72,16 @@ body.prototype-shell.proto-drawer-open .proto-drawer-overlay {
   display: block;
 }
 
+body.prototype-shell.proto-drawer-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
 body.prototype-shell .proto-sidebar {
   position: fixed;
   inset-block: 0;
   inset-inline-start: 0;
-  z-index: 90;
+  z-index: 110;
   width: var(--proto-sidebar-width);
   display: flex;
   flex-direction: column;
@@ -85,19 +90,41 @@ body.prototype-shell .proto-sidebar {
   border-inline-end: 1px solid var(--proto-border);
 }
 
+body.prototype-shell .proto-drawer-close {
+  display: none;
+  width: 36px;
+  height: 36px;
+  margin-inline-start: auto;
+  border: 1px solid var(--proto-border-strong);
+  border-radius: var(--proto-radius-sm);
+  background: var(--proto-surface-2);
+  color: var(--proto-text);
+  font: inherit;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
 html[dir="rtl"] body.prototype-shell .proto-sidebar {
-  inset-inline-start: auto;
-  inset-inline-end: 0;
-  border-inline-end: 0;
-  border-inline-start: 1px solid var(--proto-border);
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  border-inline-end: 1px solid var(--proto-border);
+  border-inline-start: 0;
+}
+
+body.prototype-shell .proto-brand-row {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 1rem 1rem .9rem;
+  border-bottom: 1px solid var(--proto-border);
 }
 
 body.prototype-shell .proto-brand {
   display: flex;
   align-items: center;
   gap: .75rem;
-  padding: 1rem 1rem .9rem;
-  border-bottom: 1px solid var(--proto-border);
+  min-width: 0;
+  flex: 1 1 auto;
   color: var(--proto-text);
   text-decoration: none;
 }
@@ -452,16 +479,20 @@ body.prototype-shell .content-section {
 @media (max-width: 1023px) {
   body.prototype-shell .proto-sidebar {
     width: min(290px, calc(100vw - 2rem));
-    transform: translateX(-105%);
+    transform: translateX(-120vw);
     transition: transform .22s ease;
     box-shadow: 0 22px 50px rgba(15, 23, 42, .18);
   }
 
   html[dir="rtl"] body.prototype-shell .proto-sidebar {
-    transform: translateX(-105%);
+    transform: translateX(120vw);
   }
 
   body.prototype-shell.proto-drawer-open .proto-sidebar {
+    transform: translateX(0);
+  }
+
+  html[dir="rtl"] body.prototype-shell.proto-drawer-open .proto-sidebar {
     transform: translateX(0);
   }
 
@@ -476,15 +507,27 @@ body.prototype-shell .content-section {
     flex: 0 0 auto;
   }
 
+  body.prototype-shell .proto-drawer-close {
+    display: grid;
+    place-items: center;
+  }
+
   body.prototype-shell .proto-topbar {
-    gap: .65rem;
+    gap: .55rem;
     min-height: 56px;
-    padding: .55rem .75rem;
+    padding: .5rem .65rem;
   }
 
   body.prototype-shell .proto-page-label {
     min-width: 0;
     flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  body.prototype-shell .proto-page-label strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   body.prototype-shell .proto-search {
@@ -492,7 +535,29 @@ body.prototype-shell .content-section {
   }
 
   body.prototype-shell .proto-topbar-actions {
-    max-width: 48vw;
+    flex: 0 0 auto;
+    max-width: min(42vw, 9.5rem);
+    overflow: hidden;
+  }
+
+  body.prototype-shell .proto-topbar-actions .header-actions {
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  body.prototype-shell .proto-topbar-actions .header-actions > .icon-btn,
+  body.prototype-shell .proto-topbar-actions .header-actions > .site-search-open,
+  body.prototype-shell .proto-topbar-actions .header-actions > .admin-link,
+  body.prototype-shell .proto-topbar-actions .header-actions > #myProgressLink,
+  body.prototype-shell .proto-topbar-actions .header-actions > [data-action="logout"] {
+    display: none !important;
+  }
+
+  body.prototype-shell .proto-topbar-actions #userBadge {
+    display: inline-flex;
+    max-width: 9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   body.prototype-shell .proto-topbar-actions .btn,
@@ -522,7 +587,7 @@ body.prototype-shell .content-section {
 
 @media (max-width: 520px) {
   body.prototype-shell .proto-topbar-actions {
-    max-width: 32vw;
+    max-width: min(36vw, 8.25rem);
   }
 
   body.prototype-shell .proto-topbar-actions .btn,
