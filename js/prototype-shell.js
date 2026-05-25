@@ -8,9 +8,9 @@
 
   const body = document.body;
   const html = document.documentElement;
-  const inPages = /\/pages\//.test(location.pathname.replace(/\\/g, "/"));
-  const rootPrefix = inPages ? "../" : "./";
   const pagePath = location.pathname.replace(/\\/g, "/");
+  const inPages = /\/pages\//.test(pagePath);
+  const rootPrefix = /\/pages\/knowledge\//.test(pagePath) ? "../../" : inPages ? "../" : "./";
   const pageKind = resolvePageKind(pagePath);
   const pageTitle = body.dataset.pageTitle || document.title.split("|")[0].trim() || "קורס ממונה בטיחות";
   let lastFocusBeforeDrawer = null;
@@ -47,6 +47,7 @@
 
   function resolvePageKind(path) {
     if (/\/pages\/master-hub\.html$/.test(path)) return "master-hub";
+    if (/\/pages\/knowledge\//.test(path)) return "knowledge";
     if (/\/pages\/syllabus\.html$/.test(path)) return "syllabus";
     if (/\/pages\/quizzes\.html$/.test(path)) return "quizzes";
     if (/\/pages\/my-progress\.html$/.test(path)) return "my-progress";
@@ -163,6 +164,7 @@
     const introByPage = {
       home: ["היום בקורס", "מרכז למידה", "המשך לשיעור הבא, תרגל שאלות קצרות או פתח כלי שטח מהירים."],
       "master-hub": ["מרכז ידע", "כל הנושאים במקום אחד", "קפיצה מהירה לשיעורים, תרגול, חוקים, דגשי מבחן ונהלי חירום."],
+      knowledge: ["עמוד ידע", "למידה מדורגת", "התחל בתקציר, פתח את הפרקים לפי צורך וסיים בדגשי המבחן."],
       syllabus: ["תכנון", "מפת הקורס", "עברו בין יסודות, ניהול, סיכונים וחירום בצורה מסודרת."],
       quizzes: ["תרגול", "כוונון אישי", "תרגלו נושא אחד בכל פעם וחזרו לדשבורד כדי לבדוק מגמות."],
       "my-progress": ["התקדמות", "התמונה האישית", "הדשבורד מציג מגמות למידה מהחשבון המחובר."],
@@ -186,6 +188,18 @@
           { label: "שיעורים", detail: "מעבר לתוכנית הלימוד ולסיכומי שיעורים." },
           { label: "תרגול ומבחנים", detail: "שאלות קצרות וסימולציה לפי נושא." },
           { label: "חוקים וכלי שטח", detail: "מקורות, תקנים ונהלי עבודה בשטח." },
+        ], { label: "פתח תרגול", href: rootPrefix + "pages/quizzes.html" }),
+      ],
+      knowledge: [
+        createRailCard("איך ללמוד את העמוד", [
+          { label: "תקציר מנהלים", detail: "קבל תמונה מהירה לפני העומק המקצועי." },
+          { label: "דגשי מבחן", detail: "סמן מושגים, הבחנות ומלכודות נפוצות." },
+          { label: "הקראה", detail: "השתמש ברכיב ההקראה לסעיפים ארוכים." },
+        ], { label: "חזרה למרכז הידע", href: rootPrefix + "pages/master-hub.html" }),
+        createRailCard("חיבור לשטח", [
+          { label: "רגולציה", detail: "בדוק את שכבת החוק והתקן לפני יישום." },
+          { label: "RCA", detail: "חפש תנאי מערכת ולא רק טעות נקודתית." },
+          { label: "תרגול", detail: "חזור לשאלות קצרות אחרי קריאת העמוד." },
         ], { label: "פתח תרגול", href: rootPrefix + "pages/quizzes.html" }),
       ],
       syllabus: [
