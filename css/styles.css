@@ -11474,3 +11474,317 @@ body.lms-pro .chat-log { background: var(--pro-surface-2); border-radius: 8px; }
 /* =========================================================================
    LMS PRO — END
    ========================================================================= */
+
+/* =========================================================================
+   PROTOTYPE BRIDGE — START
+   Brings the existing lms-pro site closer to prototype/learning-app-v1 look:
+   - app-topbar with search + actions (sticky)
+   - Refined hero / cards / stats matching prototype exactly
+   - Mobile-safe: topbar hidden on <1024px (mobile uses existing site-header)
+   No DOM removals. Tiny markup additions only (one <div class="app-topbar">
+   per page). Auth/JS/data untouched.
+   ========================================================================= */
+
+/* ---- BR-1. Token alignment with prototype ---- */
+body.lms-pro {
+  --pro-text:         #1f2429;
+  --pro-text-muted:   #5b6470;
+  --pro-text-subtle:  #8b94a1;
+  --pro-border:       #e5e7ea;
+  --pro-border-strong:#d4d7dc;
+  --pro-bg:           #fbfbfc;
+  --pro-bg-2:         #f6f7f8;
+  --pro-surface:      #ffffff;
+  --pro-surface-2:    #f4f5f7;
+  --pro-surface-hi:   #ebedf0;
+  --pro-shadow-card:  0 1px 2px rgba(15, 23, 42, .04), 0 1px 3px rgba(15, 23, 42, .04);
+  --pro-shadow-hover: 0 4px 12px rgba(15, 23, 42, .07);
+}
+
+/* ---- BR-2. App topbar: sticky search/actions strip ---- */
+@media (min-width: 1024px) {
+  body.lms-pro .app-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 25;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .75rem 0;
+    margin: -.75rem 0 1.5rem;
+    background: var(--pro-bg);
+    background: color-mix(in srgb, var(--pro-bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(10px) saturate(130%);
+            backdrop-filter: blur(10px) saturate(130%);
+    border-bottom: 1px solid var(--pro-border);
+    /* extend over main padding so it looks edge-to-edge */
+    padding-inline: 2.5rem;
+    margin-inline: -2.5rem;
+  }
+  body.lms-pro .app-topbar .topbar-page-title {
+    font-size: .92rem;
+    font-weight: 700;
+    color: var(--pro-text);
+    letter-spacing: -.005em;
+    min-width: 120px;
+  }
+  body.lms-pro .app-topbar .topbar-page-title small {
+    display: block;
+    color: var(--pro-text-subtle);
+    font-size: .72rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    margin-top: .1rem;
+  }
+  body.lms-pro .app-topbar .topbar-search {
+    flex: 1 1 auto;
+    max-width: 440px;
+    margin-inline-start: auto;
+    position: relative;
+  }
+  body.lms-pro .app-topbar .topbar-search input {
+    width: 100%;
+    background: var(--pro-surface-2);
+    border: 1px solid var(--pro-border);
+    border-radius: 8px;
+    padding: .5rem 2.25rem .5rem .8rem;
+    font-size: .92rem;
+    color: var(--pro-text);
+    transition: background-color .12s ease, border-color .12s ease, box-shadow .12s ease;
+  }
+  body.lms-pro .app-topbar .topbar-search input::placeholder {
+    color: var(--pro-text-subtle);
+  }
+  body.lms-pro .app-topbar .topbar-search input:focus {
+    outline: none;
+    background: var(--pro-surface);
+    border-color: var(--pro-brand);
+    box-shadow: 0 0 0 3px var(--pro-brand-soft-2);
+  }
+  body.lms-pro .app-topbar .topbar-search::before {
+    content: "";
+    position: absolute;
+    inset-inline-end: .75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-color: var(--pro-text-subtle);
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'><circle cx='11' cy='11' r='7'/><path d='M21 21l-4-4'/></svg>") center/contain no-repeat;
+            mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'><circle cx='11' cy='11' r='7'/><path d='M21 21l-4-4'/></svg>") center/contain no-repeat;
+    pointer-events: none;
+  }
+  body.lms-pro .app-topbar .topbar-actions {
+    display: flex;
+    gap: .35rem;
+    align-items: center;
+  }
+  body.lms-pro .app-topbar .icon-btn {
+    width: 34px;
+    height: 34px;
+    background: transparent;
+    border: 1px solid var(--pro-border);
+    color: var(--pro-text-muted);
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color .12s ease, color .12s ease;
+    display: inline-grid;
+    place-items: center;
+  }
+  body.lms-pro .app-topbar .icon-btn:hover {
+    background: var(--pro-surface-2);
+    color: var(--pro-text);
+  }
+}
+@media (max-width: 1023px) {
+  body.lms-pro .app-topbar { display: none; }
+}
+
+/* ---- BR-3. Continue-card matches prototype's brand-accent style ---- */
+body.lms-pro .continue-card {
+  display: grid;
+  gap: .55rem;
+  background: var(--pro-surface);
+  border: 1px solid var(--pro-border);
+  border-inline-start: 3px solid var(--pro-brand);
+  border-radius: 10px;
+  padding: 1.35rem;
+  box-shadow: var(--pro-shadow-card);
+  grid-template-columns: 1fr; /* override prior 3-col */
+  align-items: stretch;
+}
+body.lms-pro .continue-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: .15rem 0;
+  color: var(--pro-text);
+}
+body.lms-pro .continue-card p {
+  color: var(--pro-text-muted);
+  font-size: .94rem;
+  margin: 0 0 .35rem;
+}
+body.lms-pro .continue-card .meta-row {
+  color: var(--pro-text-muted);
+  font-size: .85rem;
+  gap: .5rem;
+  margin: 0;
+}
+body.lms-pro .continue-card .btn,
+body.lms-pro .continue-card a.btn {
+  justify-self: start;
+  margin-top: .5rem;
+}
+
+/* ---- BR-4. Hero stats: prototype-style stat-card style ---- */
+body.lms-pro .hero-mini-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--pro-border);
+}
+body.lms-pro .hero-mini-stats span {
+  background: var(--pro-surface);
+  border: 1px solid var(--pro-border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--pro-text-subtle);
+  box-shadow: var(--pro-shadow-card);
+}
+body.lms-pro .hero-mini-stats strong {
+  background: none;
+  -webkit-background-clip: initial;
+          background-clip: initial;
+  color: var(--pro-text);
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  text-transform: none;
+  display: block;
+  margin: 0;
+}
+
+/* ---- BR-5. Stat tiles general (metric-modern) match prototype ---- */
+body.lms-pro .metric-modern,
+body.lms-pro .metric {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--pro-surface);
+  border: 1px solid var(--pro-border);
+  border-radius: 10px;
+  box-shadow: var(--pro-shadow-card);
+  text-align: start;
+}
+body.lms-pro .metric-modern span,
+body.lms-pro .metric span {
+  order: 2;
+  color: var(--pro-text-muted);
+  font-size: .76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+body.lms-pro .metric-modern strong,
+body.lms-pro .metric strong {
+  order: 1;
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--pro-text);
+  margin: 0;
+}
+
+/* ---- BR-6. Sidebar (existing site-header transformed) polish ---- */
+@media (min-width: 1024px) {
+  body.lms-pro .brand-mark {
+    background: linear-gradient(135deg, var(--pro-brand) 0%, var(--pro-accent) 100%) !important;
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: .03em;
+  }
+  body.lms-pro .header-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  body.lms-pro .header-actions .icon-btn {
+    flex: 0 0 auto;
+    height: 32px;
+    width: 32px;
+    font-size: .92rem;
+  }
+}
+
+/* ---- BR-7. Wider container — match prototype's 1240px ---- */
+@media (min-width: 1024px) {
+  body.lms-pro .site-main {
+    max-width: 1240px;
+    padding: 1.75rem 2.5rem 4rem;
+  }
+  body.lms-pro .site-footer {
+    max-width: 1240px;
+  }
+}
+
+/* ---- BR-8. Nav-hub-grid 4 cols on wide screens ---- */
+@media (min-width: 1280px) {
+  body.lms-pro[data-page-title="דף הבית"] .nav-hub-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  body.lms-pro[data-page-title="דף הבית"] .dashboard-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  body.lms-pro[data-page-title="דף הבית"] .lesson-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ---- BR-9. learner-dashboard-page: align to sidebar shell ---- */
+@media (min-width: 1024px) {
+  /* my-progress.html has no .site-header / .site-main, only .learner-dashboard.
+     If a header is added (we will add one) it will work like other pages.
+     If not, we keep the dashboard centered without sidebar. */
+  body.lms-pro.learner-dashboard-page {
+    padding-inline-start: 0; /* override the global lms-pro padding */
+  }
+  body.lms-pro.learner-dashboard-page:has(.site-header) {
+    padding-inline-start: 264px;
+  }
+  body.lms-pro.learner-dashboard-page .learner-dashboard {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 1.75rem 2.5rem 4rem;
+    width: 100%;
+  }
+}
+
+/* ---- BR-10. Mobile: hide topbar, keep existing chrome ---- */
+@media (max-width: 1023px) {
+  body.lms-pro .app-topbar { display: none; }
+}
+
+/* ---- BR-11. Soft motion for topbar entrance ---- */
+@media (prefers-reduced-motion: no-preference) {
+  body.lms-pro .app-topbar {
+    animation: bridgeFade .25s ease-out both;
+  }
+}
+@keyframes bridgeFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================================
+   PROTOTYPE BRIDGE — END
+   ========================================================================= */

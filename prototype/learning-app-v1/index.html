@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EHS Learning Platform — Prototype v1</title>
+  <meta name="description" content="פרוטוטיפ קונספט עיצוב למערכת לימוד מודרנית: דשבורד, שיעור ותרגול. סטטי, ללא תלויות.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-view="dashboard">
+
+  <!-- ============== MOBILE DRAWER OVERLAY ============== -->
+  <div class="drawer-overlay" data-action="close-drawer" aria-hidden="true"></div>
+
+  <!-- ============== SIDEBAR ============== -->
+  <aside class="sidebar" id="sidebar" aria-label="ניווט ראשי">
+    <div class="sidebar-brand">
+      <div class="brand-mark" aria-hidden="true">E</div>
+      <div class="brand-text">
+        <strong>EHS Course</strong>
+        <small>קורס ממונה בטיחות</small>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="ניווט עיקרי">
+      <div class="sidebar-section-label">למידה</div>
+      <button type="button" class="sidebar-nav-item" data-view="dashboard" aria-current="page">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></svg>
+        </span>
+        <span class="label">דשבורד</span>
+      </button>
+      <button type="button" class="sidebar-nav-item" data-view="lesson">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M4 4v12"/><path d="M8 8h6"/><path d="M8 12h6"/></svg>
+        </span>
+        <span class="label">שיעור: עבודה בגובה</span>
+        <span class="badge-count">חדש</span>
+      </button>
+      <button type="button" class="sidebar-nav-item" data-view="practice">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <span class="label">תרגול ומבחנים</span>
+      </button>
+
+      <div class="sidebar-section-label">משאבים</div>
+      <a href="#" class="sidebar-nav-item" aria-disabled="true">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l9 4-9 4-9-4z"/><path d="M3 10l9 4 9-4"/><path d="M3 14l9 4 9-4"/></svg>
+        </span>
+        <span class="label">חוקים ותקנות</span>
+      </a>
+      <a href="#" class="sidebar-nav-item" aria-disabled="true">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+        </span>
+        <span class="label">צ׳קליסטים</span>
+      </a>
+      <a href="#" class="sidebar-nav-item" aria-disabled="true">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6z"/></svg>
+        </span>
+        <span class="label">אתגר בטיחות</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-pill">
+        <div class="user-avatar" aria-hidden="true">O</div>
+        <div class="user-info">
+          <strong>אושר פרץ</strong>
+          <small>תלמיד מתקדם · 42%</small>
+        </div>
+      </div>
+      <div class="sidebar-footer-row">
+        <button type="button" class="icon-btn" data-action="toggle-theme" aria-label="מצב כהה" title="מצב כהה">◐</button>
+        <button type="button" class="icon-btn" aria-label="הגדרות" title="הגדרות">⚙</button>
+        <button type="button" class="icon-btn" style="margin-inline-start:auto" aria-label="התנתק" title="התנתק">→</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============== APP SHELL ============== -->
+  <div class="app-shell">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <button type="button" class="icon-btn topbar-burger" data-action="open-drawer" aria-label="פתח תפריט" title="תפריט">☰</button>
+
+      <nav class="breadcrumbs crumbs-dashboard" aria-label="היכן אני">
+        <a href="#">קורס</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">דשבורד</span>
+      </nav>
+      <nav class="breadcrumbs crumbs-lesson" aria-label="היכן אני">
+        <a href="#">קורס</a>
+        <span aria-hidden="true">›</span>
+        <a href="#">סיכונים תפעוליים</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">עבודה בגובה</span>
+      </nav>
+      <nav class="breadcrumbs crumbs-practice" aria-label="היכן אני">
+        <a href="#">קורס</a>
+        <span aria-hidden="true">›</span>
+        <a href="#">תרגול</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">סיכונים תפעוליים</span>
+      </nav>
+
+      <div class="topbar-search">
+        <input type="search" placeholder="חפש שיעור, חוק, נושא... ⌘K" aria-label="חיפוש בקורס">
+      </div>
+
+      <div class="topbar-actions">
+        <button type="button" class="icon-btn" aria-label="התראות" title="התראות">🔔</button>
+        <button type="button" class="icon-btn" aria-label="עזרה" title="עזרה">?</button>
+      </div>
+    </header>
+
+    <!-- ============== VIEW: DASHBOARD ============== -->
+    <main class="view view-dashboard" aria-labelledby="dashboard-title">
+      <section class="page-hero">
+        <p class="kicker">דשבורד אישי</p>
+        <h1 id="dashboard-title">שלום אושר, בוא נמשיך ללמוד</h1>
+        <p>סיימת 5 שיעורים מתוך 12. המסלול שלך מעודכן לפי ביצועים אחרונים והנושאים שעוד דורשים חיזוק.</p>
+      </section>
+
+      <!-- Continue + Streak -->
+      <section class="continue-row" aria-label="המשך לימוד ויעדי שבוע">
+        <div class="continue-card">
+          <p class="kicker">המשך ללמוד</p>
+          <h3>שיעור 8 · גהות תעסוקתית</h3>
+          <p>חיזוי, הכרה, הערכה ובקרת חשיפה: רעש, אבק, חומ״ס, קרינה, חום וקור — מסגרת מעשית לסקר חשיפה לעובדים.</p>
+          <div class="progress-bar tall"><span style="width:35%"></span></div>
+          <div class="continue-meta">
+            <span>22 דקות נותרו</span>
+            <span class="dot">•</span>
+            <span>שיעור 8 מתוך 12</span>
+            <span class="dot">•</span>
+            <span>3 שאלות תרגול ממתינות</span>
+          </div>
+          <div>
+            <button type="button" class="btn primary" data-view-link="lesson">המשך לשיעור</button>
+            <button type="button" class="btn secondary" data-view-link="practice">תרגול קצר</button>
+          </div>
+        </div>
+
+        <div class="streak-card">
+          <h3>🔥 רצף יומי · 4 ימים</h3>
+          <p class="muted" style="font-size:.88rem">למדת באופן עקבי השבוע. עוד יום אחד והרצף שלך יגיע ל-5.</p>
+          <div class="streak-week" aria-label="פעילות שבוע אחרון">
+            <div class="streak-day is-done">א</div>
+            <div class="streak-day is-done">ב</div>
+            <div class="streak-day">ג</div>
+            <div class="streak-day is-done">ד</div>
+            <div class="streak-day is-done">ה</div>
+            <div class="streak-day is-today">ו</div>
+            <div class="streak-day">ש</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats-grid" aria-label="סטטיסטיקה כללית">
+        <div class="stat-card">
+          <span class="stat-label">השלמת קורס</span>
+          <span class="stat-value">42%</span>
+          <div class="progress-bar thin"><span style="width:42%"></span></div>
+          <span class="stat-delta up">+5% השבוע</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">ציון ממוצע</span>
+          <span class="stat-value">78%</span>
+          <span class="stat-delta up">+6% מהמבחן הקודם</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">מבחנים שעברתי</span>
+          <span class="stat-value">14</span>
+          <span class="stat-delta">מתוך 22</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">שאלות שנענו</span>
+          <span class="stat-value">312</span>
+          <span class="stat-delta">דיוק 81%</span>
+        </div>
+      </section>
+
+      <!-- Two col: Topics + Recommend -->
+      <section class="two-col" aria-label="נושאים והמלצות">
+        <article class="card">
+          <header class="card-head">
+            <h2>הנושאים שלך</h2>
+            <a href="#" class="card-action">הצג הכול</a>
+          </header>
+          <div>
+            <div class="topic-row">
+              <span class="topic-name">בטיחות באתרי בנייה</span>
+              <div class="progress-bar thin"><span style="width:88%"></span></div>
+              <span class="mastery-label high">מומחה</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">סיכונים תפעוליים</span>
+              <div class="progress-bar thin"><span style="width:72%"></span></div>
+              <span class="mastery-label high">בקיא</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">גהות תעסוקתית</span>
+              <div class="progress-bar thin"><span style="width:35%"></span></div>
+              <span class="mastery-label med">בלימוד</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">חשמל והגנה מחשמל</span>
+              <div class="progress-bar thin"><span style="width:54%"></span></div>
+              <span class="mastery-label med">מתחיל</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">סיכונים כימיים</span>
+              <div class="progress-bar thin"><span style="width:28%"></span></div>
+              <span class="mastery-label low">חיזוק</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <header class="card-head">
+            <h2>מומלץ לתרגל</h2>
+            <a href="#" class="card-action">פתח הכול</a>
+          </header>
+          <ul class="recommend-list">
+            <li>
+              <span class="topic-icon ico-danger">!</span>
+              <div class="recommend-body">
+                <strong>סיכונים כימיים</strong>
+                <small>ציון אחרון 54% · 12 שאלות זמינות</small>
+              </div>
+              <button type="button" class="btn secondary" data-view-link="practice">תרגל</button>
+            </li>
+            <li>
+              <span class="topic-icon ico-warn">⚡</span>
+              <div class="recommend-body">
+                <strong>חשמל</strong>
+                <small>3 טעויות חוזרות בנושא הארקה</small>
+              </div>
+              <button type="button" class="btn secondary" data-view-link="practice">תרגל</button>
+            </li>
+            <li>
+              <span class="topic-icon">💡</span>
+              <div class="recommend-body">
+                <strong>גהות תעסוקתית</strong>
+                <small>שיעור פעיל — תרגול קצר אחרי הקריאה</small>
+              </div>
+              <button type="button" class="btn secondary" data-view-link="practice">תרגל</button>
+            </li>
+            <li>
+              <span class="topic-icon ico-ok">✓</span>
+              <div class="recommend-body">
+                <strong>בנייה — חזרה</strong>
+                <small>שמירה על הציון 88%</small>
+              </div>
+              <button type="button" class="btn secondary" data-view-link="practice">תרגל</button>
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Activity feed -->
+      <section class="card" style="margin-bottom:1.5rem" aria-label="פעילות אחרונה">
+        <header class="card-head">
+          <h2>פעילות אחרונה</h2>
+          <a href="#" class="card-action">היסטוריה מלאה</a>
+        </header>
+        <ul class="activity-feed">
+          <li>
+            <span class="activity-dot dot-ok" aria-hidden="true"></span>
+            <div class="activity-body">
+              <strong>השלמת מבחן: סיכונים תפעוליים</strong>
+              <small>ציון 84% · 12/15 נכון · 18 דקות</small>
+            </div>
+            <span class="activity-time">לפני שעתיים</span>
+          </li>
+          <li>
+            <span class="activity-dot dot-warn" aria-hidden="true"></span>
+            <div class="activity-body">
+              <strong>תרגול: חשמל — 6 שאלות</strong>
+              <small>3 נכון · נושא שדורש חיזוק נוסף</small>
+            </div>
+            <span class="activity-time">אתמול</span>
+          </li>
+          <li>
+            <span class="activity-dot dot-ok" aria-hidden="true"></span>
+            <div class="activity-body">
+              <strong>סיימת לקרוא: שיעור 5 — בטיחות בבנייה</strong>
+              <small>זמן קריאה 14 דקות</small>
+            </div>
+            <span class="activity-time">אתמול</span>
+          </li>
+          <li>
+            <span class="activity-dot" aria-hidden="true"></span>
+            <div class="activity-body">
+              <strong>שמרת סימניה: תקנות עבודה בגובה</strong>
+              <small>נושא ICA סקירה</small>
+            </div>
+            <span class="activity-time">לפני 2 ימים</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Mastery by topic -->
+      <section class="card" aria-label="שליטה לפי נושא">
+        <header class="card-head">
+          <h2>שליטה לפי נושא</h2>
+          <span class="muted" style="font-size:.85rem">12 נושאים · עודכן אתמול</span>
+        </header>
+        <div class="mastery-grid">
+          <div class="mastery-row"><span class="name">יסודות תורת הבטיחות</span><div class="progress-bar thin"><span style="width:95%"></span></div><span class="value">95%</span></div>
+          <div class="mastery-row"><span class="name">ארגון מערך הבטיחות</span><div class="progress-bar thin"><span style="width:90%"></span></div><span class="value">90%</span></div>
+          <div class="mastery-row"><span class="name">בטיחות באתרי בנייה</span><div class="progress-bar thin"><span style="width:88%"></span></div><span class="value">88%</span></div>
+          <div class="mastery-row"><span class="name">סיכונים תפעוליים</span><div class="progress-bar thin"><span style="width:72%"></span></div><span class="value">72%</span></div>
+          <div class="mastery-row"><span class="name">גהות תעסוקתית</span><div class="progress-bar thin"><span style="width:35%"></span></div><span class="value">35%</span></div>
+          <div class="mastery-row"><span class="name">חשמל</span><div class="progress-bar thin"><span style="width:54%"></span></div><span class="value">54%</span></div>
+          <div class="mastery-row"><span class="name">סיכונים כימיים</span><div class="progress-bar thin"><span style="width:28%"></span></div><span class="value">28%</span></div>
+          <div class="mastery-row"><span class="name">היערכות לחירום</span><div class="progress-bar thin"><span style="width:0%"></span></div><span class="value">—</span></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============== VIEW: LESSON ============== -->
+    <main class="view view-lesson" aria-labelledby="lesson-title">
+      <div class="lesson-grid">
+        <article class="lesson-main">
+          <header class="lesson-header">
+            <div class="lesson-meta-row">
+              <span class="badge badge-info">שיעור 5</span>
+              <span class="badge badge-warn">קושי בינוני</span>
+              <span class="badge">12 דקות קריאה</span>
+              <span class="muted" style="font-size:.82rem">עודכן ב-12.05.2026</span>
+            </div>
+            <h1 id="lesson-title">עבודה בגובה — דרישות חוק, בקרות וציוד</h1>
+            <p>סקירה מקצועית של דרישות עבודה בגובה: הגדרת הסיכון, היררכיית הבקרות, ציוד מגן אישי וחובות הקבלן הראשי. כולל מקור חוקי, טיפים למבחן ודוגמאות שטח.</p>
+          </header>
+
+          <section id="overview">
+            <h2>סקירה</h2>
+            <p>עבודה בגובה היא אחד הסיכונים המסוכנים ביותר באתרי בנייה ובתחזוקה תעשייתית. בישראל היא אחראית ל-30%-40% מתאונות העבודה הקטלניות, ולכן חוק הבטיחות בעבודה ותקנותיו מציבים דרישות מחמירות במיוחד.</p>
+            <p>סעיף זה מסכם את המסגרת החוקית, את היררכיית הבקרות הנדרשת ואת הציוד המינימלי שעל ממונה הבטיחות לוודא לפני התחלת עבודה.</p>
+
+            <div class="callout callout-legal">
+              <div class="callout-icon" aria-hidden="true">⚖</div>
+              <div class="callout-body">
+                <strong>מקור חוקי</strong>
+                <p>תקנות הבטיחות בעבודה (עבודה בגובה), התשס״ז-2007. סעיפים 3-7 מפרטים את חובת בעל המקום, הקבלן הראשי וקבלני המשנה לזיהוי הסיכון, הקצאת מנהל עבודה מוסמך והשגת הסכמת עובדים.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="definitions">
+            <h2>הגדרות יסוד</h2>
+            <ul>
+              <li><strong>עבודה בגובה</strong> — כל עבודה במקום שממנו עובד עלול ליפול לעומק של 2 מטרים או יותר, בין אם מעל פני קרקע ובין אם מעל פני רצפת קומה.</li>
+              <li><strong>פיגום</strong> — מבנה זמני המשמש כפלטפורמת עבודה ותמיכה. מחייב סקר סיכונים, בודק מוסמך והרכבה לפי תקן.</li>
+              <li><strong>נקודת עיגון</strong> — אלמנט מבני שעבר חישוב מהנדס ומסומן, מסוגל לעמוד בעומס 22 קילו-ניוטון.</li>
+              <li><strong>PFAS</strong> — Personal Fall Arrest System: מערכת ציוד אישית למניעת נפילה (רתמה + חבל + נקודת עיגון).</li>
+            </ul>
+          </section>
+
+          <section id="risks">
+            <h2>סיכונים עיקריים</h2>
+            <p>הסיכונים בעבודה בגובה אינם רק הנפילה עצמה, אלא כל מה שמסביב. ממונה הבטיחות חייב לזהות את כל המעגלים האפשריים:</p>
+            <ul>
+              <li>נפילת אדם מגובה (עיקרי)</li>
+              <li>נפילת חפצים על עובדים מתחת</li>
+              <li>קריסת מבנה זמני (פיגום, סולם)</li>
+              <li>חשיפה לתנאי מזג אוויר קיצוניים (רוח, חום)</li>
+              <li>תאונות חשמליות מקווי מתח קרובים</li>
+            </ul>
+
+            <div class="callout callout-important">
+              <div class="callout-icon" aria-hidden="true">!</div>
+              <div class="callout-body">
+                <strong>דגש חשוב</strong>
+                <p>עבודה בגובה מעל 2 מטר מחייבת אמצעי הגנה. עבודה מעל 5 מטר — חובה הסמכת עובדים. עבודה בקרבת קווי חשמל — מרחק בטיחותי מינימלי לפי מתח: 3 מטר עד 33kV, 5 מטר עד 161kV.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="hierarchy">
+            <h2>היררכיית בקרות (Hierarchy of Controls)</h2>
+            <p>תמיד יש להעדיף בקרה גבוהה יותר. אם לא ניתן — לרדת לרמה הבאה ולתעד את הסיבה.</p>
+            <ol>
+              <li><strong>ביטול</strong> — האם ניתן לבצע את העבודה ללא צורך בגובה? (לדוגמה: הרכבה על הקרקע ואז הרמה).</li>
+              <li><strong>החלפה</strong> — שימוש בציוד מכני (במת הרמה במקום סולם).</li>
+              <li><strong>בקרות הנדסיות</strong> — מעקות, רשתות בטיחות, פיגומים תקניים.</li>
+              <li><strong>בקרות מנהליות</strong> — נהלים, הדרכות, חלוקת תפקידים, היתרי עבודה.</li>
+              <li><strong>ציוד מגן אישי</strong> — רק כברירת מחדל אחרונה.</li>
+            </ol>
+
+            <div class="callout callout-tip">
+              <div class="callout-icon" aria-hidden="true">💡</div>
+              <div class="callout-body">
+                <strong>טיפ למבחן</strong>
+                <p>זכרו: PPE זה האחרון בהיררכיה, לא הראשון. שאלות מבחן רבות נופלות על הסדר הנכון. ראשי תיבות לזכירה: <strong>בה־הב־מ־ציוד</strong> — <em>ב</em>יטול → <em>ה</em>חלפה → <em>ב</em>קרות הנדסיות → בקרות <em>מ</em>נהליות → <em>ציוד</em> מגן.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="equipment">
+            <h2>ציוד מגן אישי (PPE)</h2>
+            <p>הציוד המינימלי לעבודה בגובה כולל מספר רכיבים שחייבים לעבוד יחד כמערכת אחת. ציוד יחיד אינו מספיק.</p>
+            <ul>
+              <li><strong>רתמת בטיחות מלאה</strong> (full body harness) — לא חגורת מותן.</li>
+              <li><strong>חבל הרתמה / מערכת בולם נפילה</strong> — עם בולם אנרגיה.</li>
+              <li><strong>קונקטור / מצמד</strong> — לחיבור מהיר ובטוח.</li>
+              <li><strong>נקודת עיגון מאושרת</strong> — מסומנת, נבדקת מדי 6 חודשים.</li>
+              <li><strong>קסדת בטיחות עם רצועה</strong> (chin strap) — כדי שלא תיפול.</li>
+            </ul>
+
+            <div class="callout callout-field">
+              <div class="callout-icon" aria-hidden="true">📍</div>
+              <div class="callout-body">
+                <strong>דוגמה מהשטח</strong>
+                <p>באתר בנייה במרכז הארץ זוהו 4 פיגומים ללא רגלי בטיחות. הקבלן הראשי הוטל בעיצום של 12,500 ש״ח לפי חוק ארגון הפיקוח על העבודה, ועדה למניעת תאונות עבודה חייבה הפסקת עבודות עד תיקון מלא ובדיקת בודק מוסמך. הלקח: בדיקת פיגומים יומית לפני תחילת משמרת — לא רק פעם בשבוע.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="faq">
+            <h2>שאלות נפוצות</h2>
+
+            <details>
+              <summary>מה ההגדרה המדויקת של ״עבודה בגובה״ בתקנות?</summary>
+              <p>לפי תקנות הבטיחות בעבודה (עבודה בגובה), התשס״ז-2007, המונח כולל כל עבודה שבה קיים סיכון נפילה לעומק 2 מטרים או יותר, וכן עבודה מעל פתחים, בורות, גגות, פיגומים, סולמות ופלטפורמות מוגבהות.</p>
+            </details>
+
+            <details>
+              <summary>מי חייב הסמכה לעבודה בגובה?</summary>
+              <p>כל עובד שמבצע עבודה בגובה מעל 2 מטר, וכן מנהל עבודה האחראי על צוות בגובה, חייבים הסמכה מוכרת ע״י משרד העבודה. ההסמכה כוללת קורס תיאורטי ומעשי בן 32 שעות לעובד ו-44 שעות למנהל עבודה.</p>
+            </details>
+
+            <details>
+              <summary>איך מבצעים סקר סיכונים לפיגום?</summary>
+              <p>סקר סיכונים לפיגום כולל בדיקת היציבות המבנית, יציבות הקרקע, מרחק מקווי חשמל, עומס מקסימלי, נגישות לכניסה ויציאה, וקיום מעקות וסולמות. הסקר מתועד ונחתם על ידי בודק מוסמך לפני תחילת עבודה.</p>
+            </details>
+
+            <details>
+              <summary>מה ההבדל בין רתמה מלאה לחגורת מותן?</summary>
+              <p>חגורת מותן (waist belt) אסורה לשימוש כציוד מגן מנפילה. בעת נפילה היא גורמת לפציעות חמורות בעמוד השדרה. רתמה מלאה (full body harness) פורסת את עומסי העצירה על כל הגוף ומפחיתה את הסיכון לפציעה משמעותית.</p>
+            </details>
+          </section>
+
+          <nav class="lesson-pagination" aria-label="ניווט שיעורים">
+            <a href="#" class="page-link prev">
+              <small>הקודם</small>
+              <strong>4. סיכונים תפעוליים</strong>
+            </a>
+            <a href="#" class="page-link next">
+              <small>הבא</small>
+              <strong>6. חשמל והגנה מחשמל</strong>
+            </a>
+          </nav>
+        </article>
+
+        <aside class="lesson-toc" aria-label="ניווט בעמוד">
+          <h4>בעמוד הזה</h4>
+          <ol>
+            <li><a href="#overview" class="is-active">סקירה</a></li>
+            <li><a href="#definitions">הגדרות יסוד</a></li>
+            <li><a href="#risks">סיכונים עיקריים</a></li>
+            <li><a href="#hierarchy">היררכיית בקרות</a></li>
+            <li><a href="#equipment">ציוד מגן אישי</a></li>
+            <li><a href="#faq">שאלות נפוצות</a></li>
+          </ol>
+          <div class="toc-divider"></div>
+          <div class="toc-actions">
+            <button type="button" class="btn secondary">⭐ סמן שיעור</button>
+            <button type="button" class="btn secondary" data-view-link="practice">📝 תרגול נושא</button>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- ============== VIEW: PRACTICE ============== -->
+    <main class="view view-practice" aria-labelledby="practice-title">
+      <header class="practice-header">
+        <p class="kicker">תרגול</p>
+        <h1 id="practice-title">סיכונים תפעוליים — תרגול ממוקד</h1>
+        <p>10 שאלות מתוך מאגר השיעור · 12 דקות משוערות · 70% להעברה. שאלות נבחרות לפי הביצועים הקודמים שלך.</p>
+        <div class="practice-progress">
+          <span><strong>שאלה 3 מתוך 10</strong></span>
+          <div class="progress-bar"><span style="width:30%"></span></div>
+          <span>זמן: 03:42</span>
+        </div>
+      </header>
+
+      <div class="practice-grid">
+        <article class="question-card" aria-labelledby="q-title">
+          <div class="question-meta">
+            <span class="badge badge-info">שיעור 4</span>
+            <span class="badge badge-warn">קושי בינוני</span>
+            <span class="badge">סיכונים תפעוליים</span>
+            <span class="badge">דיווח</span>
+          </div>
+          <h2 class="question-title" id="q-title">3. מה החובה החוקית של ממונה הבטיחות לאחר אירוע ״כמעט תאונה״ באתר?</h2>
+
+          <div class="answers" role="group" aria-label="תשובות">
+            <button type="button" class="answer">
+              <span class="answer-key">א</span>
+              <span class="answer-text">דיווח מיידי לרשות המסים על נזק כלכלי</span>
+            </button>
+            <button type="button" class="answer is-correct">
+              <span class="answer-key">ב</span>
+              <span class="answer-text">תחקור פנימי, תיעוד באירועים, עדכון נוהל ובמקרים מסוימים — דיווח לרגולטור</span>
+            </button>
+            <button type="button" class="answer is-wrong">
+              <span class="answer-key">ג</span>
+              <span class="answer-text">הודעה מיידית למשטרת ישראל</span>
+            </button>
+            <button type="button" class="answer">
+              <span class="answer-key">ד</span>
+              <span class="answer-text">אין חובת דיווח אם לא נגרם נזק או פצוע</span>
+            </button>
+          </div>
+
+          <div class="explanation">
+            <h3>הסבר</h3>
+            <p>לפי חוק ארגון הפיקוח על העבודה ותקנות הבטיחות בעבודה, אירוע ״כמעט תאונה״ (Near Miss) מחייב תחקור פנימי, תיעוד באירועים ועדכון הנוהל. במקרים שמערבים סיכון בריאותי מיוחד או כשל הנדסי מהותי — קיימת גם חובת דיווח לאגף הפיקוח על העבודה במשרד הכלכלה. הודעה למשטרה רלוונטית רק בעבירות פליליות.</p>
+            <p><a href="#" data-view-link="lesson">קרא עוד בשיעור 4 — סיכונים תפעוליים →</a></p>
+          </div>
+
+          <nav class="question-nav" aria-label="ניווט בשאלות">
+            <button type="button" class="btn secondary">← הקודמת</button>
+            <button type="button" class="btn primary">הבאה →</button>
+          </nav>
+        </article>
+
+        <aside class="practice-aside" aria-label="סטטוס תרגול">
+          <article class="card">
+            <h3>סטטוס תרגול</h3>
+            <div class="score-block">
+              <div class="score-row"><span class="label">נכון</span><span class="val" style="color:var(--ok)">2</span></div>
+              <div class="score-row"><span class="label">לא נכון</span><span class="val" style="color:var(--danger)">0</span></div>
+              <div class="score-row"><span class="label">דילגתי</span><span class="val">0</span></div>
+              <div class="score-row"><span class="label">דיוק</span><span class="val">100%</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>קפיצה לשאלה</h3>
+            <div class="question-jumps">
+              <button class="q-jump is-correct">1</button>
+              <button class="q-jump is-correct">2</button>
+              <button class="q-jump is-current">3</button>
+              <button class="q-jump">4</button>
+              <button class="q-jump">5</button>
+              <button class="q-jump">6</button>
+              <button class="q-jump">7</button>
+              <button class="q-jump">8</button>
+              <button class="q-jump">9</button>
+              <button class="q-jump">10</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>טיפ למצב הזה</h3>
+            <p class="muted" style="font-size:.88rem;line-height:1.6">שאלות "כמעט תאונה" חוזרות לעיתים קרובות במבחנים. מומלץ לזכור את שלושת הצעדים: <strong>תיעוד, תחקור, עדכון נוהל</strong>.</p>
+            <a href="#" data-view-link="lesson" style="font-size:.85rem;font-weight:600">פתח שיעור מלא</a>
+          </article>
+        </aside>
+      </div>
+    </main>
+
+  </div><!-- /app-shell -->
+
+  <script src="app.js" defer></script>
+</body>
+</html>
