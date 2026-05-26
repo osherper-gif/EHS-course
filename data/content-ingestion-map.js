@@ -48,7 +48,7 @@
   {
     "lessonId": "lesson-02",
     "sessionNumber": 2,
-    "title": "בעלי תפקידים, אחריות וסמכות",
+    "title": "ארגון מערך הבטיחות, פיקוח ואחריות",
     "prep": {
       "status": "available",
       "href": "pages/prep/lesson-02-roles-responsibility.html",
@@ -60,8 +60,8 @@
       "updatedAt": "2026-05-26"
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 20,
+      "href": "pages/summaries/lesson-02-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/human-factors.html",
@@ -74,10 +74,15 @@
       "pages/checklists.html?domain=ISO"
     ],
     "glossaryTerms": [
-      "אחריות שילוחית",
-      "תופש מפעל",
+      "חוק",
+      "פקודה",
+      "צו בטיחות",
+      "צו שיפור",
+      "אחריות פלילית",
+      "אחריות אזרחית",
       "ממונה בטיחות",
-      "נאמן בטיחות"
+      "נאמן בטיחות",
+      "קשר סיבתי"
     ],
     "lastUpdated": "2026-05-26"
   },
@@ -303,11 +308,11 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "סיכום",
-  "lessonId": "lesson-01",
-  "sessionNumber": 1,
-  "title": "נוסף סיכום שיעור 1 — יסודות תורת הבטיחות",
-  "description": "סיכום שיעור 1 הוחלף בעמוד curated עם דגשי מרצה, מלכודות מבחן, קשר חוק/תקנה/יישום, דוגמאות שטח וקישורי המשך.",
-  "href": "pages/summaries/lesson-01-summary.html",
+  "lessonId": "lesson-02",
+  "sessionNumber": 2,
+  "title": "נוסף סיכום שיעור 2 — ארגון מערך הבטיחות, פיקוח ואחריות",
+  "description": "סיכום שיעור 2 הוחלף בעמוד curated עם מדרג דין, סמכויות פיקוח, צווי אכיפה, אחריות פלילית ואזרחית ושאלות תרגול אינטראקטיביות.",
+  "href": "pages/summaries/lesson-02-summary.html",
   "updatedAt": "2026-05-26"
 };
 
