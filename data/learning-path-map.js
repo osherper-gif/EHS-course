@@ -1,154 +1,154 @@
 (function () {
   "use strict";
 
-  const stages = [
-    {
-      id: "stage-01",
-      title: "שלב 1 — מושגי יסוד בבטיחות",
-      description: "שפה מקצועית משותפת: סיכון, מפגע, בקרה, אחריות, תקרית וכמעט ונפגע.",
-      status: "סיכום זמין",
-      lesson: "lesson-01.html",
-      prep: "",
-      summary: "lesson-01.html",
-      knowledge: ["knowledge/human-factors.html", "knowledge/labor-inspection-law.html"],
-      practice: "exam-questions.html?lesson=lesson-01",
-      checklists: "checklists.html",
-      glossary: "glossary.html"
-    },
-    {
-      id: "stage-02",
-      title: "שלב 2 — בעלי תפקידים במערך הבטיחות",
-      description: "תופש המפעל, ממונה בטיחות, ועדת בטיחות, נאמני בטיחות, מנהלים ועובדים.",
-      status: "סיכום זמין",
-      lesson: "lesson-02.html",
-      prep: "",
-      summary: "lesson-02.html",
-      knowledge: ["knowledge/human-factors.html", "knowledge/iso-45001.html"],
-      practice: "exam-questions.html?lesson=lesson-02",
-      checklists: "checklists.html",
-      glossary: "glossary.html"
-    },
-    {
-      id: "stage-03",
-      title: "שלב 3 — חוק ארגון הפיקוח ופקודת הבטיחות",
-      description: "היררכיית הדין, סמכויות פיקוח, צווים, תסקירים, מכונות וציוד הרמה.",
-      status: "זמין",
-      lesson: "lesson-05.html",
-      prep: "",
-      summary: "lesson-05.html",
-      knowledge: ["knowledge/labor-inspection-law.html", "knowledge/safety-ordinance.html"],
-      practice: "exam-questions.html?lesson=lesson-05",
-      checklists: "checklists.html",
-      glossary: "glossary.html"
-    },
-    {
-      id: "stage-04",
-      title: "שלב 4 — הערכות למצבי חירום",
-      description: "תרחישי חירום, פינוי, ציוד, תפקידים, תקשורת, תרגול והפקת לקחים.",
-      status: "זמין",
-      lesson: "lesson-06.html",
-      prep: "",
-      summary: "lesson-06.html",
-      knowledge: ["knowledge/emergency-preparedness.html", "knowledge/emergency-management.html"],
-      practice: "exam-questions.html?lesson=lesson-06",
-      checklists: "checklists.html",
-      glossary: "glossary.html"
-    },
-    {
-      id: "stage-05",
-      title: "שלב 5 — אחריות משפטית ותפקיד ממונה בטיחות",
-      description: "הפרדה בין ייעוץ מקצועי, אחריות ניהולית, אכיפה, תיעוד ודיווח.",
-      status: "זמין",
-      lesson: "lesson-07.html",
-      prep: "",
-      summary: "lesson-07.html",
-      knowledge: ["knowledge/iso-45001.html", "knowledge/process-safety.html"],
-      practice: "exam-questions.html?lesson=lesson-07",
-      checklists: "checklists.html",
-      glossary: "glossary.html"
-    },
-    {
-      id: "stage-06",
-      title: "שלב 6 — ארגון מערך הבטיחות במפעל וניהולו",
-      description: "מבנה מערך בטיחות, KPI, PDCA, Just Culture, Operational Drift וניהול שיפור מתמיד.",
-      status: "הכנה זמינה",
-      lesson: "lesson-08.html",
-      prep: "prep/lesson-08-safety-organization.html",
-      summary: "lesson-08.html",
-      knowledge: ["knowledge/iso-45001.html", "knowledge/human-factors.html", "knowledge/process-safety.html"],
-      practice: "prep/lesson-08-safety-organization.html#prepQuestions",
-      checklists: "checklists.html",
-      glossary: "glossary.html"
-    },
-    {
-      id: "stage-07",
-      title: "שלב 7 — סיכונים תפעוליים, חשמל ותחזוקה",
-      description: "חשמל, LOTO/PTW, מיגון מכונות, עבודה חמה, שינוי תהליך ואנרגיה אגורה.",
-      status: "זמין",
-      lesson: "lesson-11.html",
-      prep: "",
-      summary: "lesson-11.html",
-      knowledge: ["knowledge/electrical-safety.html", "knowledge/loto-ptw.html", "knowledge/machine-guarding.html"],
-      practice: "exam-questions.html?lesson=lesson-11",
-      checklists: "checklists.html",
-      glossary: "glossary.html"
-    },
-    {
-      id: "stage-08",
-      title: "שלב 8 — בנייה, עבודה בגובה והרמה",
-      description: "פיגומים, חפירות, עגורנים, רתמות, חילוץ, SWL ותסקירי בדיקה.",
-      status: "זמין",
-      lesson: "lesson-03.html",
-      prep: "",
-      summary: "lesson-03.html",
-      knowledge: ["knowledge/construction-safety.html", "knowledge/work-at-height.html", "knowledge/lifting-and-cranes.html"],
-      practice: "exam-questions.html?lesson=lesson-03",
-      checklists: "checklists.html",
-      glossary: "glossary.html"
-    },
-    {
-      id: "stage-09",
-      title: "שלב 9 — גהות, חומרים מסוכנים וחשיפות",
-      description: "SDS, ניטור, רעש, חומרים מסוכנים, PPE, אוורור ומעקב רפואי.",
-      status: "זמין",
-      lesson: "lesson-04.html",
-      prep: "",
-      summary: "lesson-04.html",
-      knowledge: ["knowledge/hazardous-materials.html", "knowledge/occupational-hygiene.html"],
-      practice: "exam-questions.html?lesson=lesson-04",
-      checklists: "checklists.html",
-      glossary: "glossary.html"
-    },
-    {
-      id: "stage-10",
-      title: "שלב 10 — חזרה למבחן ויישום בשטח",
-      description: "שאלות תרגול, דגשי מבחן, מלכודות נפוצות, checklists ומילון מונחים.",
-      status: "בהמשך",
-      lesson: "lesson-12.html",
-      prep: "",
-      summary: "lesson-12.html",
-      knowledge: ["master-hub.html", "glossary.html"],
-      practice: "exam-questions.html",
-      checklists: "checklists.html",
-      glossary: "glossary.html"
-    }
+  const sourceNote =
+    "מסלול הלימוד מבוסס על תוכנית הלימוד שנמסרה במסגרת קורס ממונה בטיחות בבאר הדרכות / המכללה לבטיחות, ניהול וסביבה. ייתכנו שינויים בין מוסדות ומחזורים שונים.";
+
+  const knowledgeLabels = {
+    "human-factors": "גורם אנושי",
+    "iso-45001": "ISO 45001",
+    "labor-inspection-law": "חוק ארגון הפיקוח",
+    "safety-ordinance": "פקודת הבטיחות",
+    "electrical-safety": "חשמל",
+    "loto-ptw": "LOTO / PTW",
+    "machine-guarding": "מיגון מכונות",
+    "construction-safety": "בטיחות בבנייה",
+    "work-at-height": "עבודה בגובה",
+    "lifting-and-cranes": "הרמה ועגורנים",
+    "hazardous-materials": "חומרים מסוכנים",
+    "occupational-hygiene": "גהות תעסוקתית",
+    "emergency-preparedness": "היערכות לחירום",
+    "emergency-management": "ניהול חירום",
+    "process-safety": "בטיחות תהליך"
+  };
+
+  const sessions = [
+    session(1, "מושגי יסוד בבטיחות וסיכון", ["human-factors", "labor-inspection-law"], { summary: true, examFocus: true }),
+    session(2, "בעלי תפקידים, אחריות וסמכות", ["human-factors", "iso-45001"], { summary: true, examFocus: true }),
+    session(3, "חוק ארגון הפיקוח על העבודה", ["labor-inspection-law"], { summary: true, examFocus: true }),
+    session(4, "פקודת הבטיחות בעבודה ומבנה החובות", ["safety-ordinance", "labor-inspection-law"], { summary: true, examFocus: true }),
+    session(5, "ועדת בטיחות, נאמני בטיחות וארגון פנימי", ["labor-inspection-law", "human-factors"], { summary: true, examFocus: true }),
+    session(6, "היערכות למצבי חירום ותרגול", ["emergency-preparedness", "emergency-management"], { summary: true }),
+    session(7, "אחריות משפטית ותפקיד ממונה בטיחות", ["labor-inspection-law", "safety-ordinance", "iso-45001"], { summary: true, examFocus: true }),
+    session(8, "ארגון מערך הבטיחות במפעל וניהולו", ["iso-45001", "human-factors", "labor-inspection-law", "safety-ordinance"], {
+      prepHref: "prep/lesson-08-safety-organization.html",
+      summary: false,
+      examFocus: true,
+      checklists: ["checklists.html?domain=ISO"]
+    }),
+    session(9, "סקר סיכונים, הערכת סיכונים ובקרות", ["process-safety", "iso-45001"], { summary: true, examFocus: true }),
+    session(10, "ניהול בטיחות בתעסוקה ו-PDCA", ["iso-45001", "process-safety"], { summary: true }),
+    session(11, "תרבות בטיחות, Just Culture וגורם אנושי", ["human-factors", "iso-45001"], { summary: true, examFocus: true }),
+    session(12, "חזרה מבנית ודגשי מבחן ראשונים", ["human-factors", "labor-inspection-law", "iso-45001"], { summary: true, examFocus: true }),
+    session(13, "חשמל: מושגים, סיכונים ומנגנוני הגנה", ["electrical-safety"], { examFocus: true }),
+    session(14, "חשמל: הארקה, מפסק מגן ובדיקות", ["electrical-safety"], { examFocus: true }),
+    session(15, "LOTO: בידוד אנרגיה ואימות אפס אנרגיה", ["loto-ptw", "electrical-safety"], { examFocus: true }),
+    session(16, "היתרי עבודה, עבודה חמה ו-SIMOPS", ["loto-ptw", "process-safety"], { examFocus: true }),
+    session(17, "מיגון מכונות ונקודות תפיסה", ["machine-guarding", "safety-ordinance"], { examFocus: true }),
+    session(18, "תחזוקה בטוחה ואנרגיה אגורה", ["loto-ptw", "machine-guarding"], {}),
+    session(19, "בטיחות באתרי בנייה: מבנה, אחריות וסדר עבודה", ["construction-safety"], { examFocus: true }),
+    session(20, "פיגומים, משטחי עבודה ומבנים זמניים", ["construction-safety", "work-at-height"], { examFocus: true }),
+    session(21, "חפירות, קריסת קרקע ותמיכות", ["construction-safety"], { examFocus: true }),
+    session(22, "עבודה בגובה: היררכיית בקרות וציוד", ["work-at-height"], { examFocus: true }),
+    session(23, "עבודה בגובה: עיגון, רתמות וחילוץ", ["work-at-height", "emergency-preparedness"], { examFocus: true }),
+    session(24, "ציוד הרמה, אביזרי הרמה ו-SWL", ["lifting-and-cranes", "safety-ordinance"], { examFocus: true }),
+    session(25, "עגורנים, רדיוס עבודה והרמות קריטיות", ["lifting-and-cranes", "construction-safety"], { examFocus: true }),
+    session(26, "מלגזות, תנועה באתר וממשקי אדם-מכונה", ["lifting-and-cranes", "human-factors"], {}),
+    session(27, "חומרים מסוכנים: SDS, סימון ואי-תאימות", ["hazardous-materials"], { examFocus: true }),
+    session(28, "חומרים מסוכנים: דליקים, רעילים ואוורור", ["hazardous-materials", "occupational-hygiene"], { examFocus: true }),
+    session(29, "תגובה לדליפה, אחסון והפרדה", ["hazardous-materials", "emergency-management"], {}),
+    session(30, "גהות תעסוקתית: חשיפה וניטור", ["occupational-hygiene"], { examFocus: true }),
+    session(31, "רעש מזיק, בדיקות רפואיות ו-PPE", ["occupational-hygiene"], { examFocus: true }),
+    session(32, "גורמי סיכון פיזיקליים וסביבת עבודה", ["occupational-hygiene"], {}),
+    session(33, "אש וכיבוי: מניעה, גילוי ותגובה", ["emergency-preparedness", "hazardous-materials"], { examFocus: true }),
+    session(34, "תוכנית חירום, פינוי ותפקידים", ["emergency-preparedness", "emergency-management"], { examFocus: true }),
+    session(35, "ניהול אירוע, תקשורת ותחקיר לאחר אירוע", ["emergency-management", "human-factors"], {}),
+    session(36, "ISO 45001: הקשר הארגון ומנהיגות", ["iso-45001"], { examFocus: true }),
+    session(37, "ISO 45001: תכנון, סיכונים והזדמנויות", ["iso-45001", "process-safety"], { examFocus: true }),
+    session(38, "ISO 45001: תמיכה, תפעול ובקרת שינוי", ["iso-45001", "loto-ptw"], {}),
+    session(39, "ISO 45001: הערכת ביצועים ושיפור", ["iso-45001"], {}),
+    session(40, "בטיחות תהליך: barriers, bowtie וסטיות", ["process-safety"], { examFocus: true }),
+    session(41, "MOC, RCA ו-Swiss Cheese", ["process-safety", "human-factors"], { examFocus: true }),
+    session(42, "קבלנים, תיאום עבודות ו-Permit to Work", ["loto-ptw", "human-factors"], {}),
+    session(43, "ציוד מגן אישי: התאמה, מגבלות ובקרה", ["occupational-hygiene", "work-at-height"], { examFocus: true }),
+    session(44, "חלל מוקף: סיכונים, ניטור וחילוץ", ["hazardous-materials", "emergency-preparedness"], { examFocus: true }),
+    session(45, "עבודה חמה, אש ואווירה נפיצה", ["loto-ptw", "hazardous-materials"], { examFocus: true }),
+    session(46, "דודי קיטור, לחץ ובדיקות תקופתיות", ["safety-ordinance", "process-safety"], { examFocus: true }),
+    session(47, "בדיקות תקופתיות ותסקירי בודק מוסמך", ["safety-ordinance", "lifting-and-cranes"], { examFocus: true }),
+    session(48, "מסירת מידע, הדרכת עובדים ותיעוד", ["labor-inspection-law", "human-factors"], { examFocus: true }),
+    session(49, "תחקור תאונות וכמעט תאונות", ["human-factors", "process-safety"], {}),
+    session(50, "מדדי בטיחות, KPIs ודוחות הנהלה", ["iso-45001", "human-factors"], {}),
+    session(51, "ביקורת פנימית, סיורי בטיחות ואכיפה", ["iso-45001", "labor-inspection-law"], {}),
+    session(52, "סיכונים תפעוליים במפעל", ["process-safety", "machine-guarding"], {}),
+    session(53, "בטיחות בעבודת אחזקה", ["loto-ptw", "machine-guarding"], { examFocus: true }),
+    session(54, "ניהול שינוי וממשקים בין עבודות", ["process-safety", "loto-ptw"], {}),
+    session(55, "חזרה רגולטורית: צווים, סמכויות ותיעוד", ["labor-inspection-law", "safety-ordinance"], { examFocus: true }),
+    session(56, "חזרה הנדסית: חשמל, מכונות והרמה", ["electrical-safety", "machine-guarding", "lifting-and-cranes"], { examFocus: true }),
+    session(57, "חזרה על חומ\"ס, גהות וחירום", ["hazardous-materials", "occupational-hygiene", "emergency-preparedness"], { examFocus: true }),
+    session(58, "תרגול תרחישים משולבים", ["process-safety", "human-factors"], { examFocus: true }),
+    session(59, "דגשי מבחן, מלכודות ושאלות רוחב", ["master-hub", "human-factors"], { examFocus: true }),
+    session(60, "סיכום מסלול, תרגול מסכם ותוכנית המשך", ["master-hub", "glossary"], { examFocus: true })
   ];
 
-  const prepPages = [
-    {
-      id: "lesson-08-safety-organization",
-      title: "ארגון מערך הבטיחות במפעל וניהולו",
-      href: "prep/lesson-08-safety-organization.html",
-      lesson: "lesson-08.html",
-      status: "הכנה זמינה",
-      questionCount: 30,
-      relatedKnowledge: ["knowledge/iso-45001.html", "knowledge/human-factors.html", "knowledge/process-safety.html"],
-      relatedChecklists: ["checklists.html"],
-      relatedGlossary: "glossary.html"
-    }
-  ];
+  const prepPages = sessions
+    .filter((item) => item.prep.status === "available")
+    .map((item) => ({
+      id: item.id,
+      number: item.number,
+      title: item.title,
+      href: item.prep.href,
+      status: item.prep.label,
+      questionCount: item.id === "session-08" ? 30 : 0,
+      relatedKnowledge: item.relatedKnowledge,
+      relatedChecklists: item.relatedChecklists,
+      lastUpdated: item.lastUpdated
+    }));
 
-  const note = "מסלול הלימוד מבוסס על תוכנית הלימוד שנמסרה במסגרת קורס ממונה בטיחות בבאר הדרכות / המכללה לבטיחות, ניהול וסביבה. ייתכנו שינויים בין מוסדות ומחזורים שונים.";
+  const summaries = sessions
+    .filter((item) => item.summary.status === "available")
+    .map((item) => ({
+      id: item.id,
+      number: item.number,
+      title: item.title,
+      href: item.summary.href,
+      status: item.summary.label,
+      lastUpdated: item.lastUpdated
+    }));
 
-  window.CourseLearningPathMap = { stages, prepPages, note };
+  function session(number, title, relatedKnowledge, options) {
+    const settings = options || {};
+    const lessonNumber = number <= 12 ? String(number).padStart(2, "0") : "";
+    const hasSummary = settings.summary === true && lessonNumber;
+    const hasPrep = Boolean(settings.prepHref);
+
+    return {
+      id: `session-${String(number).padStart(2, "0")}`,
+      number: String(number),
+      title,
+      prep: {
+        status: hasPrep ? "available" : "missing",
+        label: hasPrep ? "קיים" : "טרם קיים",
+        href: hasPrep ? settings.prepHref : ""
+      },
+      summary: {
+        status: hasSummary ? "available" : "missing",
+        label: hasSummary ? "קיים" : "טרם קיים",
+        href: hasSummary ? `lesson-${lessonNumber}.html` : ""
+      },
+      relatedKnowledge: relatedKnowledge || [],
+      relatedChecklists: settings.checklists || ["checklists.html"],
+      practice: settings.practice || (lessonNumber ? `exam-questions.html?lesson=lesson-${lessonNumber}` : "exam-questions.html"),
+      examFocus: settings.examFocus === true,
+      status: hasPrep || hasSummary ? "עודכן" : settings.examFocus ? "נושא מבחן" : "בהמשך",
+      lastUpdated: hasPrep ? "2026-05-26" : hasSummary ? "2026-05-25" : ""
+    };
+  }
+
+  window.CourseLearningPathMap = {
+    sessions,
+    prepPages,
+    summaries,
+    knowledgeLabels,
+    note: sourceNote
+  };
 })();

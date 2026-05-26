@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
-  <meta name="description" content="מסלול לימוד מודרך לקורס ממונה בטיחות: שלבי לימוד, הכנה לשיעורים, ידע קשור, שאלות תרגול, checklists ומילון מונחים.">
-  <title>מסלול הלימוד | קורס ממונה בטיחות</title>
+  <meta name="description" content="מסלול הלימוד של קורס ממונה בטיחות לפי מפגשים: הכנה לשיעור, סיכום שיעור, ידע קשור, שאלות תרגול, checklists ו-glossary ללא תאריכים ושעות.">
+  <title>מסלול הלימוד לפי מפגשים | קורס ממונה בטיחות</title>
   <script src="../js/ui-mode.js"></script>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/prototype-shell.css">
@@ -15,9 +15,9 @@
   <main id="main" class="site-main" data-readable-content>
     <section class="page-hero">
       <div>
-        <p class="kicker">Learning Journey</p>
-        <h1>מסלול הלימוד</h1>
-        <p>מפת דרך גמישה ללמידה: מהיסודות, דרך רגולציה וניהול בטיחות, ועד תרגול, כלי שטח והכנה למבחן. המסלול אינו מציג תאריכים או שעות, אלא שלבי התקדמות מקצועיים.</p>
+        <p class="kicker">Learning Timeline</p>
+        <h1>מסלול הלימוד — לפי מפגשים</h1>
+        <p>מרכז הניווט הראשי לתלמידים: כל מפגש מציג נושא, הכנה לשיעור, סיכום שיעור, ידע קשור וסטטוס תוכן. אין כאן תאריכים, שעות או ימים — רק מסלול למידה גמיש וברור.</p>
       </div>
     </section>
 
@@ -25,126 +25,49 @@
       <p>מסלול הלימוד מבוסס על תוכנית הלימוד שנמסרה במסגרת קורס ממונה בטיחות בבאר הדרכות / המכללה לבטיחות, ניהול וסביבה. ייתכנו שינויים בין מוסדות ומחזורים שונים.</p>
     </section>
 
-    <section class="learning-path-timeline" aria-label="שלבי מסלול הלימוד">
-      <article class="learning-stage">
-        <p class="learning-status">סיכום זמין</p>
-        <h2>שלב 1 — מושגי יסוד בבטיחות</h2>
-        <p>שפה מקצועית משותפת: סיכון, מפגע, בקרה, אחריות, תקרית וכמעט ונפגע.</p>
-        <div class="learning-actions" data-read-aloud-exclude="true">
-          <a class="btn secondary" href="lesson-01.html">סיכום שיעור</a>
-          <a class="btn secondary" href="knowledge/human-factors.html">ידע קשור</a>
-          <a class="btn secondary" href="exam-questions.html?lesson=lesson-01">שאלות תרגול</a>
-          <a class="btn secondary" href="checklists.html">Checklists</a>
-          <a class="btn secondary" href="glossary.html">Glossary</a>
+    <section class="content-section learning-timeline-controls" aria-labelledby="timelineControlsTitle" data-read-aloud-exclude="true">
+      <div class="section-title">
+        <div>
+          <p class="kicker">Timeline Controls</p>
+          <h2 id="timelineControlsTitle">חיפוש וסינון מפגשים</h2>
+          <p>המסלול בנוי לכ־60 מפגשים ויכול להתרחב בהמשך להכנות, סיכומים ועמודי עומק נוספים.</p>
         </div>
-      </article>
-      <article class="learning-stage">
-        <p class="learning-status">סיכום זמין</p>
-        <h2>שלב 2 — בעלי תפקידים במערך הבטיחות</h2>
-        <p>תופש המפעל, ממונה בטיחות, ועדת בטיחות, נאמני בטיחות, מנהלים ועובדים.</p>
-        <div class="learning-actions" data-read-aloud-exclude="true">
-          <a class="btn secondary" href="lesson-02.html">סיכום שיעור</a>
-          <a class="btn secondary" href="knowledge/human-factors.html">ידע קשור</a>
-          <a class="btn secondary" href="exam-questions.html?lesson=lesson-02">שאלות תרגול</a>
-          <a class="btn secondary" href="checklists.html">Checklists</a>
-          <a class="btn secondary" href="glossary.html">Glossary</a>
+        <span class="learning-count" data-learning-count>60 מפגשים מוצגים</span>
+      </div>
+      <label class="learning-search-label">
+        <span>חיפוש לפי נושא</span>
+        <input type="search" data-learning-search placeholder="לדוגמה: חשמל, גהות, ISO, הרמה, חירום">
+      </label>
+      <div class="learning-filter-row" role="group" aria-label="סינון מסלול לימוד">
+        <button type="button" class="learning-filter is-active" data-learning-filter="all">הכל</button>
+        <button type="button" class="learning-filter" data-learning-filter="has-prep">יש הכנה</button>
+        <button type="button" class="learning-filter" data-learning-filter="has-summary">יש סיכום</button>
+        <button type="button" class="learning-filter" data-learning-filter="missing">חסר תוכן</button>
+        <button type="button" class="learning-filter" data-learning-filter="exam">נושאי מבחן</button>
+      </div>
+    </section>
+
+    <section class="content-section learning-timeline-shell" aria-labelledby="timelineTitle">
+      <div class="section-title">
+        <div>
+          <h2 id="timelineTitle">טבלת מפגשים</h2>
+          <p>הכנה וסיכום הם הקישורים הראשיים. ידע קשור נשאר שכבת העמקה משנית.</p>
         </div>
-      </article>
-      <article class="learning-stage">
-        <p class="learning-status">זמין</p>
-        <h2>שלב 3 — חוק ארגון הפיקוח ופקודת הבטיחות</h2>
-        <p>היררכיית הדין, סמכויות פיקוח, צווים, תסקירים, מכונות וציוד הרמה.</p>
-        <div class="learning-actions" data-read-aloud-exclude="true">
-          <a class="btn secondary" href="lesson-05.html">סיכום שיעור</a>
-          <a class="btn secondary" href="knowledge/labor-inspection-law.html">חוק הפיקוח</a>
-          <a class="btn secondary" href="knowledge/safety-ordinance.html">פקודת הבטיחות</a>
-          <a class="btn secondary" href="exam-questions.html?lesson=lesson-05">שאלות תרגול</a>
-          <a class="btn secondary" href="glossary.html">Glossary</a>
-        </div>
-      </article>
-      <article class="learning-stage">
-        <p class="learning-status">זמין</p>
-        <h2>שלב 4 — הערכות למצבי חירום</h2>
-        <p>תרחישי חירום, פינוי, ציוד, תפקידים, תקשורת, תרגול והפקת לקחים.</p>
-        <div class="learning-actions" data-read-aloud-exclude="true">
-          <a class="btn secondary" href="lesson-06.html">סיכום שיעור</a>
-          <a class="btn secondary" href="knowledge/emergency-preparedness.html">ידע קשור</a>
-          <a class="btn secondary" href="checklists.html">Checklists</a>
-          <a class="btn secondary" href="exam-questions.html?lesson=lesson-06">שאלות תרגול</a>
-        </div>
-      </article>
-      <article class="learning-stage">
-        <p class="learning-status">זמין</p>
-        <h2>שלב 5 — אחריות משפטית ותפקיד ממונה בטיחות</h2>
-        <p>הפרדה בין ייעוץ מקצועי, אחריות ניהולית, אכיפה, תיעוד ודיווח.</p>
-        <div class="learning-actions" data-read-aloud-exclude="true">
-          <a class="btn secondary" href="lesson-07.html">סיכום שיעור</a>
-          <a class="btn secondary" href="knowledge/iso-45001.html">ISO 45001</a>
-          <a class="btn secondary" href="knowledge/process-safety.html">בטיחות תהליך</a>
-          <a class="btn secondary" href="glossary.html">Glossary</a>
-        </div>
-      </article>
-      <article class="learning-stage is-featured">
-        <p class="learning-status">הכנה זמינה</p>
-        <h2>שלב 6 — ארגון מערך הבטיחות במפעל וניהולו</h2>
-        <p>מבנה מערך בטיחות, KPI, PDCA, Just Culture, Operational Drift וניהול שיפור מתמיד.</p>
-        <div class="learning-actions" data-read-aloud-exclude="true">
-          <a class="btn" href="prep/lesson-08-safety-organization.html">הכנה לשיעור</a>
-          <a class="btn secondary" href="lesson-08.html">סיכום שיעור</a>
-          <a class="btn secondary" href="knowledge/iso-45001.html">ידע קשור</a>
-          <a class="btn secondary" href="prep/lesson-08-safety-organization.html#prepQuestions">שאלות תרגול</a>
-          <a class="btn secondary" href="checklists.html">Checklists</a>
-          <a class="btn secondary" href="glossary.html">Glossary</a>
-        </div>
-      </article>
-      <article class="learning-stage">
-        <p class="learning-status">זמין</p>
-        <h2>שלב 7 — סיכונים תפעוליים, חשמל ותחזוקה</h2>
-        <p>חשמל, LOTO/PTW, מיגון מכונות, עבודה חמה, שינוי תהליך ואנרגיה אגורה.</p>
-        <div class="learning-actions" data-read-aloud-exclude="true">
-          <a class="btn secondary" href="lesson-11.html">סיכום שיעור</a>
-          <a class="btn secondary" href="knowledge/electrical-safety.html">חשמל</a>
-          <a class="btn secondary" href="knowledge/loto-ptw.html">LOTO/PTW</a>
-          <a class="btn secondary" href="checklists.html">Checklists</a>
-        </div>
-      </article>
-      <article class="learning-stage">
-        <p class="learning-status">זמין</p>
-        <h2>שלב 8 — בנייה, עבודה בגובה והרמה</h2>
-        <p>פיגומים, חפירות, עגורנים, רתמות, חילוץ, SWL ותסקירי בדיקה.</p>
-        <div class="learning-actions" data-read-aloud-exclude="true">
-          <a class="btn secondary" href="knowledge/construction-safety.html">בנייה</a>
-          <a class="btn secondary" href="knowledge/work-at-height.html">עבודה בגובה</a>
-          <a class="btn secondary" href="knowledge/lifting-and-cranes.html">הרמה</a>
-          <a class="btn secondary" href="checklists.html">Checklists</a>
-        </div>
-      </article>
-      <article class="learning-stage">
-        <p class="learning-status">זמין</p>
-        <h2>שלב 9 — גהות, חומרים מסוכנים וחשיפות</h2>
-        <p>SDS, ניטור, רעש, חומרים מסוכנים, PPE, אוורור ומעקב רפואי.</p>
-        <div class="learning-actions" data-read-aloud-exclude="true">
-          <a class="btn secondary" href="knowledge/hazardous-materials.html">חומ״ס</a>
-          <a class="btn secondary" href="knowledge/occupational-hygiene.html">גהות</a>
-          <a class="btn secondary" href="checklists.html">Checklists</a>
-          <a class="btn secondary" href="glossary.html">Glossary</a>
-        </div>
-      </article>
-      <article class="learning-stage">
-        <p class="learning-status">בהמשך</p>
-        <h2>שלב 10 — חזרה למבחן ויישום בשטח</h2>
-        <p>שאלות תרגול, דגשי מבחן, מלכודות נפוצות, checklists ומילון מונחים.</p>
-        <div class="learning-actions" data-read-aloud-exclude="true">
-          <a class="btn secondary" href="lesson-12.html">שיעור חזרה</a>
-          <a class="btn secondary" href="exam-questions.html">שאלות למבחן</a>
-          <a class="btn secondary" href="master-hub.html">מרכז הידע</a>
-          <a class="btn secondary" href="glossary.html">Glossary</a>
-        </div>
-      </article>
+      </div>
+      <div class="learning-session-header" aria-hidden="true">
+        <span>מפגש</span>
+        <span>נושא הלימוד</span>
+        <span>הכנה לשיעור</span>
+        <span>סיכום שיעור</span>
+        <span>ידע קשור</span>
+        <span>סטטוס</span>
+      </div>
+      <div class="learning-session-list" data-learning-timeline></div>
     </section>
   </main>
 
   <script src="../data/learning-path-map.js"></script>
+  <script src="../js/learning-timeline.js"></script>
   <script src="../js/prototype-shell.js"></script>
   <script src="../js/read-aloud.js"></script>
   <script type="module" src="../js/auth.js"></script>

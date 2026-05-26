@@ -22,6 +22,7 @@
       label: "למידה",
       items: [
         { label: "דף הבית", href: rootPrefix + "index.html", icon: "⌂", match: /\/index\.html$|\/$/ },
+        { label: "מסלול הלימוד", href: rootPrefix + "pages/learning-path.html", icon: "☷", match: /\/pages\/learning-path\.html$/ },
         { label: "מרכז הידע", href: rootPrefix + "pages/master-hub.html", icon: "◎", match: /\/pages\/master-hub\.html$/ },
         { label: "תוכנית לימוד", href: rootPrefix + "pages/syllabus.html", icon: "☰", match: /\/pages\/syllabus\.html$/ },
         { label: "תרגול ומבחנים", href: rootPrefix + "pages/quizzes.html", icon: "✓", match: /\/pages\/quizzes\.html$/ },
