@@ -12980,7 +12980,7 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
 
 .summary-options {
   display: grid;
-  gap: .7rem;
+  gap: .9rem;
   min-width: 0;
 }
 
@@ -12999,8 +12999,8 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
   border-radius: 14px;
   background: var(--surface-2);
   cursor: pointer;
-  min-height: 56px;
-  padding: .9rem 1rem;
+  min-height: 62px;
+  padding: 1rem 1.05rem;
   overflow: hidden;
   transition: border-color .16s ease, background .16s ease, box-shadow .16s ease;
 }
@@ -13051,6 +13051,24 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
   margin-top: .85rem;
   padding: 1rem;
   animation: prepFeedbackIn .18s ease-out;
+}
+
+.summary-feedback-box {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-top: .75rem;
+  padding: .8rem .9rem;
+  line-height: 1.65;
+}
+
+.summary-feedback-rationale {
+  background: color-mix(in srgb, var(--surface-2), var(--surface) 45%);
+}
+
+.summary-feedback-trap {
+  border-color: rgba(184, 127, 47, .32);
+  background: rgba(184, 127, 47, .08);
+  color: var(--text);
 }
 
 .summary-feedback.is-correct {

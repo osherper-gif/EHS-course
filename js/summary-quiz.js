@@ -177,8 +177,8 @@
       const feedback = el("div", "summary-feedback " + (isCorrect || revealAll ? "is-correct" : "is-wrong"));
       feedback.append(
         el("strong", "", isCorrect ? "נכון" : revealAll && !answered ? "תשובה מוצגת" : "לא נכון"),
-        el("p", "", question.rationale || question.explanation || ""),
-        el("p", "field-help", "Trap: " + (question.trap || "בדוק האם התשובה מסתפקת בניירת, מעבירה אחריות או מדלגת על בקרה במקור."))
+        el("div", "summary-feedback-box summary-feedback-rationale", question.rationale || question.explanation || ""),
+        el("div", "summary-feedback-box summary-feedback-trap", "Trap: " + (question.trap || "בדוק האם התשובה מסתפקת בניירת, מעבירה אחריות או מדלגת על בקרה במקור."))
       );
       card.append(feedback);
     }
