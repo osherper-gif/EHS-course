@@ -12471,11 +12471,23 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
 
 .prep-question-section {
   margin-top: 2rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .prep-question-list {
   display: grid;
   gap: 1rem;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.prep-quiz-app,
+.prep-question-card {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: clip;
 }
 
 .prep-quiz-toolbar {
@@ -12520,18 +12532,30 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
 .prep-options {
   display: grid;
   gap: .7rem;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .prep-option {
-  display: flex;
-  gap: .7rem;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas: "radio text";
+  column-gap: .75rem;
+  align-items: start;
+  direction: rtl;
+  text-align: right;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--surface-2);
   cursor: pointer;
   min-height: 52px;
   padding: .85rem .95rem;
+  overflow: hidden;
   transition: border-color .16s ease, background .16s ease, box-shadow .16s ease, transform .12s ease;
 }
 
@@ -12549,13 +12573,22 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
 }
 
 .prep-option input {
-  margin-top: .25rem;
-  flex: 0 0 auto;
+  grid-area: radio;
+  inline-size: 18px;
+  block-size: 18px;
+  margin: .25rem 0 0;
   accent-color: var(--brand);
 }
 
 .prep-option-text {
+  grid-area: text;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
   line-height: 1.55;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .prep-option.is-correct {
