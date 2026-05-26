@@ -12034,6 +12034,68 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
 .quick-answer-stop { border-color: rgba(193, 125, 29, .45); }
 .quick-answer-emergency { border-color: rgba(10, 91, 114, .35); }
 
+.template-card-actions,
+.template-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-top: 1rem;
+}
+
+.template-form-workspace {
+  margin: 2rem 0;
+}
+
+.template-form-panel {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.template-form-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.template-local-note {
+  margin: .35rem 0 0;
+  color: var(--muted);
+}
+
+.template-fillable-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.template-field {
+  display: grid;
+  gap: .4rem;
+  font-weight: 700;
+}
+
+.template-field input,
+.template-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: .85rem;
+  background: var(--surface-2);
+  color: var(--text);
+  font: inherit;
+  padding: .8rem .9rem;
+}
+
+.template-field textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
 @media (max-width: 760px) {
   .checklist-retrieval-controls {
     position: static;
@@ -12047,6 +12109,29 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
 
   .operational-checklist-card {
     padding: .85rem;
+  }
+
+  .template-form-head {
+    display: grid;
+  }
+
+  .template-fillable-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  body.template-print-mode > *:not(main),
+  body.template-print-mode main > *:not(.template-form-workspace),
+  body.template-print-mode .template-form-actions,
+  body.template-print-mode .template-card-actions {
+    display: none !important;
+  }
+
+  body.template-print-mode .template-form-panel {
+    border: 0;
+    box-shadow: none;
+    padding: 0;
   }
 }
 

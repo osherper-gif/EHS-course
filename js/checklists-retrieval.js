@@ -6,6 +6,7 @@
   if (!source || !root) return;
 
   const state = { query: "", category: "all", risk: "all", workType: "all" };
+  let resultsContainer;
 
   function el(tag, className, text) {
     const node = document.createElement(tag);
@@ -131,6 +132,7 @@
     root.replaceChildren();
     const controls = buildControls();
     const results = el("div", "checklist-results");
+    resultsContainer = results;
     root.append(controls, results);
     renderResults(results);
   }
@@ -139,14 +141,14 @@
     const key = event.target?.dataset?.filterKey;
     if (!key) return;
     state[key] = event.target.value;
-    render();
+    renderResults(resultsContainer);
   });
 
   root.addEventListener("change", (event) => {
     const key = event.target?.dataset?.filterKey;
     if (!key) return;
     state[key] = event.target.value;
-    render();
+    renderResults(resultsContainer);
   });
 
   render();
