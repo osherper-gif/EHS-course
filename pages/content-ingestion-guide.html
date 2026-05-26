@@ -60,10 +60,15 @@
       <details class="content-accordion">
         <summary>2. סיכום שיעור</summary>
         <div>
+          <div class="callout warning">
+            <strong>כלל איכות מחייב:</strong>
+            סיכומי שיעור לא מעלים ב־bulk. כל סיכום שיעור מוכנס בנפרד מקובץ המקור שלו, עם כל השאלות שמופיעות בקובץ, לאחר בדיקת איכות.
+          </div>
           <ol>
             <li>העתק את <code>pages/templates/content-summary-template.html</code> אל <code>pages/summaries/lesson-XX-summary.html</code>.</li>
             <li>מלא: מה למדנו, דגשי מבחן, trap questions, glossary, טעויות נפוצות וקישורים.</li>
-            <li>עדכן <code>summary.status = "available"</code> ו־<code>summary.href</code> במפת התוכן.</li>
+            <li>עדכן <code>summary.status = "available"</code> רק לאחר שהעמוד עבר בקרת איכות ונראה כמו סיכום שיעור אמיתי, לא כמו תבנית.</li>
+            <li>אם הסיכום קיים כשלד בלבד, השתמש ב־<code>summary.status = "pending_quality_review"</code> והשאר קישור ישיר לעמוד המעטפת.</li>
             <li>סיכום חסר נשאר <code>status: "missing"</code> וללא href.</li>
           </ol>
         </div>
@@ -73,6 +78,9 @@
         <div>
           <p>שאלות הכנה מקומיות יכולות להופיע בעמוד prep בלבד. אין לחבר אותן למנוע quiz הראשי ואין לשמור scoring בענן בשלב זה.</p>
           <ul>
+            <li>בסיכומי שיעור חובה להשוות <code>sourceQuestionCount</code> מול <code>renderedQuestionCount</code>.</li>
+            <li>אם בקובץ המקור יש 60 שאלות, בעמוד חייבות להופיע 60 שאלות. אין מדגם, אין preview ואין חיתוך ל־30.</li>
+            <li>אם לא ניתן לחלץ את כל השאלות או שיש חוסר ברצף המקור, עוצרים ומדווחים לפני פרסום העמוד כ־available.</li>
             <li>עדכן את מספר השאלות ב־<code>questions.count</code>.</li>
             <li>הוסף anchor לשאלות, למשל <code>#prepQuestions</code>.</li>
             <li>השתמש ב־rationale ו־trap explanation, לא רק בסימון נכון/לא נכון.</li>

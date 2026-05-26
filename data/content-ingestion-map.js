@@ -56,14 +56,13 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "available",
+      "status": "pending_quality_review",
       "href": "pages/summaries/lesson-02-summary.html",
-      "updatedAt": "2026-05-26",
-      "questionCount": 65
+      "updatedAt": "2026-05-26"
     },
     "questions": {
-      "count": 65,
-      "href": "pages/summaries/lesson-02-summary.html#summaryQuestions"
+      "count": 0,
+      "href": ""
     },
     "relatedKnowledge": [
       "pages/knowledge/human-factors.html",
@@ -98,14 +97,13 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "available",
+      "status": "pending_quality_review",
       "href": "pages/summaries/lesson-03-summary.html",
-      "updatedAt": "2026-05-26",
-      "questionCount": 60
+      "updatedAt": "2026-05-26"
     },
     "questions": {
-      "count": 60,
-      "href": "pages/summaries/lesson-03-summary.html#summaryQuestions"
+      "count": 0,
+      "href": ""
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html",
@@ -139,14 +137,13 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "available",
+      "status": "pending_quality_review",
       "href": "pages/summaries/lesson-04-summary.html",
-      "updatedAt": "2026-05-26",
-      "questionCount": 60
+      "updatedAt": "2026-05-26"
     },
     "questions": {
-      "count": 60,
-      "href": "pages/summaries/lesson-04-summary.html#summaryQuestions"
+      "count": 0,
+      "href": ""
     },
     "relatedKnowledge": [
       "pages/knowledge/safety-ordinance.html",
@@ -176,14 +173,13 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "available",
+      "status": "pending_quality_review",
       "href": "pages/summaries/lesson-05-summary.html",
-      "updatedAt": "2026-05-26",
-      "questionCount": 60
+      "updatedAt": "2026-05-26"
     },
     "questions": {
-      "count": 60,
-      "href": "pages/summaries/lesson-05-summary.html#summaryQuestions"
+      "count": 0,
+      "href": ""
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html",
@@ -213,14 +209,13 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "available",
+      "status": "pending_quality_review",
       "href": "pages/summaries/lesson-06-summary.html",
-      "updatedAt": "2026-05-26",
-      "questionCount": 59
+      "updatedAt": "2026-05-26"
     },
     "questions": {
-      "count": 59,
-      "href": "pages/summaries/lesson-06-summary.html#summaryQuestions"
+      "count": 30,
+      "href": "pages/prep/lesson-06-emergency-preparedness.html#prepQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/emergency-preparedness.html",
@@ -251,14 +246,13 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "available",
+      "status": "pending_quality_review",
       "href": "pages/summaries/lesson-07-summary.html",
-      "updatedAt": "2026-05-26",
-      "questionCount": 60
+      "updatedAt": "2026-05-26"
     },
     "questions": {
-      "count": 60,
-      "href": "pages/summaries/lesson-07-summary.html#summaryQuestions"
+      "count": 30,
+      "href": "pages/prep/lesson-07-legal-responsibility.html#prepQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html",
@@ -318,13 +312,13 @@
 ];
 
   const latestUpdate = {
-  "type": "summary",
-  "typeLabel": "סיכום",
-  "lessonId": "lesson-06",
-  "sessionNumber": 6,
-  "title": "עודכנה מערכת שאלות הסיכום — שיעור 6 כולל 59 שאלות תרגול מלאות",
-  "description": "עמודי הסיכום מחוברים כעת ל-datasets מלאים לפי מספר השאלות בפועל, ללא חיתוך ל-30 שאלות וללא תצוגת audit פנימית למשתמש.",
-  "href": "pages/summaries/lesson-06-summary.html#summaryQuestions",
+  "type": "content-quality",
+  "typeLabel": "בקרת איכות",
+  "lessonId": "",
+  "sessionNumber": "",
+  "title": "סיכומי שיעור 2-7 הועברו לבקרת איכות",
+  "description": "סיכומי שיעור לא יוצרים יותר בבאלק. כל סיכום ייבנה בנפרד מקובץ המקור ועם כל השאלות שמופיעות בו.",
+  "href": "pages/summaries.html",
   "updatedAt": "2026-05-26"
 };
 
@@ -332,26 +326,86 @@
     version: "phase-7-bulk-lessons-1-7",
     updatedAt: "2026-05-26",
     lessons,
-    prepPages: lessons.filter((item) => item.prep.status === "available").map((item) => ({
-      lessonId: item.lessonId,
-      sessionNumber: item.sessionNumber,
-      title: item.title,
-      href: item.prep.href,
-      updatedAt: item.prep.updatedAt,
-      questionCount: item.questions.count
-    })),
-    summaryPages: lessons.filter((item) => item.summary.status === "available").map((item) => ({
-      lessonId: item.lessonId,
-      sessionNumber: item.sessionNumber,
-      title: item.title,
-      href: item.summary.href,
-      updatedAt: item.summary.updatedAt,
-      summaryAvailable: true,
-      label: "קיים"
-    })),
+    prepPages: [
+  {
+    "lessonId": "lesson-01",
+    "sessionNumber": 1,
+    "title": "יסודות תורת הבטיחות",
+    "href": "pages/prep/lesson-01-introduction-safety.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 72
+  },
+  {
+    "lessonId": "lesson-02",
+    "sessionNumber": 2,
+    "title": "ארגון מערך הבטיחות, פיקוח ואחריות",
+    "href": "pages/prep/lesson-02-roles-responsibility.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 0
+  },
+  {
+    "lessonId": "lesson-03",
+    "sessionNumber": 3,
+    "title": "גורמים במערך הבטיחות ואחריות תפעולית",
+    "href": "pages/prep/lesson-03-labor-inspection-law.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 0
+  },
+  {
+    "lessonId": "lesson-04",
+    "sessionNumber": 4,
+    "title": "פקודת הבטיחות בעבודה ומבנה החובות",
+    "href": "pages/prep/lesson-04-safety-ordinance.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 0
+  },
+  {
+    "lessonId": "lesson-05",
+    "sessionNumber": 5,
+    "title": "ועדת בטיחות, נאמני בטיחות וארגון פנימי",
+    "href": "pages/prep/lesson-05-safety-committee-trustees.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 0
+  },
+  {
+    "lessonId": "lesson-06",
+    "sessionNumber": 6,
+    "title": "היערכות למצבי חירום ותרגול",
+    "href": "pages/prep/lesson-06-emergency-preparedness.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 30
+  },
+  {
+    "lessonId": "lesson-07",
+    "sessionNumber": 7,
+    "title": "אחריות משפטית ותפקיד ממונה בטיחות",
+    "href": "pages/prep/lesson-07-legal-responsibility.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 30
+  },
+  {
+    "lessonId": "lesson-08",
+    "sessionNumber": 8,
+    "title": "ארגון מערך הבטיחות במפעל וניהולו",
+    "href": "pages/prep/lesson-08-safety-organization.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 30
+  }
+],
+    summaryPages: [
+  {
+    "lessonId": "lesson-01",
+    "sessionNumber": 1,
+    "title": "יסודות תורת הבטיחות",
+    "href": "pages/summaries/lesson-01-summary.html",
+    "updatedAt": "2026-05-26",
+    "summaryAvailable": true,
+    "label": "קיים"
+  }
+],
     lessonUpdates: [latestUpdate],
-    glossaryAdditions: lessons.flatMap((item) => item.glossaryTerms.map((term) => ({ term, category: "מסלול לימוד", lessonId: item.lessonId, href: "pages/glossary.html" }))),
-    checklistAdditions: lessons.flatMap((item) => item.relatedChecklists.map((href) => ({ title: "Checklist קשור", category: "Operational", lessonId: item.lessonId, href }))),
+    glossaryAdditions: lessons.flatMap((item) => item.glossaryTerms.map((term) => ({ term, category: "????? ?????", lessonId: item.lessonId, href: "pages/glossary.html" }))),
+    checklistAdditions: lessons.flatMap((item) => item.relatedChecklists.map((href) => ({ title: "Checklist ????", category: "Operational", lessonId: item.lessonId, href }))),
     knowledgeLinks: Object.fromEntries(lessons.map((item) => [item.lessonId, item.relatedKnowledge])),
     latestUpdate
   };

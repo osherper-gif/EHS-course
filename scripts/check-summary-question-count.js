@@ -10,37 +10,15 @@ const checks = [
     key: "lesson-01-summary-practice-source",
     expectedCount: 72,
   },
-  {
-    page: path.join(repoRoot, "pages", "summaries", "lesson-02-summary.html"),
-    key: "lesson-02-summary-full-practice-source",
-    expectedCount: 65,
-  },
-  {
-    page: path.join(repoRoot, "pages", "summaries", "lesson-03-summary.html"),
-    key: "lesson-03-summary-full-practice-source",
-    expectedCount: 60,
-  },
-  {
-    page: path.join(repoRoot, "pages", "summaries", "lesson-04-summary.html"),
-    key: "lesson-04-summary-full-practice-source",
-    expectedCount: 60,
-  },
-  {
-    page: path.join(repoRoot, "pages", "summaries", "lesson-05-summary.html"),
-    key: "lesson-05-summary-full-practice-source",
-    expectedCount: 60,
-  },
-  {
-    page: path.join(repoRoot, "pages", "summaries", "lesson-06-summary.html"),
-    key: "lesson-06-summary-full-practice-source",
-    expectedCount: 59,
-  },
-  {
-    page: path.join(repoRoot, "pages", "summaries", "lesson-07-summary.html"),
-    key: "lesson-07-summary-full-practice-source",
-    expectedCount: 60,
-  },
 ];
+const pendingQualityPages = [
+  "lesson-02-summary.html",
+  "lesson-03-summary.html",
+  "lesson-04-summary.html",
+  "lesson-05-summary.html",
+  "lesson-06-summary.html",
+  "lesson-07-summary.html",
+].map((file) => path.join(repoRoot, "pages", "summaries", file));
 
 function fail(message) {
   console.error("[summary-question-count] " + message);
@@ -83,6 +61,13 @@ const results = checks.map((check) => {
     count: questions.length,
     distribution,
   };
+});
+
+pendingQualityPages.forEach((page) => {
+  const pageHtml = fs.readFileSync(page, "utf8");
+  if (pageHtml.includes("data-prep-quiz-source=") || pageHtml.includes("prepQuizApp")) {
+    fail(path.basename(page) + " is pending quality review but still renders an interactive summary quiz");
+  }
 });
 
 console.log("[summary-question-count] PASS " + JSON.stringify(results));
