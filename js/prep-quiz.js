@@ -5,6 +5,7 @@
   if (!root) return;
 
   const quizId = root.dataset.prepQuiz || "lesson-08-safety-organization";
+  const quizSource = root.dataset.prepQuizSource || quizId;
   const storageKey = "ehsPrepQuiz:" + quizId;
 
   const questionSets = {
@@ -92,7 +93,7 @@
     Object.assign(questionSets, window.CoursePrepQuestionSets);
   }
 
-  const questions = questionSets[quizId] || questionSets["lesson-08-safety-organization"];
+  const questions = questionSets[quizSource] || questionSets[quizId] || questionSets["lesson-08-safety-organization"];
 
   function loadState() {
     try {
