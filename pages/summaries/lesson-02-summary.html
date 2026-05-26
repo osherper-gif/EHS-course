@@ -12,7 +12,8 @@
   <style>
     .summary-quick-nav,
     .summary-zone-divider,
-    .summary-callout-row {
+    .summary-callout-row,
+    .content-accordion[id] {
       scroll-margin-top: 96px;
     }
 
@@ -70,9 +71,57 @@
     .summary-practice-divider {
       border: 1px solid rgba(8, 100, 128, 0.28);
       border-radius: 16px;
-      background: rgba(8, 100, 128, 0.08);
-      margin: 1.75rem 0 1rem;
-      padding: 1rem;
+      background: linear-gradient(135deg, rgba(8, 100, 128, 0.12), rgba(8, 100, 128, 0.04));
+      box-shadow: 0 14px 34px rgba(16, 36, 54, 0.08);
+      margin: 2rem 0 1.15rem;
+      padding: 1.15rem;
+    }
+
+    .responsibility-flow {
+      display: grid;
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .responsibility-step {
+      display: grid;
+      grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1.2fr);
+      gap: 0.8rem;
+      align-items: stretch;
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      background: var(--proto-surface);
+      padding: 0.9rem;
+      position: relative;
+    }
+
+    .responsibility-step::after {
+      content: "↓";
+      position: absolute;
+      inset-block-end: -1.05rem;
+      inset-inline-start: 50%;
+      transform: translateX(-50%);
+      color: var(--proto-muted);
+      font-weight: 900;
+    }
+
+    .responsibility-step:last-child::after {
+      display: none;
+    }
+
+    .responsibility-step h3 {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(8, 100, 128, 0.1);
+      min-height: 100%;
+      text-align: center;
+    }
+
+    .responsibility-step ul {
+      margin: 0;
+      padding-inline-start: 1.15rem;
     }
 
     @media (max-width: 720px) {
@@ -84,6 +133,10 @@
         border-radius: 12px;
         font-size: 0.92rem;
         min-width: 0;
+      }
+
+      .responsibility-step {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -104,11 +157,13 @@
     </section>
 
     <nav class="summary-quick-nav" aria-label="ניווט מהיר בסיכום" data-read-aloud-exclude="true">
-      <a href="#summaryTheory">סיכום תיאורטי</a>
-      <a href="#summaryField">דף כיס ושטח</a>
-      <a href="#summaryLegal">דגשים משפטיים</a>
-      <a href="#summaryQuestions">שאלות תרגול</a>
-      <a href="#summaryRelated">קישורים קשורים</a>
+      <a href="#summaryTheory">מבוא</a>
+      <a href="#authoritySheet">סמכויות</a>
+      <a href="#legalResponsibility">אחריות משפטית</a>
+      <a href="#inspectionFlow">פיקוח ואכיפה</a>
+      <a href="#summaryField">דף כיס</a>
+      <a href="#summaryQuestions">תרגול</a>
+      <a href="#summaryRelated">קישורים</a>
     </nav>
 
     <section id="summaryTheory" class="summary-zone-divider">
@@ -151,7 +206,7 @@
       <p>כאן נמצאות ההבחנות המשפטיות הקריטיות: חוק מול פקודה, צווים, קשר סיבתי ואחריות.</p>
     </section>
 
-    <details class="content-accordion" open>
+    <details id="authoritySheet" class="content-accordion" open>
       <summary>דף ריכוז סמכויות</summary>
       <div>
         <table class="learning-table">
@@ -182,6 +237,22 @@
     </div>
 
     <details class="content-accordion">
+      <summary>עזרה ראשונה למנהלים</summary>
+      <div>
+        <table class="learning-table">
+          <thead><tr><th>המצב</th><th>הטענה השגויה</th><th>עקרון הפיקוח האקטיבי</th></tr></thead>
+          <tbody>
+            <tr><td>מפגע בטיחותי</td><td>“אף אחד לא דיווח לי”</td><td>חובת סיורים יזומים ובקרה אקטיבית.</td></tr>
+            <tr><td>תאונת עבודה</td><td>“העובד לא נשמע להוראות”</td><td>חובת הדרכה, אכיפה ופיקוח — לא רק נוהל כתוב.</td></tr>
+            <tr><td>בדיקת אפקטיביות</td><td>“הפעולה בוצעה, התיק סגור”</td><td>חובה לבדוק לאורך זמן שהבקרה באמת עובדת.</td></tr>
+            <tr><td>קבלן חיצוני</td><td>“הוא לא עובד שלי”</td><td>אחריות תיאום, קליטה, היתר עבודה ופיקוח עדיין קיימת.</td></tr>
+            <tr><td>Near Miss</td><td>“לא קרה כלום”</td><td>כמעט תאונה = הזדמנות למנוע אסון.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details id="legalResponsibility" class="content-accordion">
       <summary>ארגז כלים משפטי לממונה</summary>
       <div>
         <p>הערך של ממונה בטיחות בשיעור הזה אינו רק לדעת “מה כתוב בחוק”, אלא לדעת לתרגם את הדין להתנהלות שמגינה על עובדים ועל הארגון בזמן אמת ולאחר אירוע.</p>
@@ -369,6 +440,62 @@
           <article class="summary-case-card"><h3>נוהל על הנייר</h3><p>קלסר נהלים אינו מגן אם העובדים לא מכירים את הנוהל והוא לא נאכף בפועל.</p></article>
           <article class="summary-case-card"><h3>הסכמה שבשתיקה</h3><p>מנהל שרואה הפרת בטיחות ואינו עוצר אותה עלול להיחשב כמאשר את ההתנהגות.</p></article>
           <article class="summary-case-card"><h3>מנהל מול ממונה</h3><p>למנהל יש סמכות ביצוע ומשאבים; לממונה יש חובת ייעוץ, התרעה ותיעוד מקצועי.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details id="inspectionFlow" class="content-accordion" open>
+      <summary>מפת זרימת אחריות</summary>
+      <div>
+        <div class="responsibility-flow">
+          <article class="responsibility-step">
+            <h3>מפגע / סיכון</h3>
+            <ul>
+              <li><strong>האחריות:</strong> לזהות חשיפה ממשית ולא רק “ליקוי כללי”.</li>
+              <li><strong>תיעוד:</strong> מיקום, תמונה, חשופים, חומרה ובקרה קיימת.</li>
+              <li><strong>מה יבדוק מפקח:</strong> האם הסיכון היה צפוי והאם דווח בזמן.</li>
+            </ul>
+          </article>
+          <article class="responsibility-step">
+            <h3>מנהל עבודה / מנהל קו</h3>
+            <ul>
+              <li><strong>האחריות:</strong> לעצור חשיפה, להפעיל בקרה ולתת הוראה בשטח.</li>
+              <li><strong>תיעוד:</strong> החלטה, עובד אחראי, מועד תיקון והיתר עבודה אם נדרש.</li>
+              <li><strong>מה יבדוק מפקח:</strong> האם מנהל ראה, ידע, פעל ואכף.</li>
+            </ul>
+          </article>
+          <article class="responsibility-step">
+            <h3>ממונה בטיחות</h3>
+            <ul>
+              <li><strong>האחריות:</strong> ייעוץ, התרעה, תיעוד מקצועי ומעקב אחר סגירה.</li>
+              <li><strong>תיעוד:</strong> המלצה כתובה, דירוג סיכון, CAPA ואימות ביצוע.</li>
+              <li><strong>מה יבדוק מפקח:</strong> האם הממונה התריע בזמן ולא הסתפק בשיחה בעל פה.</li>
+            </ul>
+          </article>
+          <article class="responsibility-step">
+            <h3>הנהלה / תופש מפעל</h3>
+            <ul>
+              <li><strong>האחריות:</strong> משאבים, סמכות, מדיניות ואכיפה ניהולית.</li>
+              <li><strong>תיעוד:</strong> החלטות הנהלה, תקציב, סדרי עדיפויות ומעקב KPI.</li>
+              <li><strong>מה יבדוק מפקח:</strong> האם הייתה תרבות של פעולה או דחייה.</li>
+            </ul>
+          </article>
+          <article class="responsibility-step">
+            <h3>מפקח עבודה / רגולטור</h3>
+            <ul>
+              <li><strong>האחריות:</strong> ביקורת, דרישת מסמכים, צווים וחקירה לפי סמכות.</li>
+              <li><strong>תיעוד:</strong> צו, פרוטוקול ביקורת, דרישת תיקון ותכתובות.</li>
+              <li><strong>מה יבדוק מפקח:</strong> פער בין נייר למציאות וסגירת ליקויים קודמים.</li>
+            </ul>
+          </article>
+          <article class="responsibility-step">
+            <h3>תחקיר / CAPA / אפקטיביות</h3>
+            <ul>
+              <li><strong>האחריות:</strong> ללמוד, לתקן שורש ולוודא שהכשל לא חוזר.</li>
+              <li><strong>תיעוד:</strong> RCA, פעולה מתקנת, בדיקת אפקטיביות ומעקב תקופתי.</li>
+              <li><strong>מה יבדוק מפקח:</strong> האם הסגירה אמיתית או רק סימון V.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </details>

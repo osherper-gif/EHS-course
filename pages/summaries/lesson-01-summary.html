@@ -12,7 +12,8 @@
   <style>
     .summary-quick-nav,
     .summary-zone-divider,
-    .summary-callout-row {
+    .summary-callout-row,
+    .content-accordion[id] {
       scroll-margin-top: 96px;
     }
 
@@ -70,9 +71,50 @@
     .summary-practice-divider {
       border: 1px solid rgba(8, 100, 128, 0.28);
       border-radius: 16px;
-      background: rgba(8, 100, 128, 0.08);
-      margin: 1.75rem 0 1rem;
-      padding: 1rem;
+      background: linear-gradient(135deg, rgba(8, 100, 128, 0.12), rgba(8, 100, 128, 0.04));
+      box-shadow: 0 14px 34px rgba(16, 36, 54, 0.08);
+      margin: 2rem 0 1.15rem;
+      padding: 1.15rem;
+    }
+
+    .field-scan-strip,
+    .field-trigger-grid {
+      display: grid;
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+
+    .field-scan-strip {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      border: 1px solid rgba(8, 100, 128, 0.24);
+      border-radius: 14px;
+      background: rgba(8, 100, 128, 0.07);
+      padding: 0.85rem;
+    }
+
+    .field-trigger-grid {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+
+    .field-trigger-card {
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      background: var(--proto-surface);
+      padding: 0.95rem;
+    }
+
+    .field-trigger-card .icon {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 10px;
+      background: rgba(8, 100, 128, 0.11);
+      margin-bottom: 0.45rem;
+    }
+
+    .field-trigger-card h4 {
+      margin: 0 0 0.45rem;
     }
 
     @media (max-width: 720px) {
@@ -472,13 +514,23 @@
 
           <article class="summary-pocket-card">
             <h3>טריגרים לבדיקה מיידית</h3>
-            <ul class="summary-checklist">
-              <li><strong>סריקה ויזואלית:</strong> עבודה בגובה, חשמל גלוי, מכונות, חפירות.</li>
-              <li><strong>תיקוף מנהלים:</strong> מנהל עבודה נוכח? היתר עבודה חתום?</li>
-              <li><strong>מצב ציוד:</strong> בלאי, אישורים בתוקף, ציוד הרמה/חשמל/רתמות.</li>
-              <li><strong>רגע של בטיחות:</strong> האם העובדים יודעים מה הסכנה המרכזית היום?</li>
-            </ul>
+            <div class="field-trigger-grid">
+              <article class="field-trigger-card"><span class="icon">↟</span><h4>עבודה בגובה</h4><p><strong>מה מחפשים:</strong> מעקה, רתמה, עיגון, פתח לא מגודר.</p><p><strong>מה עושים מיד:</strong> עוצרים חשיפה עד הגנה מלאה ותכנית חילוץ.</p></article>
+              <article class="field-trigger-card"><span class="icon">⚡</span><h4>חשמל</h4><p><strong>מה מחפשים:</strong> מוליך גלוי, לוח פתוח, הארקה חסרה.</p><p><strong>מה עושים מיד:</strong> מבודדים, מסמנים ומזעיקים גורם מוסמך.</p></article>
+              <article class="field-trigger-card"><span class="icon">⛓</span><h4>ציוד הרמה</h4><p><strong>מה מחפשים:</strong> עומס, אביזר שחוק, תסקיר או סימון חסר.</p><p><strong>מה עושים מיד:</strong> מוציאים משימוש עד בדיקה ואישור.</p></article>
+              <article class="field-trigger-card"><span class="icon">⚙</span><h4>מכונות</h4><p><strong>מה מחפשים:</strong> מיגון עקוף, חלק נע חשוף, LOTO חסר.</p><p><strong>מה עושים מיד:</strong> מפסיקים פעולה עד החזרת מיגון ובידוד אנרגיה.</p></article>
+              <article class="field-trigger-card"><span class="icon">◇</span><h4>חומרים מסוכנים</h4><p><strong>מה מחפשים:</strong> דליפה, SDS חסר, אחסון לא תואם.</p><p><strong>מה עושים מיד:</strong> מרחיקים חשופים, מאווררים ופועלים לפי נוהל חירום.</p></article>
+              <article class="field-trigger-card"><span class="icon">▱</span><h4>חפירות</h4><p><strong>מה מחפשים:</strong> דופן לא יציבה, גישה לקויה, ציוד קרוב לשפה.</p><p><strong>מה עושים מיד:</strong> מפנים עובדים עד דיפון/שיפוע וגידור מתאים.</p></article>
+            </div>
           </article>
+        </div>
+        <div class="field-scan-strip">
+          <strong>סריקת 30 שניות לממונה</strong>
+          <span>האם יש סכנת חיים מיידית?</span>
+          <span>האם עובדים יודעים להסביר את הסיכון?</span>
+          <span>האם יש עבודה ללא היתר?</span>
+          <span>האם יש בקרה הנדסית פעילה?</span>
+          <span>האם יש פער בין הנוהל לבין המציאות?</span>
         </div>
       </div>
     </details>
