@@ -16,6 +16,7 @@
     "#progress-debug-panel",
     "#progress-check-result-panel",
     ".auth-debug-list",
+    "[data-read-aloud-exclude]",
     "nav",
     "button",
     "script",
