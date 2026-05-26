@@ -31,6 +31,11 @@ const checks = [
     expectedCount: 60,
   },
   {
+    page: path.join(repoRoot, "pages", "summaries", "lesson-06-summary.html"),
+    key: "lesson-06-summary-full-practice-source",
+    expectedCount: 59,
+  },
+  {
     page: path.join(repoRoot, "pages", "summaries", "lesson-07-summary.html"),
     key: "lesson-07-summary-full-practice-source",
     expectedCount: 60,

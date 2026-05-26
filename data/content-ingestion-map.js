@@ -215,11 +215,12 @@
     "summary": {
       "status": "available",
       "href": "pages/summaries/lesson-06-summary.html",
-      "updatedAt": "2026-05-26"
+      "updatedAt": "2026-05-26",
+      "questionCount": 59
     },
     "questions": {
-      "count": 30,
-      "href": "pages/prep/lesson-06-emergency-preparedness.html#prepQuestions"
+      "count": 59,
+      "href": "pages/summaries/lesson-06-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/emergency-preparedness.html",
@@ -319,11 +320,11 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "סיכום",
-  "lessonId": "lesson-07",
-  "sessionNumber": 7,
-  "title": "נוסף סיכום שיעור 7 — תפקיד ממונה הבטיחות, ניהול סיכונים ותיאום קבלנים כולל 60 שאלות תרגול",
-  "description": "סיכום שיעור 7 כולל כעת את כל שאלות המקור מהקובץ: 60 שאלות אינטראקטיביות, שמירה מקומית בלבד, ופיזור תשובות קבוע ומאוזן.",
-  "href": "pages/summaries/lesson-07-summary.html#summaryQuestions",
+  "lessonId": "lesson-06",
+  "sessionNumber": 6,
+  "title": "עודכנה מערכת שאלות הסיכום — שיעור 6 כולל 59 שאלות תרגול מלאות",
+  "description": "עמודי הסיכום מחוברים כעת ל-datasets מלאים לפי מספר השאלות בפועל, ללא חיתוך ל-30 שאלות וללא תצוגת audit פנימית למשתמש.",
+  "href": "pages/summaries/lesson-06-summary.html#summaryQuestions",
   "updatedAt": "2026-05-26"
 };
 
