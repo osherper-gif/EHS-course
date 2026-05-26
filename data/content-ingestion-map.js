@@ -301,13 +301,13 @@
 ];
 
   const latestUpdate = {
-  "type": "content-ingestion",
-  "typeLabel": "תוכן",
-  "lessonId": "lesson-07",
-  "sessionNumber": 7,
-  "title": "נוספו הכנות וסיכומים לשיעורים 1–7",
-  "description": "מסלול הלימוד עודכן עם עמודי הכנה ועמודי סיכום נפרדים לשיעורים הראשונים, כולל קישורי ידע ותרגול מקומי.",
-  "href": "pages/learning-path.html",
+  "type": "summary",
+  "typeLabel": "סיכום",
+  "lessonId": "lesson-01",
+  "sessionNumber": 1,
+  "title": "נוסף סיכום שיעור 1 — יסודות תורת הבטיחות",
+  "description": "סיכום שיעור 1 הוחלף בעמוד curated עם דגשי מרצה, מלכודות מבחן, קשר חוק/תקנה/יישום, דוגמאות שטח וקישורי המשך.",
+  "href": "pages/summaries/lesson-01-summary.html",
   "updatedAt": "2026-05-26"
 };
 
