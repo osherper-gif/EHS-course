@@ -16,6 +16,7 @@
   let lastFocusBeforeDrawer = null;
   body.dataset.protoPage = pageKind;
   if (readDebugFlag()) body.classList.add("proto-debug-enabled");
+  initPrototypeTheme();
 
   const navGroups = [
     {
@@ -104,9 +105,62 @@
 
     const footer = el("div", "proto-sidebar-footer");
     const note = el("small", "proto-shell-note", "מעטפת LMS חדשה. התוכן והלוגיקה נשארים מהאתר הקיים.");
-    footer.append(note);
+    const options = el("div", "proto-sidebar-options");
+    options.append(el("div", "proto-sidebar-options-title", "אפשרויות"));
+    const themeToggle = el("button", "proto-theme-toggle", themeLabel());
+    themeToggle.type = "button";
+    themeToggle.dataset.protoAction = "toggle-theme";
+    themeToggle.setAttribute("aria-label", "החלף מצב תצוגה");
+    themeToggle.addEventListener("click", togglePrototypeTheme);
+    options.append(themeToggle);
+    footer.append(options, note);
     sidebar.append(footer);
     return sidebar;
+  }
+
+  function readStoredTheme() {
+    try {
+      if (window.CourseStorage && typeof window.CourseStorage.get === "function") {
+        return window.CourseStorage.get("theme", "light");
+      }
+      const raw = window.localStorage.getItem("safetyCourse:theme");
+      return raw ? JSON.parse(raw) : "light";
+    } catch (error) {
+      return "light";
+    }
+  }
+
+  function storeTheme(theme) {
+    try {
+      if (window.CourseStorage && typeof window.CourseStorage.set === "function") {
+        window.CourseStorage.set("theme", theme);
+        return;
+      }
+      window.localStorage.setItem("safetyCourse:theme", JSON.stringify(theme));
+    } catch (error) {
+      // Theme persistence should never block the shell.
+    }
+  }
+
+  function themeLabel() {
+    return html.dataset.theme === "dark" ? "מצב בהיר" : "מצב כהה";
+  }
+
+  function syncPrototypeThemeButtons() {
+    document.querySelectorAll("[data-proto-action='toggle-theme']").forEach((button) => {
+      button.textContent = themeLabel();
+    });
+  }
+
+  function initPrototypeTheme() {
+    if (!html.dataset.theme) html.dataset.theme = readStoredTheme();
+  }
+
+  function togglePrototypeTheme() {
+    const next = html.dataset.theme === "dark" ? "light" : "dark";
+    html.dataset.theme = next;
+    storeTheme(next);
+    syncPrototypeThemeButtons();
   }
 
   function createTopbar() {

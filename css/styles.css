@@ -12274,15 +12274,20 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
 }
 
 .learning-timeline-shell {
-  overflow: visible;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .learning-session-header,
 .learning-session-row {
   display: grid;
-  grid-template-columns: 70px minmax(220px, 1.6fr) minmax(120px, .7fr) minmax(120px, .7fr) minmax(240px, 1.25fr) minmax(120px, .7fr);
+  grid-template-columns: minmax(46px, 58px) minmax(0, 1.55fr) minmax(92px, .7fr) minmax(92px, .7fr) minmax(0, 1.05fr) minmax(86px, .6fr);
   gap: .75rem;
   align-items: center;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .learning-session-header {
@@ -12302,6 +12307,8 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
   display: grid;
   gap: .75rem;
   margin-top: .75rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .learning-session-row {
@@ -12332,6 +12339,7 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
 .learning-session-topic h2 {
   margin: 0 0 .45rem;
   font-size: 1.03rem;
+  overflow-wrap: break-word;
 }
 
 .learning-session-meta,
@@ -12339,12 +12347,16 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
   display: flex;
   flex-wrap: wrap;
   gap: .4rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .learning-session-cell,
 .learning-session-status {
   display: flex;
   align-items: center;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .learning-tag,
@@ -12362,6 +12374,10 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
   font-weight: 800;
   padding: .32rem .65rem;
   text-decoration: none;
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: break-word;
 }
 
 .learning-tag--exam {
