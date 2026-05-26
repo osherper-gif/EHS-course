@@ -252,11 +252,12 @@
     "summary": {
       "status": "available",
       "href": "pages/summaries/lesson-07-summary.html",
-      "updatedAt": "2026-05-26"
+      "updatedAt": "2026-05-26",
+      "questionCount": 60
     },
     "questions": {
-      "count": 30,
-      "href": "pages/prep/lesson-07-legal-responsibility.html#prepQuestions"
+      "count": 60,
+      "href": "pages/summaries/lesson-07-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html",
@@ -318,11 +319,11 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "סיכום",
-  "lessonId": "lesson-05",
-  "sessionNumber": 5,
-  "title": "נוסף סיכום שיעור 5 — חוק ארגון הפיקוח והדרכת עובדים כולל 60 שאלות תרגול",
-  "description": "סיכום שיעור 5 כולל כעת את כל שאלות המקור מהקובץ: 60 שאלות אינטראקטיביות, שמירה מקומית בלבד, ופיזור תשובות קבוע ומאוזן.",
-  "href": "pages/summaries/lesson-05-summary.html#summaryQuestions",
+  "lessonId": "lesson-07",
+  "sessionNumber": 7,
+  "title": "נוסף סיכום שיעור 7 — תפקיד ממונה הבטיחות, ניהול סיכונים ותיאום קבלנים כולל 60 שאלות תרגול",
+  "description": "סיכום שיעור 7 כולל כעת את כל שאלות המקור מהקובץ: 60 שאלות אינטראקטיביות, שמירה מקומית בלבד, ופיזור תשובות קבוע ומאוזן.",
+  "href": "pages/summaries/lesson-07-summary.html#summaryQuestions",
   "updatedAt": "2026-05-26"
 };
 
