@@ -4,120 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta name="description" content="אתר לימודי לתרגול, סיכום וכלי עבודה בתחום הבטיחות. המידע מיועד ללמידה והעשרה, ויש לאמת כל דרישה מול הדין והגורמים המוסמכים.">
-  <title>Checklists לשטח | קורס ממונה בטיחות</title>
-  <meta property="og:title" content="Checklists לשטח | קורס ממונה בטיחות">
-  <meta property="og:description" content="אתר לימודי לתרגול, סיכום וכלי עבודה בתחום הבטיחות. המידע מיועד ללמידה והעשרה, ויש לאמת כל דרישה מול הדין והגורמים המוסמכים.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ehs-course.web.app/pages/checklists.html">
+  <meta name="description" content="Operational Safety Retrieval System: חיפוש מהיר של checklists, PPE, stop work conditions, emergency actions, controls ורגולציה רלוונטית.">
+  <title>Operational Checklists | קורס ממונה בטיחות</title>
   <script src="../js/ui-mode.js"></script>
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/prototype-shell.css">
 </head>
-<body data-page-title="Checklists לשטח" class="auth-protected">
+<body data-page-title="Operational Checklists" class="auth-protected lms-pro prototype-shell prototype-shell-page">
   <a class="skip-link" href="#main">דלג לתוכן</a>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="../index.html"><span class="brand-mark">EHS</span><span><strong>קורס ממונה בטיחות</strong><small>מערכת למידה וניהול בטיחות</small></span></a>
-      <nav class="main-nav" aria-label="ניווט ראשי"><a href="../index.html">בית</a><a href="syllabus.html">שיעורים</a><a href="quizzes.html">תרגול ומבחנים</a><a href="safety-game.html">אתגר בטיחות</a><a href="field-tools.html">חוקים, תקנים וכלי שטח</a><a href="ai-assistant.html">עוזר AI</a></nav>
-      <div class="header-actions"><button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה">◐</button><button class="icon-btn" type="button" data-action="print" title="הדפסה">⎙</button></div>
-    </div>
-    <div class="law-notice">יש לאמת מול החוק, התקנות והתקנים העדכניים וגורם מוסמך</div>
-  </header>
   <main id="main" class="site-main" data-readable-content>
-    <section class="page-hero"><div><p class="kicker">בדיקות שטח</p><h1>Checklists מקצועיים</h1><p>רשימות בדיקה אינטראקטיביות לממונה בטיחות. הסימון, ההערות וציון המצב נשמרים מקומית בדפדפן.</p></div></section>
-    <section class="toolbar-panel"><button class="btn secondary" type="button" data-action="reset-checklists">איפוס כל ה-Checklists</button><a class="btn" href="templates.html">פורמטים מקצועיים</a></section>
-    <section class="checklist-grid">
-      <article class="checklist-card" data-checklist="construction">
-        <div class="checklist-card-head"><h2>בדיקת אתר בנייה</h2><span>ציון מצב: <strong data-check-score>0%</strong></span></div>
-        
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="construction-0"><span>גידור אתר ופתחים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="construction-1"><span>עבודה בגובה עם אמצעי מניעה</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="construction-2"><span>ציוד מגן אישי בשימוש</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="construction-3"><span>שילוט ונתיבי תנועה</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="construction-4"><span>פיגומים תקינים ובדוקים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="construction-5"><span>עגורנים ואביזרי הרמה בתוקף</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="construction-6"><span>חפירות מגודרות או מדופנות</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="construction-7"><span>חשמל זמני מוגן ומסומן</span></label>
-        <label class="checklist-notes"><span>הערות</span><textarea data-check-id="construction-notes" rows="3" placeholder="הוסף ממצא, אחראי ויעד תיקון"></textarea></label>
-      </article>
-      <article class="checklist-card" data-checklist="factory">
-        <div class="checklist-card-head"><h2>בדיקת מפעל</h2><span>ציון מצב: <strong data-check-score>0%</strong></span></div>
-        
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="factory-0"><span>מכונות מגודרות</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="factory-1"><span>לוחות חשמל סגורים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="factory-2"><span>חומרים מסוכנים מסומנים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="factory-3"><span>אוורור ויניקה תקינים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="factory-4"><span>מעברים פנויים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="factory-5"><span>ציוד כיבוי נגיש</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="factory-6"><span>בדיקות תקופתיות בתוקף</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="factory-7"><span>קבלנים מתודרכים</span></label>
-        <label class="checklist-notes"><span>הערות</span><textarea data-check-id="factory-notes" rows="3" placeholder="הוסף ממצא, אחראי ויעד תיקון"></textarea></label>
-      </article>
-      <article class="checklist-card" data-checklist="office">
-        <div class="checklist-card-head"><h2>בדיקת משרד</h2><span>ציון מצב: <strong data-check-score>0%</strong></span></div>
-        
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="office-0"><span>עמדות עבודה ארגונומיות</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="office-1"><span>מסכים בגובה מתאים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="office-2"><span>תאורה מספקת</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="office-3"><span>כבלים מסודרים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="office-4"><span>מעברים פנויים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="office-5"><span>ציוד כיבוי ושילוט חירום</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="office-6"><span>עומס נפשי ומדיניות הפסקות</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="office-7"><span>יציאות חירום פנויות</span></label>
-        <label class="checklist-notes"><span>הערות</span><textarea data-check-id="office-notes" rows="3" placeholder="הוסף ממצא, אחראי ויעד תיקון"></textarea></label>
-      </article>
-      <article class="checklist-card" data-checklist="chemicals">
-        <div class="checklist-card-head"><h2>בדיקת חומרים מסוכנים</h2><span>ציון מצב: <strong data-check-score>0%</strong></span></div>
-        
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="chemicals-0"><span>SDS זמין</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="chemicals-1"><span>הפרדת חומרים לא תואמים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="chemicals-2"><span>מאצרות או אמצעי containment</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="chemicals-3"><span>ערכת שפך זמינה</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="chemicals-4"><span>ציוד מגן מתאים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="chemicals-5"><span>מנדפים או יניקה תקינים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="chemicals-6"><span>סימון מכלים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="chemicals-7"><span>תרגול שפך/דליפה</span></label>
-        <label class="checklist-notes"><span>הערות</span><textarea data-check-id="chemicals-notes" rows="3" placeholder="הוסף ממצא, אחראי ויעד תיקון"></textarea></label>
-      </article>
-      <article class="checklist-card" data-checklist="emergency">
-        <div class="checklist-card-head"><h2>בדיקת חירום</h2><span>ציון מצב: <strong data-check-score>0%</strong></span></div>
-        
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="emergency-0"><span>תוכנית חירום מעודכנת</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="emergency-1"><span>צוותי חירום מוגדרים</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="emergency-2"><span>נקודות כינוס מסומנות</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="emergency-3"><span>דרכי פינוי פנויות</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="emergency-4"><span>ציוד עזרה ראשונה</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="emergency-5"><span>תרגיל אחרון מתועד</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="emergency-6"><span>רשימת קשרים זמינה</span></label>
-        <label class="checklist-row"><input type="checkbox" data-check-item data-check-id="emergency-7"><span>תחקיר לקחים מבוצע</span></label>
-        <label class="checklist-notes"><span>הערות</span><textarea data-check-id="emergency-notes" rows="3" placeholder="הוסף ממצא, אחראי ויעד תיקון"></textarea></label>
-      </article></section>
-  <section class="related-panel" data-related-block="unified">
-      <h2>ראה גם</h2>
-      <div class="related-links"><a class="btn secondary" href="field-tools.html">מרכז כלי שטח</a><a class="btn secondary" href="templates.html">פורמטים</a><a class="btn secondary" href="laws.html">חוקים רלוונטיים</a><a class="btn secondary" href="safety-management.html">יישום בשטח</a></div>
+    <section class="page-hero">
+      <div>
+        <p class="kicker">Operational Safety Retrieval</p>
+        <h1>Checklists לשטח</h1>
+        <p>מנוע שליפה מהיר למצבי שטח: מה לבדוק, מתי לעצור עבודה, איזה PPE נדרש, מה פעולת החירום ומה המקור המקצועי להעמקה. המידע מיועד ללמידה ולסיוע בשטח, ויש לאמת מול הדין והגורמים המוסמכים.</p>
+      </div>
     </section>
+
+    <section class="content-section field-mode-summary">
+      <div class="knowledge-quick-grid">
+        <article class="knowledge-card"><h3>מצא תשובה תוך שניות</h3><p>חפש לפי “רתמה”, “ארון חשמל”, “מנוף”, “דליקה”, “קבלן” או כל מילת שטח.</p></article>
+        <article class="knowledge-card"><h3>עצירת עבודה ברורה</h3><p>כל checklist כולל stop work conditions וטעויות נפוצות.</p></article>
+        <article class="knowledge-card"><h3>מחובר לידע</h3><p>כל כרטיס מפנה לעמודי ידע, שיעורים, מילון ורגולציה רלוונטית.</p></article>
+      </div>
+    </section>
+
+    <div id="checklistRetrievalApp" class="checklist-retrieval-app"></div>
   </main>
-  <footer class="site-footer" role="contentinfo">
-  <div class="footer-links" aria-label="קישורי אתר">
-    <a href="privacy.html">פרטיות</a>
-    <a href="terms.html">תנאי שימוש</a>
-    <a href="disclaimer.html">הצהרת אחריות</a>
-    <a href="about-me.html">קצת עליי</a>
-    <a href="#accessibility" data-action="open-accessibility">נגישות</a>
-    <a href="mailto:osherper@gmail.com">צור קשר</a>
-  </div>
-  <p>האתר נוצר על ידי אושר פרץ</p>
-  <p>טלפון: 054-4232490 | Email: <a href="mailto:osherper@gmail.com">osherper@gmail.com</a></p>
-  <p class="footer-legal">כל הזכויות במבנה האתר, הסיכומים, השאלות, המשחק וכלי הלמידה שמורות. המידע נועד ללמידה והעשרה בלבד; יש לאמת מול החוק, התקנות, התקנים והגורמים המוסמכים העדכניים.</p>
-</footer>
-  <script src="../data/course-data.js"></script>
-  <script src="../js/storage.js"></script>
-  <script src="../js/search.js"></script>
-  <script src="../js/quizzes.js"></script>
-  <script src="../js/ai-assistant.js"></script>
-  <script src="../js/app.js"></script>
-  <script src="../js/checklists.js"></script>
+
+  <script src="../data/checklists-map.js"></script>
+  <script src="../js/checklists-retrieval.js"></script>
+  <script src="../js/prototype-shell.js"></script>
   <script src="../js/read-aloud.js"></script>
   <script type="module" src="../js/auth.js"></script>
   <script src="../js/accessibility.js"></script>
