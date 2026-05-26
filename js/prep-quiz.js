@@ -88,6 +88,10 @@
     }))
   };
 
+  if (window.CoursePrepQuestionSets) {
+    Object.assign(questionSets, window.CoursePrepQuestionSets);
+  }
+
   const questions = questionSets[quizId] || questionSets["lesson-08-safety-organization"];
 
   function loadState() {

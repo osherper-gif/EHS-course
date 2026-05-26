@@ -71,7 +71,16 @@
   function renderSummariesIndex() {
     const root = document.querySelector("[data-summaries-list]");
     if (!root) return;
-    const items = summaryPages;
+    const ingestionSummaries = Array.isArray(ingestionMap.summaryPages) ? ingestionMap.summaryPages.map((item) => ({
+      number: String(item.sessionNumber || "").replace(/^0+/, "") || item.lessonId,
+      title: item.title,
+      href: normalizeRelativeHref(item.href),
+      label: item.label || "קיים",
+      summaryAvailable: item.summaryAvailable !== false,
+      relatedKnowledge: ingestionMap.knowledgeLinks?.[item.lessonId] || [],
+      relatedChecklists: ["checklists.html"]
+    })) : [];
+    const items = ingestionSummaries.length ? ingestionSummaries : summaryPages;
 
     if (!items.length) {
       root.innerHTML = emptyState("סיכומי שיעור יעלו כאן לאחר עיבוד השיעורים.", "כאשר יעלה סיכום, הוא יקבל עמוד משלו וקישור ישיר ממסלול הלימוד.");
