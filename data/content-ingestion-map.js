@@ -14,11 +14,12 @@
     "summary": {
       "status": "available",
       "href": "pages/summaries/lesson-01-summary.html",
-      "updatedAt": "2026-05-26"
+      "updatedAt": "2026-05-26",
+      "questionCount": 72
     },
     "questions": {
-      "count": 30,
-      "href": "pages/prep/lesson-01-introduction-safety.html#prepQuestions"
+      "count": 72,
+      "href": "pages/summaries/lesson-01-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/human-factors.html",
@@ -313,11 +314,11 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "סיכום",
-  "lessonId": "lesson-03",
-  "sessionNumber": 3,
-  "title": "נוסף סיכום שיעור 3 — גורמים במערך הבטיחות ואחריות תפעולית",
-  "description": "סיכום שיעור 3 הוחלף בעמוד curated עם חלוקת אחריות במערך הבטיחות, תרבות בטיחות, ועדות, נאמנים, רגולטור ושאלות תרגול אינטראקטיביות.",
-  "href": "pages/summaries/lesson-03-summary.html",
+  "lessonId": "lesson-01",
+  "sessionNumber": 1,
+  "title": "נוסף סיכום שיעור 1 — יסודות תורת הבטיחות כולל 72 שאלות תרגול",
+  "description": "סיכום שיעור 1 כולל כעת את כל שאלות המקור מהקובץ: 72 פריטי שאלה אינטראקטיביים, שמירה מקומית בלבד, ופיזור תשובות קבוע ומאוזן.",
+  "href": "pages/summaries/lesson-01-summary.html#summaryQuestions",
   "updatedAt": "2026-05-26"
 };
 

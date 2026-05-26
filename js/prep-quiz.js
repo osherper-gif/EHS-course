@@ -163,7 +163,8 @@
     const answered = selected !== undefined;
     const showFeedback = answered || revealAll;
     const card = el("article", "prep-question-card");
-    card.append(el("h3", "", (questionIndex + 1) + ". " + question.question));
+    const questionLabel = question.sourceLabel || (questionIndex + 1) + ".";
+    card.append(el("h3", "", questionLabel + " " + question.question));
     const options = el("div", "prep-options");
     question.options.forEach((option, optionIndex) => {
       const label = el("label", "prep-option");
@@ -187,8 +188,8 @@
       const feedback = el("div", "prep-feedback " + (selected === question.correctIndex || revealAll ? "is-correct" : "is-wrong"));
       feedback.append(
         el("strong", "", selected === question.correctIndex ? "נכון" : revealAll && !answered ? "תשובה מוצגת" : "לא נכון"),
-        el("p", "", question.rationale),
-        el("p", "field-help", "Trap: " + question.trap)
+        el("p", "", question.rationale || question.explanation || ""),
+        el("p", "field-help", "Trap: " + (question.trap || ""))
       );
       card.append(feedback);
     }
