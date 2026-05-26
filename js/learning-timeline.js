@@ -3,6 +3,7 @@
 
   const map = window.CourseLearningPathMap || {};
   const sessions = Array.isArray(map.sessions) ? map.sessions : [];
+  const summaryPages = Array.isArray(map.summaryPages) ? map.summaryPages : [];
   const labels = map.knowledgeLabels || {};
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -69,7 +70,7 @@
   function renderSummariesIndex() {
     const root = document.querySelector("[data-summaries-list]");
     if (!root) return;
-    const items = sessions.filter((item) => item.summary && item.summary.status === "available");
+    const items = summaryPages;
 
     if (!items.length) {
       root.innerHTML = emptyState("סיכומי שיעור יעלו כאן לאחר עיבוד השיעורים.", "כאשר יעלה סיכום, הוא יקבל עמוד משלו וקישור ישיר ממסלול הלימוד.");
@@ -78,12 +79,13 @@
 
     root.innerHTML = items.map((item) => `
       <article class="learning-index-card">
-        <span class="learning-status learning-status--available">קיים</span>
+        <span class="learning-status ${item.summaryAvailable ? "learning-status--available" : ""}">${escapeHtml(item.label || "מעטפת קיימת")}</span>
         <h2>מפגש ${escapeHtml(item.number)} — ${escapeHtml(item.title)}</h2>
-        <p>סיכום שיעור קיים במבנה legacy ויקבל בעתיד עמוד סיכום ייעודי.</p>
+        <p>${item.summaryAvailable ? "סיכום שיעור זמין כעמוד עצמאי." : "מעטפת סיכום קיימת. תוכן הסיכום יעלה לאחר עיבוד השיעור."}</p>
         <div class="learning-actions" data-read-aloud-exclude="true">
-          ${linkButton(item.summary.href, "פתח סיכום", "btn")}
+          ${linkButton(item.href, item.summaryAvailable ? "פתח סיכום" : "פתח מעטפת", "btn")}
           ${linkButton("learning-path.html", "חזרה למסלול", "btn secondary")}
+          ${knowledgeLinks(item, 3)}
         </div>
       </article>
     `).join("");

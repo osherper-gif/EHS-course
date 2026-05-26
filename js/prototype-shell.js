@@ -10,7 +10,7 @@
   const html = document.documentElement;
   const pagePath = location.pathname.replace(/\\/g, "/");
   const inPages = /\/pages\//.test(pagePath);
-  const rootPrefix = /\/pages\/knowledge\//.test(pagePath) || /\/pages\/prep\//.test(pagePath) ? "../../" : inPages ? "../" : "./";
+  const rootPrefix = /\/pages\/knowledge\//.test(pagePath) || /\/pages\/prep\//.test(pagePath) || /\/pages\/summaries\//.test(pagePath) ? "../../" : inPages ? "../" : "./";
   const pageKind = resolvePageKind(pagePath);
   const pageTitle = body.dataset.pageTitle || document.title.split("|")[0].trim() || "קורס ממונה בטיחות";
   let lastFocusBeforeDrawer = null;
@@ -49,7 +49,7 @@
   function resolvePageKind(path) {
     if (/\/pages\/master-hub\.html$/.test(path)) return "master-hub";
     if (/\/pages\/knowledge\//.test(path)) return "knowledge";
-    if (/\/pages\/learning-path\.html$|\/pages\/prep\.html$|\/pages\/prep\//.test(path)) return "syllabus";
+    if (/\/pages\/learning-path\.html$|\/pages\/prep\.html$|\/pages\/prep\/|\/pages\/summaries\.html$|\/pages\/summaries\//.test(path)) return "syllabus";
     if (/\/pages\/syllabus\.html$/.test(path)) return "syllabus";
     if (/\/pages\/quizzes\.html$/.test(path)) return "quizzes";
     if (/\/pages\/my-progress\.html$/.test(path)) return "my-progress";

@@ -82,9 +82,12 @@
     root.replaceChildren();
     const summary = stats();
     const toolbar = el("div", "prep-quiz-toolbar");
+    const progress = el("div", "prep-quiz-progress");
+    progress.setAttribute("aria-label", "התקדמות שאלות");
+    progress.innerHTML = '<span style="width:' + Math.round((summary.answered / questions.length) * 100) + '%"></span>';
     toolbar.append(
-      el("strong", "", summary.answered + " / " + questions.length + " נענו"),
-      el("span", "", summary.correct + " נכונות"),
+      el("strong", "prep-quiz-count", summary.answered + " / " + questions.length + " נענו"),
+      el("span", "prep-quiz-score", summary.correct + " נכונות"),
       button("גלה תשובות", () => { revealAll = !revealAll; render(); }, "secondary"),
       button("אפס תרגול", () => {
         if (!window.confirm("לאפס את התרגול המקומי?")) return;
@@ -93,7 +96,7 @@
         render();
       }, "secondary")
     );
-    root.append(toolbar);
+    root.append(toolbar, progress);
 
     const list = el("div", "prep-question-list");
     questions.forEach((question, questionIndex) => list.append(questionCard(question, questionIndex)));
@@ -116,6 +119,7 @@
     const options = el("div", "prep-options");
     question.options.forEach((option, optionIndex) => {
       const label = el("label", "prep-option");
+      if (selected === optionIndex) label.classList.add("is-selected");
       if (showFeedback && optionIndex === question.correctIndex) label.classList.add("is-correct");
       if (answered && optionIndex === selected && selected !== question.correctIndex) label.classList.add("is-wrong");
       const input = document.createElement("input");
@@ -127,7 +131,7 @@
         saveState(state);
         render();
       });
-      label.append(input, el("span", "", option));
+      label.append(input, el("span", "prep-option-text", option));
       options.append(label);
     });
     card.append(options);

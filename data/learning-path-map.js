@@ -23,23 +23,23 @@
   };
 
   const sessions = [
-    session(1, "מושגי יסוד בבטיחות וסיכון", ["human-factors", "labor-inspection-law"], { summary: true, examFocus: true }),
-    session(2, "בעלי תפקידים, אחריות וסמכות", ["human-factors", "iso-45001"], { summary: true, examFocus: true }),
-    session(3, "חוק ארגון הפיקוח על העבודה", ["labor-inspection-law"], { summary: true, examFocus: true }),
-    session(4, "פקודת הבטיחות בעבודה ומבנה החובות", ["safety-ordinance", "labor-inspection-law"], { summary: true, examFocus: true }),
-    session(5, "ועדת בטיחות, נאמני בטיחות וארגון פנימי", ["labor-inspection-law", "human-factors"], { summary: true, examFocus: true }),
-    session(6, "היערכות למצבי חירום ותרגול", ["emergency-preparedness", "emergency-management"], { summary: true }),
-    session(7, "אחריות משפטית ותפקיד ממונה בטיחות", ["labor-inspection-law", "safety-ordinance", "iso-45001"], { summary: true, examFocus: true }),
+    session(1, "מושגי יסוד בבטיחות וסיכון", ["human-factors", "labor-inspection-law"], { examFocus: true }),
+    session(2, "בעלי תפקידים, אחריות וסמכות", ["human-factors", "iso-45001"], { examFocus: true }),
+    session(3, "חוק ארגון הפיקוח על העבודה", ["labor-inspection-law"], { examFocus: true }),
+    session(4, "פקודת הבטיחות בעבודה ומבנה החובות", ["safety-ordinance", "labor-inspection-law"], { examFocus: true }),
+    session(5, "ועדת בטיחות, נאמני בטיחות וארגון פנימי", ["labor-inspection-law", "human-factors"], { examFocus: true }),
+    session(6, "היערכות למצבי חירום ותרגול", ["emergency-preparedness", "emergency-management"], {}),
+    session(7, "אחריות משפטית ותפקיד ממונה בטיחות", ["labor-inspection-law", "safety-ordinance", "iso-45001"], { examFocus: true }),
     session(8, "ארגון מערך הבטיחות במפעל וניהולו", ["iso-45001", "human-factors", "labor-inspection-law", "safety-ordinance"], {
       prepHref: "prep/lesson-08-safety-organization.html",
       summary: false,
       examFocus: true,
       checklists: ["checklists.html?domain=ISO"]
     }),
-    session(9, "סקר סיכונים, הערכת סיכונים ובקרות", ["process-safety", "iso-45001"], { summary: true, examFocus: true }),
-    session(10, "ניהול בטיחות בתעסוקה ו-PDCA", ["iso-45001", "process-safety"], { summary: true }),
-    session(11, "תרבות בטיחות, Just Culture וגורם אנושי", ["human-factors", "iso-45001"], { summary: true, examFocus: true }),
-    session(12, "חזרה מבנית ודגשי מבחן ראשונים", ["human-factors", "labor-inspection-law", "iso-45001"], { summary: true, examFocus: true }),
+    session(9, "סקר סיכונים, הערכת סיכונים ובקרות", ["process-safety", "iso-45001"], { examFocus: true }),
+    session(10, "ניהול בטיחות בתעסוקה ו-PDCA", ["iso-45001", "process-safety"], {}),
+    session(11, "תרבות בטיחות, Just Culture וגורם אנושי", ["human-factors", "iso-45001"], { examFocus: true }),
+    session(12, "חזרה מבנית ודגשי מבחן ראשונים", ["human-factors", "labor-inspection-law", "iso-45001"], { examFocus: true }),
     session(13, "חשמל: מושגים, סיכונים ומנגנוני הגנה", ["electrical-safety"], { examFocus: true }),
     session(14, "חשמל: הארקה, מפסק מגן ובדיקות", ["electrical-safety"], { examFocus: true }),
     session(15, "LOTO: בידוד אנרגיה ואימות אפס אנרגיה", ["loto-ptw", "electrical-safety"], { examFocus: true }),
@@ -90,6 +90,12 @@
     session(60, "סיכום מסלול, תרגול מסכם ותוכנית המשך", ["master-hub", "glossary"], { examFocus: true })
   ];
 
+  const summaryPages = [
+    summaryShell(1, "מושגי יסוד בבטיחות וסיכון", ["human-factors", "labor-inspection-law"]),
+    summaryShell(2, "בעלי תפקידים, אחריות וסמכות", ["human-factors", "iso-45001"]),
+    summaryShell(8, "ארגון מערך הבטיחות במפעל וניהולו", ["iso-45001", "human-factors", "labor-inspection-law", "safety-ordinance"])
+  ];
+
   const prepPages = sessions
     .filter((item) => item.prep.status === "available")
     .map((item) => ({
@@ -104,22 +110,12 @@
       lastUpdated: item.lastUpdated
     }));
 
-  const summaries = sessions
-    .filter((item) => item.summary.status === "available")
-    .map((item) => ({
-      id: item.id,
-      number: item.number,
-      title: item.title,
-      href: item.summary.href,
-      status: item.summary.label,
-      lastUpdated: item.lastUpdated
-    }));
+  const summaries = summaryPages;
 
   function session(number, title, relatedKnowledge, options) {
     const settings = options || {};
-    const lessonNumber = number <= 12 ? String(number).padStart(2, "0") : "";
-    const hasSummary = settings.summary === true && lessonNumber;
     const hasPrep = Boolean(settings.prepHref);
+    const hasSummary = settings.summary && settings.summary.status === "available";
 
     return {
       id: `session-${String(number).padStart(2, "0")}`,
@@ -133,20 +129,38 @@
       summary: {
         status: hasSummary ? "available" : "missing",
         label: hasSummary ? "קיים" : "טרם קיים",
-        href: hasSummary ? `lesson-${lessonNumber}.html` : ""
+        href: hasSummary ? settings.summary.href : ""
       },
       relatedKnowledge: relatedKnowledge || [],
       relatedChecklists: settings.checklists || ["checklists.html"],
-      practice: settings.practice || (lessonNumber ? `exam-questions.html?lesson=lesson-${lessonNumber}` : "exam-questions.html"),
+      practice: settings.practice || (number <= 12 ? `exam-questions.html?lesson=lesson-${String(number).padStart(2, "0")}` : "exam-questions.html"),
       examFocus: settings.examFocus === true,
       status: hasPrep || hasSummary ? "עודכן" : settings.examFocus ? "נושא מבחן" : "בהמשך",
-      lastUpdated: hasPrep ? "2026-05-26" : hasSummary ? "2026-05-25" : ""
+      lastUpdated: hasPrep || hasSummary ? "2026-05-26" : ""
+    };
+  }
+
+  function summaryShell(number, title, relatedKnowledge) {
+    const padded = String(number).padStart(2, "0");
+    return {
+      id: `lesson-${padded}-summary`,
+      number: String(number),
+      title,
+      href: `summaries/lesson-${padded}-summary.html`,
+      status: "placeholder",
+      label: "מעטפת קיימת",
+      summaryAvailable: false,
+      lastUpdated: "2026-05-26",
+      relatedKnowledge: relatedKnowledge || [],
+      relatedChecklists: ["checklists.html"],
+      relatedLaws: ["laws.html", "standards.html"]
     };
   }
 
   window.CourseLearningPathMap = {
     sessions,
     prepPages,
+    summaryPages,
     summaries,
     knowledgeLabels,
     note: sourceNote
