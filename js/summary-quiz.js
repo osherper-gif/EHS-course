@@ -9,7 +9,8 @@
   const storageKey = "ehsSummaryQuiz:" + quizId;
   const questionSets = window.CourseSummaryQuestionSets || {};
   const rawQuestions = Array.isArray(questionSets[quizSource]) ? questionSets[quizSource] : [];
-  const questions = rawQuestions.slice().sort((a, b) => {
+  const shouldSortBySourceNumber = rawQuestions.length > 1 && Number(rawQuestions[0].sourceNumber) !== 1;
+  const questions = (shouldSortBySourceNumber ? rawQuestions.slice().sort((a, b) => {
     const aNumber = Number.isFinite(Number(a.sourceNumber)) ? Number(a.sourceNumber) : 9999;
     const bNumber = Number.isFinite(Number(b.sourceNumber)) ? Number(b.sourceNumber) : 9999;
     if (aNumber !== bNumber) return aNumber - bNumber;
@@ -17,7 +18,7 @@
     const bOccurrence = Number.isFinite(Number(b.sourceOccurrence)) ? Number(b.sourceOccurrence) : 9999;
     if (aOccurrence !== bOccurrence) return aOccurrence - bOccurrence;
     return String(a.id || "").localeCompare(String(b.id || ""));
-  });
+  }) : rawQuestions.slice());
   const expectedCount = Number(root.dataset.sourceQuestionCount || questions.length || 0);
 
   let state = loadState();
@@ -63,7 +64,7 @@
       { title: "1-20 | בסיס ויישום", from: 1, to: 20, open: true },
       { title: "21-40 | בינוני - ניתוח מצבים", from: 21, to: 40, open: false },
       { title: "41-60 | קשה - אחריות, דין ובקרה", from: 41, to: 60, open: false },
-      { title: "61-72 | העמקה והרחבה", from: 61, to: questions.length, open: false },
+      { title: "61-" + questions.length + " | העמקה והרחבה", from: 61, to: questions.length, open: false },
     ];
 
     return ranges

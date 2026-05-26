@@ -1226,7 +1226,7 @@ window.CourseSummaryQuestionSets = Object.assign(window.CourseSummaryQuestionSet
       "trap": "בדוק האם התשובה מעבירה אחריות לגורם הלא נכון, מסתפקת בטופס במקום בבקרה, או מתעלמת ממדרג הבקרות והדין."
     }
   ],
-  "lesson-02-summary-full-practice-source": [
+  "lesson-02-summary-practice-source": [
     {
       "id": "lesson-02-summary-full-q01",
       "sourceNumber": 1,

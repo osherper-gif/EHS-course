@@ -11,9 +11,14 @@ const checks = [
     quizId: "lesson-01-summary-practice",
     expectedCount: 72,
   },
+  {
+    page: path.join(repoRoot, "pages", "summaries", "lesson-02-summary.html"),
+    key: "lesson-02-summary-practice-source",
+    quizId: "lesson-02-summary-practice",
+    expectedCount: 65,
+  },
 ];
 const pendingQualityPages = [
-  "lesson-02-summary.html",
   "lesson-03-summary.html",
   "lesson-04-summary.html",
   "lesson-05-summary.html",
@@ -74,15 +79,18 @@ const results = checks.map((check) => {
     return acc;
   }, {});
 
-  const renderOrder = questions.slice().sort((a, b) => {
-    const aNumber = Number.isFinite(Number(a.sourceNumber)) ? Number(a.sourceNumber) : 9999;
-    const bNumber = Number.isFinite(Number(b.sourceNumber)) ? Number(b.sourceNumber) : 9999;
-    if (aNumber !== bNumber) return aNumber - bNumber;
-    const aOccurrence = Number.isFinite(Number(a.sourceOccurrence)) ? Number(a.sourceOccurrence) : 9999;
-    const bOccurrence = Number.isFinite(Number(b.sourceOccurrence)) ? Number(b.sourceOccurrence) : 9999;
-    if (aOccurrence !== bOccurrence) return aOccurrence - bOccurrence;
-    return String(a.id || "").localeCompare(String(b.id || ""));
-  });
+  const shouldSortBySourceNumber = questions.length > 1 && Number(questions[0].sourceNumber) !== 1;
+  const renderOrder = shouldSortBySourceNumber
+    ? questions.slice().sort((a, b) => {
+        const aNumber = Number.isFinite(Number(a.sourceNumber)) ? Number(a.sourceNumber) : 9999;
+        const bNumber = Number.isFinite(Number(b.sourceNumber)) ? Number(b.sourceNumber) : 9999;
+        if (aNumber !== bNumber) return aNumber - bNumber;
+        const aOccurrence = Number.isFinite(Number(a.sourceOccurrence)) ? Number(a.sourceOccurrence) : 9999;
+        const bOccurrence = Number.isFinite(Number(b.sourceOccurrence)) ? Number(b.sourceOccurrence) : 9999;
+        if (aOccurrence !== bOccurrence) return aOccurrence - bOccurrence;
+        return String(a.id || "").localeCompare(String(b.id || ""));
+      })
+    : questions.slice();
   if (renderOrder[0].sourceNumber !== 1) {
     fail("Rendered summary question order should start with source question 1, found " + renderOrder[0].sourceNumber);
   }

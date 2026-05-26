@@ -56,13 +56,14 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "pending_quality_review",
+      "status": "available",
       "href": "pages/summaries/lesson-02-summary.html",
-      "updatedAt": "2026-05-26"
+      "updatedAt": "2026-05-27",
+      "questionCount": 65
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 65,
+      "href": "pages/summaries/lesson-02-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/human-factors.html",
@@ -85,7 +86,7 @@
       "נאמן בטיחות",
       "קשר סיבתי"
     ],
-    "lastUpdated": "2026-05-26"
+    "lastUpdated": "2026-05-27"
   },
   {
     "lessonId": "lesson-03",
@@ -312,14 +313,14 @@
 ];
 
   const latestUpdate = {
-  "type": "content-quality",
-  "typeLabel": "בקרת איכות",
-  "lessonId": "",
-  "sessionNumber": "",
-  "title": "סיכומי שיעור 2-7 הועברו לבקרת איכות",
-  "description": "סיכומי שיעור לא יוצרים יותר בבאלק. כל סיכום ייבנה בנפרד מקובץ המקור ועם כל השאלות שמופיעות בו.",
-  "href": "pages/summaries.html",
-  "updatedAt": "2026-05-26"
+  "type": "summary",
+  "typeLabel": "סיכום",
+  "lessonId": "lesson-02",
+  "sessionNumber": 2,
+  "title": "נוסף סיכום שיעור 2 — ארגון מערך הבטיחות, פיקוח ואחריות כולל 65 שאלות תרגול",
+  "description": "סיכום curated חדש עם מדרג הדין, פיקוח, אחריות, ISO 45001, קבלנים, תרחישי שטח ובנק שאלות מלא.",
+  "href": "pages/summaries/lesson-02-summary.html",
+  "updatedAt": "2026-05-27"
 };
 
   window.CourseContentIngestionMap = {
@@ -401,6 +402,16 @@
     "updatedAt": "2026-05-26",
     "summaryAvailable": true,
     "label": "קיים"
+  },
+  {
+    "lessonId": "lesson-02",
+    "sessionNumber": 2,
+    "title": "ארגון מערך הבטיחות, פיקוח ואחריות",
+    "href": "pages/summaries/lesson-02-summary.html",
+    "updatedAt": "2026-05-27",
+    "summaryAvailable": true,
+    "label": "קיים",
+    "questionCount": 65
   }
 ],
     lessonUpdates: [latestUpdate],
