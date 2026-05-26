@@ -9,6 +9,84 @@
   <script src="../../js/ui-mode.js"></script>
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <style>
+    .summary-quick-nav,
+    .summary-zone-divider,
+    .summary-callout-row {
+      scroll-margin-top: 96px;
+    }
+
+    .summary-quick-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.6rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .summary-quick-nav a {
+      border: 1px solid var(--proto-border);
+      border-radius: 999px;
+      background: var(--proto-surface);
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: 0.7rem 0.9rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .summary-zone-divider {
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      margin: 1.5rem 0 0.85rem;
+      padding: 0.95rem 1rem;
+      background: linear-gradient(90deg, rgba(8, 100, 128, 0.1), rgba(255, 255, 255, 0));
+    }
+
+    .summary-zone-divider p {
+      margin: 0.25rem 0 0;
+      color: var(--proto-muted);
+    }
+
+    .summary-callout-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin: 0.9rem 0;
+    }
+
+    .summary-mini-callout {
+      border: 1px solid var(--proto-border);
+      border-inline-start: 4px solid var(--proto-accent);
+      border-radius: 12px;
+      background: var(--proto-surface);
+      padding: 0.85rem;
+    }
+
+    .summary-mini-callout strong {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .summary-practice-divider {
+      border: 1px solid rgba(8, 100, 128, 0.28);
+      border-radius: 16px;
+      background: rgba(8, 100, 128, 0.08);
+      margin: 1.75rem 0 1rem;
+      padding: 1rem;
+    }
+
+    @media (max-width: 720px) {
+      .summary-quick-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .summary-quick-nav a {
+        border-radius: 12px;
+        font-size: 0.92rem;
+        min-width: 0;
+      }
+    }
+  </style>
 </head>
 <body data-page-title="סיכום שיעור 2" class="auth-protected lms-pro prototype-shell prototype-shell-page summary-page">
   <a class="skip-link" href="#main">דלג לתוכן</a>
@@ -23,6 +101,19 @@
 
     <section class="learning-path-note" data-read-aloud-exclude="true">
       <p>מבוסס על סיכום שיעור 2 שנמסר במסגרת הקורס. המידע מיועד ללמידה והיערכות מקצועית; חובה לאמת דרישות מחייבות מול נוסח הדין, התקנות והגורמים המוסמכים.</p>
+    </section>
+
+    <nav class="summary-quick-nav" aria-label="ניווט מהיר בסיכום" data-read-aloud-exclude="true">
+      <a href="#summaryTheory">סיכום תיאורטי</a>
+      <a href="#summaryField">דף כיס ושטח</a>
+      <a href="#summaryLegal">דגשים משפטיים</a>
+      <a href="#summaryQuestions">שאלות תרגול</a>
+      <a href="#summaryRelated">קישורים קשורים</a>
+    </nav>
+
+    <section id="summaryTheory" class="summary-zone-divider">
+      <strong>Theory · מבנה המערך</strong>
+      <p>המקטע הזה מסביר את שפת הפיקוח: מי אחראי, מי מוסמך, ומה ההבדל בין מסמך למציאות.</p>
     </section>
 
     <details class="content-accordion" open>
@@ -47,8 +138,18 @@
           <h3>נקודת מפתח ניהולית</h3>
           <p>כשל מקצועי חמור הוא מצב שבו הנהלה מאמינה שתפקיד הממונה מסתכם בהפקת טפסים. טופס הוא ראיה לכך שנוהל קיים; הוא אינו מוכיח שהסיכון נשלט. השאלה המקצועית היא תמיד: מי ראה, מי החליט, מי תיקן, מי בדק שהבקרה עובדת, ואיפה זה מתועד.</p>
         </div>
+        <div class="summary-callout-row">
+          <article class="summary-mini-callout"><strong>⚠️ מלכודת נפוצה</strong><p>טופס אינו בקרה; הוא ראיה לכך שהייתה אמורה להיות בקרה.</p></article>
+          <article class="summary-mini-callout"><strong>📋 מה לבדוק בשטח</strong><p>מפקח עבודה מחפש פער בין המסמך לבין המציאות.</p></article>
+          <article class="summary-mini-callout"><strong>🧠 גורם אנושי</strong><p>היעדר תאונות בעבר אינו הוכחה לשליטה בסיכון.</p></article>
+        </div>
       </div>
     </details>
+
+    <section id="summaryLegal" class="summary-zone-divider">
+      <strong>Legal · דין, אחריות ואכיפה</strong>
+      <p>כאן נמצאות ההבחנות המשפטיות הקריטיות: חוק מול פקודה, צווים, קשר סיבתי ואחריות.</p>
+    </section>
 
     <details class="content-accordion">
       <summary>ארגז כלים משפטי לממונה</summary>
@@ -93,9 +194,9 @@
           <thead><tr><th>נושא</th><th>פלילי</th><th>אזרחי</th></tr></thead>
           <tbody>
             <tr><td>מי יוזם</td><td>המדינה, דרך גורמי אכיפה ותביעה.</td><td>הנפגע, משפחה, עיזבון או מבטח בתביעת שיבוב.</td></tr>
-            <tr><td>מה בודקים</td><td>הפרת חובה, רשלנות, ידיעה, אי־אכיפה או התעלמות מסיכון.</td><td>נזק, קשר סיבתי, רשלנות וחלוקת אחריות.</td></tr>
+            <tr><td>מה בודקים</td><td>הפרת חובה, <strong>רשלנות</strong>, ידיעה, אי־אכיפה או התעלמות מסיכון.</td><td>נזק, קשר סיבתי, <strong>רשלנות</strong> וחלוקת אחריות.</td></tr>
             <tr><td>המשמעות האישית</td><td>עלולה להיות אישית, כולל מנהלים ובעלי תפקידים.</td><td>בעיקר פיצוי כספי, לעיתים עם כיסוי ביטוחי.</td></tr>
-            <tr><td>קו ההגנה המקצועי</td><td>הוכחת ניהול אמיתי: בקרה, הדרכה, עצירה, תיקון ותיעוד.</td><td>הוכחת סבירות, מניעה, תגובה ותיעוד נזק/אירוע.</td></tr>
+            <tr><td>קו ההגנה המקצועי</td><td>הוכחת ניהול אמיתי: <strong>חובת פיקוח</strong>, בקרה, הדרכה, עצירה, תיקון ותיעוד.</td><td>הוכחת סבירות, מניעה, תגובה ותיעוד נזק/אירוע.</td></tr>
           </tbody>
         </table>
       </div>
@@ -123,16 +224,16 @@
     <details class="content-accordion">
       <summary>תאונת עבודה וקשר סיבתי</summary>
       <div>
-        <p>תאונת עבודה נבחנת דרך שני תנאים: היא התרחשה תוך כדי העבודה, והיא נגרמה עקב העבודה. החתמה על טופס 250 אינה הודאה משפטית באחריות; היא מאפשרת טיפול רפואי לנפגע ומתחילה מסלול תיעודי.</p>
+        <p>תאונת עבודה נבחנת דרך שני תנאים: היא התרחשה תוך כדי העבודה, והיא נגרמה עקב העבודה. החתמה על <strong>טופס 250</strong> אינה הודאה משפטית באחריות; היא מאפשרת טיפול רפואי לנפגע ומתחילה מסלול תיעודי.</p>
         <div class="summary-flow">
           <li><strong>אירוע בלתי מתוכנן</strong><span>פגיעה, כמעט תאונה או כשל משמעותי.</span></li>
           <li><strong>תוך כדי העבודה</strong><span>מקום, זמן ומשימה קשורים לעבודה.</span></li>
-          <li><strong>עקב העבודה</strong><span>קשר סיבתי בין העבודה לבין הפגיעה.</span></li>
+          <li><strong>עקב העבודה</strong><span><strong>קשר סיבתי</strong> בין העבודה לבין הפגיעה.</span></li>
           <li><strong>תיעוד ודיווח</strong><span>טפסים, דיווח למנהלים, תחקיר והפקת לקחים.</span></li>
         </div>
         <div class="summary-callout">
           <h3>טופס 250 הוא פתיחת מסלול, לא סגירת אחריות</h3>
-          <p>טעות נפוצה היא להתייחס לטופס 250 כאישור שהאירוע “שייך למפעל” או כהודאה באשמה. בפועל, הטופס מאפשר לנפגע לקבל טיפול רפואי ומייצר תיעוד ראשוני. האחריות המשפטית נבחנת מאוחר יותר לפי קשר סיבתי, שליטה בסיכון, ידיעה מוקדמת, בקרה בפועל והאם הארגון פעל כנדרש לפני האירוע ולאחריו.</p>
+          <p>טעות נפוצה היא להתייחס ל<strong>טופס 250</strong> כאישור שהאירוע “שייך למפעל” או כהודאה באשמה. בפועל, הטופס מאפשר לנפגע לקבל טיפול רפואי ומייצר תיעוד ראשוני. האחריות המשפטית נבחנת מאוחר יותר לפי <strong>קשר סיבתי</strong>, שליטה בסיכון, ידיעה מוקדמת, בקרה בפועל והאם הארגון פעל כנדרש לפני האירוע ולאחריו.</p>
         </div>
         <table class="learning-table">
           <thead><tr><th>רכיב בקשר הסיבתי</th><th>שאלת בדיקה</th><th>מסמך/ראיה תומכת</th></tr></thead>
@@ -149,16 +250,20 @@
     <details class="content-accordion">
       <summary>אחריות פלילית מול אחריות אזרחית</summary>
       <div>
+        <div class="summary-mini-callout">
+          <strong>⚖️ דגש משפטי</strong>
+          <p>הטבלה הזו היא כלי הגנה בסיסי: היא מפרידה בין ענישה אישית לבין פיצוי אזרחי, ומבהירה למה תיעוד, בקרה ואכיפה חשובים עוד לפני אירוע.</p>
+        </div>
         <div class="summary-compare-grid">
           <article class="summary-compare-card">
             <p class="kicker">הליך פלילי</p>
             <h3>ענישה והרתעה</h3>
-            <p>התובע הוא המדינה. המטרה היא ענישה, הרתעה, קנס או מאסר. רף ההוכחה גבוה: מעבר לספק סביר. אחריות פלילית היא אישית ואינה ניתנת לביטוח.</p>
+            <p>התובע הוא המדינה. המטרה היא ענישה, הרתעה, קנס או מאסר. רף ההוכחה גבוה: מעבר לספק סביר. <strong>אחריות פלילית</strong> היא אישית ואינה ניתנת לביטוח.</p>
           </article>
           <article class="summary-compare-card">
             <p class="kicker">הליך אזרחי</p>
             <h3>פיצוי והשבת מצב</h3>
-            <p>התובע הוא הנפגע או עיזבונו. המטרה היא פיצוי כספי. רף ההוכחה הוא מאזן הסתברויות, ולעיתים ניתן כיסוי ביטוחי בחבות מעבידים או צד ג'.</p>
+            <p>התובע הוא הנפגע או עיזבונו. המטרה היא פיצוי כספי. רף ההוכחה הוא מאזן הסתברויות, ולעיתים ניתן כיסוי ביטוחי בחבות מעבידים או צד ג'. כאן נבחנת <strong>אחריות אזרחית</strong>.</p>
           </article>
         </div>
       </div>
@@ -226,10 +331,27 @@
       </div>
     </details>
 
+    <section id="summaryField" class="summary-zone-divider">
+      <strong>Field · ביקורת, שטח ותפעול</strong>
+      <p>כאן נמצאים כלי השליפה המהירה: איך לחשוב כמו מפקח, מה לבדוק, ומתי לעצור עבודה.</p>
+    </section>
+
     <details class="content-accordion">
       <summary>איך חושב מפקח עבודה</summary>
       <div>
         <p>מפקח עבודה מחפש פערים בין המסמך לשטח. הוא יצליב עובדים, הדרכות, תסקירים, קבלנים ותהליכים מסוכנים, וישים לב במיוחד לתיעוד שנראה פיקטיבי או מאוחר.</p>
+        <div class="summary-mini-callout">
+          <strong>📋 מה אני בודק בביקורת מפקח עבודה</strong>
+          <ul class="summary-checklist">
+            <li>הדרכות וכשירות עובדים</li>
+            <li>תסקירים בתוקף</li>
+            <li>קליטת קבלנים ואישורי עבודה</li>
+            <li>צווי בטיחות/שיפור פתוחים וסגורים</li>
+            <li>דוחות Near Miss ותחקירים</li>
+            <li>CAPA ובדיקת אפקטיביות</li>
+            <li>פער בין נוהל למציאות בשטח</li>
+          </ul>
+        </div>
         <div class="summary-pocket-grid">
           <article class="summary-pocket-card"><h3>מה מדליק נורה אדומה</h3><ul class="summary-checklist"><li>הדרכות באותו יום ובאותו עט</li><li>עובד שלא יודע להסביר את הסיכון</li><li>עיכוב המפקח בשער</li><li>תסקירים חסרים או לא בתוקף</li></ul></article>
           <article class="summary-pocket-card"><h3>ארגז מסמכים לקו הגנה</h3><ul class="summary-checklist"><li>תוכנית ניהול בטיחות</li><li>פנקס הדרכות</li><li>תסקירי בדיקה</li><li>קליטת קבלנים</li><li>דוחות תאונה ו-Near Miss</li><li>פרוטוקולי ועדת בטיחות</li></ul></article>
@@ -240,6 +362,10 @@
     <details class="content-accordion">
       <summary>צו שיפור מול צו בטיחות</summary>
       <div>
+        <div class="summary-callout-row">
+          <article class="summary-mini-callout"><strong>🚨 מתי עוצרים עבודה</strong><p><strong>צו בטיחות</strong> מתאים לסכנה מיידית. כשיש ספק סביר לחיי אדם, לא מחכים לדיון ארוך.</p></article>
+          <article class="summary-mini-callout"><strong>✅ טיפ לממונה</strong><p><strong>צו שיפור</strong> אינו “המלצה”. הוא מחייב תיקון בתוך זמן קצוב ומעקב עד סגירה.</p></article>
+        </div>
         <table class="learning-table">
           <thead><tr><th>נושא</th><th>צו שיפור</th><th>צו בטיחות</th></tr></thead>
           <tbody>
@@ -326,6 +452,10 @@
     <details class="content-accordion">
       <summary>Key Takeaways</summary>
       <div>
+        <div class="summary-mini-callout">
+          <strong>✅ טיפ שאלה 60</strong>
+          <p>בדיקת אפקטיביות = לא רק תיקון, אלא וידוא לאורך זמן. הבעיה: הפעולה קיימת רק על הנייר. הפתרון: לחזור לשטח אחרי זמן מוגדר ולוודא שהבקרה באמת עובדת.</p>
+        </div>
         <ol>
           <li>מערך בטיחות הוא מערכת של סמכויות, חובות, מסמכים ובקרה בשטח.</li>
           <li>חוק ארגון הפיקוח מסביר מי עושה מה; פקודת הבטיחות מסבירה מה חייב להיות בטוח.</li>
@@ -337,12 +467,17 @@
       </div>
     </details>
 
+    <section class="summary-practice-divider" data-read-aloud-exclude="true">
+      <strong>Practice · מכאן עוברים מתוכן מקצועי לתרגול ובדיקת ידע</strong>
+      <p>התרגול נועד לבדוק הבנה. מומלץ לקרוא קודם את דף הכיס, טבלת האחריות והדגשים המשפטיים.</p>
+    </section>
+
     <section id="summaryQuestions" class="prep-question-section" data-read-aloud-exclude="true">
       <div class="section-title">
         <div>
           <p class="kicker">Practice · Summary</p>
           <h2>שאלות אמריקאיות לתרגול</h2>
-          <p>65 שאלות תרגול מתוך סיכום השיעור. ההתקדמות נשמרת בדפדפן בלבד.</p>
+          <p>65 שאלות תרגול מתוך סיכום השיעור. ההתקדמות נשמרת בדפדפן בלבד. התרגול נועד לבדוק הבנה, לא להחליף קריאה של הדגשים המשפטיים ודף הכיס.</p>
         </div>
         <a class="btn secondary" href="../prep/lesson-02-roles-responsibility.html#prepQuestions">פתח בעמוד ההכנה</a>
       </div>
@@ -354,7 +489,7 @@
         data-source-question-count="65"></div>
     </section>
 
-    <section class="content-section" data-read-aloud-exclude="true">
+    <section id="summaryRelated" class="content-section" data-read-aloud-exclude="true">
       <h2>קישורים קשורים</h2>
       <div class="learning-actions">
         <a class="btn" href="../prep/lesson-02-roles-responsibility.html">הכנה לשיעור 2</a>

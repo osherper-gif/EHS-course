@@ -9,6 +9,84 @@
   <script src="../../js/ui-mode.js"></script>
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <style>
+    .summary-quick-nav,
+    .summary-zone-divider,
+    .summary-callout-row {
+      scroll-margin-top: 96px;
+    }
+
+    .summary-quick-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.6rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .summary-quick-nav a {
+      border: 1px solid var(--proto-border);
+      border-radius: 999px;
+      background: var(--proto-surface);
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: 0.7rem 0.9rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .summary-zone-divider {
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      margin: 1.5rem 0 0.85rem;
+      padding: 0.95rem 1rem;
+      background: linear-gradient(90deg, rgba(8, 100, 128, 0.1), rgba(255, 255, 255, 0));
+    }
+
+    .summary-zone-divider p {
+      margin: 0.25rem 0 0;
+      color: var(--proto-muted);
+    }
+
+    .summary-callout-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin: 0.9rem 0;
+    }
+
+    .summary-mini-callout {
+      border: 1px solid var(--proto-border);
+      border-inline-start: 4px solid var(--proto-accent);
+      border-radius: 12px;
+      background: var(--proto-surface);
+      padding: 0.85rem;
+    }
+
+    .summary-mini-callout strong {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .summary-practice-divider {
+      border: 1px solid rgba(8, 100, 128, 0.28);
+      border-radius: 16px;
+      background: rgba(8, 100, 128, 0.08);
+      margin: 1.75rem 0 1rem;
+      padding: 1rem;
+    }
+
+    @media (max-width: 720px) {
+      .summary-quick-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .summary-quick-nav a {
+        border-radius: 12px;
+        font-size: 0.92rem;
+        min-width: 0;
+      }
+    }
+  </style>
 </head>
 <body data-page-title="סיכום שיעור 1" class="auth-protected lms-pro prototype-shell prototype-shell-page summary-page">
   <a class="skip-link" href="#main">דלג לתוכן</a>
@@ -23,6 +101,19 @@
 
     <section class="learning-path-note" data-read-aloud-exclude="true">
       <p>מבוסס על סיכום שיעור 1 שנמסר במסגרת הקורס. הסיכום מיועד ללמידה, חזרה והכנה למבחן; דרישות מחייבות יש לאמת מול הדין, התקנות והגורמים המוסמכים.</p>
+    </section>
+
+    <nav class="summary-quick-nav" aria-label="ניווט מהיר בסיכום" data-read-aloud-exclude="true">
+      <a href="#summaryTheory">סיכום תיאורטי</a>
+      <a href="#summaryField">דף כיס ושטח</a>
+      <a href="#summaryLegal">דגשים משפטיים</a>
+      <a href="#summaryQuestions">שאלות תרגול</a>
+      <a href="#summaryRelated">קישורים קשורים</a>
+    </nav>
+
+    <section id="summaryTheory" class="summary-zone-divider">
+      <strong>Theory · יסודות והבנה</strong>
+      <p>המקטע הזה בונה את שפת הבטיחות: סיכון, מפגע, חשיפה, בקרה ולמידה.</p>
     </section>
 
     <details class="content-accordion" open>
@@ -69,6 +160,11 @@
         <div class="info-box"><strong>בטיחות היא השקעה עסקית.</strong><p>עצירת קו לצורך תיקון הנדסי עדיפה על צו בטיחות, חקירה פלילית, פגיעה בעובד ונזק תדמיתי וכלכלי.</p></div>
         <div class="info-box"><strong>ותק אינו בקרה.</strong><p>הטיעון “אנחנו עובדים ככה שנים” אינו מגן מפני כוח משיכה, אנרגיה חשמלית, קריסת דופן או חלק נע במכונה.</p></div>
         <div class="info-box"><strong>ניירת אינה יישום.</strong><p>תוכנית, נוהל וחתימה הם רק התחלה. המבחן האמיתי הוא הדרכה, פיקוח, אכיפה, תיעוד וסגירת פערים.</p></div>
+        <div class="summary-callout-row">
+          <article class="summary-mini-callout"><strong>⚠️ מלכודת נפוצה</strong><p>נוהל שלא נאכף הוא כמעט כמו נוהל שלא קיים.</p></article>
+          <article class="summary-mini-callout"><strong>📋 מה לבדוק בשטח</strong><p>האם העובד יודע להסביר את הסיכון, או רק חתם על הדרכה.</p></article>
+          <article class="summary-mini-callout"><strong>✅ טיפ לממונה</strong><p>תעד המלצה מקצועית, אחראי לביצוע ומועד סגירה. בלי שלושת אלה אין מעקב אמיתי.</p></article>
+        </div>
       </div>
     </details>
 
@@ -99,6 +195,11 @@
         </table>
       </div>
     </details>
+
+    <section id="summaryLegal" class="summary-zone-divider">
+      <strong>Legal · אחריות ודין</strong>
+      <p>כאן מתרגמים עקרונות בטיחות לאחריות משפטית, פסיקה ויישום ניהולי.</p>
+    </section>
 
     <details class="content-accordion">
       <summary>תרשימים יישומיים</summary>
@@ -170,6 +271,7 @@
             <p><strong>הסיכון:</strong> חשיפה מכוונת למפגע ידוע והפיכת קיצור דרך לנורמה.</p>
             <p><strong>תשובת הממונה:</strong> לתעד, להציג חלופות בקרה, לדרוש תיקון ולתרגם את הסיכון לשפה עסקית ומשפטית.</p>
             <p><strong>המלכודת:</strong> הסכמה שקטה עלולה להיראות כאישור מקצועי למצב מסוכן.</p>
+            <p><strong>✅ טיפ לממונה:</strong> הצג את “עלות העצירה” מול עלות תאונה, צו בטיחות וחקירה.</p>
           </article>
           <article class="summary-dilemma-card">
             <h3>“כולם עובדים ככה”</h3>
@@ -177,6 +279,7 @@
             <p><strong>הסיכון:</strong> Operational Drift עד לתאונה שנראית “פתאומית”.</p>
             <p><strong>תשובת הממונה:</strong> להחזיר סטנדרט, למדוד פערים, לערב מנהלי קו ולבנות אכיפה עקבית.</p>
             <p><strong>המלכודת:</strong> ותק או שכיחות אינם ראיה לבטיחות.</p>
+            <p><strong>✅ טיפ לממונה:</strong> אל תתווכח על הרגלים; בקש להראות את הבקרה שמונעת פגיעה.</p>
           </article>
           <article class="summary-dilemma-card">
             <h3>עובד ותיק מסרב להשתמש ב־PPE</h3>
@@ -184,6 +287,7 @@
             <p><strong>הסיכון:</strong> פגיעה אישית וגם נורמה של אי־ציות בקרב עובדים צעירים.</p>
             <p><strong>תשובת הממונה:</strong> לבדוק אם קיימת בקרה חזקה יותר מ־PPE, לרתום את העובד כמוביל שינוי, ולשמור על אכיפה.</p>
             <p><strong>המלכודת:</strong> להפוך נוחות או ניסיון אישי לפטור מדרישת בטיחות.</p>
+            <p><strong>✅ טיפ לממונה:</strong> אם PPE הוא קו ההגנה היחיד, חזור להיררכיית הבקרות וחפש פתרון חזק יותר.</p>
           </article>
           <article class="summary-dilemma-card">
             <h3>מנהל רואה עבודה מסוכנת ושותק</h3>
@@ -191,8 +295,17 @@
             <p><strong>הסיכון:</strong> העובדים מבינים שההפרה מאושרת.</p>
             <p><strong>תשובת הממונה:</strong> להעלות בכתב, להגדיר פעולה מתקנת, אחראי ומועד, ולוודא סגירה.</p>
             <p><strong>המלכודת:</strong> “לא אמרתי כן” אינו מגן כאשר המנהל ראה ולא פעל.</p>
+            <p><strong>✅ טיפ לממונה:</strong> תיעוד טוב אינו מאשים; הוא מייצר החלטה, אחריות ולוח זמנים.</p>
           </article>
         </div>
+        <table class="learning-table">
+          <thead><tr><th>מה לראות</th><th>מה לשאול</th><th>מה לתעד</th></tr></thead>
+          <tbody>
+            <tr><td>עבודה בגובה, חשמל, מכונה או חפירה</td><td>מה הבקרה שמונעת פגיעה עכשיו?</td><td>תמונה, מיקום, חשופים, אחראי ופעולה מתקנת.</td></tr>
+            <tr><td>עובד ללא מיגון או הדרכה</td><td>האם הוא מבין את הסיכון או רק חתם?</td><td>פער הדרכה, פעולה מיידית ומועד ריענון.</td></tr>
+            <tr><td>נוהל שלא מתאים לשטח</td><td>מי אישר את השינוי בפועל?</td><td>סטייה, החלטת מנהל, בקרה חלופית וסגירה.</td></tr>
+          </tbody>
+        </table>
       </div>
     </details>
 
@@ -251,6 +364,11 @@
         </div>
       </div>
     </details>
+
+    <section id="summaryField" class="summary-zone-divider">
+      <strong>Field · שטח ותפעול</strong>
+      <p>כלים מהירים לממונה: עצירת עבודה, תיעוד, תבניות, checklists ודף כיס.</p>
+    </section>
 
     <details class="content-accordion">
       <summary>Examples From Industry</summary>
@@ -355,12 +473,17 @@
       </div>
     </details>
 
+    <section class="summary-practice-divider" data-read-aloud-exclude="true">
+      <strong>Practice · מכאן עוברים מתוכן מקצועי לתרגול ובדיקת ידע</strong>
+      <p>התרגול נועד לבדוק הבנה. מומלץ לקרוא קודם את דף הכיס, הדילמות ודגשי האחריות.</p>
+    </section>
+
     <section id="summaryQuestions" class="prep-question-section" data-read-aloud-exclude="true">
       <div class="section-title">
         <div>
           <p class="kicker">Practice · Summary</p>
           <h2>שאלות אמריקאיות לתרגול</h2>
-          <p>72 שאלות תרגול מתוך סיכום השיעור. ההתקדמות נשמרת בדפדפן בלבד.</p>
+          <p>72 שאלות תרגול מתוך סיכום השיעור. ההתקדמות נשמרת בדפדפן בלבד. התרגול נועד לבדוק הבנה, לא להחליף קריאה של הדגשים המקצועיים.</p>
         </div>
         <a class="btn secondary" href="../prep/lesson-01-introduction-safety.html#prepQuestions">פתח בעמוד ההכנה</a>
       </div>
@@ -408,7 +531,7 @@
       </div>
     </details>
 
-    <section class="content-section" data-read-aloud-exclude="true">
+    <section id="summaryRelated" class="content-section" data-read-aloud-exclude="true">
       <h2>קישורים קשורים</h2>
       <div class="learning-actions">
         <a class="btn" href="../prep/lesson-01-introduction-safety.html">הכנה לשיעור 1</a>
