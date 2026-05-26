@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="description" content="מדריך תחזוקה סטטי להכנסת תוכן חדש לאתר קורס ממונה בטיחות: הכנות, סיכומי שיעור, שאלות, glossary, checklists ועדכוני מה חדש.">
+  <title>מדריך הכנסת תוכן לאתר | קורס ממונה בטיחות</title>
+  <script src="../js/ui-mode.js"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/prototype-shell.css">
+</head>
+<body data-page-title="מדריך הכנסת תוכן" class="lms-pro prototype-shell prototype-shell-page">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <main id="main" class="site-main" data-readable-content>
+    <section class="page-hero">
+      <div>
+        <p class="kicker">Content Operations</p>
+        <h1>מדריך הכנסת תוכן לאתר</h1>
+        <p>עמוד תחזוקה סטטי למנהל האתר. המטרה היא להוסיף הכנות, סיכומים, שאלות ודגשי למידה עם מינימום עריכות ידניות ובלי לשבור את ה־Learning Timeline.</p>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="contentStatusTitle" data-read-aloud-exclude="true">
+      <div class="section-title">
+        <div>
+          <p class="kicker">Status Dashboard</p>
+          <h2 id="contentStatusTitle">מצב תוכן</h2>
+          <p>הנתונים נטענים מתוך <code>data/content-ingestion-map.js</code> ומפת מסלול הלימוד.</p>
+        </div>
+      </div>
+      <div data-content-status-dashboard></div>
+      <div class="learning-index-grid" data-content-completion-list></div>
+    </section>
+
+    <section class="content-section" aria-labelledby="latestUpdateTitle">
+      <div class="section-title">
+        <div>
+          <p class="kicker">What's New Source</p>
+          <h2 id="latestUpdateTitle">מה חדש</h2>
+          <p>זהו המקור המרכזי לעדכון “מה חדש מהשיעור האחרון”.</p>
+        </div>
+      </div>
+      <div class="content-template-grid" data-content-latest-update></div>
+    </section>
+
+    <section class="content-section" aria-labelledby="workflowTitle">
+      <div class="section-title"><h2 id="workflowTitle">איך מוסיפים תוכן חדש</h2></div>
+      <details class="content-accordion" open>
+        <summary>1. הכנה לשיעור</summary>
+        <div>
+          <ol>
+            <li>העתק את <code>pages/templates/content-prep-template.html</code> לעמוד חדש תחת <code>pages/prep/lesson-XX-topic.html</code>.</li>
+            <li>עדכן hero, תקציר, quick learning, דגשי מבחן ושאלות.</li>
+            <li>הוסף את העמוד ל־<code>data/content-ingestion-map.js</code> תחת <code>prep.status = "available"</code>.</li>
+            <li>אם זו הכנה שמשנה את מסלול הלימוד, עדכן גם את <code>data/learning-path-map.js</code>.</li>
+          </ol>
+        </div>
+      </details>
+      <details class="content-accordion">
+        <summary>2. סיכום שיעור</summary>
+        <div>
+          <ol>
+            <li>העתק את <code>pages/templates/content-summary-template.html</code> אל <code>pages/summaries/lesson-XX-summary.html</code>.</li>
+            <li>מלא: מה למדנו, דגשי מבחן, trap questions, glossary, טעויות נפוצות וקישורים.</li>
+            <li>עדכן <code>summary.status = "available"</code> ו־<code>summary.href</code> במפת התוכן.</li>
+            <li>סיכום חסר נשאר <code>status: "missing"</code> וללא href.</li>
+          </ol>
+        </div>
+      </details>
+      <details class="content-accordion">
+        <summary>3. שאלות אמריקאיות</summary>
+        <div>
+          <p>שאלות הכנה מקומיות יכולות להופיע בעמוד prep בלבד. אין לחבר אותן למנוע quiz הראשי ואין לשמור scoring בענן בשלב זה.</p>
+          <ul>
+            <li>עדכן את מספר השאלות ב־<code>questions.count</code>.</li>
+            <li>הוסף anchor לשאלות, למשל <code>#prepQuestions</code>.</li>
+            <li>השתמש ב־rationale ו־trap explanation, לא רק בסימון נכון/לא נכון.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="content-accordion">
+        <summary>4. Glossary, Checklists ו־Related Knowledge</summary>
+        <div>
+          <p>כל תוספת צריכה להיכנס גם למפת התוכן כדי שהאתר ידע מה עודכן ומה קשור לשיעור.</p>
+          <ul>
+            <li><code>glossaryTerms</code> לרשימת מונחים בעמוד.</li>
+            <li><code>relatedKnowledge</code> לעמודי ידע קיימים.</li>
+            <li><code>relatedChecklists</code> ל־checklists רלוונטיים.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="content-accordion">
+        <summary>5. עדכון “מה חדש”</summary>
+        <div>
+          <p>עדכן את <code>latestUpdate</code> ב־<code>data/content-ingestion-map.js</code> עם סוג העדכון, שיעור, תיאור, תאריך וקישור.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="content-section" aria-labelledby="namingTitle">
+      <div class="section-title"><h2 id="namingTitle">Naming Conventions</h2></div>
+      <div class="content-template-grid">
+        <article class="content-mini-card"><h3>Prep</h3><p><code>pages/prep/lesson-XX-topic-slug.html</code></p></article>
+        <article class="content-mini-card"><h3>Summary</h3><p><code>pages/summaries/lesson-XX-summary.html</code></p></article>
+        <article class="content-mini-card"><h3>Lesson ID</h3><p><code>lesson-08</code>, <code>lesson-09</code>, וכן הלאה.</p></article>
+        <article class="content-mini-card"><h3>Dates</h3><p>השתמש בתאריך ISO: <code>YYYY-MM-DD</code>.</p></article>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="deployChecklistTitle">
+      <div class="section-title"><h2 id="deployChecklistTitle">Checklist לפני deploy</h2></div>
+      <ul class="knowledge-checklist">
+        <li>כל href במפת התוכן קיים כקובץ או כ־query מותר.</li>
+        <li>אין summary עם <code>status: "missing"</code> ו־href.</li>
+        <li>אין כפילות <code>lessonId</code>.</li>
+        <li>Read Aloud נטען בעמודי prep/summary חדשים.</li>
+        <li>אין שינוי Auth, Firestore, telemetry או quiz engine ראשי.</li>
+        <li>הרץ <code>node scripts/check-content-ingestion.js</code> ו־<code>npm.cmd run check:links</code>.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="../data/learning-path-map.js"></script>
+  <script src="../data/content-ingestion-map.js"></script>
+  <script src="../js/content-ingestion.js"></script>
+  <script src="../js/prototype-shell.js"></script>
+  <script src="../js/read-aloud.js"></script>
+  <script src="../js/accessibility.js"></script>
+</body>
+</html>

@@ -2,6 +2,7 @@
   "use strict";
 
   const map = window.CourseLearningPathMap || {};
+  const ingestionMap = window.CourseContentIngestionMap || {};
   const sessions = Array.isArray(map.sessions) ? map.sessions : [];
   const summaryPages = Array.isArray(map.summaryPages) ? map.summaryPages : [];
   const labels = map.knowledgeLabels || {};
@@ -23,7 +24,7 @@
 
     const draw = () => {
       const query = normalize(search ? search.value : "");
-      const filtered = sessions.filter((item) => matches(item, query, activeFilter));
+      const filtered = timelineSessions().filter((item) => matches(item, query, activeFilter));
       root.innerHTML = filtered.map(renderSession).join("");
       if (count) count.textContent = `${filtered.length} מפגשים מוצגים`;
     };
@@ -46,7 +47,7 @@
   function renderPrepIndex() {
     const root = document.querySelector("[data-prep-list]");
     if (!root) return;
-    const items = sessions.filter((item) => item.prep && item.prep.status === "available");
+    const items = timelineSessions().filter((item) => item.prep && item.prep.status === "available");
 
     if (!items.length) {
       root.innerHTML = emptyState("עדיין אין הכנות זמינות", "עמודי הכנה יתווספו כאן בהדרגה לפי מפגשי הקורס.");
@@ -89,6 +90,37 @@
         </div>
       </article>
     `).join("");
+  }
+
+  function timelineSessions() {
+    const ingestionByLesson = new Map((Array.isArray(ingestionMap.lessons) ? ingestionMap.lessons : [])
+      .map((item) => [item.lessonId, item]));
+    return sessions.map((item) => {
+      const lessonId = `lesson-${String(item.number).padStart(2, "0")}`;
+      const ingestion = ingestionByLesson.get(lessonId);
+      if (!ingestion) return item;
+      return mergeSessionContent(item, ingestion);
+    });
+  }
+
+  function mergeSessionContent(item, ingestion) {
+    const next = { ...item, lastUpdated: ingestion.lastUpdated || item.lastUpdated };
+    if (ingestion.prep) next.prep = mergeStatusTarget(item.prep, ingestion.prep, "קיים");
+    if (ingestion.summary) next.summary = mergeStatusTarget(item.summary, ingestion.summary, "קיים");
+    if (ingestion.relatedKnowledge?.length) next.ingestionKnowledgeLinks = ingestion.relatedKnowledge;
+    if (ingestion.questions?.count) next.status = `${ingestion.questions.count} שאלות`;
+    return next;
+  }
+
+  function mergeStatusTarget(existing, source, availableLabel) {
+    const status = source.status || existing?.status || "missing";
+    return {
+      ...(existing || {}),
+      status,
+      label: status === "available" ? availableLabel : "טרם קיים",
+      href: normalizeRelativeHref(source.href || existing?.href || ""),
+      updatedAt: source.updatedAt || existing?.updatedAt || ""
+    };
   }
 
   function matches(item, query, filter) {
@@ -150,6 +182,13 @@
   }
 
   function knowledgeLinks(item, limit) {
+    if (item.ingestionKnowledgeLinks?.length) {
+      return item.ingestionKnowledgeLinks.slice(0, limit || 3).map((href) => {
+        const key = href.split("/").pop().replace(/\.html$/, "");
+        const label = labels[key] || key;
+        return linkButton(normalizeRelativeHref(href), label, "btn secondary learning-mini-link");
+      }).join("");
+    }
     const keys = (item.relatedKnowledge || []).slice(0, limit || 3);
     if (!keys.length) return '<span class="learning-missing">אין קישורים</span>';
     return keys.map((key) => {
@@ -168,6 +207,12 @@
   function linkButton(href, label, className) {
     if (!href) return "";
     return `<a class="${className}" href="${escapeAttr(href)}">${escapeHtml(label)}</a>`;
+  }
+
+  function normalizeRelativeHref(href) {
+    if (!href || /^(https?:|mailto:|#)/.test(href)) return href || "";
+    if (href.startsWith("pages/")) return href.replace(/^pages\//, "");
+    return href;
   }
 
   function emptyState(title, body) {

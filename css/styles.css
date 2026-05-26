@@ -12233,6 +12233,22 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
   padding: .45rem .75rem;
 }
 
+.content-status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+  gap: .75rem;
+  margin: 1rem 0;
+}
+
+.content-status-metric {
+  min-height: 100%;
+}
+
+.content-latest-update-card {
+  border-color: color-mix(in srgb, var(--brand), transparent 52%);
+  background: color-mix(in srgb, var(--brand-soft), var(--surface) 72%);
+}
+
 .learning-search-label {
   display: grid;
   gap: .4rem;
