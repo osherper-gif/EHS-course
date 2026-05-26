@@ -8,7 +8,16 @@
   const quizSource = root.dataset.summaryQuizSource || quizId;
   const storageKey = "ehsSummaryQuiz:" + quizId;
   const questionSets = window.CourseSummaryQuestionSets || {};
-  const questions = Array.isArray(questionSets[quizSource]) ? questionSets[quizSource] : [];
+  const rawQuestions = Array.isArray(questionSets[quizSource]) ? questionSets[quizSource] : [];
+  const questions = rawQuestions.slice().sort((a, b) => {
+    const aNumber = Number.isFinite(Number(a.sourceNumber)) ? Number(a.sourceNumber) : 9999;
+    const bNumber = Number.isFinite(Number(b.sourceNumber)) ? Number(b.sourceNumber) : 9999;
+    if (aNumber !== bNumber) return aNumber - bNumber;
+    const aOccurrence = Number.isFinite(Number(a.sourceOccurrence)) ? Number(a.sourceOccurrence) : 9999;
+    const bOccurrence = Number.isFinite(Number(b.sourceOccurrence)) ? Number(b.sourceOccurrence) : 9999;
+    if (aOccurrence !== bOccurrence) return aOccurrence - bOccurrence;
+    return String(a.id || "").localeCompare(String(b.id || ""));
+  });
   const expectedCount = Number(root.dataset.sourceQuestionCount || questions.length || 0);
 
   let state = loadState();

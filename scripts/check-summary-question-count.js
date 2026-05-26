@@ -74,6 +74,22 @@ const results = checks.map((check) => {
     return acc;
   }, {});
 
+  const renderOrder = questions.slice().sort((a, b) => {
+    const aNumber = Number.isFinite(Number(a.sourceNumber)) ? Number(a.sourceNumber) : 9999;
+    const bNumber = Number.isFinite(Number(b.sourceNumber)) ? Number(b.sourceNumber) : 9999;
+    if (aNumber !== bNumber) return aNumber - bNumber;
+    const aOccurrence = Number.isFinite(Number(a.sourceOccurrence)) ? Number(a.sourceOccurrence) : 9999;
+    const bOccurrence = Number.isFinite(Number(b.sourceOccurrence)) ? Number(b.sourceOccurrence) : 9999;
+    if (aOccurrence !== bOccurrence) return aOccurrence - bOccurrence;
+    return String(a.id || "").localeCompare(String(b.id || ""));
+  });
+  if (renderOrder[0].sourceNumber !== 1) {
+    fail("Rendered summary question order should start with source question 1, found " + renderOrder[0].sourceNumber);
+  }
+  if (renderOrder.slice(0, 20).some((question) => Number(question.sourceNumber) > 20)) {
+    fail("Rendered first question group includes a source question above 20");
+  }
+
   const renderedQuestionCount = questions.length;
   if (renderedQuestionCount !== check.expectedCount) {
     fail("Renderer plan does not include all questions for " + check.key);
@@ -84,6 +100,8 @@ const results = checks.map((check) => {
     sourceQuestionCount: check.expectedCount,
     datasetQuestionCount: questions.length,
     renderedQuestionCount,
+    firstRenderedSourceNumber: renderOrder[0].sourceNumber,
+    lastRenderedSourceNumber: renderOrder[renderOrder.length - 1].sourceNumber,
     distribution,
   };
 });
