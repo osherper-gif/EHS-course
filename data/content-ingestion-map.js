@@ -100,10 +100,11 @@
     "summary": {
       "status": "available",
       "href": "pages/summaries/lesson-03-summary.html",
-      "updatedAt": "2026-05-26"
+      "updatedAt": "2026-05-26",
+      "questionCount": 60
     },
     "questions": {
-      "count": 20,
+      "count": 60,
       "href": "pages/summaries/lesson-03-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
@@ -315,11 +316,11 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "סיכום",
-  "lessonId": "lesson-02",
-  "sessionNumber": 2,
-  "title": "נוסף סיכום שיעור 2 — ארגון מערך הבטיחות כולל 65 שאלות תרגול",
-  "description": "סיכום שיעור 2 כולל כעת את כל שאלות המקור מהקובץ: 65 פריטי שאלה אינטראקטיביים, שמירה מקומית בלבד, ופיזור תשובות קבוע ומאוזן.",
-  "href": "pages/summaries/lesson-02-summary.html#summaryQuestions",
+  "lessonId": "lesson-03",
+  "sessionNumber": 3,
+  "title": "נוסף סיכום שיעור 3 — גורמים במערך הבטיחות כולל 60 שאלות תרגול",
+  "description": "סיכום שיעור 3 כולל כעת את כל שאלות המקור מהקובץ: 60 שאלות אינטראקטיביות, שמירה מקומית בלבד, ופיזור תשובות קבוע ומאוזן.",
+  "href": "pages/summaries/lesson-03-summary.html#summaryQuestions",
   "updatedAt": "2026-05-26"
 };
 
