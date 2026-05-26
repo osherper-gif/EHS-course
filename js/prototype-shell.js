@@ -24,7 +24,7 @@
         { label: "דף הבית", href: rootPrefix + "index.html", icon: "⌂", match: /\/index\.html$|\/$/ },
         { label: "מסלול הלימוד", href: rootPrefix + "pages/learning-path.html", icon: "☷", match: /\/pages\/learning-path\.html$/ },
         { label: "מרכז הידע", href: rootPrefix + "pages/master-hub.html", icon: "◎", match: /\/pages\/master-hub\.html$/ },
-        { label: "תוכנית לימוד", href: rootPrefix + "pages/syllabus.html", icon: "☰", match: /\/pages\/syllabus\.html$/ },
+        { label: "תחומי ידע", href: rootPrefix + "pages/syllabus.html", icon: "☰", match: /\/pages\/syllabus\.html$/ },
         { label: "תרגול ומבחנים", href: rootPrefix + "pages/quizzes.html", icon: "✓", match: /\/pages\/quizzes\.html$/ },
         { label: "ההתקדמות שלי", href: rootPrefix + "pages/my-progress.html", icon: "◌", match: /\/pages\/my-progress\.html$/ },
       ],
@@ -181,14 +181,14 @@
     const cardsByPage = {
       home: [
         createRailCard("מה כדאי לעשות עכשיו", [
-          { label: "המשך למידה", detail: "חזור לשיעור האחרון או פתח את תוכנית הלימוד." },
+          { label: "המשך למידה", detail: "חזור לשיעור האחרון או פתח את תחומי הידע." },
           { label: "תרגול מהיר", detail: "שאלות קצרות לחיזוק זיכרון." },
           { label: "כלי שטח", detail: "חוקים, תקנים וצ׳קליסטים." },
         ], { label: "פתח דשבורד", href: rootPrefix + "pages/my-progress.html" }),
       ],
       "master-hub": [
         createRailCard("קיצורי ידע", [
-          { label: "שיעורים", detail: "מעבר לתוכנית הלימוד ולסיכומי שיעורים." },
+          { label: "שיעורים", detail: "מעבר לתחומי הידע ולסיכומי שיעורים." },
           { label: "תרגול ומבחנים", detail: "שאלות קצרות וסימולציה לפי נושא." },
           { label: "חוקים וכלי שטח", detail: "מקורות, תקנים ונהלי עבודה בשטח." },
         ], { label: "פתח תרגול", href: rootPrefix + "pages/quizzes.html" }),

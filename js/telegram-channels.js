@@ -66,7 +66,7 @@
     const contact = document.createElement("p");
     contact.className = "telegram-join-contact";
     const contactText = document.createElement("span");
-    contactText.textContent = "לומדים במוסד אחר? ניתן ליצור קשר לפתיחת ערוץ מותאם לפי תוכנית הלימודים.";
+    contactText.textContent = "לומדים במוסד אחר? ניתן ליצור קשר לפתיחת ערוץ מותאם לפי מסלול הלימוד.";
     const contactLink = document.createElement("a");
     contactLink.href = "mailto:osherper@gmail.com";
     contactLink.textContent = "צור קשר";
