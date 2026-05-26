@@ -147,7 +147,7 @@
     const answered = selected !== undefined;
     const showFeedback = answered || revealAll;
     const card = el("article", "summary-question-card");
-    const label = question.sourceLabel || "שאלה " + questionNumber;
+    const label = "שאלה " + questionNumber;
     card.append(el("h3", "", label + " · " + question.question));
 
     const options = el("div", "summary-options");
