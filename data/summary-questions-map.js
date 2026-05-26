@@ -1,5 +1,5 @@
 // Summary question sets generated from lesson summary source files.
-window.CoursePrepQuestionSets = Object.assign(window.CoursePrepQuestionSets || {}, {
+window.CourseSummaryQuestionSets = Object.assign(window.CourseSummaryQuestionSets || {}, {
   "lesson-01-summary-practice-source": [
     {
       "id": "lesson-01-summary-full-q01",

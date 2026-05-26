@@ -12695,6 +12695,277 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
   font-size: 1.05rem;
 }
 
+.summary-diagram-grid,
+.summary-dilemma-grid,
+.summary-tool-grid,
+.summary-case-grid,
+.summary-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+  min-width: 0;
+}
+
+.summary-diagram,
+.summary-dilemma-card,
+.summary-tool-card,
+.summary-case-card,
+.summary-compare-card,
+.summary-question-group,
+.summary-question-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  min-width: 0;
+  max-width: 100%;
+  padding: clamp(1rem, 2vw, 1.25rem);
+}
+
+.summary-diagram h3,
+.summary-dilemma-card h3,
+.summary-tool-card h3,
+.summary-case-card h3,
+.summary-compare-card h3 {
+  margin-block-start: 0;
+}
+
+.summary-flow,
+.summary-pyramid {
+  display: grid;
+  gap: .65rem;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  counter-reset: summaryStep;
+}
+
+.summary-flow li,
+.summary-pyramid li {
+  position: relative;
+  display: grid;
+  gap: .15rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-2);
+  padding: .85rem 1rem;
+}
+
+.summary-flow li::before,
+.summary-pyramid li::before {
+  counter-increment: summaryStep;
+  content: counter(summaryStep);
+  position: absolute;
+  inset-inline-start: .75rem;
+  inset-block-start: .75rem;
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 900;
+}
+
+.summary-flow li strong,
+.summary-flow li span,
+.summary-pyramid li strong,
+.summary-pyramid li span {
+  padding-inline-start: 2.2rem;
+}
+
+.summary-pyramid li:nth-child(1) {
+  background: color-mix(in srgb, var(--brand), var(--surface) 82%);
+}
+
+.summary-pyramid li:nth-child(2) {
+  background: color-mix(in srgb, var(--brand-soft), var(--surface) 52%);
+}
+
+.summary-pyramid li:nth-child(5) {
+  border-color: rgba(184, 74, 47, .35);
+  background: rgba(184, 74, 47, .08);
+}
+
+.summary-law-pyramid li:nth-child(5) {
+  border-color: var(--border);
+  background: var(--surface-2);
+}
+
+.summary-compare-card {
+  background: color-mix(in srgb, var(--brand-soft), var(--surface) 74%);
+}
+
+.summary-quiz-app {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.summary-quiz-toolbar {
+  position: sticky;
+  top: 1rem;
+  z-index: 8;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .6rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface), transparent 5%);
+  box-shadow: var(--shadow);
+  margin: 1rem 0;
+  padding: .85rem;
+}
+
+.summary-quiz-count,
+.summary-quiz-score {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  padding: .35rem .75rem;
+}
+
+.summary-quiz-progress {
+  height: 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  margin: -.45rem 0 1rem;
+  overflow: hidden;
+}
+
+.summary-quiz-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  transition: width .25s ease;
+}
+
+.summary-question-groups {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.summary-question-group {
+  padding: 0;
+  overflow: clip;
+}
+
+.summary-question-group > summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  font-weight: 900;
+  padding: 1rem 1.1rem;
+}
+
+.summary-question-group-count {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.summary-question-list {
+  display: grid;
+  gap: 1rem;
+  border-top: 1px solid var(--border);
+  padding: 1rem;
+}
+
+.summary-question-card h3 {
+  margin-block-start: 0;
+  line-height: 1.55;
+}
+
+.summary-options {
+  display: grid;
+  gap: .7rem;
+  min-width: 0;
+}
+
+.summary-option {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .75rem;
+  align-items: start;
+  direction: rtl;
+  text-align: right;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-2);
+  cursor: pointer;
+  min-height: 56px;
+  padding: .9rem 1rem;
+  overflow: hidden;
+  transition: border-color .16s ease, background .16s ease, box-shadow .16s ease;
+}
+
+.summary-option:hover,
+.summary-option:focus-within {
+  border-color: color-mix(in srgb, var(--brand), transparent 35%);
+  background: color-mix(in srgb, var(--brand-soft), var(--surface) 70%);
+  box-shadow: 0 8px 18px rgba(16, 36, 54, .08);
+}
+
+.summary-option input {
+  inline-size: 18px;
+  block-size: 18px;
+  margin: .28rem 0 0;
+  accent-color: var(--brand);
+}
+
+.summary-option-text {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  line-height: 1.55;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.summary-option.is-selected {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand-soft), var(--surface) 52%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand), transparent 55%);
+}
+
+.summary-option.is-correct {
+  border-color: rgba(23, 128, 86, .45);
+  background: rgba(23, 128, 86, .09);
+}
+
+.summary-option.is-wrong {
+  border-color: rgba(184, 74, 47, .45);
+  background: rgba(184, 74, 47, .08);
+}
+
+.summary-feedback {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-top: .85rem;
+  padding: 1rem;
+  animation: prepFeedbackIn .18s ease-out;
+}
+
+.summary-feedback.is-correct {
+  border-color: rgba(23, 128, 86, .45);
+}
+
+.summary-feedback.is-wrong {
+  border-color: rgba(184, 74, 47, .45);
+}
+
 @media (max-width: 760px) {
   .learning-session-header {
     display: none;
@@ -12736,14 +13007,29 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
     position: static;
   }
 
+  .summary-quiz-toolbar {
+    position: static;
+  }
+
   .learning-actions .btn,
-  .prep-quiz-toolbar .btn {
+  .prep-quiz-toolbar .btn,
+  .summary-quiz-toolbar .btn {
     width: 100%;
     justify-content: center;
   }
 
   .prep-option {
     min-height: 58px;
+    padding: 1rem;
+  }
+
+  .summary-question-group > summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .summary-option {
+    min-height: 60px;
     padding: 1rem;
   }
 }
