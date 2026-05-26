@@ -20,6 +20,11 @@ const checks = [
     key: "lesson-03-summary-full-practice-source",
     expectedCount: 60,
   },
+  {
+    page: path.join(repoRoot, "pages", "summaries", "lesson-04-summary.html"),
+    key: "lesson-04-summary-full-practice-source",
+    expectedCount: 60,
+  },
 ];
 
 function fail(message) {

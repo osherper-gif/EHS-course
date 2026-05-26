@@ -141,11 +141,12 @@
     "summary": {
       "status": "available",
       "href": "pages/summaries/lesson-04-summary.html",
-      "updatedAt": "2026-05-26"
+      "updatedAt": "2026-05-26",
+      "questionCount": 60
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 60,
+      "href": "pages/summaries/lesson-04-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/safety-ordinance.html",
@@ -316,11 +317,11 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "סיכום",
-  "lessonId": "lesson-03",
-  "sessionNumber": 3,
-  "title": "נוסף סיכום שיעור 3 — גורמים במערך הבטיחות כולל 60 שאלות תרגול",
-  "description": "סיכום שיעור 3 כולל כעת את כל שאלות המקור מהקובץ: 60 שאלות אינטראקטיביות, שמירה מקומית בלבד, ופיזור תשובות קבוע ומאוזן.",
-  "href": "pages/summaries/lesson-03-summary.html#summaryQuestions",
+  "lessonId": "lesson-04",
+  "sessionNumber": 4,
+  "title": "נוסף סיכום שיעור 4 — פקודת הבטיחות ובטיחות תהליכית כולל 60 שאלות תרגול",
+  "description": "סיכום שיעור 4 כולל כעת את כל שאלות המקור מהקובץ: 60 שאלות אינטראקטיביות, שמירה מקומית בלבד, ופיזור תשובות קבוע ומאוזן.",
+  "href": "pages/summaries/lesson-04-summary.html#summaryQuestions",
   "updatedAt": "2026-05-26"
 };
 
