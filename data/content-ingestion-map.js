@@ -89,7 +89,7 @@
   {
     "lessonId": "lesson-03",
     "sessionNumber": 3,
-    "title": "חוק ארגון הפיקוח על העבודה",
+    "title": "גורמים במערך הבטיחות ואחריות תפעולית",
     "prep": {
       "status": "available",
       "href": "pages/prep/lesson-03-labor-inspection-law.html",
@@ -101,8 +101,8 @@
       "updatedAt": "2026-05-26"
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 20,
+      "href": "pages/summaries/lesson-03-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html",
@@ -117,7 +117,12 @@
       "צו בטיחות",
       "צו שיפור",
       "ועדת בטיחות",
-      "נאמן בטיחות"
+      "נאמן בטיחות",
+      "ממונה בטיחות",
+      "PDCA",
+      "Near Miss",
+      "RCA",
+      "מקרה מסוכן"
     ],
     "lastUpdated": "2026-05-26"
   },
@@ -308,11 +313,11 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "סיכום",
-  "lessonId": "lesson-02",
-  "sessionNumber": 2,
-  "title": "נוסף סיכום שיעור 2 — ארגון מערך הבטיחות, פיקוח ואחריות",
-  "description": "סיכום שיעור 2 הוחלף בעמוד curated עם מדרג דין, סמכויות פיקוח, צווי אכיפה, אחריות פלילית ואזרחית ושאלות תרגול אינטראקטיביות.",
-  "href": "pages/summaries/lesson-02-summary.html",
+  "lessonId": "lesson-03",
+  "sessionNumber": 3,
+  "title": "נוסף סיכום שיעור 3 — גורמים במערך הבטיחות ואחריות תפעולית",
+  "description": "סיכום שיעור 3 הוחלף בעמוד curated עם חלוקת אחריות במערך הבטיחות, תרבות בטיחות, ועדות, נאמנים, רגולטור ושאלות תרגול אינטראקטיביות.",
+  "href": "pages/summaries/lesson-03-summary.html",
   "updatedAt": "2026-05-26"
 };
 
