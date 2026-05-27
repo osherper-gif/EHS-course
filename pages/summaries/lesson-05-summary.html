@@ -254,15 +254,23 @@
 
     @media (max-width: 720px) {
       body.summary-page .site-main,
+      body.summary-page .proto-app-shell .site-main,
       body.summary-page .page-hero,
       body.summary-page .content-section,
       body.summary-page .summary-practice-divider,
       body.summary-page .op-flow-map,
       body.summary-page .op-decision-tree,
       body.summary-page .op-field-actions {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: min(100%, calc(100vw - 1.5rem)) !important;
+        max-width: calc(100vw - 1.5rem) !important;
         margin-inline: 0 !important;
+      }
+
+      body.summary-page .proto-app-shell .site-main,
+      body.summary-page .site-main {
+        margin-inline: auto !important;
+        padding-inline: .75rem !important;
+        overflow-x: hidden;
       }
 
       .summary-quick-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
