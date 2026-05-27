@@ -219,39 +219,43 @@
   {
     "lessonId": "lesson-06",
     "sessionNumber": 6,
-    "title": "היערכות למצבי חירום ותרגול",
+    "title": "מדריך שטח והישרדות משפטית לממונה בטיחות",
     "prep": {
       "status": "available",
       "href": "pages/prep/lesson-06-emergency-preparedness.html",
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "pending_quality_review",
+      "status": "available",
       "href": "pages/summaries/lesson-06-summary.html",
-      "updatedAt": "2026-05-26"
+      "updatedAt": "2026-05-27",
+      "questionCount": 59
     },
     "questions": {
-      "count": 30,
-      "href": "pages/prep/lesson-06-emergency-preparedness.html#prepQuestions"
+      "count": 59,
+      "href": "pages/summaries/lesson-06-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
-      "pages/knowledge/emergency-preparedness.html",
-      "pages/knowledge/emergency-management.html",
-      "pages/knowledge/hazardous-materials.html",
-      "pages/knowledge/human-factors.html"
+      "pages/knowledge/labor-inspection-law.html",
+      "pages/knowledge/safety-ordinance.html",
+      "pages/knowledge/human-factors.html",
+      "pages/knowledge/work-at-height.html",
+      "pages/knowledge/construction-safety.html"
     ],
     "relatedChecklists": [
-      "pages/checklists.html?domain=Emergency",
-      "pages/checklists.html?domain=Fire%20Safety",
-      "pages/checklists.html?domain=Hazmat"
+      "pages/checklists.html?domain=Contractors",
+      "pages/checklists.html?domain=Human%20Factors",
+      "pages/checklists.html?domain=PPE"
     ],
     "glossaryTerms": [
-      "ERP",
-      "פינוי",
-      "תרגיל חירום",
-      "Incident Command"
+      "אחריות סטטוטורית",
+      "תופש מפעל",
+      "ממונה בטיחות",
+      "עצימת עיניים",
+      "צו בטיחות",
+      "צו שיפור"
     ],
-    "lastUpdated": "2026-05-26"
+    "lastUpdated": "2026-05-27"
   },
   {
     "lessonId": "lesson-07",
@@ -332,11 +336,11 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "\u05e1\u05d9\u05db\u05d5\u05dd",
-  "lessonId": "lesson-05",
-  "sessionNumber": 5,
-  "title": "\u05e0\u05d5\u05e1\u05e3 \u05e1\u05d9\u05db\u05d5\u05dd \u05e9\u05d9\u05e2\u05d5\u05e8 5 - \u05de\u05e2\u05d8\u05e4\u05ea \u05de\u05d5\u05e1\u05d3\u05d9\u05ea, \u05e1\u05de\u05db\u05d5\u05d9\u05d5\u05ea \u05e4\u05d9\u05e7\u05d5\u05d7 \u05d5\u05d4\u05d3\u05e8\u05db\u05ea \u05e2\u05d5\u05d1\u05d3\u05d9\u05dd \u05db\u05d5\u05dc\u05dc 60 \u05e9\u05d0\u05dc\u05d5\u05ea \u05ea\u05e8\u05d2\u05d5\u05dc",
-  "description": "\u05e1\u05d9\u05db\u05d5\u05dd curated \u05d7\u05d3\u05e9 \u05e2\u05dd \u05d7\u05d5\u05e7 \u05d0\u05e8\u05d2\u05d5\u05df \u05d4\u05e4\u05d9\u05e7\u05d5\u05d7, \u05e1\u05de\u05db\u05d5\u05d9\u05d5\u05ea \u05de\u05e4\u05e7\u05d7, \u05d5\u05e2\u05d3\u05ea \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea, \u05e0\u05d0\u05de\u05e0\u05d9 \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea, \u05d4\u05d3\u05e8\u05db\u05ea \u05e2\u05d5\u05d1\u05d3\u05d9\u05dd, \u05d3\u05e3 \u05db\u05d9\u05e1, visual operational layer \u05d5\u05d1\u05e0\u05e7 \u05e9\u05d0\u05dc\u05d5\u05ea \u05de\u05dc\u05d0.",
-  "href": "pages/summaries/lesson-05-summary.html",
+  "lessonId": "lesson-06",
+  "sessionNumber": 6,
+  "title": "נוסף סיכום שיעור 6 - מדריך שטח והישרדות משפטית לממונה בטיחות כולל 59 שאלות תרגול",
+  "description": "סיכום curated חדש עם חלוקת אחריות סטטוטורית, גבולות תפקיד ממונה בטיחות, תיעוד מגן, קבלנים, גורם אנושי, דף כיס, visual operational layer ובנק שאלות מלא.",
+  "href": "pages/summaries/lesson-06-summary.html",
   "updatedAt": "2026-05-27"
 };
   withCourseScope(latestUpdate);
@@ -461,6 +465,16 @@
     "summaryAvailable": true,
     "label": "\u05e7\u05d9\u05d9\u05dd",
     "questionCount": 60
+  },
+  {
+    "lessonId": "lesson-06",
+    "sessionNumber": 6,
+    "title": "מדריך שטח והישרדות משפטית לממונה בטיחות",
+    "href": "pages/summaries/lesson-06-summary.html",
+    "updatedAt": "2026-05-27",
+    "summaryAvailable": true,
+    "label": "קיים",
+    "questionCount": 59
   }].map(withCourseScope),
     lessonUpdates: [latestUpdate],
     glossaryAdditions: lessons.flatMap((item) => item.glossaryTerms.map((term) => withCourseScope({ term, category: "????? ?????", lessonId: item.lessonId, href: "pages/glossary.html" }))),
