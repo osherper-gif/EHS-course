@@ -13071,6 +13071,24 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
   color: var(--text);
 }
 
+.summary-feedback-field {
+  border-color: rgba(8, 100, 128, .28);
+  background: rgba(8, 100, 128, .08);
+  color: var(--text);
+}
+
+.summary-question-jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin: .85rem 0 1rem;
+}
+
+.summary-question-jump-nav .btn {
+  min-height: 42px;
+  padding-inline: .85rem;
+}
+
 .summary-feedback.is-correct {
   border-color: rgba(23, 128, 86, .45);
 }

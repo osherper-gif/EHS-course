@@ -116,7 +116,17 @@
       helper.textContent = questions.length + " שאלות תרגול נטענו. ההתקדמות נשמרת בדפדפן בלבד.";
     }
 
-    root.append(toolbar, progress, helper);
+    const jumpNav = el("div", "summary-question-jump-nav");
+    questionGroups().forEach((group) => {
+      jumpNav.append(button(group.title, () => {
+        const target = document.getElementById("summary-question-group-" + group.from);
+        if (!target) return;
+        target.open = true;
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, "secondary"));
+    });
+
+    root.append(toolbar, progress, helper, jumpNav);
 
     const groups = el("div", "summary-question-groups");
     questionGroups().forEach((group) => groups.append(groupNode(group)));
@@ -125,6 +135,7 @@
 
   function groupNode(group) {
     const details = el("details", "summary-question-group");
+    details.id = "summary-question-group-" + group.from;
     if (group.open) details.open = true;
     const summary = el("summary", "");
     const answeredInGroup = group.items.filter((question) => state[question.id] !== undefined).length;
@@ -178,7 +189,8 @@
       feedback.append(
         el("strong", "", isCorrect ? "נכון" : revealAll && !answered ? "תשובה מוצגת" : "לא נכון"),
         el("div", "summary-feedback-box summary-feedback-rationale", question.rationale || question.explanation || ""),
-        el("div", "summary-feedback-box summary-feedback-trap", "Trap: " + (question.trap || "בדוק האם התשובה מסתפקת בניירת, מעבירה אחריות או מדלגת על בקרה במקור."))
+        el("div", "summary-feedback-box summary-feedback-trap", "Trap: " + (question.trap || "בדוק האם התשובה מסתפקת בניירת, מעבירה אחריות או מדלגת על בקרה במקור.")),
+        el("div", "summary-feedback-box summary-feedback-field", "משמעות בשטח: חבר את ההסבר לבקרה ממשית, בעל אחריות, תיעוד ובדיקת אפקטיביות.")
       );
       card.append(feedback);
     }

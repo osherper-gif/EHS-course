@@ -49,7 +49,10 @@
     .summary-callout-row,
     .field-card-grid,
     .pocket-grid,
-    .legal-grid {
+    .legal-grid,
+    .learning-unit-grid,
+    .disaster-grid,
+    .protocol-grid {
       display: grid;
       gap: .75rem;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -59,7 +62,10 @@
     .summary-mini-callout,
     .field-card,
     .pocket-card,
-    .legal-card {
+    .legal-card,
+    .learning-unit-card,
+    .disaster-card,
+    .protocol-card {
       background: var(--proto-surface);
       border: 1px solid var(--proto-border);
       border-radius: 14px;
@@ -70,7 +76,79 @@
     .summary-mini-callout strong,
     .field-card strong,
     .pocket-card strong,
-    .legal-card strong { display: block; margin-bottom: .35rem; }
+    .legal-card strong,
+    .learning-unit-card strong,
+    .disaster-card strong,
+    .protocol-card strong { display: block; margin-bottom: .35rem; }
+
+    .learning-unit-card {
+      border-top: 4px solid rgba(8, 100, 128, .55);
+    }
+
+    .learning-unit-card span,
+    .disaster-card span,
+    .protocol-card span {
+      color: var(--proto-muted);
+      display: block;
+      line-height: 1.55;
+    }
+
+    .topic-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin: .85rem 0 0;
+    }
+
+    .topic-tags span {
+      background: rgba(8, 100, 128, .09);
+      border: 1px solid rgba(8, 100, 128, .22);
+      border-radius: 999px;
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: .38rem .65rem;
+    }
+
+    .disaster-card {
+      border-inline-start: 5px solid var(--op-risk, #b45309);
+    }
+
+    .disaster-card h3,
+    .protocol-card h3 {
+      margin-top: 0;
+    }
+
+    .disaster-card dl,
+    .protocol-card dl {
+      display: grid;
+      gap: .45rem;
+      margin: .75rem 0 0;
+    }
+
+    .disaster-card dt,
+    .protocol-card dt {
+      font-weight: 900;
+    }
+
+    .disaster-card dd,
+    .protocol-card dd {
+      color: var(--proto-muted);
+      margin: 0;
+    }
+
+    .doctrine-strip {
+      background: linear-gradient(90deg, rgba(165, 29, 45, .1), rgba(8, 100, 128, .06));
+      border: 1px solid rgba(165, 29, 45, .22);
+      border-radius: 16px;
+      margin: 1rem 0;
+      padding: 1rem;
+    }
+
+    .doctrine-strip strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: .35rem;
+    }
 
     .summary-table {
       border-collapse: collapse;
@@ -185,13 +263,38 @@
 
     <nav class="summary-quick-nav" aria-label="ניווט מהיר" data-read-aloud-exclude="true">
       <a href="#theory">תיאוריה</a>
+      <a href="#units">יחידות למידה</a>
       <a href="#field">דף כיס</a>
       <a href="#legal">חוק ואחריות</a>
       <a href="#visual">Visual Layer</a>
+      <a href="#cases">Case Studies</a>
       <a href="#exam">דגשי מבחן</a>
       <a href="#summaryQuestions">תרגול</a>
       <a href="#related">קישורים</a>
     </nav>
+
+    <section class="content-section" id="units">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">Learning Architecture</p>
+          <h2>יחידות הלמידה של שיעור 4</h2>
+        </div>
+      </div>
+      <p>הסיכום בנוי כיחידת Master Bible תפעולית: כל נושא נלמד דרך החוק, המשמעות הניהולית, המחסום המבצעי והראיה שהממונה צריך להשאיר אחריו.</p>
+      <div class="learning-unit-grid">
+        <article class="learning-unit-card"><strong>Legal Foundation</strong><span>מדרג הדין, צו בטיחות מול צו שיפור, תסקירים, בודק מוסמך וחובת דיווח.</span></article>
+        <article class="learning-unit-card"><strong>PSM</strong><span>בטיחות תהליכית לאירועי חומרה גבוהה: אובדן הכלה, דליפה, פיצוץ ונרמול חריגות.</span></article>
+        <article class="learning-unit-card"><strong>HAZOP</strong><span>זיהוי סטיות מתהליך: No Flow, More Temp, Reverse Flow, Consequence ו־Safeguard.</span></article>
+        <article class="learning-unit-card"><strong>MOC</strong><span>ניהול שינוי לפני ביצוע: ציוד, חומר, תוכנה, קבלן, סף בטיחות ונוהל.</span></article>
+        <article class="learning-unit-card"><strong>RCA / ICAM</strong><span>הפרדה בין כשל ישיר לבין תנאים סמויים: תקציב, תרבות, עייפות, פיקוח ואכיפה.</span></article>
+        <article class="learning-unit-card"><strong>HOP</strong><span>אנשים טועים; המערכת צריכה להיות סלחנית לשגיאות וללמוד בלי להסתיר מידע.</span></article>
+        <article class="learning-unit-card"><strong>Explosion Safety</strong><span>מחומש הפיצוץ, אבק נפיץ, ATEX, LEL, אזורי Zone וציוד מוגן.</span></article>
+        <article class="learning-unit-card"><strong>Field Protocols</strong><span>עבודה חמה, חלל מוקף, LOTO, עבודה בגובה, SIMOPS, JSA ו־ICS.</span></article>
+      </div>
+      <div class="topic-tags" aria-label="תגיות נושא">
+        <span>PSM</span><span>MOC</span><span>HAZOP</span><span>RCA</span><span>HOP</span><span>LOTO</span><span>Hot Work</span><span>Confined Space</span><span>ATEX</span><span>ICS</span><span>SIMOPS</span>
+      </div>
+    </section>
 
     <section class="summary-zone-divider" id="theory">
       <strong>Theory</strong>
@@ -219,11 +322,34 @@
     <details class="content-accordion" open>
       <summary>Executive Summary</summary>
       <p>שיעור 4 מחבר בין החוק לבין רצפת הייצור: לא מספיק לדעת שקיימת חובה; צריך לדעת איזו בקרה מונעת את האירוע, מי אחראי להפעיל אותה, מה חייב להיות מתועד, ומתי עוצרים עבודה. הדגש המרכזי הוא מעבר מחשיבה של “טופס” לחשיבה של barrier: האם המחסום ההנדסי, הניהולי או האנושי באמת עובד בזמן אמת.</p>
+      <p>המשמעות המקצועית לממונה בטיחות היא כפולה: מצד אחד להכיר את הדרישות הסטטוטוריות המדויקות, ומצד שני לתרגם אותן למערכת ניהול שמונעת כשל סמוי. אסון תהליכי כמעט תמיד מתחיל הרבה לפני האירוע: שינוי שלא עבר MOC, מחסום שלא נבדק, חריגה שהפכה לשגרה, לחץ ייצור שדחק בדיקת בטיחות, או תיעוד שנועד “לסגור תיק” ולא להוכיח שליטה בסיכון.</p>
+      <div class="doctrine-strip">
+        <strong>עקרון Master Bible</strong>
+        <span>הממונה לא מחפש רק “האם יש נוהל”. הוא מחפש האם קיימת שרשרת הגנה חיה: דין מחייב → נוהל מקומי → בעל אחריות → בקרה פעילה → תיעוד → בדיקת אפקטיביות → שיפור.</span>
+      </div>
       <div class="summary-callout-row">
         <article class="summary-mini-callout"><strong>⚠️ מלכודת נפוצה</strong><span>בדיקת טופס אינה בדיקת בטיחות. המפקח יבדוק אם ההיתר תואם את המציאות בשטח.</span></article>
         <article class="summary-mini-callout"><strong>📋 מה לבדוק</strong><span>תסקירים, LOTO, ניטור אטמוספירה, תוקף הדרכות, ציוד חירום וסגירת CAPA.</span></article>
         <article class="summary-mini-callout"><strong>✅ טיפ לממונה</strong><span>בכל סיור שאל: מה האירוע הקטסטרופלי האפשרי, ומה המחסום האחרון שמונע אותו?</span></article>
       </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>פילוסופיית Process Safety ו־HOP</summary>
+      <p>בטיחות תהליכית שונה מבטיחות תעסוקתית רגילה. היא עוסקת באירועים נדירים אך בעלי פוטנציאל קטסטרופלי: דליפת גז רעיל, פיצוץ אבק, כשל לחץ, אש תעשייתית או אובדן הכלה. לכן המדד “לא היו תאונות השנה” אינו מספיק; הוא עלול להסתיר מערכת שמתרגלת לסטיות.</p>
+      <div class="field-card-grid">
+        <article class="field-card"><strong>ISD — Inherently Safer Design</strong><span>הפתרון החזק ביותר הוא להקטין את הסיכון במקור: פחות מלאי חומ״ס, חומר פחות מסוכן, טמפרטורה/לחץ נמוכים יותר ותכנון שמונע טעות.</span></article>
+        <article class="field-card"><strong>HOP — Human & Organizational Performance</strong><span>טעות אנוש אינה סוף החקירה אלא התחלה. שואלים איזה הקשר ארגוני גרם לאדם לבחור פעולה מסוכנת: לחץ זמן, ממשק לא ברור, הדרכה חלשה או נוהל לא מעשי.</span></article>
+        <article class="field-card"><strong>Latent Failures</strong><span>כשלים סמויים הם החלטות ניהוליות שנראות רחוקות מהאירוע: דחיית תחזוקה, חוסר תקציב, יעד ייצור אגרסיבי, אי־סגירת ליקויים, או ועדה שלא עוקבת.</span></article>
+        <article class="field-card"><strong>Production vs Safety</strong><span>כאשר תפוקה מנצחת שוב ושוב את הבקרה, נוצרת נורמליזציה של חריגה. זו אחת מנקודות האזהרה החשובות ביותר לממונה.</span></article>
+      </div>
+      <table class="summary-table">
+        <thead><tr><th>סוג מדד</th><th>מה הוא אומר</th><th>מה הסיכון בפרשנות שגויה</th><th>מה ממונה צריך להוסיף</th></tr></thead>
+        <tbody>
+          <tr><td>Lagging</td><td>TRIR, LTIFR, תאונות, ימי היעדרות.</td><td>היעדר תאונות אינו מוכיח שליטה בסיכון קטסטרופלי.</td><td>ניתוח מגמות, חומרה פוטנציאלית וכמעט תאונות.</td></tr>
+          <tr><td>Leading</td><td>סיורי הנהלה, סגירת CAPA, דיווחי Near Miss, תרגולים.</td><td>מדד כמותי יכול להפוך ל“סימון וי”.</td><td>בדיקת איכות הפעולה, אפקטיביות וחזרתיות בשטח.</td></tr>
+        </tbody>
+      </table>
     </details>
 
     <details class="content-accordion">
@@ -256,6 +382,7 @@
 
     <details class="content-accordion" open>
       <summary>קשר חוק / תקנה / יישום</summary>
+      <p>המדרג המשפטי אינו תיאוריה. הוא קובע איך מפקח עבודה, חוקר תאונה או בית משפט יבחנו אירוע: מה הייתה החובה, מי ידע או היה צריך לדעת, איזו בקרה הייתה נדרשת, והאם הארגון הוכיח פיקוח אקטיבי.</p>
       <table class="summary-table">
         <thead><tr><th>שכבה</th><th>משמעות בשטח</th><th>מה הממונה מחפש</th></tr></thead>
         <tbody>
@@ -269,6 +396,20 @@
         <article class="legal-card"><strong>⚖️ דגש משפטי</strong><span>האצלת סמכות אינה מוחקת אחריות ניהולית. מנהל חייב לוודא שהמנגנון עובד.</span></article>
         <article class="legal-card"><strong>עצימת עיניים</strong><span>דוחות חוזרים שלא נסגרים הופכים לראיה על מודעות לסיכון.</span></article>
         <article class="legal-card"><strong>חיסיון תחקיר</strong><span>באירוע חמור יש לשקול ניהול בדיקה דרך ייעוץ משפטי, בלי לעכב תיקון מפגעים.</span></article>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>פרשנות סטטוטורית ומשמעות ניהולית</summary>
+      <div class="legal-grid">
+        <article class="legal-card"><strong>צו בטיחות</strong><span>כלי עצירה מיידי כאשר קיימת סכנה לחיי אדם. מבחינת ממונה, זהו סימן שהארגון איבד שליטה בבקרה קריטית ולא רק “קיבל הערה”.</span></article>
+        <article class="legal-card"><strong>צו שיפור</strong><span>ליקוי שדורש תיקון בזמן קצוב. הסיכון הוא להתייחס אליו כאל משימה אדמיניסטרטיבית ולא כממצא ניהולי שמחייב CAPA.</span></article>
+        <article class="legal-card"><strong>תסקיר ובודק מוסמך</strong><span>תסקיר בתוקף אינו מחליף בדיקה יומית, אבל תסקיר חסר או פג הוא פער סטטוטורי ישיר.</span></article>
+        <article class="legal-card"><strong>תופש מקום / הנהלה</strong><span>האחריות אינה עוברת לממונה. ההנהלה חייבת לספק משאבים, לאכוף, ולוודא שהבקרות נבדקות בפועל.</span></article>
+      </div>
+      <div class="doctrine-strip">
+        <strong>תיעוד הגנתי מקצועי</strong>
+        <span>תיעוד טוב אינו “כיסוי”. הוא מציג שרשרת החלטה מקצועית: זיהוי סיכון, המלצה, אחראי, תאריך יעד, סגירה, בדיקת אפקטיביות והסלמה כאשר אין טיפול.</span>
       </div>
     </details>
 
@@ -289,11 +430,39 @@
 
     <details class="content-accordion">
       <summary>Operational Checklists</summary>
-      <div class="field-card-grid">
-        <article class="field-card"><strong>עבודה חמה</strong><span>הרחקת דליקים 10 מטר, LEL=0, איטום פתחים, מטף מתאים, צופה אש 30–60 דקות וחתימות.</span></article>
-        <article class="field-card"><strong>חלל מוקף</strong><span>LOTO, ניטור חמצן 19.5–23.5%, LEL, גזים רעילים, אוורור, משגיח, חצובה וחילוץ פסיבי.</span></article>
-        <article class="field-card"><strong>LOTO</strong><span>זיהוי כל אנרגיה, הודעה, כיבוי, ניתוק פיזי, נעילה אישית, תגית, פריקה ו־Try-Out.</span></article>
-        <article class="field-card"><strong>עבודה בגובה</strong><span>תעודה בתוקף 24 חודשים, מדרג בקרות, בדיקת רתמה, נקודת עיגון, חישוב מרחק נפילה ותוכנית חילוץ.</span></article>
+      <div class="protocol-grid">
+        <article class="protocol-card">
+          <h3>עבודה חמה</h3>
+          <dl>
+            <dt>מה מאמתים</dt><dd>הרחקת דליקים 10 מטר, LEL=0 באזור רלוונטי, איטום פתחים, מטף מתאים, צופה אש וחתימות.</dd>
+            <dt>סימן עצירה</dt><dd>אין צופה אש, יש דליקים סמוכים, אין ניטור כשיש חשש לאדים, או שההיתר אינו תואם את העבודה.</dd>
+            <dt>תיעוד</dt><dd>היתר, תמונת סביבת העבודה, שם צופה אש, שעת סיום ושעת סיום השגחה.</dd>
+          </dl>
+        </article>
+        <article class="protocol-card">
+          <h3>חלל מוקף</h3>
+          <dl>
+            <dt>מה מאמתים</dt><dd>LOTO, חמצן 19.5–23.5%, LEL, גזים רעילים, אוורור, משגיח פתח, חצובה וחילוץ פסיבי.</dd>
+            <dt>סימן עצירה</dt><dd>אין ניטור מכויל, אין חילוץ, המשגיח נדרש להיכנס, או לא הוגדר קשר רציף.</dd>
+            <dt>תיעוד</dt><dd>קריאות גזים, שם המשגיח, רשימת נכנסים, זמן כניסה/יציאה ותוכנית חילוץ.</dd>
+          </dl>
+        </article>
+        <article class="protocol-card">
+          <h3>LOTO</h3>
+          <dl>
+            <dt>מה מאמתים</dt><dd>כל אנרגיה זוהתה, נעילה אישית, תגית, פריקת לחץ/אנרגיה שיורית וניסיון הפעלה אפס אנרגיה.</dd>
+            <dt>סימן עצירה</dt><dd>נעילה קבוצתית לא מזוהה, קבלן ללא מנעול אישי, או דילוג על Try-Out.</dd>
+            <dt>תיעוד</dt><dd>רשימת מקורות אנרגיה, בעלי מנעולים, זמן בידוד, תוצאה של Try-Out ואישור החזרה לעבודה.</dd>
+          </dl>
+        </article>
+        <article class="protocol-card">
+          <h3>עבודה בגובה</h3>
+          <dl>
+            <dt>מה מאמתים</dt><dd>תעודה בתוקף 24 חודשים, מדרג בקרות, רתמה תקינה, עיגון מתאים, Fall Clearance ותוכנית חילוץ.</dd>
+            <dt>סימן עצירה</dt><dd>אין נקודת עיגון מוסמכת, אין חילוץ, רתמה פגומה, או עבודה חופשית כשאפשר במה/פיגום.</dd>
+            <dt>תיעוד</dt><dd>תעודות, בדיקת ציוד, שיטת גישה, חישוב מרחק נפילה ואמצעי חילוץ.</dd>
+          </dl>
+        </article>
       </div>
     </details>
 
@@ -327,6 +496,44 @@
         <article class="op-status-block info"><strong>מה מחפשים</strong><span>barrier שנכשל או לא היה קיים.</span></article>
         <article class="op-status-block attention"><strong>טעות נפוצה</strong><span>סגירת פעולה בלי לוודא שינוי התנהגות או הנדסה.</span></article>
         <article class="op-status-block risk"><strong>מה חייב תיעוד</strong><span>ראיות, החלטות, אחראי, בדיקת אפקטיביות.</span></article>
+      </div>
+    </section>
+
+    <section class="op-flow-map" aria-labelledby="hazopFlowTitle">
+      <h2 id="hazopFlowTitle">זרימת HAZOP: מסטייה למחסום</h2>
+      <div class="op-flow-steps">
+        <article class="op-flow-step"><strong>Node</strong><span>מגדירים קטע תהליך ברור: קו הזנה, מיכל, משאבה או מחליף חום.</span></article>
+        <article class="op-flow-step"><strong>Guide Word</strong><span>No, More, Less, Reverse, As Well As.</span></article>
+        <article class="op-flow-step"><strong>Deviation</strong><span>למשל No Flow או More Temp.</span></article>
+        <article class="op-flow-step"><strong>Cause</strong><span>סתימה, שסתום סגור, כשל קירור, טעות מפעיל.</span></article>
+        <article class="op-flow-step"><strong>Consequence</strong><span>עליית לחץ, תגובה אקסותרמית, דליפה או פיצוץ.</span></article>
+        <article class="op-flow-step"><strong>Safeguard</strong><span>Interlock, Relief Valve, Alarm, SOP, ניטור.</span></article>
+      </div>
+    </section>
+
+    <section class="op-flow-map" aria-labelledby="mocFlowTitle">
+      <h2 id="mocFlowTitle">היררכיית אישור MOC</h2>
+      <div class="op-escalation-map">
+        <article class="op-escalation-step"><strong>יוזם שינוי</strong><span>מתאר מה משתנה ולמה.</span></article>
+        <article class="op-escalation-step"><strong>הנדסה / תהליך</strong><span>בודקת השפעה על לחץ, טמפרטורה, חומר, בקרה ו־SIL/PL.</span></article>
+        <article class="op-escalation-step"><strong>EHS</strong><span>בודק HAZOP, חומ״ס, חירום, PPE, הדרכה והיתרים.</span></article>
+        <article class="op-escalation-step"><strong>תפעול</strong><span>מאשר SOP, כשירות עובדים ותזמון.</span></article>
+        <article class="op-escalation-step stop"><strong>אישור הנהלה</strong><span>שינוי קריטי לא מיושם בלי החלטה ומשאבים.</span></article>
+      </div>
+      <div class="op-flow-meta">
+        <article class="op-status-block attention"><strong>טעות נפוצה</strong><span>להגדיר החלפת רכיב כ“כמו בכמו” בלי לבדוק יצרן, חומר, כיול ותחום פעולה.</span></article>
+        <article class="op-status-block stop"><strong>עצירה חובה</strong><span>שינוי עוקף interlock, משנה Trip Setting או מכניס חומר חדש.</span></article>
+      </div>
+    </section>
+
+    <section class="op-flow-map" aria-labelledby="confinedRescueTitle">
+      <h2 id="confinedRescueTitle">חלל מוקף: זרימת חילוץ בטוחה</h2>
+      <div class="op-flow-steps">
+        <article class="op-flow-step"><strong>זיהוי מצוקה</strong><span>אין כניסה ספונטנית. המשגיח נשאר בחוץ.</span></article>
+        <article class="op-flow-step"><strong>הזעקה</strong><span>מפעילים צוות חילוץ וכוחות חירום לפי נוהל.</span></article>
+        <article class="op-flow-step"><strong>חילוץ פסיבי</strong><span>חצובה, קו חיים ורתמה לפני כניסה של מחלץ.</span></article>
+        <article class="op-flow-step"><strong>בידוד וניטור</strong><span>ניטור חוזר, אוורור והערכת אטמוספירה.</span></article>
+        <article class="op-flow-step"><strong>סגירת אירוע</strong><span>RCA, CAPA, תרגול חוזר ועדכון היתר.</span></article>
       </div>
     </section>
 
@@ -365,6 +572,49 @@
       </div>
     </section>
 
+    <section class="summary-zone-divider" id="cases">
+      <strong>Case Studies</strong>
+      <p>ניתוח אסונות תהליכיים: מה נכשל ומה ממונה בטיחות צריך לקחת לשטח.</p>
+    </section>
+
+    <section class="content-section" aria-labelledby="disasterTitle">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">Disaster Analysis</p>
+          <h2 id="disasterTitle">שכבת ניתוח אסונות</h2>
+        </div>
+      </div>
+      <div class="disaster-grid">
+        <article class="disaster-card">
+          <h3>Bhopal, India 1984</h3>
+          <dl>
+            <dt>מה נכשל</dt><dd>אובדן הכלה של MIC, מערכות הגנה מושבתות, אחסון מלאי מסוכן בכמות גדולה ותשתית חירום חלשה.</dd>
+            <dt>כשל ארגוני</dt><dd>קיצוץ תחזוקה, ירידה בכשירות, חוסר מוכנות קהילתית וניהול סיכון שלא התייחס לאירוע קטסטרופלי.</dd>
+            <dt>כשל Process Safety</dt><dd>הסתמכות על מחסומים שאינם פעילים במקום תכנון בטוח מעצם הווייתו.</dd>
+            <dt>לקח לממונה</dt><dd>שאל תמיד: האם ניתן להקטין מלאי, להחליף חומר, להוריד אנרגיה או לבטל את הסיכון במקום רק להוסיף PPE ונוהל.</dd>
+          </dl>
+        </article>
+        <article class="disaster-card">
+          <h3>Texas City Refinery 2005</h3>
+          <dl>
+            <dt>מה נכשל</dt><dd>התנעת יחידה עם מדדים בעייתיים, אזור מאויש סמוך, התרעות לא אפקטיביות וניהול חריגות שהפך לשגרה.</dd>
+            <dt>כשל ניהולי</dt><dd>לחץ ייצור, מדדי בטיחות שהתמקדו בפציעות אישיות ולא בסיכוני תהליך, וחוסר הקשבה לאזהרות חוזרות.</dd>
+            <dt>כשל Process Safety</dt><dd>מחסומי זיהוי, התרעה והפרדה פיזית לא מנעו התפתחות אירוע רב־נפגעים.</dd>
+            <dt>לקח לממונה</dt><dd>Leading indicators חייבים לכלול סגירת ליקויי תהליך, תקינות התרעות, בקרת התנעות ושיעור Near Miss איכותי.</dd>
+          </dl>
+        </article>
+        <article class="disaster-card">
+          <h3>Deepwater Horizon 2010</h3>
+          <dl>
+            <dt>מה נכשל</dt><dd>קבלת החלטות תחת לחץ זמן, פרשנות שגויה לבדיקות לחץ, מחסומי באר לא אמינים וכשל חירום.</dd>
+            <dt>כשל ארגוני</dt><dd>יחסי קבלן־מזמין מורכבים, פער אחריות, העדפת לוחות זמנים וחוסר הסלמה של סימני אזהרה.</dd>
+            <dt>כשל תפעולי</dt><dd>כאשר נתון קריטי לא מוסבר, ממשיכים רק לאחר בירור; לא “מפרשים לטובת הייצור”.</dd>
+            <dt>לקח לממונה</dt><dd>ב־SIMOPS וקבלנים חייבת להיות סמכות עצירה ברורה, RACI חד, ונתיב הסלמה שלא תלוי בלחץ עסקי.</dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
     <section class="summary-zone-divider" id="exam">
       <strong>Exam</strong>
       <p>מה צפוי להופיע במבחן ומה נוטים לבלבל.</p>
@@ -372,12 +622,17 @@
 
     <details class="content-accordion" open>
       <summary>Exam Focus</summary>
+      <p>בשיעור הזה המבחן בודק לא רק זכירת מספרים אלא יכולת לזהות איזה מנגנון בטיחות חסר: חוקי, הנדסי, ניהולי או תהליכי.</p>
       <ul class="knowledge-checklist">
         <li>מספרי זהב: 25 עובדים לוועדת בטיחות, 50 עובדים לממונה בטיחות תעשייתי, 24 חודשים לעבודה בגובה, 6 חודשים לאביזרי הרמה, 14 חודשים למכונות הרמה.</li>
         <li>הבדל בין Safety Occupational לבין Process Safety: פציעות שכיחות מול אירועים קטסטרופליים נדירים.</li>
         <li>הבדל בין Hot Work Permit, Confined Space Permit ו־LOTO: לכל אחד יש תנאי עצירה שונים.</li>
         <li>HAZOP בוחן סטיות; Bow-Tie מציג איומים, Top Event ומחסומים; RCA מחפש שורש ניהולי/מערכתי.</li>
       </ul>
+      <div class="summary-callout-row">
+        <article class="summary-mini-callout"><strong>שאלת מבחן טיפוסית</strong><span>אם התשובה נשמעת כמו “יש טופס ולכן מותר”, היא לרוב חסרה אימות שטח.</span></article>
+        <article class="summary-mini-callout"><strong>שאלת שטח טיפוסית</strong><span>מי אחראי, מה המחסום, מה ראית, ומה תעשה אם המחסום לא עובד?</span></article>
+      </div>
     </details>
 
     <details class="content-accordion">
@@ -416,6 +671,10 @@
       <p class="kicker">Practice</p>
       <h2>שאלות אמריקאיות לתרגול</h2>
       <p>60 שאלות תרגול מתוך סיכום השיעור. ההתקדמות נשמרת בדפדפן בלבד.</p>
+      <div class="summary-callout-row">
+        <article class="summary-mini-callout"><strong>איך לענות מקצועית</strong><span>קרא קודם את ההקשר: האם השאלה בודקת חובה סטטוטורית, מחסום תהליכי, אחריות מנהלים או תנאי עצירה.</span></article>
+        <article class="summary-mini-callout"><strong>משמעות בשטח</strong><span>אחרי כל תשובה שאל: מה הייתי בודק פיזית באתר ומה הייתי מתעד כדי להוכיח שליטה בסיכון.</span></article>
+      </div>
     </section>
 
     <section
