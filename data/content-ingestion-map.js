@@ -146,23 +146,30 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "pending_quality_review",
+      "status": "available",
       "href": "pages/summaries/lesson-04-summary.html",
-      "updatedAt": "2026-05-26"
+      "updatedAt": "2026-05-27",
+      "questionCount": 60
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 60,
+      "href": "pages/summaries/lesson-04-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/safety-ordinance.html",
       "pages/knowledge/labor-inspection-law.html",
       "pages/knowledge/machine-guarding.html",
-      "pages/knowledge/process-safety.html"
+      "pages/knowledge/process-safety.html",
+      "pages/knowledge/loto-ptw.html",
+      "pages/knowledge/work-at-height.html",
+      "pages/knowledge/hazardous-materials.html"
     ],
     "relatedChecklists": [
       "pages/checklists.html?domain=Machine%20Safety",
-      "pages/checklists.html?domain=Process%20Safety"
+      "pages/checklists.html?domain=Process%20Safety",
+      "pages/checklists.html?domain=LOTO%2FPTW",
+      "pages/checklists.html?domain=Confined%20Space",
+      "pages/checklists.html?domain=Fire%20Safety"
     ],
     "glossaryTerms": [
       "פקודת הבטיחות",
@@ -170,7 +177,7 @@
       "תסקיר",
       "גידור מכונה"
     ],
-    "lastUpdated": "2026-05-26"
+    "lastUpdated": "2026-05-27"
   },
   {
     "lessonId": "lesson-05",
@@ -323,12 +330,12 @@
 
   const latestUpdate = {
   "type": "summary",
-  "typeLabel": "סיכום",
-  "lessonId": "lesson-03",
-  "sessionNumber": 3,
-  "title": "נוסף סיכום שיעור 3 — גורמים במערך הבטיחות ואחריות תפעולית כולל 60 שאלות תרגול",
-  "description": "סיכום curated חדש עם מערך אחריות, ועדות ונאמנים, Near Miss, RCA, בנייה, צווים, דף כיס לממונה ובנק שאלות מלא.",
-  "href": "pages/summaries/lesson-03-summary.html",
+  "typeLabel": "\u05e1\u05d9\u05db\u05d5\u05dd",
+  "lessonId": "lesson-04",
+  "sessionNumber": 4,
+  "title": "\u05e0\u05d5\u05e1\u05e3 \u05e1\u05d9\u05db\u05d5\u05dd \u05e9\u05d9\u05e2\u05d5\u05e8 4 - \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea \u05ea\u05d4\u05dc\u05d9\u05db\u05d9\u05ea, \u05d7\u05d5\u05d1\u05d5\u05ea \u05e1\u05d8\u05d8\u05d5\u05d8\u05d5\u05e8\u05d9\u05d5\u05ea \u05d5\u05db\u05dc\u05d9 \u05e9\u05d8\u05d7 \u05db\u05d5\u05dc\u05dc 60 \u05e9\u05d0\u05dc\u05d5\u05ea \u05ea\u05e8\u05d2\u05d5\u05dc",
+  "description": "\u05e1\u05d9\u05db\u05d5\u05dd curated \u05d7\u05d3\u05e9 \u05e2\u05dd PSM, MOC, HAZOP, \u05e2\u05d1\u05d5\u05d3\u05d4 \u05d7\u05de\u05d4, \u05d7\u05dc\u05dc \u05de\u05d5\u05e7\u05e3, LOTO, \u05e2\u05d1\u05d5\u05d3\u05d4 \u05d1\u05d2\u05d5\u05d1\u05d4, \u05d3\u05e3 \u05db\u05d9\u05e1, visual operational layer \u05d5\u05d1\u05e0\u05e7 \u05e9\u05d0\u05dc\u05d5\u05ea \u05de\u05dc\u05d0.",
+  "href": "pages/summaries/lesson-04-summary.html",
   "updatedAt": "2026-05-27"
 };
   withCourseScope(latestUpdate);
@@ -432,6 +439,16 @@
     "updatedAt": "2026-05-27",
     "summaryAvailable": true,
     "label": "קיים",
+    "questionCount": 60
+  },
+  {
+    "lessonId": "lesson-04",
+    "sessionNumber": 4,
+    "title": "?????? ???????, ????? ?????????? ???? ???",
+    "href": "pages/summaries/lesson-04-summary.html",
+    "updatedAt": "2026-05-27",
+    "summaryAvailable": true,
+    "label": "????",
     "questionCount": 60
   }].map(withCourseScope),
     lessonUpdates: [latestUpdate],

@@ -23,9 +23,14 @@ const checks = [
     quizId: "lesson-03-summary-practice",
     expectedCount: 60,
   },
+  {
+    page: path.join(repoRoot, "pages", "summaries", "lesson-04-summary.html"),
+    key: "lesson-04-summary-practice-source",
+    quizId: "lesson-04-summary-practice",
+    expectedCount: 60,
+  },
 ];
 const pendingQualityPages = [
-  "lesson-04-summary.html",
   "lesson-05-summary.html",
   "lesson-06-summary.html",
   "lesson-07-summary.html",

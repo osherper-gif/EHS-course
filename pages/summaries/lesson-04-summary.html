@@ -1,64 +1,463 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
-  <meta name="description" content="מעטפת סיכום שיעור 04: פקודת הבטיחות בעבודה ומבנה החובות. הסיכום המלא יעלה לאחר עיבוד איכותי של חומר השיעור.">
-  <title>סיכום שיעור 04 — פקודת הבטיחות בעבודה ומבנה החובות</title>
+  <meta name="description" content="סיכום שיעור 4 בקורס ממונה בטיחות: בטיחות תהליכית, פקודת הבטיחות, PSM, MOC, HAZOP, עבודה חמה, חלל מוקף, LOTO, עבודה בגובה ו-60 שאלות תרגול.">
+  <title>סיכום שיעור 4 | בטיחות תהליכית, חובות סטטוטוריות וכלי שטח</title>
   <script src="../../js/ui-mode.js"></script>
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <style>
+    .summary-quick-nav,
+    .summary-zone-divider,
+    .content-accordion[id] { scroll-margin-top: 96px; }
+
+    .summary-quick-nav {
+      display: grid;
+      gap: .6rem;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      margin: 1rem 0 1.25rem;
+    }
+
+    .summary-quick-nav a {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 999px;
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: .72rem .9rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .summary-zone-divider {
+      background: linear-gradient(90deg, rgba(8, 100, 128, .1), rgba(255,255,255,0));
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      margin: 1.5rem 0 .85rem;
+      padding: .95rem 1rem;
+    }
+
+    .summary-zone-divider p,
+    .field-help {
+      color: var(--proto-muted);
+      margin: .25rem 0 0;
+    }
+
+    .summary-callout-row,
+    .field-card-grid,
+    .pocket-grid,
+    .legal-grid {
+      display: grid;
+      gap: .75rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin: .95rem 0;
+    }
+
+    .summary-mini-callout,
+    .field-card,
+    .pocket-card,
+    .legal-card {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      padding: .9rem;
+    }
+
+    .summary-mini-callout { border-inline-start: 4px solid var(--proto-accent); }
+    .summary-mini-callout strong,
+    .field-card strong,
+    .pocket-card strong,
+    .legal-card strong { display: block; margin-bottom: .35rem; }
+
+    .summary-table {
+      border-collapse: collapse;
+      margin: 1rem 0;
+      width: 100%;
+    }
+
+    .summary-table th,
+    .summary-table td {
+      border: 1px solid var(--proto-border);
+      padding: .72rem;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    .summary-table th { background: rgba(8, 100, 128, .08); }
+
+    .summary-practice-divider {
+      background: linear-gradient(135deg, rgba(8, 100, 128, .13), rgba(8, 100, 128, .04));
+      border: 1px solid rgba(8, 100, 128, .28);
+      border-radius: 16px;
+      box-shadow: 0 14px 34px rgba(16, 36, 54, .08);
+      margin: 2rem 0 1.15rem;
+      padding: 1.15rem;
+    }
+
+    .print-header { display: none; }
+
+    @media (max-width: 720px) {
+      .summary-quick-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .summary-table { font-size: .92rem; }
+      .summary-table th,
+      .summary-table td { padding: .58rem; }
+    }
+
+    @media print {
+      @page { margin: 14mm; }
+      body { background: #fff !important; color: #111 !important; }
+      .skip-link,
+      .summary-quick-nav,
+      .prototype-topbar,
+      .prototype-sidebar,
+      .prototype-shell-sidebar,
+      .prototype-mobile-drawer,
+      .prototype-mobile-overlay,
+      .mobile-bottom-nav,
+      .prototype-bottom-nav,
+      .read-aloud-widget,
+      .read-aloud-panel,
+      .read-aloud-fab,
+      .accessibility-fab,
+      .theme-toggle,
+      .hamburger,
+      .drawer-toggle,
+      .mobile-menu-toggle,
+      .prototype-menu-button,
+      .summary-quiz-toolbar,
+      .summary-quiz-actions,
+      .summary-quiz-progress,
+      .summary-question-group-count,
+      .summary-feedback,
+      .summary-feedback-box,
+      .summary-option-feedback,
+      .summary-option input,
+      button,
+      [data-read-aloud-exclude="true"] .btn { display: none !important; }
+      .print-header {
+        border-bottom: 1px solid #999;
+        display: block !important;
+        margin: 0 0 1rem;
+        padding: 0 0 .55rem;
+      }
+      .print-header h1 { font-size: 18pt; margin: 0 0 .25rem; }
+      .print-header p { color: #444; font-size: 10pt; margin: 0; }
+      .site-main,
+      .prep-page { margin: 0 !important; max-width: none !important; padding: 0 !important; }
+      details,
+      details:not([open]) > :not(summary) { display: block !important; }
+      summary { border-bottom: 1px solid #aaa; font-size: 13pt; list-style: none; margin-top: 1rem; }
+      .content-section,
+      .content-accordion,
+      .summary-card,
+      .field-card,
+      .pocket-card,
+      .legal-card,
+      .summary-mini-callout,
+      .summary-question-card,
+      .op-flow-step,
+      .op-escalation-step,
+      .op-field-action-card,
+      .op-emergency-strip { break-inside: avoid; box-shadow: none !important; }
+      .summary-practice-divider { background: #fff !important; border: 1px solid #999; page-break-before: always; }
+      a::after { content: ""; }
+    }
+  </style>
 </head>
-<body data-page-title="סיכום שיעור 04 — פקודת הבטיחות בעבודה ומבנה החובות" class="auth-protected lms-pro prototype-shell prototype-shell-page">
+<body data-page-title="סיכום שיעור 4 — בטיחות תהליכית, חובות סטטוטוריות וכלי שטח" data-course-id="safety-officer" data-domain-id="safety" class="auth-protected lms-pro prototype-shell prototype-shell-page">
   <a class="skip-link" href="#main">דלג לתוכן</a>
   <main id="main" class="site-main prep-page" data-readable-content>
-    <section class="page-hero">
+    <header class="print-header">
+      <h1>סיכום שיעור 4 — בטיחות תהליכית, חובות סטטוטוריות וכלי שטח</h1>
+      <p>גרסת הדפסה — הקישורים והתרגול האינטראקטיבי זמינים באתר הקורס.</p>
+    </header>
+
+    <section class="page-hero" id="intro">
       <div>
         <p class="kicker">Lesson Summary · שיעור 04</p>
-        <h1>סיכום שיעור 04 — פקודת הבטיחות בעבודה ומבנה החובות</h1>
-        <p>סיכום שיעור זה יעלה לאחר עיבוד מלא של חומר השיעור. העמוד נשמר כמסגרת ניווט כדי לא לשבור קישורים קיימים, אך הוא עדיין אינו מסומן כסיכום איכותי מלא.</p>
+        <h1>סיכום שיעור 4 — בטיחות תהליכית, חובות סטטוטוריות וכלי שטח</h1>
+        <p>סיכום curated מתוך קובץ המקור: חיבור בין פקודת הבטיחות, בטיחות תהליכית, חקירת אירועים, עבודה חמה, חללים מוקפים, LOTO, עבודה בגובה, חירום וקבלנים. העמוד בנוי גם ללמידה למבחן וגם לשימוש מהיר בשטח.</p>
       </div>
     </section>
 
-    <section class="content-section summary-placeholder">
-      <h2>סיכום שיעור זה יעלה לאחר עיבוד מלא של חומר השיעור.</h2>
-      <p>כדי לשמור על איכות הלמידה, סיכומי שיעור אינם נוצרים יותר ב־bulk. כל סיכום ייבנה בנפרד מקובץ המקור, עם דגשי מרצה, קשרים משפטיים, מלכודות מבחן וכל השאלות שמופיעות בקובץ.</p>
+    <nav class="summary-quick-nav" aria-label="ניווט מהיר" data-read-aloud-exclude="true">
+      <a href="#theory">תיאוריה</a>
+      <a href="#field">דף כיס</a>
+      <a href="#legal">חוק ואחריות</a>
+      <a href="#visual">Visual Layer</a>
+      <a href="#exam">דגשי מבחן</a>
+      <a href="#summaryQuestions">תרגול</a>
+      <a href="#related">קישורים</a>
+    </nav>
+
+    <section class="summary-zone-divider" id="theory">
+      <strong>Theory</strong>
+      <p>הבסיס המקצועי: מדרג הדין, PSM, מחסומים, ניהול שינוי וחקירת שורש.</p>
+    </section>
+
+    <details class="content-accordion" open>
+      <summary>מה למדנו בשיעור</summary>
       <div class="knowledge-quick-grid">
         <article class="summary-card">
-          <h3>סטטוס</h3>
-          <p>ממתין לבקרת איכות ולעיבוד curated.</p>
+          <h3>ממשל בטיחות</h3>
+          <p>בטיחות מתחילה בהחלטות הנהלה: משאבים, אחריות, ועדות, תיעוד ואכיפה. מינוי ממונה בטיחות אינו מחליף פיקוח ניהולי.</p>
         </article>
         <article class="summary-card">
-          <h3>מה ייכלל בסיכום המלא</h3>
-          <p>מה למדנו בשיעור, דגשי מבחן, טעויות נפוצות, glossary, שאלות מהכיתה, related knowledge וכל שאלות התרגול מהמקור.</p>
+          <h3>בטיחות תהליכית</h3>
+          <p>PSM עוסק באירועים נדירים אך קטסטרופליים: אובדן הכלה, פיצוץ, דליפה רעילה, שינוי תהליך לא מבוקר ונרמול חריגות.</p>
         </article>
+        <article class="summary-card">
+          <h3>כלי שטח</h3>
+          <p>Hot Work, Confined Space, LOTO, עבודה בגובה, בדיקות תקופתיות, MOC, HAZOP ו־RCA הופכים לסט פעולות ברור לממונה.</p>
+        </article>
+      </div>
+    </details>
+
+    <details class="content-accordion" open>
+      <summary>Executive Summary</summary>
+      <p>שיעור 4 מחבר בין החוק לבין רצפת הייצור: לא מספיק לדעת שקיימת חובה; צריך לדעת איזו בקרה מונעת את האירוע, מי אחראי להפעיל אותה, מה חייב להיות מתועד, ומתי עוצרים עבודה. הדגש המרכזי הוא מעבר מחשיבה של “טופס” לחשיבה של barrier: האם המחסום ההנדסי, הניהולי או האנושי באמת עובד בזמן אמת.</p>
+      <div class="summary-callout-row">
+        <article class="summary-mini-callout"><strong>⚠️ מלכודת נפוצה</strong><span>בדיקת טופס אינה בדיקת בטיחות. המפקח יבדוק אם ההיתר תואם את המציאות בשטח.</span></article>
+        <article class="summary-mini-callout"><strong>📋 מה לבדוק</strong><span>תסקירים, LOTO, ניטור אטמוספירה, תוקף הדרכות, ציוד חירום וסגירת CAPA.</span></article>
+        <article class="summary-mini-callout"><strong>✅ טיפ לממונה</strong><span>בכל סיור שאל: מה האירוע הקטסטרופלי האפשרי, ומה המחסום האחרון שמונע אותו?</span></article>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>מושגים מרכזיים</summary>
+      <div class="field-card-grid">
+        <article class="field-card"><strong>PSM</strong><span>ניהול בטיחות תהליכית לאירועי חומרה גבוהה: דליפה, פיצוץ, אש ואובדן הכלה.</span></article>
+        <article class="field-card"><strong>Bow-Tie</strong><span>מפה שמציגה איומים ומחסומי מניעה לפני Top Event, ומחסומי מיתון אחריו.</span></article>
+        <article class="field-card"><strong>HAZOP</strong><span>ניתוח סטיות מתהליך באמצעות מילות מפתח כמו No Flow, More Temp, Reverse Flow.</span></article>
+        <article class="field-card"><strong>MOC</strong><span>ניהול שינוי בציוד, חומר, תוכנה, נוהל או קבלן לפני ביצוע, לא בדיעבד.</span></article>
+        <article class="field-card"><strong>LOTO</strong><span>בידוד, נעילה, פריקת אנרגיה שיורית ואימות אפס אנרגיה לפני עבודה חשופה.</span></article>
+        <article class="field-card"><strong>ICS</strong><span>פיקוד אירועים: גורם אחד מנהל את החירום, נקודות כינוס, ספירה ותקשורת.</span></article>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>דגשי מרצה</summary>
+      <ul class="knowledge-checklist">
+        <li>צו בטיחות עוצר עבודה מיידית כאשר קיימת סכנה לחיי אדם; צו שיפור נותן זמן לתיקון ליקוי.</li>
+        <li>אביזרי הרמה נבדקים אחת ל־6 חודשים; מכונות הרמה ועגורנים לפחות אחת ל־14 חודשים.</li>
+        <li>עבודה בגובה מוגדרת מנפילה אפשרית לעומק העולה על 2 מטרים, או מעל משטח לא מגודר.</li>
+        <li>חלל מוקף אינו מקום לאלתור חילוץ. המשגיח לא נכנס פנימה ללא צוות חילוץ וציוד מתאים.</li>
+        <li>MOC נדרש כאשר שינוי אינו “כמו בכמו”: יצרן אחר, חומר אחר, כיול אחר או שינוי תנאי תהליך.</li>
+      </ul>
+    </details>
+
+    <section class="summary-zone-divider" id="legal">
+      <strong>Legal</strong>
+      <p>איך מחברים חוק, פקודה, תקנה, צו ונוהל לשאלה אחת פשוטה: מי חייב היה למנוע את האירוע?</p>
+    </section>
+
+    <details class="content-accordion" open>
+      <summary>קשר חוק / תקנה / יישום</summary>
+      <table class="summary-table">
+        <thead><tr><th>שכבה</th><th>משמעות בשטח</th><th>מה הממונה מחפש</th></tr></thead>
+        <tbody>
+          <tr><td>חוק ארגון הפיקוח</td><td>מנגנוני פיקוח, ועדות, נאמנים, צווים וסמכויות מפקח.</td><td>ועדה פעילה, פרוטוקולים, סגירת ליקויים ותיעוד מול הנהלה.</td></tr>
+          <tr><td>פקודת הבטיחות</td><td>חובות פיזיות: מכונות, ציוד הרמה, לחץ, גידור, בדיקות ותסקירים.</td><td>תסקיר בתוקף, גידור, בודק מוסמך, שילוט ותנאי שימוש.</td></tr>
+          <tr><td>תקנות ייעודיות</td><td>עבודה בגובה, ציוד מגן אישי, חללים מוקפים, חומרים מסוכנים.</td><td>תוקף הדרכות, PPE מתאים, היתרים, ניטור ואישור עבודה.</td></tr>
+          <tr><td>נוהל ארגוני</td><td>תרגום החוק לשיטת עבודה מקומית.</td><td>פער בין מה שכתוב לבין מה שקורה בפועל.</td></tr>
+        </tbody>
+      </table>
+      <div class="legal-grid">
+        <article class="legal-card"><strong>⚖️ דגש משפטי</strong><span>האצלת סמכות אינה מוחקת אחריות ניהולית. מנהל חייב לוודא שהמנגנון עובד.</span></article>
+        <article class="legal-card"><strong>עצימת עיניים</strong><span>דוחות חוזרים שלא נסגרים הופכים לראיה על מודעות לסיכון.</span></article>
+        <article class="legal-card"><strong>חיסיון תחקיר</strong><span>באירוע חמור יש לשקול ניהול בדיקה דרך ייעוץ משפטי, בלי לעכב תיקון מפגעים.</span></article>
+      </div>
+    </details>
+
+    <section class="summary-zone-divider" id="field">
+      <strong>Field</strong>
+      <p>דף כיס לממונה: מה בודקים, מה שואלים, מה מתעדים ומתי עוצרים.</p>
+    </section>
+
+    <details class="content-accordion" open>
+      <summary>Field Tool / דף כיס</summary>
+      <div class="pocket-grid">
+        <article class="pocket-card"><strong>מה לבדוק בשטח</strong><span>עבודה חמה, חלל מוקף, LOTO, עבודה בגובה, אביזרי הרמה, תסקירים, ניטור גזים, גידור מכונות וציוד חירום.</span></article>
+        <article class="pocket-card"><strong>מה לשאול מנהל</strong><span>איזו עבודה חריגה מתבצעת היום? האם יש SIMOPS? מי אישר MOC? אילו CAPA עדיין פתוחים?</span></article>
+        <article class="pocket-card"><strong>מה לשאול עובד</strong><span>מה הסיכון המרכזי במשימה? איפה נקודת הכינוס? מי מנפיק היתר? איך יודעים שאין אנרגיה?</span></article>
+        <article class="pocket-card"><strong>מה לתעד</strong><span>תמונה, מיקום, בעל אחריות, סעיף חובה, פעולה מתקנת, תאריך יעד, בדיקת אפקטיביות.</span></article>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Operational Checklists</summary>
+      <div class="field-card-grid">
+        <article class="field-card"><strong>עבודה חמה</strong><span>הרחקת דליקים 10 מטר, LEL=0, איטום פתחים, מטף מתאים, צופה אש 30–60 דקות וחתימות.</span></article>
+        <article class="field-card"><strong>חלל מוקף</strong><span>LOTO, ניטור חמצן 19.5–23.5%, LEL, גזים רעילים, אוורור, משגיח, חצובה וחילוץ פסיבי.</span></article>
+        <article class="field-card"><strong>LOTO</strong><span>זיהוי כל אנרגיה, הודעה, כיבוי, ניתוק פיזי, נעילה אישית, תגית, פריקה ו־Try-Out.</span></article>
+        <article class="field-card"><strong>עבודה בגובה</strong><span>תעודה בתוקף 24 חודשים, מדרג בקרות, בדיקת רתמה, נקודת עיגון, חישוב מרחק נפילה ותוכנית חילוץ.</span></article>
+      </div>
+    </details>
+
+    <section class="summary-zone-divider" id="visual">
+      <strong>Visual Operational Layer</strong>
+      <p>מפות החלטה וזרימה שמיועדות לסריקה מהירה בשטח.</p>
+    </section>
+
+    <section class="op-visual-panel" aria-labelledby="controlsTitle">
+      <h2 id="controlsTitle">היררכיית בקרות</h2>
+      <p>בחרו בקרה גבוהה ככל האפשר. PPE הוא שכבת הגנה אחרונה, לא פתרון ראשון.</p>
+      <ol class="op-control-hierarchy" aria-label="היררכיית בקרות">
+        <li class="op-stop"><strong>סילוק</strong><span>ביטול עבודה חמה או כניסה לחלל.</span></li>
+        <li class="op-risk"><strong>החלפה</strong><span>חומר פחות דליק או תהליך קר.</span></li>
+        <li class="op-attention"><strong>בקרה הנדסית</strong><span>אוורור, interlock, גידור, מאצרה.</span></li>
+        <li class="op-info"><strong>בקרה מנהלית</strong><span>היתר עבודה, הדרכה, תיאום SIMOPS.</span></li>
+        <li class="op-muted"><strong>PPE</strong><span>רתמה, מסכה, כפפות, מיגון עיניים.</span></li>
+      </ol>
+    </section>
+
+    <section class="op-flow-map" aria-labelledby="psmFlowTitle">
+      <h2 id="psmFlowTitle">איך חוקרים אירוע תהליכי</h2>
+      <div class="op-flow-steps">
+        <article class="op-flow-step"><strong>אירוע</strong><span>דליפה, אש, כמעט תאונה, חריגה בלחץ או ביטול interlock.</span></article>
+        <article class="op-flow-step"><strong>איסוף מידע</strong><span>נתוני תהליך, היתרים, טרנדים, עדויות, תסקירים ותמונות.</span></article>
+        <article class="op-flow-step"><strong>RCA</strong><span>לא עוצרים ב“טעות עובד”; מחפשים כשל מערכת, נוהל או הנדסה.</span></article>
+        <article class="op-flow-step"><strong>CAPA</strong><span>בעל אחריות, תאריך יעד, בקרה קבועה ומניעת הישנות.</span></article>
+        <article class="op-flow-step"><strong>אפקטיביות</strong><span>בדיקת שטח לאורך זמן, לא רק סגירת פעולה במערכת.</span></article>
+      </div>
+      <div class="op-flow-meta">
+        <article class="op-status-block info"><strong>מה מחפשים</strong><span>barrier שנכשל או לא היה קיים.</span></article>
+        <article class="op-status-block attention"><strong>טעות נפוצה</strong><span>סגירת פעולה בלי לוודא שינוי התנהגות או הנדסה.</span></article>
+        <article class="op-status-block risk"><strong>מה חייב תיעוד</strong><span>ראיות, החלטות, אחראי, בדיקת אפקטיביות.</span></article>
       </div>
     </section>
 
-    <section class="content-section" data-read-aloud-exclude="true">
+    <section class="op-flow-map" aria-labelledby="escalationTitle">
+      <h2 id="escalationTitle">מתי מסלימים</h2>
+      <div class="op-escalation-map">
+        <article class="op-escalation-step"><strong>מפגע</strong><span>זוהה סיכון מהותי או פער בהיתר.</span></article>
+        <article class="op-escalation-step"><strong>מנהל שטח</strong><span>נדרש תיקון מיידי ובעל אחריות.</span></article>
+        <article class="op-escalation-step"><strong>ממונה בטיחות</strong><span>מתריע, מייעץ, מתעד ומוודא CAPA.</span></article>
+        <article class="op-escalation-step"><strong>הנהלה</strong><span>נדרש משאב, עצירת קו או שינוי מדיניות.</span></article>
+        <article class="op-escalation-step stop"><strong>רגולטור</strong><span>סכנת חיים, צו, תאונה קשה או אי־ציות מתמשך.</span></article>
+      </div>
+    </section>
+
+    <section class="op-decision-tree" aria-labelledby="decisionTreeTitle">
+      <h2 id="decisionTreeTitle">עצי החלטה מהירים</h2>
+      <div class="op-decision-grid">
+        <article class="op-decision-node yes"><strong>לעצור עבודה?</strong><span>כן, אם אין LOTO, אין הגנת נפילה, יש LEL, או אין חילוץ לחלל מוקף.</span></article>
+        <article class="op-decision-node yes"><strong>נדרש MOC?</strong><span>כן, אם השינוי אינו כמו־בכמו או משנה סף, חומר, תוכנה, ציוד או קבלן.</span></article>
+        <article class="op-decision-node yes"><strong>נדרש RCA מלא?</strong><span>כן, באירוע חוזר, חמור, תהליכי, קבלני או כמעט קטסטרופלי.</span></article>
+        <article class="op-decision-node no"><strong>אפשר להסתפק בטופס?</strong><span>לא. הטופס הוא ראיה, לא בקרה בפני עצמה.</span></article>
+      </div>
+    </section>
+
+    <section class="op-field-actions" aria-labelledby="fieldActionTitle">
+      <h2 id="fieldActionTitle">Field Action Cards</h2>
+      <div class="op-field-card-grid">
+        <article class="op-field-action-card" data-severity="stop"><strong>חלל מוקף</strong><dl><dt>מה הסיכון</dt><dd>חנק, הרעלה או פיצוץ.</dd><dt>מה עושים עכשיו</dt><dd>עוצרים כניסה עד ניטור, אוורור, LOTO ומשגיח.</dd><dt>מה מתעדים</dt><dd>תוצאות גזים, היתר, משגיח ותוכנית חילוץ.</dd></dl></article>
+        <article class="op-field-action-card" data-severity="risk"><strong>עבודה חמה</strong><dl><dt>מה הסיכון</dt><dd>גיצים, אדים דליקים ואש סמויה.</dd><dt>מה בודקים</dt><dd>LEL, פינוי דליקים, צופה אש ומטף.</dd><dt>מתי מסלימים</dt><dd>כשעובדים בלי היתר או צופה אש.</dd></dl></article>
+        <article class="op-field-action-card" data-severity="attention"><strong>MOC פתוח</strong><dl><dt>מה הסיכון</dt><dd>שינוי יוצר סיכון חדש שלא נותח.</dd><dt>מה עושים</dt><dd>עוצרים יישום עד סקירה רב־תחומית.</dd><dt>מה מתעדים</dt><dd>אישור EHS, הנדסה ותפעול.</dd></dl></article>
+      </div>
+      <div class="op-emergency-grid">
+        <article class="op-emergency-strip"><strong>🚨 Fire</strong><ul><li>עוצרים עבודה חמה ומבודדים אזור.</li><li>מפעילים צופה אש וכיבוי ראשוני רק אם בטוח.</li></ul></article>
+        <article class="op-emergency-strip"><strong>🚨 Electrical / LOTO</strong><ul><li>אין עבודה עד אימות אפס אנרגיה.</li><li>מנעול אישי לכל עובד, לא נעילה קבוצתית אנונימית.</li></ul></article>
+        <article class="op-emergency-strip"><strong>🚨 Hazmat</strong><ul><li>מזהים חומר דרך SDS ומבודדים אזור.</li><li>לא נכנסים בלי PPE ונוהל דליפה.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="summary-zone-divider" id="exam">
+      <strong>Exam</strong>
+      <p>מה צפוי להופיע במבחן ומה נוטים לבלבל.</p>
+    </section>
+
+    <details class="content-accordion" open>
+      <summary>Exam Focus</summary>
+      <ul class="knowledge-checklist">
+        <li>מספרי זהב: 25 עובדים לוועדת בטיחות, 50 עובדים לממונה בטיחות תעשייתי, 24 חודשים לעבודה בגובה, 6 חודשים לאביזרי הרמה, 14 חודשים למכונות הרמה.</li>
+        <li>הבדל בין Safety Occupational לבין Process Safety: פציעות שכיחות מול אירועים קטסטרופליים נדירים.</li>
+        <li>הבדל בין Hot Work Permit, Confined Space Permit ו־LOTO: לכל אחד יש תנאי עצירה שונים.</li>
+        <li>HAZOP בוחן סטיות; Bow-Tie מציג איומים, Top Event ומחסומים; RCA מחפש שורש ניהולי/מערכתי.</li>
+      </ul>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Common Mistakes</summary>
+      <div class="summary-callout-row">
+        <article class="summary-mini-callout"><strong>בלבול 14/6 חודשים</strong><span>מכונות הרמה ועגורנים: 14 חודשים. אביזרי הרמה: 6 חודשים.</span></article>
+        <article class="summary-mini-callout"><strong>חלל מוקף</strong><span>משגיח פתח אינו “גיבור חילוץ”. כניסה לחילוץ ללא ציוד היא אירוע שני.</span></article>
+        <article class="summary-mini-callout"><strong>MOC</strong><span>שינוי קטן לכאורה יכול לשנות barrier קריטי ולכן מחייב סקירה.</span></article>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Glossary</summary>
+      <p>PSM, Bow-Tie, HAZOP, MOC, RCA, CAPA, LOTO, Hot Work, Confined Space, LEL, SWL, ATEX, ICS, SIMOPS, JSA.</p>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Questions From Class</summary>
+      <ul class="knowledge-checklist">
+        <li>האם החלפת רכיב “דומה” דורשת MOC? כן, אם היא משנה חומר, יצרן, כיול, ביצועים או סיכון.</li>
+        <li>האם אפשר להתחיל עבודה חמה עם מטף בלבד? לא. צריך היתר, סביבה נקייה, ניטור במידת הצורך וצופה אש.</li>
+        <li>האם היעדר נפגע ב־Near Miss אומר שלא נדרש תחקיר? לא. כמעט תאונה היא הזדמנות למנוע אסון.</li>
+      </ul>
+    </details>
+
+    <details class="content-accordion" open>
+      <summary>Key Takeaways</summary>
+      <div class="knowledge-quick-grid">
+        <article class="summary-card"><h3>טופס אינו בקרה</h3><p>היתר עבודה מוכיח שצריך היה לחשוב; הוא לא מחליף ניטור, בידוד, אוורור ופיקוח.</p></article>
+        <article class="summary-card"><h3>מחסום חייב להיבדק</h3><p>barrier שלא נבדק, לא מתוחזק או לא מובן לעובדים אינו barrier אמיתי.</p></article>
+        <article class="summary-card"><h3>ניהול שינוי לפני ביצוע</h3><p>MOC בדיעבד הוא תיעוד כשל, לא מנגנון מניעה.</p></article>
+      </div>
+    </details>
+
+    <section class="summary-practice-divider" id="summaryQuestions" data-read-aloud-exclude="true">
+      <p class="kicker">Practice</p>
+      <h2>שאלות אמריקאיות לתרגול</h2>
+      <p>60 שאלות תרגול מתוך סיכום השיעור. ההתקדמות נשמרת בדפדפן בלבד.</p>
+    </section>
+
+    <section
+      id="summaryQuizApp"
+      class="summary-quiz-app"
+      data-summary-quiz="lesson-04-summary-practice"
+      data-summary-quiz-source="lesson-04-summary-practice-source"
+      data-source-question-count="60"
+      data-read-aloud-exclude="true"
+    ></section>
+
+    <section class="content-section" id="related" data-read-aloud-exclude="true">
       <div class="section-heading">
         <div>
-          <p class="kicker">Navigation</p>
-          <h2>קישורים להמשך למידה</h2>
+          <p class="kicker">Related</p>
+          <h2>קישורים קשורים</h2>
         </div>
       </div>
       <div class="related-links">
-        <a class="btn" href="../prep/lesson-04-safety-ordinance.html">הכנה לשיעור</a>
+        <a class="btn" href="../prep/lesson-04-safety-ordinance.html">הכנה לשיעור 4</a>
         <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
         <a class="btn secondary" href="../summaries.html">כל הסיכומים</a>
-        <a class="btn secondary" href="../knowledge/safety-ordinance.html">safety-ordinance</a>
-        <a class="btn secondary" href="../knowledge/labor-inspection-law.html">labor-inspection-law</a>
-        <a class="btn secondary" href="../knowledge/machine-guarding.html">machine-guarding</a>
-        <a class="btn secondary" href="../knowledge/process-safety.html">process-safety</a>
-        <a class="btn secondary" href="../checklists.html?domain=Machine%20Safety">Checklist Machine%20Safety</a>
-        <a class="btn secondary" href="../checklists.html?domain=Process%20Safety">Checklist Process%20Safety</a>
+        <a class="btn secondary" href="../knowledge/safety-ordinance.html">פקודת הבטיחות</a>
+        <a class="btn secondary" href="../knowledge/labor-inspection-law.html">חוק ארגון הפיקוח</a>
+        <a class="btn secondary" href="../knowledge/machine-guarding.html">מיגון מכונות</a>
+        <a class="btn secondary" href="../knowledge/process-safety.html">בטיחות תהליך</a>
+        <a class="btn secondary" href="../knowledge/loto-ptw.html">LOTO / PTW</a>
+        <a class="btn secondary" href="../knowledge/work-at-height.html">עבודה בגובה</a>
+        <a class="btn secondary" href="../knowledge/hazardous-materials.html">חומרים מסוכנים</a>
+        <a class="btn secondary" href="../checklists.html?domain=Machine%20Safety">Checklist מכונות</a>
+        <a class="btn secondary" href="../checklists.html?domain=Process%20Safety">Checklist תהליך</a>
+        <a class="btn secondary" href="../checklists.html?domain=LOTO%2FPTW">Checklist LOTO</a>
+        <a class="btn secondary" href="../checklists.html?domain=Confined%20Space">Checklist חלל מוקף</a>
+        <a class="btn secondary" href="../templates.html">טפסים ותבניות</a>
         <a class="btn secondary" href="../glossary.html">Glossary</a>
       </div>
     </section>
   </main>
 
   <script src="../../js/prototype-shell.js"></script>
+  <script src="../../data/summary-questions-map.js"></script>
+  <script src="../../js/summary-quiz.js"></script>
   <script src="../../js/read-aloud.js"></script>
   <script type="module" src="../../js/auth.js"></script>
   <script src="../../js/accessibility.js"></script>
