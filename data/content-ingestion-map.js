@@ -189,16 +189,17 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "pending_quality_review",
+      "status": "available",
       "href": "pages/summaries/lesson-05-summary.html",
-      "updatedAt": "2026-05-26"
+      "updatedAt": "2026-05-27"
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 60,
+      "href": "pages/summaries/lesson-05-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html",
+      "pages/knowledge/safety-ordinance.html",
       "pages/knowledge/human-factors.html",
       "pages/knowledge/iso-45001.html"
     ],
@@ -213,7 +214,7 @@
       "תרבות בטיחות",
       "אכיפה פנימית"
     ],
-    "lastUpdated": "2026-05-26"
+    "lastUpdated": "2026-05-27"
   },
   {
     "lessonId": "lesson-06",
@@ -331,11 +332,11 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "\u05e1\u05d9\u05db\u05d5\u05dd",
-  "lessonId": "lesson-04",
-  "sessionNumber": 4,
-  "title": "\u05e0\u05d5\u05e1\u05e3 \u05e1\u05d9\u05db\u05d5\u05dd \u05e9\u05d9\u05e2\u05d5\u05e8 4 - \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea \u05ea\u05d4\u05dc\u05d9\u05db\u05d9\u05ea, \u05d7\u05d5\u05d1\u05d5\u05ea \u05e1\u05d8\u05d8\u05d5\u05d8\u05d5\u05e8\u05d9\u05d5\u05ea \u05d5\u05db\u05dc\u05d9 \u05e9\u05d8\u05d7 \u05db\u05d5\u05dc\u05dc 60 \u05e9\u05d0\u05dc\u05d5\u05ea \u05ea\u05e8\u05d2\u05d5\u05dc",
-  "description": "\u05e1\u05d9\u05db\u05d5\u05dd curated \u05d7\u05d3\u05e9 \u05e2\u05dd PSM, MOC, HAZOP, \u05e2\u05d1\u05d5\u05d3\u05d4 \u05d7\u05de\u05d4, \u05d7\u05dc\u05dc \u05de\u05d5\u05e7\u05e3, LOTO, \u05e2\u05d1\u05d5\u05d3\u05d4 \u05d1\u05d2\u05d5\u05d1\u05d4, \u05d3\u05e3 \u05db\u05d9\u05e1, visual operational layer \u05d5\u05d1\u05e0\u05e7 \u05e9\u05d0\u05dc\u05d5\u05ea \u05de\u05dc\u05d0.",
-  "href": "pages/summaries/lesson-04-summary.html",
+  "lessonId": "lesson-05",
+  "sessionNumber": 5,
+  "title": "\u05e0\u05d5\u05e1\u05e3 \u05e1\u05d9\u05db\u05d5\u05dd \u05e9\u05d9\u05e2\u05d5\u05e8 5 - \u05de\u05e2\u05d8\u05e4\u05ea \u05de\u05d5\u05e1\u05d3\u05d9\u05ea, \u05e1\u05de\u05db\u05d5\u05d9\u05d5\u05ea \u05e4\u05d9\u05e7\u05d5\u05d7 \u05d5\u05d4\u05d3\u05e8\u05db\u05ea \u05e2\u05d5\u05d1\u05d3\u05d9\u05dd \u05db\u05d5\u05dc\u05dc 60 \u05e9\u05d0\u05dc\u05d5\u05ea \u05ea\u05e8\u05d2\u05d5\u05dc",
+  "description": "\u05e1\u05d9\u05db\u05d5\u05dd curated \u05d7\u05d3\u05e9 \u05e2\u05dd \u05d7\u05d5\u05e7 \u05d0\u05e8\u05d2\u05d5\u05df \u05d4\u05e4\u05d9\u05e7\u05d5\u05d7, \u05e1\u05de\u05db\u05d5\u05d9\u05d5\u05ea \u05de\u05e4\u05e7\u05d7, \u05d5\u05e2\u05d3\u05ea \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea, \u05e0\u05d0\u05de\u05e0\u05d9 \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea, \u05d4\u05d3\u05e8\u05db\u05ea \u05e2\u05d5\u05d1\u05d3\u05d9\u05dd, \u05d3\u05e3 \u05db\u05d9\u05e1, visual operational layer \u05d5\u05d1\u05e0\u05e7 \u05e9\u05d0\u05dc\u05d5\u05ea \u05de\u05dc\u05d0.",
+  "href": "pages/summaries/lesson-05-summary.html",
   "updatedAt": "2026-05-27"
 };
   withCourseScope(latestUpdate);
@@ -449,6 +450,16 @@
     "updatedAt": "2026-05-27",
     "summaryAvailable": true,
     "label": "????",
+    "questionCount": 60
+  },
+  {
+    "lessonId": "lesson-05",
+    "sessionNumber": 5,
+    "title": "\u05de\u05e2\u05d8\u05e4\u05ea \u05de\u05d5\u05e1\u05d3\u05d9\u05ea, \u05e1\u05de\u05db\u05d5\u05d9\u05d5\u05ea \u05e4\u05d9\u05e7\u05d5\u05d7 \u05d5\u05d4\u05d3\u05e8\u05db\u05ea \u05e2\u05d5\u05d1\u05d3\u05d9\u05dd",
+    "href": "pages/summaries/lesson-05-summary.html",
+    "updatedAt": "2026-05-27",
+    "summaryAvailable": true,
+    "label": "\u05e7\u05d9\u05d9\u05dd",
     "questionCount": 60
   }].map(withCourseScope),
     lessonUpdates: [latestUpdate],
