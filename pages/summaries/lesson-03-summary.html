@@ -142,6 +142,62 @@
       padding: 1.15rem;
     }
 
+    @media print {
+      body {
+        background: #fff !important;
+        color: #111 !important;
+      }
+
+      .skip-link,
+      .summary-quick-nav,
+      .prototype-topbar,
+      .prototype-sidebar,
+      .prototype-shell-sidebar,
+      .prototype-mobile-drawer,
+      .prototype-mobile-overlay,
+      .mobile-bottom-nav,
+      .prototype-bottom-nav,
+      .read-aloud-widget,
+      .read-aloud-panel,
+      .read-aloud-fab,
+      .accessibility-fab,
+      [data-read-aloud-exclude="true"] .btn {
+        display: none !important;
+      }
+
+      .site-main,
+      .prep-page {
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      details,
+      details:not([open]) > :not(summary) {
+        display: block !important;
+      }
+
+      summary {
+        list-style: none !important;
+        cursor: default !important;
+      }
+
+      summary::-webkit-details-marker {
+        display: none !important;
+      }
+
+      .content-accordion,
+      .knowledge-card,
+      .field-card,
+      .responsibility-card,
+      .pocket-card,
+      .flow-step,
+      .summary-mini-callout {
+        break-inside: avoid;
+        box-shadow: none !important;
+      }
+    }
+
     @media (max-width: 720px) {
       .summary-quick-nav {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -245,6 +301,18 @@
     </section>
 
     <details class="content-accordion" open>
+      <summary>הרחבה משפטית קצרה — אחריות נושאי משרה</summary>
+      <div>
+        <p>סעיף 224 לחוק העונשין משמש בהקשר של אחריות נושאי משרה כאשר עבירה נעברה במסגרת תאגיד, ובוחנים האם מנהל, שותף או נושא תפקיד היה צריך למנוע את העבירה באמצעי פיקוח וניהול סבירים. המשמעות המעשית לממונה בטיחות: לא מספיק להראות שהיה נוהל; צריך להראות שמנגנון הפיקוח עבד.</p>
+        <div class="summary-callout-row">
+          <article class="summary-mini-callout"><strong>⚖️ “לא ידעתי”</strong><p>טענה זו חלשה כאשר מנהל לא קיים סיורים, לא דרש דיווחים, לא בדק סגירת ליקויים או התעלם מסימני אזהרה חוזרים.</p></article>
+          <article class="summary-mini-callout"><strong>⚠️ עצימת עיניים</strong><p>Willful Blindness היא מצב שבו מנהל נמנע מלברר כדי שיוכל לומר שלא ידע. מקצועית ומשפטית, זהו דגל אדום.</p></article>
+          <article class="summary-mini-callout"><strong>✅ טיפ לממונה</strong><p>כאשר סיכון משמעותי אינו נסגר, ההגנה המקצועית היא תיעוד: התרעה, חומרה, המלצה, אחראי, מועד והסלמה.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details class="content-accordion" open>
       <summary>מפת מערך הבטיחות — מי עושה מה</summary>
       <div>
         <div class="flowchart" aria-label="זרימת מערך הבטיחות">
@@ -272,6 +340,40 @@
             <tr><td>מפקח עבודה</td><td>ביקורת, דרישת מסמכים, צווים וחקירה.</td><td>רגולטור חיצוני, לא מנהל הבטיחות של הארגון.</td><td>צו בטיחות, צו שיפור, פרוטוקול ביקורת.</td></tr>
           </tbody>
         </table>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>טבלת RACI מקצועית</summary>
+      <div>
+        <p>הטבלה מסייעת להפריד בין מי שמבצע בפועל, מי אחראי סופית, עם מי חייבים להתייעץ ומי צריך לקבל עדכון. זו הפרדה קריטית כדי למנוע מצב שבו כולם “מעורבים” אבל אף אחד לא סוגר.</p>
+        <table class="learning-table">
+          <thead><tr><th>גורם</th><th>Responsible</th><th>Accountable</th><th>Consulted</th><th>Informed</th></tr></thead>
+          <tbody>
+            <tr><td>מעסיק / תופש מקום</td><td>הקמת מערך ומשאבים</td><td>אחריות עליונה</td><td>ממונה, הנהלה, יועצים</td><td>רגולטור, ועדה, עובדים לפי צורך</td></tr>
+            <tr><td>הנהלה</td><td>מדיניות, תקציב, סדרי עדיפויות</td><td>יישום ניהולי ואכיפה</td><td>ממונה בטיחות ומנהלי שטח</td><td>עובדים, ועדה, דירקטוריון</td></tr>
+            <tr><td>מנהל שטח</td><td>פיקוח יומיומי וסגירת ליקויים</td><td>ביצוע בטוח במשמרת/מחלקה</td><td>ממונה, ועדה, קבלנים</td><td>הנהלה ועובדים</td></tr>
+            <tr><td>ממונה בטיחות</td><td>ייעוץ, סקר, התרעה ומעקב</td><td>איכות מקצועית של ההמלצה</td><td>מנהלים, עובדים, רגולטור לפי צורך</td><td>הנהלה, ועדה, מנהל רלוונטי</td></tr>
+            <tr><td>ועדת בטיחות</td><td>דיון ומעקב החלטות</td><td>המלצות ומעקב פרוטוקול</td><td>ממונה, הנהלה, נאמנים</td><td>עובדים ומפקח לפי דרישה</td></tr>
+            <tr><td>נאמן בטיחות</td><td>דיווח מפגעים והסברה</td><td>איכות הדיווח מהשטח</td><td>ממונה, עובדים, מנהל ישיר</td><td>ועדה וממונה</td></tr>
+            <tr><td>עובד</td><td>ציות, שימוש בבקרות ודיווח</td><td>התנהגות בטוחה במסגרת הכשרתו</td><td>מנהל, נאמן, ממונה</td><td>מנהל וממונה על מפגעים</td></tr>
+            <tr><td>קבלן</td><td>ביצוע לפי תנאי האתר והיתר</td><td>בטיחות עובדיו ותיאום עם האתר</td><td>מנהל אתר, ממונה, מזמין</td><td>הנהלה ומפקח לפי אירוע</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>מה ממונה בטיחות אינו</summary>
+      <div>
+        <div class="responsibility-grid">
+          <article class="responsibility-card"><h3>אינו מחליף הנהלה</h3><p>הנהלה מחליטה, מתקצבת ואוכפת. הממונה נותן תמונת סיכון והמלצה מקצועית.</p></article>
+          <article class="responsibility-card"><h3>אינו מנהל קו</h3><p>הוא לא מנהל עובדים, משמרות או קבלנים במקום מנהלי השטח.</p></article>
+          <article class="responsibility-card"><h3>אינו שוטר משמעת</h3><p>אכיפה ומשמעת הן סמכויות ניהוליות; הממונה מתריע על הפער ומוודא שהוא מטופל.</p></article>
+          <article class="responsibility-card"><h3>אינו אחראי בלעדי לכל מפגע</h3><p>מפגעים נסגרים על ידי בעלי סמכות ומשאבים. הממונה לא יכול להיות “הכתובת היחידה”.</p></article>
+          <article class="responsibility-card"><h3>אינו מכשיר עבודה מסוכנת</h3><p>אין חתימה בדיעבד, אין “אישור מילולי” לעקיפת בקרה ואין הכשרת מצב מסוכן בגלל לחץ תפוקות.</p></article>
+        </div>
+        <div class="summary-mini-callout"><strong>תיבת גבולות תפקיד</strong><p>גבול התפקיד המקצועי הוא ברור: לזהות, לנתח, להמליץ, להתריע, לתעד ולעקוב. כאשר הסיכון אינו נסגר, נדרשת הסלמה מסודרת ולא נשיאה שקטה באחריות של אחרים.</p></div>
       </div>
     </details>
 
@@ -341,10 +443,10 @@
       <summary>דף כיס לממונה בטיחות</summary>
       <div>
         <div class="pocket-grid">
-          <article class="pocket-card"><strong>לפני סיור</strong><p>בדוק דוחות פתוחים, אירועי Near Miss, צווים, עבודות קבלן ושינויים מתוכננים.</p></article>
-          <article class="pocket-card"><strong>בשטח</strong><p>חפש פער בין נוהל למציאות: מי עובד, באיזה סיכון, עם איזו בקרה, ומה חסר.</p></article>
-          <article class="pocket-card"><strong>מול מנהל</strong><p>שאל מי אחראי לסגור, עד מתי, ומה ייחשב הוכחה שהסיכון נשלט.</p></article>
-          <article class="pocket-card"><strong>אחרי הסיור</strong><p>כתוב דוח קצר, חד ובר ביצוע: סיכון, פעולה, אחראי, תאריך, בדיקת אפקטיביות.</p></article>
+          <article class="pocket-card"><strong>מה לבדוק בסיור ראשון</strong><p>עבודות חריגות, קבלנים, עבודה בגובה, חשמל, מכונות, חומרים מסוכנים, גידורים, היתרים, Near Miss פתוחים וצווים.</p></article>
+          <article class="pocket-card"><strong>מה לשאול מנהל שטח</strong><p>מה הסיכון המרכזי היום, מי עובד עליו, איזו בקרה קיימת, מה נשאר פתוח, ומה יגרום לעצירת עבודה.</p></article>
+          <article class="pocket-card"><strong>מה חייב להופיע בדוח</strong><p>תיאור סיכון, חומרה, תמונה/ראיה, פעולה נדרשת, אחראי, תאריך יעד, סטטוס ובדיקת אפקטיביות.</p></article>
+          <article class="pocket-card"><strong>מתי להסלים להנהלה</strong><p>סכנת חיים, סירוב מנהל, חוסר תקציב לבקרה קריטית, צו פתוח, קבלן לא מתואם או ליקוי שחוזר.</p></article>
         </div>
       </div>
     </details>

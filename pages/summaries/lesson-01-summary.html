@@ -117,6 +117,60 @@
       margin: 0 0 0.45rem;
     }
 
+    @media print {
+      body {
+        background: #fff !important;
+        color: #111 !important;
+      }
+
+      .skip-link,
+      .summary-quick-nav,
+      .prototype-topbar,
+      .prototype-sidebar,
+      .prototype-shell-sidebar,
+      .prototype-mobile-drawer,
+      .prototype-mobile-overlay,
+      .mobile-bottom-nav,
+      .prototype-bottom-nav,
+      .read-aloud-widget,
+      .read-aloud-panel,
+      .read-aloud-fab,
+      .accessibility-fab,
+      [data-read-aloud-exclude="true"] .btn {
+        display: none !important;
+      }
+
+      .site-main,
+      .prep-page {
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      details,
+      details:not([open]) > :not(summary) {
+        display: block !important;
+      }
+
+      summary {
+        list-style: none !important;
+        cursor: default !important;
+      }
+
+      summary::-webkit-details-marker {
+        display: none !important;
+      }
+
+      .content-accordion,
+      .knowledge-card,
+      .summary-pocket-card,
+      .field-trigger-card,
+      .summary-mini-callout {
+        break-inside: avoid;
+        box-shadow: none !important;
+      }
+    }
+
     @media (max-width: 720px) {
       .summary-quick-nav {
         grid-template-columns: repeat(2, minmax(0, 1fr));
