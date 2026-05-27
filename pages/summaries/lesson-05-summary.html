@@ -10,6 +10,29 @@
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/prototype-shell.css">
   <style>
+    body.summary-page {
+      overflow-x: hidden;
+    }
+
+    body.summary-page .site-main,
+    body.summary-page .site-main > *,
+    body.summary-page .page-hero,
+    body.summary-page .page-hero > * {
+      box-sizing: border-box;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    body.summary-page h1,
+    body.summary-page h2,
+    body.summary-page h3,
+    body.summary-page p,
+    body.summary-page li,
+    body.summary-page td,
+    body.summary-page th {
+      overflow-wrap: anywhere;
+    }
+
     .summary-quick-nav,
     .summary-zone-divider,
     .content-accordion[id] { scroll-margin-top: 96px; }
@@ -230,6 +253,18 @@
     .print-header { display: none; }
 
     @media (max-width: 720px) {
+      body.summary-page .site-main,
+      body.summary-page .page-hero,
+      body.summary-page .content-section,
+      body.summary-page .summary-practice-divider,
+      body.summary-page .op-flow-map,
+      body.summary-page .op-decision-tree,
+      body.summary-page .op-field-actions {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-inline: 0 !important;
+      }
+
       .summary-quick-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .summary-table { font-size: .92rem; }
       .summary-table th,
