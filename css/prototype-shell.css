@@ -1318,3 +1318,348 @@ body.prototype-shell .knowledge-question {
     transition-duration: .01ms !important;
   }
 }
+
+/* Visual Operational Layer */
+body.prototype-shell {
+  --op-info: #0b6b7c;
+  --op-info-soft: #e7f5f7;
+  --op-attention: #8a6400;
+  --op-attention-soft: #fff4c7;
+  --op-risk: #a24b00;
+  --op-risk-soft: #ffe3c2;
+  --op-stop: #a51d2d;
+  --op-stop-soft: #ffe1e6;
+  --op-field: #166534;
+  --op-field-soft: #e7f7ed;
+}
+
+body.prototype-shell .op-visual-panel,
+body.prototype-shell .op-flow-map,
+body.prototype-shell .op-decision-tree,
+body.prototype-shell .op-field-actions {
+  border: 1px solid var(--proto-border);
+  border-radius: 16px;
+  background: var(--proto-surface);
+  box-shadow: 0 16px 38px rgba(16, 36, 54, 0.08);
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+body.prototype-shell .op-visual-panel > h2,
+body.prototype-shell .op-flow-map > h2,
+body.prototype-shell .op-decision-tree > h2,
+body.prototype-shell .op-field-actions > h2 {
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  margin: 0 0 .35rem;
+}
+
+body.prototype-shell .op-visual-panel > p,
+body.prototype-shell .op-flow-map > p,
+body.prototype-shell .op-decision-tree > p,
+body.prototype-shell .op-field-actions > p {
+  color: var(--proto-muted);
+  margin: 0 0 .85rem;
+}
+
+body.prototype-shell .op-control-hierarchy,
+body.prototype-shell .op-flow-steps,
+body.prototype-shell .op-escalation-map,
+body.prototype-shell .op-field-card-grid,
+body.prototype-shell .op-emergency-grid {
+  display: grid;
+  gap: .75rem;
+  margin: .9rem 0 0;
+}
+
+body.prototype-shell .op-control-hierarchy {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  list-style: none;
+  padding: 0;
+}
+
+body.prototype-shell .op-control-hierarchy li,
+body.prototype-shell .op-flow-step,
+body.prototype-shell .op-escalation-step,
+body.prototype-shell .op-decision-node,
+body.prototype-shell .op-field-action-card,
+body.prototype-shell .op-status-block {
+  border: 1px solid rgba(16, 36, 54, .12);
+  border-radius: 14px;
+  min-width: 0;
+  padding: .85rem;
+}
+
+body.prototype-shell .op-control-hierarchy li {
+  align-content: start;
+  background: var(--op-info-soft);
+  min-height: 132px;
+  position: relative;
+}
+
+body.prototype-shell .op-control-hierarchy li::after {
+  color: var(--proto-muted);
+  content: "←";
+  font-weight: 900;
+  inset-block-start: 50%;
+  inset-inline-start: -.55rem;
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+body.prototype-shell .op-control-hierarchy li:last-child::after {
+  display: none;
+}
+
+body.prototype-shell .op-control-hierarchy .op-stop {
+  background: var(--op-stop-soft);
+  border-color: rgba(165, 29, 45, .28);
+}
+
+body.prototype-shell .op-control-hierarchy .op-risk {
+  background: var(--op-risk-soft);
+  border-color: rgba(162, 75, 0, .3);
+}
+
+body.prototype-shell .op-control-hierarchy .op-attention {
+  background: var(--op-attention-soft);
+  border-color: rgba(138, 100, 0, .28);
+}
+
+body.prototype-shell .op-control-hierarchy .op-info {
+  background: var(--op-info-soft);
+  border-color: rgba(11, 107, 124, .25);
+}
+
+body.prototype-shell .op-control-hierarchy .op-muted {
+  background: #eef3f6;
+}
+
+body.prototype-shell .op-icon {
+  display: inline-grid;
+  font-size: 1.35rem;
+  margin-bottom: .35rem;
+}
+
+body.prototype-shell .op-control-hierarchy strong,
+body.prototype-shell .op-flow-step strong,
+body.prototype-shell .op-escalation-step strong,
+body.prototype-shell .op-decision-node strong,
+body.prototype-shell .op-field-action-card strong,
+body.prototype-shell .op-status-block strong {
+  display: block;
+  margin-bottom: .25rem;
+}
+
+body.prototype-shell .op-control-hierarchy span,
+body.prototype-shell .op-flow-step span,
+body.prototype-shell .op-escalation-step span,
+body.prototype-shell .op-decision-node span,
+body.prototype-shell .op-field-action-card span,
+body.prototype-shell .op-status-block span {
+  color: var(--proto-muted);
+  display: block;
+  font-size: .95rem;
+  line-height: 1.55;
+}
+
+body.prototype-shell .op-flow-steps {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+body.prototype-shell .op-flow-step {
+  background: var(--op-info-soft);
+  border-color: rgba(11, 107, 124, .24);
+  position: relative;
+}
+
+body.prototype-shell .op-flow-step::after,
+body.prototype-shell .op-escalation-step::after {
+  color: var(--proto-muted);
+  content: "←";
+  font-weight: 900;
+  inset-block-start: 50%;
+  inset-inline-start: -.55rem;
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+body.prototype-shell .op-flow-step:last-child::after,
+body.prototype-shell .op-escalation-step:last-child::after {
+  display: none;
+}
+
+body.prototype-shell .op-flow-meta {
+  display: grid;
+  gap: .55rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  margin-top: .9rem;
+}
+
+body.prototype-shell .op-status-block.info {
+  background: var(--op-info-soft);
+}
+
+body.prototype-shell .op-status-block.attention {
+  background: var(--op-attention-soft);
+}
+
+body.prototype-shell .op-status-block.risk {
+  background: var(--op-risk-soft);
+}
+
+body.prototype-shell .op-status-block.stop {
+  background: var(--op-stop-soft);
+}
+
+body.prototype-shell .op-escalation-map {
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+}
+
+body.prototype-shell .op-escalation-step {
+  background: #f7fafc;
+  position: relative;
+}
+
+body.prototype-shell .op-escalation-step.stop {
+  background: var(--op-stop-soft);
+  border-color: rgba(165, 29, 45, .3);
+}
+
+body.prototype-shell .op-decision-tree {
+  background: linear-gradient(135deg, rgba(11, 107, 124, .08), rgba(255,255,255,.55));
+}
+
+body.prototype-shell .op-decision-grid {
+  display: grid;
+  gap: .75rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  margin-top: .8rem;
+}
+
+body.prototype-shell .op-decision-node {
+  background: #fff;
+}
+
+body.prototype-shell .op-decision-node.yes {
+  border-color: rgba(165, 29, 45, .32);
+  box-shadow: inset 4px 0 0 var(--op-stop);
+}
+
+body.prototype-shell .op-decision-node.no {
+  border-color: rgba(22, 101, 52, .3);
+  box-shadow: inset 4px 0 0 var(--op-field);
+}
+
+body.prototype-shell .op-emergency-grid {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+body.prototype-shell .op-emergency-strip {
+  border: 1px solid rgba(165, 29, 45, .28);
+  border-radius: 14px;
+  background: linear-gradient(90deg, var(--op-stop-soft), #fff);
+  padding: .85rem;
+}
+
+body.prototype-shell .op-emergency-strip strong {
+  display: block;
+  margin-bottom: .3rem;
+}
+
+body.prototype-shell .op-emergency-strip ul {
+  margin: .35rem 0 0;
+  padding-inline-start: 1.2rem;
+}
+
+body.prototype-shell .op-field-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+body.prototype-shell .op-field-action-card {
+  background: #fff;
+}
+
+body.prototype-shell .op-field-action-card[data-severity="info"] {
+  border-top: 5px solid var(--op-info);
+}
+
+body.prototype-shell .op-field-action-card[data-severity="attention"] {
+  border-top: 5px solid var(--op-attention);
+}
+
+body.prototype-shell .op-field-action-card[data-severity="risk"] {
+  border-top: 5px solid var(--op-risk);
+}
+
+body.prototype-shell .op-field-action-card[data-severity="stop"] {
+  border-top: 5px solid var(--op-stop);
+}
+
+body.prototype-shell .op-field-action-card dl {
+  display: grid;
+  gap: .35rem;
+  margin: .65rem 0 0;
+}
+
+body.prototype-shell .op-field-action-card dt {
+  font-weight: 900;
+}
+
+body.prototype-shell .op-field-action-card dd {
+  color: var(--proto-muted);
+  margin: 0;
+}
+
+@media (max-width: 780px) {
+  body.prototype-shell .op-control-hierarchy,
+  body.prototype-shell .op-flow-steps,
+  body.prototype-shell .op-escalation-map {
+    grid-template-columns: 1fr;
+  }
+
+  body.prototype-shell .op-control-hierarchy li,
+  body.prototype-shell .op-flow-step,
+  body.prototype-shell .op-escalation-step {
+    min-height: auto;
+  }
+
+  body.prototype-shell .op-control-hierarchy li::after,
+  body.prototype-shell .op-flow-step::after,
+  body.prototype-shell .op-escalation-step::after {
+    content: "↓";
+    inset-block: auto -.72rem;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media print {
+  body.prototype-shell .op-visual-panel,
+  body.prototype-shell .op-flow-map,
+  body.prototype-shell .op-decision-tree,
+  body.prototype-shell .op-field-actions,
+  body.prototype-shell .op-field-action-card,
+  body.prototype-shell .op-emergency-strip,
+  body.prototype-shell .op-status-block {
+    background: #fff !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  body.prototype-shell .op-control-hierarchy,
+  body.prototype-shell .op-flow-steps,
+  body.prototype-shell .op-escalation-map,
+  body.prototype-shell .op-field-card-grid,
+  body.prototype-shell .op-emergency-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.prototype-shell .op-control-hierarchy li,
+  body.prototype-shell .op-flow-step,
+  body.prototype-shell .op-escalation-step,
+  body.prototype-shell .op-decision-node,
+  body.prototype-shell .op-field-action-card {
+    border-color: #777 !important;
+    color: #111 !important;
+  }
+}

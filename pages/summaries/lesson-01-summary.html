@@ -300,6 +300,62 @@
       <p>המקטע הזה בונה את שפת הבטיחות: סיכון, מפגע, חשיפה, בקרה ולמידה.</p>
     </section>
 
+    <section id="visualOperationalLayer" class="op-visual-panel" aria-labelledby="visualOperationalTitle">
+      <h2 id="visualOperationalTitle">Visual Operational Layer · קריאה מהירה לשטח</h2>
+      <p>שכבת עבודה קצרה שמתרגמת את השיעור להחלטות: איזו בקרה חזקה יותר, מתי חוקרים, מתי מסלימים ומתי עוצרים עבודה.</p>
+
+      <h3>היררכיית בקרות</h3>
+      <ol class="op-control-hierarchy" aria-label="היררכיית בקרות">
+        <li class="op-stop"><span class="op-icon">⛔</span><strong>1. סילוק</strong><span>הסרת הסיכון מהמקור. זהו הפתרון החזק ביותר.</span></li>
+        <li class="op-risk"><span class="op-icon">🔁</span><strong>2. החלפה</strong><span>חומר, ציוד או שיטת עבודה בטוחים יותר.</span></li>
+        <li class="op-attention"><span class="op-icon">🛡️</span><strong>3. בקרה הנדסית</strong><span>גידור, יניקה, הפרדה, נעילה או מיגון קבוע.</span></li>
+        <li class="op-info"><span class="op-icon">📋</span><strong>4. בקרה מנהלית</strong><span>נוהל, היתר, הדרכה, שילוט, פיקוח ותזמון.</span></li>
+        <li class="op-muted"><span class="op-icon">🥽</span><strong>5. PPE</strong><span>קו הגנה אחרון. לא מחליף בקרה במקור.</span></li>
+      </ol>
+    </section>
+
+    <section class="op-flow-map" aria-labelledby="rcaFlowTitle">
+      <h2 id="rcaFlowTitle">איך חוקרים אירוע</h2>
+      <p>הזרימה מונעת טיפול בסימפטום בלבד ומחייבת חזרה לשטח כדי לוודא שהכשל לא חוזר.</p>
+      <div class="op-flow-steps">
+        <article class="op-flow-step"><strong>אירוע</strong><span>מה קרה, מי נחשף ומה היה יכול להיגרם.</span></article>
+        <article class="op-flow-step"><strong>איסוף מידע</strong><span>תמונות, עדויות, מסמכים, היתרים, הדרכות ותסקירים.</span></article>
+        <article class="op-flow-step"><strong>RCA</strong><span>איתור שורש: תכנון, פיקוח, הדרכה, תחזוקה או תרבות.</span></article>
+        <article class="op-flow-step"><strong>CAPA</strong><span>פעולה מתקנת ומונעת עם אחראי ומועד סגירה.</span></article>
+        <article class="op-flow-step"><strong>אפקטיביות</strong><span>בדיקה לאורך זמן שהבקרה עובדת בפועל.</span></article>
+        <article class="op-flow-step"><strong>מעקב</strong><span>עדכון נוהל, הדרכה, checklist ותוכנית ביקורת.</span></article>
+      </div>
+      <div class="op-flow-meta">
+        <div class="op-status-block info"><strong>מה מחפשים</strong><span>פער בין נוהל, הדרכה, ציוד והתנהגות בפועל.</span></div>
+        <div class="op-status-block attention"><strong>טעות נפוצה</strong><span>לתקן רק את העובד או הטופס במקום את הבקרה.</span></div>
+        <div class="op-status-block risk"><strong>מה חייב תיעוד</strong><span>ראיות, החלטה, אחראי, CAPA ובדיקת אפקטיביות.</span></div>
+      </div>
+    </section>
+
+    <section class="op-decision-tree" aria-labelledby="decisionTreeTitle">
+      <h2 id="decisionTreeTitle">עצי החלטה מהירים</h2>
+      <div class="op-decision-grid">
+        <article class="op-decision-node yes"><strong>האם לעצור עבודה?</strong><span>כן, אם יש סכנת חיים, חוסר LOTO, עבודה בגובה ללא הגנה, חשמל גלוי או עקיפת מיגון.</span></article>
+        <article class="op-decision-node yes"><strong>האם זה Near Miss?</strong><span>כן, אם הייתה חשיפה או פוטנציאל נזק גם בלי פגיעה בפועל.</span></article>
+        <article class="op-decision-node no"><strong>האם PPE מספיק?</strong><span>לא כקו יחיד. יש לחפש קודם סילוק, החלפה או בקרה הנדסית.</span></article>
+        <article class="op-decision-node yes"><strong>האם נדרש RCA מלא?</strong><span>כן, כשיש פוטנציאל חמור, כשל חוזר, קבלן, ציוד קריטי או פער ניהולי.</span></article>
+      </div>
+    </section>
+
+    <section class="op-field-actions" aria-labelledby="fieldActionTitle">
+      <h2 id="fieldActionTitle">כרטיסי פעולה מהשטח</h2>
+      <div class="op-field-card-grid">
+        <article class="op-field-action-card" data-severity="stop"><strong>עבודה בגובה</strong><dl><dt>מה הסיכון</dt><dd>נפילה מגובה או נפילת חפצים.</dd><dt>מה עושים עכשיו</dt><dd>עוצרים ללא עיגון, מעקה, רתמה תקינה או תוכנית חילוץ.</dd><dt>מה מתעדים</dt><dd>גובה, אמצעי הגנה, הדרכה, ציוד וחילוץ.</dd></dl></article>
+        <article class="op-field-action-card" data-severity="stop"><strong>חשמל / LOTO</strong><dl><dt>מה הסיכון</dt><dd>התחשמלות או הפעלה לא צפויה.</dd><dt>מה עושים עכשיו</dt><dd>מבודדים אנרגיה, נועלים, מתייגים ומבצעים Try-Out.</dd><dt>מתי מסלימים</dt><dd>כאשר אין בעל סמכות או שהציוד נשאר מוזן.</dd></dl></article>
+        <article class="op-field-action-card" data-severity="risk"><strong>קבלנים</strong><dl><dt>מה בודקים</dt><dd>קליטה, היתר, הדרכה, תיאום SIMOPS ואחראי מלווה.</dd><dt>מה מתעדים</dt><dd>פערי קליטה, אישורים והחלטות מנהל שטח.</dd></dl></article>
+      </div>
+      <div class="op-emergency-grid">
+        <article class="op-emergency-strip"><strong>🚨 Electrical</strong><ul><li>לא נוגעים בנפגע לפני ניתוק מקור.</li><li>מנתקים, מרחיקים, מזעיקים ומבודדים אזור.</li></ul></article>
+        <article class="op-emergency-strip"><strong>🚨 Height</strong><ul><li>עוצרים חשיפה נוספת.</li><li>מפעילים חילוץ ומונעים crowding באזור נפילה.</li></ul></article>
+        <article class="op-emergency-strip"><strong>🚨 Hazmat</strong><ul><li>לא נכנסים בלי זיהוי חומר ו-PPE מתאים.</li><li>מבודדים, מאווררים לפי צורך ומפעילים נוהל חירום.</li></ul></article>
+      </div>
+    </section>
+
     <details class="content-accordion" open>
       <summary>מה למדנו בשיעור</summary>
       <div>
