@@ -116,6 +116,34 @@
       </div>
     </section>
 
+    <section class="content-section" aria-labelledby="platformCoursePrinciplesTitle">
+      <div class="section-title">
+        <div>
+          <p class="kicker">Platform Foundation</p>
+          <h2 id="platformCoursePrinciplesTitle">עקרונות עבודה בפלטפורמת קורסים</h2>
+          <p>האתר מתחיל להיפרד בהדרגה בין שכבת הפלטפורמה לבין תוכן הקורס הפעיל.</p>
+        </div>
+      </div>
+      <div class="content-template-grid">
+        <article class="content-mini-card">
+          <h3>Course ID</h3>
+          <p>כל תוכן חדש צריך להיות משויך ל־<code>courseId</code>. בשלב הנוכחי הקורס הפעיל היחיד הוא <code>safety-officer</code>.</p>
+        </article>
+        <article class="content-mini-card">
+          <h3>Domain ID</h3>
+          <p>כל תחום מקצועי צריך להיות משויך ל־<code>domainId</code>. עבור קורס ממונה בטיחות התחום הוא <code>safety</code>.</p>
+        </article>
+        <article class="content-mini-card">
+          <h3>Metadata Maps</h3>
+          <p>קורסים ותחומים מוגדרים ב־<code>data/courses-map.js</code>, <code>data/domains-map.js</code> ו־<code>data/platform-config.js</code>.</p>
+        </article>
+        <article class="content-mini-card">
+          <h3>Stability</h3>
+          <p>בעתיד ניתן יהיה להוסיף domains נוספים בלי לשבור את הקורס הקיים, אבל אין להעביר תוכן לנתיבים חדשים בלי Phase migration ייעודי.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="content-section" aria-labelledby="deployChecklistTitle">
       <div class="section-title"><h2 id="deployChecklistTitle">Checklist לפני deploy</h2></div>
       <ul class="knowledge-checklist">
