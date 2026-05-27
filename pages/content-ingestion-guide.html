@@ -141,6 +141,14 @@
           <h3>Stability</h3>
           <p>בעתיד ניתן יהיה להוסיף domains נוספים בלי לשבור את הקורס הקיים, אבל אין להעביר תוכן לנתיבים חדשים בלי Phase migration ייעודי.</p>
         </article>
+        <article class="content-mini-card">
+          <h3>Course Scope</h3>
+          <p>Every new content map should include <code>courseId: "safety-officer"</code> and <code>domainId: "safety"</code> until another course is formally activated.</p>
+        </article>
+        <article class="content-mini-card">
+          <h3>Validation</h3>
+          <p>Run <code>node scripts/check-course-scope.js</code> after updating local maps so future course filtering stays safe.</p>
+        </article>
       </div>
     </section>
 

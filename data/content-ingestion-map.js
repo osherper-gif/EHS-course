@@ -1,6 +1,13 @@
 (function () {
   "use strict";
 
+  const COURSE_ID = "safety-officer";
+  const DOMAIN_ID = "safety";
+  const withCourseScope = (entity) => Object.assign(entity, {
+    courseId: entity.courseId || COURSE_ID,
+    domainId: entity.domainId || DOMAIN_ID
+  });
+
   const lessons = [
   {
     "lessonId": "lesson-01",
@@ -312,6 +319,7 @@
     "lastUpdated": "2026-05-26"
   }
 ];
+  lessons.forEach(withCourseScope);
 
   const latestUpdate = {
   "type": "summary",
@@ -323,6 +331,7 @@
   "href": "pages/summaries/lesson-03-summary.html",
   "updatedAt": "2026-05-27"
 };
+  withCourseScope(latestUpdate);
 
   window.CourseContentIngestionMap = {
     version: "phase-7-bulk-lessons-1-7",
@@ -393,7 +402,7 @@
     "updatedAt": "2026-05-26",
     "questionCount": 30
   }
-],
+].map(withCourseScope),
     summaryPages: [
   {
     "lessonId": "lesson-01",
@@ -424,10 +433,10 @@
     "summaryAvailable": true,
     "label": "קיים",
     "questionCount": 60
-  }],
+  }].map(withCourseScope),
     lessonUpdates: [latestUpdate],
-    glossaryAdditions: lessons.flatMap((item) => item.glossaryTerms.map((term) => ({ term, category: "????? ?????", lessonId: item.lessonId, href: "pages/glossary.html" }))),
-    checklistAdditions: lessons.flatMap((item) => item.relatedChecklists.map((href) => ({ title: "Checklist ????", category: "Operational", lessonId: item.lessonId, href }))),
+    glossaryAdditions: lessons.flatMap((item) => item.glossaryTerms.map((term) => withCourseScope({ term, category: "????? ?????", lessonId: item.lessonId, href: "pages/glossary.html" }))),
+    checklistAdditions: lessons.flatMap((item) => item.relatedChecklists.map((href) => withCourseScope({ title: "Checklist ????", category: "Operational", lessonId: item.lessonId, href }))),
     knowledgeLinks: Object.fromEntries(lessons.map((item) => [item.lessonId, item.relatedKnowledge])),
     latestUpdate
   };

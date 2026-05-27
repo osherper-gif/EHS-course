@@ -1,6 +1,13 @@
 (function () {
   "use strict";
 
+  const COURSE_ID = "safety-officer";
+  const DOMAIN_ID = "safety";
+  const withCourseScope = (entity) => Object.assign(entity, {
+    courseId: entity.courseId || COURSE_ID,
+    domainId: entity.domainId || DOMAIN_ID
+  });
+
   const knowledgePages = {
     "electrical-safety": { title: "חשמל והגנה מחשמל", category: "חשמל", href: "knowledge/electrical-safety.html", lessons: ["lesson-02"], examFocus: "LOTO, בדיקת העדר מתח, הארקה וממסר פחת" },
     "occupational-hygiene": { title: "גהות תעסוקתית", category: "גהות", href: "knowledge/occupational-hygiene.html", lessons: ["lesson-04", "lesson-08"], examFocus: "ניטור, חשיפה, רעש וחומרים מסוכנים" },
@@ -73,6 +80,10 @@
       { label: "תרגול ומבחנים", href: "pages/quizzes.html" }
     ]
   };
+  Object.values(knowledgePages).forEach(withCourseScope);
+  Object.values(lessons).forEach(withCourseScope);
+  glossaryTerms.forEach(withCourseScope);
+  withCourseScope(lastLessonUpdate);
 
-  window.CourseKnowledgeMap = { lessons, knowledgePages, glossaryTerms, lastLessonUpdate };
+  window.CourseKnowledgeMap = { courseId: COURSE_ID, domainId: DOMAIN_ID, lessons, knowledgePages, glossaryTerms, lastLessonUpdate };
 })();

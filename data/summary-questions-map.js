@@ -7427,3 +7427,13 @@ window.CourseSummaryQuestionSets = Object.assign(window.CourseSummaryQuestionSet
     }
   ]
 });
+
+window.CourseSummaryQuestionSetMeta = Object.assign(window.CourseSummaryQuestionSetMeta || {}, {
+  "lesson-01-summary-practice-source": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-01" },
+  "lesson-02-summary-practice-source": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-02" },
+  "lesson-03-summary-full-practice-source": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-03" },
+  "lesson-04-summary-full-practice-source": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-04" },
+  "lesson-05-summary-full-practice-source": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-05" },
+  "lesson-06-summary-full-practice-source": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-06" },
+  "lesson-07-summary-full-practice-source": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-07" }
+});

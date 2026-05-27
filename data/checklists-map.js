@@ -1,6 +1,13 @@
 (function () {
   "use strict";
 
+  const COURSE_ID = "safety-officer";
+  const DOMAIN_ID = "safety";
+  const withCourseScope = (entity) => Object.assign(entity, {
+    courseId: entity.courseId || COURSE_ID,
+    domainId: entity.domainId || DOMAIN_ID
+  });
+
   const checklists = [
     {
       id: "construction-site-readiness",
@@ -275,8 +282,11 @@
       relatedLessons: ["lesson-07.html", "lesson-11.html"]
     }
   ];
+  checklists.forEach(withCourseScope);
 
   window.CourseChecklistMap = {
+    courseId: COURSE_ID,
+    domainId: DOMAIN_ID,
     categories: Array.from(new Set(checklists.map((item) => item.category))),
     risks: ["critical", "high", "medium"],
     checklists

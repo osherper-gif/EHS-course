@@ -2,7 +2,7 @@ window.EHSCoursesMap = {
   courses: [
     {
       id: "safety-officer",
-      domainId: "safety-officer",
+      domainId: "safety",
       title: "קורס ממונה בטיחות",
       description: "מרחב למידה, סיכומים, שאלות תרגול וכלי שטח לקורס ממונה בטיחות.",
       status: "active",

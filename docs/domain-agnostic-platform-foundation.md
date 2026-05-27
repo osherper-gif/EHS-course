@@ -77,3 +77,61 @@ The following remain legacy course-specific paths for stability:
 - quiz and exam data
 
 This is intentional. Phase 8 is metadata and helper foundation only.
+
+## Phase 9: Course-Scoped Data
+
+Phase 9 adds course scope metadata without changing public URLs or moving files.
+
+The active course remains:
+
+- `courseId`: `safety-officer`
+- `domainId`: `safety`
+
+Course scope has been added to these local data layers:
+
+- content ingestion lessons, prep pages, summary pages and latest updates
+- summary question set metadata
+- prep question set metadata
+- checklist map and checklist items
+- knowledge pages, lesson relations, glossary terms and last lesson update
+
+The question text, answer order, `correctIndex` values and summary counts remain unchanged.
+
+## Course Scope Contract
+
+Every future content entity should include:
+
+- `courseId`
+- `domainId`
+
+For the current course, use:
+
+```js
+courseId: "safety-officer",
+domainId: "safety"
+```
+
+Question banks should keep question records stable and place course metadata at the question set level unless a future renderer needs per-question course filtering.
+
+## Validation
+
+Use:
+
+```bash
+node scripts/check-course-scope.js
+```
+
+The script verifies that scoped content points to a known course, that `safety-officer` is the only active course, and that the current maps have course/domain metadata.
+
+## Still Not Course-Scoped
+
+These remain intentionally stable until a later migration:
+
+- physical file locations
+- Firebase routing
+- existing `pages/*` URLs
+- quiz engine data outside the new metadata layer
+- template form definitions
+- per-course shell routing
+
+Future courses should first add maps and metadata, then introduce URLs only after the route strategy is approved.

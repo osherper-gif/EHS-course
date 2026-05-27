@@ -2092,3 +2092,12 @@ window.CoursePrepQuestionSets = {
     }
   ]
 };
+
+window.CoursePrepQuestionSetMeta = Object.assign(window.CoursePrepQuestionSetMeta || {}, {
+  "lesson-01-introduction-safety": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-01" },
+  "lesson-06-emergency-preparedness": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-06" },
+  "lesson-07-legal-responsibility": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-07" },
+  "lesson-08-safety-organization": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-08" },
+  "lesson-02-summary-practice-source": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-02" },
+  "lesson-03-summary-practice-source": { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-03" }
+});
