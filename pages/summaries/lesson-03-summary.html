@@ -142,7 +142,15 @@
       padding: 1.15rem;
     }
 
+    .print-header {
+      display: none;
+    }
+
     @media print {
+      @page {
+        margin: 14mm;
+      }
+
       body {
         background: #fff !important;
         color: #111 !important;
@@ -161,8 +169,40 @@
       .read-aloud-panel,
       .read-aloud-fab,
       .accessibility-fab,
+      .theme-toggle,
+      .hamburger,
+      .drawer-toggle,
+      .mobile-menu-toggle,
+      .prototype-menu-button,
+      .summary-quiz-toolbar,
+      .summary-quiz-actions,
+      .summary-quiz-progress,
+      .summary-question-group-count,
+      .summary-feedback,
+      .summary-feedback-box,
+      .summary-option-feedback,
+      .summary-option input,
+      button,
       [data-read-aloud-exclude="true"] .btn {
         display: none !important;
+      }
+
+      .print-header {
+        display: block !important;
+        border-bottom: 1px solid #999;
+        margin: 0 0 1rem;
+        padding: 0 0 0.55rem;
+      }
+
+      .print-header h1 {
+        font-size: 18pt;
+        margin: 0 0 0.25rem;
+      }
+
+      .print-header p {
+        color: #444;
+        font-size: 10pt;
+        margin: 0;
       }
 
       .site-main,
@@ -192,9 +232,56 @@
       .responsibility-card,
       .pocket-card,
       .flow-step,
-      .summary-mini-callout {
+      .summary-mini-callout,
+      .summary-question-card,
+      .summary-question-group,
+      .summary-option,
+      table {
         break-inside: avoid;
         box-shadow: none !important;
+      }
+
+      .prep-question-section {
+        break-before: page;
+      }
+
+      .learning-table,
+      table {
+        border-collapse: collapse !important;
+        table-layout: fixed;
+        width: 100% !important;
+      }
+
+      .learning-table.raci-table {
+        font-size: 8.5pt;
+      }
+
+      th,
+      td {
+        overflow-wrap: anywhere;
+        padding: 0.35rem !important;
+        vertical-align: top;
+      }
+
+      .summary-option {
+        background: #fff !important;
+        border: 1px solid #999 !important;
+      }
+
+      .summary-option::before {
+        content: "□";
+        display: inline-block;
+        font-weight: 900;
+        margin-inline-end: 0.45rem;
+      }
+
+      #summaryRelated .btn {
+        background: transparent !important;
+        border: 0 !important;
+        color: #111 !important;
+        display: inline !important;
+        padding: 0 !important;
+        text-decoration: underline !important;
       }
     }
 
@@ -228,6 +315,11 @@
 
     <section class="learning-path-note" data-read-aloud-exclude="true">
       <p>מבוסס על סיכום שיעור 3 שנמסר במסגרת הקורס. הסיכום מיועד ללמידה, תרגול והכנה לעבודת שטח; דרישות מחייבות יש לאמת מול הדין, התקנות והגורמים המוסמכים.</p>
+    </section>
+
+    <section class="print-header" aria-hidden="true">
+      <h1>סיכום שיעור 3 — גורמים במערך הבטיחות ואחריות תפעולית</h1>
+      <p>גרסת הדפסה — הקישורים זמינים באתר הקורס.</p>
     </section>
 
     <nav class="summary-quick-nav" aria-label="ניווט מהיר בסיכום" data-read-aloud-exclude="true">
@@ -347,7 +439,7 @@
       <summary>טבלת RACI מקצועית</summary>
       <div>
         <p>הטבלה מסייעת להפריד בין מי שמבצע בפועל, מי אחראי סופית, עם מי חייבים להתייעץ ומי צריך לקבל עדכון. זו הפרדה קריטית כדי למנוע מצב שבו כולם “מעורבים” אבל אף אחד לא סוגר.</p>
-        <table class="learning-table">
+        <table class="learning-table raci-table">
           <thead><tr><th>גורם</th><th>Responsible</th><th>Accountable</th><th>Consulted</th><th>Informed</th></tr></thead>
           <tbody>
             <tr><td>מעסיק / תופש מקום</td><td>הקמת מערך ומשאבים</td><td>אחריות עליונה</td><td>ממונה, הנהלה, יועצים</td><td>רגולטור, ועדה, עובדים לפי צורך</td></tr>
@@ -405,6 +497,10 @@
           <article class="flow-step"><h3>RCA</h3><p>מעבר מסימפטום לשורש: תקציב, הדרכה, פיקוח, תרבות, שינוי, תכנון או בקרה הנדסית.</p></article>
           <article class="flow-step"><h3>CAPA</h3><p>פעולה מתקנת ומונעת עם אחראי, תאריך יעד, משאב ומדד הצלחה.</p></article>
           <article class="flow-step"><h3>בדיקת אפקטיביות</h3><p>חזרה לשטח לאחר זמן כדי לוודא שהכשל לא חוזר והבקרה באמת עובדת.</p></article>
+        </div>
+        <div class="summary-mini-callout">
+          <strong>תרשים פעולה מהיר ל-Near Miss</strong>
+          <p>דיווח → תיעוד ראשוני → עצירת חשיפה אם צריך → RCA → CAPA → בדיקת אפקטיביות → עדכון נוהל/הדרכה → סגירה.</p>
         </div>
       </div>
     </details>
@@ -464,6 +560,26 @@
           <li>האם קיימת בדיקת אפקטיביות לאחר סגירת ליקוי?</li>
           <li>האם לחץ תפוקות מתועד ומנוהל כסיכון?</li>
         </ul>
+      </div>
+    </details>
+
+    <details class="content-accordion" open>
+      <summary>דף תשובות למנהלים</summary>
+      <div>
+        <p>מקטע זה מיועד לשיחה קצרה ומדויקת מול מנהל שטח או הנהלה. המטרה אינה “לנצח ויכוח”, אלא להחזיר אחריות למקום הנכון ולייצר תיעוד שמניע סגירה.</p>
+        <table class="learning-table">
+          <thead>
+            <tr><th>מצב</th><th>טענה שגויה</th><th>תשובת ממונה בטיחות</th><th>מה לתעד</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>פער שלא טופל</td><td>“לא ידעתי”</td><td>חובת הפיקוח היא אקטיבית. מנהל צריך לבצע סיורים, לשאול, לבדוק ולוודא שהבקרה עובדת.</td><td>מועד זיהוי, למי דווח, תמונות, פעולה נדרשת ומועד סגירה.</td></tr>
+            <tr><td>בקרה קריטית חסרה</td><td>“אין תקציב”</td><td>תקציב הוא החלטת ניהול, אבל סיכון חיים מחייב החלטה מתועדת: עצירה, חלופה זמנית או הסלמה.</td><td>חומרת הסיכון, חלופות, עלות/משאב נדרש והחלטת הנהלה.</td></tr>
+            <tr><td>עבודת קבלן</td><td>“זה קבלן”</td><td>הקבלן מבצע, אך הארגון שולט באתר. נדרשים תיאום, קליטה, היתר, הדרכה ופיקוח.</td><td>קליטת קבלן, היתר עבודה, תדריך, אחראי מלווה ופערים שנמצאו.</td></tr>
+            <tr><td>כמעט תאונה</td><td>“לא נפגע אף אחד”</td><td>Near Miss הוא אות אזהרה. אם לא חוקרים עכשיו, אותו כשל עלול להופיע כתאונה.</td><td>תיאור פוטנציאל הנזק, RCA, CAPA ובדיקת אפקטיביות.</td></tr>
+            <tr><td>טופס חתום</td><td>“חתמנו על פנקס/טופס”</td><td>טופס הוא ראיה לניהול, לא תחליף לבקרה. מפקח יבדוק פער בין הנייר למציאות.</td><td>מי בדק בפועל, מה נבדק, ממצאים, תמונות ופעולות המשך.</td></tr>
+            <tr><td>העברת אחריות</td><td>“הממונה אחראי לזה”</td><td>הממונה מייעץ, מתריע ומתעד. מנהלים מחזיקים בסמכות הביצוע, במשאבים ובאכיפה.</td><td>המלצה מקצועית, התרעה בכתב, החלטת מנהל ומעקב סגירה.</td></tr>
+          </tbody>
+        </table>
       </div>
     </details>
 

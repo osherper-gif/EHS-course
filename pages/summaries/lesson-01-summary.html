@@ -117,7 +117,15 @@
       margin: 0 0 0.45rem;
     }
 
+    .print-header {
+      display: none;
+    }
+
     @media print {
+      @page {
+        margin: 14mm;
+      }
+
       body {
         background: #fff !important;
         color: #111 !important;
@@ -136,8 +144,40 @@
       .read-aloud-panel,
       .read-aloud-fab,
       .accessibility-fab,
+      .theme-toggle,
+      .hamburger,
+      .drawer-toggle,
+      .mobile-menu-toggle,
+      .prototype-menu-button,
+      .summary-quiz-toolbar,
+      .summary-quiz-actions,
+      .summary-quiz-progress,
+      .summary-question-group-count,
+      .summary-feedback,
+      .summary-feedback-box,
+      .summary-option-feedback,
+      .summary-option input,
+      button,
       [data-read-aloud-exclude="true"] .btn {
         display: none !important;
+      }
+
+      .print-header {
+        display: block !important;
+        border-bottom: 1px solid #999;
+        margin: 0 0 1rem;
+        padding: 0 0 0.55rem;
+      }
+
+      .print-header h1 {
+        font-size: 18pt;
+        margin: 0 0 0.25rem;
+      }
+
+      .print-header p {
+        color: #444;
+        font-size: 10pt;
+        margin: 0;
       }
 
       .site-main,
@@ -165,9 +205,52 @@
       .knowledge-card,
       .summary-pocket-card,
       .field-trigger-card,
-      .summary-mini-callout {
+      .summary-mini-callout,
+      .summary-question-card,
+      .summary-question-group,
+      .summary-option,
+      table {
         break-inside: avoid;
         box-shadow: none !important;
+      }
+
+      .prep-question-section {
+        break-before: page;
+      }
+
+      .learning-table,
+      table {
+        border-collapse: collapse !important;
+        table-layout: fixed;
+        width: 100% !important;
+      }
+
+      th,
+      td {
+        overflow-wrap: anywhere;
+        padding: 0.4rem !important;
+        vertical-align: top;
+      }
+
+      .summary-option {
+        background: #fff !important;
+        border: 1px solid #999 !important;
+      }
+
+      .summary-option::before {
+        content: "□";
+        display: inline-block;
+        font-weight: 900;
+        margin-inline-end: 0.45rem;
+      }
+
+      #summaryRelated .btn {
+        background: transparent !important;
+        border: 0 !important;
+        color: #111 !important;
+        display: inline !important;
+        padding: 0 !important;
+        text-decoration: underline !important;
       }
     }
 
@@ -197,6 +280,11 @@
 
     <section class="learning-path-note" data-read-aloud-exclude="true">
       <p>מבוסס על סיכום שיעור 1 שנמסר במסגרת הקורס. הסיכום מיועד ללמידה, חזרה והכנה למבחן; דרישות מחייבות יש לאמת מול הדין, התקנות והגורמים המוסמכים.</p>
+    </section>
+
+    <section class="print-header" aria-hidden="true">
+      <h1>סיכום שיעור 1 — יסודות תורת הבטיחות</h1>
+      <p>גרסת הדפסה — הקישורים זמינים באתר הקורס.</p>
     </section>
 
     <nav class="summary-quick-nav" aria-label="ניווט מהיר בסיכום" data-read-aloud-exclude="true">
