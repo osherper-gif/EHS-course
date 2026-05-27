@@ -267,19 +267,22 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "pending_quality_review",
+      "status": "available",
       "href": "pages/summaries/lesson-07-summary.html",
-      "updatedAt": "2026-05-26"
+      "updatedAt": "2026-05-27",
+      "questionCount": 60
     },
     "questions": {
-      "count": 30,
-      "href": "pages/prep/lesson-07-legal-responsibility.html#prepQuestions"
+      "count": 60,
+      "href": "pages/summaries/lesson-07-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html",
       "pages/knowledge/safety-ordinance.html",
       "pages/knowledge/iso-45001.html",
-      "pages/knowledge/human-factors.html"
+      "pages/knowledge/human-factors.html",
+      "pages/knowledge/loto-ptw.html",
+      "pages/knowledge/process-safety.html"
     ],
     "relatedChecklists": [
       "pages/checklists.html?domain=ISO",
@@ -292,7 +295,7 @@
       "חובת זהירות",
       "ממונה בטיחות"
     ],
-    "lastUpdated": "2026-05-26"
+    "lastUpdated": "2026-05-27"
   },
   {
     "lessonId": "lesson-08",
@@ -336,11 +339,11 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "\u05e1\u05d9\u05db\u05d5\u05dd",
-  "lessonId": "lesson-06",
-  "sessionNumber": 6,
-  "title": "נוסף סיכום שיעור 6 - מדריך שטח והישרדות משפטית לממונה בטיחות כולל 59 שאלות תרגול",
-  "description": "סיכום curated חדש עם חלוקת אחריות סטטוטורית, גבולות תפקיד ממונה בטיחות, תיעוד מגן, קבלנים, גורם אנושי, דף כיס, visual operational layer ובנק שאלות מלא.",
-  "href": "pages/summaries/lesson-06-summary.html",
+  "lessonId": "lesson-07",
+  "sessionNumber": 7,
+  "title": "נוסף סיכום שיעור 7 - תפקיד ממונה הבטיחות, ניהול סיכונים ותיאום קבלנים כולל 60 שאלות תרגול",
+  "description": "סיכום curated חדש עם גבולות אחריות Staff/Line, תיעוד מגן, קבלנים, PTW, LOTO, Near Miss, דף כיס מבצעי, visual operational layer ובנק שאלות מלא.",
+  "href": "pages/summaries/lesson-07-summary.html",
   "updatedAt": "2026-05-27"
 };
   withCourseScope(latestUpdate);
@@ -475,6 +478,16 @@
     "summaryAvailable": true,
     "label": "קיים",
     "questionCount": 59
+  },
+  {
+    "lessonId": "lesson-07",
+    "sessionNumber": 7,
+    "title": "תפקיד ממונה הבטיחות, ניהול סיכונים ותיאום קבלנים",
+    "href": "pages/summaries/lesson-07-summary.html",
+    "updatedAt": "2026-05-27",
+    "summaryAvailable": true,
+    "label": "קיים",
+    "questionCount": 60
   }].map(withCourseScope),
     lessonUpdates: [latestUpdate],
     glossaryAdditions: lessons.flatMap((item) => item.glossaryTerms.map((term) => withCourseScope({ term, category: "????? ?????", lessonId: item.lessonId, href: "pages/glossary.html" }))),

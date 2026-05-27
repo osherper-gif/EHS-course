@@ -41,10 +41,14 @@ const checks = [
     quizId: "lesson-06-summary-practice",
     expectedCount: 59,
   },
+  {
+    page: path.join(repoRoot, "pages", "summaries", "lesson-07-summary.html"),
+    key: "lesson-07-summary-full-practice-source",
+    quizId: "lesson-07-summary-practice",
+    expectedCount: 60,
+  },
 ];
-const pendingQualityPages = [
-  "lesson-07-summary.html",
-].map((file) => path.join(repoRoot, "pages", "summaries", file));
+const pendingQualityPages = [].map((file) => path.join(repoRoot, "pages", "summaries", file));
 
 function fail(message) {
   console.error("[summary-question-count] " + message);

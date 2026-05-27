@@ -1,66 +1,703 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
-  <meta name="description" content="מעטפת סיכום שיעור 07: אחריות משפטית ותפקיד ממונה בטיחות. הסיכום המלא יעלה לאחר עיבוד איכותי של חומר השיעור.">
-  <title>סיכום שיעור 07 — אחריות משפטית ותפקיד ממונה בטיחות</title>
+  <meta name="description" content="סיכום שיעור 7 בקורס ממונה בטיחות: תפקיד ממונה הבטיחות, גבולות אחריות, ניהול סיכונים, הדרכות, תיעוד, קבלנים, LOTO, PTW, Near Miss ובנק שאלות מלא.">
+  <title>סיכום שיעור 7 | תפקיד ממונה הבטיחות, ניהול סיכונים ותיאום קבלנים</title>
   <script src="../../js/ui-mode.js"></script>
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <link rel="stylesheet" href="../../css/summary-stability.css">
+  <style>
+    body.summary-page { overflow-x: hidden; }
+    body.summary-page .site-main,
+    body.summary-page .site-main > *,
+    body.summary-page .page-hero,
+    body.summary-page .page-hero > * {
+      box-sizing: border-box;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    body.summary-page h1,
+    body.summary-page h2,
+    body.summary-page h3,
+    body.summary-page p,
+    body.summary-page li,
+    body.summary-page td,
+    body.summary-page th { overflow-wrap: anywhere; }
+
+    .summary-quick-nav,
+    .summary-zone-divider,
+    .content-accordion[id],
+    #summaryQuestions { scroll-margin-top: 96px; }
+
+    .summary-quick-nav {
+      display: grid;
+      gap: .6rem;
+      grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+      margin: 1rem 0 1.25rem;
+    }
+
+    .summary-quick-nav a {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 999px;
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: .72rem .9rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .summary-zone-divider {
+      background: linear-gradient(90deg, rgba(8, 100, 128, .1), rgba(255,255,255,0));
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      margin: 1.5rem 0 .85rem;
+      padding: .95rem 1rem;
+    }
+
+    .summary-zone-divider p,
+    .field-help {
+      color: var(--proto-muted);
+      margin: .25rem 0 0;
+    }
+
+    .learning-unit-grid,
+    .summary-callout-row,
+    .field-card-grid,
+    .pocket-grid,
+    .legal-grid,
+    .case-grid,
+    .protocol-grid {
+      display: grid;
+      gap: .75rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin: .95rem 0;
+    }
+
+    .learning-unit-card,
+    .summary-mini-callout,
+    .field-card,
+    .pocket-card,
+    .legal-card,
+    .case-card,
+    .protocol-card {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      padding: .9rem;
+    }
+
+    .summary-mini-callout { border-inline-start: 4px solid var(--proto-accent); }
+    .summary-mini-callout[data-callout="legal"] { border-inline-start-color: #5b5bd6; }
+    .summary-mini-callout[data-callout="trap"],
+    .summary-mini-callout[data-callout="stop"] { border-inline-start-color: #a51d2d; }
+    .summary-mini-callout[data-callout="tip"] { border-inline-start-color: #0b7a55; }
+    .summary-mini-callout[data-callout="evidence"] { border-inline-start-color: #b45309; }
+    .callout-label {
+      display: inline-block;
+      font-weight: 900;
+      margin-bottom: .25rem;
+    }
+
+    .learning-unit-card { border-top: 4px solid rgba(8, 100, 128, .55); }
+    .case-card { border-inline-start: 5px solid #b45309; }
+    .legal-card { border-top: 4px solid rgba(93, 63, 211, .5); }
+
+    .learning-unit-card strong,
+    .summary-mini-callout strong,
+    .field-card strong,
+    .pocket-card strong,
+    .legal-card strong,
+    .case-card strong,
+    .protocol-card strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .learning-unit-card span,
+    .field-card span,
+    .pocket-card span,
+    .legal-card span,
+    .case-card span,
+    .protocol-card span {
+      color: var(--proto-muted);
+      display: block;
+      line-height: 1.55;
+    }
+
+    .topic-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin: .85rem 0 0;
+    }
+
+    .topic-tags span {
+      background: rgba(8, 100, 128, .09);
+      border: 1px solid rgba(8, 100, 128, .22);
+      border-radius: 999px;
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: .38rem .65rem;
+    }
+
+    .summary-table {
+      border-collapse: collapse;
+      margin: 1rem 0;
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    .summary-table th,
+    .summary-table td {
+      border: 1px solid var(--proto-border);
+      line-height: 1.55;
+      padding: .72rem;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    .summary-table th { background: rgba(8, 100, 128, .08); }
+    .summary-table tbody tr:nth-child(even) { background: rgba(8, 100, 128, .035); }
+
+    .op-flow-map,
+    .op-decision-tree,
+    .op-field-actions {
+      background: rgba(8, 100, 128, .055);
+      border: 1px solid rgba(8, 100, 128, .22);
+      border-radius: 16px;
+      margin: 1rem 0;
+      padding: 1rem;
+    }
+
+    .op-flow-steps,
+    .op-escalation-map,
+    .op-decision-grid,
+    .op-field-card-grid,
+    .op-emergency-grid {
+      display: grid;
+      gap: .7rem;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: .85rem;
+    }
+
+    .op-flow-step,
+    .op-escalation-step,
+    .op-decision-node,
+    .op-field-action-card,
+    .op-emergency-strip {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      min-width: 0;
+      padding: .9rem;
+    }
+
+    .op-escalation-step.stop,
+    .op-decision-node.yes,
+    .op-field-action-card[data-severity="stop"] { border-color: rgba(165, 29, 45, .5); }
+    .op-field-action-card[data-severity="risk"],
+    .op-decision-node.attention { border-color: rgba(180, 83, 9, .5); }
+    .op-field-action-card[data-severity="attention"] { border-color: rgba(202, 138, 4, .5); }
+    .op-field-action-card[data-severity="info"] { border-color: rgba(8, 100, 128, .35); }
+
+    .op-flow-step strong,
+    .op-escalation-step strong,
+    .op-decision-node strong,
+    .op-emergency-strip strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .op-flow-step span,
+    .op-escalation-step span,
+    .op-decision-node span,
+    .op-emergency-strip span {
+      color: var(--proto-muted);
+      display: block;
+      line-height: 1.55;
+    }
+
+    .summary-practice-divider {
+      background: linear-gradient(135deg, rgba(8, 100, 128, .12), rgba(255,255,255,.5));
+      border: 1px solid rgba(8, 100, 128, .24);
+      border-radius: 18px;
+      margin: 1.5rem 0 1rem;
+      padding: 1.15rem;
+    }
+
+    @media (max-width: 720px) {
+      .summary-quick-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .summary-table { font-size: .92rem; }
+      .summary-table th,
+      .summary-table td { padding: .58rem; }
+    }
+
+    @media print {
+      body { background: #fff !important; color: #111 !important; }
+      .skip-link,
+      .summary-quick-nav,
+      .prototype-topbar,
+      .prototype-sidebar,
+      .prototype-shell-sidebar,
+      .site-nav,
+      .bottom-nav,
+      .read-aloud-floating,
+      .read-aloud-controls,
+      .accessibility-panel,
+      .summary-practice-nav,
+      button,
+      [role="button"] { display: none !important; }
+      .page-hero::before {
+        content: "סיכום שיעור 7 - תפקיד ממונה הבטיחות, ניהול סיכונים ותיאום קבלנים";
+        display: block;
+        font-size: 18pt;
+        font-weight: 900;
+        margin-bottom: .5rem;
+      }
+      .page-hero::after {
+        content: "גרסת הדפסה - הקישורים זמינים באתר הקורס";
+        display: block;
+        font-size: 10pt;
+        margin-top: .5rem;
+      }
+      .content-section,
+      .content-accordion,
+      .summary-card,
+      .learning-unit-card,
+      .field-card,
+      .pocket-card,
+      .legal-card,
+      .case-card,
+      .op-flow-step,
+      .op-escalation-step,
+      .op-field-action-card,
+      .op-emergency-strip,
+      .summary-table { break-inside: avoid; box-shadow: none !important; }
+      a { color: #111 !important; text-decoration: none !important; }
+    }
+  </style>
 </head>
-<body data-page-title="סיכום שיעור 07 — אחריות משפטית ותפקיד ממונה בטיחות" class="auth-protected lms-pro prototype-shell prototype-shell-page">
+<body data-course-id="safety-officer" data-domain-id="safety" data-page-title="סיכום שיעור 7 — תפקיד ממונה הבטיחות, ניהול סיכונים ותיאום קבלנים" class="auth-protected lms-pro prototype-shell prototype-shell-page summary-page">
   <a class="skip-link" href="#main">דלג לתוכן</a>
-  <main id="main" class="site-main prep-page" data-readable-content>
+  <main id="main" class="site-main prep-page" data-course-id="safety-officer" data-domain-id="safety" data-readable-content>
     <section class="page-hero">
       <div>
-        <p class="kicker">Lesson Summary · שיעור 07</p>
-        <h1>סיכום שיעור 07 — אחריות משפטית ותפקיד ממונה בטיחות</h1>
-        <p>סיכום שיעור זה יעלה לאחר עיבוד מלא של חומר השיעור. העמוד נשמר כמסגרת ניווט כדי לא לשבור קישורים קיימים, אך הוא עדיין אינו מסומן כסיכום איכותי מלא.</p>
+        <p class="kicker">סיכום שיעור 7 · Master Bible</p>
+        <h1>תפקיד ממונה הבטיחות, ניהול סיכונים ותיאום קבלנים</h1>
+        <p>שיעור זה מגדיר את ממונה הבטיחות כגורם מקצועי סטטוטורי: לא שוטר קסדות, לא מנהל קו, אלא יועץ סיכונים שמחבר חוק, שטח, הנהלה ותיעוד. המוקד הוא גבולות אחריות, סמכות עצירת עבודה, הדרכות, קבלנים, היתרי עבודה, LOTO, Near Miss וקו הגנה משפטי.</p>
+        <div class="topic-tags" aria-label="תגיות נושא">
+          <span>תקנה 10</span>
+          <span>Staff / Line</span>
+          <span>תיעוד מגן</span>
+          <span>קבלנים</span>
+          <span>PTW</span>
+          <span>LOTO</span>
+          <span>Near Miss</span>
+          <span>Operational Drift</span>
+          <span>ועדת בטיחות</span>
+        </div>
       </div>
     </section>
 
-    <section class="content-section summary-placeholder">
-      <h2>סיכום שיעור זה יעלה לאחר עיבוד מלא של חומר השיעור.</h2>
-      <p>כדי לשמור על איכות הלמידה, סיכומי שיעור אינם נוצרים יותר ב־bulk. כל סיכום ייבנה בנפרד מקובץ המקור, עם דגשי מרצה, קשרים משפטיים, מלכודות מבחן וכל השאלות שמופיעות בקובץ.</p>
-      <div class="knowledge-quick-grid">
-        <article class="summary-card">
-          <h3>סטטוס</h3>
-          <p>ממתין לבקרת איכות ולעיבוד curated.</p>
-        </article>
-        <article class="summary-card">
-          <h3>מה ייכלל בסיכום המלא</h3>
-          <p>מה למדנו בשיעור, דגשי מבחן, טעויות נפוצות, glossary, שאלות מהכיתה, related knowledge וכל שאלות התרגול מהמקור.</p>
-        </article>
-      </div>
-    </section>
+    <nav class="summary-quick-nav" aria-label="ניווט מהיר בסיכום" data-read-aloud-exclude="true">
+      <a href="#summaryUnits">יחידות למידה</a>
+      <a href="#legalFoundation">תשתית משפטית</a>
+      <a href="#roleBoundaries">גבולות תפקיד</a>
+      <a href="#riskSystems">ניהול סיכונים</a>
+      <a href="#contractors">קבלנים והיתרים</a>
+      <a href="#fieldPocket">דף כיס</a>
+      <a href="#caseAnalysis">ניתוחי מקרה</a>
+      <a href="#examFocus">דגשי מבחן</a>
+      <a href="#summaryQuestions">תרגול שאלות</a>
+      <a href="#summaryRelated">קישורים</a>
+    </nav>
 
-    <section class="content-section" data-read-aloud-exclude="true">
+    <section class="content-section" id="summaryUnits">
       <div class="section-heading">
         <div>
-          <p class="kicker">Navigation</p>
-          <h2>קישורים להמשך למידה</h2>
+          <p class="kicker">Learning Units</p>
+          <h2>יחידות למידה</h2>
+        </div>
+      </div>
+      <div class="learning-unit-grid">
+        <article class="learning-unit-card"><strong>1. ממונה בטיחות כגורם מטה</strong><span>מה ההבדל בין ייעוץ מקצועי לבין אחריות ביצועית, ולמה ההבחנה הזו קובעת חשיפה משפטית.</span></article>
+        <article class="learning-unit-card"><strong>2. בסיס חוקי וסמכויות</strong><span>חוק ארגון הפיקוח, פקודת הבטיחות, תקנות הממונים, הדרכות ותוכנית ניהול בטיחות.</span></article>
+        <article class="learning-unit-card"><strong>3. תיעוד, התרעה והגנה משפטית</strong><span>איך ממונה מוכיח שמילא את תפקידו לפני האירוע, ולא מנסה לבנות הגנה בדיעבד.</span></article>
+        <article class="learning-unit-card"><strong>4. קבלנים ועבודות מסוכנות</strong><span>PTW, LOTO, עבודה בגובה, עבודות חמות וחללים מוקפים כמנגנוני שליטה בשטח.</span></article>
+        <article class="learning-unit-card"><strong>5. גורם אנושי ותרבות בטיחות</strong><span>Operational Drift, נרמול חריגה, לחץ ייצור, Near Miss ויכולת הארגון ללמוד לפני אסון.</span></article>
+        <article class="learning-unit-card"><strong>6. תרגול למבחן ולשטח</strong><span>60 שאלות שמחברות דין, אחריות, ניהול, תיעוד ותפעול למקרי שטח אמיתיים.</span></article>
+      </div>
+    </section>
+
+    <section class="content-section" id="executiveSummary">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">תמצית מנהלים</p>
+          <h2>מה למדנו בשיעור</h2>
+        </div>
+      </div>
+      <p>המעבר המרכזי בשיעור הוא מתפיסה תגובתית של בטיחות לתפיסה פרואקטיבית: ממונה הבטיחות אינו רק מזהה ליקויים אחרי שהם קרו, אלא בונה מערכת שמזהה סיכונים מוקדם, מדריכה עובדים, סוגרת פערי כשירות, מחייבת קבלנים, מתעדת החלטות ומסלימה בזמן כאשר דרג הקו אינו פועל.</p>
+      <div class="summary-callout-row">
+        <article class="summary-mini-callout" data-callout="legal"><span class="callout-label">דגש משפטי</span><strong>החובה לבצע נשארת אצל ההנהלה.</strong><p>הממונה מייעץ, מסייע, מתריע ומתעד. מנהלי הקו ותופש המפעל מחזיקים בסמכות הביצוע, המשמעת, התקציב והאכיפה.</p></article>
+        <article class="summary-mini-callout" data-callout="evidence"><span class="callout-label">ראיה ניהולית</span><strong>מה שלא תועד לא קיים.</strong><p>דוח סיור, מייל רשמי, פרוטוקול ועדה, חתימת הדרכה ומעקב CAPA הם קו ההגנה של הארגון ושל הממונה.</p></article>
+        <article class="summary-mini-callout" data-callout="stop"><span class="callout-label">סימן עצירה</span><strong>סכנה מיידית משנה את הכללים.</strong><p>כאשר יש סכנת חיים או בריאות מיידית, ממונה הבטיחות חייב לדרוש עצירת עבודה, לתעד ולהודיע לדרג הניהולי המוסמך.</p></article>
+      </div>
+    </section>
+
+    <section class="content-section" id="legalFoundation">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">תשתית משפטית</p>
+          <h2>החוק כקו הפעלה, לא כרקע תיאורטי</h2>
+        </div>
+      </div>
+      <p>שיעור 7 מחבר בין ארבע שכבות דין: חוק ארגון הפיקוח, פקודת הבטיחות בעבודה, תקנות הממונים ותקנות הדרכת עובדים. יחד הן יוצרות מערכת שבה ההנהלה חייבת למנות, להקצות משאבים, להדריך, לתעד ולנהל סיכונים; והממונה חייב לייעץ, לסייע, לזהות מפגעים, לדרוש תיקון, להפעיל סמכות עצירה כשצריך ולשמור ראיות מקצועיות.</p>
+
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>מקור נורמטיבי</th>
+            <th>מה הוא קובע</th>
+            <th>המשמעות בשטח</th>
+            <th>מה ממונה צריך להחזיק</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="מקור נורמטיבי">חוק ארגון הפיקוח על העבודה</td>
+            <td data-label="מה הוא קובע">מפקחים, מוסדות בטיחות, ועדות, נאמנים וסמכות להתקין תקנות.</td>
+            <td data-label="המשמעות בשטח">זהו מנגנון ה"מי והאיך" של הבטיחות: מי מפקח, מי ממונה, מי מתכנס ומי מדווח.</td>
+            <td data-label="מה ממונה צריך להחזיק">פרטי מפקח אזורי, פרוטוקולי ועדת בטיחות, רשימת נאמנים וסטטוס החלטות.</td>
+          </tr>
+          <tr>
+            <td data-label="מקור נורמטיבי">פקודת הבטיחות בעבודה</td>
+            <td data-label="מה הוא קובע">דרישות פיזיות והנדסיות: מכונות, מתקני הרמה, חללים מוקפים, תנאי גיהות.</td>
+            <td data-label="המשמעות בשטח">הדין בוחן את המתקן בפועל: האם הגידור, הבדיקה והבקרה קיימים ולא רק כתובים.</td>
+            <td data-label="מה ממונה צריך להחזיק">סקרי סיכונים, רשימות מתקנים, תסקירי בודק מוסמך, דוחות ליקויים ומעקב סגירה.</td>
+          </tr>
+          <tr>
+            <td data-label="מקור נורמטיבי">תקנות הממונים, תשנ"ו-1996</td>
+            <td data-label="מה הוא קובע">חובת מינוי, כשירות, היקף תפקידים וסמכות עצירת עבודה.</td>
+            <td data-label="המשמעות בשטח">הממונה הוא יועץ סטטוטורי, אבל במצב סכנה מיידית הוא חייב לפעול מהר וברור.</td>
+            <td data-label="מה ממונה צריך להחזיק">אישור כשירות, כתב מינוי, היקף שעות, תוכנית עבודה וראיות להתרעות.</td>
+          </tr>
+          <tr>
+            <td data-label="מקור נורמטיבי">תקנות מסירת מידע והדרכת עובדים</td>
+            <td data-label="מה הוא קובע">הדרכה בקבלה לעבודה, ריענון שנתי, מסירת סיכונים ותיעוד בפנקס הדרכה.</td>
+            <td data-label="המשמעות בשטח">חתימה ללא הדרכה אמיתית היא ראיה נגד הארגון, לא הגנה עבורו.</td>
+            <td data-label="מה ממונה צריך להחזיק">סילבוסים, חתימות, תעודות כשירות, מטריצת הדרכות ופערים פתוחים.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="roleBoundaries">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">גבולות תפקיד</p>
+          <h2>Staff מול Line: איפה נגמר הייעוץ ואיפה מתחילה האחריות הניהולית</h2>
+        </div>
+      </div>
+      <div class="op-flow-map" aria-labelledby="staffLineTitle">
+        <h3 id="staffLineTitle">מפת ממשקים ארגונית</h3>
+        <div class="op-flow-steps">
+          <article class="op-flow-step"><strong>הנהלה / תופש מפעל</strong><span>מקצה משאבים, מאשר מדיניות, ממנה בעלי תפקידים ונושא באחריות העליונה.</span></article>
+          <article class="op-flow-step"><strong>מנהל עבודה / מנהל קו</strong><span>מנהל את העבודה בפועל, אוכף נהלים, מחלק משימות ומפעיל סמכות משמעת.</span></article>
+          <article class="op-flow-step"><strong>ממונה בטיחות</strong><span>מייעץ, מזהה סיכונים, מדריך, חוקר, מתעד, ממליץ ומסלים כאשר אין טיפול.</span></article>
+          <article class="op-flow-step"><strong>עובדים ונאמני בטיחות</strong><span>מדווחים, מצייתים, מזהים מפגעים ומאפשרים למערכת לראות את השטח בזמן.</span></article>
+        </div>
+      </div>
+
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>בעל תפקיד</th>
+            <th>אחריות מרכזית</th>
+            <th>קו הגנה במקרה אירוע</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-label="בעל תפקיד">תופש מפעל / מנכ"ל</td><td data-label="אחריות מרכזית">אחריות עליונה למשאבים, מינוי ממונה, ועדת בטיחות, תרבות ואכיפה.</td><td data-label="קו הגנה">הוכחה שהקצה משאבים, שמע להמלצות, הפעיל מנהלים וסגר ליקויים.</td></tr>
+          <tr><td data-label="בעל תפקיד">מנהל עבודה / מנהל שטח</td><td data-label="אחריות מרכזית">פיקוח יומיומי, עצירת סיכונים, אכיפת PPE ונהלים, הפעלת קבלנים בשטח.</td><td data-label="קו הגנה">סיורים, הוראות עבודה, אכיפה בפועל, תיקון ליקויים ותיעוד החלטות.</td></tr>
+          <tr><td data-label="בעל תפקיד">ממונה בטיחות</td><td data-label="אחריות מרכזית">ייעוץ מקצועי, סקרי סיכונים, הדרכות, חקירות, התרעות וסמכות עצירה בסכנה מיידית.</td><td data-label="קו הגנה">דוחות כתובים, מיילים, פרוטוקולים, המלצות מקצועיות ומעקב הסלמה.</td></tr>
+          <tr><td data-label="בעל תפקיד">ועדת בטיחות</td><td data-label="אחריות מרכזית">דיון משותף הנהלה-עובדים, המלצות, מעקב תאונות ושיפור תרבות.</td><td data-label="קו הגנה">פרוטוקולים חתומים, החלטות ברורות, אחריות ביצוע ומעקב סגירה.</td></tr>
+          <tr><td data-label="בעל תפקיד">קבלנים</td><td data-label="אחריות מרכזית">בטיחות עובדיהם וציודם, עמידה בהיתרי עבודה ונהלי האתר.</td><td data-label="קו הגנה">הסמכות, ביטוחים, תיאום הנדסי, PTW, אישורי ציוד ופיקוח שטח.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="summary-callout-row">
+        <article class="summary-mini-callout" data-callout="trap"><span class="callout-label">מלכודת מבחן</span><strong>הממונה אינו האחראי העליון לבטיחות.</strong><p>זו תשובה מפתה, אבל שגויה. אחריות הביצוע והמשאבים נשארת אצל תופש המפעל ומנהלי הקו.</p></article>
+        <article class="summary-mini-callout" data-callout="tip"><span class="callout-label">טיפ לממונה</span><strong>דבר בשפת ההנהלה.</strong><p>הצג סיכון כחשיפה פלילית, השבתה, אובדן מוניטין ופגיעה ברציפות עסקית, לא רק כ"ליקוי בטיחות".</p></article>
+      </div>
+    </section>
+
+    <section class="content-section" id="riskSystems">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">ניהול סיכונים מתקדם</p>
+          <h2>מהאירוע הבודד אל הכשל המערכתי</h2>
+        </div>
+      </div>
+      <p>השיעור מדגיש שממונה בטיחות מקצועי אינו מסתפק בשאלה "מי עשה טעות". הוא בוחן אילו תנאים ארגוניים אפשרו לטעות להפוך לאירוע: חוסר תקציב, נוהל לא נאכף, לחץ ייצור, הדרכה פיקטיבית, תיעוד חסר, ציוד לא בדוק או קבלן שלא נקלט כראוי.</p>
+
+      <div class="op-flow-map" aria-labelledby="riskFlowTitle">
+        <h3 id="riskFlowTitle">שרשרת ניהול סיכון: מזיהוי לסגירה</h3>
+        <div class="op-flow-steps">
+          <article class="op-flow-step"><strong>זיהוי מפגע</strong><span>סיור, Near Miss, תלונת עובד, תסקיר או שינוי תהליך.</span></article>
+          <article class="op-flow-step"><strong>הערכת סיכון</strong><span>חומרה, הסתברות, חשיפה, מספר עובדים ויכולת בקרה קיימת.</span></article>
+          <article class="op-flow-step"><strong>הגדרת בקרה</strong><span>סילוק, החלפה, בקרה הנדסית, נוהל, הדרכה, PPE.</span></article>
+          <article class="op-flow-step"><strong>ביצוע ומעקב</strong><span>אחראי, תאריך יעד, ראיית ביצוע וסטטוס פתוח/סגור.</span></article>
+          <article class="op-flow-step"><strong>בדיקת אפקטיביות</strong><span>חזרה לשטח: האם ההתנהגות, הציוד והניהול השתנו בפועל.</span></article>
+        </div>
+      </div>
+
+      <div class="legal-grid">
+        <article class="legal-card"><strong>HAZOP</strong><span>ניתוח צוותי של סטיות בתהליך, מתאים לתעשייה תהליכית וכימית. שואל מה קורה אם יש "יותר מדי", "פחות מדי", "אין", "הפוך".</span></article>
+        <article class="legal-card"><strong>JSA</strong><span>פירוק מטלה בשטח לשלבים: מה עושים, מה הסיכון בכל שלב, ומה הבקרה לפני תחילת העבודה.</span></article>
+        <article class="legal-card"><strong>RCA</strong><span>חקירת שורש לאחר אירוע או כמעט תאונה. המטרה היא לגלות את הכשל המערכתי ולא לעצור בהאשמת העובד.</span></article>
+        <article class="legal-card"><strong>CAPA</strong><span>פעולה מתקנת ומונעת: תיקון המקרה הספציפי ושינוי המערכת כדי שלא יחזור במקום אחר.</span></article>
+      </div>
+
+      <div class="op-decision-tree" aria-labelledby="nearMissDecisionTitle">
+        <h3 id="nearMissDecisionTitle">עץ החלטה: האם זה Near Miss שחייב חקירה?</h3>
+        <div class="op-decision-grid">
+          <article class="op-decision-node yes"><strong>האם הייתה חשיפה ממשית לפגיעה?</strong><span>כן: מתעדים ומתחילים בירור. לא מחכים לפציעה.</span></article>
+          <article class="op-decision-node attention"><strong>האם האירוע חוזר על עצמו?</strong><span>כן: זה כבר דפוס, לא "מקרה". נדרש RCA ומעקב הנהלה.</span></article>
+          <article class="op-decision-node yes"><strong>האם הייתה הצלה במזל?</strong><span>כן: מטפלים כאירוע למידה מרכזי ומפיצים Safety Flash.</span></article>
+          <article class="op-decision-node attention"><strong>האם הבקרה קיימת רק בנייר?</strong><span>כן: יש פער בין נוהל למציאות. זה סיכון משפטי וניהולי.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="contractors">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">קבלנים ועבודות מסוכנות</p>
+          <h2>השטח שבו "זה לא עובד שלי" הופך לטענה מסוכנת</h2>
+        </div>
+      </div>
+      <p>קבלנים הם מוקד סיכון גבוה מפני שהם נכנסים לתוך מערכת קיימת, עם תרבות אחרת, ציוד אחר ולחץ לבצע מהר. מזמין העבודה אינו משתחרר מאחריות כאשר הוא חותם חוזה. הוא חייב לבצע קליטה, תיאום הנדסי, בדיקת כשירויות, היתרי עבודה ופיקוח על ממשקי הסיכון.</p>
+
+      <div class="op-flow-map" aria-labelledby="permitFlowTitle">
+        <h3 id="permitFlowTitle">זרימת היתר עבודה</h3>
+        <div class="op-flow-steps">
+          <article class="op-flow-step"><strong>הגדרת משימה</strong><span>מה עושים, איפה, מי מבצע, מי מנפיק היתר ומה גבולות העבודה.</span></article>
+          <article class="op-flow-step"><strong>JSA נקודתי</strong><span>סיכונים בשטח, ממשקים עם פעילות קיימת, חומרים, אנרגיות וגובה.</span></article>
+          <article class="op-flow-step"><strong>בקרות לפני התחלה</strong><span>LOTO, דיגום גזים, צופה אש, גידור, ציוד חילוץ או במת הרמה.</span></article>
+          <article class="op-flow-step"><strong>חתימה ופיקוח</strong><span>מנפיק ומבצע חותמים, תנאים מוסברים, הפיקוח נשאר פעיל לאורך העבודה.</span></article>
+          <article class="op-flow-step"><strong>סגירת היתר</strong><span>השטח מוחזר למצב בטוח, נעילות מוסרות לפי נוהל, תיעוד נשמר.</span></article>
+        </div>
+      </div>
+
+      <div class="op-field-actions" id="fieldActions" aria-labelledby="fieldActionsTitle">
+        <h3 id="fieldActionsTitle">כרטיסי פעולה מבצעיים</h3>
+        <div class="op-field-card-grid">
+          <article class="op-field-action-card" data-severity="stop">
+            <strong>LOTO לא בוצע בתחזוקת מכונה</strong>
+            <dl class="field-pocket-grid">
+              <div class="field-pocket-cell"><dt>מה הסיכון</dt><dd>הפעלה לא צפויה, לכידה, קטיעה או מוות בזמן טיפול במקור אנרגיה.</dd></div>
+              <div class="field-pocket-cell"><dt>מה עושים</dt><dd>עוצרים את העבודה, מבודדים כל מקור אנרגיה, נועלים ומתייגים אישית.</dd></div>
+              <div class="field-pocket-cell"><dt>מה מתעדים</dt><dd>מספר מכונה, מקור האנרגיה, שמות נועלים, שעה, אחראי ותנאי החזרה לשירות.</dd></div>
+              <div class="field-pocket-cell"><dt>מתי מסלימים</dt><dd>אם מנהל דורש להמשיך או מסתפק ב-E-Stop במקום בידוד פיזי.</dd></div>
+            </dl>
+          </article>
+          <article class="op-field-action-card" data-severity="risk">
+            <strong>קבלן נכנס ללא קליטה מלאה</strong>
+            <dl class="field-pocket-grid">
+              <div class="field-pocket-cell"><dt>מה הסיכון</dt><dd>עובד חיצוני פועל ללא הבנת סיכוני האתר, ממשקי תנועה, חומרים ואנרגיות.</dd></div>
+              <div class="field-pocket-cell"><dt>מה עושים</dt><dd>עוצרים כניסה לעבודה עד הדרכה, אישורי כשירות, תיאום הנדסי והיתר מתאים.</dd></div>
+              <div class="field-pocket-cell"><dt>מה מתעדים</dt><dd>רשימת עובדים, הסמכות, ביטוחים, ציוד, JSA, PTW וחתימות קליטה.</dd></div>
+              <div class="field-pocket-cell"><dt>מתי מסלימים</dt><dd>כאשר הקבלן מתחיל עבודה מסוכנת בלי היתר או מנהל שטח מאשר "בעל פה".</dd></div>
+            </dl>
+          </article>
+          <article class="op-field-action-card" data-severity="stop">
+            <strong>חלל מוקף ללא מערך חילוץ</strong>
+            <dl class="field-pocket-grid">
+              <div class="field-pocket-cell"><dt>מה הסיכון</dt><dd>חנק, הרעלה או מוות כפול כאשר מציל לא מיומן נכנס פנימה.</dd></div>
+              <div class="field-pocket-cell"><dt>מה עושים</dt><dd>אין כניסה ללא דיגום אווירה, אוורור, משגיח, חצובה, כננת ותוכנית חילוץ.</dd></div>
+              <div class="field-pocket-cell"><dt>מה מתעדים</dt><dd>תוצאות מדידה, כיול מד גזים, שמות הנכנסים, משגיח, ציוד חילוץ והיתר.</dd></div>
+              <div class="field-pocket-cell"><dt>מתי מסלימים</dt><dd>כאשר אין משגיח חיצוני או כאשר חילוץ תלוי בכניסה ספונטנית של עובד.</dd></div>
+            </dl>
+          </article>
+          <article class="op-field-action-card" data-severity="attention">
+            <strong>הדרכה חתומה שלא בוצעה בפועל</strong>
+            <dl class="field-pocket-grid">
+              <div class="field-pocket-cell"><dt>מה הסיכון</dt><dd>Paper Safety: מסמך שנראה תקין אך לא יוצר ידע, שליטה או הגנה משפטית.</dd></div>
+              <div class="field-pocket-cell"><dt>מה עושים</dt><dd>בודקים הבנה בשטח, מתקנים את התהליך ומבצעים הדרכה חוזרת אמיתית.</dd></div>
+              <div class="field-pocket-cell"><dt>מה מתעדים</dt><dd>נושא, מדריך, משתתפים, שאלות הבנה, חתימות והפער שנמצא.</dd></div>
+              <div class="field-pocket-cell"><dt>מתי מסלימים</dt><dd>כאשר יש חתימות פיקטיביות או דרישה ניהולית "להחתים ולשחרר".</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="fieldPocket">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">דף כיס מבצעי</p>
+          <h2>מה ממונה בטיחות עושה בשבוע הראשון ובסיור הראשון</h2>
+        </div>
+      </div>
+      <div class="pocket-grid">
+        <article class="pocket-card"><strong>מה לבדוק מיד</strong><span>כתב מינוי, אישור כשירות, היקף שעות, סקר סיכונים, תוכנית בטיחות, פנקס הדרכה, ועדת בטיחות, נאמנים, תסקירים ותיק קבלנים.</span></article>
+        <article class="pocket-card"><strong>מה לשאול מנהל שטח</strong><span>מה הסיכון המרכזי היום, מי עובד לבד, איזה קבלן נכנס, איפה יש עבודה חמה, איפה יש LOTO פתוח ומה הליקוי שלא נסגר.</span></article>
+        <article class="pocket-card"><strong>מה חייב להופיע בדוח</strong><span>תיאור פיזי, מיקום, תמונה אם אפשר, מקור חוקי, חומרה, פתרון מומלץ, אחראי, תאריך יעד, העתק לדרג מתאים.</span></article>
+        <article class="pocket-card"><strong>מתי להסלים</strong><span>סכנה מיידית, סירוב מנהל לתקן, קבלן ללא היתר, חתימות פיקטיביות, ליקוי חוזר, ציוד הרמה/בלמים/חשמל עם כשל מציל חיים.</span></article>
+      </div>
+
+      <div class="op-decision-tree" aria-labelledby="stopDecisionTitle">
+        <h3 id="stopDecisionTitle">עץ החלטה: האם לעצור עבודה עכשיו?</h3>
+        <div class="op-decision-grid">
+          <article class="op-decision-node yes"><strong>סכנת חיים מיידית?</strong><span>כן: עוצרים, מרחיקים חשיפה ומודיעים לתופש המפעל או מנהל העבודה.</span></article>
+          <article class="op-decision-node yes"><strong>בקרה מצילת חיים חסרה?</strong><span>LOTO, גידור מכונה, הגנת נפילה או דיגום גזים חסרים = עצירה עד תיקון.</span></article>
+          <article class="op-decision-node attention"><strong>האם יש רק פער תיעודי?</strong><span>מסלימים לתיקון מהיר, אבל בוחנים אם הפער מייצג סיכון בפועל.</span></article>
+          <article class="op-decision-node attention"><strong>האם מנהל מתנגד?</strong><span>מוציאים התרעה כתובה, מעתיקים להנהלה ומגדירים השלכות.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="caseAnalysis">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">ניתוחי מקרה</p>
+          <h2>כאשר פער קטן הופך לכתב אישום</h2>
+        </div>
+      </div>
+      <div class="case-grid">
+        <article class="case-card">
+          <strong>עקיפת מגן מכונה במסוע</strong>
+          <dl>
+            <dt>מה כשל</dt><dd>עובדים עקפו מיקרוסוויץ' כדי לא לעצור ייצור, והחריגה הפכה לנורמה.</dd>
+            <dt>כשל ניהולי</dt><dd>מנהלים ראו, ידעו ושתקו משום שהייצור המשיך.</dd>
+            <dt>מה ממונה לומד</dt><dd>תיעוד מוקדם של עקיפת הגנה ודרישה לבקרה הנדסית קבועה הם קו ההגנה היחיד.</dd>
+          </dl>
+        </article>
+        <article class="case-card">
+          <strong>קבלן בחלל מוקף</strong>
+          <dl>
+            <dt>מה כשל</dt><dd>כניסה ללא PTW, ללא דיגום גזים, ללא משגיח וללא מערך חילוץ.</dd>
+            <dt>כשל ניהולי</dt><dd>האתר נתן לקבלן לעבוד כאילו הוא "בעיה חיצונית".</dd>
+            <dt>מה ממונה לומד</dt><dd>קבלן הוא חלק ממערכת הסיכון של האתר; אין כניסה לעבודה מסוכנת בלי היתר ותוכנית חילוץ.</dd>
+          </dl>
+        </article>
+        <article class="case-card">
+          <strong>בלמים פגומים במלגזה</strong>
+          <dl>
+            <dt>מה כשל</dt><dd>כשל מציל חיים היה ידוע, אך הטיפול נשאר בעל פה.</dd>
+            <dt>כשל ניהולי</dt><dd>מנהל לוגיסטיקה המשיך להפעיל ציוד מסוכן כדי לא לעצור תפעול.</dd>
+            <dt>מה ממונה לומד</dt><dd>כאשר הסיכון מיידי, אי-הפעלת סמכות עצירה עלולה לחשוף גם את הממונה.</dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="examFocus">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">דגשי מבחן</p>
+          <h2>מלכודות נפוצות ותשובות מקצועיות</h2>
+        </div>
+      </div>
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>הטעות הקלאסית</th>
+            <th>למה היא שגויה</th>
+            <th>התשובה המקצועית</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-label="הטעות הקלאסית">"הממונה אחראי העליון לבטיחות"</td><td data-label="למה היא שגויה">זה מערבב בין Staff לבין Line ומעביר אחריות מהדרג המנהל ליועץ.</td><td data-label="התשובה המקצועית">תופש המפעל ומנהלי הקו אחראים לביצוע; הממונה מייעץ, מתריע, מתעד ומסלים.</td></tr>
+          <tr><td data-label="הטעות הקלאסית">"הדרכה בעל פה מספיקה"</td><td data-label="למה היא שגויה">ללא תיעוד, חתימה ותוכן הדרכה, קשה להוכיח שהמידע נמסר והובן.</td><td data-label="התשובה המקצועית">פנקס הדרכה עם נושאים, תאריך, מדריך, משתתפים וחתימות.</td></tr>
+          <tr><td data-label="הטעות הקלאסית">"E-Stop הוא LOTO"</td><td data-label="למה היא שגויה">עצירת חירום אינה בידוד פיזי של מקור אנרגיה ואינה מונעת הפעלה עקב כשל.</td><td data-label="התשובה המקצועית">בידוד אנרגיה, נעילה אישית, תג זיהוי ואימות אפס אנרגיה.</td></tr>
+          <tr><td data-label="הטעות הקלאסית">"קבלן אחראי לעצמו"</td><td data-label="למה היא שגויה">מזמין העבודה שולט באתר ובממשקי הסיכון.</td><td data-label="התשובה המקצועית">קליטה, תיאום, PTW, בדיקת כשירות ופיקוח על עבודות מסוכנות.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <details class="content-accordion" id="summaryGlossary" open>
+      <summary>מילון מונחים</summary>
+      <div class="summary-grid">
+        <article class="summary-card"><h3>Staff</h3><p>פונקציית מטה מייעצת: ממונה בטיחות, יועץ משפטי או משאבי אנוש. אין לה סמכות פיקודית ישירה על העובדים.</p></article>
+        <article class="summary-card"><h3>Line</h3><p>שרשרת הפיקוד הביצועית: מנהל עבודה, מנהל משמרת, מנהל מפעל והנהלה.</p></article>
+        <article class="summary-card"><h3>Operational Drift</h3><p>סחיפה איטית שבה השטח מתרחק מהנוהל הבטוח עד שקיצור הדרך נראה רגיל.</p></article>
+        <article class="summary-card"><h3>Near Miss</h3><p>אירוע שכמעט הסתיים בפגיעה ורק מזל, מרחק או זמן מנעו נזק.</p></article>
+        <article class="summary-card"><h3>LOTO</h3><p>נעילה ותיוג של מקורות אנרגיה לפני תחזוקה או תיקון.</p></article>
+        <article class="summary-card"><h3>PTW</h3><p>היתר עבודה לעבודות מסוכנות: עבודה חמה, גובה, חלל מוקף, חשמל או קבלנים.</p></article>
+      </div>
+    </details>
+
+    <details class="content-accordion" id="questionsFromClass" open>
+      <summary>שאלות שעלו מהשיעור</summary>
+      <div class="summary-grid">
+        <article class="summary-card"><h3>האם ממונה רשאי לקנוס עובד?</h3><p>לא. ענישה ומשמעת הן סמכות Line. הממונה מתעד, מתריע ומעביר למנהל המוסמך.</p></article>
+        <article class="summary-card"><h3>מה אם ההנהלה מתעלמת?</h3><p>מוציאים התרעה כתובה, מגדירים סיכון, מקור חוקי, פתרון ותאריך יעד, ומסלימים לדרג בכיר יותר.</p></article>
+        <article class="summary-card"><h3>האם קבלן פוטר את המפעל מאחריות?</h3><p>לא. הקבלן אחראי לעובדיו, אך מזמין העבודה אחראי לממשקי האתר, לתיאום ולפיקוח על עבודות מסוכנות.</p></article>
+      </div>
+    </details>
+
+    <details class="content-accordion" id="keyTakeaways" open>
+      <summary>עיקרי הדברים</summary>
+      <ul>
+        <li>ממונה בטיחות הוא יועץ מקצועי סטטוטורי, לא מנהל קו ולא שוטר משמעת.</li>
+        <li>סכנה מיידית מחייבת עצירת חשיפה, תיעוד והסלמה לדרג בעל סמכות.</li>
+        <li>הדרכה, PTW, LOTO וסקרי סיכונים מגינים רק כאשר הם קיימים בשטח ולא רק בנייר.</li>
+        <li>קבלנים הם חלק ממערכת הסיכון של האתר; "זה לא עובד שלי" אינה הגנה מספקת.</li>
+        <li>Near Miss הוא חומר גלם לניהול סיכונים. ארגון שלא לומד מכמעט תאונה ממתין לתאונה.</li>
+      </ul>
+    </details>
+
+    <section class="summary-practice-divider" id="summaryQuestions" data-read-aloud-exclude="true">
+      <p class="kicker">תרגול</p>
+      <h2>שאלות אמריקאיות לתרגול</h2>
+      <p>60 שאלות תרגול מתוך סיכום השיעור. ההתקדמות נשמרת בדפדפן בלבד. מומלץ לקרוא קודם את דף הכיס, גבולות התפקיד ודגשי המבחן.</p>
+    </section>
+
+    <section
+      id="summaryQuizApp"
+      class="summary-quiz-app"
+      data-summary-quiz="lesson-07-summary-practice"
+      data-summary-quiz-source="lesson-07-summary-full-practice-source"
+      data-source-question-count="60"
+      data-read-aloud-exclude="true">
+      <p>טוען שאלות תרגול...</p>
+    </section>
+
+    <section class="content-section" id="summaryRelated" data-read-aloud-exclude="true">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">Related Learning</p>
+          <h2>קישורים קשורים</h2>
         </div>
       </div>
       <div class="related-links">
-        <a class="btn" href="../prep/lesson-07-legal-responsibility.html">הכנה לשיעור</a>
+        <a class="btn" href="../prep/lesson-07-legal-responsibility.html">הכנה לשיעור 7</a>
         <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
         <a class="btn secondary" href="../summaries.html">כל הסיכומים</a>
-        <a class="btn secondary" href="../knowledge/labor-inspection-law.html">labor-inspection-law</a>
-        <a class="btn secondary" href="../knowledge/safety-ordinance.html">safety-ordinance</a>
-        <a class="btn secondary" href="../knowledge/iso-45001.html">iso-45001</a>
-        <a class="btn secondary" href="../knowledge/human-factors.html">human-factors</a>
-        <a class="btn secondary" href="../checklists.html?domain=ISO">Checklist ISO</a>
-        <a class="btn secondary" href="../checklists.html?domain=Contractors">Checklist Contractors</a>
-        <a class="btn secondary" href="../checklists.html?domain=PPE">Checklist PPE</a>
-        <a class="btn secondary" href="../glossary.html">Glossary</a>
+        <a class="btn secondary" href="../knowledge/labor-inspection-law.html">חוק ארגון הפיקוח</a>
+        <a class="btn secondary" href="../knowledge/safety-ordinance.html">פקודת הבטיחות</a>
+        <a class="btn secondary" href="../knowledge/iso-45001.html">ISO 45001</a>
+        <a class="btn secondary" href="../knowledge/human-factors.html">גורם אנושי</a>
+        <a class="btn secondary" href="../knowledge/loto-ptw.html">LOTO / PTW</a>
+        <a class="btn secondary" href="../checklists.html?domain=Contractors">Checklist קבלנים</a>
+        <a class="btn secondary" href="../templates.html">Templates</a>
+        <a class="btn secondary" href="../glossary.html">מילון מונחים</a>
       </div>
     </section>
   </main>
 
   <script src="../../js/prototype-shell.js"></script>
   <script src="../../js/read-aloud.js"></script>
+  <script src="../../data/summary-questions-map.js"></script>
+  <script src="../../js/summary-stability.js"></script>
+  <script src="../../js/summary-quiz.js"></script>
   <script type="module" src="../../js/auth.js"></script>
   <script src="../../js/accessibility.js"></script>
 </body>
