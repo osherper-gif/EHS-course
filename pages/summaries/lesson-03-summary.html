@@ -1,62 +1,525 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
-  <meta name="description" content="מעטפת סיכום שיעור 03: גורמים במערך הבטיחות ואחריות תפעולית. הסיכום המלא יעלה לאחר עיבוד איכותי של חומר השיעור.">
-  <title>סיכום שיעור 03 — גורמים במערך הבטיחות ואחריות תפעולית</title>
+  <meta name="description" content="סיכום שיעור 3 בקורס ממונה בטיחות: גורמים במערך הבטיחות, אחריות תפעולית, ועדות ונאמנים, תרבות בטיחות, Near Miss, RCA, בנייה, צווים, PDCA ו-60 שאלות תרגול.">
+  <title>סיכום שיעור 3 | גורמים במערך הבטיחות ואחריות תפעולית</title>
   <script src="../../js/ui-mode.js"></script>
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <style>
+    .summary-quick-nav,
+    .summary-zone-divider,
+    .content-accordion[id] {
+      scroll-margin-top: 96px;
+    }
+
+    .summary-quick-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.6rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .summary-quick-nav a {
+      border: 1px solid var(--proto-border);
+      border-radius: 999px;
+      background: var(--proto-surface);
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: 0.72rem 0.9rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .summary-zone-divider {
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      margin: 1.5rem 0 0.85rem;
+      padding: 0.95rem 1rem;
+      background: linear-gradient(90deg, rgba(8, 100, 128, 0.1), rgba(255, 255, 255, 0));
+    }
+
+    .summary-zone-divider p {
+      margin: 0.25rem 0 0;
+      color: var(--proto-muted);
+    }
+
+    .summary-callout-row,
+    .field-card-grid,
+    .responsibility-grid,
+    .pocket-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin: 0.95rem 0;
+    }
+
+    .summary-mini-callout,
+    .field-card,
+    .responsibility-card,
+    .pocket-card {
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      background: var(--proto-surface);
+      padding: 0.9rem;
+    }
+
+    .summary-mini-callout {
+      border-inline-start: 4px solid var(--proto-accent);
+    }
+
+    .summary-mini-callout strong,
+    .field-card strong,
+    .pocket-card strong {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .flowchart {
+      display: grid;
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: minmax(160px, 0.75fr) minmax(0, 1.25fr);
+      gap: 0.8rem;
+      align-items: stretch;
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      background: var(--proto-surface);
+      padding: 0.9rem;
+      position: relative;
+    }
+
+    .flow-step::after {
+      content: "↓";
+      position: absolute;
+      inset-block-end: -1.05rem;
+      inset-inline-start: 50%;
+      transform: translateX(-50%);
+      color: var(--proto-muted);
+      font-weight: 900;
+    }
+
+    .flow-step:last-child::after {
+      display: none;
+    }
+
+    .flow-step h3 {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(8, 100, 128, 0.1);
+      text-align: center;
+    }
+
+    .process-ladder {
+      display: grid;
+      gap: 0.7rem;
+      margin: 1rem 0;
+    }
+
+    .process-ladder span {
+      border: 1px solid rgba(8, 100, 128, 0.22);
+      border-radius: 12px;
+      background: rgba(8, 100, 128, 0.07);
+      padding: 0.75rem 0.9rem;
+      font-weight: 800;
+    }
+
+    .summary-practice-divider {
+      border: 1px solid rgba(8, 100, 128, 0.28);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(8, 100, 128, 0.13), rgba(8, 100, 128, 0.04));
+      box-shadow: 0 14px 34px rgba(16, 36, 54, 0.08);
+      margin: 2rem 0 1.15rem;
+      padding: 1.15rem;
+    }
+
+    @media (max-width: 720px) {
+      .summary-quick-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .summary-quick-nav a {
+        border-radius: 12px;
+        font-size: 0.92rem;
+        min-width: 0;
+      }
+
+      .flow-step {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body data-page-title="סיכום שיעור 03 — גורמים במערך הבטיחות ואחריות תפעולית" class="auth-protected lms-pro prototype-shell prototype-shell-page">
+<body data-page-title="סיכום שיעור 3" class="auth-protected lms-pro prototype-shell prototype-shell-page summary-page">
   <a class="skip-link" href="#main">דלג לתוכן</a>
   <main id="main" class="site-main prep-page" data-readable-content>
-    <section class="page-hero">
+    <section class="page-hero summary-hero">
       <div>
-        <p class="kicker">Lesson Summary · שיעור 03</p>
-        <h1>סיכום שיעור 03 — גורמים במערך הבטיחות ואחריות תפעולית</h1>
-        <p>סיכום שיעור זה יעלה לאחר עיבוד מלא של חומר השיעור. העמוד נשמר כמסגרת ניווט כדי לא לשבור קישורים קיימים, אך הוא עדיין אינו מסומן כסיכום איכותי מלא.</p>
+        <p class="kicker">Lesson Summary · שיעור 3</p>
+        <h1>סיכום שיעור 3 — גורמים במערך הבטיחות, אחריות תפעולית ומערכות ניהול</h1>
+        <p>סיכום כיתה מעובד ומכוון שטח: מי אחראי למה במערך הבטיחות, איך נבנית שרשרת אחריות אמיתית, כיצד ועדות ונאמנים משתלבים, איך מנתחים Near Miss ותאונות, ומה ממונה בטיחות צריך לתעד כדי להפוך ידע מקצועי להגנה בפועל.</p>
       </div>
     </section>
 
-    <section class="content-section summary-placeholder">
-      <h2>סיכום שיעור זה יעלה לאחר עיבוד מלא של חומר השיעור.</h2>
-      <p>כדי לשמור על איכות הלמידה, סיכומי שיעור אינם נוצרים יותר ב־bulk. כל סיכום ייבנה בנפרד מקובץ המקור, עם דגשי מרצה, קשרים משפטיים, מלכודות מבחן וכל השאלות שמופיעות בקובץ.</p>
-      <div class="knowledge-quick-grid">
-        <article class="summary-card">
-          <h3>סטטוס</h3>
-          <p>ממתין לבקרת איכות ולעיבוד curated.</p>
-        </article>
-        <article class="summary-card">
-          <h3>מה ייכלל בסיכום המלא</h3>
-          <p>מה למדנו בשיעור, דגשי מבחן, טעויות נפוצות, glossary, שאלות מהכיתה, related knowledge וכל שאלות התרגול מהמקור.</p>
-        </article>
-      </div>
+    <section class="learning-path-note" data-read-aloud-exclude="true">
+      <p>מבוסס על סיכום שיעור 3 שנמסר במסגרת הקורס. הסיכום מיועד ללמידה, תרגול והכנה לעבודת שטח; דרישות מחייבות יש לאמת מול הדין, התקנות והגורמים המוסמכים.</p>
     </section>
 
-    <section class="content-section" data-read-aloud-exclude="true">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">Navigation</p>
-          <h2>קישורים להמשך למידה</h2>
+    <nav class="summary-quick-nav" aria-label="ניווט מהיר בסיכום" data-read-aloud-exclude="true">
+      <a href="#summaryIntro">מבוא</a>
+      <a href="#summaryField">שטח</a>
+      <a href="#summaryResponsibility">אחריות</a>
+      <a href="#summaryControls">בקרה</a>
+      <a href="#summaryQuestions">תרגול</a>
+      <a href="#summaryPocket">דף כיס</a>
+      <a href="#summaryRelated">קישורים</a>
+    </nav>
+
+    <section id="summaryIntro" class="summary-zone-divider">
+      <strong>Theory · מבנה המערכת</strong>
+      <p>כאן נבנית התמונה הרחבה: בטיחות אינה אדם אחד, אלא מערכת סמכויות, אחריות, תרבות, פיקוח ולמידה.</p>
+    </section>
+
+    <details class="content-accordion" open>
+      <summary>מה למדנו בשיעור</summary>
+      <div>
+        <p>השיעור התמקד במעבר מחשיבה של “מי אשם” לחשיבה מערכתית: תאונה אינה מתחילה ברגע הפגיעה, אלא בהחלטות הנהלה, תקציב, הדרכה, פיקוח, תרבות עבודה, קבלנים, ועדות, נאמני בטיחות ותיעוד. העובד בקצה הוא לרוב החוליה האחרונה בשרשרת ארוכה של בקרה או כשל.</p>
+        <div class="knowledge-quick-grid">
+          <article class="knowledge-card"><h3>מערכת ולא אדם יחיד</h3><p>המעסיק ותופש המקום אחראים ליצירת מערך, מנהלי השטח מיישמים ומפקחים, והממונה מייעץ, מתעד ומתריע.</p></article>
+          <article class="knowledge-card"><h3>תרבות בטיחות</h3><p>התרבות האמיתית נמדדת כשאין מפקח ליד העובד: האם מדווחים על מפגעים, האם מתקנים, והאם קיצור דרך הופך לנורמה.</p></article>
+          <article class="knowledge-card"><h3>למידה מאירועים</h3><p>Near Miss, מקרה מסוכן ותחקיר RCA הם מנגנון למידה. ארגון שלא חוקר כמעט תאונות יפגוש את אותו כשל כתאונה.</p></article>
         </div>
       </div>
-      <div class="related-links">
-        <a class="btn" href="../prep/lesson-03-labor-inspection-law.html">הכנה לשיעור</a>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Executive Summary</summary>
+      <div>
+        <p>מערך בטיחות אפקטיבי הוא מערכת ניהולית מלאה: מדיניות, תקציב, תפקידים, ועדות, נאמנים, מנהלים, עובדים, קבלנים, פיקוח, תחקירים ושיפור מתמיד. מינוי ממונה בטיחות אינו העברת אחריות, אלא כלי מקצועי שמסייע למעסיק ולמנהלים לממש את חובתם.</p>
+        <p>המסר המרכזי של השיעור הוא שאחריות בטיחותית חייבת להיות מתורגמת ליישום: מי מבצע סיור, מי סוגר ליקוי, מי בודק שהפתרון עובד, מי מתעד, ומי מציף להנהלה כאשר משאב או החלטה ניהולית מייצרים סיכון.</p>
+        <p>במבחן ובשטח חשוב לזהות מלכודות: “יש ממונה ולכן המנהל פטור”, “אין תאונות ולכן בטוח”, “הקבלן חתום ולכן זו אחריותו בלבד”, או “כמעט תאונה לא מעניינת כי לא נפגע איש”. כולן טעויות ניהוליות ומשפטיות.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>מושגים מרכזיים</summary>
+      <div>
+        <table class="learning-table">
+          <thead><tr><th>מושג</th><th>משמעות מקצועית</th><th>מה בודקים בשטח</th></tr></thead>
+          <tbody>
+            <tr><td>מערך בטיחות</td><td>מערכת משולבת של תפקידים, תהליכים, פיקוח, הדרכה ותיעוד.</td><td>האם יש בעל אחריות לכל ליקוי ולכל פעולה מתקנת.</td></tr>
+            <tr><td>ועדת בטיחות</td><td>גוף פריטטי של הנהלה ועובדים למעקב, המלצה ושיפור.</td><td>פרוטוקולים, החלטות, אחראים ולוחות זמנים לסגירה.</td></tr>
+            <tr><td>נאמן בטיחות</td><td>עובד המהווה עיניים ואוזניים בשטח ומעודד דיווח.</td><td>האם יש ערוץ דיווח אפקטיבי והאם העובדים מקבלים משוב.</td></tr>
+            <tr><td>Near Miss</td><td>אירוע כמעט תאונה עם פוטנציאל נזק שלא התממש.</td><td>האם האירוע נחקר, תועד והוביל ל-CAPA.</td></tr>
+            <tr><td>RCA</td><td>ניתוח גורמי שורש ולא רק סימפטום.</td><td>האם התחקיר הגיע למדיניות, הדרכה, פיקוח ומשאבים.</td></tr>
+            <tr><td>MoC</td><td>ניהול שינוי לפני שינוי חומר, ציוד, תהליך או ארגון.</td><td>האם בוצעה הערכת סיכונים לפני ההפעלה.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>דגשי מרצה</summary>
+      <div>
+        <div class="summary-callout-row">
+          <article class="summary-mini-callout"><strong>⚠️ מלכודת</strong><p>ממונה בטיחות אינו “מנהל הבטיחות במקום ההנהלה”. הוא מייעץ ומתריע; סמכות ביצוע ומשאבים נשארים אצל המעסיק והמנהלים.</p></article>
+          <article class="summary-mini-callout"><strong>✅ טיפ</strong><p>כל המלצה מקצועית צריכה להפוך לפריט מעקב: מה הליקוי, מה הפעולה, מי אחראי, עד מתי, ואיך נבדקת אפקטיביות.</p></article>
+          <article class="summary-mini-callout"><strong>📋 מה לבדוק</strong><p>לא רק האם יש פרוטוקול ועדה, אלא האם החלטות הוועדה באמת נסגרו בשטח.</p></article>
+          <article class="summary-mini-callout"><strong>⚖️ דגש משפטי</strong><p>הטענה “לא ידעתי” נחלשת כאשר היה מנגנון דיווח שלא הופעל או כאשר היו סימני אזהרה שהוזנחו.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <section id="summaryResponsibility" class="summary-zone-divider">
+      <strong>Responsibility · אחריות וסמכויות</strong>
+      <p>מקטע זה מפריד בין אחריות משפטית, סמכות ניהולית, ייעוץ מקצועי, נציגות עובדים ורגולציה.</p>
+    </section>
+
+    <details class="content-accordion" open>
+      <summary>מפת מערך הבטיחות — מי עושה מה</summary>
+      <div>
+        <div class="flowchart" aria-label="זרימת מערך הבטיחות">
+          <article class="flow-step"><h3>מעסיק / תופש מקום</h3><p>אחריות כוללת, משאבים, מדיניות, מינוי בעלי תפקידים, פיקוח עליון ותרבות ארגונית.</p></article>
+          <article class="flow-step"><h3>הנהלה בכירה</h3><p>תקציב, KPI, סדרי עדיפויות, ניהול שינוי, אכיפה ניהולית וסגירת פערים מערכתיים.</p></article>
+          <article class="flow-step"><h3>מנהלי שטח</h3><p>יישום יומיומי, הדרכה בפועל, עצירת חשיפה, פיקוח ישיר וסגירת ליקויים.</p></article>
+          <article class="flow-step"><h3>ממונה בטיחות</h3><p>ייעוץ מקצועי, סקרי סיכונים, התרעות בכתב, מעקב CAPA, ועדות וקשר עם רגולטור.</p></article>
+          <article class="flow-step"><h3>ועדה ונאמנים</h3><p>שיתוף עובדים, הצפת מפגעים, מעקב החלטות, בניית אמון ותרבות דיווח.</p></article>
+          <article class="flow-step"><h3>עובדים וקבלנים</h3><p>ציות, דיווח, שימוש בבקרות, עבודה לפי היתר והימנעות מעקיפת הגנות.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>טבלת אחריות וסמכויות</summary>
+      <div>
+        <table class="learning-table">
+          <thead><tr><th>גורם</th><th>אחריות מרכזית</th><th>סמכות / מגבלה</th><th>מסמך קריטי</th></tr></thead>
+          <tbody>
+            <tr><td>מעסיק / תופש מקום</td><td>אחריות עליונה לבטיחות העובדים והמתקנים.</td><td>אינו יכול להעביר אחריות על ידי מינוי ממונה.</td><td>תוכנית בטיחות, תקציב, החלטות הנהלה.</td></tr>
+            <tr><td>מנהל שטח</td><td>יישום, פיקוח, הדרכה ואכיפה יומיומית.</td><td>חייב לעצור סיכון גם מול לחץ תפוקות.</td><td>יומן סיורים, הוראות עבודה, היתרים.</td></tr>
+            <tr><td>ממונה בטיחות</td><td>ייעוץ, זיהוי סיכונים, התרעה ותיעוד.</td><td>אינו שוטר, אינו מנהל קו ואינו מחליף הנהלה.</td><td>דוח סיור, התרעה בכתב, מעקב CAPA.</td></tr>
+            <tr><td>ועדת בטיחות</td><td>דיון, המלצות, מעקב ליקויים ושיתוף עובדים.</td><td>הוועדה אינה פוטרת מנהלים מביצוע.</td><td>פרוטוקול עם אחראי ומועד סגירה.</td></tr>
+            <tr><td>נאמן בטיחות</td><td>דיווח מפגעים, הסברה וחיבור לשטח.</td><td>אין סמכות אכיפה של מפקח עבודה.</td><td>דיווח מפגע / Near Miss.</td></tr>
+            <tr><td>מפקח עבודה</td><td>ביקורת, דרישת מסמכים, צווים וחקירה.</td><td>רגולטור חיצוני, לא מנהל הבטיחות של הארגון.</td><td>צו בטיחות, צו שיפור, פרוטוקול ביקורת.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>קשר חוק / תקנה / יישום</summary>
+      <div>
+        <div class="process-ladder">
+          <span>חוק ופקודה — קובעים חובות, סמכויות ואחריות.</span>
+          <span>תקנות — מתרגמות את החובה להוראות ספציפיות: ועדות, ממונים, בנייה, ציוד, צווים.</span>
+          <span>תוכנית בטיחות ונהלים — הופכים דין למנגנון ארגוני.</span>
+          <span>פיקוח ותיעוד — מוכיחים שהמנגנון פעל ולא נשאר על הנייר.</span>
+          <span>תחקיר ואפקטיביות — סוגרים את הלולאה ומונעים הישנות.</span>
+        </div>
+      </div>
+    </details>
+
+    <section id="summaryControls" class="summary-zone-divider">
+      <strong>Control · בקרה, תחקיר ושיפור</strong>
+      <p>המטרה אינה רק לזהות מפגע, אלא לבנות מנגנון שמונע חזרה של הכשל.</p>
+    </section>
+
+    <details class="content-accordion" open>
+      <summary>Near Miss, מקרה מסוכן ו-RCA</summary>
+      <div>
+        <p>כמעט תאונה היא הזדמנות למידה לפני פגיעה. מקרה מסוכן הוא אירוע חמור המוגדר בדין ומחייב דיווח גם ללא נפגע. בשניהם השאלה המקצועית אינה “מי טעה”, אלא איזה מחסום חסר או כשל.</p>
+        <div class="flowchart" aria-label="זרימת תחקיר אירוע">
+          <article class="flow-step"><h3>אירוע / Near Miss</h3><p>תיעוד מיידי של מה קרה, מי נחשף, איזה מפגע היה ומה היה עלול להיגרם.</p></article>
+          <article class="flow-step"><h3>איסוף ראיות</h3><p>תמונות, עדויות, מסמכים, היתרים, הדרכות, תסקירים, נהלים ונתוני תחזוקה.</p></article>
+          <article class="flow-step"><h3>RCA</h3><p>מעבר מסימפטום לשורש: תקציב, הדרכה, פיקוח, תרבות, שינוי, תכנון או בקרה הנדסית.</p></article>
+          <article class="flow-step"><h3>CAPA</h3><p>פעולה מתקנת ומונעת עם אחראי, תאריך יעד, משאב ומדד הצלחה.</p></article>
+          <article class="flow-step"><h3>בדיקת אפקטיביות</h3><p>חזרה לשטח לאחר זמן כדי לוודא שהכשל לא חוזר והבקרה באמת עובדת.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Case Study — קריסת פיגום</summary>
+      <div>
+        <p>האירוע המתואר בקובץ המקור מדגים כשל מערכתי: עומס חריג הונח על פיגום ללא אישור מהנדס, מנהל עבודה חתם “תקין” בלי בדיקה ממשית, והארגון פעל תחת לחץ תפוקות. העובדה שלא היו נפגעים אינה הופכת את האירוע לפחות חמור; זהו מקרה מסוכן ולמידה חובה.</p>
+        <div class="responsibility-grid">
+          <article class="responsibility-card"><h3>כשל טכני</h3><p>עומס לא מתוכנן, עיגונים לא נבדקו, שימוש בפיגום מעבר לייעודו.</p></article>
+          <article class="responsibility-card"><h3>כשל ניהולי</h3><p>חתימה ללא בדיקה, לחץ לוחות זמנים, היעדר עצירת עבודה.</p></article>
+          <article class="responsibility-card"><h3>כשל תרבותי</h3><p>נורמליזציה של “יהיה בסדר” וחתימה כטקס במקום בקרה.</p></article>
+          <article class="responsibility-card"><h3>תגובה נכונה</h3><p>השבתה, דיווח, תחקיר, בדיקת מהנדס, CAPA ומעקב אפקטיביות.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Human Factors ולחץ תפוקות</summary>
+      <div>
+        <p>גורמי אנוש אינם תירוץ, אלא תחום בקרה: עייפות, שאננות, הרגל, לחץ מנהלים, עמימות סמכות, קבלנים זמניים ושפה לא ברורה יוצרים סביבה שבה החלטה מסוכנת נראית “רגילה”.</p>
+        <div class="summary-callout-row">
+          <article class="summary-mini-callout"><strong>🧠 גורם אנושי</strong><p>עובד ותיק אינו חסין מסיכון; לעיתים דווקא ותק יוצר ביטחון יתר ועמעום תחושת סכנה.</p></article>
+          <article class="summary-mini-callout"><strong>⚠️ מלכודת</strong><p>ירידה בדיווחי Near Miss לצד עלייה בתאונות אינה הצלחה. זה סימן לאובדן אמון או הסתרה.</p></article>
+          <article class="summary-mini-callout"><strong>✅ טיפ</strong><p>שאל עובדים מה הסיכון המרכזי היום. אם התשובות אינן עקביות, ההדרכה לא הוטמעה.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <section id="summaryField" class="summary-zone-divider">
+      <strong>Field · כלי שטח ותרחישים</strong>
+      <p>מקטע זה מיועד לשליפה מהירה בסיור, בביקורת, בתחקיר או מול מנהל שטח.</p>
+    </section>
+
+    <details id="summaryPocket" class="content-accordion" open>
+      <summary>דף כיס לממונה בטיחות</summary>
+      <div>
+        <div class="pocket-grid">
+          <article class="pocket-card"><strong>לפני סיור</strong><p>בדוק דוחות פתוחים, אירועי Near Miss, צווים, עבודות קבלן ושינויים מתוכננים.</p></article>
+          <article class="pocket-card"><strong>בשטח</strong><p>חפש פער בין נוהל למציאות: מי עובד, באיזה סיכון, עם איזו בקרה, ומה חסר.</p></article>
+          <article class="pocket-card"><strong>מול מנהל</strong><p>שאל מי אחראי לסגור, עד מתי, ומה ייחשב הוכחה שהסיכון נשלט.</p></article>
+          <article class="pocket-card"><strong>אחרי הסיור</strong><p>כתוב דוח קצר, חד ובר ביצוע: סיכון, פעולה, אחראי, תאריך, בדיקת אפקטיביות.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Checklist מהיר — ביקורת מערך בטיחות</summary>
+      <div>
+        <ul class="summary-checklist">
+          <li>האם קיימת תוכנית בטיחות עדכנית ומאושרת?</li>
+          <li>האם ועדת הבטיחות מתכנסת ומתעדת החלטות עם אחראים?</li>
+          <li>האם נאמני בטיחות פעילים ומקבלים משוב על דיווחים?</li>
+          <li>האם מנהלי שטח מבצעים פיקוח יזום ולא רק מגיבים לתקלות?</li>
+          <li>האם קיימת קליטת קבלנים, הדרכה ייעודית והיתרי עבודה?</li>
+          <li>האם Near Miss נחקר ומוביל לפעולות CAPA?</li>
+          <li>האם קיימת בדיקת אפקטיביות לאחר סגירת ליקוי?</li>
+          <li>האם לחץ תפוקות מתועד ומנוהל כסיכון?</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>דילמות ניהוליות מהשטח</summary>
+      <div>
+        <div class="field-card-grid">
+          <article class="field-card"><strong>מנהל אומר: “אין תקציב”</strong><p><strong>סיכון:</strong> דחיית תיקון קריטי הופכת להחלטה מודעת. <strong>תגובה מקצועית:</strong> לתעד התרעה, להציג חומרה וחלופות, ולהעלות להנהלה.</p></article>
+          <article class="field-card"><strong>קבלן טוען: “זה באחריותי”</strong><p><strong>סיכון:</strong> הארגון עדיין שולט במקום העבודה. <strong>תגובה מקצועית:</strong> לעצור חשיפה, לבדוק קליטה, היתר, ביטוח, הדרכה ופיקוח.</p></article>
+          <article class="field-card"><strong>עובד ותיק מסרב לרתמה</strong><p><strong>סיכון:</strong> שאננות ונורמליזציה. <strong>תגובה מקצועית:</strong> עצירת עבודה, הסברה, אכיפה ניהולית ותיעוד.</p></article>
+          <article class="field-card"><strong>ירידה בדיווחי Near Miss</strong><p><strong>סיכון:</strong> הסתרה או פחד מדיווח. <strong>תגובה מקצועית:</strong> לבדוק תרבות, משוב לעובדים ותגובת מנהלים לדיווחים.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <section id="summaryLegal" class="summary-zone-divider">
+      <strong>Legal · דין, צווים ובנייה</strong>
+      <p>המקטע המשפטי מחבר בין סמכויות מפקח עבודה, אחריות בבנייה, צווים ומקורות הדין.</p>
+    </section>
+
+    <details class="content-accordion">
+      <summary>בנייה, בקר בטיחות וצווים</summary>
+      <div>
+        <p>בענף הבנייה שרשרת האחריות חדה במיוחד: יזם, מבצע בנייה, מנהל עבודה, קבלני משנה ועוזרי בטיחות. מינוי לא ברור או היעדר מינוי בכתב עלולים להשאיר אחריות אצל היזם או הגורם השולט בפרויקט.</p>
+        <table class="learning-table">
+          <thead><tr><th>כלי רגולטורי</th><th>מתי מופעל</th><th>משמעות לממונה</th></tr></thead>
+          <tbody>
+            <tr><td>צו בטיחות</td><td>סכנה מוחשית ומיידית לחיי אדם או לבריאות.</td><td>להשבית, לתעד, למנוע עקיפה ולהוביל תיקון לפני חזרה לפעילות.</td></tr>
+            <tr><td>צו שיפור</td><td>ליקוי או הפרת דרישה המחייבים תיקון בתוך זמן מוגדר.</td><td>לנהל מעקב, אחראי ומועד, ולהוכיח סגירה בזמן.</td></tr>
+            <tr><td>פנקס פיגומים / תסקיר</td><td>בקרה מחייבת לציוד, פיגומים, מנופים ואביזרי הרמה.</td><td>לא לקבל חתימה כטקס; לוודא בדיקה ממשית ומוסמכת.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>איך חושב מפקח עבודה ואיך חושב בית משפט</summary>
+      <div>
+        <div class="knowledge-quick-grid">
+          <article class="knowledge-card"><h3>מפקח עבודה</h3><p>בודק פער בין מסמכים למציאות: הדרכות, תסקירים, היתרים, קבלנים, צווים פתוחים וסגירת ליקויים.</p></article>
+          <article class="knowledge-card"><h3>בית משפט</h3><p>שואל האם הנזק היה צפוי, האם הייתה חובה, האם הופרה חובה, והאם קיים קשר סיבתי בין הכשל לנזק.</p></article>
+          <article class="knowledge-card"><h3>ממונה בטיחות</h3><p>צריך לבנות תיעוד שמראה זיהוי, התרעה, המלצה, מעקב והסלמה כאשר הסיכון אינו נסגר.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Exam Focus</summary>
+      <div>
+        <ol>
+          <li>האחריות העליונה נשארת אצל המעסיק ותופש המקום.</li>
+          <li>ממונה בטיחות הוא יועץ מקצועי, לא אוכף ישיר ולא מחליף מנהלים.</li>
+          <li>ועדת בטיחות היא פריטטית ומתכנסת במקומות עבודה המחויבים לכך.</li>
+          <li>Near Miss ומקרה מסוכן אינם אותו דבר, אך שניהם דורשים התייחסות מערכתית.</li>
+          <li>צו בטיחות עוצר סכנה מיידית; צו שיפור דורש תיקון ליקוי בזמן מוגדר.</li>
+          <li>PDCA ו-ISO 45001 מדגישים מנהיגות, שיתוף עובדים, בדיקה ושיפור מתמיד.</li>
+          <li>תרבות בטיחות נמדדת בהתנהגות בפועל, לא רק במסמכים.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Common Mistakes</summary>
+      <div>
+        <ul>
+          <li>לחשוב שמינוי ממונה בטיחות מסיר אחריות מהנהלה.</li>
+          <li>להסתפק בפרוטוקול ועדה בלי מעקב סגירת ליקויים.</li>
+          <li>לראות ב-Near Miss “אירוע שלא קרה בו כלום”.</li>
+          <li>לחתום על בדיקה יומית בלי לבדוק בפועל.</li>
+          <li>להכניס קבלן לאתר בלי קליטה, תיאום, היתר ופיקוח.</li>
+          <li>לסגור CAPA בלי בדיקת אפקטיביות.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Glossary</summary>
+      <div>
+        <div class="knowledge-quick-grid">
+          <article class="knowledge-card"><h3>RACI</h3><p>מטריצה המבהירה מי מבצע, מי אחראי סופית, עם מי מתייעצים ומי מקבל עדכון.</p></article>
+          <article class="knowledge-card"><h3>Normalization of Deviance</h3><p>מצב שבו חריגה חוזרת הופכת לנורמה כי “עד עכשיו לא קרה כלום”.</p></article>
+          <article class="knowledge-card"><h3>CAPA</h3><p>פעולה מתקנת ומונעת שמטפלת גם באירוע וגם בשורש שהוביל אליו.</p></article>
+          <article class="knowledge-card"><h3>MoC</h3><p>ניהול שינוי לפני שינוי תהליך, ציוד, חומר, מקום או כוח אדם.</p></article>
+          <article class="knowledge-card"><h3>צו בטיחות</h3><p>צו מנהלי להפסקת עבודה או שימוש כאשר קיימת סכנה מיידית.</p></article>
+          <article class="knowledge-card"><h3>צו שיפור</h3><p>דרישה רגולטורית לתיקון ליקוי בתוך זמן מוגדר.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Questions From Class</summary>
+      <div>
+        <article class="knowledge-card"><h3>האם ממונה בטיחות יכול לעצור עבודה?</h3><p>הוא יכול וחייב להתריע מקצועית ולהמליץ על עצירה בסיכון חמור. סמכות ביצועית פורמלית תלויה במבנה הארגון, אך אין להסתפק בשיחה בעל פה כאשר קיימת סכנה.</p></article>
+        <article class="knowledge-card"><h3>למה ועדת בטיחות חשובה אם יש ממונה?</h3><p>כי הוועדה מחברת עובדים והנהלה, מייצרת מעקב פורמלי ומאפשרת לראות בעיות מערכתיות שלא עולות בדוח סיור נקודתי.</p></article>
+        <article class="knowledge-card"><h3>מה ההבדל בין תחקיר לאיתור אשם?</h3><p>איתור אשם מחפש אדם. תחקיר מקצועי מחפש שורש: תכנון, הדרכה, פיקוח, תרבות, משאבים ובקרה.</p></article>
+      </div>
+    </details>
+
+    <details class="content-accordion">
+      <summary>Key Takeaways</summary>
+      <div>
+        <ol>
+          <li>בטיחות היא מערכת אחריות, לא תפקיד של אדם בודד.</li>
+          <li>מינוי ממונה בטיחות מסייע למעסיק, אך אינו מעביר אליו את האחריות העליונה.</li>
+          <li>מנהלי שטח הם החוליה הקריטית בין נוהל למציאות.</li>
+          <li>ועדה ונאמנים מייצרים שיתוף, אמון ותרבות דיווח.</li>
+          <li>Near Miss הוא חומר גלם למניעת תאונה.</li>
+          <li>RCA טוב מטפל בשורש; CAPA טוב כולל בדיקת אפקטיביות.</li>
+          <li>מפקח עבודה ובית משפט בודקים פער בין מה שנכתב למה שנעשה.</li>
+        </ol>
+      </div>
+    </details>
+
+    <section class="summary-practice-divider" data-read-aloud-exclude="true">
+      <strong>Practice · מכאן עוברים מתוכן מקצועי לתרגול ובדיקת ידע</strong>
+      <p>60 שאלות התרגול נלקחו מקובץ סיכום שיעור 3. מומלץ לקרוא קודם את מפת האחריות, דף הכיס ודגשי הבקרה.</p>
+    </section>
+
+    <section id="summaryQuestions" class="prep-question-section" data-read-aloud-exclude="true">
+      <div class="section-title">
+        <div>
+          <p class="kicker">Practice · Summary</p>
+          <h2>שאלות אמריקאיות לתרגול</h2>
+          <p>60 שאלות תרגול מתוך סיכום השיעור. ההתקדמות נשמרת בדפדפן בלבד. התרגול נועד לבדוק הבנה, לא להחליף קריאה של הדגשים המקצועיים.</p>
+        </div>
+        <a class="btn secondary" href="../prep/lesson-03-labor-inspection-law.html">פתח הכנה לשיעור</a>
+      </div>
+      <div
+        id="summaryQuizApp"
+        class="summary-quiz-app"
+        data-summary-quiz="lesson-03-summary-practice"
+        data-summary-quiz-source="lesson-03-summary-full-practice-source"
+        data-source-question-count="60"></div>
+    </section>
+
+    <section id="summaryRelated" class="content-section" data-read-aloud-exclude="true">
+      <h2>קישורים קשורים</h2>
+      <div class="learning-actions">
+        <a class="btn" href="../prep/lesson-03-labor-inspection-law.html">הכנה לשיעור 3</a>
         <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
         <a class="btn secondary" href="../summaries.html">כל הסיכומים</a>
-        <a class="btn secondary" href="../knowledge/labor-inspection-law.html">labor-inspection-law</a>
-        <a class="btn secondary" href="../knowledge/human-factors.html">human-factors</a>
-        <a class="btn secondary" href="../knowledge/safety-ordinance.html">safety-ordinance</a>
-        <a class="btn secondary" href="../checklists.html?domain=Contractors">Checklist Contractors</a>
-        <a class="btn secondary" href="../checklists.html?domain=ISO">Checklist ISO</a>
+        <a class="btn secondary" href="../knowledge/labor-inspection-law.html">חוק ארגון הפיקוח</a>
+        <a class="btn secondary" href="../knowledge/human-factors.html">גורם אנושי</a>
+        <a class="btn secondary" href="../knowledge/safety-ordinance.html">פקודת הבטיחות</a>
+        <a class="btn secondary" href="../knowledge/iso-45001.html">ISO 45001</a>
+        <a class="btn secondary" href="../knowledge/construction-safety.html">בטיחות בבנייה</a>
+        <a class="btn secondary" href="../checklists.html?domain=Contractors">Checklist קבלנים</a>
+        <a class="btn secondary" href="../checklists.html?domain=ISO">Checklist מערכת ניהול</a>
+        <a class="btn secondary" href="../checklists.html?domain=Construction">Checklist בנייה</a>
         <a class="btn secondary" href="../glossary.html">Glossary</a>
+        <a class="btn secondary" href="../laws.html">חוקים ותקנות</a>
       </div>
+      <p class="field-help">עודכן לאחרונה: 27.5.2026</p>
     </section>
   </main>
 
+  <script src="../../data/summary-questions-map.js"></script>
+  <script src="../../js/summary-quiz.js"></script>
   <script src="../../js/prototype-shell.js"></script>
   <script src="../../js/read-aloud.js"></script>
   <script type="module" src="../../js/auth.js"></script>

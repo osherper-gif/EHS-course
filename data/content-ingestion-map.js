@@ -98,13 +98,14 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "pending_quality_review",
+      "status": "available",
       "href": "pages/summaries/lesson-03-summary.html",
-      "updatedAt": "2026-05-26"
+      "updatedAt": "2026-05-27",
+      "questionCount": 60
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 60,
+      "href": "pages/summaries/lesson-03-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html",
@@ -126,7 +127,7 @@
       "RCA",
       "מקרה מסוכן"
     ],
-    "lastUpdated": "2026-05-26"
+    "lastUpdated": "2026-05-27"
   },
   {
     "lessonId": "lesson-04",
@@ -315,11 +316,11 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "סיכום",
-  "lessonId": "lesson-02",
-  "sessionNumber": 2,
-  "title": "נוסף סיכום שיעור 2 — ארגון מערך הבטיחות, פיקוח ואחריות כולל 65 שאלות תרגול",
-  "description": "סיכום curated חדש עם מדרג הדין, פיקוח, אחריות, ISO 45001, קבלנים, תרחישי שטח ובנק שאלות מלא.",
-  "href": "pages/summaries/lesson-02-summary.html",
+  "lessonId": "lesson-03",
+  "sessionNumber": 3,
+  "title": "נוסף סיכום שיעור 3 — גורמים במערך הבטיחות ואחריות תפעולית כולל 60 שאלות תרגול",
+  "description": "סיכום curated חדש עם מערך אחריות, ועדות ונאמנים, Near Miss, RCA, בנייה, צווים, דף כיס לממונה ובנק שאלות מלא.",
+  "href": "pages/summaries/lesson-03-summary.html",
   "updatedAt": "2026-05-27"
 };
 
@@ -413,7 +414,17 @@
     "label": "קיים",
     "questionCount": 65
   }
-],
+,
+  {
+    "lessonId": "lesson-03",
+    "sessionNumber": 3,
+    "title": "גורמים במערך הבטיחות ואחריות תפעולית",
+    "href": "pages/summaries/lesson-03-summary.html",
+    "updatedAt": "2026-05-27",
+    "summaryAvailable": true,
+    "label": "קיים",
+    "questionCount": 60
+  }],
     lessonUpdates: [latestUpdate],
     glossaryAdditions: lessons.flatMap((item) => item.glossaryTerms.map((term) => ({ term, category: "????? ?????", lessonId: item.lessonId, href: "pages/glossary.html" }))),
     checklistAdditions: lessons.flatMap((item) => item.relatedChecklists.map((href) => ({ title: "Checklist ????", category: "Operational", lessonId: item.lessonId, href }))),
