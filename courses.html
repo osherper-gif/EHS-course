@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="description" content="אתרי קורסים - מרכז למידה לקורסים מקצועיים.">
+  <title>אתרי קורסים</title>
+  <script src="./js/ui-mode.js"></script>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/prototype-shell.css">
+  <style>
+    body.courses-portal {
+      background: linear-gradient(135deg, rgba(8, 100, 128, 0.08), rgba(255, 255, 255, 0) 44%), var(--proto-bg, #f6f8fb);
+      color: var(--proto-text, #17212b);
+      min-height: 100vh;
+    }
+
+    .courses-shell {
+      margin: 0 auto;
+      max-width: 1120px;
+      padding: clamp(1rem, 4vw, 2.5rem);
+    }
+
+    .courses-topbar {
+      align-items: center;
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .courses-brand {
+      align-items: center;
+      color: inherit;
+      display: inline-flex;
+      gap: .75rem;
+      text-decoration: none;
+    }
+
+    .courses-brand-mark {
+      align-items: center;
+      background: var(--proto-accent, #086480);
+      border-radius: 12px;
+      color: #fff;
+      display: inline-flex;
+      font-weight: 900;
+      height: 42px;
+      justify-content: center;
+      width: 42px;
+    }
+
+    .courses-brand small {
+      color: var(--proto-muted, #687584);
+      display: block;
+      margin-top: .15rem;
+    }
+
+    .courses-hero,
+    .course-card {
+      border: 1px solid var(--proto-border, #d9e2ea);
+      border-radius: 18px;
+      background: var(--proto-surface, #fff);
+      box-shadow: 0 18px 50px rgba(16, 36, 54, 0.09);
+    }
+
+    .courses-hero {
+      margin-bottom: 1.25rem;
+      padding: clamp(1.25rem, 4vw, 2.25rem);
+    }
+
+    .courses-hero .kicker,
+    .course-card .kicker {
+      color: var(--proto-accent, #086480);
+      font-weight: 900;
+      letter-spacing: 0;
+      margin: 0 0 .35rem;
+    }
+
+    .courses-hero h1 {
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    .courses-hero p,
+    .course-card p {
+      color: var(--proto-muted, #687584);
+      line-height: 1.7;
+      margin: .8rem 0 0;
+      max-width: 760px;
+    }
+
+    .courses-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .course-card {
+      display: grid;
+      gap: .9rem;
+      min-width: 0;
+      padding: 1.15rem;
+    }
+
+    .course-card-header {
+      align-items: start;
+      display: flex;
+      gap: .75rem;
+      justify-content: space-between;
+    }
+
+    .course-card h2 {
+      font-size: 1.45rem;
+      margin: 0;
+    }
+
+    .course-status {
+      border: 1px solid rgba(22, 101, 52, .25);
+      border-radius: 999px;
+      background: #e7f7ed;
+      color: #166534;
+      font-weight: 900;
+      padding: .35rem .7rem;
+      white-space: nowrap;
+    }
+
+    .course-tags,
+    .course-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .course-tags li,
+    .course-features li {
+      border: 1px solid var(--proto-border, #d9e2ea);
+      border-radius: 999px;
+      background: #f5f8fa;
+      color: var(--proto-muted, #687584);
+      font-size: .92rem;
+      list-style: none;
+      padding: .35rem .65rem;
+    }
+
+    .course-features li {
+      border-radius: 10px;
+      flex: 1 1 170px;
+    }
+
+    .platform-note {
+      border: 1px solid rgba(8, 100, 128, .2);
+      border-radius: 14px;
+      background: rgba(8, 100, 128, .07);
+      color: var(--proto-muted, #687584);
+      margin-top: 1rem;
+      padding: .9rem 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .courses-topbar,
+      .course-card-header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .course-card .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="prototype-shell courses-portal" data-page-title="אתרי קורסים">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <main id="main" class="courses-shell" data-readable-content>
+    <header class="courses-topbar">
+      <a class="courses-brand" href="./courses.html" aria-label="אתרי קורסים">
+        <span class="courses-brand-mark">EHS</span>
+        <span><strong>אתרי קורסים</strong><small>Learning workspace</small></span>
+      </a>
+      <button class="icon-btn" type="button" data-action="toggle-theme" title="מצב כהה" aria-label="מצב כהה">◐</button>
+    </header>
+
+    <section class="courses-hero">
+      <p class="kicker">Courses Portal</p>
+      <h1>אתרי קורסים</h1>
+      <p>מרכז למידה לקורסים מקצועיים. בחרו את הקורס הרצוי והמשיכו ללמידה.</p>
+    </section>
+
+    <section class="courses-grid" aria-label="רשימת קורסים">
+      <article class="course-card">
+        <div class="course-card-header">
+          <div>
+            <p class="kicker">בטיחות בתעסוקה</p>
+            <h2>קורס ממונה בטיחות</h2>
+          </div>
+          <span class="course-status">פעיל</span>
+        </div>
+        <p>מרחב למידה, סיכומים, שאלות תרגול וכלי שטח לקורס ממונה בטיחות.</p>
+        <ul class="course-tags" aria-label="תגיות קורס">
+          <li>בטיחות</li>
+          <li>רגולציה</li>
+          <li>כלי שטח</li>
+          <li>מבחנים</li>
+        </ul>
+        <ul class="course-features" aria-label="יכולות מרכזיות">
+          <li>מסלול לימוד לפי מפגשים</li>
+          <li>סיכומי שיעור ושאלות תרגול</li>
+          <li>מרכז ידע וכלי שטח</li>
+          <li>Checklists ותבניות</li>
+        </ul>
+        <a class="btn primary" href="./index.html">כניסה לקורס</a>
+      </article>
+    </section>
+
+    <p class="platform-note">המערכת בנויה כך שבעתיד ניתן יהיה להוסיף תחומי ידע וקורסים נוספים.</p>
+  </main>
+
+  <script src="./data/courses-map.js"></script>
+  <script src="./js/prototype-shell.js"></script>
+  <script src="./js/accessibility.js"></script>
+</body>
+</html>
