@@ -333,18 +333,58 @@
       "Operational Drift"
     ],
     "lastUpdated": "2026-05-31"
+  },
+  {
+    "lessonId": "lesson-09",
+    "sessionNumber": 9,
+    "title": "עבודת ממונה בטיחות מול הנהלת הארגון",
+    "prep": {
+      "status": "available",
+      "href": "pages/prep/lesson-09-safety-management-leadership.html",
+      "updatedAt": "2026-05-31",
+      "questionCount": 30
+    },
+    "summary": {
+      "status": "missing",
+      "href": "",
+      "updatedAt": ""
+    },
+    "questions": {
+      "count": 30,
+      "href": "pages/prep/lesson-09-safety-management-leadership.html#prepQuestions"
+    },
+    "relatedKnowledge": [
+      "pages/knowledge/human-factors.html",
+      "pages/knowledge/iso-45001.html",
+      "pages/knowledge/labor-inspection-law.html"
+    ],
+    "relatedChecklists": [
+      "pages/checklists.html?domain=ISO",
+      "pages/checklists.html?domain=Human%20Factors"
+    ],
+    "glossaryTerms": [
+      "Staff",
+      "Line",
+      "ROI",
+      "Just Culture",
+      "Near Miss",
+      "Leading Indicators",
+      "Lagging Indicators",
+      "Safety Leadership"
+    ],
+    "lastUpdated": "2026-05-31"
   }
 ];
   lessons.forEach(withCourseScope);
 
   const latestUpdate = {
-  "type": "summary",
-  "typeLabel": "\u05e1\u05d9\u05db\u05d5\u05dd",
-  "lessonId": "lesson-08",
-  "sessionNumber": 8,
-  "title": "נוסף סיכום שיעור 8 - ארגון מערך הבטיחות במפעל וניהולו כולל 60 שאלות תרגול",
-  "description": "סיכום curated חדש על מבנה מערך הבטיחות, אחריות הנהלה, ממונה בטיחות, ועדת בטיחות, נאמנים, תרבות בטיחות, SMS, ISO 45001, PDCA, KPI, דילמות שטח ובנק שאלות מלא.",
-  "href": "pages/summaries/lesson-08-summary.html",
+  "type": "prep",
+  "typeLabel": "הכנה",
+  "lessonId": "lesson-09",
+  "sessionNumber": 9,
+  "title": "נוספה הכנה לשיעור 9 - עבודת ממונה בטיחות מול הנהלת הארגון כולל 30 שאלות הכנה",
+  "description": "שיעור הכנה אינטראקטיבי על אחריות הנהלה, Staff מול Line, ROI, Just Culture, Near Miss, KPI, וניהול התנגדויות מול הנהלה.",
+  "href": "pages/prep/lesson-09-safety-management-leadership.html",
   "updatedAt": "2026-05-31"
 };
   withCourseScope(latestUpdate);
@@ -416,6 +456,14 @@
     "title": "ארגון מערך הבטיחות במפעל וניהולו",
     "href": "pages/prep/lesson-08-safety-organization.html",
     "updatedAt": "2026-05-26",
+    "questionCount": 30
+  },
+  {
+    "lessonId": "lesson-09",
+    "sessionNumber": 9,
+    "title": "עבודת ממונה בטיחות מול הנהלת הארגון",
+    "href": "pages/prep/lesson-09-safety-management-leadership.html",
+    "updatedAt": "2026-05-31",
     "questionCount": 30
   }
 ].map(withCourseScope),

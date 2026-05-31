@@ -12514,6 +12514,27 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
   max-width: 100%;
 }
 
+.prep-question-jump-nav,
+.prep-question-pager {
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  justify-content: center;
+  margin: .85rem 0;
+  padding: .75rem;
+}
+
+.prep-question-position {
+  background: var(--surface-2);
+  border-radius: 999px;
+  color: var(--text);
+  padding: .42rem .8rem;
+}
+
 .prep-quiz-app,
 .prep-question-card {
   min-width: 0;
@@ -12626,6 +12647,84 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
 .prep-option.is-correct {
   border-color: rgba(23, 128, 86, .45);
   background: rgba(23, 128, 86, .09);
+}
+
+.prep-feedback-subtitle {
+  display: block;
+  margin-top: .85rem;
+}
+
+.prep-wrong-explanations {
+  margin: .35rem 0 .85rem;
+  padding-inline-start: 1.2rem;
+}
+
+.prep-wrong-explanations li {
+  margin-bottom: .35rem;
+}
+
+.prep-field-card-grid,
+.prep-action-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.prep-field-card,
+.prep-action-card,
+.prep-callout {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: clamp(1rem, 2vw, 1.25rem);
+}
+
+.prep-field-card strong,
+.prep-action-card strong,
+.prep-callout strong {
+  color: var(--text);
+  display: block;
+  margin-bottom: .45rem;
+}
+
+.prep-callout {
+  border-inline-start: 5px solid var(--brand);
+  background: color-mix(in srgb, var(--brand-soft), var(--surface) 62%);
+  margin: 1rem 0;
+}
+
+.prep-callout.is-warning {
+  border-inline-start-color: #b45309;
+  background: #fff7ed;
+}
+
+.prep-callout.is-exam {
+  border-inline-start-color: #0f766e;
+}
+
+.prep-quick-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin: 1rem 0;
+}
+
+.prep-quick-nav a {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 800;
+  padding: .45rem .8rem;
+  text-decoration: none;
+}
+
+.prep-quick-nav a:hover,
+.prep-quick-nav a:focus-visible {
+  border-color: var(--brand);
+  background: var(--brand-soft);
 }
 
 .prep-option.is-wrong {

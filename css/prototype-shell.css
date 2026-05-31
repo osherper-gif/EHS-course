@@ -812,10 +812,41 @@ body.prototype-shell .exam-question-accordion {
 
 body.prototype-shell .content-accordion summary,
 body.prototype-shell .exam-question-accordion summary {
+  align-items: center;
   cursor: pointer;
+  display: flex;
+  gap: .65rem;
+  justify-content: space-between;
   padding: .85rem 1rem;
   color: var(--proto-text);
   font-weight: 800;
+}
+
+body.prototype-shell .content-accordion > summary::-webkit-details-marker,
+body.prototype-shell .exam-question-accordion > summary::-webkit-details-marker {
+  display: none;
+}
+
+body.prototype-shell .content-accordion > summary::before,
+body.prototype-shell .exam-question-accordion > summary::before {
+  background: rgba(8, 100, 128, .08);
+  border: 1px solid rgba(8, 100, 128, .18);
+  border-radius: 999px;
+  color: var(--proto-text);
+  content: "▶ סגור";
+  flex: 0 0 auto;
+  font-size: .82rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-inline-start: .25rem;
+  padding: .34rem .55rem;
+}
+
+body.prototype-shell .content-accordion[open] > summary::before,
+body.prototype-shell .exam-question-accordion[open] > summary::before {
+  background: rgba(8, 100, 128, .14);
+  border-color: rgba(8, 100, 128, .32);
+  content: "▼ פתוח";
 }
 
 body.prototype-shell .content-accordion > div,

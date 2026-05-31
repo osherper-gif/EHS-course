@@ -36,7 +36,11 @@
       examFocus: true,
       checklists: ["checklists.html?domain=ISO"]
     }),
-    session(9, "סקר סיכונים, הערכת סיכונים ובקרות", ["process-safety", "iso-45001"], { examFocus: true }),
+    session(9, "עבודת ממונה בטיחות מול הנהלת הארגון", ["human-factors", "iso-45001", "labor-inspection-law"], {
+      prepHref: "prep/lesson-09-safety-management-leadership.html",
+      examFocus: true,
+      checklists: ["checklists.html?domain=ISO", "checklists.html?domain=Human%20Factors"]
+    }),
     session(10, "ניהול בטיחות בתעסוקה ו-PDCA", ["iso-45001", "process-safety"], {}),
     session(11, "תרבות בטיחות, Just Culture וגורם אנושי", ["human-factors", "iso-45001"], { examFocus: true }),
     session(12, "חזרה מבנית ודגשי מבחן ראשונים", ["human-factors", "labor-inspection-law", "iso-45001"], { examFocus: true }),
