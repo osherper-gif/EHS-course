@@ -23,13 +23,53 @@
   };
 
   const sessions = [
-    session(1, "מושגי יסוד בבטיחות וסיכון", ["human-factors", "labor-inspection-law"], { examFocus: true }),
-    session(2, "בעלי תפקידים, אחריות וסמכות", ["human-factors", "iso-45001"], { examFocus: true }),
-    session(3, "חוק ארגון הפיקוח על העבודה", ["labor-inspection-law"], { examFocus: true }),
-    session(4, "פקודת הבטיחות בעבודה ומבנה החובות", ["safety-ordinance", "labor-inspection-law"], { examFocus: true }),
-    session(5, "ועדת בטיחות, נאמני בטיחות וארגון פנימי", ["labor-inspection-law", "human-factors"], { examFocus: true }),
-    session(6, "היערכות למצבי חירום ותרגול", ["emergency-preparedness", "emergency-management"], {}),
-    session(7, "אחריות משפטית ותפקיד ממונה בטיחות", ["labor-inspection-law", "safety-ordinance", "iso-45001"], { examFocus: true }),
+    session(1, "מושגי יסוד בבטיחות וסיכון", ["human-factors", "labor-inspection-law"], {
+        examFocus: true,
+        prepHref: "prep/lesson-01-introduction-safety.html"
+      }),
+    session(2, "בעלי תפקידים, אחריות וסמכות", ["human-factors", "iso-45001"], {
+        examFocus: true,
+        prepHref: "prep/lesson-02-roles-responsibility.html"
+      }),
+    session(3, "חוק ארגון הפיקוח על העבודה", ["labor-inspection-law"], {
+        examFocus: true,
+        prepHref: "prep/lesson-03-labor-inspection-law.html",
+        summary: {
+          status: "available",
+          href: "summaries/lesson-03-summary.html"
+        }
+      }),
+    session(4, "פקודת הבטיחות בעבודה ומבנה החובות", ["safety-ordinance", "labor-inspection-law"], {
+        examFocus: true,
+        prepHref: "prep/lesson-04-safety-ordinance.html",
+        summary: {
+          status: "available",
+          href: "summaries/lesson-04-summary.html"
+        }
+      }),
+    session(5, "ועדת בטיחות, נאמני בטיחות וארגון פנימי", ["labor-inspection-law", "human-factors"], {
+        examFocus: true,
+        prepHref: "prep/lesson-05-safety-committee-trustees.html",
+        summary: {
+          status: "available",
+          href: "summaries/lesson-05-summary.html"
+        }
+      }),
+    session(6, "היערכות למצבי חירום ותרגול", ["emergency-preparedness", "emergency-management"], {
+        prepHref: "prep/lesson-06-emergency-preparedness.html",
+        summary: {
+          status: "available",
+          href: "summaries/lesson-06-summary.html"
+        }
+      }),
+    session(7, "אחריות משפטית ותפקיד ממונה בטיחות", ["labor-inspection-law", "safety-ordinance", "iso-45001"], {
+        examFocus: true,
+        prepHref: "prep/lesson-07-legal-responsibility.html",
+        summary: {
+          status: "available",
+          href: "summaries/lesson-07-summary.html"
+        }
+      }),
     session(8, "ארגון מערך הבטיחות במפעל וניהולו", ["iso-45001", "human-factors", "labor-inspection-law", "safety-ordinance"], {
       prepHref: "prep/lesson-08-safety-organization.html",
       summary: false,
@@ -97,6 +137,11 @@
   const summaryPages = [
     summaryShell(1, "מושגי יסוד בבטיחות וסיכון", ["human-factors", "labor-inspection-law"]),
     summaryShell(2, "בעלי תפקידים, אחריות וסמכות", ["human-factors", "iso-45001"]),
+    summaryShell(3, sessions[2].title, sessions[2].relatedKnowledge, { available: true }),
+    summaryShell(4, sessions[3].title, sessions[3].relatedKnowledge, { available: true }),
+    summaryShell(5, sessions[4].title, sessions[4].relatedKnowledge, { available: true }),
+    summaryShell(6, sessions[5].title, sessions[5].relatedKnowledge, { available: true }),
+    summaryShell(7, sessions[6].title, sessions[6].relatedKnowledge, { available: true }),
     summaryShell(8, "ארגון מערך הבטיחות במפעל וניהולו", ["iso-45001", "human-factors", "labor-inspection-law", "safety-ordinance"])
   ];
 
@@ -144,16 +189,18 @@
     };
   }
 
-  function summaryShell(number, title, relatedKnowledge) {
+  function summaryShell(number, title, relatedKnowledge, options) {
+    const settings = options || {};
+    const isAvailable = settings.available === true;
     const padded = String(number).padStart(2, "0");
     return {
       id: `lesson-${padded}-summary`,
       number: String(number),
       title,
       href: `summaries/lesson-${padded}-summary.html`,
-      status: "placeholder",
-      label: "מעטפת קיימת",
-      summaryAvailable: false,
+      status: isAvailable ? "available" : "placeholder",
+      label: isAvailable ? "קיים" : "מעטפת קיימת",
+      summaryAvailable: isAvailable,
       lastUpdated: "2026-05-26",
       relatedKnowledge: relatedKnowledge || [],
       relatedChecklists: ["checklists.html"],

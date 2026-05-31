@@ -1,0 +1,537 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-31T15:19:30.020Z",
+  "dryRun": true,
+  "sourceDir": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE",
+  "courseId": "safety-officer",
+  "domainId": "safety",
+  "items": [
+    {
+      "lessonNumber": 1,
+      "contentType": "prep",
+      "sourceFile": "1.הכנה.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\1.הכנה.docx",
+      "extension": ".docx",
+      "hash": "C4CA3BE6FB0471CCD7D90DAB20995E83467AD04960150754545A46C4BFFECC58",
+      "modifiedAt": "2026-05-26T16:07:48.693Z",
+      "status": "scanned",
+      "existingSitePage": "pages/prep/lesson-01-introduction-safety.html",
+      "questionCountDetected": 30,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 30,
+        "confidence": "high",
+        "rawMarkerCount": 31,
+        "namedQuestionMarkers": 0,
+        "numberedQuestionMarkers": 31,
+        "uniqueNumbers": 30,
+        "firstNumber": 1,
+        "lastNumber": 30,
+        "answerMarkers": 30,
+        "sectionMarkers": 0,
+        "notes": [
+          "raw marker count 31 adjusted to 30"
+        ]
+      },
+      "notes": [
+        "raw marker count 31 adjusted to 30"
+      ]
+    },
+    {
+      "lessonNumber": 1,
+      "contentType": "summary",
+      "sourceFile": "1.סיכום.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\1.סיכום.docx",
+      "extension": ".docx",
+      "hash": "061439B3DB90E7B42EF12F6CA9786E3C0BF250AD41514DA1AD6998FE237514C1",
+      "modifiedAt": "2026-05-18T10:21:27.513Z",
+      "status": "scanned",
+      "existingSitePage": "pages/summaries/lesson-01-summary.html",
+      "questionCountDetected": 72,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 72,
+        "confidence": "high",
+        "rawMarkerCount": 80,
+        "namedQuestionMarkers": 72,
+        "numberedQuestionMarkers": 8,
+        "uniqueNumbers": 70,
+        "firstNumber": 1,
+        "lastNumber": 70,
+        "answerMarkers": 72,
+        "sectionMarkers": 3,
+        "notes": [
+          "duplicate question numbers or repeated banks detected",
+          "raw marker count 80 adjusted to 72"
+        ]
+      },
+      "notes": [
+        "duplicate question numbers or repeated banks detected",
+        "raw marker count 80 adjusted to 72"
+      ]
+    },
+    {
+      "lessonNumber": 2,
+      "contentType": "prep",
+      "sourceFile": "2.הכנה.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\2.הכנה.docx",
+      "extension": ".docx",
+      "hash": "D3DE07DF67AC6B85FD11DA60B11B5D38AFC16AA7E859F4C9F2F39E6980844666",
+      "modifiedAt": "2026-05-26T16:31:34.597Z",
+      "status": "scanned",
+      "existingSitePage": "pages/prep/lesson-02-roles-responsibility.html",
+      "questionCountDetected": 30,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 30,
+        "confidence": "high",
+        "rawMarkerCount": 33,
+        "namedQuestionMarkers": 30,
+        "numberedQuestionMarkers": 3,
+        "uniqueNumbers": 30,
+        "firstNumber": 1,
+        "lastNumber": 30,
+        "answerMarkers": 30,
+        "sectionMarkers": 1,
+        "notes": [
+          "raw marker count 33 adjusted to 30"
+        ]
+      },
+      "notes": [
+        "raw marker count 33 adjusted to 30"
+      ]
+    },
+    {
+      "lessonNumber": 2,
+      "contentType": "summary",
+      "sourceFile": "2.סיכום.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\2.סיכום.docx",
+      "extension": ".docx",
+      "hash": "35E502958D1E03B3E0901423F6F65F5827177C43249673BEE2A1FA3B5A489AEA",
+      "modifiedAt": "2026-05-18T11:43:45.217Z",
+      "status": "scanned",
+      "existingSitePage": "pages/summaries/lesson-02-summary.html",
+      "questionCountDetected": 65,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 65,
+        "confidence": "high",
+        "rawMarkerCount": 73,
+        "namedQuestionMarkers": 65,
+        "numberedQuestionMarkers": 8,
+        "uniqueNumbers": 60,
+        "firstNumber": 1,
+        "lastNumber": 60,
+        "answerMarkers": 65,
+        "sectionMarkers": 5,
+        "notes": [
+          "duplicate question numbers or repeated banks detected",
+          "raw marker count 73 adjusted to 65"
+        ]
+      },
+      "notes": [
+        "duplicate question numbers or repeated banks detected",
+        "raw marker count 73 adjusted to 65"
+      ]
+    },
+    {
+      "lessonNumber": 3,
+      "contentType": "prep",
+      "sourceFile": "3.הכנה.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\3.הכנה.docx",
+      "extension": ".docx",
+      "hash": "9E2C054E5065C7BE9F1ACB65A67B49BA1E7A6F057588D94FA420DC715F01BB67",
+      "modifiedAt": "2026-05-26T16:35:46.723Z",
+      "status": "scanned",
+      "existingSitePage": "pages/prep/lesson-03-labor-inspection-law.html",
+      "questionCountDetected": 30,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 30,
+        "confidence": "high",
+        "rawMarkerCount": 31,
+        "namedQuestionMarkers": 0,
+        "numberedQuestionMarkers": 31,
+        "uniqueNumbers": 30,
+        "firstNumber": 1,
+        "lastNumber": 30,
+        "answerMarkers": 30,
+        "sectionMarkers": 2,
+        "notes": [
+          "raw marker count 31 adjusted to 30"
+        ]
+      },
+      "notes": [
+        "raw marker count 31 adjusted to 30"
+      ]
+    },
+    {
+      "lessonNumber": 3,
+      "contentType": "summary",
+      "sourceFile": "3.סיכום.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\3.סיכום.docx",
+      "extension": ".docx",
+      "hash": "773403863C5BC2AB187F1FE8AED4CCEA3BAEAE8EFB35B1D4CBA7487F2F301FE9",
+      "modifiedAt": "2026-05-18T12:26:57.808Z",
+      "status": "scanned",
+      "existingSitePage": "pages/summaries/lesson-03-summary.html",
+      "questionCountDetected": 60,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 60,
+        "confidence": "high",
+        "rawMarkerCount": 49,
+        "namedQuestionMarkers": 41,
+        "numberedQuestionMarkers": 8,
+        "uniqueNumbers": 41,
+        "firstNumber": 1,
+        "lastNumber": 60,
+        "answerMarkers": 60,
+        "sectionMarkers": 1,
+        "notes": [
+          "named question markers are incomplete; answer markers used for count",
+          "duplicate question numbers or repeated banks detected",
+          "raw marker count 49 adjusted to 60"
+        ]
+      },
+      "notes": [
+        "named question markers are incomplete; answer markers used for count",
+        "duplicate question numbers or repeated banks detected",
+        "raw marker count 49 adjusted to 60"
+      ]
+    },
+    {
+      "lessonNumber": 4,
+      "contentType": "prep",
+      "sourceFile": "4.הכנה.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\4.הכנה.docx",
+      "extension": ".docx",
+      "hash": "D071ABF52C78885AFDE5116A1FF44E83E34C04FDBEA519F9DB931BC300C42195",
+      "modifiedAt": "2026-05-26T16:37:55.706Z",
+      "status": "scanned",
+      "existingSitePage": "pages/prep/lesson-04-safety-ordinance.html",
+      "questionCountDetected": 30,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 30,
+        "confidence": "high",
+        "rawMarkerCount": 0,
+        "namedQuestionMarkers": 0,
+        "numberedQuestionMarkers": 0,
+        "uniqueNumbers": 0,
+        "firstNumber": null,
+        "lastNumber": null,
+        "answerMarkers": 30,
+        "sectionMarkers": 3,
+        "notes": [
+          "raw marker count 0 adjusted to 30"
+        ]
+      },
+      "notes": [
+        "raw marker count 0 adjusted to 30"
+      ]
+    },
+    {
+      "lessonNumber": 4,
+      "contentType": "summary",
+      "sourceFile": "4.סיכום.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\4.סיכום.docx",
+      "extension": ".docx",
+      "hash": "9F717F15F54B48D7A3F63BE57BB5BE4EE53157DAB23537B81A60895B6F93F717",
+      "modifiedAt": "2026-05-18T13:56:31.596Z",
+      "status": "scanned",
+      "existingSitePage": "pages/summaries/lesson-04-summary.html",
+      "questionCountDetected": 60,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 60,
+        "confidence": "high",
+        "rawMarkerCount": 60,
+        "namedQuestionMarkers": 60,
+        "numberedQuestionMarkers": 0,
+        "uniqueNumbers": 60,
+        "firstNumber": 1,
+        "lastNumber": 60,
+        "answerMarkers": 60,
+        "sectionMarkers": 0,
+        "notes": []
+      },
+      "notes": []
+    },
+    {
+      "lessonNumber": 5,
+      "contentType": "prep",
+      "sourceFile": "5.הכנה.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\5.הכנה.docx",
+      "extension": ".docx",
+      "hash": "A24D28346982DD7B09F68F2DDD1070418E8066A465E5C61EFF08F1E82532BBA5",
+      "modifiedAt": "2026-05-26T16:40:19.946Z",
+      "status": "scanned",
+      "existingSitePage": "pages/prep/lesson-05-safety-committee-trustees.html",
+      "questionCountDetected": 30,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 30,
+        "confidence": "high",
+        "rawMarkerCount": 1,
+        "namedQuestionMarkers": 0,
+        "numberedQuestionMarkers": 1,
+        "uniqueNumbers": 1,
+        "firstNumber": 4,
+        "lastNumber": 4,
+        "answerMarkers": 30,
+        "sectionMarkers": 0,
+        "notes": [
+          "duplicate question numbers or repeated banks detected",
+          "raw marker count 1 adjusted to 30"
+        ]
+      },
+      "notes": [
+        "duplicate question numbers or repeated banks detected",
+        "raw marker count 1 adjusted to 30"
+      ]
+    },
+    {
+      "lessonNumber": 5,
+      "contentType": "summary",
+      "sourceFile": "5.סיכום.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\5.סיכום.docx",
+      "extension": ".docx",
+      "hash": "FEADA35B6998FD88F13D4ABF3875AB046EDA1DBE8D2327B0F7233C23CC3F8DFB",
+      "modifiedAt": "2026-05-18T16:21:40.752Z",
+      "status": "scanned",
+      "existingSitePage": "pages/summaries/lesson-05-summary.html",
+      "questionCountDetected": 60,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 60,
+        "confidence": "high",
+        "rawMarkerCount": 78,
+        "namedQuestionMarkers": 60,
+        "numberedQuestionMarkers": 18,
+        "uniqueNumbers": 60,
+        "firstNumber": 1,
+        "lastNumber": 60,
+        "answerMarkers": 60,
+        "sectionMarkers": 1,
+        "notes": [
+          "raw marker count 78 adjusted to 60"
+        ]
+      },
+      "notes": [
+        "raw marker count 78 adjusted to 60"
+      ]
+    },
+    {
+      "lessonNumber": 6,
+      "contentType": "prep",
+      "sourceFile": "6.הכנה.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\6.הכנה.docx",
+      "extension": ".docx",
+      "hash": "EF1C7EB412C5B4F50A6FBB4D647676B7F15EFAA7352AE7E7294533E7C330A5FA",
+      "modifiedAt": "2026-05-26T16:43:14.198Z",
+      "status": "scanned",
+      "existingSitePage": "pages/prep/lesson-06-emergency-preparedness.html",
+      "questionCountDetected": 30,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 30,
+        "confidence": "high",
+        "rawMarkerCount": 0,
+        "namedQuestionMarkers": 0,
+        "numberedQuestionMarkers": 0,
+        "uniqueNumbers": 0,
+        "firstNumber": null,
+        "lastNumber": null,
+        "answerMarkers": 30,
+        "sectionMarkers": 2,
+        "notes": [
+          "raw marker count 0 adjusted to 30"
+        ]
+      },
+      "notes": [
+        "raw marker count 0 adjusted to 30"
+      ]
+    },
+    {
+      "lessonNumber": 6,
+      "contentType": "summary",
+      "sourceFile": "6.סיכום.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\6.סיכום.docx",
+      "extension": ".docx",
+      "hash": "3630B7489744ECA21F06FE50E583A1CE58639093BD7CED82BA21C7F2793B104F",
+      "modifiedAt": "2026-05-16T21:28:25.111Z",
+      "status": "scanned",
+      "existingSitePage": "pages/summaries/lesson-06-summary.html",
+      "questionCountDetected": 59,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 59,
+        "confidence": "high",
+        "rawMarkerCount": 60,
+        "namedQuestionMarkers": 59,
+        "numberedQuestionMarkers": 1,
+        "uniqueNumbers": 59,
+        "firstNumber": 1,
+        "lastNumber": 60,
+        "answerMarkers": 59,
+        "sectionMarkers": 0,
+        "notes": [
+          "raw marker count 60 adjusted to 59"
+        ]
+      },
+      "notes": [
+        "raw marker count 60 adjusted to 59"
+      ]
+    },
+    {
+      "lessonNumber": 7,
+      "contentType": "prep",
+      "sourceFile": "7.הכנה.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\7.הכנה.docx",
+      "extension": ".docx",
+      "hash": "46E9957A62699BF80158E442B8A8752C40A3444FCBF73CA7FAA21E00052234AF",
+      "modifiedAt": "2026-05-20T15:43:13.304Z",
+      "status": "scanned",
+      "existingSitePage": "pages/prep/lesson-07-legal-responsibility.html",
+      "questionCountDetected": 30,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 30,
+        "confidence": "high",
+        "rawMarkerCount": 30,
+        "namedQuestionMarkers": 30,
+        "numberedQuestionMarkers": 0,
+        "uniqueNumbers": 30,
+        "firstNumber": 1,
+        "lastNumber": 30,
+        "answerMarkers": 30,
+        "sectionMarkers": 3,
+        "notes": []
+      },
+      "notes": []
+    },
+    {
+      "lessonNumber": 7,
+      "contentType": "summary",
+      "sourceFile": "7.סיכום.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\7.סיכום.docx",
+      "extension": ".docx",
+      "hash": "95ADE5B3F8CA6D1419BEA792C09E229E75052AEC7613417C4F0ADA39215E9B9A",
+      "modifiedAt": "2026-05-25T08:08:35.317Z",
+      "status": "scanned",
+      "existingSitePage": "pages/summaries/lesson-07-summary.html",
+      "questionCountDetected": 60,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 60,
+        "confidence": "high",
+        "rawMarkerCount": 60,
+        "namedQuestionMarkers": 60,
+        "numberedQuestionMarkers": 0,
+        "uniqueNumbers": 60,
+        "firstNumber": 1,
+        "lastNumber": 60,
+        "answerMarkers": 60,
+        "sectionMarkers": 4,
+        "notes": []
+      },
+      "notes": []
+    },
+    {
+      "lessonNumber": 8,
+      "contentType": "prep",
+      "sourceFile": "8.הכנה.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\8.הכנה.docx",
+      "extension": ".docx",
+      "hash": "F736D38BF58D28F9E0585D1C59DF1F73A7F932513632E738D7543B5F8D321071",
+      "modifiedAt": "2026-05-25T13:46:34.982Z",
+      "status": "scanned",
+      "existingSitePage": "pages/prep/lesson-08-safety-organization.html",
+      "questionCountDetected": 34,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 34,
+        "confidence": "high",
+        "rawMarkerCount": 30,
+        "namedQuestionMarkers": 0,
+        "numberedQuestionMarkers": 30,
+        "uniqueNumbers": 30,
+        "firstNumber": 1,
+        "lastNumber": 30,
+        "answerMarkers": 34,
+        "sectionMarkers": 1,
+        "notes": [
+          "duplicate question numbers or repeated banks detected",
+          "raw marker count 30 adjusted to 34"
+        ]
+      },
+      "notes": [
+        "duplicate question numbers or repeated banks detected",
+        "raw marker count 30 adjusted to 34"
+      ]
+    },
+    {
+      "lessonNumber": 8,
+      "contentType": "summary",
+      "sourceFile": "8.סיכום.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\8.סיכום.docx",
+      "extension": ".docx",
+      "hash": "58434AA2E5761800404BF1AB37DCB31637348D12A7EB9D81D922128317B5FF6D",
+      "modifiedAt": "2026-05-31T11:39:18.670Z",
+      "status": "scanned",
+      "existingSitePage": "pages/summaries/lesson-08-summary.html",
+      "questionCountDetected": 65,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 65,
+        "confidence": "high",
+        "rawMarkerCount": 65,
+        "namedQuestionMarkers": 65,
+        "numberedQuestionMarkers": 0,
+        "uniqueNumbers": 60,
+        "firstNumber": 1,
+        "lastNumber": 60,
+        "answerMarkers": 65,
+        "sectionMarkers": 5,
+        "notes": [
+          "duplicate question numbers or repeated banks detected"
+        ]
+      },
+      "notes": [
+        "duplicate question numbers or repeated banks detected"
+      ]
+    },
+    {
+      "lessonNumber": 9,
+      "contentType": "prep",
+      "sourceFile": "9.הכנה.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\9.הכנה.docx",
+      "extension": ".docx",
+      "hash": "70E4D6F75C7480E2D7C330D5077A06CF037423D1E847A1416B1FFAFE9B9F7054",
+      "modifiedAt": "2026-05-31T11:52:59.262Z",
+      "status": "scanned",
+      "existingSitePage": "pages/prep/lesson-09-safety-management-leadership.html",
+      "questionCountDetected": 30,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 30,
+        "confidence": "high",
+        "rawMarkerCount": 0,
+        "namedQuestionMarkers": 0,
+        "numberedQuestionMarkers": 0,
+        "uniqueNumbers": 0,
+        "firstNumber": null,
+        "lastNumber": null,
+        "answerMarkers": 30,
+        "sectionMarkers": 4,
+        "notes": [
+          "raw marker count 0 adjusted to 30"
+        ]
+      },
+      "notes": [
+        "raw marker count 0 adjusted to 30"
+      ]
+    }
+  ]
+}

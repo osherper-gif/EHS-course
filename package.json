@@ -7,7 +7,10 @@
     "migrate:exam-questions:dry": "node scripts/migrate-exam-questions-to-firestore.js",
     "migrate:exam-questions:staging": "node scripts/migrate-exam-questions-to-firestore.js --write --project staging",
     "check:links": "node scripts/check-links.js",
-    "audit:questions": "node scripts/audit-questions-quality.js"
+    "audit:questions": "node scripts/audit-questions-quality.js",
+    "content:scan": "node scripts/content-scan.js",
+    "content:audit": "node scripts/content-audit.js",
+    "content:validate": "node scripts/content-validate.js"
   },
   "devDependencies": {
     "firebase-admin": "^13.8.0"
