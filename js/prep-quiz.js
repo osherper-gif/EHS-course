@@ -119,6 +119,10 @@
     const toolbar = el("div", "prep-quiz-toolbar");
     const progress = el("div", "prep-quiz-progress");
     progress.setAttribute("aria-label", "התקדמות שאלות");
+    progress.setAttribute("role", "progressbar");
+    progress.setAttribute("aria-valuemin", "0");
+    progress.setAttribute("aria-valuemax", String(questions.length));
+    progress.setAttribute("aria-valuenow", String(summary.answered));
     progress.innerHTML = '<span style="width:' + Math.round((summary.answered / questions.length) * 100) + '%"></span>';
     toolbar.append(
       el("strong", "prep-quiz-count", summary.answered + " / " + questions.length + " נענו"),
@@ -163,6 +167,7 @@
       input.type = "radio";
       input.name = question.id;
       input.checked = selected === optionIndex;
+      input.setAttribute("aria-label", option);
       input.addEventListener("change", () => {
         state[question.id] = optionIndex;
         saveState(state);
@@ -175,6 +180,7 @@
 
     if (showFeedback) {
       const feedback = el("div", "prep-feedback " + (selected === question.correctIndex || revealAll ? "is-correct" : "is-wrong"));
+      feedback.setAttribute("aria-live", "polite");
       const wrongList = el("ul", "prep-wrong-explanations");
       question.options.forEach((option, optionIndex) => {
         if (optionIndex === question.correctIndex) return;

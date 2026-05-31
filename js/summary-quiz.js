@@ -107,6 +107,10 @@
     const progress = el("div", "summary-quiz-progress");
     const progressPercent = questions.length ? Math.round((summary.answered / questions.length) * 100) : 0;
     progress.setAttribute("aria-label", "התקדמות שאלות סיכום");
+    progress.setAttribute("role", "progressbar");
+    progress.setAttribute("aria-valuemin", "0");
+    progress.setAttribute("aria-valuemax", String(questions.length));
+    progress.setAttribute("aria-valuenow", String(summary.answered));
     progress.innerHTML = '<span style="width:' + progressPercent + '%"></span>';
 
     toolbar.append(
@@ -192,6 +196,7 @@
       input.type = "radio";
       input.name = question.id;
       input.checked = selected === optionIndex;
+      input.setAttribute("aria-label", option);
       input.addEventListener("change", () => {
         state[question.id] = optionIndex;
         saveState(state);
@@ -206,6 +211,7 @@
     if (showFeedback) {
       const isCorrect = selected === question.correctIndex;
       const feedback = el("div", "summary-feedback " + (isCorrect || revealAll ? "is-correct" : "is-wrong"));
+      feedback.setAttribute("aria-live", "polite");
       feedback.append(
         el("strong", "", isCorrect ? "נכון" : revealAll && !answered ? "תשובה מוצגת" : "לא נכון"),
         el("div", "summary-feedback-box summary-feedback-rationale", question.rationale || question.explanation || ""),
