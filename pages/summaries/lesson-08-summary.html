@@ -244,10 +244,57 @@
     }
 
     @media (max-width: 720px) {
+      body.summary-page .site-main {
+        width: 100%;
+        max-width: 100%;
+        padding-inline: .85rem;
+      }
+      body.summary-page .page-hero,
+      body.summary-page .summary-zone-divider,
+      body.summary-page .summary-foldout,
+      body.summary-page .summary-practice-divider,
+      body.summary-page .summary-quiz-app {
+        margin-inline: 0;
+        min-width: 0;
+        width: 100%;
+      }
+      body.summary-page .page-hero h1,
+      body.summary-page .page-hero p,
+      body.summary-page .summary-zone-divider h2,
+      body.summary-page .summary-foldout > summary,
+      body.summary-page .summary-foldout > summary > strong {
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+      .topic-tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .topic-tags span {
+        max-width: 100%;
+        white-space: normal;
+      }
       .summary-quick-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .summary-table { font-size: .92rem; }
       .summary-table th,
       .summary-table td { padding: .58rem; }
+    }
+
+    @media (max-width: 420px) {
+      body.summary-page .page-hero,
+      body.summary-page .summary-zone-divider,
+      body.summary-page .summary-foldout,
+      body.summary-page .summary-practice-divider,
+      body.summary-page .summary-quiz-app {
+        padding-inline: .9rem;
+      }
+      body.summary-page .page-hero h1 {
+        font-size: 1.55rem;
+        line-height: 1.25;
+      }
+      .summary-quick-nav { grid-template-columns: 1fr; }
     }
 
     @media print {
@@ -334,28 +381,21 @@
       <a href="#summaryRelated">קישורים</a>
     </nav>
 
-    <section class="content-section" id="intro">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">מבוא ומטרת המערך</p>
-          <h2>בטיחות היא מערכת, לא אוסף סממנים חיצוניים</h2>
-        </div>
-      </div>
+    <details class="content-accordion summary-foldout" id="intro">
+      <summary><span class="foldout-kicker">מבוא ומטרת המערך</span><strong>בטיחות היא מערכת, לא אוסף סממנים חיצוניים</strong></summary>
+      <div class="foldout-content">
       <p>קסדה, נעלי בטיחות, שילוט או גידור מכונות הם רק פני השטח. מערך בטיחות מקצועי הוא מערכת ניהולית שמונעת פגיעה בעובד, מגינה על רכוש וציוד, שומרת על הסביבה ומבטיחה רציפות עסקית. תאונת עבודה אינה רק אירוע רפואי; היא יכולה להפוך לעצירת ייצור, חקירה פלילית, נזק תדמיתי, תביעה אזרחית ואובדן אמון של עובדים ולקוחות.</p>
       <div class="summary-callout-row">
         <article class="summary-mini-callout" data-callout="legal"><span class="callout-label">דגש משפטי</span><strong>ראש הארגון מחזיק באחריות העליונה.</strong><p>מדיניות בטיחות שאינה חתומה על ידי המוביל הנוכחי של הארגון אינה מספקת. כאשר מנכ"ל מתחלף, המדיניות חייבת להתעדכן ולהיחתם מחדש.</p></article>
         <article class="summary-mini-callout" data-callout="trap"><span class="callout-label">טעות נפוצה</span><strong>"יש ממונה בטיחות, אז ההנהלה מכוסה".</strong><p>הממונה הוא יועץ מקצועי ומנהל מערכת סיכונים, אך אינו מחליף את אחריות תופש המפעל, מנהלי הקו וההנהלה.</p></article>
         <article class="summary-mini-callout" data-callout="tip"><span class="callout-label">טיפ לממונה</span><strong>שאל תמיד: האם המערכת עובדת בלעדיי?</strong><p>אם העובדים מפסיקים לדווח או להשתמש במיגון ברגע שהממונה יוצא לחופשה, אין תרבות בטיחות; יש תלות באדם אחד.</p></article>
       </div>
-    </section>
-
-    <section class="content-section" id="structure">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">מבנה מערך הבטיחות</p>
-          <h2>פירמידת אחריות, תקשורת והשפעה</h2>
-        </div>
       </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="structure">
+      <summary><span class="foldout-kicker">מבנה מערך הבטיחות</span><strong>פירמידת אחריות, תקשורת והשפעה</strong></summary>
+      <div class="foldout-content">
       <p>מערך בטיחות אינו אדם בודד. הוא אינטגרציה של אנשים, נהלים, תקציבים, הדרכות, דיווחים, ועדות, נאמנים, מדדים ומנגנוני בקרה. הפירמידה הארגונית מתחילה בתופש המפעל, עוברת דרך ממונה הבטיחות, ועדת הבטיחות, נאמני הבטיחות ומנהלי העבודה, ומסתיימת במקום שבו הבטיחות באמת מתרחשת: אצל העובדים בשטח.</p>
       <div class="op-flow-map" aria-labelledby="safetyPyramidTitle">
         <h3 id="safetyPyramidTitle">זרימת מערך הבטיחות</h3>
@@ -367,15 +407,12 @@
           <article class="op-flow-step"><strong>מנהלים ועובדים</strong><span>הגורמים שמתרגמים את המדיניות להתנהגות בפועל בכל משמרת.</span></article>
         </div>
       </div>
-    </section>
-
-    <section class="content-section" id="roles">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">תפקידים ואחריות</p>
-          <h2>תופש המפעל, הנהלה, ממונה, ועדה, נאמנים, מנהלים ועובדים</h2>
-        </div>
       </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="roles">
+      <summary><span class="foldout-kicker">תופש המפעל ואחריות הנהלה</span><strong>תפקידים, סמכויות, תיעוד והסלמה</strong></summary>
+      <div class="foldout-content">
       <table class="summary-table">
         <thead>
           <tr>
@@ -398,15 +435,12 @@
         <article class="summary-mini-callout" data-callout="trap"><span class="callout-label">מלכודת מבחן</span><strong>אחריות מול סמכות.</strong><p>הממונה נושא באחריות מקצועית רחבה לזיהוי, ייעוץ, הדרכה ותיעוד, אך ברוב הארגונים אין לו סמכות לפטר, לקנוס או לשנות תקציב. לכן הוא חייב לנהל השפעה והסלמה.</p></article>
         <article class="summary-mini-callout" data-callout="evidence"><span class="callout-label">ראיה ניהולית</span><strong>חתימת מדיניות אינה טקס.</strong><p>מדיניות בטיחות חתומה היא התחייבות ניהולית. אם ראש הארגון התחלף, המסמך חייב חתימה חדשה כדי להראות מחויבות עדכנית.</p></article>
       </div>
-    </section>
-
-    <section class="content-section" id="culture">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">תרבות בטיחות</p>
-          <h2>מה עושים כשאף אחד לא מסתכל</h2>
-        </div>
       </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="culture">
+      <summary><span class="foldout-kicker">תרבות בטיחות</span><strong>מה עושים כשאף אחד לא מסתכל</strong></summary>
+      <div class="foldout-content">
       <p>תרבות בטיחות חזקה קיימת כאשר עובדים ומנהלים פועלים נכון גם ללא פיקוח. הם מדווחים על Near Miss, משתמשים ב-PPE, עוצרים עבודה מסוכנת ומתקנים סחף מבצעי מתוך הבנה ולא מתוך פחד. המרצה הדגיש שהממונה אינו שוטר: אכיפה בלבד יוצרת ציות זמני, הסתרה ואנטגוניזם; מערכת למידה, שותפות ו-Just Culture יוצרת מחויבות פנימית.</p>
       <div class="legal-grid">
         <article class="legal-card"><strong>Just Culture</strong><span>תרבות הוגנת שמבדילה בין טעות אנוש לבין הפרה מכוונת. היא מעודדת דיווח ולמידה, אך אינה נותנת חסינות לרשלנות מודעת.</span></article>
@@ -414,15 +448,12 @@
         <article class="legal-card"><strong>Operational Drift</strong><span>קיצור דרך קטן שחוזר על עצמו הופך לנורמה. תפקיד הממונה הוא לזהות את הסחף ולכייל מחדש את השטח.</span></article>
         <article class="legal-card"><strong>BBS</strong><span>בטיחות מבוססת התנהגות: תצפית, משוב, חיזוק חיובי ושינוי הרגלים, לפי מודל ABC.</span></article>
       </div>
-    </section>
-
-    <section class="content-section" id="sms">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">SMS / ISO 45001 / PDCA / KPI</p>
-          <h2>מערכת ניהול בטיחות שמתקנת את עצמה</h2>
-        </div>
       </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="sms">
+      <summary><span class="foldout-kicker">SMS / ISO 45001 / PDCA / KPI</span><strong>מערכת ניהול בטיחות שמתקנת את עצמה</strong></summary>
+      <div class="foldout-content">
       <p>מערכת SMS משלבת בטיחות בתוך התהליכים העסקיים והניהוליים של הארגון. ISO 45001 מדגיש מנהיגות הנהלה, השתתפות עובדים, עמידה בדרישות דין, זיהוי סיכונים ושיפור מתמיד. PDCA נותן את מנוע הפעולה: מתכננים, מבצעים, בודקים ומשפרים. KPI מאפשר להנהלה לראות האם המערך עובד או רק מתועד.</p>
       <div class="op-flow-map" aria-labelledby="pdcaTitle">
         <h3 id="pdcaTitle">מעגל PDCA לניהול בטיחות</h3>
@@ -448,15 +479,12 @@
           <tr><td data-label="סוג מדד">Lagging Indicators</td><td data-label="מה הוא מודד">תוצאות וכשלים שכבר התרחשו.</td><td data-label="דוגמאות">מספר תאונות, ימי היעדרות, חומרת פציעות, עלויות נזק.</td><td data-label="מלכודת">אפס תאונות אינו בהכרח מערכת בטוחה; ייתכן שיש תת-דיווח.</td></tr>
         </tbody>
       </table>
-    </section>
-
-    <section class="content-section" id="toolbox">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">ארגז הכלים הניהולי</p>
-          <h2>איך מניעים מערכת ללא סמכות פיקודית ישירה</h2>
-        </div>
       </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="toolbox">
+      <summary><span class="foldout-kicker">ארגז הכלים הניהולי</span><strong>כרטיסי פעולה לניהול מערך בטיחות</strong></summary>
+      <div class="foldout-content">
       <div class="op-field-actions" aria-labelledby="toolboxCardsTitle">
         <h3 id="toolboxCardsTitle">כרטיסי פעולה לניהול מערך בטיחות</h3>
         <div class="op-field-card-grid">
@@ -498,7 +526,8 @@
           </article>
         </div>
       </div>
-    </section>
+      </div>
+    </details>
 
     <details class="content-accordion summary-foldout" id="dilemmas">
       <summary><span class="foldout-kicker">דילמות מהשטח</span><strong>לחץ, התנגדות, תקציב ותרבות</strong></summary>
@@ -609,14 +638,10 @@
       <p>טוען שאלות תרגול...</p>
     </section>
 
-    <section class="content-section" id="summaryRelated" data-read-aloud-exclude="true">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">Related Learning</p>
-          <h2>קישורים קשורים</h2>
-        </div>
-      </div>
-      <div class="related-links">
+    <details class="content-accordion summary-foldout" id="summaryRelated" data-read-aloud-exclude="true">
+      <summary><span class="foldout-kicker">קישורים</span><strong>קישורים קשורים</strong></summary>
+      <div class="foldout-content">
+        <div class="related-links">
         <a class="btn" href="../prep/lesson-08-safety-organization.html">הכנה לשיעור 8</a>
         <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
         <a class="btn secondary" href="../summaries.html">כל הסיכומים</a>
@@ -629,7 +654,9 @@
         <a class="btn secondary" href="../templates.html">Templates</a>
         <a class="btn secondary" href="../glossary.html">מילון מונחים</a>
       </div>
-    </section>
+      </div>
+    </details>
+
   </main>
 
   <script src="../../js/prototype-shell.js"></script>
