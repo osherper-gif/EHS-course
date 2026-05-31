@@ -88,6 +88,35 @@
     .summary-mini-callout[data-callout="evidence"] { border-inline-start-color: #b45309; }
     .callout-label { display: inline-block; font-weight: 900; margin-bottom: .25rem; }
 
+    .summary-foldout {
+      margin: 1rem 0;
+    }
+
+    .summary-foldout > summary {
+      min-height: 58px;
+    }
+
+    .summary-foldout > summary > strong {
+      display: block;
+      flex: 1 1 auto;
+      line-height: 1.45;
+      min-width: 0;
+    }
+
+    .foldout-kicker {
+      color: var(--proto-muted);
+      display: inline-block;
+      flex: 0 0 auto;
+      font-size: .82rem;
+      font-weight: 900;
+      margin-inline-start: .6rem;
+      white-space: nowrap;
+    }
+
+    .foldout-content {
+      padding-block-start: .25rem;
+    }
+
     .learning-unit-card { border-top: 4px solid rgba(8, 100, 128, .55); }
     .case-card { border-inline-start: 5px solid #b45309; }
     .legal-card { border-top: 4px solid rgba(93, 63, 211, .5); }
@@ -471,13 +500,9 @@
       </div>
     </section>
 
-    <section class="content-section" id="dilemmas">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">דילמות מהשטח</p>
-          <h2>לחץ, התנגדות, תקציב ותרבות</h2>
-        </div>
-      </div>
+    <details class="content-accordion summary-foldout" id="dilemmas">
+      <summary><span class="foldout-kicker">דילמות מהשטח</span><strong>לחץ, התנגדות, תקציב ותרבות</strong></summary>
+      <div class="foldout-content">
       <div class="dilemma-grid">
         <article class="dilemma-card"><strong>המנכ"ל לא מאשר יניקת אוויר</strong><span>התגובה המקצועית: עלות-תועלת, מדידת חשיפה, סיכון מחלת מקצוע, מכתב מתועד והצעת שלבי ביצוע.</span></article>
         <article class="dilemma-card"><strong>עובד ותיק מסרב למשקפי מגן</strong><span>לא צועקים. בודקים נוחות, משתפים בבחירת PPE, ואם הסירוב נמשך מעבירים למנהל הקו לאכיפה.</span></article>
@@ -486,45 +511,36 @@
         <article class="dilemma-card"><strong>אין דיווחי Near Miss</strong><span>שקט אינו סימן לבטיחות. זה יכול להיות פחד. בונים Just Culture וערוצי דיווח פשוטים.</span></article>
         <article class="dilemma-card"><strong>רכש קונה PPE זול ולא נוח</strong><span>נוחות היא תנאי יישום. משתפים עובדים, מבצעים פיילוט ומראים שהחיסכון הזול יוצר אי-ציות.</span></article>
       </div>
-    </section>
-
-    <section class="content-section" id="cases">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">מקרי בוחן וסיפורי שטח</p>
-          <h2>מה לומדים מפסיקה, דירקטוריון, פרויקט ענק וסחף מבצעי</h2>
-        </div>
       </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="cases">
+      <summary><span class="foldout-kicker">מקרי בוחן וסיפורי שטח</span><strong>מה לומדים מפסיקה, דירקטוריון, פרויקט ענק וסחף מבצעי</strong></summary>
+      <div class="foldout-content">
       <div class="case-grid">
         <article class="case-card"><strong>התאונה בבניין בן 6 קומות</strong><span>ממונה שזיהה סיכון, נתן הנחיות בכתב ותיעד את האזהרות פעל כאדם סביר. האחריות ליישום בפועל נשארה אצל מנהל העבודה.</span></article>
         <article class="case-card"><strong>דירקטוריון מנותק מהשטח</strong><span>ניהול בטיחות דרך גרפים בלבד אינו מנהיגות. הנהלה חייבת לרדת לשטח, לראות סיכונים ולדבר עם עובדים.</span></article>
         <article class="case-card"><strong>פרויקט ענק עם צפי הרוגים</strong><span>ניהול סיכונים אינו חישוב קר של נפגעים צפויים. מערכת בטיחות מקצועית משלבת מוסר, אפס פגיעות ומניעת סיכון מראש.</span></article>
         <article class="case-card"><strong>סחף מבצעי סביב LOTO</strong><span>כאשר חיסכון של 15 דקות מתגמל עקיפת נעילה ותיוג, התרבות מתכנתת תאונה. צריך לשנות את מערכת התגמולים והפיקוח.</span></article>
       </div>
-    </section>
-
-    <section class="content-section" id="checklists">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">צ'קליסטים</p>
-          <h2>כלי שטח לממונה בטיחות</h2>
-        </div>
       </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="checklists">
+      <summary><span class="foldout-kicker">צ'קליסטים</span><strong>כלי שטח לממונה בטיחות</strong></summary>
+      <div class="foldout-content">
       <div class="pocket-grid">
         <article class="pocket-card"><strong>בדיקת מדיניות</strong><span>חתימת מנכ"ל עדכנית, תאריך, יעדים, מחויבות למשאבים, הפצה לעובדים, התאמה ל-ISO 45001.</span></article>
         <article class="pocket-card"><strong>בדיקת ועדת בטיחות</strong><span>25 עובדים ומעלה, ייצוג שווה, פרוטוקולים, סיורים, החלטות, אחראים, מועדים ומעקב ביצוע.</span></article>
         <article class="pocket-card"><strong>בדיקת הדרכות</strong><span>תוכנית שנתית, קהל יעד, מדריך, תאריך, חתימות, OJT, הסמכות, ריענון שנתי ושפות עובדים.</span></article>
         <article class="pocket-card"><strong>בדיקת KPI</strong><span>הפרדה בין Leading ל-Lagging, מגמות, תת-דיווח, Near Miss, פעולות מתקנות ובדיקת אפקטיביות.</span></article>
       </div>
-    </section>
-
-    <section class="content-section" id="examFocus">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">דגשי מבחן</p>
-          <h2>מה לזכור לפני השאלות</h2>
-        </div>
       </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="examFocus">
+      <summary><span class="foldout-kicker">דגשי מבחן</span><strong>מה לזכור לפני השאלות</strong></summary>
+      <div class="foldout-content">
       <table class="summary-table">
         <thead>
           <tr>
@@ -541,9 +557,10 @@
           <tr><td data-label="נושא">Just Culture</td><td data-label="הדגש למבחן">מעודדת דיווח ולמידה, אך אינה מתירה הפרה מודעת.</td><td data-label="טעות נפוצה">לחשוב שאין אחריות אישית בכלל.</td></tr>
         </tbody>
       </table>
-    </section>
+      </div>
+    </details>
 
-    <details class="content-accordion" id="summaryGlossary" open>
+    <details class="content-accordion summary-foldout" id="summaryGlossary">
       <summary>מושגים מרכזיים</summary>
       <div class="summary-grid">
         <article class="summary-card"><h3>SMS</h3><p>Safety Management System: מערכת ניהול בטיחות הכוללת מדיניות, סיכונים, יעדים, מדדים, הדרכות ושיפור מתמיד.</p></article>
@@ -555,7 +572,7 @@
       </div>
     </details>
 
-    <details class="content-accordion" id="questionsFromClass" open>
+    <details class="content-accordion summary-foldout" id="questionsFromClass">
       <summary>שאלות שעלו מהשיעור</summary>
       <div class="summary-grid">
         <article class="summary-card"><h3>האם ממונה בטיחות הוא מנהל?</h3><p>הוא מנהל מערכת מידע, סיכונים, הדרכות ותרבות, אך אינו בהכרח מנהל קו עם סמכות משמעתית או תקציבית.</p></article>
@@ -564,7 +581,7 @@
       </div>
     </details>
 
-    <details class="content-accordion" id="keyTakeaways" open>
+    <details class="content-accordion summary-foldout" id="keyTakeaways">
       <summary>עיקרי הדברים</summary>
       <ul>
         <li>מערך בטיחות טוב עובד גם כאשר הממונה אינו נמצא בשטח.</li>
