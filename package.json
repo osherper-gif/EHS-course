@@ -7,6 +7,7 @@
     "migrate:exam-questions:dry": "node scripts/migrate-exam-questions-to-firestore.js",
     "migrate:exam-questions:staging": "node scripts/migrate-exam-questions-to-firestore.js --write --project staging",
     "check:links": "node scripts/check-links.js",
+    "check:hygiene": "node scripts/check-site-hygiene.js",
     "audit:questions": "node scripts/audit-questions-quality.js",
     "content:scan": "node scripts/content-scan.js",
     "content:audit": "node scripts/content-audit.js",
