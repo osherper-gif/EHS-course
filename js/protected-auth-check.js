@@ -244,7 +244,7 @@ function renderApproved(user) {
   });
   elements.actions?.append(
     makeButton("המשך לשלב הבא", () => {
-      setText(elements.message, "זהו placeholder בלבד לשלב הבא. עדיין אין בדיקת תשובה או ניקוד בדף זה.");
+      setText(elements.message, "שלב זה מיועד לתרגול צפייה בלבד. בדיקת תשובה וניקוד יופעלו במנגנון התרגול המתאים.");
     })
   );
   appendAuthenticatedActions(user);

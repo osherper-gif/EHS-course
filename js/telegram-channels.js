@@ -80,7 +80,7 @@
       const channel = selectedChannel();
       details.textContent =
         clean(channel.description) + " · סטטוס: " + statusLabel(channel.status);
-      action.textContent = channel.telegramUrl ? "הצטרף לערוץ" : "הערוץ ייפתח בקרוב";
+      action.textContent = channel.telegramUrl ? "הצטרף לערוץ" : "הערוץ ייפתח בהמשך";
       action.disabled = !channel.telegramUrl;
       status.textContent = channel.telegramUrl
         ? ""
