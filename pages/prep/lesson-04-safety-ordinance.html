@@ -4,191 +4,353 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
-  <meta name="description" content="עמוד הכנה מובנה לשיעור 4: פקודת הבטיחות בעבודה ומבנה החובות.">
-  <title>הכנה לשיעור 4 — פקודת הבטיחות בעבודה ומבנה החובות</title>
+  <meta name="description" content="הכנה לשיעור 4: EHS ו-Process Safety Master Class, מתשתית משפטית ואחריות סטטוטורית ועד כלי שטח, צ'קליסטים ושאלות הכנה.">
+  <title>הכנה לשיעור 4 - EHS ו-Process Safety Master Class</title>
   <script src="../../js/ui-mode.js"></script>
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <style>
+    body.prototype-shell .prep-page {
+      direction: rtl;
+      text-align: right;
+    }
+
+    body.prototype-shell .prep-page .page-hero,
+    body.prototype-shell .prep-page .content-accordion,
+    body.prototype-shell .prep-page .prep-question-section {
+      margin-block-end: 1rem;
+    }
+
+    body.prototype-shell .prep-page .content-accordion > summary {
+      direction: rtl;
+      justify-content: flex-start;
+      text-align: right;
+    }
+
+    body.prototype-shell .prep-page .content-accordion > summary::before {
+      content: "▶ סגור";
+      font-size: .85rem;
+      color: #536b7a;
+      margin-inline-start: .5rem;
+    }
+
+    body.prototype-shell .prep-page .content-accordion[open] > summary::before {
+      content: "▼ פתוח";
+    }
+
+    .prep-card-grid,
+    .prep-flow,
+    .prep-checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .85rem;
+      margin-block: 1rem;
+    }
+
+    .prep-card,
+    .flow-step,
+    .prep-check-card {
+      border: 1px solid var(--proto-border, #d8e2ea);
+      border-radius: 12px;
+      background: var(--proto-surface, #fff);
+      padding: 1rem;
+      box-shadow: 0 10px 24px rgba(15, 35, 52, .05);
+    }
+
+    .prep-card strong,
+    .flow-step strong,
+    .prep-check-card strong {
+      display: block;
+      color: var(--proto-text, #14212b);
+      margin-block-end: .35rem;
+    }
+
+    .field-note,
+    .exam-note,
+    .legal-note {
+      border-inline-start: 4px solid #0b7894;
+      background: #eef8fb;
+      border-radius: 10px;
+      padding: .85rem 1rem;
+      margin-block: 1rem;
+    }
+
+    .legal-note {
+      border-inline-start-color: #7c3aed;
+      background: #f5f3ff;
+    }
+
+    .exam-note {
+      border-inline-start-color: #c2410c;
+      background: #fff7ed;
+    }
+
+    .prep-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-block: 1rem;
+      font-size: .95rem;
+    }
+
+    .prep-table th,
+    .prep-table td {
+      border: 1px solid #d8e2ea;
+      padding: .75rem;
+      vertical-align: top;
+      text-align: right;
+    }
+
+    .prep-table th {
+      background: #eef3f7;
+      font-weight: 700;
+    }
+
+    @media (max-width: 640px) {
+      .prep-table,
+      .prep-table thead,
+      .prep-table tbody,
+      .prep-table th,
+      .prep-table td,
+      .prep-table tr {
+        display: block;
+      }
+
+      .prep-table th {
+        display: none;
+      }
+
+      .prep-table td {
+        border-block-start: 0;
+      }
+
+      .prep-table td::before {
+        content: attr(data-label);
+        display: block;
+        font-weight: 700;
+        color: #435668;
+        margin-block-end: .25rem;
+      }
+    }
+  </style>
 </head>
-<body data-page-title="הכנה לשיעור 4 — פקודת הבטיחות בעבודה ומבנה החובות" class="auth-protected lms-pro prototype-shell prototype-shell-page">
+<body data-page-title="הכנה לשיעור 4 - EHS ו-Process Safety Master Class" class="auth-protected lms-pro prototype-shell prototype-shell-page">
   <a class="skip-link" href="#main">דלג לתוכן</a>
   <main id="main" class="site-main prep-page" data-readable-content>
     <section class="page-hero">
       <div>
-        <p class="kicker">Lesson Prep · שיעור 4</p>
-        <h1>הכנה לשיעור 4 — פקודת הבטיחות בעבודה ומבנה החובות</h1>
-        <p>עמוד הכנה מובנה לשיעור 4: פקודת הבטיחות בעבודה ומבנה החובות.</p>
+        <p class="kicker">הכנה לשיעור 4</p>
+        <h1>EHS ו-Process Safety Master Class</h1>
+        <p>מהדורה מאוחדת: מאסטרטגיה תאגידית ועד לרצפת הייצור. השיעור מחבר בין בטיחות תעסוקתית, בטיחות תהליכית, ממשל תאגידי, משפט וכלי שטח.</p>
       </div>
     </section>
 
-    <details class="content-accordion" open>
-      <summary>Executive Summary</summary>
-      <div><p>שיעור הכנה: EHS &amp; Process Safety Master Class</p>
-<p>מהדורה מאוחדת: מאסטרטגיה תאגידית ועד לרצפת הייצור</p>
-<p>מבוא: תפקיד ה-EHS בארגון המודרני</p></div>
+    <details class="content-accordion summary-foldout">
+      <summary>מבוא: תפקיד ה-EHS בארגון המודרני</summary>
+      <div>
+        <p>בטיחות בארגון מודרני אינה מתחילה בשטח, אלא בשולחן הדירקטוריון. הבנת מדרג האחריות והמנגנונים המשפטיים היא קו ההגנה הראשון של הארגון ושל בעלי התפקידים שבו.</p>
+        <p>מטרת שיעור זה היא לאחד את השכבות של בטיחות תעסוקתית, בטיחות תהליכית, ממשל תאגידי ומשפט, ולהקנות כלים אופרטיביים לשטח.</p>
+        <div class="prep-card-grid">
+          <article class="prep-card">
+            <strong>מה לומדים לפני השיעור</strong>
+            <p>איך אחריות הנהלה, חקיקה, תקנים, נהלים וכלי שטח מתחברים למערכת ניהול בטיחות אחת.</p>
+          </article>
+          <article class="prep-card">
+            <strong>מה חשוב לזכור</strong>
+            <p>הבטיחות אינה רק ביצוע בשטח; היא גם ממשל תאגידי, תיעוד, פיקוח, מדדים וקבלת החלטות.</p>
+          </article>
+          <article class="prep-card">
+            <strong>חיבור לשטח</strong>
+            <p>כל צ'קליסט, היתר עבודה או תחקיר חייב לשקף בקרה אמיתית ולא רק מסמך חתום.</p>
+          </article>
+        </div>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>Quick Learning</summary>
-      <div><div class="knowledge-quick-grid"><article class="knowledge-card"><h3>מה חשוב להבין לפני השיעור</h3><p>שיעור הכנה: EHS &amp; Process Safety Master Class</p></article><article class="knowledge-card"><h3>מונחי מפתח</h3><p>פקודת הבטיחות, בודק מוסמך, תסקיר, גידור מכונה</p></article><article class="knowledge-card"><h3>חיבור למסלול</h3><p>הכנה זו מחוברת למסלול הלימוד, לעמודי ידע, ל־checklists ול־glossary.</p></article></div></div>
+    <details class="content-accordion summary-foldout">
+      <summary>תשתית משפטית ואחריות סטטוטורית</summary>
+      <div>
+        <p>כל פעולה של ממונה בטיחות ומנהל סיכונים חייבת להישען על מדרג חקיקתי ברור.</p>
+        <table class="prep-table">
+          <thead>
+            <tr>
+              <th>רכיב בדין</th>
+              <th>משמעות מעשית</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="רכיב בדין">חוק</td>
+              <td data-label="משמעות מעשית">חקיקה ראשית המגדירה מסגרת כללית, למשל חוק ארגון הפיקוח על העבודה.</td>
+            </tr>
+            <tr>
+              <td data-label="רכיב בדין">פקודה</td>
+              <td data-label="משמעות מעשית">חקיקה מנדטורית המהווה בסיס סטטוטורי למניעת סיכונים פיזיים.</td>
+            </tr>
+            <tr>
+              <td data-label="רכיב בדין">תקנה</td>
+              <td data-label="משמעות מעשית">חקיקת משנה מפורטת המגדירה איך לבצע, למשל תקנות עבודה בגובה.</td>
+            </tr>
+            <tr>
+              <td data-label="רכיב בדין">צו</td>
+              <td data-label="משמעות מעשית">כלי אכיפה מנהלתי קשוח, כגון צו בטיחות להפסקה מיידית או צו שיפור.</td>
+            </tr>
+            <tr>
+              <td data-label="רכיב בדין">תקן מחייב ונוהל ארגוני</td>
+              <td data-label="משמעות מעשית">תקן הופך מחייב כאשר הדין או חוזה מפנים אליו; נוהל ארגוני חייב להיות מוטמע ונאכף.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="legal-note"><strong>דגש משפטי:</strong> הסדר החוקי נע מהגבוה לנמוך: חוק, פקודה, תקנה, צו, תקן מחייב ונוהל ארגוני. נוהל שאינו נאכף אינו מגן בפועל על הארגון.</p>
+        <div class="prep-card-grid">
+          <article class="prep-card">
+            <strong>פס"ד דב חנוך</strong>
+            <p>האצלת סמכות אינה האצלת אחריות סופית. מנכ"ל חייב בפיקוח עליון אקטיבי.</p>
+          </article>
+          <article class="prep-card">
+            <strong>פס"ד סלע שיווק בטון</strong>
+            <p>עצימת עיניים ביחס לדוחות קודמים שהתעלמו מהם שקולה למודעות פלילית מלאה.</p>
+          </article>
+          <article class="prep-card">
+            <strong>פס"ד נחום - גשר המכביה</strong>
+            <p>בעל מקצוע יישפט לפי קנה מידה של המומחה הסביר בתחומו.</p>
+          </article>
+        </div>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>דגשי מבחן</summary>
-      <div><ul><li>מהדורה מאוחדת: מאסטרטגיה תאגידית ועד לרצפת הייצור</li><li>בטיחות בארגון מודרני אינה מתחילה בשטח, אלא בשולחן הדירקטוריון. הבנת מדרג האחריות והמנגנונים המשפטיים היא קו ההגנה הראשון של הארגון ושל בעלי התפקידים שבו. מטרת שיעור זה היא לאחד את השכבות של בטיחות תעסוקתית, בטיחות תהליכית, ממשל תאגידי ומשפט, ולהקנות כלים אופרטיביים לשטח.</li><li>פרק 1: תשתית משפטית ואחריות סטטוטורית</li><li>כל פעולה של ממונה בטיחות ומנהל סיכונים חייבת להישען על מדרג חקיקתי ברור.</li><li>הסדר החוקי מהגבוה לנמוך:</li><li>חוק $\longrightarrow$ פקודה $\longrightarrow$ תקנה $\longrightarrow$ צו $\longrightarrow$ תקן מחייב $\longrightarrow$ נוהל ארגוני</li><li>חוק: חקיקה ראשית המגדירה מסגרת כללית (למשל: חוק ארגון הפיקוח על העבודה).</li><li>תקנה: חקיקת משנה מפורטת המגדירה &quot;איך&quot; לבצע (למשל: תקנות עבודה בגובה).</li></ul></div>
+    <details class="content-accordion summary-foldout">
+      <summary>בטיחות תהליכית (Process Safety Management)</summary>
+      <div>
+        <p>בעוד בטיחות תעסוקתית עוסקת בפציעות קצה, בטיחות תהליכית מתמקדת במניעת אובדן הכלה של חומרים ואנרגיה: אירועים בהסתברות נמוכה וחומרה קטסטרופלית.</p>
+        <div class="prep-flow" aria-label="כלי ניתוח מרכזיים בבטיחות תהליכית">
+          <article class="flow-step">
+            <strong>Bow-Tie Analysis</strong>
+            <span>כלי המשלב את גורמי הסיכון משמאל ואת תוצאות האירוע מימין, עם מחסומים מונעים וממתנים באמצע.</span>
+          </article>
+          <article class="flow-step">
+            <strong>HAZOP</strong>
+            <span>שיטת עבודה צוותית המנתחת נקודות מפתח ומשתמשת במילות מפתח לאיתור סטיות בתהליך.</span>
+          </article>
+          <article class="flow-step">
+            <strong>MOC - ניהול שינויים</strong>
+            <span>כל שינוי בציוד, חומר או נוהל מחייב אישור ועדה רב-תחומית, למעט החלפה זהה לחלוטין.</span>
+          </article>
+        </div>
+        <p class="exam-note"><strong>מלכודת מבחן:</strong> החלפת רכיב "כמו בכמו" אינה MOC, אבל שינוי תוכנת בקרה, חומר, פרמטר תפעולי או נוהל עבודה כן עלולים לחייב MOC.</p>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 1</summary>
-      <div><p>בטיחות בארגון מודרני אינה מתחילה בשטח, אלא בשולחן הדירקטוריון. הבנת מדרג האחריות והמנגנונים המשפטיים היא קו ההגנה הראשון של הארגון ושל בעלי התפקידים שבו. מטרת שיעור זה היא לאחד את השכבות של בטיחות תעסוקתית, בטיחות תהליכית, ממשל תאגידי ומשפט, ולהקנות כלים אופרטיביים לשטח.</p>
-<p>פרק 1: תשתית משפטית ואחריות סטטוטורית</p>
-<p>כל פעולה של ממונה בטיחות ומנהל סיכונים חייבת להישען על מדרג חקיקתי ברור.</p>
-<p>1.1 מדרג מקורות הדין בישראל</p>
-<p>הסדר החוקי מהגבוה לנמוך:</p>
-<p>חוק $\longrightarrow$ פקודה $\longrightarrow$ תקנה $\longrightarrow$ צו $\longrightarrow$ תקן מחייב $\longrightarrow$ נוהל ארגוני</p>
-<p>חוק: חקיקה ראשית המגדירה מסגרת כללית (למשל: חוק ארגון הפיקוח על העבודה).</p>
-<p>פקודה: חקיקה מנדטורית המהווה בסיס סטטוטורי למניעת סיכונים פיזיים.</p>
-<p>תקנה: חקיקת משנה מפורטת המגדירה &quot;איך&quot; לבצע (למשל: תקנות עבודה בגובה).</p>
-<p>צו: כלי אכיפה מנהלתי קשוח (צו בטיחות להפסקה מיידית או צו שיפור).</p>
-<p>1.2 תקדימים משפטיים</p>
-<p>פס&quot;ד דב חנוך: האצלת סמכות אינה האצלת אחריות סופית. מנכ&quot;ל חייב בפיקוח עליון אקטיבי.</p></div>
+    <details class="content-accordion summary-foldout">
+      <summary>חקירות, מדדים ותרבות בטיחות</summary>
+      <div>
+        <p>מודל ICAM לחקר תאונות אינו מחפש אשם בלבד, אלא תנאים מערכתיים: כשלים ארגוניים, תנאי משימה ופעולות ישירות.</p>
+        <table class="prep-table">
+          <thead>
+            <tr>
+              <th>סוג מדד</th>
+              <th>דוגמאות</th>
+              <th>מה הוא מלמד</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="סוג מדד">Lagging - מפגרים</td>
+              <td data-label="דוגמאות">TRIR, LTIFR, ימי אובדן עבודה</td>
+              <td data-label="מה הוא מלמד">מה כבר קרה בארגון.</td>
+            </tr>
+            <tr>
+              <td data-label="סוג מדד">Leading - מובילים</td>
+              <td data-label="דוגמאות">אחוז סגירת ליקויים, סיורי מנהלים, דיווחי כמעט ונפגע</td>
+              <td data-label="מה הוא מלמד">מה נעשה מראש כדי למנוע אירועים.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="field-note"><strong>טיפ לממונה:</strong> מדד טוב אינו רק מספר; הוא כלי ניהולי שמכריח את הארגון לסגור פערים, להוכיח בקרה ולתקן מגמות לפני תאונה.</p>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 2</summary>
-      <div><p>פס&quot;ד סלע שיווק בטון: &quot;עצימת עיניים&quot; במקרה של דוחות קודמים שהתעלמו מהם שקולה למודעות פלילית מלאה.</p>
-<p>פס&quot;ד נחום (גשר המכביה): בעל מקצוע יישפט לפי קנה מידה של &quot;המומחה הסביר בתחומו&quot;.</p>
-<p>פרק 2: בטיחות תהליכית (Process Safety Management)</p>
-<p>בעוד בטיחות תעסוקתית עוסקת בפציעות קצה, בטיחות תהליכית מתמקדת במניעת אובדן הכלה של חומרים ואנרגיה (אירועים בהסתברות נמוכה וחומרה קטסטרופלית).</p>
-<p>2.1 כלי ניתוח מרכזיים</p>
-<p>Bow-Tie Analysis: כלי המשלב את גורמי הסיכון (משמאל) ואת תוצאות האירוע (מימין) עם מחסומים מונעים וממתנים באמצע.</p>
-<p>HAZOP: שיטת עבודה צוותית המנתחת נקודות מפתח (Nodes) ומשתמשת במילות מפתח (Guide Words) לאיתור סטיות בתהליך.</p>
-<p>MOC (ניהול שינויים): כל שינוי בציוד, חומר או נוהל מחייב אישור ועדה רב-תחומית.</p>
-<p>פרק 3: חקירות, מדדים ותרבות בטיחות</p>
-<p>3.1 מודל ICAM לחקר תאונות</p>
-<p>המודל אינו מחפש &quot;אשם&quot; בלבד, אלא תנאים מערכתיים (כשלים ארגוניים, תנאי משימה ופעולות ישירות).</p>
-<p>3.2 מדדי ביצוע (KPIs)</p></div>
+    <details class="content-accordion summary-foldout">
+      <summary>הגנת אש וסיווג אזורים</summary>
+      <div>
+        <p>פיצוץ אבק דורש מחומש פיצוץ: חמצן, חום, דלק או אבק, פיזור ותיחום בחלל סגור.</p>
+        <p>סיווג אזורים לפי ATEX נעשה לפי אזורים כגון Zone 0/20, 1/21, 2/22 בהתאם לרמת הסיכון ולדרישות המיגון של הציוד החשמלי.</p>
+        <div class="prep-card-grid">
+          <article class="prep-card">
+            <strong>Zone 0</strong>
+            <p>סביבה עם נוכחות קבועה או ממושכת של אווירה נפיצה; נדרש ציוד ברמת בטיחות גבוהה במיוחד.</p>
+          </article>
+          <article class="prep-card">
+            <strong>אבק נפיץ</strong>
+            <p>הסיכון אינו רק חומר דליק אלא גם פיזור ותיחום. ניקיון, אוורור וסיווג אזור הם בקרות קריטיות.</p>
+          </article>
+          <article class="prep-card">
+            <strong>ציוד חשמלי</strong>
+            <p>הציוד חייב להתאים לאזור המסווג; התאמה שגויה עלולה להפוך מקור הצתה לאירוע קטסטרופלי.</p>
+          </article>
+        </div>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 3</summary>
-      <div><p>Lagging (מפגרים): TRIR (תדירות פציעות), LTIFR (ימי אובדן עבודה) .</p>
-<p>Leading (מובילים/פרואקטיביים): אחוז סגירת ליקויים, סיורי מנהלים, כמות דיווחי &quot;כמעט ונפגע&quot; .</p>
-<p>פרק 4: הגנת אש וסיווג אזורים</p>
-<p>פיצוץ אבק דורש &quot;מחומש פיצוץ&quot;: חמצן, חום, דלק (אבק), פיזור ותיחום (חלל סגור). הסיווג (ATEX) נעשה לפי אזורים (Zone 0/20, 1/21, 2/22) בהתאם לרמת הסיכון ודרישות המיגון של הציוד החשמלי.</p>
-<p>פרק 5: צ&#39;קליסטים מבצעיים (תמצית)</p>
-<p>עבודה חמה: מחייבת ניטור LEL=0%, צופה אש, והרחקת דליקים .</p>
-<p>חלל מוסגר: מחייב בידוד (LOTO), ניטור גזים, אוורור מאולץ ומשגיח חיצוני (שאסור לו להיכנס!) .</p>
-<p>LOTO: בידוד פיזי, נעילה אישית (מנעול לכל עובד) ווידוא &quot;אפס אנרגיה&quot; .</p>
-<p>עבודה בגובה: בדיקת רתמה, עיגון תקני (1500 ק&quot;ג), ותוכנית חילוץ בתוך 15 דקות .</p>
-<p>פרק 6: בנק שאלות ותרגול (30 שאלות)</p>
-<p>(להלן השאלות מחולקות לפי רמות קושי, עם תשובות והסברים)</p>
-<p>רמה קלה (1-10)</p></div>
+    <details class="content-accordion summary-foldout">
+      <summary>צ'קליסטים מבצעיים לשטח</summary>
+      <div>
+        <p>הקובץ מדגיש ארבעה מצבים שבהם הצ'קליסט אינו בירוקרטיה אלא בקרה מצילת חיים.</p>
+        <div class="prep-checklist-grid">
+          <article class="prep-check-card">
+            <strong>עבודה חמה</strong>
+            <p>ניטור LEL=0%, צופה אש והרחקת דליקים לפני תחילת העבודה.</p>
+          </article>
+          <article class="prep-check-card">
+            <strong>חלל מוסגר</strong>
+            <p>בידוד LOTO, ניטור גזים, אוורור מאולץ ומשגיח חיצוני שאסור לו להיכנס.</p>
+          </article>
+          <article class="prep-check-card">
+            <strong>LOTO</strong>
+            <p>בידוד פיזי, נעילה אישית לכל עובד ווידוא אפס אנרגיה לפני עבודה.</p>
+          </article>
+          <article class="prep-check-card">
+            <strong>עבודה בגובה</strong>
+            <p>בדיקת רתמה, עיגון תקני ותוכנית חילוץ בתוך 15 דקות.</p>
+          </article>
+        </div>
+        <p class="exam-note"><strong>דגש למבחן:</strong> משגיח פתח בחלל מוסגר אינו נכנס להצלה ספונטנית. תפקידו לשמור קשר, להזעיק חילוץ ולמנוע קורבן נוסף.</p>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 4</summary>
-      <div><p>מהו הפירוש המעשי של &quot;האצלת סמכויות&quot; לפי פס&quot;ד דב חנוך?</p>
-<p>תשובה: ב. הסבר: פסק הדין קבע כי מנהל מחויב בפיקוח עליון אקטיבי.</p>
-<p>מהו &quot;צו בטיחות&quot; לעומת &quot;צו שיפור&quot;?</p>
-<p>תשובה: ב. הסבר: צו בטיחות משמש למניעת סכנה מיידית לחיי אדם.</p>
-<p>איזה מרכיב נוסף במחומש הפיצוץ שאינו קיים במשולש האש הקלאסי?</p>
-<p>תשובה: ג. הסבר: אבק דורש פיזור באוויר ותיחום (חלל סגור) כדי להתפוצץ.</p>
-<p>מהי חובת הדיווח על תאונה שגרמה להיעדרות מעל 3 ימים?</p>
-<p>תשובה: ב. הסבר: זהו מועד סטטוטורי מחייב.</p>
-<p>מי חייב להיות יו&quot;ר ועדת בטיחות?</p>
-<p>תשובה: ג. הסבר: הממונה מייעץ, אך יו&quot;ר הוועדה הוא נציג המעסיק.</p>
-<p>מהו ה-Top Event בניתוח Bow-Tie?</p>
-<p>תשובה: ג. הסבר: זהו &quot;לב&quot; התרשים.</p></div>
+    <details class="content-accordion summary-foldout">
+      <summary>שאלות אמריקאיות</summary>
+      <div>
+        <p>בקובץ המקור מופיעות 30 שאלות הכנה ברמות קל, בינוני וקשה. השאלות מוצגות בהמשך במנגנון התרגול של האתר, שאלה אחת בכל פעם, עם משוב והסבר.</p>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 5</summary>
-      <div><p>מהי המטרה של תפיסת ה-HOP?</p>
-<p>תשובה: ב. הסבר: HOP מניח שטעות היא אנושית ובלתי נמנעת.</p>
-<p>מהו הציוד המגן הנדרש ב-Zone 0?</p>
-<p>תשובה: ב. הסבר: רמת בטיחות עילאית נדרשת באזורים עם נוכחות קבועה של גזים.</p>
-<p>כל כמה זמן חובה לבדוק אביזרי הרמה (שאקלים/רצועות)?</p>
-<p>תשובה: ב. הסבר: זהו חריג קריטי לשטח (שונה ממכונות הרמה - 14 חודשים).</p>
-<p>האם החלפת רכיב &quot;כמו בכמו&quot; דורשת MOC?</p>
-<p>תשובה: ב. הסבר: החלפה כזו (Replacement in Kind) אינה מהווה שינוי המחייב MOC.</p>
-<p>רמה בינונית (11-20)</p>
-<p>מתי הופך תקן ISO למחייב משפטית?</p>
-<p>תשובה: ב. הסבר: תקן הופך למחייב דרך הפניה חוקית או חוזית.</p>
-<p>מהו מודל ה-ICAM בתחקיר תאונות?</p></div>
-    </details>
+    <section id="prepQuestions" class="prep-question-section" data-read-aloud-exclude="true">
+      <div class="section-title">
+        <h2>שאלות הכנה אינטראקטיביות</h2>
+        <p>30 שאלות מתוך קובץ ההכנה. ההתקדמות נשמרת מקומית בדפדפן בלבד.</p>
+      </div>
+      <div id="prepQuizApp" class="prep-quiz-app" data-prep-quiz="lesson-04-safety-ordinance"></div>
+    </section>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 6</summary>
-      <div><p>תשובה: ב. הסבר: המודל מנתח שכבות של כשלים מהארגון ועד לקצה.</p>
-<p>מהו האיסור המוחלט על משגיח פתח (Attendant) בחלל מוסגר?</p>
-<p>תשובה: ב. הסבר: כניסה ללא ציוד וצוות חילוץ תהפוך אותו לקורבן נוסף.</p>
-<p>מהי הנקודה העיקרית של פס&quot;ד סלע שיווק בטון?</p>
-<p>תשובה: ב. הסבר: מודעות לליקוי ללא תיקון שקולה לכוונה פלילית.</p>
-<p>כיצד מוגדר ה-TRIR?</p>
-<p>תשובה: א. הסבר: זהו מדד lag מפורסם בתעשייה.</p>
-<p>מהו &quot;ניסיון אפס אנרגיה&quot; (Try-Out) בתהליך LOTO?</p>
-<p>תשובה: ב. הסבר: פעולה זו מוודאת פיזית שהמכונה מנותקת.</p>
-<p>מהי תסמונת התלייה (Suspension Trauma)?</p>
-<p>תשובה: ב. הסבר: יש לחלץ בתוך 15 דקות.</p>
-<p>מה ההבדל בין Lagging ל-Leading Indicators?</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 7</summary>
-      <div><p>תשובה: ב. הסבר: מדדים מובילים מנבאים ביצועים.</p>
-<p>מדוע אסור להשתמש בצינור ספרינקלרים כנקודת עיגון לעבודה בגובה?</p>
-<p>תשובה: ב. הסבר: מערכת כיבוי אש אינה רכיב מבני בטיחותי.</p>
-<p>מהי מטרת ה-Attorney-Client Privilege במקרה של תאונה?</p>
-<p>תשובה: ב. הסבר: מדובר בחיסיון משפטי על דוחות הכנה למשפט.</p>
-<p>רמה קשה (21-30)</p>
-<p>מדוע &quot;נרמול החריגה&quot; (Normalization of Deviance) קטלני?</p>
-<p>תשובה: ב. הסבר: זהו לקח מרכזי מאסון ה-BP בטקסס סיטי.</p>
-<p>אילו מהבאים דורש MOC?</p>
-<p>תשובה: ב. הסבר: תוכנת בקרה היא רכיב תהליכי קריטי.</p>
-<p>כיצד מוגדרת רמת ביצוע (PL) במכונות (ISO 13849)?</p>
-<p>תשובה: ב. הסבר: PL e הוא הרמה הגבוהה ביותר (קריטי).</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 8</summary>
-      <div><p>מה קורה אם עובד עובד בגובה ביום ה-731 להדרכה שלו (הדרכה הייתה ל-24 חודשים)?</p>
-<p>תשובה: ב. הסבר: תוקף ההדרכה פקע והוא אינו מוסמך סטטוטורית.</p>
-<p>מהו הלקח המרכזי מ-Deepwater Horizon?</p>
-<p>תשובה: ב. הסבר: מנהלים ויתרו על בדיקות בטיחות כדי לעמוד בלו&quot;ז.</p>
-<p>מדוע אישור עבודה חמה תקף למשמרת אחת בלבד?</p>
-<p>תשובה: ב. הסבר: תנאי השטח הם דינמיים ומשתנים בכל משמרת.</p>
-<p>באילו מקרים מפקח עבודה ראשי רשאי לחייב מינוי ממונה בטיחות?</p>
-<p>תשובה: ב. הסבר: החוק מעניק סמכות להחמיר לפי אופי הסיכון.</p>
-<p>מה ההבדל בין &quot;חוק&quot; ל&quot;תקנה&quot; במדרג הדין?</p>
-<p>תשובה: ב. הסבר: חקיקה ראשית מול חקיקת משנה.</p>
-<p>ב-HAZOP, מה מסמל &quot;More Flow&quot; בצינור הזנת חומר למגיב?</p>
-<p>תשובה: ב. הסבר: &quot;More&quot; היא מילת מפתח לאיתור סטיות בפרמטר זרימה.</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 9</summary>
-      <div><p>מהי חובת התיעוד של מנהל ה-EHS לאחר סיורי בטיחות?</p>
-<p>תשובה: ב. הסבר: זהו מדד מוביל (Leading) קריטי להוכחת עמידה בחובת הזהירות.</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>Related Knowledge</summary>
-      <div><div class="related-links">
-        <a class="btn secondary" href="../lesson-04.html">לשיעור 4</a>
-        <a class="btn secondary" href="../knowledge/safety-ordinance.html">safety-ordinance</a>
-        <a class="btn secondary" href="../knowledge/labor-inspection-law.html">labor-inspection-law</a>
-        <a class="btn secondary" href="../knowledge/machine-guarding.html">machine-guarding</a>
-        <a class="btn secondary" href="../knowledge/process-safety.html">process-safety</a>
-        <a class="btn secondary" href="../checklists.html?domain=Machine%20Safety">Checklist Machine Safety</a>
-        <a class="btn secondary" href="../checklists.html?domain=Process%20Safety">Checklist Process Safety</a>
-        <a class="btn secondary" href="../glossary.html">Glossary</a>
-        <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
-      </div></div>
+    <details class="content-accordion summary-foldout">
+      <summary>קישורים קשורים</summary>
+      <div>
+        <div class="related-links">
+          <a class="btn secondary" href="../lesson-04.html">לשיעור 4</a>
+          <a class="btn secondary" href="../summaries/lesson-04-summary.html">סיכום שיעור 4</a>
+          <a class="btn secondary" href="../knowledge/safety-ordinance.html">פקודת הבטיחות בעבודה</a>
+          <a class="btn secondary" href="../knowledge/iso-45001.html">ISO 45001</a>
+          <a class="btn secondary" href="../checklists.html">Checklists</a>
+          <a class="btn secondary" href="../glossary.html">Glossary</a>
+          <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
+        </div>
+      </div>
     </details>
   </main>
 
-  
+  <script src="../../data/prep-questions-map.js"></script>
+  <script src="../../js/prep-quiz.js"></script>
+  <script src="../../js/summary-stability.js"></script>
   <script src="../../js/prototype-shell.js"></script>
   <script src="../../js/read-aloud.js"></script>
   <script type="module" src="../../js/auth.js"></script>

@@ -4,257 +4,128 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
-  <meta name="description" content="עמוד הכנה מובנה לשיעור 7: אחריות משפטית ותפקיד ממונה בטיחות.">
-  <title>הכנה לשיעור 7 — אחריות משפטית ותפקיד ממונה בטיחות</title>
+  <meta name="description" content="שיעור הכנה על תפקיד ממונה הבטיחות כיועץ סטטוטורי, חלוקת אחריות, תיעוד מגן, רגולציה, תרבות בטיחות ומושגי מבחן.">
+  <title>הכנה לשיעור 7 - מהות תפקיד ממונה הבטיחות והבסיס החוקי</title>
   <script src="../../js/ui-mode.js"></script>
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <style>
+    body.prototype-shell .prep-page { direction: rtl; text-align: right; }
+    body.prototype-shell .prep-page .page-hero,
+    body.prototype-shell .prep-page .content-accordion,
+    body.prototype-shell .prep-page .prep-question-section { margin-block-end: 1rem; }
+    body.prototype-shell .prep-page .content-accordion > summary { direction: rtl; justify-content: flex-start; text-align: right; }
+    body.prototype-shell .prep-page .content-accordion > summary::before {
+      content: "▶ סגור"; font-size: .85rem; color: #536b7a; margin-inline-start: .5rem;
+    }
+    body.prototype-shell .prep-page .content-accordion[open] > summary::before { content: "▼ פתוח"; }
+    .prep-card-grid, .prep-flow, .prep-checklist-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .85rem; margin-block: 1rem;
+    }
+    .prep-card, .flow-step, .prep-check-card {
+      border: 1px solid var(--proto-border, #d8e2ea); border-radius: 12px; background: var(--proto-surface, #fff);
+      padding: 1rem; box-shadow: 0 10px 24px rgba(15, 35, 52, .05);
+    }
+    .prep-card strong, .flow-step strong, .prep-check-card strong { display: block; color: var(--proto-text, #14212b); margin-block-end: .35rem; }
+    .field-note, .exam-note, .legal-note { border-inline-start: 4px solid #0b7894; background: #eef8fb; border-radius: 10px; padding: .85rem 1rem; margin-block: 1rem; }
+    .legal-note { border-inline-start-color: #7c3aed; background: #f5f3ff; }
+    .exam-note { border-inline-start-color: #c2410c; background: #fff7ed; }
+    .prep-table { width: 100%; border-collapse: collapse; margin-block: 1rem; font-size: .95rem; }
+    .prep-table th, .prep-table td { border: 1px solid #d8e2ea; padding: .75rem; vertical-align: top; text-align: right; }
+    .prep-table th { background: #eef3f7; font-weight: 700; }
+    @media (max-width: 640px) {
+      .prep-table, .prep-table thead, .prep-table tbody, .prep-table th, .prep-table td, .prep-table tr { display: block; }
+      .prep-table th { display: none; }
+      .prep-table td { border-block-start: 0; }
+      .prep-table td::before { content: attr(data-label); display: block; font-weight: 700; color: #435668; margin-block-end: .25rem; }
+    }
+</style>
 </head>
-<body data-page-title="הכנה לשיעור 7 — אחריות משפטית ותפקיד ממונה בטיחות" class="auth-protected lms-pro prototype-shell prototype-shell-page">
+<body data-page-title="הכנה לשיעור 7 - מהות תפקיד ממונה הבטיחות והבסיס החוקי" class="auth-protected lms-pro prototype-shell prototype-shell-page">
   <a class="skip-link" href="#main">דלג לתוכן</a>
   <main id="main" class="site-main prep-page" data-readable-content>
     <section class="page-hero">
       <div>
-        <p class="kicker">Lesson Prep · שיעור 7</p>
-        <h1>הכנה לשיעור 7 — אחריות משפטית ותפקיד ממונה בטיחות</h1>
-        <p>עמוד הכנה מובנה לשיעור 7: אחריות משפטית ותפקיד ממונה בטיחות.</p>
+        <p class="kicker">הכנה לשיעור 7</p>
+        <h1>מהות תפקיד ממונה הבטיחות והבסיס החוקי</h1>
+        <p>שיעור הכנה על תפקיד ממונה הבטיחות כיועץ סטטוטורי, חלוקת אחריות, תיעוד מגן, רגולציה, תרבות בטיחות ומושגי מבחן.</p>
       </div>
     </section>
 
-    <details class="content-accordion" open>
-      <summary>Executive Summary</summary>
-      <div><p>מהות התפקיד והבסיס החוקי</p>
-<p>הגדרת התפקיד: ממונה הבטיחות הוא יועץ מקצועי סטטוטורי העוסק בתחומי הבטיחות, הגיהות, הבריאות התעסוקתית, ניהול הסיכונים ומניעת התאונות בארגון.</p>
-<p>התפיסה המודרנית: בניגוד לעבר בו נתפס הממונה כ&quot;שוטר קסדות&quot; רושם דוחות, כיום הוא מהווה מנהל סיכונים, יועץ אסטרטגי להנהלה ומוביל תרבות בטיחות.</p></div>
+    
+    <details class="content-accordion summary-foldout">
+      <summary>מהות התפקיד והבסיס החוקי</summary>
+      <div>
+        <p>ממונה הבטיחות הוא יועץ מקצועי סטטוטורי בתחומי הבטיחות, הגיהות, הבריאות התעסוקתית, ניהול הסיכונים ומניעת התאונות בארגון.</p><p>בתפיסה המודרנית הוא אינו שוטר קסדות אלא מנהל סיכונים, יועץ אסטרטגי להנהלה ומוביל תרבות בטיחות.</p><div class="prep-card-grid"><article class="prep-card"><strong>Staff</strong><p>פונקציית ייעוץ ומטה ללא סמכות ניהול ביצועית ישירה.</p></article><article class="prep-card"><strong>Line</strong><p>פונקציית סמכות ביצוע וניהול, כגון מנהלי עבודה והנהלה.</p></article><article class="prep-card"><strong>בסיס חוקי</strong><p>חוק ארגון הפיקוח, פקודת הבטיחות בעבודה ותקנות שונות.</p></article></div>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>Quick Learning</summary>
-      <div><div class="knowledge-quick-grid"><article class="knowledge-card"><h3>מה חשוב להבין לפני השיעור</h3><p>מהות התפקיד והבסיס החוקי</p></article><article class="knowledge-card"><h3>מונחי מפתח</h3><p>אחריות פלילית, רשלנות, חובת זהירות, ממונה בטיחות</p></article><article class="knowledge-card"><h3>חיבור למסלול</h3><p>הכנה זו מחוברת למסלול הלימוד, לעמודי ידע, ל־checklists ול־glossary.</p></article></div></div>
+    <details class="content-accordion summary-foldout">
+      <summary>חלוקת האחריות: ממונה מול תופש המפעל</summary>
+      <div>
+        <p>הבטיחות היא מערכת ולא אדם אחד. תופש המפעל וההנהלה נושאים באחריות שילוחית וכוללת, והממונה מסייע להם מקצועית.</p><div class="prep-card-grid"><article class="prep-card"><strong>תופש המפעל / הנהלה</strong><p>תקציב, משאבים, ציוד, אכיפה ותרבות בטיחות ארגונית.</p></article><article class="prep-card"><strong>ממונה הבטיחות</strong><p>זיהוי סיכונים, התרעה, ייעוץ, הדרכה, סיורים והמלצות פתרון.</p></article></div><p class="legal-note"><strong>דגש משפטי:</strong> הממונה אינו נושא באחריות הכוללת למפעל; האחריות העליונה נשארת אצל ההנהלה ותופש המפעל.</p>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>דגשי מבחן</summary>
-      <div><ul><li>מהות התפקיד והבסיס החוקי</li><li>הגדרת התפקיד: ממונה הבטיחות הוא יועץ מקצועי סטטוטורי העוסק בתחומי הבטיחות, הגיהות, הבריאות התעסוקתית, ניהול הסיכונים ומניעת התאונות בארגון.</li><li>התפיסה המודרנית: בניגוד לעבר בו נתפס הממונה כ&quot;שוטר קסדות&quot; רושם דוחות, כיום הוא מהווה מנהל סיכונים, יועץ אסטרטגי להנהלה ומוביל תרבות בטיחות.</li><li>מיקום בארגון: הממונה מהווה פונקציית ייעוץ (Staff) ולא פונקציית ניהול ביצועי (Line). הוא אינו מנהל העבודה ואינו תופש המפעל.</li><li>בסיס חוקי: סמכותו נובעת, בין היתר, מחוק ארגון הפיקוח על העבודה (תשי&quot;ד-1954), פקודת הבטיחות בעבודה ותקנות שונות.</li><li>חובת מינוי: חלה על מפעלים עם 50 עובדים ומעלה, אתרי בנייה מסוימים ומפעלים עם סיכונים מיוחדים. החובה אינה תלויה רק במספר העובדים אלא גם בסוג הסיכון והפעילות.</li><li>חלוקת האחריות: ממונה מול תופש המפעל</li><li>זוהי אחת הנקודות החשובות ביותר למבחן: הבטיחות היא מערכת, ולא אדם אחד.</li></ul></div>
+    <details class="content-accordion summary-foldout">
+      <summary>תחומי האחריות המרכזיים של הממונה</summary>
+      <div>
+        <ul><li>איתור מפגעים וניהול סיכונים באמצעות סיורים, סקרי סיכונים, HAZOP ו-JSA.</li><li>חקירת תאונות וכמעט תאונות באמצעות RCA ו-5 Why.</li><li>הדרכות עובדים, ריענון ווידוא הבנה.</li><li>תיעוד והתרעה בכתב כמנגנון ההגנה המשפטי המרכזי.</li><li>עבודה מול רגולטורים: מפקחי עבודה, המוס&quot;ל, רופאים תעסוקתיים והמשרד להגנת הסביבה.</li></ul><p class="field-note"><strong>טיפ לממונה:</strong> מה שלא תועד - כאילו לא בוצע. דוח סיור, מייל התרעה ואישור מסירה הם כלי עבודה ולא בירוקרטיה.</p>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 1</summary>
-      <div><p>מיקום בארגון: הממונה מהווה פונקציית ייעוץ (Staff) ולא פונקציית ניהול ביצועי (Line). הוא אינו מנהל העבודה ואינו תופש המפעל.</p>
-<p>בסיס חוקי: סמכותו נובעת, בין היתר, מחוק ארגון הפיקוח על העבודה (תשי&quot;ד-1954), פקודת הבטיחות בעבודה ותקנות שונות.</p>
-<p>חובת מינוי: חלה על מפעלים עם 50 עובדים ומעלה, אתרי בנייה מסוימים ומפעלים עם סיכונים מיוחדים. החובה אינה תלויה רק במספר העובדים אלא גם בסוג הסיכון והפעילות.</p>
-<p>חלוקת האחריות: ממונה מול תופש המפעל</p>
-<p>זוהי אחת הנקודות החשובות ביותר למבחן: הבטיחות היא מערכת, ולא אדם אחד.</p>
-<p>תופש המפעל / הנהלה: נושאים באחריות השילוחית והכוללת. בסמכותם ובאחריותם לדאוג לתקציב, למשאבים, לציוד, לאכיפה וליצירת תרבות הבטיחות הארגונית.</p>
-<p>ממונה הבטיחות: אחראי לזהות סיכונים, להתריע, לייעץ, להדריך, לבצע סיורים ולהמליץ על פתרונות. חשוב לזכור: הממונה אינו נושא באחריות הכוללת למפעל.</p>
-<p>תחומי האחריות המרכזיים של הממונה</p>
-<p>איתור מפגעים וניהול סיכונים: ביצוע סיורים, זיהוי מפגעים, המלצה על בקרות, והובלת סקרי סיכונים באמצעות כלים כמו HAZOP ו-JSA.</p>
-<p>חקירת תאונות ואירועי &quot;כמעט תאונה&quot; (Near Miss): ניתוח אירועים באמצעות ניתוח שורש (RCA) ושיטת 5 Why, תוך בחינת גורמי אנוש (Human Factors). המטרה היא להבין &quot;למה זה קרה&quot; ולא למצוא &quot;מי אשם&quot;.</p>
-<p>הדרכות עובדים: אחריות לוודא ביצוע הדרכות, ריענון ווידוא הבנה בקרב העובדים. כלל ברזל הוא שמה שלא תועד – כאילו לא בוצע.</p>
-<p>תיעוד והתרעה: התרעה בכתב (באמצעות מיילים, דוחות וטופסי ליקוי) מהווה את קו ההגנה המשפטי המרכזי של הממונה. בבתי משפט, מה שלא כתוב – לא קיים.</p></div>
+    <details class="content-accordion summary-foldout">
+      <summary>גורמים נוספים בניהול הבטיחות</summary>
+      <div>
+        <div class="prep-card-grid"><article class="prep-card"><strong>ועדת בטיחות</strong><p>חובה בארגון עם 25 עובדים ומעלה; ועדה פריטטית למעקב תאונות וליקויים.</p></article><article class="prep-card"><strong>נאמני בטיחות</strong><p>נציגי עובדים המסייעים לזהות מפגעים ולדווח, ללא סמכות ניהולית או ענישתית.</p></article><article class="prep-card"><strong>מפקח עבודה</strong><p>רשאי להיכנס, לחקור, לצלם, לדרוש מסמכים ולהוציא צווים.</p></article><article class="prep-card"><strong>ניהול קבלנים</strong><p>המעסיק אינו פטור מאחריות וחייב לבדוק הסמכות, לתאם, להדריך ולפקח.</p></article></div>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 2</summary>
-      <div><p>עבודה מול רגולטורים: ייצוג ועבודה מול מפקחי עבודה, המוס&quot;ל, רופאים תעסוקתיים והמשרד להגנת הסביבה.</p>
-<p>גורמים נוספים בניהול הבטיחות</p>
-<p>ועדת בטיחות: חובה בארגון עם 25 עובדים ומעלה. זוהי ועדה פריטטית (נציגי עובדים והנהלה) המתכנסת לפחות אחת ל-8 שבועות לבירור תאונות ומעקב ליקויים.</p>
-<p>נאמני בטיחות: נציגי עובדים המסייעים לזהות מפגעים ולדווח עליהם, אך אין להם סמכות ניהולית או ענישתית כלל.</p>
-<p>סמכויות מפקח עבודה: מפקחים רשאים להיכנס לכל מקום עבודה, לחקור, לצלם, לדרוש מסמכים ולהוציא צווים. הפרת צו של מפקח היא עבירה פלילית.</p>
-<p>ניהול קבלנים: למרות שמדובר בקבלן חיצוני, המעסיק אינו פטור מאחריות וחייב לבדוק הסמכות, לתאם, להדריך ולפקח.</p>
-<p>תרבות בטיחות וגורמי אנוש (Human Factors)</p>
-<p>נורמליזציה של סטייה (Normalization of Deviance): מצב מסוכן בו עוקפים נוהל, ומשום שלא נגרם נזק מיידי, הדבר חוזר על עצמו עד שהוא הופך לנורמה שעלולה להוביל לאסון.</p>
-<p>לחץ זמן: דרישות כמו &quot;תסיים מהר&quot; גורמות לדילוג על נהלים ועקיפת אמצעי מיגון, מה שמוביל בסוף לתאונה.</p>
-<p>תרבות צודקת (Just Culture): תרבות ארגונית שמעודדת דיווח ומאפשרת למידה מטעויות, אך במקביל אינה מגלה סובלנות לרשלנות פושעת.</p>
-<p>מושגים ודגשים למבחן</p>
-<p>מושג</p></div>
+    <details class="content-accordion summary-foldout">
+      <summary>תרבות בטיחות וגורמי אנוש</summary>
+      <div>
+        <p>נורמליזציה של סטייה היא מצב שבו עוקפים נוהל, לא נגרם נזק מיידי, וההתנהגות חוזרת על עצמה עד שהיא הופכת לנורמה מסוכנת.</p><p>לחץ זמן ודחיפות תפוקה גורמים לדילוג על נהלים ולעקיפת אמצעי מיגון.</p><p>תרבות צודקת מעודדת דיווח ולמידה מטעויות, אך אינה מגלה סובלנות לרשלנות פושעת.</p>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 3</summary>
-      <div><p>משמעות</p>
-<p>Staff</p>
-<p>פונקציית ייעוץ</p>
-<p>Line</p>
-<p>פונקציית סמכות ביצוע וניהול</p>
-<p>Near Miss</p>
-<p>כמעט תאונה</p>
-<p>RCA</p>
-<p>ניתוח שורש (Root Cause Analysis)</p>
-<p>CAPA</p>
-<p>פעולה מתקנת ומונעת</p>
-<p>KPI</p></div>
+    <details class="content-accordion summary-foldout">
+      <summary>מושגים ודגשים למבחן</summary>
+      <div>
+        <table class="prep-table"><thead><tr><th>מושג</th><th>משמעות</th></tr></thead><tbody><tr><td data-label="מושג">Staff</td><td data-label="משמעות">פונקציית ייעוץ</td></tr><tr><td data-label="מושג">Line</td><td data-label="משמעות">פונקציית סמכות ביצוע וניהול</td></tr><tr><td data-label="מושג">Near Miss</td><td data-label="משמעות">כמעט תאונה</td></tr><tr><td data-label="מושג">RCA</td><td data-label="משמעות">ניתוח שורש</td></tr><tr><td data-label="מושג">CAPA</td><td data-label="משמעות">פעולה מתקנת ומונעת</td></tr><tr><td data-label="מושג">KPI</td><td data-label="משמעות">מדד ביצוע</td></tr><tr><td data-label="מושג">SMS</td><td data-label="משמעות">מערכת ניהול בטיחות לפי PDCA</td></tr><tr><td data-label="מושג">PTW</td><td data-label="משמעות">היתר עבודה</td></tr><tr><td data-label="מושג">LOTO</td><td data-label="משמעות">נעילה ותיוג</td></tr><tr><td data-label="מושג">HAZOP</td><td data-label="משמעות">ניתוח סיכונים תהליכי</td></tr></tbody></table><p class="exam-note"><strong>מלכודת מבחן:</strong> צו בטיחות הוא עצירה מיידית; צו שיפור הוא תיקון ליקוי בזמן מוגדר. PPE הוא קו ההגנה האחרון, לא הראשון.</p>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 4</summary>
-      <div><p>מדד ביצוע (Key Performance Indicator)</p>
-<p>SMS</p>
-<p>מערכת ניהול בטיחות (הפועלת לפי מעגל PDCA)</p>
-<p>PTW</p>
-<p>היתר עבודה (Permit To Work)</p>
-<p>LOTO</p>
-<p>נעילה ותיוג (Lockout/Tagout)</p>
-<p>HAZOP</p>
-<p>ניתוח סיכונים תהליכי</p>
-<p>צווי מפקח עבודה:</p>
-<p>סוג צו</p>
-<p>המשמעות שלו</p></div>
+    <details class="content-accordion summary-foldout">
+      <summary>שאלות הכנה</summary>
+      <div>
+        <p>בקובץ המקור מופיעות 30 שאלות הכנה מקצועיות ומעמיקות, המחולקות לרמות קושי ומיועדות לפתח חשיבת מפקח עבודה.</p>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 5</summary>
-      <div><p>צו בטיחות</p>
-<p>עצירה מיידית של העבודה</p>
-<p>צו שיפור</p>
-<p>תיקון ליקוי בזמן מוגדר</p>
-<p>טעויות קלאסיות שכדאי להיזהר מהן במבחן:</p>
-<p>הטעות במבחן</p>
-<p>המציאות והתשובה הנכונה</p>
-<p>הממונה אחראי על כל הבטיחות בארגון</p>
-<p>האחריות הכוללת נשארת אצל ההנהלה ותופש המפעל</p>
-<p>הדרכת עובדים בעל פה מספיקה</p>
-<p>חובה לבצע תיעוד מסודר לכל הדרכה</p>
-<p>צו שיפור משמעותו השבתה מיידית</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 6</summary>
-      <div><p>השבתה מיידית מגיעה מ&quot;צו בטיחות&quot;</p>
-<p>ציוד מגן אישי (PPE) הוא הפתרון הראשון</p>
-<p>PPE נחשב תמיד לקו ההגנה האחרון</p>
-<p>כמעט תאונה (Near Miss) אינו חשוב</p>
-<p>זהו כלי קריטי למניעת אסון עתידי</p>
-<p>להלן בנק של 30 שאלות הכנה מקצועיות ומעמיקות לקורס ממונה בטיחות, המחולקות לפי רמות קושי ומכסות את כלל הנושאים שביקשת. השאלות נכתבו במיוחד כדי לפתח &quot;חשיבת מפקח עבודה&quot; והבנה מערכתית.</p>
-<p>━━━━━━━━━━━━━━━━━━━━</p>
-<p>🎓 רמה קלה</p>
-<p>━━━━━━━━━━━━━━━━━━━━</p>
-<p>שאלה 1</p>
-<p>מיקומך כ&quot;ממונה בטיחות&quot; בארגון מוגדר מבחינה מבנית ותפקודית כ:</p>
-<p>📖 הסבר: ממונה הבטיחות הוא יועץ סטטוטורי (Staff). סמכותו היא מקצועית-מייעצת. האחריות הניהולית והביצועית (Line) מוטלת על ההנהלה ומנהלי העבודה.</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 7</summary>
-      <div><p>⚠️ למה שאר התשובות שגויות:</p>
-<p>🧠 Trap Analysis: המלכודת היא בלבול בין &quot;סמכות מקצועית&quot; ל&quot;סמכות ניהולית&quot;. תלמידים חושבים שהממונה &quot;מנהל&quot; את הבטיחות.</p>
-<p>⚖️ Regulatory Insight: חוק ארגון הפיקוח על העבודה.</p>
-<p>🏭 Field Insight: בשטח, ממונה שמנסה לנהל את העובדים ישירות, עוקף את מנהל העבודה ויוצר קונפליקט סמכויות.</p>
-<p>שאלה 2</p>
-<p>למי ניתנת הסמכות להוציא &quot;צו בטיחות&quot; המורה על הפסקת עבודה באתר?</p>
-<p>📖 הסבר: רק למפקח עבודה (רגולטור) יש סמכות חוקית להוציא &quot;צו בטיחות&quot; לעצירת עבודה או &quot;צו שיפור&quot;.</p>
-<p>⚠️ למה שאר התשובות שגויות:</p>
-<p>🧠 Trap Analysis: הבלבול הנפוץ הוא שלממונה יש סמכות &quot;לעצור הכל&quot; רשמית. בפועל, הממונה מתריע ומייעץ לעצור, אך הצו החוקי ניתן רק ע&quot;י מפקח.</p>
-<p>⚖️ Regulatory Insight: סעיף 8 לחוק ארגון הפיקוח על העבודה.</p>
-<p>🏭 Field Insight: מפקח מגיע לאתר, רואה פיגום מסוכן, ומוציא מיד צו הפסקת עבודה עד לתיקון הליקוי ואישור מחדש.</p>
-<p>שאלה 3</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 8</summary>
-      <div><p>מהו התנאי להקמת ועדת בטיחות במפעל?</p>
-<p>📖 הסבר: החוק מחייב הקמת ועדת בטיחות פריטטית בכל מקום עבודה בו מועסקים 25 עובדים לפחות.</p>
-<p>⚠️ למה שאר התשובות שגויות:</p>
-<p>🧠 Trap Analysis: בלבול בין המספר 50 (חובת ממונה) ל-25 (חובת ועדת בטיחות).</p>
-<p>⚖️ Regulatory Insight: פרק ב&#39; לחוק ארגון הפיקוח על העבודה.</p>
-<p>🏭 Field Insight: ועדה לא מתפקדת משמעותה אי-עמידה בדרישות חוק, ומפקח שיגיע ידרוש לראות פרוטוקולים אחת ל-8 שבועות.</p>
-<p>שאלה 4</p>
-<p>מהי מטרתו העיקרית של פנקס הדרכה?</p>
-<p>📖 הסבר: פנקס ההדרכה הוא הוכחה חוקית לכך שהמעסיק קיים את חובת היידוע וההדרכה כלפי העובד, כנדרש בתקנות.</p>
-<p>⚠️ למה שאר התשובות שגויות:</p>
-<p>🧠 Trap Analysis: התייחסות לפנקס כאל &quot;בירוקרטיה פנימית&quot; ולא כמסמך משפטי מחייב.</p>
-<p>⚖️ Regulatory Insight: תקנות ארגון הפיקוח על העבודה (מסירת מידע והדרכת עובדים), התשנ&quot;ט-1999.</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 9</summary>
-      <div><p>🏭 Field Insight: במקרה של תאונה, הדבר הראשון שחוקר המשטרה או מפקח העבודה יבקש הוא פנקס ההדרכה של העובד שנפגע.</p>
-<p>שאלה 5</p>
-<p>איזה מהבאים מגדיר נכונה &quot;כמעט תאונה&quot; (Near Miss)?</p>
-<p>📖 הסבר: Near Miss הוא אירוע בלתי מתוכנן שבו לא נגרם נזק לגוף או לרכוש, אך בתנאים מעט שונים, היה עלול להוביל לתאונה קשה.</p>
-<p>⚠️ למה שאר התשובות שגויות:</p>
-<p>🧠 Trap Analysis: תלמידים נוטים לחשוב שאם נשבר רק ציוד, זה Near Miss. בפועל זה אירוע בטיחות של נזק לרכוש. Near Miss = לא קרה כלום מלבד הבהלה.</p>
-<p>⚖️ Regulatory Insight: תקני ניהול בטיחות (ISO 45001) דורשים דיווח ותחקור גם של אירועים אלו.</p>
-<p>🏭 Field Insight: בלוק בטון נופל מנוף ונוחת חצי מטר מפועל מבלי לפגוע בו או בכלום. זוהי הזדמנות פז לתחקור לפני הפעם הבאה שיגמר במוות.</p>
-<p>שאלה 6</p>
-<p>מה המשמעות של LOTO (Lockout/Tagout)?</p>
-<p>📖 הסבר: LOTO היא שיטה קריטית לוודא שמכונה או ציוד מנותקים מכל מקור אנרגיה (חשמל, לחץ, קפיץ) ונעולים, כך שלא יופעלו בטעות בזמן שאדם עובד בתוכם.</p>
-<p>⚠️ למה שאר התשובות שגויות:</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 10</summary>
-      <div><p>🧠 Trap Analysis: בלבול בין בטיחות (Safety) לביטחון והגנה מרחבית (Security).</p>
-<p>⚖️ Regulatory Insight: דרישות מחייבות לפי פקודת הבטיחות (עבודה על מכונות).</p>
-<p>🏭 Field Insight: איש תחזוקה מתקן מסוע. מישהו אחר מגיע ומרים את המפסק כי הוא לא ידע שמישהו בפנים. LOTO (מנעול אישי) מונע בדיוק את זה.</p>
-<p>שאלה 7</p>
-<p>מה כולל מעגל PDCA במערכת ניהול בטיחות (SMS)?</p>
-<p>📖 הסבר: Plan (תכנן), Do (בצע), Check (בדוק/בקר), Act (פעל/שפר) הוא מודל דמינג הבסיסי לשיפור מתמיד עליו מבוססת כל מערכת ניהול איכות ובטיחות.</p>
-<p>⚠️ למה שאר התשובות שגויות:</p>
-<p>א, ג, ד: מילים שהומצאו כדי להישמע מקצועיות אך אינן המודל התקני.</p>
-<p>🧠 Trap Analysis: קפיצה על מונחים שנשמעים באנגלית הגיוניים בהקשר של בטיחות (Prevent/Protect) במקום להכיר את המודל המקורי.</p>
-<p>⚖️ Regulatory Insight: זהו שלד התקן של ת&quot;י ISO 45001.</p>
-<p>🏭 Field Insight: אם הארגון רק כותב נהלים (Plan) אבל לא מוודא שהם מיושמים (Check) ומשפר (Act), מערכת הבטיחות שלו קיימת רק על הנייר.</p>
-<p>שאלה 8</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 11</summary>
-      <div><p>מה ההבדל בין Hazards (מפגעים) ל-Risks (סיכונים)?</p>
-<p>📖 הסבר: Hazard הוא מצב או חפץ עם פוטנציאל לנזק (למשל: כריש). Risk הוא שקלול ההסתברות והחומרה (למשל: לשחות ליד הכריש).</p>
-<p>⚠️ למה שאר התשובות שגויות:</p>
-<p>🧠 Trap Analysis: חוסר אבחנה בין הגורם (מפגע) לתוצאה ההסתברותית (סיכון).</p>
-<p>⚖️ Regulatory Insight: תקנות ארגון הפיקוח על העבודה (תכנית לניהול הבטיחות).</p>
-<p>🏭 Field Insight: רצפה רטובה היא המפגע. הסיכון להחלקה עולה משמעותית אם מדובר במסדרון ראשי בו עוברים 100 אנשים (הסתברות גבוהה).</p>
-<p>שאלה 9</p>
-<p>מיהו &quot;נאמן בטיחות&quot;?</p>
-<p>📖 הסבר: נאמן בטיחות הוא עובד מן המניין המקבל הכשרה בסיסית ומשמש כ&quot;עיניים&quot; נוספות בשטח, מסייע לממונה ולעובדים, ללא סמכות ניהולית וענישתית.</p>
-<p>⚠️ למה שאר התשובות שגויות:</p>
-<p>🧠 Trap Analysis: המחשבה שנאמן בטיחות הוא מפקח עם סמכות ענישה או אחריות משפטית במקרה של תאונה. הציפייה ממנו היא לסיוע ווולונטרי ברובו.</p>
-<p>⚖️ Regulatory Insight: חוק ארגון הפיקוח על העבודה.</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 12</summary>
-      <div><p>🏭 Field Insight: נאמן בטיחות טוב הוא פועל ייצור שמרגיש בנוח להעיר לחבר שלו שהוא עובד בלי משקפי מגן, באווירה חברית ולא מאיימת.</p>
-<p>שאלה 10</p>
-<p>מהי מטרתו של מדד KPI (Key Performance Indicator) בבטיחות?</p>
-<p>📖 הסבר: מדדי ביצוע מרכזיים נועדו לכמת את העשייה (מדדים מקדימים) ואת התוצאות (מדדים מאחרים) כדי לדעת האם הארגון בכיוון הנכון או דורש כיול.</p>
-<p>⚠️ למה שאר התשובות שגויות:</p>
-<p>🧠 Trap Analysis: תלמידים נוטים לשייך מדדים רק לספירת &quot;כמה פצועים יש&quot; במקום להבין שזה כלי ניהולי (כמה הדרכות בוצעו, כמה סיורים).</p>
-<p>⚖️ Regulatory Insight: מרכיב מחייב בתכנית ניהול בטיחות בארגונים נדרשים.</p>
-<p>🏭 Field Insight: מנכ&quot;ל שלא בודק KPIs בבטיחות בדיוק כמו שהוא בודק דוחות מכירות, משדר שהבטיחות אינה באמת ערך ליבה עסקי.</p>
-<p>━━━━━━━━━━━━━━━━━━━━</p>
-<p>⚙️ רמה בינונית</p>
-<p>━━━━━━━━━━━━━━━━━━━━</p>
-<p>שאלה 11</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>Related Knowledge</summary>
-      <div><div class="related-links">
-        <a class="btn secondary" href="../lesson-07.html">לשיעור 7</a>
-        <a class="btn secondary" href="../knowledge/labor-inspection-law.html">labor-inspection-law</a>
-        <a class="btn secondary" href="../knowledge/safety-ordinance.html">safety-ordinance</a>
-        <a class="btn secondary" href="../knowledge/iso-45001.html">iso-45001</a>
-        <a class="btn secondary" href="../knowledge/human-factors.html">human-factors</a>
-        <a class="btn secondary" href="../checklists.html?domain=ISO">Checklist ISO</a>
-        <a class="btn secondary" href="../checklists.html?domain=Contractors">Checklist Contractors</a>
-        <a class="btn secondary" href="../checklists.html?domain=PPE">Checklist PPE</a>
-        <a class="btn secondary" href="../glossary.html">Glossary</a>
-        <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
-      </div></div>
-    </details>
     <section id="prepQuestions" class="prep-question-section" data-read-aloud-exclude="true">
-      <div class="section-title"><h2>שאלות אינטראקטיביות</h2><p>30 שאלות מתוך קובץ ההכנה. התרגול נשמר מקומית בדפדפן בלבד.</p></div>
+      <div class="section-title">
+        <h2>שאלות הכנה אינטראקטיביות</h2>
+        <p>30 שאלות מתוך קובץ ההכנה. ההתקדמות נשמרת מקומית בדפדפן בלבד.</p>
+      </div>
       <div id="prepQuizApp" class="prep-quiz-app" data-prep-quiz="lesson-07-legal-responsibility"></div>
     </section>
 
-      </main>
+    
+    <details class="content-accordion summary-foldout">
+      <summary>קישורים קשורים</summary>
+      <div>
+        <div class="related-links"><a class="btn secondary" href="../lesson-07.html">לשיעור 7</a>
+<a class="btn secondary" href="../summaries/lesson-07-summary.html">סיכום שיעור 7</a>
+<a class="btn secondary" href="../checklists.html">Checklists</a>
+<a class="btn secondary" href="../glossary.html">Glossary</a>
+<a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a></div>
+      </div>
+    </details>
+  </main>
 
-  
   <script src="../../data/prep-questions-map.js"></script>
   <script src="../../js/prep-quiz.js"></script>
+  <script src="../../js/summary-stability.js"></script>
   <script src="../../js/prototype-shell.js"></script>
   <script src="../../js/read-aloud.js"></script>
   <script type="module" src="../../js/auth.js"></script>

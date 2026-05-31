@@ -4,208 +4,114 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
-  <meta name="description" content="עמוד הכנה מובנה לשיעור 5: ועדת בטיחות, נאמני בטיחות וארגון פנימי.">
-  <title>הכנה לשיעור 5 — ועדת בטיחות, נאמני בטיחות וארגון פנימי</title>
+  <meta name="description" content="שיעור הכנה על חוק ארגון הפיקוח, מוסדות הבטיחות הפנים-ארגוניים, סמכויות מפקח עבודה וחובת הדרכה ומסירת מידע לעובדים.">
+  <title>הכנה לשיעור 5 - המעטפת המוסדית, סמכויות הפיקוח וחובת ההסברה בבטיחות בעבודה</title>
   <script src="../../js/ui-mode.js"></script>
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <style>
+    body.prototype-shell .prep-page { direction: rtl; text-align: right; }
+    body.prototype-shell .prep-page .page-hero,
+    body.prototype-shell .prep-page .content-accordion,
+    body.prototype-shell .prep-page .prep-question-section { margin-block-end: 1rem; }
+    body.prototype-shell .prep-page .content-accordion > summary { direction: rtl; justify-content: flex-start; text-align: right; }
+    body.prototype-shell .prep-page .content-accordion > summary::before {
+      content: "▶ סגור"; font-size: .85rem; color: #536b7a; margin-inline-start: .5rem;
+    }
+    body.prototype-shell .prep-page .content-accordion[open] > summary::before { content: "▼ פתוח"; }
+    .prep-card-grid, .prep-flow, .prep-checklist-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .85rem; margin-block: 1rem;
+    }
+    .prep-card, .flow-step, .prep-check-card {
+      border: 1px solid var(--proto-border, #d8e2ea); border-radius: 12px; background: var(--proto-surface, #fff);
+      padding: 1rem; box-shadow: 0 10px 24px rgba(15, 35, 52, .05);
+    }
+    .prep-card strong, .flow-step strong, .prep-check-card strong { display: block; color: var(--proto-text, #14212b); margin-block-end: .35rem; }
+    .field-note, .exam-note, .legal-note { border-inline-start: 4px solid #0b7894; background: #eef8fb; border-radius: 10px; padding: .85rem 1rem; margin-block: 1rem; }
+    .legal-note { border-inline-start-color: #7c3aed; background: #f5f3ff; }
+    .exam-note { border-inline-start-color: #c2410c; background: #fff7ed; }
+    .prep-table { width: 100%; border-collapse: collapse; margin-block: 1rem; font-size: .95rem; }
+    .prep-table th, .prep-table td { border: 1px solid #d8e2ea; padding: .75rem; vertical-align: top; text-align: right; }
+    .prep-table th { background: #eef3f7; font-weight: 700; }
+    @media (max-width: 640px) {
+      .prep-table, .prep-table thead, .prep-table tbody, .prep-table th, .prep-table td, .prep-table tr { display: block; }
+      .prep-table th { display: none; }
+      .prep-table td { border-block-start: 0; }
+      .prep-table td::before { content: attr(data-label); display: block; font-weight: 700; color: #435668; margin-block-end: .25rem; }
+    }
+</style>
 </head>
-<body data-page-title="הכנה לשיעור 5 — ועדת בטיחות, נאמני בטיחות וארגון פנימי" class="auth-protected lms-pro prototype-shell prototype-shell-page">
+<body data-page-title="הכנה לשיעור 5 - המעטפת המוסדית, סמכויות הפיקוח וחובת ההסברה בבטיחות בעבודה" class="auth-protected lms-pro prototype-shell prototype-shell-page">
   <a class="skip-link" href="#main">דלג לתוכן</a>
   <main id="main" class="site-main prep-page" data-readable-content>
     <section class="page-hero">
       <div>
-        <p class="kicker">Lesson Prep · שיעור 5</p>
-        <h1>הכנה לשיעור 5 — ועדת בטיחות, נאמני בטיחות וארגון פנימי</h1>
-        <p>עמוד הכנה מובנה לשיעור 5: ועדת בטיחות, נאמני בטיחות וארגון פנימי.</p>
+        <p class="kicker">הכנה לשיעור 5</p>
+        <h1>המעטפת המוסדית, סמכויות הפיקוח וחובת ההסברה בבטיחות בעבודה</h1>
+        <p>שיעור הכנה על חוק ארגון הפיקוח, מוסדות הבטיחות הפנים-ארגוניים, סמכויות מפקח עבודה וחובת הדרכה ומסירת מידע לעובדים.</p>
       </div>
     </section>
 
-    <details class="content-accordion" open>
-      <summary>Executive Summary</summary>
-      <div><p>להלן מערך שיעור מקיף ומקצועי, המבוסס על הסיכום שסיפקת, בנושא המעטפת המוסדית, סמכויות הפיקוח וחובת ההסברה התעסוקתית. החומר ערוך בצורה נוחה להעתקה לוורד.</p>
-<p>מערך הכנה לשיעור: המעטפת המוסדית, סמכויות הפיקוח וחובת ההסברה בבטיחות בעבודה</p>
-<p>1. מבוא והקשר: ארכיטקטורת הבטיחות בישראל</p></div>
+    
+    <details class="content-accordion summary-foldout">
+      <summary>מבוא והקשר: ארכיטקטורת הבטיחות בישראל</summary>
+      <div>
+        <p>בטיחות ובריאות בתעסוקה אינן אוסף מקרי של המלצות הנדסיות, אלא מערכת משפטית וסטטוטורית קשיחה. חוק ארגון הפיקוח על העבודה, תשי&quot;ד-1954, מהווה את השלד המוסדי של עולם הבטיחות בישראל, ותקנות מסירת מידע והדרכת עובדים, תשנ&quot;ט-1999, הן עמוד התווך של הגורם האנושי בארגון.</p><p>הצלחה בניהול בטיחות דורשת סנכרון בין שלושה קודקודים: החוק, הניהול והשטח.</p><div class="prep-card-grid"><article class="prep-card"><strong>החוק - הנורמה</strong><p>קובע את רף המינימום המחייב.</p></article><article class="prep-card"><strong>הניהול - המערכת</strong><p>מתרגם את החוק לתהליכי עבודה, נהלים ומדדי ביצוע.</p></article><article class="prep-card"><strong>השטח - הפרקטיקה</strong><p>המקום שבו המציאות התפעולית פוגשת את חולשות האנוש.</p></article></div>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>Quick Learning</summary>
-      <div><div class="knowledge-quick-grid"><article class="knowledge-card"><h3>מה חשוב להבין לפני השיעור</h3><p>להלן מערך שיעור מקיף ומקצועי, המבוסס על הסיכום שסיפקת, בנושא המעטפת המוסדית, סמכויות הפיקוח וחובת ההסברה התעסוקתית. החומר ערוך בצורה נוחה להעתקה לוורד.</p></article><article class="knowledge-card"><h3>מונחי מפתח</h3><p>ועדת בטיחות, נאמן בטיחות, תרבות בטיחות, אכיפה פנימית</p></article><article class="knowledge-card"><h3>חיבור למסלול</h3><p>הכנה זו מחוברת למסלול הלימוד, לעמודי ידע, ל־checklists ול־glossary.</p></article></div></div>
+    <details class="content-accordion summary-foldout">
+      <summary>שרטוטים ותרשימים ארגוניים</summary>
+      <div>
+        <p>המסמך מציג שתי המחשות מרכזיות: פירמידת הנורמות והשוואה בין צו שיפור לצו בטיחות.</p><div class="prep-flow"><article class="prep-card"><strong>חוקי יסוד</strong><p>כבוד האדם וחירותו וערכי יסוד.</p></article><article class="prep-card"><strong>חקיקה ראשית</strong><p>חוק ארגון הפיקוח ופקודת הבטיחות.</p></article><article class="prep-card"><strong>חקיקת משנה</strong><p>תקנות עבודה בגובה, מסירת מידע ועוד.</p></article><article class="prep-card"><strong>הוראות, תקנים ופסיקה</strong><p>כלים יישומיים שמתרגמים את הדין לשטח.</p></article></div><table class="prep-table"><thead><tr><th>קריטריון</th><th>צו שיפור</th><th>צו בטיחות</th></tr></thead><tbody><tr><td data-label="קריטריון">טריגר</td><td data-label="צו שיפור">הפרה טכנית או משפטית</td><td data-label="צו בטיחות">סכנה מיידית לחיים</td></tr><tr><td data-label="קריטריון">זמן ביצוע</td><td data-label="צו שיפור">זמן קצוב</td><td data-label="צו בטיחות">מיידי</td></tr><tr><td data-label="קריטריון">רציפות עסקית</td><td data-label="צו שיפור">נמשכת כסדרה</td><td data-label="צו בטיחות">השבתה מיידית</td></tr><tr><td data-label="קריטריון">אי ציות</td><td data-label="צו שיפור">עבירה פלילית</td><td data-label="צו בטיחות">עבירה חמורה וסכנת מעצר</td></tr></tbody></table>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>דגשי מבחן</summary>
-      <div><ul><li>להלן מערך שיעור מקיף ומקצועי, המבוסס על הסיכום שסיפקת, בנושא המעטפת המוסדית, סמכויות הפיקוח וחובת ההסברה התעסוקתית. החומר ערוך בצורה נוחה להעתקה לוורד.</li><li>בטיחות ובריאות בתעסוקה אינן אוסף מקרי של המלצות הנדסיות, אלא מערכת משפטית וסטטוטורית קשיחה. חוק ארגון הפיקוח על העבודה, תשי&quot;ד-1954, מהווה את ה&quot;שלד המוסדי&quot; של עולם הבטיחות בישראל, בעוד תקנות מסירת מידע והדרכת עובדים, תשנ&quot;ט-1999, מהוות את עמוד התווך של הגורם האנושי בארגון.</li><li>החוק (הנורמה): קובע את רף המינימום המחייב.</li><li>הניהול (המערכת): מתרגם את החוק לתהליכי עבודה, נהלים ומדדי ביצוע.</li><li>/ \ חוקי יסוד (כבוד האדם וחירותו)</li><li>/ \ חקיקה ראשית (חוק ארגון הפיקוח, פקודת הבטיחות)</li><li>תרשים 2: השוואה בין צווי אכיפה של מפקח העבודה</li><li>צו שיפור</li></ul></div>
+    <details class="content-accordion summary-foldout">
+      <summary>תפקידים, חובות וסמכויות</summary>
+      <div>
+        <p>הגופים הפנים-ארגוניים הם מנגנוני המגן של הארגון: ועדת בטיחות, נאמני בטיחות וממונה בטיחות.</p><div class="prep-card-grid"><article class="prep-card"><strong>ועדת בטיחות</strong><p>חובה בכל מקום עבודה עם 25 עובדים ומעלה. הוועדה פריטטית ומתכנסת אחת לחודש לפחות.</p></article><article class="prep-card"><strong>נאמן בטיחות</strong><p>עובד המזהה מפגעים, מדריך עובדים ומדווח למעסיק או לוועדה, עם הגנה מפני פיטורין או אפליה.</p></article><article class="prep-card"><strong>ממונה בטיחות</strong><p>יועץ להנהלה, בעל כשירות מקצועית, המופקד על תוכנית ניהול בטיחות.</p></article></div>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 1</summary>
-      <div><p>בטיחות ובריאות בתעסוקה אינן אוסף מקרי של המלצות הנדסיות, אלא מערכת משפטית וסטטוטורית קשיחה. חוק ארגון הפיקוח על העבודה, תשי&quot;ד-1954, מהווה את ה&quot;שלד המוסדי&quot; של עולם הבטיחות בישראל, בעוד תקנות מסירת מידע והדרכת עובדים, תשנ&quot;ט-1999, מהוות את עמוד התווך של הגורם האנושי בארגון.</p>
-<p>הצלחה בניהול בטיחות דורשת סנכרון בין שלושה קודקודים:</p>
-<p>החוק (הנורמה): קובע את רף המינימום המחייב.</p>
-<p>הניהול (המערכת): מתרגם את החוק לתהליכי עבודה, נהלים ומדדי ביצוע.</p>
-<p>השטח (הפרקטיקה): המקום שבו המציאות התפעולית פוגשת את חולשות האנוש.</p>
-<p>2. שרטוטים ותרשימים ארגוניים</p>
-<p>תרשים 1: היררכיית הדין הבטיחותי (פירמידת הנורמות)</p>
-<p>/ \</p>
-<p>/ \ חוקי יסוד (כבוד האדם וחירותו)</p>
-<p>/_____\</p>
-<p>/ \ חקיקה ראשית (חוק ארגון הפיקוח, פקודת הבטיחות)</p>
-<p>/_________\</p></div>
+    <details class="content-accordion summary-foldout">
+      <summary>סמכויות מפקח עבודה</summary>
+      <div>
+        <p>מפקח עבודה מחזיק בסמכויות הדומות לשוטר לצורך שמירה על חיי אדם ובריאות עובדים.</p><ul><li>זכות כניסה בכל עת, יום או לילה, ללא תיאום מראש.</li><li>סמכות חקירה תחת אזהרה; עדותו קבילה בבית המשפט.</li><li>דרישת מסמכים, תפיסה והעתקת פנקסי הדרכה, דוחות ועדה ומסמכי בטיחות.</li><li>נטילת דגימות חומרים לצורך אנליזה.</li></ul><p class="legal-note"><strong>דגש משפטי:</strong> הכשלת מפקח עבודה, מניעת כניסה או אי הצגת מסמכים עלולות להוות עבירה פלילית עצמאית.</p>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 2</summary>
-      <div><p>/ \ חקיקת משנה (תקנות עבודה בגובה, מסירת מידע)</p>
-<p>/_____________\</p>
-<p>/ \ הוראות מנהליות, תקנים (ת&quot;י), פסיקה</p>
-<p>/_________________\</p>
-<p>תרשים 2: השוואה בין צווי אכיפה של מפקח העבודה</p>
-<p>קריטריון</p>
-<p>צו שיפור</p>
-<p>צו בטיחות</p>
-<p>טריגר</p>
-<p>הפרה טכנית/משפטית</p>
-<p>סכנה מיידית לחיים</p>
-<p>זמן ביצוע</p></div>
+    <details class="content-accordion summary-foldout">
+      <summary>שאלות הערכה</summary>
+      <div>
+        <p>בקובץ המקור מופיעות 30 שאלות הערכה אמריקאיות ברמות קל, בינוני וקשה. הן מוצגות בהמשך במנגנון התרגול של האתר, שאלה אחת בכל פעם.</p>
+      </div>
     </details>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 3</summary>
-      <div><p>זמן קצוב (ימים/שבועות)</p>
-<p>מיידי (עצירת עבודה)</p>
-<p>רציפות עסקית</p>
-<p>נמשכת כסדרה</p>
-<p>השבתה מיידית</p>
-<p>אי-ציות</p>
-<p>עבירה פלילית</p>
-<p>עבירה חמורה, סכנת מעצר</p>
-<p>3. גוף השיעור: תפקידים, חובות וסמכויות</p>
-<p>מוסדות המגן הפנים-ארגוניים</p>
-<p>ועדת בטיחות: חובה בכל מקום עבודה עם 25 עובדים ומעלה. הרכב פריטטי (שווה) של נציגי עובדים ומעסיק. מתכנסת אחת לחודש לפחות.</p>
-<p>נאמן בטיחות: עובד המזהה מפגעים, מדריך עובדים ומדווח למעסיק/ועדה. מוגן מפני פיטורין או אפליה על רקע פעילותו.</p></div>
-    </details>
+    <section id="prepQuestions" class="prep-question-section" data-read-aloud-exclude="true">
+      <div class="section-title">
+        <h2>שאלות הכנה אינטראקטיביות</h2>
+        <p>30 שאלות מתוך קובץ ההכנה. ההתקדמות נשמרת מקומית בדפדפן בלבד.</p>
+      </div>
+      <div id="prepQuizApp" class="prep-quiz-app" data-prep-quiz="lesson-05-safety-committee-trustees"></div>
+    </section>
 
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 4</summary>
-      <div><p>ממונה בטיחות: יועץ להנהלה, בעל כשירות מקצועית, המופקד על תוכנית ניהול בטיחות.</p>
-<p>סמכויות מפקח עבודה (סעיף 3 לחוק)</p>
-<p>מפקח עבודה מחזיק בסמכויות הדומות לשוטר:</p>
-<p>זכות כניסה: בכל עת (יום/לילה) ללא תיאום מראש.</p>
-<p>סמכות חקירה: רשאי לחקור תחת אזהרה. עדותו קבילה בבית המשפט.</p>
-<p>דרישת מסמכים: רשאי לתפוס ולהעתיק מסמכים (פנקסי הדרכה, דוחות ועדה).</p>
-<p>דגימות: נטילת דגימות חומרים לצורך אנליזה.</p>
-<p>4. שאלות הערכה (30 שאלות)</p>
-<p>להלן 30 שאלות הערכה (אמריקאיות) המבוססות על הסיכום שהעברת, מדורגות לפי רמות קושי (קל, בינוני, קשה).</p>
-<p>---</p>
-<p>### רמה: קלה (בסיס חוקי ומוסדי)</p>
-<p>**שאלה 1:** מהי תדירות הכינוס המינימלית המחייבת של ועדת בטיחות?</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 5</summary>
-      <div><p>**תשובה:** ג. הסבר: החוק מחייב את ועדת הבטיחות להתכנס לפחות פעם בחודש.</p>
-<p>**שאלה 2:** מי רשאי להיכנס למקום עבודה בכל עת (יום או לילה) ללא תיאום מראש לצורך פיקוח?</p>
-<p>**תשובה:** ב. הסבר: למפקח עבודה מוקנית סמכות כניסה חופשית לכל מקום עבודה בכל עת ללא צורך באישור מראש.</p>
-<p>**שאלה 3:** מהו התפקיד המרכזי של &quot;המוסד לבטיחות וגיהות&quot; (המפע&quot;ם)?</p>
-<p>**תשובה:** ג. הסבר: מוסד זה הוא גוף הסברתי ומייעץ ללא סמכויות אכיפה או שיניים משפטיות.</p>
-<p>**שאלה 4:** באיזה סוג של מקום עבודה חובה להקים ועדת בטיחות?</p>
-<p>**תשובה:** ג. הסבר: חוק ארגון הפיקוח מחייב הקמת ועדת בטיחות במקומות עבודה המעסיקים לפחות 25 עובדים.</p>
-<p>**שאלה 5:** מהו מסמך ה&quot;תמצית מידע בכתב&quot;?</p>
-<p>**תשובה:** ב. הסבר: זהו מסמך חיוני בשפת העובד המפרט סיכונים והוראות בטיחות כחלק מחובת ההדרכה.</p>
-<p>**שאלה 6:** מי ממנה את ממונה הבטיחות במפעל?</p>
-<p>**תשובה:** ג. הסבר: המעסיק הוא בעל החובה למנות ממונה בטיחות בעל כשירות מקצועית.</p>
-<p>**שאלה 7:** מהו ההרכב הנדרש לוועדת בטיחות?</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 6</summary>
-      <div><p>**תשובה:** ג. הסבר: הוועדה חייבת להיות פריטטית, כלומר עם מספר שווה של נציגים משני הצדדים.</p>
-<p>**שאלה 8:** מהי תדירות הדרכת עובדים מינימלית?</p>
-<p>**תשובה:** ב. הסבר: החוק מחייב הדרכה בכניסה לתפקיד ורענון תקופתי אחת לשנה לפחות.</p>
-<p>**שאלה 9:** מתי מגישים עותק מפרוטוקול ועדת בטיחות למפקח העבודה?</p>
-<p>**תשובה:** ב. הסבר: יש לחתום על הפרוטוקול ולשלוח עותק למפקח העבודה האזורי בתוך 14 ימים.</p>
-<p>**שאלה 10:** אילו מהבאים מהווה הגנה משפטית לנאמן בטיחות?</p>
-<p>**תשובה:** ג. הסבר: המחוקק מעניק הגנה לנאמן בטיחות כדי למנוע פגיעה בו עקב פעולותיו לדיווח על מפגעים.</p>
-<p>---</p>
-<p>### רמה: בינונית (אכיפה וסמכויות)</p>
-<p>**שאלה 11:** מתי רשאי מפקח עבודה להוציא צו בטיחות?</p>
-<p>**תשובה:** ג. הסבר: צו בטיחות מופעל כאשר יש סכנה תכופה (מיידית) לחיי אדם או בריאותו.</p>
-<p>**שאלה 12:** מה קורה אם מעסיק אינו מקיים צו שיפור בתוך הזמן שנקצב?</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 7</summary>
-      <div><p>**תשובה:** ג. הסבר: אי-מילוי צו שיפור במועד מהווה עבירה פלילית חמורה.</p>
-<p>**שאלה 13:** מהו ההבדל המרכזי בין צו שיפור לצו בטיחות?</p>
-<p>**תשובה:** ב. הסבר: ההבחנה היא בין ליקוי טכני (שיפור) לבין סכנה מיידית (בטיחות).</p>
-<p>**שאלה 14:** האם מפקח עבודה רשאי להביא עמו מומחה או שוטר למקום העבודה?</p>
-<p>**תשובה:** ג. הסבר: המפקח מוסמך לצרף מומחה מקצועי או שוטר לצורך מילוי תפקידו.</p>
-<p>**שאלה 15:** מהו מעמדו של מפקח עבודה בעת חקירה תחת אזהרה?</p>
-<p>**תשובה:** ב. הסבר: מפקח עבודה מוסמך לחקור תחת אזהרה וסמכותו זו מקבילה לזו של קצין משטרה.</p>
-<p>**שאלה 16:** על מי חלה החובה להציג למפקח את פנקסי ההדרכה והמסמכים המבוקשים?</p>
-<p>**תשובה:** ב. הסבר: החובה להציג מסמכים ופנקסים מוטלת על המחזיק במקום העבודה.</p>
-<p>**שאלה 17:** מה הדין במקרה שמעסיק מונע ממפקח עבודה להיכנס למפעל?</p>
-<p>**תשובה:** ג. הסבר: מניעת כניסה למפקח מהווה עבירה פלילית.</p>
-<p>**שאלה 18:** מהו תפקידו של נאמן בטיחות בביקורת של מפקח עבודה?</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 8</summary>
-      <div><p>**תשובה:** ב. הסבר: החוק קובע כי נאמן בטיחות רשאי להצטרף למפקח העבודה במהלך ביקוריו.</p>
-<p>**שאלה 19:** על אילו סוגי מקומות עבודה חל חוק ארגון הפיקוח על העבודה?</p>
-<p>**תשובה:** ג. הסבר: הגדרת &quot;מקום עבודה&quot; בחוק רחבה מאוד וחלה על כל עסק או משלח יד.</p>
-<p>**שאלה 20:** מדוע יש חשיבות להבנת &quot;מדרג הדין&quot; על ידי ממונה בטיחות?</p>
-<p>**תשובה:** ב. הסבר: הבנת ההיררכיה (חוק, תקנות, תקנים) חיונית לתרגום דרישות לביצועים בפועל.</p>
-<p>---</p>
-<p>### רמה: קשה (ניתוח ואחריות)</p>
-<p>**שאלה 21:** מהי משמעותה של &quot;אחריות קפידה&quot; בהפרת צו בטיחות?</p>
-<p>**תשובה:** ב. הסבר: הפרת צו בטיחות היא עבירת אחריות קפידה/מוחלטת, לכן טענות הגנה סובייקטיביות אינן תופסות.</p>
-<p>**שאלה 22:** מהו תפקידו הסטטוטורי של ממונה בטיחות בארגון?</p>
-<p>**תשובה:** ב. הסבר: ממונה הבטיחות משמש כיועץ להנהלה ומופקד על תוכנית ניהול הבטיחות.</p>
-<p>**שאלה 23:** מהי הטעות הנפוצה בערבוב בין &quot;חוק ארגון הפיקוח&quot; ל&quot;פקודת הבטיחות&quot;?</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 9</summary>
-      <div><p>**תשובה:** ב. הסבר: החוק הוא מוסדי-פרוצדורלי, הפקודה היא הנדסית-טכנית.</p>
-<p>**שאלה 24:** מדוע תקנה אינה יכולה לסתור חוק ראשי?</p>
-<p>**תשובה:** ב. הסבר: תקנות נחקקות מכוח חוק ואינן יכולות לגרוע ממנו או לסתור אותו.</p>
-<p>**שאלה 25:** מהו התנאי להחלטות ועדת בטיחות?</p>
-<p>**תשובה:** ב. הסבר: הוועדה חייבת לפעול מכוח מניין חוקי משני הצדדים כדי שהחלטותיה יהיו תקפות.</p>
-<p>**שאלה 26:** מה המשמעות של הפרת צו בטיחות מבחינת האחריות הפלילית?</p>
-<p>**תשובה:** א. הסבר: הפרת צו בטיחות היא עבירה פלילית חמורה במדרג גבוה.</p>
-<p>**שאלה 27:** מדוע ישנה חשיבות לכך שהדרכה תינתן בשפה שהעובד מבין?</p>
-<p>**תשובה:** ב. הסבר: אם העובד לא מבין את השפה, לא הוכח שהוזהר והודרך כחוק, והאחריות נותרת על המעסיק.</p>
-<p>**שאלה 28:** מהי &quot;עבירה מסוג אחריות קפידה&quot; בהקשר של צווים?</p>
-<p>**תשובה:** ב. הסבר: באחריות קפידה, הוכחת המעשה הפיזי מספיקה להרשעה, ללא צורך בהוכחת כוונה.</p>
-<p>**שאלה 29:** מתי נקבע כי ממונה בטיחות הוא &quot;גשר&quot; במערכת הבטיחות?</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>תוכן מלא — חלק 10</summary>
-      <div><p>**תשובה:** ב. הסבר: תפקיד הממונה הוא לחבר בין דרישות החוק, נהלי המערכת והביצוע בפועל בשטח.</p>
-<p>**שאלה 30:** מהי הסמכות הפלילית של מפקח עבודה בנוגע למסמכים?</p>
-<p>**תשובה:** ג. הסבר: החוק מקנה למפקח סמכות רחבה לתפוס ולהעתיק כל מסמך רלוונטי כחלק מסמכויות האכיפה.</p></div>
-    </details>
-
-    <details class="content-accordion">
-      <summary>Related Knowledge</summary>
-      <div><div class="related-links">
-        <a class="btn secondary" href="../lesson-05.html">לשיעור 5</a>
-        <a class="btn secondary" href="../knowledge/labor-inspection-law.html">labor-inspection-law</a>
-        <a class="btn secondary" href="../knowledge/human-factors.html">human-factors</a>
-        <a class="btn secondary" href="../knowledge/iso-45001.html">iso-45001</a>
-        <a class="btn secondary" href="../checklists.html?domain=Human%20Factors">Checklist Human Factors</a>
-        <a class="btn secondary" href="../checklists.html?domain=ISO">Checklist ISO</a>
-        <a class="btn secondary" href="../checklists.html?domain=Contractors">Checklist Contractors</a>
-        <a class="btn secondary" href="../glossary.html">Glossary</a>
-        <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
-      </div></div>
+    
+    <details class="content-accordion summary-foldout">
+      <summary>קישורים קשורים</summary>
+      <div>
+        <div class="related-links"><a class="btn secondary" href="../lesson-05.html">לשיעור 5</a>
+<a class="btn secondary" href="../summaries/lesson-05-summary.html">סיכום שיעור 5</a>
+<a class="btn secondary" href="../checklists.html">Checklists</a>
+<a class="btn secondary" href="../glossary.html">Glossary</a>
+<a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a></div>
+      </div>
     </details>
   </main>
 
-  
+  <script src="../../data/prep-questions-map.js"></script>
+  <script src="../../js/prep-quiz.js"></script>
+  <script src="../../js/summary-stability.js"></script>
   <script src="../../js/prototype-shell.js"></script>
   <script src="../../js/read-aloud.js"></script>
   <script type="module" src="../../js/auth.js"></script>
