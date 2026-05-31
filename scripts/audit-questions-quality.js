@@ -124,17 +124,17 @@ questions.forEach((question, index) => {
     const distractors = question.options.filter((option) => option !== question.correctAnswer);
     const avgDistractorLength = distractors.reduce((sum, option) => sum + String(option).length, 0) / Math.max(distractors.length, 1);
     if (String(question.correctAnswer || "").length > avgDistractorLength * 2.4) {
-      issues.push(`[answer length bias] ${label}`);
+      recommendations.push(`[answer length bias] ${label}`);
     }
   }
-  if (!question.question || String(question.question).trim().length < 28) issues.push(`[too short] ${label}`);
+  if (!question.question || String(question.question).trim().length < 28) recommendations.push(`[too short] ${label}`);
   if (GENERIC_PATTERNS.some((pattern) => pattern.test(question.question || ""))) issues.push(`[generic wording] ${label}: ${question.question}`);
   if (AI_STYLE_PATTERNS.some((pattern) => pattern.test(question.question || ""))) issues.push(`[ai-like wording] ${label}: ${question.question}`);
   if (isLegalOrStandard && ABSOLUTE_LEGAL_PATTERNS.some((pattern) => pattern.test(`${question.question || ""} ${question.correctAnswer || ""} ${question.explanation || ""}`))) {
-    issues.push(`[absolute legal wording] ${label}`);
+    recommendations.push(`[absolute legal wording] ${label}`);
   }
   if (TOO_EASY_PATTERNS.some((pattern) => pattern.test(question.question || "")) && question.difficulty !== "easy") {
-    issues.push(`[too easy for difficulty] ${label}: ${question.question}`);
+    recommendations.push(`[too easy for difficulty] ${label}: ${question.question}`);
   }
 });
 
