@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/prototype-shell.css">
 </head>
-<body data-page-title="דף הבית" data-course-id="safety-officer" data-domain-id="safety" class="auth-protected lms-pro prototype-shell prototype-shell-page">
+<body data-page-title="דף הבית" data-course-id="safety-officer" data-domain-id="safety" class="auth-protected lms-pro prototype-shell prototype-shell-page home-compact">
   <a class="skip-link" href="#main">דלג לתוכן</a>
   <header class="site-header">
     <div class="header-inner">
@@ -38,19 +38,18 @@
 
   <main id="main" class="site-main" data-read-aloud-root data-readable-content>
     <div class="app-topbar" aria-label="סרגל עליון">
-      <div class="topbar-page-title"><strong>דשבורד</strong><small>מסלול הלמידה האישי שלך</small></div>
+      <div class="topbar-page-title"><strong>דף הבית</strong><small>כניסה מהירה ללמידה ולתרגול</small></div>
     </div>
     <!-- HERO MODERN -->
     <section class="hero-modern">
       <div class="hero-content">
-        <p class="kicker">מערכת לימוד פרטית</p>
+        <p class="kicker">מערכת לימוד ותרגול</p>
         <h1>קורס ממונה בטיחות</h1>
-        <p>למידה, תרגול וכלי שטח — הכול במקום אחד. אתר RTL מודרני להכנה למבחני קורס ממונה בטיחות. תוכן לימודי בלבד; יש לאמת מול החוק, התקנות והתקנים העדכניים וגורם מוסמך.</p>
+        <p>אתר לימוד ותרגול להכנה לקורס ממונה בטיחות — שיעורים, סיכומים, שאלות וכלי חזרה.</p>
         <div class="hero-cta">
-          <a class="btn primary" href="./pages/learning-path.html">מסלול הלימוד</a>
-          <a class="btn ghost" href="./pages/syllabus.html">📚 שיעורים</a>
-          <a class="btn ghost" href="./pages/quizzes.html">✍ תרגול מהיר</a>
-          <a class="btn ghost" href="./courses.html">כל הקורסים</a>
+          <a class="btn primary" href="./pages/learning-path.html">התחל ללמוד</a>
+          <a class="btn ghost" href="./pages/quizzes.html">תרגול ומבחנים</a>
+          <a class="btn ghost" href="./pages/learning-path.html">מסלול הלימוד</a>
         </div>
         <div class="hero-mini-stats">
           <span><strong>12</strong>שיעורים</span>
@@ -91,6 +90,29 @@
       </div>
     </section>
 
+    <section class="content-section home-now-simple" aria-labelledby="homeNowTitle">
+      <div class="section-title">
+        <div>
+          <h2 id="homeNowTitle">מה לעשות עכשיו?</h2>
+          <p>שלוש פעולות קצרות שמובילות ישר ללמידה או לתרגול.</p>
+        </div>
+      </div>
+      <div class="home-action-grid">
+        <a id="homeContinueAction" class="home-action-card" href="./pages/my-progress.html">
+          <strong>המשך מהנקודה האחרונה</strong>
+          <span id="homeContinueText">פתח את תמונת ההתקדמות האישית וחזור לנושא האחרון.</span>
+        </a>
+        <a class="home-action-card" href="./pages/learning-path.html">
+          <strong>עבור למסלול הלימוד</strong>
+          <span>בחר הכנה, סיכום או תרגול לפי סדר השיעורים.</span>
+        </a>
+        <a class="home-action-card" href="./pages/exam-questions.html">
+          <strong>פתח מבחן תרגול</strong>
+          <span>תרגל שאלות לפי נושאים או במבנה מבחן.</span>
+        </a>
+      </div>
+    </section>
+
     <section id="whatNowCard" class="content-section home-focus-card" aria-labelledby="whatNowTitle" hidden></section>
 
     <!-- CONTINUE WHERE YOU LEFT OFF (rendered by home.js if available) -->
@@ -111,6 +133,33 @@
           <p><strong>מבחן אחרון:</strong> <span id="lastExamLabel">עדיין לא בוצע</span></p>
           <p><strong>אחוז הצלחה:</strong> <span id="successRateLabel">אין מספיק נתונים</span></p>
         </div>
+      </div>
+    </section>
+
+    <section class="content-section home-site-overview" aria-labelledby="homeSiteOverviewTitle">
+      <div class="section-title">
+        <div>
+          <h2 id="homeSiteOverviewTitle">מה יש באתר?</h2>
+          <p>ארבעה אזורים מרכזיים. כל השאר נמצא במסלול הלימוד ובניווט הראשי.</p>
+        </div>
+      </div>
+      <div class="home-overview-grid">
+        <a class="nav-hub-card home-overview-card" href="./pages/prep.html">
+          <h3>שיעורי הכנה</h3>
+          <p>כניסה ממוקדת לפני כל שיעור, עם מושגים ושאלות הכנה.</p>
+        </a>
+        <a class="nav-hub-card home-overview-card" href="./pages/summaries.html">
+          <h3>סיכומי שיעור</h3>
+          <p>סיכומים מעשיים, דגשי מבחן וכלי שטח לפי מפגש.</p>
+        </a>
+        <a class="nav-hub-card home-overview-card" href="./pages/quizzes.html">
+          <h3>שאלות תרגול</h3>
+          <p>בוחנים, תרגול לפי נושא וסימולציית מבחן.</p>
+        </a>
+        <a class="nav-hub-card home-overview-card" href="./pages/field-tools.html">
+          <h3>כלי שטח וחוקים</h3>
+          <p>חוקים, תקנים, checklists ותבניות עבודה לממונה בטיחות.</p>
+        </a>
       </div>
     </section>
 
@@ -396,21 +445,12 @@
   <p class="footer-legal">כל הזכויות במבנה האתר, הסיכומים, השאלות, המשחק וכלי הלמידה שמורות. המידע נועד ללמידה והעשרה בלבד; יש לאמת מול החוק, התקנות, התקנים והגורמים המוסמכים העדכניים.</p>
 </footer>
   <script src="./data/course-data.js"></script>
-  <script src="./data/site-versions.js"></script>
-  <script src="./data/telegram-channels.js"></script>
   <script src="./js/storage.js"></script>
-  <script src="./js/search.js"></script>
-  <script src="./js/quizzes.js"></script>
-  <script src="./js/ai-assistant.js"></script>
   <script src="./js/app.js"></script>
-  <script src="./js/topic-graph.js"></script>
   <script src="./js/home.js"></script>
-  <script src="./js/telegram-channels.js"></script>
   <script src="./js/prototype-shell.js"></script>
   <script src="./js/read-aloud.js"></script>
   <script type="module" src="./js/auth.js"></script>
   <script src="./js/accessibility.js"></script>
-  <script src="data/knowledge-map.js"></script>
-  <script src="js/knowledge-consolidation.js"></script>
 </body>
 </html>

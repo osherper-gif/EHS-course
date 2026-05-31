@@ -75,10 +75,26 @@
   }
 
   function renderContinue() {
-    const host = document.getElementById("continueWhereLeft");
-    if (!host) return;
+    const compactAction = document.getElementById("homeContinueAction");
+    const compactText = document.getElementById("homeContinueText");
     const lastLesson = window.CourseStorage?.lastVisited?.();
     const lessonHref = lastLesson && lessonHrefById(lastLesson.lessonId);
+
+    if (compactAction) {
+      if (lastLesson && lessonHref) {
+        const title = lastLesson.title || findLessonTitle(lastLesson.lessonId) || lastLesson.lessonId;
+        compactAction.href = lessonHref;
+        if (compactText) compactText.textContent = title;
+      } else {
+        const lastPage = window.CourseStorage?.lastPage?.();
+        const pageHref = relativePageHref(lastPage?.path);
+        compactAction.href = pageHref || "./pages/my-progress.html";
+        if (compactText) compactText.textContent = pageHref ? (lastPage.title || "פתח את העמוד האחרון") : "פתח את תמונת ההתקדמות האישית וחזור לנושא האחרון.";
+      }
+    }
+
+    const host = document.getElementById("continueWhereLeft");
+    if (!host) return;
     host.hidden = false;
     host.classList.add("m-home-continue", "m-home-continue--p2");
 
@@ -293,7 +309,12 @@
     document.getElementById("lastExamLabel").textContent = lastAttempt ? (lastAttempt.topic || "מבחן") + " · " + lastAttempt.score + "%" : "עדיין לא בוצע";
     document.getElementById("successRateLabel").textContent = success + (answered ? " · " + answered + " שאלות" : "");
     const text = document.getElementById("userProgressText");
-    if (text) text.textContent = completed + "/12 שיעורים הושלמו · " + Number(stats.examsCompleted || 0) + " מבחנים · " + Number(stats.gameXP || 0) + " נקודות";
+    if (text) {
+      const hasProgress = completed > 0 || Number(stats.examsCompleted || 0) > 0 || Number(stats.gameXP || 0) > 0 || answered > 0;
+      text.textContent = hasProgress
+        ? completed + "/12 שיעורים הושלמו · " + Number(stats.examsCompleted || 0) + " מבחנים · " + Number(stats.gameXP || 0) + " נקודות"
+        : "עדיין לא התחלת ללמוד. מומלץ להתחיל במסלול הלימוד.";
+    }
     const link = document.getElementById("userProgressContinue");
     if (link) link.href = continueHref || "./pages/lesson-01.html";
   }

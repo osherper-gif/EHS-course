@@ -13447,3 +13447,110 @@ body:not(.prototype-shell) .read-aloud-btn[data-read-action="read"] {
     max-width: 126px;
   }
 }
+
+/* Compact home entry page */
+body.home-compact .hero-modern {
+  min-height: auto;
+}
+
+body.home-compact .hero-modern .hero-content > p:not(.kicker) {
+  max-width: 720px;
+}
+
+body.home-compact .hero-mini-stats,
+body.home-compact #whatNowCard,
+body.home-compact #continueWhereLeft,
+body.home-compact #newUserOnboarding,
+body.home-compact #whatsNewHome,
+body.home-compact #recentActivityPanel,
+body.home-compact #mistakeReviewCard,
+body.home-compact #questionIssuesHome,
+body.home-compact section[aria-labelledby="telegramJoinTitle"],
+body.home-compact section[aria-label="פעולות מומלצות"],
+body.home-compact .dashboard-grid,
+body.home-compact .toolbar-panel,
+body.home-compact #searchResults,
+body.home-compact section:has(.topic-graph),
+body.home-compact section:has(#lessonGrid),
+body.home-compact section:has(> .section-title + .nav-hub-grid) {
+  display: none !important;
+}
+
+.home-action-grid,
+.home-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.home-overview-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.home-action-card {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  min-height: 132px;
+  padding: 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-action-card strong,
+.home-overview-card h3 {
+  color: var(--text);
+  font-size: 1.04rem;
+}
+
+.home-action-card span,
+.home-overview-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.home-action-card:focus-visible,
+.home-action-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+}
+
+.home-overview-card {
+  min-height: 150px;
+}
+
+body.home-compact .user-progress-panel {
+  margin-block: 1.2rem;
+}
+
+body.home-compact .m-progress-summary {
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .home-action-grid,
+  .home-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  body.home-compact .hero-cta {
+    grid-template-columns: 1fr;
+  }
+
+  .home-action-grid,
+  .home-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-action-card,
+  .home-overview-card {
+    min-height: auto;
+  }
+}
