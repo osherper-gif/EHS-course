@@ -4,55 +4,622 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
-  <meta name="description" content="מעטפת סיכום שיעור 8 בקורס ממונה בטיחות: ארגון מערך הבטיחות במפעל וניהולו.">
-  <title>סיכום שיעור 8 | קורס ממונה בטיחות</title>
+  <meta name="description" content="סיכום שיעור 8 בקורס ממונה בטיחות: ארגון מערך הבטיחות במפעל וניהולו, תופש מפעל, הנהלה, ממונה בטיחות, ועדת בטיחות, נאמנים, SMS, ISO 45001, PDCA, KPI, תרבות בטיחות ו-60 שאלות.">
+  <title>סיכום שיעור 8 | ארגון מערך הבטיחות במפעל וניהולו</title>
   <script src="../../js/ui-mode.js"></script>
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <link rel="stylesheet" href="../../css/summary-stability.css">
+  <style>
+    body.summary-page { overflow-x: hidden; }
+    body.summary-page .site-main,
+    body.summary-page .site-main > *,
+    body.summary-page .page-hero,
+    body.summary-page .page-hero > * {
+      box-sizing: border-box;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    body.summary-page h1,
+    body.summary-page h2,
+    body.summary-page h3,
+    body.summary-page p,
+    body.summary-page li,
+    body.summary-page td,
+    body.summary-page th { overflow-wrap: anywhere; }
+
+    .summary-quick-nav,
+    .summary-zone-divider,
+    .content-accordion[id],
+    #summaryQuestions { scroll-margin-top: 96px; }
+
+    .summary-quick-nav {
+      display: grid;
+      gap: .6rem;
+      grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+      margin: 1rem 0 1.25rem;
+    }
+
+    .summary-quick-nav a {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 999px;
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: .72rem .9rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .learning-unit-grid,
+    .summary-callout-row,
+    .field-card-grid,
+    .pocket-grid,
+    .legal-grid,
+    .case-grid,
+    .protocol-grid,
+    .dilemma-grid {
+      display: grid;
+      gap: .75rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin: .95rem 0;
+    }
+
+    .learning-unit-card,
+    .summary-mini-callout,
+    .field-card,
+    .pocket-card,
+    .legal-card,
+    .case-card,
+    .protocol-card,
+    .dilemma-card {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      padding: .9rem;
+    }
+
+    .summary-mini-callout { border-inline-start: 4px solid var(--proto-accent); }
+    .summary-mini-callout[data-callout="legal"] { border-inline-start-color: #5b5bd6; }
+    .summary-mini-callout[data-callout="trap"],
+    .summary-mini-callout[data-callout="stop"] { border-inline-start-color: #a51d2d; }
+    .summary-mini-callout[data-callout="tip"] { border-inline-start-color: #0b7a55; }
+    .summary-mini-callout[data-callout="evidence"] { border-inline-start-color: #b45309; }
+    .callout-label { display: inline-block; font-weight: 900; margin-bottom: .25rem; }
+
+    .learning-unit-card { border-top: 4px solid rgba(8, 100, 128, .55); }
+    .case-card { border-inline-start: 5px solid #b45309; }
+    .legal-card { border-top: 4px solid rgba(93, 63, 211, .5); }
+    .dilemma-card { border-inline-start: 4px solid rgba(180, 83, 9, .55); }
+
+    .learning-unit-card strong,
+    .summary-mini-callout strong,
+    .field-card strong,
+    .pocket-card strong,
+    .legal-card strong,
+    .case-card strong,
+    .protocol-card strong,
+    .dilemma-card strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .learning-unit-card span,
+    .field-card span,
+    .pocket-card span,
+    .legal-card span,
+    .case-card span,
+    .protocol-card span,
+    .dilemma-card span {
+      color: var(--proto-muted);
+      display: block;
+      line-height: 1.55;
+    }
+
+    .topic-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin: .85rem 0 0;
+    }
+
+    .topic-tags span {
+      background: rgba(8, 100, 128, .09);
+      border: 1px solid rgba(8, 100, 128, .22);
+      border-radius: 999px;
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: .38rem .65rem;
+    }
+
+    .summary-table {
+      border-collapse: collapse;
+      margin: 1rem 0;
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    .summary-table th,
+    .summary-table td {
+      border: 1px solid var(--proto-border);
+      line-height: 1.55;
+      padding: .72rem;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    .summary-table th { background: rgba(8, 100, 128, .08); }
+    .summary-table tbody tr:nth-child(even) { background: rgba(8, 100, 128, .035); }
+
+    .op-flow-map,
+    .op-decision-tree,
+    .op-field-actions {
+      background: rgba(8, 100, 128, .055);
+      border: 1px solid rgba(8, 100, 128, .22);
+      border-radius: 16px;
+      margin: 1rem 0;
+      padding: 1rem;
+    }
+
+    .op-flow-steps,
+    .op-escalation-map,
+    .op-decision-grid,
+    .op-field-card-grid {
+      display: grid;
+      gap: .7rem;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: .85rem;
+    }
+
+    .op-flow-step,
+    .op-escalation-step,
+    .op-decision-node,
+    .op-field-action-card {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      min-width: 0;
+      padding: .9rem;
+    }
+
+    .op-escalation-step.stop,
+    .op-decision-node.yes,
+    .op-field-action-card[data-severity="stop"] { border-color: rgba(165, 29, 45, .5); }
+    .op-field-action-card[data-severity="risk"],
+    .op-decision-node.attention { border-color: rgba(180, 83, 9, .5); }
+    .op-field-action-card[data-severity="attention"] { border-color: rgba(202, 138, 4, .5); }
+    .op-field-action-card[data-severity="info"] { border-color: rgba(8, 100, 128, .35); }
+
+    .op-flow-step strong,
+    .op-escalation-step strong,
+    .op-decision-node strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .op-flow-step span,
+    .op-escalation-step span,
+    .op-decision-node span {
+      color: var(--proto-muted);
+      display: block;
+      line-height: 1.55;
+    }
+
+    .summary-practice-divider {
+      background: linear-gradient(135deg, rgba(8, 100, 128, .12), rgba(255,255,255,.5));
+      border: 1px solid rgba(8, 100, 128, .24);
+      border-radius: 18px;
+      margin: 1.5rem 0 1rem;
+      padding: 1.15rem;
+    }
+
+    @media (max-width: 720px) {
+      .summary-quick-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .summary-table { font-size: .92rem; }
+      .summary-table th,
+      .summary-table td { padding: .58rem; }
+    }
+
+    @media print {
+      body { background: #fff !important; color: #111 !important; }
+      .skip-link,
+      .summary-quick-nav,
+      .prototype-topbar,
+      .prototype-sidebar,
+      .prototype-shell-sidebar,
+      .site-nav,
+      .bottom-nav,
+      .read-aloud-floating,
+      .read-aloud-controls,
+      .accessibility-panel,
+      .summary-practice-nav,
+      button,
+      [role="button"] { display: none !important; }
+      .page-hero::before {
+        content: "סיכום שיעור 8 - ארגון מערך הבטיחות במפעל וניהולו";
+        display: block;
+        font-size: 18pt;
+        font-weight: 900;
+        margin-bottom: .5rem;
+      }
+      .page-hero::after {
+        content: "גרסת הדפסה - הקישורים זמינים באתר הקורס";
+        display: block;
+        font-size: 10pt;
+        margin-top: .5rem;
+      }
+      .content-section,
+      .content-accordion,
+      .summary-card,
+      .learning-unit-card,
+      .field-card,
+      .pocket-card,
+      .legal-card,
+      .case-card,
+      .dilemma-card,
+      .op-flow-step,
+      .op-escalation-step,
+      .op-field-action-card,
+      .summary-table { break-inside: avoid; box-shadow: none !important; }
+      a { color: #111 !important; text-decoration: none !important; }
+    }
+  </style>
 </head>
-<body data-page-title="סיכום שיעור 8" class="auth-protected lms-pro prototype-shell prototype-shell-page summary-page">
+<body data-course-id="safety-officer" data-domain-id="safety" data-page-title="סיכום שיעור 8 — ארגון מערך הבטיחות במפעל וניהולו" class="auth-protected lms-pro prototype-shell prototype-shell-page summary-page">
   <a class="skip-link" href="#main">דלג לתוכן</a>
-  <main id="main" class="site-main" data-readable-content>
-    <section class="page-hero summary-hero">
+  <main id="main" class="site-main prep-page" data-course-id="safety-officer" data-domain-id="safety" data-readable-content>
+    <section class="page-hero">
       <div>
-        <p class="kicker">Summary Shell</p>
-        <h1>סיכום שיעור 8 — ארגון מערך הבטיחות במפעל וניהולו</h1>
-        <p>מעטפת סיכום עצמאית. ההכנה לשיעור קיימת; סיכום השיעור יעלה לאחר עיבוד השיעור.</p>
+        <p class="kicker">סיכום שיעור 8 · Master Bible</p>
+        <h1>ארגון מערך הבטיחות במפעל וניהולו</h1>
+        <p>שיעור זה עוסק בשאלת היסוד של ממונה בטיחות מודרני: איך בונים ארגון שמייצר בטיחות גם כשהממונה אינו עומד ליד כל עובד. הבטיחות מוצגת כמערכת ניהול שלמה: הנהלה, ממונה, ועדה, נאמנים, מנהלים, עובדים, מדדים, הדרכות, תרבות, דיווח ולמידה.</p>
+        <div class="topic-tags" aria-label="תגיות נושא">
+          <span>תופש מפעל</span>
+          <span>מדיניות בטיחות</span>
+          <span>ועדת בטיחות</span>
+          <span>נאמני בטיחות</span>
+          <span>SMS</span>
+          <span>ISO 45001</span>
+          <span>PDCA</span>
+          <span>KPI</span>
+          <span>Just Culture</span>
+          <span>Operational Drift</span>
+          <span>BBS</span>
+        </div>
       </div>
     </section>
 
-    <section class="content-section summary-placeholder">
-      <h2>סיכום שיעור יעלה לאחר עיבוד השיעור.</h2>
-      <p>סיכום זה יפריד בין מה שנדרש לפני השיעור לבין מה שנלמד בפועל: דגשי מרצה, שאלות מהכיתה, טעויות נפוצות וקשרים בין KPI, PDCA, Just Culture ו־Operational Drift.</p>
+    <nav class="summary-quick-nav" aria-label="ניווט מהיר בסיכום" data-read-aloud-exclude="true">
+      <a href="#intro">מבוא</a>
+      <a href="#structure">מבנה המערך</a>
+      <a href="#roles">תפקידים ואחריות</a>
+      <a href="#culture">תרבות בטיחות</a>
+      <a href="#sms">SMS / ISO / KPI</a>
+      <a href="#toolbox">ארגז כלים</a>
+      <a href="#dilemmas">דילמות</a>
+      <a href="#cases">מקרי בוחן</a>
+      <a href="#checklists">צ'קליסטים</a>
+      <a href="#examFocus">דגשי מבחן</a>
+      <a href="#summaryQuestions">תרגול</a>
+      <a href="#summaryRelated">קישורים</a>
+    </nav>
+
+    <section class="content-section" id="intro">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">מבוא ומטרת המערך</p>
+          <h2>בטיחות היא מערכת, לא אוסף סממנים חיצוניים</h2>
+        </div>
+      </div>
+      <p>קסדה, נעלי בטיחות, שילוט או גידור מכונות הם רק פני השטח. מערך בטיחות מקצועי הוא מערכת ניהולית שמונעת פגיעה בעובד, מגינה על רכוש וציוד, שומרת על הסביבה ומבטיחה רציפות עסקית. תאונת עבודה אינה רק אירוע רפואי; היא יכולה להפוך לעצירת ייצור, חקירה פלילית, נזק תדמיתי, תביעה אזרחית ואובדן אמון של עובדים ולקוחות.</p>
+      <div class="summary-callout-row">
+        <article class="summary-mini-callout" data-callout="legal"><span class="callout-label">דגש משפטי</span><strong>ראש הארגון מחזיק באחריות העליונה.</strong><p>מדיניות בטיחות שאינה חתומה על ידי המוביל הנוכחי של הארגון אינה מספקת. כאשר מנכ"ל מתחלף, המדיניות חייבת להתעדכן ולהיחתם מחדש.</p></article>
+        <article class="summary-mini-callout" data-callout="trap"><span class="callout-label">טעות נפוצה</span><strong>"יש ממונה בטיחות, אז ההנהלה מכוסה".</strong><p>הממונה הוא יועץ מקצועי ומנהל מערכת סיכונים, אך אינו מחליף את אחריות תופש המפעל, מנהלי הקו וההנהלה.</p></article>
+        <article class="summary-mini-callout" data-callout="tip"><span class="callout-label">טיפ לממונה</span><strong>שאל תמיד: האם המערכת עובדת בלעדיי?</strong><p>אם העובדים מפסיקים לדווח או להשתמש במיגון ברגע שהממונה יוצא לחופשה, אין תרבות בטיחות; יש תלות באדם אחד.</p></article>
+      </div>
     </section>
 
-    <section class="summary-grid">
-      <article class="summary-card"><h2>מה למדנו בשיעור</h2><p>יוזן לאחר עיבוד השיעור.</p></article>
-      <article class="summary-card"><h2>דגשי מבחן</h2><p>יוזנו דגשים על אחריות הנהלה, מדדים, ועדות ותיעוד.</p></article>
-      <article class="summary-card"><h2>Trap Questions</h2><p>יוזנו מלכודות כמו בלבול בין KPI תוצאתי למדד מנבא.</p></article>
-      <article class="summary-card"><h2>Key Takeaways</h2><p>יוזנו נקודות זכירה מרכזיות מהשיעור.</p></article>
-      <article class="summary-card"><h2>Glossary</h2><p>KPI, PDCA, Just Culture, Operational Drift, CAPA.</p></article>
-      <article class="summary-card"><h2>Common Mistakes</h2><p>טעויות נפוצות יתווספו לאחר השיעור.</p></article>
-      <article class="summary-card"><h2>Instructor Notes</h2><p>דגשי מרצה והרחבות יוזנו כאן.</p></article>
-      <article class="summary-card"><h2>Questions From Class</h2><p>שאלות שעלו בכיתה יתווספו כאן.</p></article>
+    <section class="content-section" id="structure">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">מבנה מערך הבטיחות</p>
+          <h2>פירמידת אחריות, תקשורת והשפעה</h2>
+        </div>
+      </div>
+      <p>מערך בטיחות אינו אדם בודד. הוא אינטגרציה של אנשים, נהלים, תקציבים, הדרכות, דיווחים, ועדות, נאמנים, מדדים ומנגנוני בקרה. הפירמידה הארגונית מתחילה בתופש המפעל, עוברת דרך ממונה הבטיחות, ועדת הבטיחות, נאמני הבטיחות ומנהלי העבודה, ומסתיימת במקום שבו הבטיחות באמת מתרחשת: אצל העובדים בשטח.</p>
+      <div class="op-flow-map" aria-labelledby="safetyPyramidTitle">
+        <h3 id="safetyPyramidTitle">זרימת מערך הבטיחות</h3>
+        <div class="op-flow-steps">
+          <article class="op-flow-step"><strong>תופש המפעל / ראש הארגון</strong><span>מקור הסמכות, המשאבים, המדיניות והאחריות המשפטית העליונה.</span></article>
+          <article class="op-flow-step"><strong>ממונה הבטיחות</strong><span>יועץ מקצועי, מנהל סיכונים, בונה שיטה, מרכז ידע ומוודא תיעוד.</span></article>
+          <article class="op-flow-step"><strong>ועדת הבטיחות</strong><span>גוף פריטטי שמייצר דיאלוג בין הנהלה לעובדים ומעקב אחר החלטות.</span></article>
+          <article class="op-flow-step"><strong>נאמני בטיחות</strong><span>העיניים והאוזניים של המערך במחלקות וברצפת הייצור.</span></article>
+          <article class="op-flow-step"><strong>מנהלים ועובדים</strong><span>הגורמים שמתרגמים את המדיניות להתנהגות בפועל בכל משמרת.</span></article>
+        </div>
+      </div>
     </section>
 
-    <section class="content-section" data-read-aloud-exclude="true">
-      <h2>קישורים קשורים</h2>
-      <div class="learning-actions">
+    <section class="content-section" id="roles">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">תפקידים ואחריות</p>
+          <h2>תופש המפעל, הנהלה, ממונה, ועדה, נאמנים, מנהלים ועובדים</h2>
+        </div>
+      </div>
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>גורם במערך</th>
+            <th>מה התפקיד שלו</th>
+            <th>מה אסור לשכוח</th>
+            <th>מה צריך להיות מתועד</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-label="גורם במערך">תופש המפעל / מנכ"ל</td><td data-label="מה התפקיד שלו">קביעת מדיניות, הקצאת משאבים, פיקוח ניהולי ומחויבות גלויה.</td><td data-label="מה אסור לשכוח">הוא אינו יכול להעביר את אחריותו לממונה הבטיחות.</td><td data-label="מה צריך להיות מתועד">מדיניות חתומה, תקציבים, החלטות הנהלה, סטטוס סיכונים מרכזיים.</td></tr>
+          <tr><td data-label="גורם במערך">ממונה בטיחות</td><td data-label="מה התפקיד שלו">יועץ מקצועי שמוביל סקרים, הדרכות, תוכניות, דיווחים, מדדים ושיפור.</td><td data-label="מה אסור לשכוח">אין לו בדרך כלל סמכות פיקודית ישירה; הוא פועל דרך השפעה, שכנוע והסלמה.</td><td data-label="מה צריך להיות מתועד">דוחות סיור, המלצות, תוכניות הדרכה, מדדים, Near Miss, CAPA.</td></tr>
+          <tr><td data-label="גורם במערך">ועדת בטיחות</td><td data-label="מה התפקיד שלו">פורום פריטטי של הנהלה ועובדים לדיון, סיור, מעקב והמלצות.</td><td data-label="מה אסור לשכוח">פרוטוקול אינו מחליף גידור מכונה, הדרכה או תיקון הנדסי.</td><td data-label="מה צריך להיות מתועד">פרוטוקולים, החלטות, אחראים, מועדים ומעקב ביצוע.</td></tr>
+          <tr><td data-label="גורם במערך">נאמני בטיחות</td><td data-label="מה התפקיד שלו">איתור מפגעים, דיווח, דוגמה אישית וחיבור בין עובדים למערך.</td><td data-label="מה אסור לשכוח">ללא גיבוי הנהלה הם יחששו לדווח.</td><td data-label="מה צריך להיות מתועד">הכשרה, דיווחי מפגעים, השתתפות בסיורים והעברת מידע לוועדה.</td></tr>
+          <tr><td data-label="גורם במערך">מנהלים ועובדים</td><td data-label="מה התפקיד שלו">יישום בפועל: תדריכים, ציות, דיווח, שימוש במיגון והפסקת עבודה מסוכנת.</td><td data-label="מה אסור לשכוח">הבטיחות נכשלת אם היא נשארת במשרד הממונה ולא מגיעה למשמרת.</td><td data-label="מה צריך להיות מתועד">תדריכי בוקר, הדרכות, הסמכות, דיווחי מפגע, פעולות מתקנות.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="summary-callout-row">
+        <article class="summary-mini-callout" data-callout="trap"><span class="callout-label">מלכודת מבחן</span><strong>אחריות מול סמכות.</strong><p>הממונה נושא באחריות מקצועית רחבה לזיהוי, ייעוץ, הדרכה ותיעוד, אך ברוב הארגונים אין לו סמכות לפטר, לקנוס או לשנות תקציב. לכן הוא חייב לנהל השפעה והסלמה.</p></article>
+        <article class="summary-mini-callout" data-callout="evidence"><span class="callout-label">ראיה ניהולית</span><strong>חתימת מדיניות אינה טקס.</strong><p>מדיניות בטיחות חתומה היא התחייבות ניהולית. אם ראש הארגון התחלף, המסמך חייב חתימה חדשה כדי להראות מחויבות עדכנית.</p></article>
+      </div>
+    </section>
+
+    <section class="content-section" id="culture">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">תרבות בטיחות</p>
+          <h2>מה עושים כשאף אחד לא מסתכל</h2>
+        </div>
+      </div>
+      <p>תרבות בטיחות חזקה קיימת כאשר עובדים ומנהלים פועלים נכון גם ללא פיקוח. הם מדווחים על Near Miss, משתמשים ב-PPE, עוצרים עבודה מסוכנת ומתקנים סחף מבצעי מתוך הבנה ולא מתוך פחד. המרצה הדגיש שהממונה אינו שוטר: אכיפה בלבד יוצרת ציות זמני, הסתרה ואנטגוניזם; מערכת למידה, שותפות ו-Just Culture יוצרת מחויבות פנימית.</p>
+      <div class="legal-grid">
+        <article class="legal-card"><strong>Just Culture</strong><span>תרבות הוגנת שמבדילה בין טעות אנוש לבין הפרה מכוונת. היא מעודדת דיווח ולמידה, אך אינה נותנת חסינות לרשלנות מודעת.</span></article>
+        <article class="legal-card"><strong>Near Miss כמתנה</strong><span>כמעט תאונה היא אזהרה חינמית לפני אסון. ארגון בוגר חוקר אותה, מפיק לקחים ומפיץ Safety Flash.</span></article>
+        <article class="legal-card"><strong>Operational Drift</strong><span>קיצור דרך קטן שחוזר על עצמו הופך לנורמה. תפקיד הממונה הוא לזהות את הסחף ולכייל מחדש את השטח.</span></article>
+        <article class="legal-card"><strong>BBS</strong><span>בטיחות מבוססת התנהגות: תצפית, משוב, חיזוק חיובי ושינוי הרגלים, לפי מודל ABC.</span></article>
+      </div>
+    </section>
+
+    <section class="content-section" id="sms">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">SMS / ISO 45001 / PDCA / KPI</p>
+          <h2>מערכת ניהול בטיחות שמתקנת את עצמה</h2>
+        </div>
+      </div>
+      <p>מערכת SMS משלבת בטיחות בתוך התהליכים העסקיים והניהוליים של הארגון. ISO 45001 מדגיש מנהיגות הנהלה, השתתפות עובדים, עמידה בדרישות דין, זיהוי סיכונים ושיפור מתמיד. PDCA נותן את מנוע הפעולה: מתכננים, מבצעים, בודקים ומשפרים. KPI מאפשר להנהלה לראות האם המערך עובד או רק מתועד.</p>
+      <div class="op-flow-map" aria-labelledby="pdcaTitle">
+        <h3 id="pdcaTitle">מעגל PDCA לניהול בטיחות</h3>
+        <div class="op-flow-steps">
+          <article class="op-flow-step"><strong>Plan - תכנון</strong><span>זיהוי סיכונים, מדיניות, יעדים, תוכנית הדרכות ותוכנית עבודה.</span></article>
+          <article class="op-flow-step"><strong>Do - ביצוע</strong><span>הדרכות, סיורים, רכש מיגון, הטמעת נהלים וניהול ועדה.</span></article>
+          <article class="op-flow-step"><strong>Check - בדיקה</strong><span>מבדקים, סיורי מנהלים, מדדי Leading/Lagging ובדיקת אפקטיביות.</span></article>
+          <article class="op-flow-step"><strong>Act - שיפור</strong><span>עדכון נהלים, CAPA, תיקון חריגות, הפקת לקחים ותחילת סבב חדש.</span></article>
+        </div>
+      </div>
+
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>סוג מדד</th>
+            <th>מה הוא מודד</th>
+            <th>דוגמאות</th>
+            <th>מלכודת</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-label="סוג מדד">Leading Indicators</td><td data-label="מה הוא מודד">פעולות מניעה לפני תאונה.</td><td data-label="דוגמאות">אחוז הדרכות, סיורי מנהלים, Near Miss שטופלו, ועדות שהתכנסו.</td><td data-label="מלכודת">מדד מוביל לא מודד פציעה; הוא מודד מאמץ מניעה.</td></tr>
+          <tr><td data-label="סוג מדד">Lagging Indicators</td><td data-label="מה הוא מודד">תוצאות וכשלים שכבר התרחשו.</td><td data-label="דוגמאות">מספר תאונות, ימי היעדרות, חומרת פציעות, עלויות נזק.</td><td data-label="מלכודת">אפס תאונות אינו בהכרח מערכת בטוחה; ייתכן שיש תת-דיווח.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="toolbox">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">ארגז הכלים הניהולי</p>
+          <h2>איך מניעים מערכת ללא סמכות פיקודית ישירה</h2>
+        </div>
+      </div>
+      <div class="op-field-actions" aria-labelledby="toolboxCardsTitle">
+        <h3 id="toolboxCardsTitle">כרטיסי פעולה לניהול מערך בטיחות</h3>
+        <div class="op-field-card-grid">
+          <article class="op-field-action-card" data-severity="risk">
+            <strong>אין תקציב לתיקון מפגע</strong>
+            <dl class="field-pocket-grid">
+              <div class="field-pocket-cell"><dt>מה הסיכון</dt><dd>דחיית תיקון הופכת מפגע ידוע לחשיפה משפטית וניהולית.</dd></div>
+              <div class="field-pocket-cell"><dt>מה עושים</dt><dd>מציגים עלות-תועלת, חלופות, לוחות זמנים וסיכון להשבתה או צו.</dd></div>
+              <div class="field-pocket-cell"><dt>מה מתעדים</dt><dd>המלצה, מקור דין, עלות תיקון, חלופות והחלטת הנהלה.</dd></div>
+              <div class="field-pocket-cell"><dt>מתי מסלימים</dt><dd>כאשר הסיכון מתקרב לסכנת חיים או חריגה רגולטורית.</dd></div>
+            </dl>
+          </article>
+          <article class="op-field-action-card" data-severity="attention">
+            <strong>עובדים לא מדווחים Near Miss</strong>
+            <dl class="field-pocket-grid">
+              <div class="field-pocket-cell"><dt>מה הסיכון</dt><dd>כשל סמוי נשאר במערכת עד לתאונה קשה.</dd></div>
+              <div class="field-pocket-cell"><dt>מה עושים</dt><dd>מייצרים דיווח פשוט, אנונימי או לא מעניש, ומחזירים לעובדים משוב.</dd></div>
+              <div class="field-pocket-cell"><dt>מה מתעדים</dt><dd>מספר דיווחים, זמן טיפול, CAPA, פרסום לקחים והסרת חסמים.</dd></div>
+              <div class="field-pocket-cell"><dt>מתי מסלימים</dt><dd>כאשר מנהלים מענישים מדווחים או מטייחים אירועים.</dd></div>
+            </dl>
+          </article>
+          <article class="op-field-action-card" data-severity="stop">
+            <strong>עבודה ללא הדרכה שנתית</strong>
+            <dl class="field-pocket-grid">
+              <div class="field-pocket-cell"><dt>מה הסיכון</dt><dd>העסקת עובד ללא הדרכה כדין וחשיפה לפגיעה ולחקירה.</dd></div>
+              <div class="field-pocket-cell"><dt>מה עושים</dt><dd>מגדירים סבבי הדרכה, OJT, ריענון ותיעוד חתום לפני המשך עבודה מסוכנת.</dd></div>
+              <div class="field-pocket-cell"><dt>מה מתעדים</dt><dd>תוכנית שנתית, נושא, מדריך, קהל יעד, חתימות ומבחן הבנה.</dd></div>
+              <div class="field-pocket-cell"><dt>מתי מסלימים</dt><dd>כאשר מנהל עבודה מסרב לשחרר עובדים להדרכה מחייבת.</dd></div>
+            </dl>
+          </article>
+          <article class="op-field-action-card" data-severity="info">
+            <strong>ניהול למעלה</strong>
+            <dl class="field-pocket-grid">
+              <div class="field-pocket-cell"><dt>מה הסיכון</dt><dd>הנהלה רואה בטיחות כעלות ולא כהגנה על רציפות עסקית.</dd></div>
+              <div class="field-pocket-cell"><dt>מה עושים</dt><dd>מדברים בשפת ROI, מכרזים, ESG, מוניטין, השבתות וחשיפה פלילית.</dd></div>
+              <div class="field-pocket-cell"><dt>מה מתעדים</dt><dd>דוח מנהלים קצר, מפת חום, שלושה סיכונים מרכזיים ותוכנית החלטה.</dd></div>
+              <div class="field-pocket-cell"><dt>מתי מסלימים</dt><dd>כאשר החלטות הנהלה סותרות דין, מדיניות או סיכון חיים.</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="dilemmas">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">דילמות מהשטח</p>
+          <h2>לחץ, התנגדות, תקציב ותרבות</h2>
+        </div>
+      </div>
+      <div class="dilemma-grid">
+        <article class="dilemma-card"><strong>המנכ"ל לא מאשר יניקת אוויר</strong><span>התגובה המקצועית: עלות-תועלת, מדידת חשיפה, סיכון מחלת מקצוע, מכתב מתועד והצעת שלבי ביצוע.</span></article>
+        <article class="dilemma-card"><strong>עובד ותיק מסרב למשקפי מגן</strong><span>לא צועקים. בודקים נוחות, משתפים בבחירת PPE, ואם הסירוב נמשך מעבירים למנהל הקו לאכיפה.</span></article>
+        <article class="dilemma-card"><strong>מנהל עבודה מסרב לעצור להדרכה</strong><span>מחלקים הדרכה לסבבים, משלבים בחפיפת משמרות, אבל לא מוותרים על החובה השנתית.</span></article>
+        <article class="dilemma-card"><strong>קבלן מסרב להנחיות</strong><span>עוצרים דרך בעל החוזה בארגון, מפעילים סעיפי בטיחות, תיעוד והסלמה, ולא מתווכחים עם פועלים בשטח בלבד.</span></article>
+        <article class="dilemma-card"><strong>אין דיווחי Near Miss</strong><span>שקט אינו סימן לבטיחות. זה יכול להיות פחד. בונים Just Culture וערוצי דיווח פשוטים.</span></article>
+        <article class="dilemma-card"><strong>רכש קונה PPE זול ולא נוח</strong><span>נוחות היא תנאי יישום. משתפים עובדים, מבצעים פיילוט ומראים שהחיסכון הזול יוצר אי-ציות.</span></article>
+      </div>
+    </section>
+
+    <section class="content-section" id="cases">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">מקרי בוחן וסיפורי שטח</p>
+          <h2>מה לומדים מפסיקה, דירקטוריון, פרויקט ענק וסחף מבצעי</h2>
+        </div>
+      </div>
+      <div class="case-grid">
+        <article class="case-card"><strong>התאונה בבניין בן 6 קומות</strong><span>ממונה שזיהה סיכון, נתן הנחיות בכתב ותיעד את האזהרות פעל כאדם סביר. האחריות ליישום בפועל נשארה אצל מנהל העבודה.</span></article>
+        <article class="case-card"><strong>דירקטוריון מנותק מהשטח</strong><span>ניהול בטיחות דרך גרפים בלבד אינו מנהיגות. הנהלה חייבת לרדת לשטח, לראות סיכונים ולדבר עם עובדים.</span></article>
+        <article class="case-card"><strong>פרויקט ענק עם צפי הרוגים</strong><span>ניהול סיכונים אינו חישוב קר של נפגעים צפויים. מערכת בטיחות מקצועית משלבת מוסר, אפס פגיעות ומניעת סיכון מראש.</span></article>
+        <article class="case-card"><strong>סחף מבצעי סביב LOTO</strong><span>כאשר חיסכון של 15 דקות מתגמל עקיפת נעילה ותיוג, התרבות מתכנתת תאונה. צריך לשנות את מערכת התגמולים והפיקוח.</span></article>
+      </div>
+    </section>
+
+    <section class="content-section" id="checklists">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">צ'קליסטים</p>
+          <h2>כלי שטח לממונה בטיחות</h2>
+        </div>
+      </div>
+      <div class="pocket-grid">
+        <article class="pocket-card"><strong>בדיקת מדיניות</strong><span>חתימת מנכ"ל עדכנית, תאריך, יעדים, מחויבות למשאבים, הפצה לעובדים, התאמה ל-ISO 45001.</span></article>
+        <article class="pocket-card"><strong>בדיקת ועדת בטיחות</strong><span>25 עובדים ומעלה, ייצוג שווה, פרוטוקולים, סיורים, החלטות, אחראים, מועדים ומעקב ביצוע.</span></article>
+        <article class="pocket-card"><strong>בדיקת הדרכות</strong><span>תוכנית שנתית, קהל יעד, מדריך, תאריך, חתימות, OJT, הסמכות, ריענון שנתי ושפות עובדים.</span></article>
+        <article class="pocket-card"><strong>בדיקת KPI</strong><span>הפרדה בין Leading ל-Lagging, מגמות, תת-דיווח, Near Miss, פעולות מתקנות ובדיקת אפקטיביות.</span></article>
+      </div>
+    </section>
+
+    <section class="content-section" id="examFocus">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">דגשי מבחן</p>
+          <h2>מה לזכור לפני השאלות</h2>
+        </div>
+      </div>
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>נושא</th>
+            <th>הדגש למבחן</th>
+            <th>טעות נפוצה</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-label="נושא">תופש מפעל</td><td data-label="הדגש למבחן">האחריות העליונה נשארת אצל המחזיק במקום העבודה.</td><td data-label="טעות נפוצה">להעביר אחריות לממונה הבטיחות.</td></tr>
+          <tr><td data-label="נושא">ועדת בטיחות</td><td data-label="הדגש למבחן">חובה במקומות עבודה עם 25 עובדים ומעלה; הוועדה פריטטית.</td><td data-label="טעות נפוצה">לחשוב שהוועדה מחליפה את חובות המעסיק.</td></tr>
+          <tr><td data-label="נושא">KPI</td><td data-label="הדגש למבחן">Leading מנבא ומונע; Lagging מתאר תוצאה שכבר קרתה.</td><td data-label="טעות נפוצה">להסיק שאפס תאונות מוכיח בהכרח בטיחות.</td></tr>
+          <tr><td data-label="נושא">PDCA</td><td data-label="הדגש למבחן">Check הוא ניטור, מבדקים ומדדים; Act הוא שיפור ועדכון.</td><td data-label="טעות נפוצה">לבלבל בין ביצוע הדרכות לבין בדיקת אפקטיביות.</td></tr>
+          <tr><td data-label="נושא">Just Culture</td><td data-label="הדגש למבחן">מעודדת דיווח ולמידה, אך אינה מתירה הפרה מודעת.</td><td data-label="טעות נפוצה">לחשוב שאין אחריות אישית בכלל.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <details class="content-accordion" id="summaryGlossary" open>
+      <summary>מושגים מרכזיים</summary>
+      <div class="summary-grid">
+        <article class="summary-card"><h3>SMS</h3><p>Safety Management System: מערכת ניהול בטיחות הכוללת מדיניות, סיכונים, יעדים, מדדים, הדרכות ושיפור מתמיד.</p></article>
+        <article class="summary-card"><h3>ISO 45001</h3><p>תקן בינלאומי לניהול בטיחות ובריאות תעסוקתית, עם דגש על מנהיגות, שיתוף עובדים, עמידה בדין ושיפור מתמיד.</p></article>
+        <article class="summary-card"><h3>KPI</h3><p>מדדי ביצוע מרכזיים. בבטיחות חייבים גם מדדים מובילים וגם מדדי תוצאה.</p></article>
+        <article class="summary-card"><h3>PDCA</h3><p>Plan, Do, Check, Act: מעגל ניהול שמונע קיפאון ומחייב למידה ושיפור.</p></article>
+        <article class="summary-card"><h3>OJT</h3><p>On the Job Training: חניכה מעשית בשטח לפני הסמכה עצמאית לעבודה.</p></article>
+        <article class="summary-card"><h3>BBS</h3><p>Behavior Based Safety: שינוי התנהגות באמצעות תצפיות, משוב וחיזוקים חיוביים.</p></article>
+      </div>
+    </details>
+
+    <details class="content-accordion" id="questionsFromClass" open>
+      <summary>שאלות שעלו מהשיעור</summary>
+      <div class="summary-grid">
+        <article class="summary-card"><h3>האם ממונה בטיחות הוא מנהל?</h3><p>הוא מנהל מערכת מידע, סיכונים, הדרכות ותרבות, אך אינו בהכרח מנהל קו עם סמכות משמעתית או תקציבית.</p></article>
+        <article class="summary-card"><h3>מה עושים כשאין דיווחים?</h3><p>בודקים אם יש פחד, ענישה או חוסר אמון. מערכת ללא Near Miss עלולה להיות מערכת עיוורת.</p></article>
+        <article class="summary-card"><h3>למה מדיניות צריכה חתימה חדשה?</h3><p>כי המדיניות היא התחייבות של ראש הארגון הנוכחי, לא מזכרת היסטורית של הנהלה קודמת.</p></article>
+      </div>
+    </details>
+
+    <details class="content-accordion" id="keyTakeaways" open>
+      <summary>עיקרי הדברים</summary>
+      <ul>
+        <li>מערך בטיחות טוב עובד גם כאשר הממונה אינו נמצא בשטח.</li>
+        <li>האחריות העליונה לבטיחות נשארת אצל תופש המפעל וההנהלה.</li>
+        <li>ועדת בטיחות, נאמנים, מנהלים ועובדים הם חלק ממערכת אחת ולא קישוט ארגוני.</li>
+        <li>Leading Indicators חשובים כי הם מראים האם הארגון מונע תאונות לפני שהן קורות.</li>
+        <li>Just Culture ו-Near Miss הם בסיס ללמידה, לא כלי ענישה.</li>
+        <li>ממונה בטיחות אפקטיבי משפיע ללא סמכות באמצעות נתונים, שותפות, תיעוד והסלמה נכונה.</li>
+      </ul>
+    </details>
+
+    <section class="summary-practice-divider" id="summaryQuestions" data-read-aloud-exclude="true">
+      <p class="kicker">תרגול</p>
+      <h2>שאלות אמריקאיות לתרגול</h2>
+      <p>60 שאלות תרגול מתוך סיכום השיעור. ההתקדמות נשמרת בדפדפן בלבד. מומלץ לקרוא קודם את דגשי המבחן, דף הכיס והצ'קליסטים.</p>
+    </section>
+
+    <section
+      id="summaryQuizApp"
+      class="summary-quiz-app"
+      data-summary-quiz="lesson-08-summary-practice"
+      data-summary-quiz-source="lesson-08-summary-full-practice-source"
+      data-source-question-count="60"
+      data-read-aloud-exclude="true">
+      <p>טוען שאלות תרגול...</p>
+    </section>
+
+    <section class="content-section" id="summaryRelated" data-read-aloud-exclude="true">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">Related Learning</p>
+          <h2>קישורים קשורים</h2>
+        </div>
+      </div>
+      <div class="related-links">
         <a class="btn" href="../prep/lesson-08-safety-organization.html">הכנה לשיעור 8</a>
         <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
+        <a class="btn secondary" href="../summaries.html">כל הסיכומים</a>
         <a class="btn secondary" href="../knowledge/iso-45001.html">ISO 45001</a>
         <a class="btn secondary" href="../knowledge/human-factors.html">גורם אנושי</a>
         <a class="btn secondary" href="../knowledge/labor-inspection-law.html">חוק ארגון הפיקוח</a>
-        <a class="btn secondary" href="../checklists.html">Checklists</a>
+        <a class="btn secondary" href="../knowledge/safety-ordinance.html">פקודת הבטיחות</a>
+        <a class="btn secondary" href="../checklists.html?domain=ISO">Checklist ISO</a>
+        <a class="btn secondary" href="../checklists.html?domain=Human%20Factors">Checklist גורם אנושי</a>
+        <a class="btn secondary" href="../templates.html">Templates</a>
+        <a class="btn secondary" href="../glossary.html">מילון מונחים</a>
       </div>
-      <p class="field-help">עודכן לאחרונה: 26.5.2026</p>
     </section>
   </main>
 
   <script src="../../js/prototype-shell.js"></script>
   <script src="../../js/read-aloud.js"></script>
+  <script src="../../data/summary-questions-map.js"></script>
+  <script src="../../js/summary-stability.js"></script>
+  <script src="../../js/summary-quiz.js"></script>
   <script type="module" src="../../js/auth.js"></script>
   <script src="../../js/accessibility.js"></script>
 </body>

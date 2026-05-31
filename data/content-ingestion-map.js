@@ -307,13 +307,14 @@
       "updatedAt": "2026-05-26"
     },
     "summary": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": ""
+      "status": "available",
+      "href": "pages/summaries/lesson-08-summary.html",
+      "updatedAt": "2026-05-31",
+      "questionCount": 60
     },
     "questions": {
-      "count": 30,
-      "href": "pages/prep/lesson-08-safety-organization.html#prepQuestions"
+      "count": 60,
+      "href": "pages/summaries/lesson-08-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/iso-45001.html",
@@ -331,7 +332,7 @@
       "KPI",
       "Operational Drift"
     ],
-    "lastUpdated": "2026-05-26"
+    "lastUpdated": "2026-05-31"
   }
 ];
   lessons.forEach(withCourseScope);
@@ -339,12 +340,12 @@
   const latestUpdate = {
   "type": "summary",
   "typeLabel": "\u05e1\u05d9\u05db\u05d5\u05dd",
-  "lessonId": "lesson-07",
-  "sessionNumber": 7,
-  "title": "נוסף סיכום שיעור 7 - תפקיד ממונה הבטיחות, ניהול סיכונים ותיאום קבלנים כולל 60 שאלות תרגול",
-  "description": "סיכום curated חדש עם גבולות אחריות Staff/Line, תיעוד מגן, קבלנים, PTW, LOTO, Near Miss, דף כיס מבצעי, visual operational layer ובנק שאלות מלא.",
-  "href": "pages/summaries/lesson-07-summary.html",
-  "updatedAt": "2026-05-27"
+  "lessonId": "lesson-08",
+  "sessionNumber": 8,
+  "title": "נוסף סיכום שיעור 8 - ארגון מערך הבטיחות במפעל וניהולו כולל 60 שאלות תרגול",
+  "description": "סיכום curated חדש על מבנה מערך הבטיחות, אחריות הנהלה, ממונה בטיחות, ועדת בטיחות, נאמנים, תרבות בטיחות, SMS, ISO 45001, PDCA, KPI, דילמות שטח ובנק שאלות מלא.",
+  "href": "pages/summaries/lesson-08-summary.html",
+  "updatedAt": "2026-05-31"
 };
   withCourseScope(latestUpdate);
 
@@ -485,6 +486,16 @@
     "title": "תפקיד ממונה הבטיחות, ניהול סיכונים ותיאום קבלנים",
     "href": "pages/summaries/lesson-07-summary.html",
     "updatedAt": "2026-05-27",
+    "summaryAvailable": true,
+    "label": "קיים",
+    "questionCount": 60
+  },
+  {
+    "lessonId": "lesson-08",
+    "sessionNumber": 8,
+    "title": "ארגון מערך הבטיחות במפעל וניהולו",
+    "href": "pages/summaries/lesson-08-summary.html",
+    "updatedAt": "2026-05-31",
     "summaryAvailable": true,
     "label": "קיים",
     "questionCount": 60
