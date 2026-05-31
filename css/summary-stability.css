@@ -23,21 +23,29 @@ body.summary-page .content-accordion > summary::-webkit-details-marker {
 }
 
 body.summary-page .content-accordion > summary::before {
-  border: solid currentColor;
-  border-width: 0 2px 2px 0;
-  content: "";
-  display: inline-block;
+  background: rgba(8, 100, 128, .08);
+  border: 1px solid rgba(8, 100, 128, .18);
+  border-radius: 999px;
+  color: var(--proto-text);
+  content: "▶ סגור";
+  display: inline-flex;
   flex: 0 0 auto;
-  height: .48rem;
+  font-size: .82rem;
+  font-weight: 900;
+  height: auto;
+  line-height: 1;
   margin-inline-start: .25rem;
-  opacity: .72;
-  transform: rotate(45deg);
-  transition: transform 160ms ease;
-  width: .48rem;
+  opacity: .86;
+  padding: .34rem .55rem;
+  transform: none;
+  transition: background-color 160ms ease, border-color 160ms ease;
+  width: auto;
 }
 
 body.summary-page .content-accordion[open] > summary::before {
-  transform: rotate(225deg);
+  background: rgba(8, 100, 128, .14);
+  border-color: rgba(8, 100, 128, .32);
+  content: "▼ פתוח";
 }
 
 body.summary-page .content-accordion:not([open]) {
@@ -222,6 +230,29 @@ body.summary-page .summary-practice-nav {
   position: sticky;
   top: .5rem;
   z-index: 4;
+}
+
+body.summary-page .summary-question-pager {
+  align-items: center;
+  background: var(--proto-surface);
+  border: 1px solid rgba(8, 100, 128, .16);
+  border-radius: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  justify-content: center;
+  margin: .85rem 0;
+  padding: .75rem;
+}
+
+body.summary-page .summary-question-position {
+  background: rgba(8, 100, 128, .08);
+  border-radius: 999px;
+  padding: .42rem .8rem;
+}
+
+body.summary-page .summary-question-card-single {
+  border-color: rgba(8, 100, 128, .24);
 }
 
 body.summary-page .summary-practice-nav a,

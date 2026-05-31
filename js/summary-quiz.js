@@ -7,6 +7,7 @@
   const quizId = root.dataset.summaryQuiz || "lesson-01-summary-practice";
   const quizSource = root.dataset.summaryQuizSource || quizId;
   const storageKey = "ehsSummaryQuiz:" + quizId;
+  const cursorKey = storageKey + ":currentIndex";
   const questionSets = window.CourseSummaryQuestionSets || {};
   const rawQuestions = Array.isArray(questionSets[quizSource]) ? questionSets[quizSource] : [];
   const shouldSortBySourceNumber = rawQuestions.length > 1 && Number(rawQuestions[0].sourceNumber) !== 1;
@@ -22,6 +23,7 @@
   const expectedCount = Number(root.dataset.sourceQuestionCount || questions.length || 0);
 
   let state = loadState();
+  let currentIndex = loadCurrentIndex();
   let revealAll = false;
 
   function loadState() {
@@ -34,6 +36,21 @@
 
   function saveState(nextState) {
     localStorage.setItem(storageKey, JSON.stringify(nextState));
+  }
+
+  function loadCurrentIndex() {
+    const stored = Number(localStorage.getItem(cursorKey) || 0);
+    if (!Number.isFinite(stored)) return 0;
+    return clampIndex(stored);
+  }
+
+  function saveCurrentIndex() {
+    localStorage.setItem(cursorKey, String(currentIndex));
+  }
+
+  function clampIndex(index) {
+    if (!questions.length) return 0;
+    return Math.max(0, Math.min(questions.length - 1, index));
   }
 
   function el(tag, className, text) {
@@ -61,10 +78,10 @@
 
   function questionGroups() {
     const ranges = [
-      { title: "1-20 | בסיס ויישום", from: 1, to: 20, open: true },
-      { title: "21-40 | בינוני - ניתוח מצבים", from: 21, to: 40, open: false },
-      { title: "41-60 | קשה - אחריות, דין ובקרה", from: 41, to: 60, open: false },
-      { title: "61-" + questions.length + " | העמקה והרחבה", from: 61, to: questions.length, open: false },
+      { title: "1-20 | בסיס ויישום", from: 1, to: 20 },
+      { title: "21-40 | בינוני - ניתוח מצבים", from: 21, to: 40 },
+      { title: "41-60 | קשה - אחריות, דין ובקרה", from: 41, to: 60 },
+      { title: "61-" + questions.length + " | העמקה והרחבה", from: 61, to: questions.length },
     ];
 
     return ranges
@@ -84,6 +101,7 @@
       return;
     }
 
+    currentIndex = clampIndex(currentIndex);
     const summary = stats();
     const toolbar = el("div", "summary-quiz-toolbar");
     const progress = el("div", "summary-quiz-progress");
@@ -101,7 +119,9 @@
       button("אפס תרגול", () => {
         if (!window.confirm("לאפס את תרגול הסיכום המקומי?")) return;
         state = {};
+        currentIndex = 0;
         saveState(state);
+        saveCurrentIndex();
         render();
       }, "secondary")
     );
@@ -109,57 +129,57 @@
     const helper = el(
       "p",
       "field-help summary-quiz-helper",
-      questions.length + " שאלות תרגול מתוך סיכום השיעור. ההתקדמות נשמרת בדפדפן בלבד."
+      questions.length + " שאלות תרגול מתוך סיכום השיעור. מוצגת שאלה אחת בכל פעם; ההתקדמות נשמרת בדפדפן בלבד."
     );
-
     if (expectedCount && expectedCount !== questions.length) {
       helper.textContent = questions.length + " שאלות תרגול נטענו. ההתקדמות נשמרת בדפדפן בלבד.";
     }
 
-    const jumpNav = el("div", "summary-question-jump-nav");
-    questionGroups().forEach((group) => {
-      jumpNav.append(button(group.title, () => {
-        const target = document.getElementById("summary-question-group-" + group.from);
-        if (!target) return;
-        target.open = true;
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, "secondary"));
-    });
-
-    root.append(toolbar, progress, helper, jumpNav);
-
-    const groups = el("div", "summary-question-groups");
-    questionGroups().forEach((group) => groups.append(groupNode(group)));
-    root.append(groups);
+    root.append(toolbar, progress, helper, rangeNav(), questionPager(), questionCard(questions[currentIndex], currentIndex + 1), questionPager());
   }
 
-  function groupNode(group) {
-    const details = el("details", "summary-question-group");
-    details.id = "summary-question-group-" + group.from;
-    if (group.open) details.open = true;
-    const summary = el("summary", "");
-    const answeredInGroup = group.items.filter((question) => state[question.id] !== undefined).length;
-    summary.append(
-      el("span", "summary-question-group-title", group.title),
-      el("span", "summary-question-group-count", answeredInGroup + " / " + group.items.length + " נענו")
-    );
-    details.append(summary);
-
-    const list = el("div", "summary-question-list");
-    group.items.forEach((question, index) => {
-      list.append(questionCard(question, group.from + index));
+  function rangeNav() {
+    const nav = el("nav", "summary-question-jump-nav summary-practice-nav");
+    nav.setAttribute("aria-label", "ניווט שאלות תרגול");
+    questionGroups().forEach((group) => {
+      const control = button(group.title, () => {
+        currentIndex = clampIndex(group.from - 1);
+        saveCurrentIndex();
+        render();
+      }, currentIndex + 1 >= group.from && currentIndex + 1 <= group.to ? "primary" : "secondary");
+      nav.append(control);
     });
-    details.append(list);
-    return details;
+    return nav;
+  }
+
+  function questionPager() {
+    const pager = el("div", "summary-question-pager");
+    const previous = button("הקודם", () => {
+      currentIndex = clampIndex(currentIndex - 1);
+      saveCurrentIndex();
+      render();
+    }, "secondary");
+    previous.disabled = currentIndex === 0;
+
+    const next = button("הבא", () => {
+      currentIndex = clampIndex(currentIndex + 1);
+      saveCurrentIndex();
+      render();
+    }, "primary");
+    next.disabled = currentIndex === questions.length - 1;
+
+    const position = el("strong", "summary-question-position", "שאלה " + (currentIndex + 1) + " מתוך " + questions.length);
+    pager.append(previous, position, next);
+    return pager;
   }
 
   function questionCard(question, questionNumber) {
     const selected = state[question.id];
     const answered = selected !== undefined;
     const showFeedback = answered || revealAll;
-    const card = el("article", "summary-question-card");
-    const label = "שאלה " + questionNumber;
-    card.append(el("h3", "", label + " · " + question.question));
+    const card = el("article", "summary-question-card summary-question-card-single");
+    const sourceLabel = question.sourceLabel || ("שאלה " + questionNumber);
+    card.append(el("h3", "", sourceLabel + " · " + question.question));
 
     const options = el("div", "summary-options");
     question.options.forEach((option, optionIndex) => {
@@ -189,8 +209,8 @@
       feedback.append(
         el("strong", "", isCorrect ? "נכון" : revealAll && !answered ? "תשובה מוצגת" : "לא נכון"),
         el("div", "summary-feedback-box summary-feedback-rationale", question.rationale || question.explanation || ""),
-        el("div", "summary-feedback-box summary-feedback-trap", "Trap: " + (question.trap || "בדוק האם התשובה מסתפקת בניירת, מעבירה אחריות או מדלגת על בקרה במקור.")),
-        el("div", "summary-feedback-box summary-feedback-field", "משמעות בשטח: חבר את ההסבר לבקרה ממשית, בעל אחריות, תיעוד ובדיקת אפקטיביות.")
+        el("div", "summary-feedback-box summary-feedback-trap", "מלכודת: " + (question.trap || "בדקו האם התשובה מסתפקת בניירת, מעבירה אחריות או מדלגת על בקרה במקור.")),
+        el("div", "summary-feedback-box summary-feedback-field", "משמעות בשטח: חברו את ההסבר לבקרה ממשית, בעל אחריות, תיעוד ובדיקת אפקטיביות.")
       );
       card.append(feedback);
     }
@@ -201,6 +221,7 @@
   window.EHSSummaryQuiz = Object.assign(window.EHSSummaryQuiz || {}, {
     questionGroups,
     getQuestions: () => questions.slice(),
+    getCurrentQuestion: () => questions[currentIndex],
   });
 
   render();
