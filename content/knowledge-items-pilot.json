@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "registryStatus": "pilot",
+  "scope": {
+    "stableSourceId": "law-labor-inspection-1954",
+    "description": "Knowledge item pilot proving Source -> Citation -> Knowledge Item traceability."
+  },
+  "knowledgeItems": [
+    {
+      "knowledgeItemId": "knowledge-labor-inspection-safety-program",
+      "title": "תוכנית בטיחות",
+      "contentType": "legal-concept",
+      "topicIds": [
+        "safety-management",
+        "legal-compliance",
+        "safety-program"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "sourceRefs": [
+        {
+          "stableSourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-11"
+        }
+      ],
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot knowledge item linked to a source-backed citation. Not verified or legally approved."
+      },
+      "status": "draft"
+    },
+    {
+      "knowledgeItemId": "knowledge-labor-inspection-safety-committee",
+      "title": "הקמת ועדת בטיחות",
+      "contentType": "legal-concept",
+      "topicIds": [
+        "safety-committee",
+        "worker-representation",
+        "legal-compliance"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "sourceRefs": [
+        {
+          "stableSourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-15"
+        }
+      ],
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot knowledge item linked to a source-backed citation. Not verified or legally approved."
+      },
+      "status": "draft"
+    },
+    {
+      "knowledgeItemId": "knowledge-labor-inspection-safety-committee-composition",
+      "title": "הרכב ועדת בטיחות והודעות",
+      "contentType": "legal-concept",
+      "topicIds": [
+        "safety-committee",
+        "roles-and-responsibilities",
+        "legal-compliance"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "sourceRefs": [
+        {
+          "stableSourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-16"
+        }
+      ],
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot knowledge item linked to a source-backed citation. Not verified or legally approved."
+      },
+      "status": "draft"
+    }
+  ]
+}
