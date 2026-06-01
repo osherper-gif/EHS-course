@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
-  <meta name="description" content="Knowledge Hub Pilot read-only המציג חוויית ידע ראשונית לפי נושאים, תתי נושאים, תוכן לימודי, דגשי מבחן ודגשים משפטיים עם עקיבות מקור.">
-  <title>Knowledge Hub Pilot | קורס ממונה בטיחות</title>
+  <meta name="description" content="פיילוט מרכז ידע לממונה בטיחות: נושאים, תתי נושאים, תוכן לימודי, דגשי מבחן ודגשים משפטיים עם עקיבות מקור.">
+  <title>מרכז ידע - פיילוט | קורס ממונה בטיחות</title>
   <link rel="stylesheet" href="../css/styles.css">
   <style>
     .kh-pilot-page {
@@ -13,10 +13,11 @@
       --kh-muted: #5e6d7d;
       --kh-border: #d7e2eb;
       --kh-soft: #f5f8fb;
-      --kh-level-1: #8a1f1f;
-      --kh-level-6: #075985;
+      --kh-legal: #8a1f1f;
+      --kh-training: #075985;
+      --kh-exam: #8a5a00;
+      --kh-gold: #93620a;
       --kh-ok: #0f766e;
-      --kh-draft: #8a5a00;
       background: #f7fafc;
       color: var(--kh-ink);
     }
@@ -29,10 +30,10 @@
 
     .kh-topbar,
     .kh-hero,
-    .kh-panel,
     .kh-learning-map,
-    .kh-card,
     .kh-topic-card,
+    .kh-detail-panel,
+    .kh-card,
     .kh-block-card,
     .kh-question-card,
     .kh-golden-card,
@@ -40,13 +41,6 @@
       border: 1px solid var(--kh-border);
       background: #fff;
       box-shadow: 0 10px 28px rgba(15, 23, 42, .06);
-    }
-
-    .kh-learning-map {
-      border-radius: 14px;
-      padding: 16px;
-      margin-bottom: 18px;
-      background: #fff;
     }
 
     .kh-topbar {
@@ -99,7 +93,7 @@
     }
 
     .kh-hero p {
-      max-width: 820px;
+      max-width: 840px;
       margin: 0 0 16px;
       color: #334155;
       font-size: 1.08rem;
@@ -113,7 +107,8 @@
 
     .kh-badge-row,
     .kh-meta-row,
-    .kh-tabs {
+    .kh-tabs,
+    .kh-detail-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -139,7 +134,7 @@
     .kh-badge[data-kind="draft"] {
       background: #fffbeb;
       border-color: #f3d17a;
-      color: var(--kh-draft);
+      color: var(--kh-exam);
     }
 
     .kh-badge[data-kind="source-backed"] {
@@ -154,16 +149,28 @@
       color: #475569;
     }
 
-    .kh-badge[data-authority="1"] {
+    .kh-badge[data-authority="legal"] {
       background: #fef2f2;
       border-color: #fecaca;
-      color: var(--kh-level-1);
+      color: var(--kh-legal);
     }
 
-    .kh-badge[data-authority="6"] {
+    .kh-badge[data-authority="training"] {
       background: #eff6ff;
       border-color: #bfdbfe;
-      color: var(--kh-level-6);
+      color: var(--kh-training);
+    }
+
+    .kh-badge[data-role="exam"] {
+      background: #fefce8;
+      border-color: #fde68a;
+      color: var(--kh-exam);
+    }
+
+    .kh-badge[data-role="gold"] {
+      background: #fffbeb;
+      border-color: #fcd34d;
+      color: var(--kh-gold);
     }
 
     .kh-tabs {
@@ -193,7 +200,9 @@
       scroll-margin-top: 90px;
     }
 
-    .kh-section h2 {
+    .kh-section h2,
+    .kh-detail-panel h2,
+    .kh-learning-map h2 {
       margin: 0 0 12px;
       font-size: clamp(1.45rem, 3vw, 2rem);
     }
@@ -204,8 +213,9 @@
 
     .kh-summary-grid,
     .kh-learning-path,
+    .kh-topic-grid,
     .kh-card-grid,
-    .kh-authority-grid {
+    .kh-subtopic-grid {
       display: grid;
       gap: 12px;
     }
@@ -214,19 +224,30 @@
       grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
     }
 
+    .kh-learning-map {
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
     .kh-learning-path {
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     }
 
-    .kh-card-grid,
-    .kh-authority-grid {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    .kh-topic-grid,
+    .kh-card-grid {
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+
+    .kh-subtopic-grid {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin: 10px 0 4px;
     }
 
     .kh-summary-card,
     .kh-learning-step,
-    .kh-card,
     .kh-topic-card,
+    .kh-card,
     .kh-block-card,
     .kh-question-card,
     .kh-golden-card {
@@ -261,20 +282,71 @@
       font-size: 1.12rem;
     }
 
+    .kh-topic-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .kh-topic-card p {
+      flex: 1;
+    }
+
+    .kh-topic-open,
+    .kh-back-button {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      min-height: 42px;
+      background: #0f5f75;
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .kh-topic-open:hover,
+    .kh-back-button:hover,
+    .kh-topic-open:focus-visible,
+    .kh-back-button:focus-visible {
+      background: #0a4b5d;
+      outline: 3px solid rgba(15, 95, 117, .22);
+      outline-offset: 2px;
+    }
+
+    .kh-detail-panel {
+      border-radius: 14px;
+      padding: clamp(16px, 3vw, 26px);
+      margin: 24px 0;
+      scroll-margin-top: 90px;
+    }
+
+    .kh-detail-panel[hidden] {
+      display: none;
+    }
+
+    .kh-detail-section {
+      margin-top: 22px;
+    }
+
+    .kh-detail-section h3 {
+      margin: 0 0 10px;
+      font-size: 1.22rem;
+    }
+
     .kh-block-card,
     .kh-golden-card,
     .kh-question-card {
       border-inline-start: 5px solid #64748b;
     }
 
-    .kh-block-card[data-level="1"],
-    .kh-golden-card[data-level="1"],
-    .kh-question-card[data-level="1"] {
-      border-inline-start-color: var(--kh-level-1);
+    .kh-block-card[data-authority-group="legal"],
+    .kh-golden-card[data-authority-group="legal"],
+    .kh-question-card[data-authority-group="legal"] {
+      border-inline-start-color: var(--kh-legal);
     }
 
-    .kh-block-card[data-level="6"] {
-      border-inline-start-color: var(--kh-level-6);
+    .kh-block-card[data-authority-group="training"] {
+      border-inline-start-color: var(--kh-training);
     }
 
     .kh-block-card[data-block-type="warning"] {
@@ -351,10 +423,20 @@
       font-weight: 800;
     }
 
+    .kh-empty,
     .kh-error {
       padding: 16px;
-      border: 1px solid #fecaca;
       border-radius: 12px;
+    }
+
+    .kh-empty {
+      border: 1px dashed var(--kh-border);
+      background: var(--kh-soft);
+      color: var(--kh-muted);
+    }
+
+    .kh-error {
+      border: 1px solid #fecaca;
       background: #fef2f2;
       color: #7f1d1d;
     }
@@ -372,8 +454,9 @@
 
       .kh-summary-grid,
       .kh-learning-path,
+      .kh-topic-grid,
       .kh-card-grid,
-      .kh-authority-grid {
+      .kh-subtopic-grid {
         grid-template-columns: 1fr;
       }
 
@@ -388,7 +471,9 @@
 
     @media print {
       .kh-topbar,
-      .kh-tabs {
+      .kh-tabs,
+      .kh-topic-open,
+      .kh-back-button {
         display: none !important;
       }
 
@@ -402,6 +487,7 @@
       .kh-question-card,
       .kh-golden-card,
       .kh-summary-card,
+      .kh-detail-panel,
       .kh-hero {
         box-shadow: none;
         break-inside: avoid;
@@ -409,7 +495,7 @@
     }
   </style>
 </head>
-<body class="kh-pilot-page" data-page-title="Knowledge Hub Pilot">
+<body class="kh-pilot-page" data-page-title="מרכז ידע - פיילוט">
   <a class="skip-link" href="#main">דלג לתוכן</a>
   <div class="kh-shell">
     <header class="kh-topbar" aria-label="כותרת עמוד">
@@ -425,14 +511,14 @@
 
     <main id="main" data-readable-content>
       <section class="kh-hero">
-        <p class="kh-kicker">Knowledge Hub MVP</p>
-        <h1>Knowledge Hub Pilot</h1>
-        <p>פיילוט חוויית ידע לימודית: נושאים, תתי נושאים, תוכן לימודי, דגשי מבחן ודגשים משפטיים. הנתונים עדיין במצב pilot/read-only, עם עקיבות מקור גלויה, אך בלי להציג למשתמש שכבות registry פנימיות.</p>
+        <p class="kh-kicker">פיילוט מרכז ידע</p>
+        <h1>מרכז ידע לממונה בטיחות</h1>
+        <p>עמוד ניסוי המציג למידה לפי נושאים. בוחרים נושא, פותחים אותו, ורואים רק את פריטי התוכן, דגשי המבחן, הדגשים המשפטיים, מספרי הזהב והשאלות השייכים אליו.</p>
         <div class="kh-badge-row" aria-label="סטטוס הפיילוט">
-          <span class="kh-badge" data-kind="pilot">Pilot</span>
-          <span class="kh-badge" data-kind="draft">Draft</span>
-          <span class="kh-badge" data-kind="source-backed">Source-backed</span>
-          <span class="kh-badge" data-kind="unverified">Read-only</span>
+          <span class="kh-badge" data-kind="pilot">פיילוט</span>
+          <span class="kh-badge" data-kind="draft">טיוטה</span>
+          <span class="kh-badge" data-kind="source-backed">מבוסס מקור</span>
+          <span class="kh-badge" data-kind="unverified">קריאה בלבד</span>
           <span class="kh-badge" data-kind="unverified">לא מאומת משפטית</span>
         </div>
       </section>
@@ -440,11 +526,7 @@
       <nav class="kh-tabs" aria-label="ניווט פנימי בפיילוט">
         <a href="#kh-summary">תמונת מצב</a>
         <a href="#kh-topics">נושאים</a>
-        <a href="#kh-learning">תוכן לימודי</a>
-        <a href="#kh-exam">דגשי מבחן</a>
-        <a href="#kh-legal">דגשים משפטיים</a>
-        <a href="#kh-golden">מספרי זהב</a>
-        <a href="#kh-questions">שאלות</a>
+        <a href="#kh-topic-detail">פירוט נושא</a>
       </nav>
 
       <section class="kh-section" id="kh-summary" aria-labelledby="khSummaryTitle">
@@ -455,60 +537,69 @@
       </section>
 
       <section class="kh-learning-map" aria-labelledby="khHowToReadTitle">
-        <h2 id="khHowToReadTitle">איך לקרוא את הפיילוט</h2>
+        <h2 id="khHowToReadTitle">איך להשתמש בעמוד</h2>
         <div class="kh-learning-path">
           <article class="kh-learning-step">
-            <strong>נושא</strong>
-            <span>הכניסה הראשית ללמידה. כל נושא מרכז כמה פריטי ידע ושיעורים קשורים.</span>
+            <strong>בחר נושא</strong>
+            <span>העמוד העליון מציג רק נושאים מרכזיים, כדי לא להציף את הלומד.</span>
           </article>
           <article class="kh-learning-step">
-            <strong>תת נושא</strong>
-            <span>פירוק נושא רחב למוקד לימודי קטן יותר, למשל צו שיפור או תרבות בטיחות.</span>
+            <strong>פתח נושא</strong>
+            <span>בלחיצה מוצגים רק תתי הנושאים והפריטים השייכים לנושא שבחרת.</span>
           </article>
           <article class="kh-learning-step">
-            <strong>תוכן לימודי</strong>
-            <span>הסבר, הגדרה, דוגמה, טבלה או checklist שנועדו ללמידה ולא להצגת registry.</span>
+            <strong>זהה סמכות</strong>
+            <span>תגים מבדילים בין מקור משפטי, חומר הדרכה, דגש מבחן ומספר זהב.</span>
           </article>
           <article class="kh-learning-step">
-            <strong>עקיבות מקור</strong>
-            <span>כל דגש מחייב או מספר חשוב מציג מקור, רמת סמכות וסטטוס אימות בלי להפוך לטענה משפטית מאושרת.</span>
+            <strong>חזור לנושאים</strong>
+            <span>אפשר לחזור בכל רגע לכרטיסי הנושאים ולבחור מוקד אחר.</span>
           </article>
         </div>
       </section>
 
       <section class="kh-section" id="kh-topics" aria-labelledby="khTopicsTitle">
-        <h2 id="khTopicsTitle">נושאים ותתי נושאים</h2>
-        <div class="kh-card-grid" data-kh-topics></div>
+        <h2 id="khTopicsTitle">נושאים מרכזיים</h2>
+        <p class="kh-muted">בחר נושא כדי לפתוח פירוט ממוקד. שאר התוכן נשאר מוסתר עד לבחירה.</p>
+        <div class="kh-topic-grid" data-kh-topics></div>
       </section>
 
-      <section class="kh-section" id="kh-learning" aria-labelledby="khLearningTitle">
-        <h2 id="khLearningTitle">תוכן לימודי</h2>
-        <p class="kh-muted">פריטי ידע לימודיים מתוך הפיילוט, מוצגים לפי משמעות למידה ולא לפי מבנה registry פנימי.</p>
-        <div class="kh-card-grid" data-kh-learning></div>
-      </section>
+      <section class="kh-detail-panel" id="kh-topic-detail" aria-labelledby="khDetailTitle" hidden>
+        <div class="kh-detail-actions">
+          <button class="kh-back-button" type="button" data-kh-back-topics>חזרה לכל הנושאים</button>
+        </div>
+        <h2 id="khDetailTitle" data-kh-detail-title></h2>
+        <p class="kh-muted" data-kh-detail-summary></p>
 
-      <section class="kh-section" id="kh-exam" aria-labelledby="khExamTitle">
-        <h2 id="khExamTitle">דגשי מבחן</h2>
-        <p class="kh-muted">דגשים שמסומנים כרלוונטיים למבחן נשארים במצב פיילוט ומציגים עקיבות מקור.</p>
-        <div class="kh-card-grid" data-kh-exam></div>
-      </section>
+        <section class="kh-detail-section" aria-labelledby="khSubtopicsTitle">
+          <h3 id="khSubtopicsTitle">תתי נושאים</h3>
+          <div class="kh-subtopic-grid" data-kh-detail-subtopics></div>
+        </section>
 
-      <section class="kh-section" id="kh-legal" aria-labelledby="khLegalTitle">
-        <h2 id="khLegalTitle">דגשים משפטיים</h2>
-        <p class="kh-muted">הפניות משפטיות מוצגות כהפניות מקור בלבד. הן אינן ייעוץ משפטי ואינן מאושרות לפרסום מחייב.</p>
-        <div class="kh-card-grid" data-kh-legal></div>
-      </section>
+        <section class="kh-detail-section" aria-labelledby="khLearningTitle">
+          <h3 id="khLearningTitle">תוכן לימודי</h3>
+          <div class="kh-card-grid" data-kh-detail-learning></div>
+        </section>
 
-      <section class="kh-section" id="kh-golden" aria-labelledby="khGoldenTitle">
-        <h2 id="khGoldenTitle">מספרי זהב</h2>
-        <p class="kh-muted">מוצגים רק מספרים שיש להם ציטוט מקור מפורש. מספר ללא מקור אינו מוצג.</p>
-        <div class="kh-card-grid" data-kh-golden></div>
-      </section>
+        <section class="kh-detail-section" aria-labelledby="khExamTitle">
+          <h3 id="khExamTitle">דגשי מבחן</h3>
+          <div class="kh-card-grid" data-kh-detail-exam></div>
+        </section>
 
-      <section class="kh-section" id="kh-questions" aria-labelledby="khQuestionsTitle">
-        <h2 id="khQuestionsTitle">שאלות לימוד</h2>
-        <p class="kh-muted">שאלות הפיילוט מציגות את ההסבר ואת ההפניה למקור שעליו נשענת התשובה.</p>
-        <div class="kh-card-grid" data-kh-questions></div>
+        <section class="kh-detail-section" aria-labelledby="khLegalTitle">
+          <h3 id="khLegalTitle">דגשים משפטיים</h3>
+          <div class="kh-card-grid" data-kh-detail-legal></div>
+        </section>
+
+        <section class="kh-detail-section" aria-labelledby="khGoldenTitle">
+          <h3 id="khGoldenTitle">מספרי זהב</h3>
+          <div class="kh-card-grid" data-kh-detail-golden></div>
+        </section>
+
+        <section class="kh-detail-section" aria-labelledby="khQuestionsTitle">
+          <h3 id="khQuestionsTitle">שאלות לימוד</h3>
+          <div class="kh-card-grid" data-kh-detail-questions></div>
+        </section>
       </section>
     </main>
   </div>

@@ -26,10 +26,18 @@
   const LEGAL_WORD_NUMBERING = /^\s*(?:סעיף|תקנה|צו|תקן)\s+\S+/;
   const WORD_NUMBERING = /^\s*(?:פרק\s+\d+|(?:\d+\.)+\d+|\d+\s*[.)])\s*/;
 
+  let pilotState = null;
+
   document.addEventListener('DOMContentLoaded', () => {
     loadPilotData()
-      .then(renderPilot)
+      .then((data) => {
+        pilotState = buildState(data);
+        renderPilot(pilotState);
+      })
       .catch(renderError);
+
+    document.addEventListener('click', handlePageClick);
+    document.querySelector('[data-kh-back-topics]')?.addEventListener('click', closeTopicDetail);
   });
 
   async function loadPilotData() {
@@ -37,7 +45,7 @@
       Object.entries(DATA_FILES).map(async ([key, path]) => {
         const response = await fetch(path, { cache: 'no-store' });
         if (!response.ok) {
-          throw new Error(`Failed to load ${path}: ${response.status}`);
+          throw new Error(`טעינת קובץ הפיילוט נכשלה: ${path}`);
         }
         return [key, await response.json()];
       })
@@ -55,31 +63,34 @@
     };
   }
 
-  function renderPilot(data) {
-    const sourceById = new Map(data.sources.map((source) => [source.stableSourceId, source]));
-    const citationById = new Map(data.citations.map((citation) => [citation.citationId, citation]));
-    const blockById = new Map(data.blocks.map((block) => [block.blockId, block]));
-
-    renderSummary(data);
-    renderTopics(data, sourceById, blockById);
-    renderLearningContent(data.blocks, sourceById, citationById);
-    renderExamFocus(data.blocks, sourceById, citationById);
-    renderLegalNotes(data.blocks, sourceById, citationById);
-    renderGoldenNumbers(data.golden, sourceById, citationById);
-    renderQuestions(data.questions, sourceById, citationById);
+  function buildState(data) {
+    return {
+      data,
+      sourceById: new Map(data.sources.map((source) => [source.stableSourceId, source])),
+      citationById: new Map(data.citations.map((citation) => [citation.citationId, citation])),
+      topicById: new Map(data.topics.map((topic) => [topic.topicId, topic])),
+      blockById: new Map(data.blocks.map((block) => [block.blockId, block]))
+    };
   }
 
-  function renderSummary(data) {
+  function renderPilot(state) {
+    renderSummary(state);
+    renderTopicCards(state);
+  }
+
+  function renderSummary(state) {
     const target = document.querySelector('[data-kh-summary]');
     if (!target) return;
 
+    const { data } = state;
+    const rootTopics = getRootTopics(data.topics);
     const summary = [
-      [data.topics.length, 'נושאים ותתי נושאים'],
+      [rootTopics.length, 'נושאים מרכזיים'],
       [data.topics.filter((topic) => topic.parentTopicId).length, 'תתי נושאים'],
-      [data.blocks.length, 'פריטי תוכן לימודי'],
+      [data.blocks.length, 'פריטי תוכן'],
       [data.blocks.filter(isExamBlock).length, 'דגשי מבחן'],
       [data.blocks.filter(isLegalBlock).length, 'דגשים משפטיים'],
-      [data.golden.filter((item) => item.sourceCitation).length, 'מספרי זהב עם מקור'],
+      [data.golden.filter((item) => item.sourceCitation).length, 'מספרי זהב'],
       [data.questions.length, 'שאלות לימוד']
     ];
 
@@ -91,80 +102,121 @@
     `).join('');
   }
 
-  function renderTopics(data, sourceById, blockById) {
+  function renderTopicCards(state) {
     const target = document.querySelector('[data-kh-topics]');
     if (!target) return;
 
-    target.innerHTML = data.topics.map((topic) => {
-      const sources = unique(topic.sourceIds || [])
-        .map((sourceId) => sourceById.get(sourceId))
-        .filter(Boolean);
-      const blockCount = (topic.blockIds || []).filter((blockId) => blockById.has(blockId)).length;
-      const lessons = (topic.lessonIds || []).join(', ') || 'לא ממופה לשיעור';
-
-      const topicType = topic.parentTopicId ? 'תת נושא' : 'נושא';
+    const rootTopics = getRootTopics(state.data.topics);
+    target.innerHTML = rootTopics.map((topic) => {
+      const scope = getTopicScope(state, topic.topicId);
+      const blockCount = getBlocksForScope(state, scope).length;
+      const goldenCount = getGoldenForScope(state, scope).length;
+      const questionCount = getQuestionsForScope(state, scope).length;
+      const authority = primaryAuthorityForScope(state, scope);
 
       return `
         <article class="kh-topic-card">
           <div class="kh-meta-row">
-            <span class="kh-badge" data-kind="draft">${escapeHtml(topicType)}</span>
-            ${sources.map(authorityBadge).join('')}
+            ${authorityBadgeByGroup(authority)}
+            <span class="kh-badge" data-kind="draft">${escapeHtml(blockCount)} פריטי תוכן</span>
           </div>
           <h3>${escapeHtml(presentationTitle(topic.title))}</h3>
-          <p>${escapeHtml(topic.description || 'נושא פיילוט ללא תיאור נוסף.')}</p>
+          <p>${escapeHtml(topic.description || 'נושא לימודי מתוך הפיילוט.')}</p>
           <div class="kh-meta-row">
-            <span class="kh-badge" data-kind="draft">${escapeHtml(blockCount)} פריטי ידע</span>
+            <span class="kh-badge" data-kind="source-backed">${escapeHtml(scope.topicIds.size - 1)} תתי נושאים</span>
+            <span class="kh-badge" data-role="gold">${escapeHtml(goldenCount)} מספרי זהב</span>
+            <span class="kh-badge" data-kind="draft">${escapeHtml(questionCount)} שאלות</span>
           </div>
-          <div class="kh-source-line"><strong>שיעורים קשורים:</strong> ${escapeHtml(lessons)}</div>
+          <button class="kh-topic-open" type="button" data-topic-open="${escapeAttribute(topic.topicId)}">פתח נושא</button>
         </article>
       `;
     }).join('');
   }
 
-  function renderLearningContent(blocks, sourceById, citationById) {
-    const target = document.querySelector('[data-kh-learning]');
-    if (!target) return;
-
-    const learningBlocks = blocks.filter((block) => !isExamBlock(block) && !isLegalBlock(block));
-    target.innerHTML = renderBlockCards(learningBlocks, sourceById, citationById, 'אין עדיין פריטי תוכן לימודי להצגה בפיילוט.');
-  }
-
-  function renderExamFocus(blocks, sourceById, citationById) {
-    const target = document.querySelector('[data-kh-exam]');
-    if (!target) return;
-
-    target.innerHTML = renderBlockCards(blocks.filter(isExamBlock), sourceById, citationById, 'אין עדיין דגשי מבחן להצגה בפיילוט.');
-  }
-
-  function renderLegalNotes(blocks, sourceById, citationById) {
-    const target = document.querySelector('[data-kh-legal]');
-    if (!target) return;
-
-    target.innerHTML = renderBlockCards(blocks.filter(isLegalBlock), sourceById, citationById, 'אין עדיין דגשים משפטיים להצגה בפיילוט.');
-  }
-
-  function renderBlockCards(blocks, sourceById, citationById, emptyMessage) {
-    if (!blocks.length) {
-      return `<article class="kh-card">${escapeHtml(emptyMessage)}</article>`;
+  function handlePageClick(event) {
+    const openButton = event.target.closest('[data-topic-open]');
+    if (openButton) {
+      const topicId = openButton.getAttribute('data-topic-open');
+      openTopic(topicId);
+      return;
     }
 
-    return blocks.map((block) => renderBlockCard(block, sourceById, citationById)).join('');
+    if (event.target.closest('[data-kh-back-topics]')) {
+      closeTopicDetail();
+    }
   }
 
-  function renderBlockCard(block, sourceById, citationById) {
-    const source = sourceById.get(block.sourceId);
-    const citation = citationById.get(block.citationId);
-    const level = source ? source.authorityLevel : block.authorityLevel;
+  function openTopic(topicId) {
+    if (!pilotState) return;
+
+    const topic = pilotState.topicById.get(topicId);
+    const detail = document.querySelector('[data-kh-detail-title]')?.closest('.kh-detail-panel');
+    if (!topic || !detail) return;
+
+    const scope = getTopicScope(pilotState, topicId);
+    const subtopics = getSubtopicsForScope(pilotState, topicId);
+    const blocks = getBlocksForScope(pilotState, scope);
+    const learningBlocks = blocks.filter((block) => !isExamBlock(block) && !isLegalBlock(block));
+    const examBlocks = blocks.filter(isExamBlock);
+    const legalBlocks = blocks.filter(isLegalBlock);
+    const golden = getGoldenForScope(pilotState, scope);
+    const questions = getQuestionsForScope(pilotState, scope);
+
+    setText('[data-kh-detail-title]', presentationTitle(topic.title));
+    setText('[data-kh-detail-summary]', topic.description || 'פירוט ממוקד לנושא שנבחר.');
+    setHtml('[data-kh-detail-subtopics]', renderSubtopics(subtopics));
+    setHtml('[data-kh-detail-learning]', renderBlockCards(learningBlocks, pilotState, 'אין פריטי תוכן לימודי לנושא זה בפיילוט.'));
+    setHtml('[data-kh-detail-exam]', renderBlockCards(examBlocks, pilotState, 'אין דגשי מבחן לנושא זה בפיילוט.'));
+    setHtml('[data-kh-detail-legal]', renderBlockCards(legalBlocks, pilotState, 'אין דגשים משפטיים לנושא זה בפיילוט.'));
+    setHtml('[data-kh-detail-golden]', renderGoldenNumbers(golden, pilotState));
+    setHtml('[data-kh-detail-questions]', renderQuestions(questions, pilotState));
+
+    detail.hidden = false;
+    detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function closeTopicDetail() {
+    const detail = document.querySelector('[data-kh-detail-title]')?.closest('.kh-detail-panel');
+    if (!detail) return;
+    detail.hidden = true;
+    document.querySelector('#kh-topics')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderSubtopics(subtopics) {
+    if (!subtopics.length) {
+      return '<article class="kh-empty">אין תתי נושאים נוספים לנושא זה.</article>';
+    }
+
+    return subtopics.map((topic) => `
+      <article class="kh-card">
+        <h3>${escapeHtml(presentationTitle(topic.title))}</h3>
+        <p>${escapeHtml(topic.description || 'תת נושא בפיילוט.')}</p>
+      </article>
+    `).join('');
+  }
+
+  function renderBlockCards(blocks, state, emptyMessage) {
+    if (!blocks.length) {
+      return `<article class="kh-empty">${escapeHtml(emptyMessage)}</article>`;
+    }
+
+    return blocks.map((block) => renderBlockCard(block, state)).join('');
+  }
+
+  function renderBlockCard(block, state) {
+    const source = state.sourceById.get(block.sourceId);
+    const citation = state.citationById.get(block.citationId);
+    const authorityGroup = authorityGroupForSource(source);
     const content = block.content || {};
     const items = Array.isArray(content.items) ? content.items : [];
 
     return `
-      <article class="kh-block-card" data-level="${escapeAttribute(level)}" data-block-type="${escapeAttribute(block.blockType)}">
+      <article class="kh-block-card" data-authority-group="${escapeAttribute(authorityGroup)}" data-block-type="${escapeAttribute(block.blockType)}">
         <div class="kh-meta-row">
           <span class="kh-badge" data-kind="draft">${escapeHtml(blockTypeLabel(block.blockType))}</span>
-          ${source ? authorityBadge(source) : ''}
+          ${authorityBadge(source)}
           ${verificationBadge(block.verification)}
-          <span class="kh-badge" data-kind="draft">טיוטת פיילוט</span>
+          ${isExamBlock(block) ? '<span class="kh-badge" data-role="exam">דגש מבחן</span>' : ''}
         </div>
         <h3>${escapeHtml(presentationTitle(content.title || block.blockId))}</h3>
         ${content.text ? `<p>${escapeHtml(content.text)}</p>` : ''}
@@ -175,27 +227,22 @@
     `;
   }
 
-  function renderGoldenNumbers(goldenNumbers, sourceById, citationById) {
-    const target = document.querySelector('[data-kh-golden]');
-    if (!target) return;
-
+  function renderGoldenNumbers(goldenNumbers, state) {
     const eligible = goldenNumbers.filter((item) => item.sourceCitation);
     if (!eligible.length) {
-      target.innerHTML = '<div class="kh-card">אין מספרי זהב תקינים להצגה בפיילוט הנוכחי.</div>';
-      return;
+      return '<article class="kh-empty">אין מספרי זהב לנושא זה בפיילוט.</article>';
     }
 
-    target.innerHTML = eligible.map((item) => {
-      const source = sourceById.get(item.sourceId);
-      const citation = citationById.get(item.citationId);
+    return eligible.map((item) => {
+      const source = state.sourceById.get(item.sourceId);
+      const citation = state.citationById.get(item.citationId);
 
       return `
-        <article class="kh-golden-card" data-level="${escapeAttribute(item.authorityLevel)}">
+        <article class="kh-golden-card" data-authority-group="${escapeAttribute(authorityGroupForSource(source))}">
           <div class="kh-meta-row">
-            <span class="kh-badge" data-kind="draft">מספר זהב</span>
-            ${source ? authorityBadge(source) : ''}
+            <span class="kh-badge" data-role="gold">מספר זהב</span>
+            ${authorityBadge(source)}
             ${verificationBadge(item.verification)}
-            <span class="kh-badge" data-kind="draft">טיוטת פיילוט</span>
           </div>
           <h3>${escapeHtml(item.displayValue || item.value)}</h3>
           <p>${escapeHtml(item.meaning || '')}</p>
@@ -209,22 +256,22 @@
     }).join('');
   }
 
-  function renderQuestions(questions, sourceById, citationById) {
-    const target = document.querySelector('[data-kh-questions]');
-    if (!target) return;
+  function renderQuestions(questions, state) {
+    if (!questions.length) {
+      return '<article class="kh-empty">אין שאלות לימוד לנושא זה בפיילוט.</article>';
+    }
 
-    target.innerHTML = questions.map((item) => {
+    return questions.map((item) => {
       const officialRefs = (item.officialAnswer && item.officialAnswer.sourceRefs) || item.sourceRefs || [];
       const correctIndex = Number(item.correctIndex);
       const options = Array.isArray(item.options) ? item.options : [];
 
       return `
-        <article class="kh-question-card" data-level="${escapeAttribute(item.authoritySummary && item.authoritySummary.highestAuthorityLevel)}">
+        <article class="kh-question-card" data-authority-group="${escapeAttribute(authorityGroupFromLevel(item.authoritySummary && item.authoritySummary.highestAuthorityLevel))}">
           <div class="kh-meta-row">
             <span class="kh-badge" data-kind="draft">שאלת לימוד</span>
             ${verificationBadge(item.verification)}
             <span class="kh-badge" data-kind="source-backed">תשובה עם מקור</span>
-            <span class="kh-badge" data-kind="draft">טיוטת פיילוט</span>
           </div>
           <h3>${escapeHtml(presentationTitle(item.title || item.questionId))}</h3>
           <p><strong>שאלה:</strong> ${escapeHtml(item.question || '')}</p>
@@ -237,17 +284,84 @@
           </div>
           ${item.explanation ? `<p><strong>הסבר:</strong> ${escapeHtml(item.explanation)}</p>` : ''}
           <div class="kh-source-line">
-            <strong>מקור תשובה רשמית:</strong>
-            ${officialRefs.map((ref) => renderRef(ref, sourceById, citationById)).join('<br>')}
+            <strong>מקור תשובה:</strong>
+            ${officialRefs.map((ref) => renderRef(ref, state)).join('<br>')}
           </div>
         </article>
       `;
     }).join('');
   }
 
-  function renderRef(ref, sourceById, citationById) {
-    const source = sourceById.get(ref.stableSourceId || ref.sourceId);
-    const citation = citationById.get(ref.citationId);
+  function getRootTopics(topics) {
+    return topics.filter((topic) => !topic.parentTopicId);
+  }
+
+  function getSubtopicsForScope(state, rootTopicId) {
+    const scope = getTopicScope(state, rootTopicId);
+    return Array.from(scope.topicIds)
+      .filter((topicId) => topicId !== rootTopicId)
+      .map((topicId) => state.topicById.get(topicId))
+      .filter(Boolean);
+  }
+
+  function getTopicScope(state, rootTopicId) {
+    const topicIds = new Set();
+    const blockIds = new Set();
+    const queue = [rootTopicId];
+
+    while (queue.length) {
+      const topicId = queue.shift();
+      if (!topicId || topicIds.has(topicId)) continue;
+      topicIds.add(topicId);
+
+      const topic = state.topicById.get(topicId);
+      if (topic) {
+        (topic.blockIds || []).forEach((blockId) => blockIds.add(blockId));
+      }
+
+      state.data.topics
+        .filter((candidate) => candidate.parentTopicId === topicId)
+        .forEach((child) => queue.push(child.topicId));
+    }
+
+    return { topicIds, blockIds };
+  }
+
+  function getBlocksForScope(state, scope) {
+    return state.data.blocks.filter((block) => {
+      if (scope.blockIds.has(block.blockId)) return true;
+      return intersects(block.topicIds || [], scope.topicIds);
+    });
+  }
+
+  function getGoldenForScope(state, scope) {
+    return state.data.golden.filter((item) => item.sourceCitation && intersects(item.topicIds || [], scope.topicIds));
+  }
+
+  function getQuestionsForScope(state, scope) {
+    return state.data.questions.filter((item) => intersects(item.topicIds || [], scope.topicIds));
+  }
+
+  function primaryAuthorityForScope(state, scope) {
+    const sources = getBlocksForScope(state, scope)
+      .map((block) => state.sourceById.get(block.sourceId))
+      .filter(Boolean);
+    if (sources.some((source) => Number(source.authorityLevel) === 1)) return 'legal';
+    if (sources.some((source) => Number(source.authorityLevel) === 6)) return 'training';
+    return 'training';
+  }
+
+  function authorityGroupForSource(source) {
+    return authorityGroupFromLevel(source && source.authorityLevel);
+  }
+
+  function authorityGroupFromLevel(level) {
+    return Number(level) === 1 ? 'legal' : 'training';
+  }
+
+  function renderRef(ref, state) {
+    const source = state.sourceById.get(ref.stableSourceId || ref.sourceId);
+    const citation = state.citationById.get(ref.citationId);
     return [
       source ? `מקור: ${escapeHtml(source.title)}` : 'מקור: חסר',
       citation ? `הפניה: ${escapeHtml(citation.label)}` : 'הפניה: חסרה'
@@ -258,11 +372,11 @@
     return `
       <div class="kh-source-line">
         <strong>עקיבות מקור:</strong> ${escapeHtml(source ? source.title : 'מקור לא נמצא')}<br>
-        <strong>רמת סמכות:</strong> ${escapeHtml(source ? source.authorityLevel : '')}<br>
+        <strong>רמת סמכות:</strong> ${escapeHtml(authorityText(source))}<br>
         <strong>סטטוס אימות:</strong> ${escapeHtml(statusLabel((item.verification && item.verification.status) || (citation && citation.verification && citation.verification.status) || ''))}<br>
         ${item.sourceCitation ? `<strong>ציטוט מקור:</strong> ${escapeHtml(item.sourceCitation)}<br>` : ''}
         ${citation ? `<strong>הפניה:</strong> ${escapeHtml(citation.label)}<br>` : ''}
-        <strong>סטטוס פרסום:</strong> טיוטת פיילוט
+        <strong>סטטוס פרסום:</strong> טיוטה
       </div>
     `;
   }
@@ -290,9 +404,21 @@
   }
 
   function authorityBadge(source) {
-    const level = Number(source.authorityLevel);
-    const label = level === 1 ? 'דגש משפטי' : level === 6 ? 'חומר הדרכה' : `רמת סמכות ${level}`;
-    return `<span class="kh-badge" data-authority="${escapeAttribute(level)}">${escapeHtml(label)} | Level ${escapeHtml(level)}</span>`;
+    return authorityBadgeByGroup(authorityGroupForSource(source));
+  }
+
+  function authorityBadgeByGroup(group) {
+    if (group === 'legal') {
+      return '<span class="kh-badge" data-authority="legal">מקור משפטי</span>';
+    }
+    return '<span class="kh-badge" data-authority="training">חומר הדרכה</span>';
+  }
+
+  function authorityText(source) {
+    if (!source) return 'לא ידוע';
+    if (Number(source.authorityLevel) === 1) return 'מקור משפטי';
+    if (Number(source.authorityLevel) === 6) return 'חומר הדרכה';
+    return `רמת סמכות ${source.authorityLevel}`;
   }
 
   function verificationBadge(verification) {
@@ -302,7 +428,7 @@
   }
 
   function statusLabel(status) {
-    if (status === 'source-backed') return 'מגובה מקור';
+    if (status === 'source-backed') return 'מבוסס מקור';
     if (status === 'unverified') return 'לא מאומת';
     return status || 'לא ידוע';
   }
@@ -334,8 +460,18 @@
     return title.replace(WORD_NUMBERING, '').trim() || title;
   }
 
-  function unique(values) {
-    return Array.from(new Set(values.filter(Boolean)));
+  function intersects(values, set) {
+    return values.some((value) => set.has(value));
+  }
+
+  function setText(selector, value) {
+    const target = document.querySelector(selector);
+    if (target) target.textContent = value;
+  }
+
+  function setHtml(selector, value) {
+    const target = document.querySelector(selector);
+    if (target) target.innerHTML = value;
   }
 
   function escapeHtml(value) {
