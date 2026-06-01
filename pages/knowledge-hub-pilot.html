@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
+  <meta name="description" content="Knowledge Hub Pilot read-only המציג נתוני Source Governance בלבד: מקורות, citations, בלוקי תוכן, נושאים, מיפוי שיעורים, מספרי זהב ושאלות פיילוט.">
+  <title>Knowledge Hub Pilot | קורס ממונה בטיחות</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .kh-pilot-page {
+      --kh-ink: #17212b;
+      --kh-muted: #5e6d7d;
+      --kh-border: #d7e2eb;
+      --kh-soft: #f5f8fb;
+      --kh-level-1: #8a1f1f;
+      --kh-level-6: #075985;
+      --kh-ok: #0f766e;
+      --kh-draft: #8a5a00;
+      background: #f7fafc;
+      color: var(--kh-ink);
+    }
+
+    .kh-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 44px;
+    }
+
+    .kh-topbar,
+    .kh-hero,
+    .kh-panel,
+    .kh-card,
+    .kh-topic-card,
+    .kh-block-card,
+    .kh-question-card,
+    .kh-golden-card,
+    .kh-summary-card {
+      border: 1px solid var(--kh-border);
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, .06);
+    }
+
+    .kh-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    .kh-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .kh-brand-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #0f5f75;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .kh-brand small {
+      display: block;
+      color: var(--kh-muted);
+      margin-top: 2px;
+    }
+
+    .kh-hero {
+      border-radius: 14px;
+      padding: clamp(22px, 4vw, 40px);
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #edf7fb, #ffffff);
+    }
+
+    .kh-hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .kh-hero p {
+      max-width: 820px;
+      margin: 0 0 16px;
+      color: #334155;
+      font-size: 1.08rem;
+    }
+
+    .kh-kicker {
+      margin: 0 0 8px;
+      color: #0f5f75;
+      font-weight: 800;
+    }
+
+    .kh-badge-row,
+    .kh-meta-row,
+    .kh-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .kh-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      border: 1px solid var(--kh-border);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: .78rem;
+      font-weight: 800;
+      background: #fff;
+      color: #263442;
+      white-space: nowrap;
+    }
+
+    .kh-badge[data-kind="pilot"],
+    .kh-badge[data-kind="draft"] {
+      background: #fffbeb;
+      border-color: #f3d17a;
+      color: var(--kh-draft);
+    }
+
+    .kh-badge[data-kind="source-backed"] {
+      background: #ecfdf5;
+      border-color: #99f6e4;
+      color: var(--kh-ok);
+    }
+
+    .kh-badge[data-kind="unverified"] {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      color: #475569;
+    }
+
+    .kh-badge[data-authority="1"] {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: var(--kh-level-1);
+    }
+
+    .kh-badge[data-authority="6"] {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: var(--kh-level-6);
+    }
+
+    .kh-tabs {
+      position: sticky;
+      top: 8px;
+      z-index: 2;
+      padding: 10px;
+      margin-bottom: 18px;
+      border: 1px solid var(--kh-border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .94);
+      backdrop-filter: blur(8px);
+    }
+
+    .kh-tabs a {
+      border: 1px solid var(--kh-border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: #0f5f75;
+      text-decoration: none;
+      font-weight: 800;
+      background: #fff;
+    }
+
+    .kh-section {
+      margin: 22px 0;
+      scroll-margin-top: 90px;
+    }
+
+    .kh-section h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+    }
+
+    .kh-muted {
+      color: var(--kh-muted);
+    }
+
+    .kh-summary-grid,
+    .kh-card-grid,
+    .kh-authority-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .kh-summary-grid {
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    }
+
+    .kh-card-grid,
+    .kh-authority-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .kh-summary-card,
+    .kh-card,
+    .kh-topic-card,
+    .kh-block-card,
+    .kh-question-card,
+    .kh-golden-card {
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .kh-summary-card strong {
+      display: block;
+      font-size: 2.1rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .kh-topic-card h3,
+    .kh-block-card h3,
+    .kh-question-card h3,
+    .kh-golden-card h3,
+    .kh-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.12rem;
+    }
+
+    .kh-block-card,
+    .kh-golden-card,
+    .kh-question-card {
+      border-inline-start: 5px solid #64748b;
+    }
+
+    .kh-block-card[data-level="1"],
+    .kh-golden-card[data-level="1"],
+    .kh-question-card[data-level="1"] {
+      border-inline-start-color: var(--kh-level-1);
+    }
+
+    .kh-block-card[data-level="6"] {
+      border-inline-start-color: var(--kh-level-6);
+    }
+
+    .kh-block-card[data-block-type="warning"] {
+      background: #fff7ed;
+    }
+
+    .kh-block-card[data-block-type="exam-focus"] {
+      background: #fefce8;
+    }
+
+    .kh-block-card[data-block-type="legal-quote"],
+    .kh-block-card[data-block-type="legal-note"] {
+      background: #fffafa;
+    }
+
+    .kh-block-card ul,
+    .kh-question-card ul,
+    .kh-golden-card ul {
+      padding-inline-start: 1.1rem;
+      margin: 10px 0;
+    }
+
+    .kh-source-line {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 10px;
+      background: var(--kh-soft);
+      font-size: .9rem;
+      overflow-wrap: anywhere;
+    }
+
+    .kh-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--kh-border);
+      border-radius: 10px;
+      margin-top: 12px;
+    }
+
+    .kh-table {
+      width: 100%;
+      min-width: 520px;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    .kh-table th,
+    .kh-table td {
+      padding: 10px;
+      border-bottom: 1px solid var(--kh-border);
+      text-align: right;
+      vertical-align: top;
+    }
+
+    .kh-table th {
+      background: var(--kh-soft);
+    }
+
+    .kh-options {
+      display: grid;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .kh-option {
+      padding: 9px 10px;
+      border: 1px solid var(--kh-border);
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .kh-option[data-correct="true"] {
+      border-color: #99f6e4;
+      background: #ecfdf5;
+      font-weight: 800;
+    }
+
+    .kh-error {
+      padding: 16px;
+      border: 1px solid #fecaca;
+      border-radius: 12px;
+      background: #fef2f2;
+      color: #7f1d1d;
+    }
+
+    @media (max-width: 560px) {
+      .kh-shell {
+        width: min(100% - 20px, 1180px);
+        padding-top: 12px;
+      }
+
+      .kh-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .kh-summary-grid,
+      .kh-card-grid,
+      .kh-authority-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kh-tabs {
+        position: static;
+      }
+
+      .kh-badge {
+        white-space: normal;
+      }
+    }
+
+    @media print {
+      .kh-topbar,
+      .kh-tabs {
+        display: none !important;
+      }
+
+      .kh-pilot-page {
+        background: #fff;
+      }
+
+      .kh-card,
+      .kh-topic-card,
+      .kh-block-card,
+      .kh-question-card,
+      .kh-golden-card,
+      .kh-summary-card,
+      .kh-hero {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="kh-pilot-page" data-page-title="Knowledge Hub Pilot">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <div class="kh-shell">
+    <header class="kh-topbar" aria-label="כותרת עמוד">
+      <a class="kh-brand" href="../index.html">
+        <span class="kh-brand-mark">EHS</span>
+        <span>
+          <strong>קורס ממונה בטיחות</strong>
+          <small>פיילוט ידע מבוקר מקור</small>
+        </span>
+      </a>
+      <span class="kh-badge" data-kind="unverified">לא מחובר לניווט הראשי</span>
+    </header>
+
+    <main id="main" data-readable-content>
+      <section class="kh-hero">
+        <p class="kh-kicker">Source Governance MVP</p>
+        <h1>Knowledge Hub Pilot</h1>
+        <p>פיילוט תצוגת ידע מבוקר מקור. הדף מציג נתוני pilot בלבד, במצב read-only, ללא חיבור ל־Learning Path, לשאלות הקיימות, ל־Safety Game או ל־Knowledge Hub מלא.</p>
+        <div class="kh-badge-row" aria-label="סטטוס הפיילוט">
+          <span class="kh-badge" data-kind="pilot">Pilot</span>
+          <span class="kh-badge" data-kind="draft">Draft</span>
+          <span class="kh-badge" data-kind="source-backed">Source-backed</span>
+          <span class="kh-badge" data-kind="unverified">Read-only</span>
+          <span class="kh-badge" data-kind="unverified">לא מאומת משפטית</span>
+        </div>
+      </section>
+
+      <nav class="kh-tabs" aria-label="ניווט פנימי בפיילוט">
+        <a href="#kh-summary">תמונת מצב</a>
+        <a href="#kh-authority">מדרג סמכות</a>
+        <a href="#kh-topics">נושאים</a>
+        <a href="#kh-blocks">בלוקי תוכן</a>
+        <a href="#kh-golden">מספרי זהב</a>
+        <a href="#kh-questions">שאלות פיילוט</a>
+      </nav>
+
+      <section class="kh-section" id="kh-summary" aria-labelledby="khSummaryTitle">
+        <h2 id="khSummaryTitle">תמונת מצב</h2>
+        <div class="kh-summary-grid" data-kh-summary>
+          <div class="kh-card">טוען נתוני פיילוט...</div>
+        </div>
+      </section>
+
+      <section class="kh-section" id="kh-authority" aria-labelledby="khAuthorityTitle">
+        <h2 id="khAuthorityTitle">מדרג סמכות והסתייגויות</h2>
+        <div class="kh-authority-grid">
+          <article class="kh-card">
+            <h3>Level 1 = חוק / פקודה</h3>
+            <p>מקור משפטי ברמת חקיקה ראשית. בפיילוט הוא מוצג כהפניה למקור בלבד, לא כייעוץ משפטי ולא כאישור משפטי.</p>
+            <span class="kh-badge" data-authority="1">מקור משפטי</span>
+          </article>
+          <article class="kh-card">
+            <h3>Level 6 = חומר הדרכה</h3>
+            <p>סיכום, מצגת או חומר מרצה. יכול להיות רלוונטי ללמידה או לשטח, אך אינו הופך לדרישה חוקית מחייבת ללא מקור מחייב נפרד.</p>
+            <span class="kh-badge" data-authority="6">חומר הדרכה</span>
+          </article>
+          <article class="kh-card">
+            <h3>source-backed אינו verified</h3>
+            <p>הפריט מקושר למקור, אך טרם עבר אישור מקצועי או משפטי מלא. אין להציג אותו כתוכן מאושר לפרסום.</p>
+            <span class="kh-badge" data-kind="source-backed">source-backed</span>
+          </article>
+          <article class="kh-card">
+            <h3>draft אינו published</h3>
+            <p>כל פריט בדף זה הוא טיוטת פיילוט. מטרת הדף היא להוכיח מודל Governance ותצוגת ידע, לא לפרסם בסיס ידע מלא.</p>
+            <span class="kh-badge" data-kind="draft">draft</span>
+          </article>
+          <article class="kh-card">
+            <h3>מקור unverified אינו legal approved</h3>
+            <p>מקור שטרם אומת נשאר בסיס לזיהוי ועקיבות בלבד. אין להסיק ממנו חובה מחייבת ללא אימות מתאים.</p>
+            <span class="kh-badge" data-kind="unverified">לא מאומת משפטית</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="kh-section" id="kh-topics" aria-labelledby="khTopicsTitle">
+        <h2 id="khTopicsTitle">Topic Cards</h2>
+        <div class="kh-card-grid" data-kh-topics></div>
+      </section>
+
+      <section class="kh-section" id="kh-blocks" aria-labelledby="khBlocksTitle">
+        <h2 id="khBlocksTitle">Content Blocks</h2>
+        <p class="kh-muted">הבלוקים מוצגים לפי סוג תוכן, עם sourceId, source title, authorityLevel, verification.status ו־sourceCitation כאשר קיים.</p>
+        <div class="kh-card-grid" data-kh-blocks></div>
+      </section>
+
+      <section class="kh-section" id="kh-golden" aria-labelledby="khGoldenTitle">
+        <h2 id="khGoldenTitle">Golden Numbers Pilot</h2>
+        <p class="kh-muted">מוצגים רק מספרי הפיילוט שיש להם sourceCitation. מספר ללא sourceCitation אינו מוצג.</p>
+        <div class="kh-card-grid" data-kh-golden></div>
+      </section>
+
+      <section class="kh-section" id="kh-questions" aria-labelledby="khQuestionsTitle">
+        <h2 id="khQuestionsTitle">Question Items Pilot</h2>
+        <p class="kh-muted">מוצגות רק שאלות הפיילוט. ליד התשובה הרשמית מוצגים sourceRef ו־citation.</p>
+        <div class="kh-card-grid" data-kh-questions></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/knowledge-hub-pilot.js"></script>
+</body>
+</html>
