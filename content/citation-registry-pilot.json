@@ -6,7 +6,8 @@
     "stableSourceIds": [
       "law-labor-inspection-1954",
       "training-safety-management-human-factors",
-      "training-occupational-safety-management"
+      "training-occupational-safety-management",
+      "training-safety-organization-final"
     ]
   },
   "citations": [
@@ -237,6 +238,101 @@
         "heading": "היררכיית בקרות הסיכון",
         "paragraphRange": "182-220",
         "originalWordNumbering": "4"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-safety-organization-manual-purpose",
+      "stableSourceId": "training-safety-organization-final",
+      "citationType": "heading",
+      "label": "מדריך ממשל בטיחות ארגוני",
+      "locator": {
+        "heading": "פתח דבר ומבנה ארגוני",
+        "paragraphRange": "4-12",
+        "originalWordNumbering": "0"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-safety-organization-dashboards",
+      "stableSourceId": "training-safety-organization-final",
+      "citationType": "heading",
+      "label": "לוחות מחוונים ניהוליים",
+      "locator": {
+        "heading": "לוחות מחוונים ומפות משילות",
+        "paragraphRange": "13-29",
+        "originalWordNumbering": "0.3"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-safety-organization-sms-pdca",
+      "stableSourceId": "training-safety-organization-final",
+      "citationType": "heading",
+      "label": "מערכת בטיחות אינטגרלית ו־PDCA",
+      "locator": {
+        "heading": "תשתית ומערכות ניהול בטיחות",
+        "paragraphRange": "30-60",
+        "originalWordNumbering": "1"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-safety-organization-controls-stamp",
+      "stableSourceId": "training-safety-organization-final",
+      "citationType": "heading",
+      "label": "בקרות, STAMP ו־LOPA",
+      "locator": {
+        "heading": "היררכיית בקרות והנדסת בטיחות מתקדמת",
+        "paragraphRange": "61-89",
+        "originalWordNumbering": "1.3-1.4"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-safety-organization-culture-technology",
+      "stableSourceId": "training-safety-organization-final",
+      "citationType": "heading",
+      "label": "תרבות בטיחות, HRO וטכנולוגיה",
+      "locator": {
+        "heading": "תרבות בטיחות מודרנית וחדשנות",
+        "paragraphRange": "162-178",
+        "originalWordNumbering": "5"
       },
       "authorityLevelAtCitation": 6,
       "verification": {

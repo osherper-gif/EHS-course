@@ -8,7 +8,8 @@
     ],
     "stableSourceIds": [
       "training-safety-management-human-factors",
-      "training-occupational-safety-management"
+      "training-occupational-safety-management",
+      "training-safety-organization-final"
     ]
   },
   "topics": [
@@ -561,6 +562,176 @@
         "block-occ-controls-dog-example",
         "block-occ-controls-hard-soft",
         "block-occ-controls-human-factor-ppe"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-organization-governance-real",
+      "title": "ארגון מערך הבטיחות",
+      "description": "מבנה ניהולי, לוחות מחוונים, SMS, בקרות, תרבות בטיחות וטכנולוגיה מתוך מקור הדרכה.",
+      "parentTopicId": null,
+      "aliases": [],
+      "relatedTopicIds": [
+        "safety-organization-architecture-real",
+        "safety-dashboard-management-real",
+        "safety-organization-sms-pdca-real",
+        "safety-organization-controls-engineering-real",
+        "safety-culture-hro-technology-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-safety-organization-final"
+      ],
+      "blockIds": [
+        "block-safety-org-manual-purpose",
+        "block-safety-org-role-navigation",
+        "block-safety-org-board-dashboard",
+        "block-safety-org-executive-kpi",
+        "block-safety-org-capa-dashboard",
+        "block-safety-org-critical-risk-dashboard",
+        "block-safety-org-integral-sms",
+        "block-safety-org-pdca-cycle",
+        "block-safety-org-controls-overview",
+        "block-safety-org-elimination-substitution",
+        "block-safety-org-engineering-controls",
+        "block-safety-org-ppe-last-line",
+        "block-safety-org-stamp",
+        "block-safety-org-lopa",
+        "block-safety-org-just-culture",
+        "block-safety-org-operational-drift",
+        "block-safety-org-hro-principles",
+        "block-safety-org-ot-cyber",
+        "block-safety-org-digital-twins",
+        "block-safety-org-ai-safety"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-organization-architecture-real",
+      "title": "ארכיטקטורת מערך בטיחות",
+      "description": "מדריך ארגוני, שכבות תפקיד, ומבנה ידע תאגידי לניהול HSE/EHS.",
+      "parentTopicId": "safety-organization-governance-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "safety-dashboard-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-safety-organization-final"
+      ],
+      "blockIds": [
+        "block-safety-org-manual-purpose",
+        "block-safety-org-role-navigation"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-dashboard-management-real",
+      "title": "לוחות מחוונים וניהול ליקויים",
+      "description": "דשבורדים ניהוליים, CAPA, מדדים מובילים ומעקב אחר סיכוני קצה.",
+      "parentTopicId": "safety-organization-governance-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "safety-organization-sms-pdca-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-safety-organization-final"
+      ],
+      "blockIds": [
+        "block-safety-org-board-dashboard",
+        "block-safety-org-executive-kpi",
+        "block-safety-org-capa-dashboard",
+        "block-safety-org-critical-risk-dashboard"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-organization-sms-pdca-real",
+      "title": "SMS ומעגל PDCA",
+      "description": "מערכת בטיחות אינטגרלית ותהליך שיפור מתמיד בארגון.",
+      "parentTopicId": "safety-organization-governance-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "safety-organization-controls-engineering-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-safety-organization-final"
+      ],
+      "blockIds": [
+        "block-safety-org-integral-sms",
+        "block-safety-org-pdca-cycle"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-organization-controls-engineering-real",
+      "title": "בקרות והנדסת בטיחות",
+      "description": "היררכיית בקרות, STAMP, LOPA ותעדוף פתרונות הנדסיים.",
+      "parentTopicId": "safety-organization-governance-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "safety-culture-hro-technology-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-safety-organization-final"
+      ],
+      "blockIds": [
+        "block-safety-org-controls-overview",
+        "block-safety-org-elimination-substitution",
+        "block-safety-org-engineering-controls",
+        "block-safety-org-ppe-last-line",
+        "block-safety-org-stamp",
+        "block-safety-org-lopa"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-culture-hro-technology-real",
+      "title": "תרבות בטיחות, HRO וטכנולוגיה",
+      "description": "Just Culture, סחיפה תפעולית, HRO, סייבר תפעולי, תאומים דיגיטליים ו־AI.",
+      "parentTopicId": "safety-organization-governance-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "safety-organization-sms-pdca-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-safety-organization-final"
+      ],
+      "blockIds": [
+        "block-safety-org-just-culture",
+        "block-safety-org-operational-drift",
+        "block-safety-org-hro-principles",
+        "block-safety-org-ot-cyber",
+        "block-safety-org-digital-twins",
+        "block-safety-org-ai-safety"
       ],
       "status": "draft"
     }

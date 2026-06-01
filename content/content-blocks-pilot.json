@@ -7,7 +7,8 @@
     "stableSourceIds": [
       "law-labor-inspection-1954",
       "training-safety-management-human-factors",
-      "training-occupational-safety-management"
+      "training-occupational-safety-management",
+      "training-safety-organization-final"
     ]
   },
   "contentBlocks": [
@@ -2716,6 +2717,985 @@
       "rendering": {
         "label": "אזהרת שטח",
         "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-manual-purpose",
+      "blockType": "summary-box",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-manual-purpose",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / מבנה ושימוש",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-architecture-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ארכיטקטורת ידע לניהול HSE/EHS",
+        "text": "המקור מתאר מדריך ארגוני שמטרתו להסדיר ממשל בטיחות, גהות וסביבה כמערכת ידע תאגידית. הוא משלב תפיסות ניהול, הנדסה ותרבות ארגונית ככלי עבודה יישומי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מדריך ממשל בטיחות ארגוני",
+          "paragraphRange": "4-7",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-role-navigation",
+      "blockType": "checklist",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-manual-purpose",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / מבנה ושימוש",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-architecture-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "ניווט לפי תפקיד בארגון",
+        "text": "המדריך מחלק את הקריאה לפי שכבות תפקיד כדי לצמצם עומס קוגניטיבי ולהפנות כל בעל תפקיד לחלקים הרלוונטיים לעבודתו.",
+        "items": [
+          "הנהלה ודירקטוריון: משילות, תקציב ולוחות מחוונים.",
+          "ממוני בטיחות: ארכיטקטורת SMS ורגולציה כחומר לימודי.",
+          "מנהלי עבודה ומהנדסים: נהלים, היתרים וצ׳קליסטים."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מדריך ממשל בטיחות ארגוני",
+          "paragraphRange": "8-12",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "כרטיס שימוש",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-board-dashboard",
+      "blockType": "summary-box",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-dashboards",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / לוחות ניהול",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-dashboard-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "לוח משילות להנהלה בכירה",
+        "text": "החומר מציע להנהלה לעקוב אחר חתימת תוכנית בטיחות, תקציבי בקרות הנדסיות, חשיפות ניהוליות ותביעות פתוחות כחלק ממבט ניהולי רחב על מצב הבטיחות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "לוחות מחוונים ניהוליים",
+          "paragraphRange": "13-17",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-executive-kpi",
+      "blockType": "paragraph",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-dashboards",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / לוחות ניהול",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-dashboard-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "לוח KPI תפעולי",
+        "text": "לוח המחוונים התפעולי משלב מדדים מובילים כגון סיורי מנהיגות, דיווחי Near Miss והדרכות בתוקף, לצד מדדי תוצאה כמו תאונות וימי היעדרות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "לוחות מחוונים ניהוליים",
+          "paragraphRange": "17-22",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-capa-dashboard",
+      "blockType": "checklist",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-dashboards",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / לוחות ניהול",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-dashboard-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "בקרת CAPA וסגירת ליקויים",
+        "text": "המסמך מציע להנהלה לבחון סטטוס ליקויים, קצב סגירה ואופי הבקרה שנבחרה.",
+        "items": [
+          "מעקב אחר ליקויים פתוחים וסגורים.",
+          "ניתוח זמן סגירה של פעולות מתקנות.",
+          "הבחנה בין בקרות הנדסיות לבין פתרונות חלשים יותר כמו שילוט או PPE."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "לוחות מחוונים ניהוליים",
+          "paragraphRange": "23-26",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "כרטיס פעולה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-critical-risk-dashboard",
+      "blockType": "warning",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-dashboards",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / לוחות ניהול",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-dashboard-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "לוח הסלמה לסיכוני קצה",
+        "text": "החומר מציע מעקב ניהולי אחר שינויים הנדסיים פתוחים, מערכות התרעה, תרגילי חירום ותקינות מערכות קריטיות. הפריט מוצג כחומר הדרכה ולא כדרישה מחייבת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "לוחות מחוונים ניהוליים",
+          "paragraphRange": "27-29",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת ניהול",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-integral-sms",
+      "blockType": "definition",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-sms-pdca",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / SMS ו-PDCA",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-sms-pdca-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מערך בטיחות אינטגרלי",
+        "text": "בטיחות בארגון מודרני אינה פעילות של אדם בודד אלא מערכת ניהול מלאה המשלבת הנהלה, מערך בטיחות, נאמני בטיחות ועובדים בשטח.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכת בטיחות אינטגרלית ו־PDCA",
+          "paragraphRange": "30-32",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-pdca-cycle",
+      "blockType": "checklist",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-sms-pdca",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / SMS ו-PDCA",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-sms-pdca-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "מעגל PDCA בבטיחות",
+        "text": "המקור מציג את מערכת ה־SMS כתהליך שיפור מתמיד: תכנון, ביצוע, בקרה ופעולה מתקנת.",
+        "items": [
+          "Plan: זיהוי סיכונים, יעדים ותוכנית פרואקטיבית.",
+          "Do: יישום נהלים, היתרי עבודה והדרכות.",
+          "Check: סיורי מנהיגות, מדדים ומבדקים.",
+          "Act: CAPA, ניתוח אירועים ועדכון נהלים."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכת בטיחות אינטגרלית ו־PDCA",
+          "paragraphRange": "33-60",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-controls-overview",
+      "blockType": "definition",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-controls-stamp",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-controls-engineering-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "היררכיית בקרות כהעדפה הנדסית",
+        "text": "החומר מציג את היררכיית הבקרות כדרך לחשוב על פתרון סיכונים: קודם ביטול או החלפה, אחר כך בידוד הנדסי, ורק בסוף פתרונות שתלויים בהתנהגות העובד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרות, STAMP ו־LOPA",
+          "paragraphRange": "61-85",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-elimination-substitution",
+      "blockType": "paragraph",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-controls-stamp",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-controls-engineering-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "בקרות במקור הסיכון",
+        "text": "סילוק והחלפה מוצגות כבקרות חזקות משום שהן מצמצמות את עצם המפגש עם הסיכון, ולא רק מוסיפות שכבת הגנה סביב העובד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרות, STAMP ו־LOPA",
+          "paragraphRange": "66-73",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-engineering-controls",
+      "blockType": "paragraph",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-controls-stamp",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-controls-engineering-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "בקרות הנדסיות",
+        "text": "בקרות הנדסיות מבודדות את העובד מהסיכון באמצעות מגיני מכונות, יניקה מקומית, חסימות או מערכות בקרה. הן מוצגות כחזקות יותר מנהלים ושלטים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרות, STAMP ו־LOPA",
+          "paragraphRange": "74-80",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-ppe-last-line",
+      "blockType": "warning",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-controls-stamp",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-controls-engineering-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "PPE כקו הגנה אחרון",
+        "text": "ציוד מגן אישי מוצג כחסם אחרון בנקודת המפגש עם הסיכון. החומר מדגיש שחתימה על הדרכה או חלוקת PPE אינה מחליפה פיקוח ובקרות הנדסיות בשטח.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרות, STAMP ו־LOPA",
+          "paragraphRange": "82-89",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת שטח",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-stamp",
+      "blockType": "teacher-note",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-controls-stamp",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-controls-engineering-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "teacherNote"
+      ],
+      "content": {
+        "title": "STAMP: תאונה ככשל באילוצי מערכת",
+        "text": "המקור מציג את STAMP כגישה הרואה תאונות ככשל באכיפת אילוצי בטיחות במערכת הניהולית, ולא רק ככשל של רכיב בודד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרות, STAMP ו־LOPA",
+          "paragraphRange": "86-88",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-lopa",
+      "blockType": "teacher-note",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-controls-stamp",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-controls-engineering-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "teacherNote"
+      ],
+      "content": {
+        "title": "LOPA ושכבות הגנה",
+        "text": "LOPA מוצג כניתוח חצי־כמותי של שכבות הגנה עצמאיות מול תרחישי כשל, כדי להבין האם נדרשות בקרות נוספות או מערכות בטיחות מתקדמות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרות, STAMP ו־LOPA",
+          "paragraphRange": "86-88",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-just-culture",
+      "blockType": "summary-box",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-culture-technology",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-culture-hro-technology-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "תרבות הוגנת ודיווח מלא",
+        "text": "המקור מציג Just Culture כגישה שמעודדת דיווח שקוף על Near Miss וטעויות בתום לב, לצד קו אדום כלפי עקיפת נהלים מודעת או חבלה מכוונת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות, HRO וטכנולוגיה",
+          "paragraphRange": "162-164",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-operational-drift",
+      "blockType": "definition",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-culture-technology",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-culture-hro-technology-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "סחיפה תפעולית ונרמול סטיות",
+        "text": "החומר מתאר מצב שבו עקיפת נהלים קטנה הופכת להרגל כי לא קרתה תאונה מיידית. עם הזמן הסטייה מתקבעת כנורמה ומגדילה את הסיכוי לאירוע חמור.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות, HRO וטכנולוגיה",
+          "paragraphRange": "165",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-hro-principles",
+      "blockType": "checklist",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-culture-technology",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-culture-hro-technology-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "עקרונות HRO",
+        "text": "ארגונים בעלי אמינות גבוהה מוצגים כמערכות שמחפשות כשלים מוקדם, לא מפשטות יתר על המידה, נשארות קשובות לשטח ומעבירות סמכות למומחה בזמן אירוע.",
+        "items": [
+          "רגישות לפעולות בשטח.",
+          "חוסר רצון לפשטנות.",
+          "עיסוק מוגבר בכשלים.",
+          "מחויבות לחוסן.",
+          "כבוד למומחיות."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות, HRO וטכנולוגיה",
+          "paragraphRange": "166-172",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-ot-cyber",
+      "blockType": "warning",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-culture-technology",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-culture-hro-technology-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סייבר תפעולי וסיכון בטיחותי",
+        "text": "המקור מציין שמערכות בקרה ובטיחות תהליכיות המחוברות לרשת עלולות להיות חשופות לשיבוש. הפגיעה האפשרית היא לא רק מידעית אלא גם בטיחותית ותפעולית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות, HRO וטכנולוגיה",
+          "paragraphRange": "173-175",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת טכנולוגיה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-digital-twins",
+      "blockType": "definition",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-culture-technology",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-culture-hro-technology-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תאום דיגיטלי כמנגנון למידה מוקדמת",
+        "text": "Digital Twin מוצג כמודל ממוחשב חי של המפעל הנשען על חיישנים בזמן אמת ומאפשר לזהות חריגות לפני שהן הופכות לכשל פיזי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות, HRO וטכנולוגיה",
+          "paragraphRange": "176-177",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-safety-org-ai-safety",
+      "blockType": "paragraph",
+      "sourceId": "training-safety-organization-final",
+      "citationId": "citation-training-safety-organization-culture-technology",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-culture-hro-technology-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "AI לזיהוי מגמות סיכון",
+        "text": "החומר מציג שימוש בראייה ממוחשבת לזיהוי אי־שימוש בציוד מגן, וניתוח דיווחי Near Miss כדי לאתר מגמות סיכון שאינן נראות מיד לעין.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות, HRO וטכנולוגיה",
+          "paragraphRange": "178",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
         "showAuthorityBadge": true
       },
       "authoritySummary": {
