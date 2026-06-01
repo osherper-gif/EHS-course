@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-31T15:19:30.020Z",
+  "generatedAt": "2026-06-01T08:10:56.617Z",
   "dryRun": true,
   "sourceDir": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE",
   "courseId": "safety-officer",
@@ -531,6 +531,39 @@
       },
       "notes": [
         "raw marker count 0 adjusted to 30"
+      ]
+    },
+    {
+      "lessonNumber": 9,
+      "contentType": "summary",
+      "sourceFile": "9.סיכום.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\TO_WRBSITE\\9.סיכום.docx",
+      "extension": ".docx",
+      "hash": "A6AAD037C3AF44318CCD542DE5AFB464EBDA154792023FAFD31F082BF1DF7E6D",
+      "modifiedAt": "2026-06-01T07:57:35.504Z",
+      "status": "scanned",
+      "existingSitePage": "pages/summaries/lesson-09-summary.html",
+      "questionCountDetected": 60,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 60,
+        "confidence": "high",
+        "rawMarkerCount": 53,
+        "namedQuestionMarkers": 0,
+        "numberedQuestionMarkers": 53,
+        "uniqueNumbers": 53,
+        "firstNumber": 1,
+        "lastNumber": 60,
+        "answerMarkers": 60,
+        "sectionMarkers": 0,
+        "notes": [
+          "duplicate question numbers or repeated banks detected",
+          "raw marker count 53 adjusted to 60"
+        ]
+      },
+      "notes": [
+        "duplicate question numbers or repeated banks detected",
+        "raw marker count 53 adjusted to 60"
       ]
     }
   ]

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="description" content="סיכום שיעור 9 בקורס ממונה בטיחות: עבודת ממונה בטיחות מול הנהלת הארגון, קבלת החלטות, BAT, ALARP, ROI, תיעוד, הסלמה, מקרי בוחן ו-60 שאלות תרגול.">
+  <title>סיכום שיעור 9 | עבודת ממונה בטיחות מול הנהלת הארגון</title>
+  <script src="../../js/ui-mode.js"></script>
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <link rel="stylesheet" href="../../css/summary-stability.css">
+  <style>
+    body.summary-page { overflow-x: hidden; }
+    body.summary-page .site-main,
+    body.summary-page .page-hero,
+    body.summary-page .summary-zone-divider,
+    body.summary-page .summary-foldout,
+    body.summary-page .summary-practice-divider,
+    body.summary-page .summary-quiz-app {
+      box-sizing: border-box;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    body.summary-page h1,
+    body.summary-page h2,
+    body.summary-page h3,
+    body.summary-page p,
+    body.summary-page li,
+    body.summary-page td,
+    body.summary-page th {
+      overflow-wrap: anywhere;
+    }
+
+    .summary-quick-nav,
+    .content-accordion[id],
+    #summaryQuestions { scroll-margin-top: 96px; }
+
+    .summary-quick-nav {
+      display: grid;
+      gap: .6rem;
+      grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+      margin: 1rem 0 1.25rem;
+    }
+
+    .summary-quick-nav a {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 999px;
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: .72rem .9rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .topic-tags,
+    .learning-unit-grid,
+    .summary-card-grid,
+    .field-card-grid,
+    .case-grid {
+      display: grid;
+      gap: .75rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin: .95rem 0;
+    }
+
+    .topic-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+    }
+
+    .topic-tags span {
+      background: #eef7fb;
+      border: 1px solid #c9e2ec;
+      border-radius: 999px;
+      color: #0f5f78;
+      font-weight: 800;
+      padding: .45rem .7rem;
+    }
+
+    .learning-unit-card,
+    .summary-card,
+    .field-card,
+    .case-card,
+    .summary-mini-callout {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      padding: .9rem;
+    }
+
+    .learning-unit-card { border-top: 4px solid rgba(8, 100, 128, .55); }
+    .case-card { border-inline-start: 5px solid #b45309; }
+    .field-card { border-inline-start: 5px solid #0f766e; }
+
+    .summary-mini-callout {
+      border-inline-start: 4px solid var(--proto-accent);
+      margin: .85rem 0;
+    }
+
+    .summary-mini-callout[data-callout="legal"] { border-inline-start-color: #5b5bd6; }
+    .summary-mini-callout[data-callout="trap"],
+    .summary-mini-callout[data-callout="stop"] { border-inline-start-color: #a51d2d; }
+    .summary-mini-callout[data-callout="tip"] { border-inline-start-color: #0b7a55; }
+    .summary-mini-callout[data-callout="evidence"] { border-inline-start-color: #b45309; }
+    .callout-label { display: inline-block; font-weight: 900; margin-bottom: .25rem; }
+
+    .summary-foldout { margin: 1rem 0; }
+    .summary-foldout > summary { min-height: 58px; }
+    .summary-foldout > summary > strong {
+      display: block;
+      flex: 1 1 auto;
+      line-height: 1.45;
+      min-width: 0;
+    }
+
+    .foldout-kicker {
+      color: var(--proto-muted);
+      display: inline-block;
+      flex: 0 0 auto;
+      font-size: .82rem;
+      font-weight: 900;
+      margin-inline-start: .6rem;
+      white-space: nowrap;
+    }
+
+    .foldout-content { padding-block-start: .25rem; }
+
+    .summary-table-wrap {
+      margin: 1rem 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .summary-table {
+      border-collapse: collapse;
+      min-width: 720px;
+      width: 100%;
+    }
+
+    .summary-table th,
+    .summary-table td {
+      border: 1px solid var(--proto-border);
+      padding: .75rem;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    .summary-table th {
+      background: #eef4f7;
+      color: var(--proto-text);
+      font-weight: 900;
+    }
+
+    .summary-table tbody tr:nth-child(even) td { background: #f8fbfc; }
+
+    .decision-flow {
+      display: grid;
+      gap: .7rem;
+      margin: 1rem 0;
+    }
+
+    .decision-step {
+      align-items: start;
+      background: #f8fbfc;
+      border: 1px solid var(--proto-border);
+      border-inline-start: 5px solid #0b6f88;
+      border-radius: 14px;
+      display: grid;
+      gap: .35rem;
+      padding: .85rem;
+    }
+
+    .decision-step strong { display: block; }
+
+    .summary-practice-divider {
+      background: linear-gradient(180deg, #eef7fb 0%, #ffffff 100%);
+      border: 1px solid #c9e2ec;
+      border-radius: 16px;
+      margin: 1.25rem 0;
+      padding: 1rem;
+    }
+
+    .related-links {
+      display: grid;
+      gap: .65rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .related-links a {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 12px;
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: .75rem;
+      text-decoration: none;
+    }
+
+    .lesson-pager {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      justify-content: space-between;
+      margin-top: 1.25rem;
+    }
+
+    .lesson-pager a {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 999px;
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: .7rem 1rem;
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      body.summary-page .page-hero,
+      body.summary-page .summary-foldout,
+      body.summary-page .summary-practice-divider,
+      body.summary-page .summary-quiz-app {
+        margin-inline: 0;
+        width: 100%;
+      }
+
+      .summary-quick-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .summary-table { min-width: 620px; }
+      .foldout-kicker { white-space: normal; }
+    }
+
+    @media print {
+      .summary-quick-nav,
+      .lesson-pager,
+      .site-sidebar,
+      .bottom-nav,
+      .read-aloud-player,
+      .read-aloud-toggle { display: none !important; }
+      .summary-foldout { break-inside: avoid; }
+      .summary-foldout:not([open]) > .foldout-content { display: block; }
+      .summary-table-wrap { overflow: visible; }
+      .summary-table { min-width: 0; font-size: 10.5pt; }
+      a[href]::after { content: ""; }
+    }
+  </style>
+</head>
+<body class="summary-page" data-course-id="safety-officer" data-domain-id="safety">
+  <a class="skip-link" href="#mainContent">דלג לתוכן</a>
+  <div id="appShell">
+    <main id="mainContent" class="site-main">
+      <section class="page-hero">
+        <p class="kicker">סיכום שיעור 9</p>
+        <h1>עבודת ממונה בטיחות מול הנהלת הארגון</h1>
+        <p>יחידת Master Bible על ממונה הבטיחות כגורם ניהולי: שפה כלכלית, קבלת החלטות, תיעוד, הסלמה, BAT, ALARP, ROI ומקרי בוחן מול הנהלה.</p>
+        <div class="topic-tags" aria-label="תגיות נושא">
+          <span>ניהול סיכונים</span>
+          <span>ROI</span>
+          <span>BAT</span>
+          <span>ALARP</span>
+          <span>תקנה 13</span>
+          <span>תיעוד מגן</span>
+          <span>הסלמה</span>
+        </div>
+      </section>
+
+      <nav class="summary-quick-nav" aria-label="ניווט מהיר בסיכום">
+        <a href="#intro">מבוא</a>
+        <a href="#concepts">מושגים</a>
+        <a href="#law">חקיקה</a>
+        <a href="#decisions">קבלת החלטות</a>
+        <a href="#bat">BAT</a>
+        <a href="#alarp">ALARP</a>
+        <a href="#cases">מקרי בוחן</a>
+        <a href="#examFocus">דגשי מבחן</a>
+        <a href="#summaryQuestions">תרגול</a>
+        <a href="#summaryRelated">קישורים</a>
+      </nav>
+
+      <details class="content-accordion summary-foldout" id="intro">
+        <summary><span class="foldout-kicker">מבוא</span><strong>הממונה כדרג ניהולי שמתרגם בטיחות לשפת הנהלה</strong></summary>
+        <div class="foldout-content">
+          <p>ממונה הבטיחות הוא מנהל סיכונים שחייב לשלוט בשפה הניהולית והכלכלית של הארגון. מטרת השיעור היא להעביר את הבטיחות ממעמד של "הוצאה" למעמד של ערך עסקי: מניעת פגיעה, רציפות תפעולית, שמירה על מוניטין והקטנת חשיפה משפטית.</p>
+          <div class="summary-mini-callout" data-callout="tip">
+            <span class="callout-label">טיפ לממונה</span>
+            <p>כאשר הנהלה שומעת רק "חובה חוקית", היא עלולה לראות בבטיחות נטל. כאשר היא שומעת עלות נזק, ROI, רציפות עסקית וחשיפה פלילית, היא מבינה את הבטיחות כשפת ניהול.</p>
+          </div>
+          <div class="learning-unit-grid" aria-label="יחידות למידה">
+            <article class="learning-unit-card"><strong>שפה ניהולית</strong><p>הצגת סיכון דרך כסף, זמן, מוניטין, חבות משפטית ורציפות ייצור.</p></article>
+            <article class="learning-unit-card"><strong>שפה מקצועית</strong><p>שימוש בתקנים, BAT, ALARP, סקרי סיכונים ותוכנית ניהול בטיחות.</p></article>
+            <article class="learning-unit-card"><strong>שפה משפטית</strong><p>תיעוד, התרעה בכתב, הסלמה, שמירת ראיות והפרדת אחריות ייעוץ מאחריות ביצוע.</p></article>
+          </div>
+        </div>
+      </details>
+
+      <details class="content-accordion summary-foldout" id="concepts">
+        <summary><span class="foldout-kicker">מושגי יסוד</span><strong>עלות תאונה, ROI, תיעוד, רזרבה וסיכון סמוי</strong></summary>
+        <div class="foldout-content">
+          <p>היקף הנזק הישיר והעקיף מתאונות עבודה למשק נאמד ב־17-20 מיליארד ש"ח בשנה. הנזק הישיר כולל טיפול רפואי, פיצויים, קנסות ועלויות משפטיות. הנזק העקיף כולל השבתת קווי ייצור, אובדן ימי עבודה, פגיעה במוניטין, אובדן אמון עובדים והתייקרות פרמיות ביטוח.</p>
+          <div class="summary-table-wrap">
+            <table class="summary-table">
+              <thead><tr><th>מושג</th><th>משמעות ניהולית</th><th>מה ממונה בטיחות עושה בפועל</th></tr></thead>
+              <tbody>
+                <tr><td>ROI בבטיחות</td><td>יחס בין עלות מניעה לבין עלות נזק ישיר ועקיף.</td><td>מציג להנהלה חיסכון עתידי, מניעת השבתה והקטנת חשיפה משפטית.</td></tr>
+                <tr><td>תת-דיווח</td><td>הסתרת אירועים קטנים שמונעת זיהוי כשל מערכתי.</td><td>מחייב דיווח Near Miss ותחקור גם כש"אף אחד לא נפגע".</td></tr>
+                <tr><td>סעיף רזרבה</td><td>יכולת להגיב לבלת"מים מסכני חיים במהלך השנה.</td><td>דורש תקציב גמיש ולא רק שכפול תקציב מהשנה הקודמת.</td></tr>
+                <tr><td>תיעוד מגן</td><td>הוכחה מקצועית ומשפטית שהממונה התריע ופעל.</td><td>מתעד המלצה, סירוב, החלטה, הסלמה ופעולה מתקנת.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="summary-mini-callout" data-callout="evidence">
+            <span class="callout-label">ראיה ניהולית</span>
+            <p>מה שלא כתוב לא קיים מבחינה משפטית. סיכום בעל פה במסדרון אינו מחליף מייל, דוח סיור, פרוטוקול ועדת בטיחות או התרעה בכתב.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="content-accordion summary-foldout" id="law">
+        <summary><span class="foldout-kicker">חקיקה / תקנות / דרישות</span><strong>תקנה 13, תוכנית ניהול בטיחות וחובת משאבים</strong></summary>
+        <div class="foldout-content">
+          <p>המסגרת החוקית מחברת בין אחריות תופש המקום, חובות ניהול בטיחות, סקרי סיכונים, הדרכות, בדיקות תקופתיות, כשירות עובדים ותיעוד. תוכנית ניהול בטיחות לפי תקנה 13 אינה מסמך תיאורטי; היא בסיס לתיעדוף משאבים, בקרה והוכחת ניהול סיכון.</p>
+          <div class="summary-card-grid">
+            <article class="summary-card"><strong>תופש המקום</strong><p>נושא באחריות הניהולית והכספית להקצאת משאבים, טיפול במפגעים וקיום מערכת בטיחות.</p></article>
+            <article class="summary-card"><strong>ממונה בטיחות</strong><p>יועץ מקצועי שמזהה סיכונים, מתעד, מדריך, ממליץ ומסלים כאשר מפגע אינו מטופל.</p></article>
+            <article class="summary-card"><strong>בדיקות מוסמכות</strong><p>מכשירי הרמה, ציוד לחץ, חשמל ומערכות מסוכנות דורשים בדיקה בידי גורם מוסמך לפי הדין.</p></article>
+            <article class="summary-card"><strong>כשירות והדרכה</strong><p>עובד, קבלן או מלגזן ללא הסמכה מתאימה מייצרים חשיפה בטיחותית ופלילית.</p></article>
+          </div>
+          <div class="summary-mini-callout" data-callout="legal">
+            <span class="callout-label">דגש משפטי</span>
+            <p>הממונה אינו מחליף את המעסיק, אך היעדר תיעוד, חתימה עיוורת או אי-הסלמה עלולים להפוך כשל ניהולי לכשל מקצועי אישי.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="content-accordion summary-foldout" id="safetyOfficer">
+        <summary><span class="foldout-kicker">תפקיד ממונה הבטיחות</span><strong>יועץ מקצועי, מנהל סיכונים ושומר גבולות אחריות</strong></summary>
+        <div class="foldout-content">
+          <p>תפקיד הממונה הוא לזהות את הצורך המקצועי, להמליץ, לתעד ולהפעיל מנגנוני בקרה. הוא אינו נדרש להיות מומחה בכל תחום כמו חשמל, כימיקלים או הנדסה, אך חובתו לזהות מתי נדרש מומחה חיצוני ולהזמינו.</p>
+          <div class="field-card-grid">
+            <article class="field-card"><strong>מה הסיכון</strong><p>חתימה עיוורת על אישורים, הסתמכות על ניסיון עבר או אישור עבודה ללא ידע מקצועי מתאים.</p></article>
+            <article class="field-card"><strong>מה עושים</strong><p>בודקים כשירות, דורשים בודק מוסמך או יועץ חיצוני, ומגדירים תנאי עבודה ברורים.</p></article>
+            <article class="field-card"><strong>מה מתעדים</strong><p>המלצה, סירוב, דרישת בדיקה, החלטת הנהלה, תאריך יעד ותיעוד מעקב.</p></article>
+            <article class="field-card"><strong>מתי מסלימים</strong><p>כאשר מפגע חיים, זיוף אישורים, היעדר הסמכה או סירוב הנהלה ממשיכים לאחר התרעה מקצועית.</p></article>
+          </div>
+        </div>
+      </details>
+
+      <details class="content-accordion summary-foldout" id="management">
+        <summary><span class="foldout-kicker">אחריות הנהלה</span><strong>הנהלה אינה יכולה לנהל בטיחות דרך חיסכון בלבד</strong></summary>
+        <div class="foldout-content">
+          <p>טעויות הנהלה אופייניות הן חיסכון בציוד מגן, ראיית בטיחות כנטל, אי-הקצאת רזרבות תקציביות והתעלמות מחוות דעת מקצועיות בכתב. השיעור מדגיש שהנהלה אחראית למשאבים, לתרבות, לבקרה ולהחלטות המעשיות.</p>
+          <div class="summary-mini-callout" data-callout="trap">
+            <span class="callout-label">מלכודת נפוצה</span>
+            <p>"זה עובד 20 שנה" אינו טיעון מקצועי. תקן חדש, BAT זמין או אירוע Near Miss מחייבים בחינה מחדש גם אם העבר נראה תקין.</p>
+          </div>
+          <ul>
+            <li>תקציב בטיחות נבנה לפי סקרים, סיכונים, הוצאות קבועות ותיעדוף לפי חומרה.</li>
+            <li>בקרה תקציבית חודשית או רבעונית מונעת מצב שבו אין משאבים למפגע חיים באמצע השנה.</li>
+            <li>הנהלה שמסרבת להשקיע צריכה לקבל המלצה מנומקת בכתב, כולל ניתוח ROI וחשיפה משפטית.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="content-accordion summary-foldout" id="decisions">
+        <summary><span class="foldout-kicker">תהליכי קבלת החלטות</span><strong>אי-ודאות, לחץ זמן והעיקרון: אם יש ספק - אין ספק</strong></summary>
+        <div class="foldout-content">
+          <p>בטיחות היא ניהול בתנאי אי-ודאות. ניסיון חשוב, אך הוא מסוכן ללא עדכון בתקנים ובידע. כאשר יש ספק מקצועי, עוצרים עבודה, מתייעצים, מתעדים ומחזירים את הפעילות רק לאחר בקרה.</p>
+          <div class="decision-flow" aria-label="זרימת קבלת החלטה בטיחותית">
+            <div class="decision-step"><strong>1. זיהוי אי-ודאות</strong><span>האם חסר ידע, אישור, הסמכה, תסקיר או מומחה?</span></div>
+            <div class="decision-step"><strong>2. עצירת חשיפה אם נדרש</strong><span>בסיכון מיידי לחיים אין חריגה זמנית ואין המתנה לאישור הנהלה.</span></div>
+            <div class="decision-step"><strong>3. ייעוץ מקצועי</strong><span>בודק מוסמך, מהנדס, רופא תעסוקתי או מומחה חיצוני לפי סוג הסיכון.</span></div>
+            <div class="decision-step"><strong>4. תיעוד והסלמה</strong><span>החלטה, סירוב, נימוק מקצועי, ROI, ALARP ולוח זמנים לטיפול.</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="content-accordion summary-foldout" id="bat">
+        <summary><span class="foldout-kicker">BAT</span><strong>Best Available Technology כסטנדרט מניעה ולא כקישוט טכנולוגי</strong></summary>
+        <div class="foldout-content">
+          <p>BAT הוא שימוש בטכנולוגיה המיטבית הזמינה למניעת סיכונים. השיעור מדגיש שהטכנולוגיה אינה "מותרות" כאשר היא מונעת כשל צפוי, שריפה, קטיעה, חשיפה כימית או תאונה קשה.</p>
+          <div class="summary-card-grid">
+            <article class="summary-card"><strong>גילוי אש</strong><p>מערכת מתקדמת יכולה למנוע שריפה או לצמצם נזק לפני שהוא הופך לאירוע קטסטרופלי.</p></article>
+            <article class="summary-card"><strong>מיגון מכונות</strong><p>מגן הנדסי עדיף על הסתמכות על עובד ותיק או על הוראה בעל פה.</p></article>
+            <article class="summary-card"><strong>רכש בטיחותי</strong><p>מחלקת רכש צריכה אישור מקצועי לציוד בעל משמעות בטיחותית, ולא רק בחירת המחיר הזול.</p></article>
+          </div>
+          <div class="summary-mini-callout" data-callout="stop">
+            <span class="callout-label">סימן עצירה</span>
+            <p>כאשר קיים פתרון הנדסי זמין לסיכון חמור, הסתפקות בציוד מגן אישי בלבד היא מלכודת מקצועית ומשפטית.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="content-accordion summary-foldout" id="alarp">
+        <summary><span class="foldout-kicker">ALARP</span><strong>הפחתת סיכון לרמה נמוכה ככל שסביר ומעשי</strong></summary>
+        <div class="foldout-content">
+          <p>ALARP אינו סיכון אפס ואינו פשרה זולה. זהו ניתוח מקצועי שמאזן בין חומרת הסיכון, הסתברות, עלות, מאמץ ותועלת בטיחותית. כאשר הסיכון לא קביל, חובה להפחיתו לרמה נמוכה ומעשית ככל שניתן.</p>
+          <div class="summary-table-wrap">
+            <table class="summary-table">
+              <thead><tr><th>מצב</th><th>שאלה מקצועית</th><th>החלטת ממונה</th></tr></thead>
+              <tbody>
+                <tr><td>לחץ ייצור</td><td>האם האצת העבודה מעלה סיכון לא קביל?</td><td>להציג ALARP ו-ROI, לתעד ולהתנות המשך עבודה בבקרה.</td></tr>
+                <tr><td>סיכון חיים</td><td>האם קיימת חשיפה מיידית לעובד?</td><td>עצירת עבודה מיידית, תיעוד והפעלת דרג ניהולי.</td></tr>
+                <tr><td>פתרון יקר</td><td>האם העלות בלתי סבירה ביחס לסיכון?</td><td>להציג חלופות, אך לא להשאיר סיכון לא קביל ללא טיפול.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="content-accordion summary-foldout" id="cases">
+        <summary><span class="foldout-kicker">מקרי בוחן</span><strong>15 תרחישים שמחברים ניהול, חוק ושטח</strong></summary>
+        <div class="foldout-content">
+          <div class="summary-table-wrap">
+            <table class="summary-table">
+              <thead><tr><th>מקרה</th><th>סיכון</th><th>החלטת ממונה</th><th>מלכודת הנהלה</th><th>פתרון נכון</th><th>לקח מקצועי</th></tr></thead>
+              <tbody>
+                <tr><td>קריסת חניון רמת החייל</td><td>כשל הנדסי</td><td>בדיקה מוקדמת</td><td>חוסר בקרה</td><td>פיקוח הנדסי צמוד</td><td>תכנון מונע אסון.</td></tr>
+                <tr><td>מלגזנים ללא הסמכה</td><td>תאונה</td><td>עצירת עבודה</td><td>"תמשיכו לעבוד"</td><td>הסמכה מחדש</td><td>אין פשרות על הכשרה.</td></tr>
+                <tr><td>גילוי אש בגרמניה</td><td>שריפה</td><td>הטמעת BAT</td><td>סירוב בגלל עלות</td><td>השקעה בטכנולוגיה</td><td>טכנולוגיה מונעת נזק.</td></tr>
+                <tr><td>מפעל כימי - סקר בריאות</td><td>מחלות מקצוע</td><td>בדיקות תקופתיות</td><td>חוסר עניין</td><td>תיעוד רפואי</td><td>כלי הגנה משפטי.</td></tr>
+                <tr><td>תקציב רזרבה חסר</td><td>חוסר מוכנות</td><td>יצירת סעיף</td><td>סירוב להקצות</td><td>תכנון מראש</td><td>בטיחות היא ניהול כספים.</td></tr>
+                <tr><td>עובד קבלן ללא ציוד</td><td>פגיעה גופנית</td><td>עצירת עבודה</td><td>לחץ ייצור</td><td>עבודה עם ציוד</td><td>אתר אחד - אחריות אחת.</td></tr>
+                <tr><td>אישור חשמל חשוד</td><td>התחשמלות</td><td>סירוב לאשר</td><td>לחץ לעבוד</td><td>בדיקה צולבת</td><td>אימות בלתי תלוי.</td></tr>
+                <tr><td>לחץ ייצור גבוה</td><td>תאונה</td><td>ניתוח ALARP</td><td>"מהר יותר"</td><td>שימוש ב-ROI</td><td>הנהלה מבינה מספרים.</td></tr>
+                <tr><td>הדרכות פיקטיביות</td><td>חוסר ידע</td><td>ביטול וארגון מחדש</td><td>"יש חתימות"</td><td>תיעוד מהותי</td><td>חתימה ללא ידע היא חשיפה פלילית.</td></tr>
+                <tr><td>רופא תעסוקתי</td><td>כשירות</td><td>הגדרת דרישות</td><td>חיסכון בבדיקות</td><td>אישור כשירות</td><td>מניעה רפואית.</td></tr>
+                <tr><td>מכונה ללא מיגון</td><td>קטיעה</td><td>השבתה</td><td>"זה עובד 20 שנה"</td><td>התקנת מיגון BAT</td><td>החוק גובר על נוסטלגיה.</td></tr>
+                <tr><td>תת-דיווח תאונות</td><td>סיכון מוסתר</td><td>תחקיר ודיווח</td><td>"זה רק שריטה"</td><td>נתונים אמינים</td><td>ללא נתונים אין מניעה.</td></tr>
+                <tr><td>עבודה בגובה</td><td>נפילה</td><td>דרישת רתמות</td><td>"יקר מדי"</td><td>השקעה ברתמות</td><td>חיים לפני רווח.</td></tr>
+                <tr><td>חדר חשמל לא מוסדר</td><td>שריפה</td><td>דרישת מהנדס</td><td>"הבודק אישר"</td><td>בדיקה צולבת</td><td>לא מאשרים בלי ידע.</td></tr>
+                <tr><td>עובד מסרב לציוד מגן</td><td>פגיעה חמורה</td><td>הדרכה חוזרת והבהרה חוקית</td><td>"הוא עובד טוב"</td><td>תיעוד, אזהרה והפסקת עבודה אם נדרש</td><td>עובד טוב שומר על כללי הבטיחות.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="content-accordion summary-foldout" id="mistakes">
+        <summary><span class="foldout-kicker">טעויות נפוצות</span><strong>טעויות ממונה וטעויות הנהלה שמייצרות חשיפה</strong></summary>
+        <div class="foldout-content">
+          <div class="case-grid">
+            <article class="case-card"><strong>חתימה עיוורת</strong><p>אישור עבודה, תסקיר או הסמכה בלי בדיקת מקור, סמכות ותקפות.</p></article>
+            <article class="case-card"><strong>אי-תיעוד</strong><p>הכשל החמור ביותר: המלצה שלא נכתבה, סירוב שלא תועד או הסלמה שלא נשלחה.</p></article>
+            <article class="case-card"><strong>ניסיון במקום תקן</strong><p>הסתמכות על "כך עבדנו תמיד" במקום התאמה לתקן או BAT עדכני.</p></article>
+            <article class="case-card"><strong>בטיחות כנטל</strong><p>הנהלה שרואה רק עלות מיידית ולא עלות תאונה, חבות משפטית והשבתת ייצור.</p></article>
+          </div>
+        </div>
+      </details>
+
+      <details class="content-accordion summary-foldout" id="examFocus">
+        <summary><span class="foldout-kicker">דגשים למבחן</span><strong>מה לשנן לפני התרגול והשטח</strong></summary>
+        <div class="foldout-content">
+          <div class="summary-table-wrap">
+            <table class="summary-table">
+              <thead><tr><th>נושא</th><th>דגש למבחן</th><th>מלכודת נפוצה</th></tr></thead>
+              <tbody>
+                <tr><td>אחריות</td><td>הממונה יועץ, המעסיק מבצע.</td><td>הממונה חותם על ביצוע במקום המעסיק.</td></tr>
+                <tr><td>תיעוד</td><td>מה שלא כתוב לא קיים.</td><td>"סיכמנו בעל פה" בשיחת מסדרון.</td></tr>
+                <tr><td>תקציב</td><td>כולל רזרבות ו-ROI.</td><td>הצגת בטיחות כנטל ללא חיסכון עתידי.</td></tr>
+                <tr><td>הסלמה</td><td>תהליך מדורג, בכתב, לדרגים גבוהים.</td><td>קפיצה ישירה לרשויות ללא מיצוי הליך פנימי.</td></tr>
+                <tr><td>BAT</td><td>הטכנולוגיה הטובה ביותר הזמינה.</td><td>בחירת פתרון "מספק" או "זול".</td></tr>
+                <tr><td>ALARP</td><td>סיכון מופחת לרמה סבירה ומעשית.</td><td>ניסיון להגיע לסיכון אפס במחיר אסטרונומי.</td></tr>
+                <tr><td>קבלנים</td><td>אחריות המפעל על כל מי שנמצא באתר.</td><td>הסרת אחריות בטענה ש"זה עובד קבלן".</td></tr>
+                <tr><td>תקנה 13</td><td>תוכנית ניהול בטיחות היא חובה.</td><td>התייחסות לתוכנית כמסמך תיאורטי בלבד.</td></tr>
+                <tr><td>מפגעי חיים</td><td>סמכות עצירה מיידית.</td><td>המתנה לאישור הנהלה לפני עצירה.</td></tr>
+                <tr><td>טעויות ממונה</td><td>אסור להסתמך על ניסיון עבר בלבד.</td><td>זלזול בתקנים חדשים בגלל ותק.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="content-accordion summary-foldout" id="lessonSummary">
+        <summary><span class="foldout-kicker">סיכום השיעור</span><strong>מקצועיות הממונה היא שילוב בין חוק, ניהול ותיעוד</strong></summary>
+        <div class="foldout-content">
+          <ul>
+            <li>ממונה בטיחות אפקטיבי מדבר עם הנהלה בשפת סיכון, כסף, רציפות עסקית וחבות משפטית.</li>
+            <li>BAT ו-ALARP הם כלי החלטה מקצועיים, לא סיסמאות.</li>
+            <li>תיעוד הוא שכבת הגנה מקצועית ומשפטית, במיוחד כשיש סירוב הנהלה או לחץ ייצור.</li>
+            <li>קבלנים, עובדים ותיקים, הדרכות פיקטיביות ואישורים חשודים הם מוקדי סיכון שחייבים עצירה, בדיקה והסלמה.</li>
+            <li>תמצית מקצועיות הממונה: ידע חוקי, ניהול מבוסס נתונים ותיעוד להגנה משפטית.</li>
+          </ul>
+        </div>
+      </details>
+
+      <section class="summary-practice-divider" id="summaryQuestions" data-read-aloud-exclude="true">
+        <p class="kicker">תרגול</p>
+        <h2>שאלות אמריקאיות לתרגול</h2>
+        <p>60 שאלות תרגול מתוך סיכום השיעור: 20 קלות, 20 בינוניות ו-20 קשות. ההתקדמות נשמרת בדפדפן בלבד.</p>
+      </section>
+
+      <section
+        id="summaryQuizApp"
+        class="summary-quiz-app"
+        data-summary-quiz="lesson-09-summary-practice"
+        data-summary-quiz-source="lesson-09-summary-full-practice-source"
+        data-source-question-count="60"
+        data-read-aloud-exclude="true">
+        <p>טוען שאלות תרגול...</p>
+      </section>
+
+      <details class="content-accordion summary-foldout" id="summaryRelated" data-read-aloud-exclude="true">
+        <summary><span class="foldout-kicker">קישורים</span><strong>קישורים קשורים</strong></summary>
+        <div class="foldout-content">
+          <div class="related-links">
+            <a href="../prep/lesson-09-safety-management-leadership.html">הכנה לשיעור 9</a>
+            <a href="../learning-path.html">מסלול הלימוד</a>
+            <a href="../master-hub.html">מרכז הידע</a>
+            <a href="../checklists.html?domain=ISO">צ'קליסטים לניהול בטיחות</a>
+            <a href="../checklists.html?domain=Human%20Factors">צ'קליסטים לגורם אנושי</a>
+            <a href="../glossary.html">מילון מונחים</a>
+          </div>
+        </div>
+      </details>
+
+      <nav class="lesson-pager" aria-label="ניווט בין סיכומי שיעור">
+        <a href="lesson-08-summary.html">לסיכום שיעור 8</a>
+        <a href="../summaries.html">לכל הסיכומים</a>
+      </nav>
+    </main>
+  </div>
+
+  <script src="../../js/prototype-shell.js"></script>
+  <script src="../../js/read-aloud.js"></script>
+  <script src="../../data/summary-questions-map.js"></script>
+  <script src="../../js/summary-stability.js"></script>
+  <script src="../../js/summary-quiz.js"></script>
+  <script type="module" src="../../js/auth.js"></script>
+  <script src="../../js/accessibility.js"></script>
+</body>
+</html>

@@ -89,6 +89,10 @@
     }),
     session(9, "עבודת ממונה בטיחות מול הנהלת הארגון", ["human-factors", "iso-45001", "labor-inspection-law"], {
       prepHref: "prep/lesson-09-safety-management-leadership.html",
+      summary: {
+        status: "available",
+        href: "summaries/lesson-09-summary.html"
+      },
       examFocus: true,
       checklists: ["checklists.html?domain=ISO", "checklists.html?domain=Human%20Factors"]
     }),
@@ -153,7 +157,8 @@
     summaryShell(5, sessions[4].title, sessions[4].relatedKnowledge, { available: true }),
     summaryShell(6, sessions[5].title, sessions[5].relatedKnowledge, { available: true }),
     summaryShell(7, sessions[6].title, sessions[6].relatedKnowledge, { available: true }),
-    summaryShell(8, "ארגון מערך הבטיחות במפעל וניהולו", ["iso-45001", "human-factors", "labor-inspection-law", "safety-ordinance"], { available: true })
+    summaryShell(8, "ארגון מערך הבטיחות במפעל וניהולו", ["iso-45001", "human-factors", "labor-inspection-law", "safety-ordinance"], { available: true }),
+    summaryShell(9, sessions[8].title, sessions[8].relatedKnowledge, { available: true })
   ];
 
   const prepPages = sessions

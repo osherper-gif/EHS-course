@@ -345,13 +345,14 @@
       "questionCount": 30
     },
     "summary": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": ""
+      "status": "available",
+      "href": "pages/summaries/lesson-09-summary.html",
+      "updatedAt": "2026-06-01",
+      "questionCount": 60
     },
     "questions": {
-      "count": 30,
-      "href": "pages/prep/lesson-09-safety-management-leadership.html#prepQuestions"
+      "count": 60,
+      "href": "pages/summaries/lesson-09-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/human-factors.html",
@@ -372,20 +373,20 @@
       "Lagging Indicators",
       "Safety Leadership"
     ],
-    "lastUpdated": "2026-05-31"
+    "lastUpdated": "2026-06-01"
   }
 ];
   lessons.forEach(withCourseScope);
 
   const latestUpdate = {
-  "type": "prep",
-  "typeLabel": "הכנה",
+  "type": "summary",
+  "typeLabel": "סיכום",
   "lessonId": "lesson-09",
   "sessionNumber": 9,
-  "title": "נוספה הכנה לשיעור 9 - עבודת ממונה בטיחות מול הנהלת הארגון כולל 30 שאלות הכנה",
-  "description": "שיעור הכנה אינטראקטיבי על אחריות הנהלה, Staff מול Line, ROI, Just Culture, Near Miss, KPI, וניהול התנגדויות מול הנהלה.",
-  "href": "pages/prep/lesson-09-safety-management-leadership.html",
-  "updatedAt": "2026-05-31"
+  "title": "נוסף סיכום שיעור 9 - עבודת ממונה בטיחות מול הנהלת הארגון כולל 60 שאלות תרגול",
+  "description": "יחידת Master Bible על קבלת החלטות מול הנהלה, ROI, BAT, ALARP, תיעוד, הסלמה ומקרי בוחן ניהוליים.",
+  "href": "pages/summaries/lesson-09-summary.html",
+  "updatedAt": "2026-06-01"
 };
   withCourseScope(latestUpdate);
 
@@ -544,6 +545,16 @@
     "title": "ארגון מערך הבטיחות במפעל וניהולו",
     "href": "pages/summaries/lesson-08-summary.html",
     "updatedAt": "2026-05-31",
+    "summaryAvailable": true,
+    "label": "קיים",
+    "questionCount": 60
+  },
+  {
+    "lessonId": "lesson-09",
+    "sessionNumber": 9,
+    "title": "עבודת ממונה בטיחות מול הנהלת הארגון",
+    "href": "pages/summaries/lesson-09-summary.html",
+    "updatedAt": "2026-06-01",
     "summaryAvailable": true,
     "label": "קיים",
     "questionCount": 60

@@ -41,14 +41,26 @@ for (const item of manifest.items) {
   }
 }
 
+const manifestSitePages = new Set(
+  manifest.items
+    .map((item) => item.existingSitePage)
+    .filter(Boolean)
+    .map((item) => item.replace(/\\/g, "/"))
+);
 const gitStatus = childProcess.execSync("git status --short", { cwd: repoRoot, encoding: "utf8" });
-const changedHtml = gitStatus
+const unexpectedHtml = gitStatus
   .split(/\r?\n/)
   .filter(Boolean)
-  .filter((line) => /\.html$/i.test(line) && /(^|\s)(pages|index\.html|courses\.html)/.test(line));
+  .filter((line) => /\.html$/i.test(line) && /(^|\s)(pages|index\.html|courses\.html)/.test(line))
+  .filter((line) => {
+    const status = line.slice(0, 2);
+    const filePath = line.slice(3).trim().replace(/\\/g, "/");
+    const isNewManifestPage = (status === "??" || status === "A ") && manifestSitePages.has(filePath);
+    return !isNewManifestPage;
+  });
 
-if (changedHtml.length) {
-  fail(`unexpected existing HTML changes detected: ${changedHtml.join("; ")}`);
+if (unexpectedHtml.length) {
+  fail(`unexpected existing HTML changes detected: ${unexpectedHtml.join("; ")}`);
 }
 
 const site = getSiteState();

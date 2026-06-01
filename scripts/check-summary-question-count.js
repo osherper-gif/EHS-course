@@ -53,6 +53,12 @@ const checks = [
     quizId: "lesson-08-summary-practice",
     expectedCount: 60,
   },
+  {
+    page: path.join(repoRoot, "pages", "summaries", "lesson-09-summary.html"),
+    key: "lesson-09-summary-full-practice-source",
+    quizId: "lesson-09-summary-practice",
+    expectedCount: 60,
+  },
 ];
 const pendingQualityPages = [].map((file) => path.join(repoRoot, "pages", "summaries", file));
 
