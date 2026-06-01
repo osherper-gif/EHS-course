@@ -2,9 +2,12 @@
   "schemaVersion": 1,
   "registryStatus": "pilot",
   "scope": {
-    "description": "Topic mapping pilot for content-blocks-pilot.json only.",
+    "description": "Topic mapping pilot covering legal content blocks and real Level 6 training-source content blocks.",
     "sourceIds": [
       "law-labor-inspection-1954"
+    ],
+    "stableSourceIds": [
+      "training-safety-management-human-factors"
     ]
   },
   "topics": [
@@ -299,129 +302,114 @@
       "status": "draft"
     },
     {
-      "topicId": "human-factors",
-      "title": "????? ??????",
-      "description": "Level 6 training topic for human factors in safety management.",
-      "parentTopicId": "safety-management",
-      "aliases": [
-        "human factors",
-        "???? ????"
-      ],
-      "relatedTopicIds": [
-        "hop",
-        "safety-culture",
-        "organizational-learning"
-      ],
-      "lessonIds": [
-        "lesson-37"
-      ],
-      "sourceIds": [
-        "training-safety-management-human-factors"
-      ],
-      "blockIds": [
-        "block-training-human-factors-definition",
-        "block-training-human-factors-exam-focus"
-      ],
-      "status": "draft"
-    },
-    {
-      "topicId": "hop",
-      "title": "HOP",
-      "description": "Level 6 training topic for Human and Organizational Performance concepts.",
-      "parentTopicId": "human-factors",
-      "aliases": [
-        "Human and Organizational Performance"
-      ],
-      "relatedTopicIds": [
-        "human-factors",
-        "organizational-learning",
-        "field-guidance"
-      ],
-      "lessonIds": [
-        "lesson-37"
-      ],
-      "sourceIds": [
-        "training-safety-management-human-factors"
-      ],
-      "blockIds": [
-        "block-training-hop-principle",
-        "block-training-hop-field-guidance"
-      ],
-      "status": "draft"
-    },
-    {
-      "topicId": "safety-culture",
-      "title": "????? ??????",
-      "description": "Level 6 training topic for reporting behavior and safety culture.",
-      "parentTopicId": "safety-management",
-      "aliases": [
-        "safety culture",
-        "????? ?????"
-      ],
-      "relatedTopicIds": [
-        "human-factors",
-        "management-responsibility"
-      ],
-      "lessonIds": [
-        "lesson-37"
-      ],
-      "sourceIds": [
-        "training-safety-management-human-factors"
-      ],
-      "blockIds": [
-        "block-training-safety-culture-definition",
-        "block-training-safety-culture-warning"
-      ],
-      "status": "draft"
-    },
-    {
-      "topicId": "organizational-learning",
-      "title": "????? ???????",
-      "description": "Level 6 training topic for learning from events and corrective action loops.",
-      "parentTopicId": "safety-management",
-      "aliases": [
-        "organizational learning",
-        "????? ????????"
-      ],
-      "relatedTopicIds": [
-        "hop",
-        "field-guidance",
-        "safety-culture"
-      ],
-      "lessonIds": [
-        "lesson-37"
-      ],
-      "sourceIds": [
-        "training-safety-management-human-factors"
-      ],
-      "blockIds": [
-        "block-training-organizational-learning-summary",
-        "block-training-organizational-learning-checklist"
-      ],
-      "status": "draft"
-    },
-    {
-      "topicId": "field-guidance",
-      "title": "?????? ???",
-      "description": "Training-only field guidance topic. It must not be treated as a legal requirement.",
+      "topicId": "human-factors-real",
+      "title": "גורם אנושי ומצב רגשי",
+      "description": "איך תפיסת סיכון, מצב רגשי, קשב והחלטות מספיק טובות משפיעים על בטיחות בשטח.",
       "parentTopicId": null,
-      "aliases": [
-        "field guidance",
-        "??? ???"
-      ],
+      "aliases": [],
       "relatedTopicIds": [
-        "hop",
-        "organizational-learning"
+        "safety-culture-real",
+        "human-factors-field-tools-real"
       ],
       "lessonIds": [
-        "lesson-37"
+        "lesson-08",
+        "lesson-09"
       ],
       "sourceIds": [
         "training-safety-management-human-factors"
       ],
       "blockIds": [
-        "block-training-hop-field-guidance",
-        "block-training-organizational-learning-checklist"
+        "block-real-human-factor-operational-definition",
+        "block-real-human-factors-workers-not-robots",
+        "block-real-human-factors-emotional-tone",
+        "block-real-human-factors-risk-perception",
+        "block-real-human-factors-satisficing",
+        "block-real-human-factors-near-miss-rca"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-culture-real",
+      "title": "תרבות בטיחות ובטיחות התנהגותית",
+      "description": "תרבות דיווח, Just Culture, HOP, BBS ונורמליזציה של סטייה.",
+      "parentTopicId": null,
+      "aliases": [],
+      "relatedTopicIds": [
+        "human-factors-real",
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "sourceIds": [
+        "training-safety-management-human-factors"
+      ],
+      "blockIds": [
+        "block-real-safety-culture-core",
+        "block-real-safety-culture-just-culture",
+        "block-real-safety-culture-hop",
+        "block-real-safety-culture-bbs",
+        "block-real-safety-culture-drift",
+        "block-real-safety-culture-asbestos-case",
+        "block-real-checklist-safety-culture",
+        "block-real-checklist-bbs"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-leadership-governance-real",
+      "title": "מנהיגות בטיחות ומשילות",
+      "description": "לחצי תפוקה, ניהול קבלנים, גבולות תפקיד הממונה ומדדי בטיחות מובילים.",
+      "parentTopicId": null,
+      "aliases": [],
+      "relatedTopicIds": [
+        "safety-culture-real",
+        "human-factors-field-tools-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "sourceIds": [
+        "training-safety-management-human-factors"
+      ],
+      "blockIds": [
+        "block-real-leadership-contractor-pressure-case",
+        "block-real-leadership-rca-governance",
+        "block-real-leadership-common-mistakes",
+        "block-real-leadership-safety-officer-boundaries",
+        "block-real-leadership-exam-focus",
+        "block-real-checklist-management-leadership",
+        "block-real-checklist-safety-officer-protection"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "human-factors-field-tools-real",
+      "title": "כלי שטח לניהול גורם אנושי",
+      "description": "צ׳קליסטים מעשיים לניהול דיווח, Near Miss, RCA, הדרכה וניהול סיכונים.",
+      "parentTopicId": null,
+      "aliases": [],
+      "relatedTopicIds": [
+        "human-factors-real",
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "sourceIds": [
+        "training-safety-management-human-factors"
+      ],
+      "blockIds": [
+        "block-real-checklist-human-factors",
+        "block-real-checklist-safety-culture",
+        "block-real-checklist-management-leadership",
+        "block-real-checklist-bbs",
+        "block-real-checklist-near-miss",
+        "block-real-checklist-rca",
+        "block-real-checklist-safety-officer-protection"
       ],
       "status": "draft"
     }

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "registryStatus": "pilot",
   "scope": {
-    "description": "Mixed authority citation pilot for one Level 1 legal source and one Level 6 training source.",
+    "description": "Citation registry pilot covering Level 1 legal source and real Level 6 training source locators.",
     "stableSourceIds": [
       "law-labor-inspection-1954",
       "training-safety-management-human-factors"
@@ -95,84 +95,80 @@
       "notes": "Pilot citation only. Do not use as legal-binding content without later legal/source review."
     },
     {
-      "citationId": "citation-training-human-factors-heading-human-factor",
+      "citationId": "citation-training-human-factors-human-element-real",
       "stableSourceId": "training-safety-management-human-factors",
       "citationType": "heading",
-      "label": "Human factor in safety management",
+      "label": "מבוא לגורם האנושי ואינטגרציה רגשית",
       "locator": {
-        "heading": "????? ?????? ?????? ??????",
-        "paragraphIndex": null,
-        "page": null
+        "heading": "מבוא לגורם האנושי ואינטגרציה רגשית",
+        "paragraphRange": "7-47",
+        "originalWordNumbering": "פרק 1"
       },
-      "authorityLevel": 6,
       "authorityLevelAtCitation": 6,
       "verification": {
         "status": "source-backed",
         "reviewedBy": null,
         "reviewedAt": null,
-        "notes": "Pilot training-material citation located by source heading. Not verified."
+        "notes": "Real migration pilot from Level 6 training source."
       },
-      "notes": "Level 6 training citation. Must not be treated as binding law."
+      "notes": "Training material locator; not a legal citation."
     },
     {
-      "citationId": "citation-training-human-factors-heading-hop",
+      "citationId": "citation-training-human-factors-safety-culture-real",
       "stableSourceId": "training-safety-management-human-factors",
       "citationType": "heading",
-      "label": "HOP - Human and Organizational Performance",
+      "label": "תרבות בטיחות ובטיחות התנהגותית",
       "locator": {
-        "heading": "HOP - Human and Organizational Performance",
-        "paragraphIndex": null,
-        "page": null
+        "heading": "תרבות בטיחות מול ביצועים התנהגותיים",
+        "paragraphRange": "48-101",
+        "originalWordNumbering": "פרק 2"
       },
-      "authorityLevel": 6,
       "authorityLevelAtCitation": 6,
       "verification": {
         "status": "source-backed",
         "reviewedBy": null,
         "reviewedAt": null,
-        "notes": "Pilot training-material citation located by source heading. Not verified."
+        "notes": "Real migration pilot from Level 6 training source."
       },
-      "notes": "Level 6 training citation. May be examRelevant, not legalBinding."
+      "notes": "Training material locator; not a legal citation."
     },
     {
-      "citationId": "citation-training-human-factors-heading-safety-culture",
+      "citationId": "citation-training-human-factors-leadership-governance-real",
       "stableSourceId": "training-safety-management-human-factors",
       "citationType": "heading",
-      "label": "Safety culture and reporting behavior",
+      "label": "מנהיגות בטיחות, לחץ תפוקות ומשילות",
       "locator": {
-        "heading": "????? ?????? ??????",
-        "paragraphIndex": null,
-        "page": null
+        "heading": "ניהול, משילות ולחצי תפוקה",
+        "paragraphRange": "215-236",
+        "originalWordNumbering": null
       },
-      "authorityLevel": 6,
       "authorityLevelAtCitation": 6,
       "verification": {
         "status": "source-backed",
         "reviewedBy": null,
         "reviewedAt": null,
-        "notes": "Pilot training-material citation located by source heading. Not verified."
+        "notes": "Real migration pilot from Level 6 training source."
       },
-      "notes": "Level 6 training citation. Must not be promoted to regulatory requirement."
+      "notes": "Training material locator; not a legal citation."
     },
     {
-      "citationId": "citation-training-human-factors-heading-organizational-learning",
+      "citationId": "citation-training-human-factors-field-checklists-real",
       "stableSourceId": "training-safety-management-human-factors",
       "citationType": "heading",
-      "label": "Organizational learning from events",
+      "label": "צ׳קליסטים מעשיים לניהול גורם אנושי",
       "locator": {
-        "heading": "????? ??????? ????????",
-        "paragraphIndex": null,
-        "page": null
+        "heading": "צ׳קליסטים מעשיים",
+        "paragraphRange": "237-287",
+        "originalWordNumbering": null
       },
-      "authorityLevel": 6,
       "authorityLevelAtCitation": 6,
       "verification": {
         "status": "source-backed",
         "reviewedBy": null,
         "reviewedAt": null,
-        "notes": "Pilot training-material citation located by source heading. Not verified."
+        "notes": "Real migration pilot from Level 6 training source."
       },
-      "notes": "Level 6 training citation. Field guidance only."
+      "notes": "Training material locator; not a legal citation."
     }
   ]
 }

@@ -3,7 +3,11 @@
   "registryStatus": "pilot",
   "scope": {
     "stableSourceId": "law-labor-inspection-1954",
-    "description": "Content Blocks pilot proving Source -> Citation -> Content Block traceability and presentation rules."
+    "description": "Content Blocks pilot proving traceability, presentation rules, and real Level 6 training content migration.",
+    "stableSourceIds": [
+      "law-labor-inspection-1954",
+      "training-safety-management-human-factors"
+    ]
   },
   "contentBlocks": [
     {
@@ -600,428 +604,1151 @@
       }
     },
     {
-      "blockId": "block-training-human-factors-definition",
+      "blockId": "block-real-human-factor-operational-definition",
       "blockType": "definition",
       "sourceId": "training-safety-management-human-factors",
-      "citationId": "citation-training-human-factors-heading-human-factor",
-      "sourceCitation": "7.3.????? ?????? ???? ????-????. ????? ????, heading: ????? ?????? ?????? ??????",
+      "citationId": "citation-training-human-factors-human-element-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, מבוא לגורם האנושי ואינטגרציה רגשית",
       "topicIds": [
-        "human-factors",
-        "safety-management"
+        "human-factors-real"
       ],
       "lessonIds": [
-        "lesson-37"
+        "lesson-08",
+        "lesson-09"
       ],
       "claimTypes": [
         "trainingMaterial",
-        "fieldGuidance"
+        "course-knowledge"
       ],
-      "authoritySummary": {
-        "highestAuthorityLevel": 6,
-        "legalBinding": false,
-        "examRelevant": true
-      },
       "content": {
-        "title": "????? ?????? ?????? ??????",
-        "text": "???? ????? ????? ?? ????? ?????? ?????? ????? ?????? ??????. ??? ???? ???? ???? ????? ????? ??????.",
-        "items": [
-          "?????? ????????, ?????? ????? ?????.",
-          "????? ?????? ??????? ??? ??????.",
-          "?? ???? ????? ?????????."
-        ],
+        "title": "הגורם האנושי כמרכיב תפעולי בבטיחות",
+        "text": "הגורם האנושי מתאר את השפעת ההתנהגות, הפסיכולוגיה והמצב הרגשי של עובדים ומנהלים על רמת הבטיחות בפועל. החומר מדגיש שהביצוע בשטח מושפע מתכנון, בקרה, תרבות ארגונית ומשמעת, ולא רק מהוראות כתובות.",
+        "items": [],
         "table": null
       },
       "metadata": {
-        "originalWordNumbering": null,
+        "originalWordNumbering": "1. Quick Learning",
         "sourceStructure": {
-          "chapter": null,
-          "sectionNumber": null,
-          "originalHeading": "????? ?????? ?????? ??????",
-          "wordOutlineLevel": null
+          "originalHeading": "מבוא לגורם האנושי ואינטגרציה רגשית",
+          "paragraphRange": "7-10",
+          "sourceType": "training-material"
         }
       },
       "rendering": {
-        "variant": "definition",
-        "emphasis": "medium"
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
       },
-      "status": "draft",
-      "verification": {
-        "status": "source-backed",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "notes": "Level 6 training block. Source-backed but not verified."
-      }
-    },
-    {
-      "blockId": "block-training-hop-principle",
-      "blockType": "teacher-note",
-      "sourceId": "training-safety-management-human-factors",
-      "citationId": "citation-training-human-factors-heading-hop",
-      "sourceCitation": "7.3.????? ?????? ???? ????-????. ????? ????, heading: HOP - Human and Organizational Performance",
-      "topicIds": [
-        "hop",
-        "human-factors"
-      ],
-      "lessonIds": [
-        "lesson-37"
-      ],
-      "claimTypes": [
-        "trainingMaterial",
-        "teacherNote",
-        "interpretation"
-      ],
-      "authoritySummary": {
-        "highestAuthorityLevel": 6,
-        "legalBinding": false,
-        "examRelevant": true
-      },
-      "content": {
-        "title": "HOP ???? ????? ?? ??????",
-        "text": "???? ????? ????? HOP ???? ????? ?? ???? ?????, ?????? ??????? ?????? ???????. ??? ???? ????? ??? ??? ?????.",
-        "items": [
-          "???? ????? ???????? ??? ?? ???? ?????.",
-          "???? ???? ??? ????? ????? ????? ???? ???.",
-          "???? ???? ?????? ??????? ?? ?????? ????."
-        ],
-        "table": null
-      },
-      "metadata": {
-        "originalWordNumbering": null,
-        "sourceStructure": {
-          "chapter": null,
-          "sectionNumber": null,
-          "originalHeading": "HOP - Human and Organizational Performance",
-          "wordOutlineLevel": null
-        }
-      },
-      "rendering": {
-        "variant": "teacher-note",
-        "emphasis": "medium"
-      },
-      "status": "draft",
-      "verification": {
-        "status": "source-backed",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "notes": "Level 6 HOP training block. Not legalBinding."
-      }
-    },
-    {
-      "blockId": "block-training-hop-field-guidance",
-      "blockType": "field-example",
-      "sourceId": "training-safety-management-human-factors",
-      "citationId": "citation-training-human-factors-heading-hop",
-      "sourceCitation": "7.3.????? ?????? ???? ????-????. ????? ????, heading: HOP - Human and Organizational Performance",
-      "topicIds": [
-        "hop",
-        "field-guidance"
-      ],
-      "lessonIds": [
-        "lesson-37"
-      ],
-      "claimTypes": [
-        "fieldGuidance",
-        "trainingMaterial"
-      ],
       "authoritySummary": {
         "highestAuthorityLevel": 6,
         "legalBinding": false,
         "examRelevant": false
       },
-      "content": {
-        "title": "????? ??? ???? ????? ?? ???? ????",
-        "text": "????? ??? ???????: ???? ??????? ????? ????? ????, ?????? ???? ????? ???????? ????????? ?????? ?? ??????.",
-        "items": [
-          "?? ????? ??? ???? ????",
-          "???? ??? ??? ?? ????? ??? ?????",
-          "???? ??? ??? ??? ?? ?? ????"
-        ],
-        "table": null
-      },
-      "metadata": {
-        "originalWordNumbering": null,
-        "sourceStructure": {
-          "chapter": null,
-          "sectionNumber": null,
-          "originalHeading": "HOP - Human and Organizational Performance",
-          "wordOutlineLevel": null
-        }
-      },
-      "rendering": {
-        "variant": "field-example",
-        "emphasis": "medium"
-      },
       "status": "draft",
       "verification": {
-        "status": "source-backed",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "notes": "Level 6 field guidance example. Not binding."
+        "status": "source-backed"
       }
     },
     {
-      "blockId": "block-training-safety-culture-definition",
-      "blockType": "definition",
+      "blockId": "block-real-human-factors-workers-not-robots",
+      "blockType": "paragraph",
       "sourceId": "training-safety-management-human-factors",
-      "citationId": "citation-training-human-factors-heading-safety-culture",
-      "sourceCitation": "7.3.????? ?????? ???? ????-????. ????? ????, heading: ????? ?????? ??????",
+      "citationId": "citation-training-human-factors-human-element-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, מבוא לגורם האנושי ואינטגרציה רגשית",
       "topicIds": [
-        "safety-culture",
-        "human-factors"
+        "human-factors-real"
       ],
       "lessonIds": [
-        "lesson-37"
-      ],
-      "claimTypes": [
-        "trainingMaterial",
-        "interpretation"
-      ],
-      "authoritySummary": {
-        "highestAuthorityLevel": 6,
-        "legalBinding": false,
-        "examRelevant": true
-      },
-      "content": {
-        "title": "????? ?????? ??????",
-        "text": "???? ????? ????? ????? ?????? ?????? ??????? ?????, ????? ????? ??? ????? ????? ???? ????? ????.",
-        "items": [
-          "?????? ????? ?? ?????? ????? ??????.",
-          "????? ????? ????? ?????.",
-          "???? ????? ??? ????? ????? ???? ????."
-        ],
-        "table": null
-      },
-      "metadata": {
-        "originalWordNumbering": null,
-        "sourceStructure": {
-          "chapter": null,
-          "sectionNumber": null,
-          "originalHeading": "????? ?????? ??????",
-          "wordOutlineLevel": null
-        }
-      },
-      "rendering": {
-        "variant": "definition",
-        "emphasis": "medium"
-      },
-      "status": "draft",
-      "verification": {
-        "status": "source-backed",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "notes": "Level 6 safety culture training block."
-      }
-    },
-    {
-      "blockId": "block-training-safety-culture-warning",
-      "blockType": "warning",
-      "sourceId": "training-safety-management-human-factors",
-      "citationId": "citation-training-human-factors-heading-safety-culture",
-      "sourceCitation": "7.3.????? ?????? ???? ????-????. ????? ????, heading: ????? ?????? ??????",
-      "topicIds": [
-        "safety-culture",
-        "management-responsibility"
-      ],
-      "lessonIds": [
-        "lesson-37"
+        "lesson-08",
+        "lesson-09"
       ],
       "claimTypes": [
         "trainingMaterial",
         "fieldGuidance"
       ],
+      "content": {
+        "title": "עובדים אינם פועלים כמו רובוטים",
+        "text": "המסמך מדגיש שבני אדם מגיעים לעבודה עם רגשות, עייפות, לחץ ודאגות. כאשר עובד מרגיש שלא מקשיבים לו, רמת הקשב והמחויבות לבטיחות עלולה לרדת, ולכן ניהול בטיחות דורש גם הקשבה, תקשורת ומשוב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "2. הסבר פשוט וברור",
+        "sourceStructure": {
+          "originalHeading": "מבוא לגורם האנושי ואינטגרציה רגשית",
+          "paragraphRange": "11-12",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
       "authoritySummary": {
         "highestAuthorityLevel": 6,
         "legalBinding": false,
         "examRelevant": false
       },
-      "content": {
-        "title": "????? ????? ?????? ????? ??????",
-        "text": "????? ?????: ???? ????? ?????? ?????? ????????, ?????? ?????? ?????? ????? ??????? ???? ???? ???????.",
-        "items": [
-          "?????? ??? ????? ???? ????? ??????.",
-          "???? ?????? ??????.",
-          "???? ???? ??????? ??????."
-        ],
-        "table": null
-      },
-      "metadata": {
-        "originalWordNumbering": null,
-        "sourceStructure": {
-          "chapter": null,
-          "sectionNumber": null,
-          "originalHeading": "????? ?????? ??????",
-          "wordOutlineLevel": null
-        }
-      },
-      "rendering": {
-        "variant": "warning",
-        "emphasis": "medium"
-      },
       "status": "draft",
       "verification": {
-        "status": "source-backed",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "notes": "Level 6 warning block. Not legalBinding."
+        "status": "source-backed"
       }
     },
     {
-      "blockId": "block-training-organizational-learning-summary",
+      "blockId": "block-real-human-factors-emotional-tone",
       "blockType": "summary-box",
       "sourceId": "training-safety-management-human-factors",
-      "citationId": "citation-training-human-factors-heading-organizational-learning",
-      "sourceCitation": "7.3.????? ?????? ???? ????-????. ????? ????, heading: ????? ??????? ????????",
+      "citationId": "citation-training-human-factors-human-element-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, מבוא לגורם האנושי ואינטגרציה רגשית",
       "topicIds": [
-        "organizational-learning",
-        "safety-management"
+        "human-factors-real"
       ],
       "lessonIds": [
-        "lesson-37"
+        "lesson-08",
+        "lesson-09"
       ],
       "claimTypes": [
         "trainingMaterial",
-        "fieldGuidance"
+        "teacherNote"
       ],
-      "authoritySummary": {
-        "highestAuthorityLevel": 6,
-        "legalBinding": false,
-        "examRelevant": true
-      },
       "content": {
-        "title": "????? ??????? ????????",
-        "text": "???? ????? ?????? ????? ???????? ?????? ???????: ????? ????, ????? ????? ????????, CAPA ?????? ?????????.",
-        "items": [
-          "?? ?????? ?????? ???? ????.",
-          "???? ????? ?????? ??????.",
-          "????? ??????? ?????? ?????? ????? ???."
-        ],
+        "title": "מצב רגשי כמשתנה בטיחותי",
+        "text": "החומר קושר בין מצבו הרגשי הקבוע של האדם לבין רמת הבטיחות והפרודוקטיביות שלו. עובד שמתריע שוב ושוב ונתקל באדישות עלול להפסיק לדווח ולהיכנס לאפתיה, מצב שמוצג כמסוכן במיוחד לבטיחות.",
+        "items": [],
         "table": null
       },
       "metadata": {
-        "originalWordNumbering": null,
+        "originalWordNumbering": "3. הסבר מקצועי ואינטגרציה מורחבת",
         "sourceStructure": {
-          "chapter": null,
-          "sectionNumber": null,
-          "originalHeading": "????? ??????? ????????",
-          "wordOutlineLevel": null
+          "originalHeading": "מבוא לגורם האנושי ואינטגרציה רגשית",
+          "paragraphRange": "13-17",
+          "sourceType": "training-material"
         }
       },
       "rendering": {
-        "variant": "summary-box",
-        "emphasis": "medium"
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
       },
-      "status": "draft",
-      "verification": {
-        "status": "source-backed",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "notes": "Level 6 organizational learning block."
-      }
-    },
-    {
-      "blockId": "block-training-organizational-learning-checklist",
-      "blockType": "checklist",
-      "sourceId": "training-safety-management-human-factors",
-      "citationId": "citation-training-human-factors-heading-organizational-learning",
-      "sourceCitation": "7.3.????? ?????? ???? ????-????. ????? ????, heading: ????? ??????? ????????",
-      "topicIds": [
-        "organizational-learning",
-        "field-guidance"
-      ],
-      "lessonIds": [
-        "lesson-37"
-      ],
-      "claimTypes": [
-        "fieldGuidance",
-        "trainingMaterial"
-      ],
       "authoritySummary": {
         "highestAuthorityLevel": 6,
         "legalBinding": false,
         "examRelevant": false
       },
-      "content": {
-        "title": "????? ????? ???? ?????",
-        "text": "??????? ?????? ??????? ?????? ???? ???? Level 6 ???? ????? ???? ????? ??? ?????? ????? ?????.",
-        "items": [
-          "??? ???? ???? ???? ??????",
-          "??? ???? ????? ??????",
-          "??? ????? ????????? ?????? ???????"
-        ],
-        "table": null
-      },
-      "metadata": {
-        "originalWordNumbering": null,
-        "sourceStructure": {
-          "chapter": null,
-          "sectionNumber": null,
-          "originalHeading": "????? ??????? ????????",
-          "wordOutlineLevel": null
-        }
-      },
-      "rendering": {
-        "variant": "checklist",
-        "emphasis": "medium"
-      },
       "status": "draft",
       "verification": {
-        "status": "source-backed",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "notes": "Level 6 checklist block. Not a statutory checklist."
+        "status": "source-backed"
       }
     },
     {
-      "blockId": "block-training-human-factors-exam-focus",
-      "blockType": "exam-focus",
+      "blockId": "block-real-human-factors-risk-perception",
+      "blockType": "definition",
       "sourceId": "training-safety-management-human-factors",
-      "citationId": "citation-training-human-factors-heading-human-factor",
-      "sourceCitation": "7.3.????? ?????? ???? ????-????. ????? ????, heading: ????? ?????? ?????? ??????",
+      "citationId": "citation-training-human-factors-human-element-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, מבוא לגורם האנושי ואינטגרציה רגשית",
       "topicIds": [
-        "human-factors",
-        "exam-focus"
+        "human-factors-real"
       ],
       "lessonIds": [
-        "lesson-37"
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תפיסת סיכון סובייקטיבית",
+        "text": "תפיסת המציאות של העובד אינה אובייקטיבית בלבד. היא מושפעת ממוטיבציה, ניסיון, לחץ, הרגלים והקשר ארגוני. לכן עובדים שונים עשויים לראות את אותו סיכון באופן שונה לחלוטין.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4. Human Factors Deep Dive",
+        "sourceStructure": {
+          "originalHeading": "מבוא לגורם האנושי ואינטגרציה רגשית",
+          "paragraphRange": "18-19",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-human-factors-satisficing",
+      "blockType": "definition",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-human-element-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, מבוא לגורם האנושי ואינטגרציה רגשית",
+      "topicIds": [
+        "human-factors-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
       ],
       "claimTypes": [
         "trainingMaterial",
         "examRelevant"
       ],
+      "content": {
+        "title": "Satisficing: החלטה מספיק טובה במקום החלטה מיטבית",
+        "text": "החומר מתאר מנגנון שבו אדם בוחר בפתרון שנראה מספיק טוב תחת לחץ, במקום לחפש את הפתרון הבטוח ביותר. זהו דפוס קוגניטיבי מרכזי להבנת קיצורי דרך וסיכונים תפעוליים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4. Human Factors Deep Dive",
+        "sourceStructure": {
+          "originalHeading": "מבוא לגורם האנושי ואינטגרציה רגשית",
+          "paragraphRange": "21",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
       "authoritySummary": {
         "highestAuthorityLevel": 6,
         "legalBinding": false,
         "examRelevant": true
       },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-human-factors-near-miss-rca",
+      "blockType": "checklist",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-human-element-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, מבוא לגורם האנושי ואינטגרציה רגשית",
+      "topicIds": [
+        "human-factors-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
       "content": {
-        "title": "????? ?????? ???? ?????",
-        "text": "??? ????? ???? ???? ?????: ????? ?????? ???? ?? ???? ????, ??? ????? ?? ???, ?????, ?????, ????? ??????.",
+        "title": "למידה מ־Near Miss באמצעות RCA",
+        "text": "המסמך מציג ניתוח שבו כמעט תאונה במחסן לא טופלה, התאורה נותרה חלשה, ובהמשך התרחשה תאונה קשה. שורש הכשל מוצג כהיעדר מערכת ניהול ומעקב מתועדת לטיפול בדיווחי Near Miss ומפגעים.",
         "items": [
-          "?? ????? ??? examRelevant ???? legalBinding.",
-          "????? ???? ?????? ??? ????.",
-          "?? ????? ??? ???? ?????? ?????????."
+          "לזהות את הדיווח הראשוני כאות אזהרה ולא כתלונה.",
+          "לבדוק מדוע הליקוי לא תוקן לאחר הדיווח.",
+          "לברר האם קיימת מערכת מעקב מתועדת.",
+          "להסיק פעולה מתקנת על בסיס שורש הכשל ולא רק על בסיס האירוע הסופי."
         ],
         "table": null
       },
       "metadata": {
         "originalWordNumbering": null,
         "sourceStructure": {
-          "chapter": null,
-          "sectionNumber": null,
-          "originalHeading": "????? ?????? ?????? ??????",
-          "wordOutlineLevel": null
+          "originalHeading": "מבוא לגורם האנושי ואינטגרציה רגשית",
+          "paragraphRange": "24-32",
+          "sourceType": "training-material"
         }
       },
       "rendering": {
-        "variant": "exam-focus",
-        "emphasis": "high"
+        "label": "כלי למידה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
       },
       "status": "draft",
       "verification": {
-        "status": "source-backed",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "notes": "Level 6 exam-relevant training block. Not examCritical."
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-safety-culture-core",
+      "blockType": "definition",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-safety-culture-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, תרבות בטיחות ובטיחות התנהגותית",
+      "topicIds": [
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תרבות בטיחות היא ההתנהגות כשאף מנהל לא מסתכל",
+        "text": "המסמך מסביר שתרבות בטיחות היא הדרך שבה הארגון מתנהג בפועל, גם כאשר אין פיקוח ישיר. היא נמדדת בדיווח, באמון, בהתנהגות בשגרה וביכולת ללמוד מכשלים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "2. הסבר פשוט וברור",
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות ובטיחות התנהגותית",
+          "paragraphRange": "59-63",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-safety-culture-just-culture",
+      "blockType": "summary-box",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-safety-culture-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, תרבות בטיחות ובטיחות התנהגותית",
+      "topicIds": [
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "מעבר מתרבות אשמה לתרבות הוגנת",
+        "text": "החומר מדגיש מעבר מ־Blame Culture אל Just Culture ו־Reporting Culture. תרבות אשמה גורמת להסתרת טעויות, ואילו תרבות הוגנת חוקרת את המערכת, התנאים והכשלים שיצרו את האירוע.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "1. Quick Learning",
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות ובטיחות התנהגותית",
+          "paragraphRange": "59-63",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-safety-culture-hop",
+      "blockType": "teacher-note",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-safety-culture-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, תרבות בטיחות ובטיחות התנהגותית",
+      "topicIds": [
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "teacherNote"
+      ],
+      "content": {
+        "title": "HOP: האדם אינו הבעיה אלא חלק מהפתרון",
+        "text": "בגישה המוצגת במסמך, Human and Organizational Performance רואה באדם חלק מהמערכת. במקום לחפש אשמה אישית בלבד, בוחנים אילו תנאים ארגוניים, לחצים וחסמים השפיעו על ההתנהגות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות ובטיחות התנהגותית",
+          "paragraphRange": "64-65",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-safety-culture-bbs",
+      "blockType": "paragraph",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-safety-culture-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, תרבות בטיחות ובטיחות התנהגותית",
+      "topicIds": [
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "BBS: תצפיות התנהגותיות ומשוב בונה",
+        "text": "בטיחות מבוססת התנהגות מוצגת ככלי לתצפיות מובנות, משוב מיידי, ניתוח מגמות וזיהוי התנהגויות בטוחות ולא בטוחות. הדגש הוא שיפור ולמידה, לא ענישה אוטומטית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות ובטיחות התנהגותית",
+          "paragraphRange": "70",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-safety-culture-drift",
+      "blockType": "definition",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-safety-culture-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, תרבות בטיחות ובטיחות התנהגותית",
+      "topicIds": [
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "Operational Drift",
+        "text": "Operational Drift מתואר כסטייה הדרגתית מהנהלים עקב לחצי זמן, תפוקה או נוחות. הסטייה הופכת לשגרה עד שנוצרת חשיפה ממשית לתאונה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות ובטיחות התנהגותית",
+          "paragraphRange": "71-72",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-safety-culture-asbestos-case",
+      "blockType": "field-example",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-safety-culture-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, תרבות בטיחות ובטיחות התנהגותית",
+      "topicIds": [
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "מקרה שטח: עבודה על גג אסבסט ללא רתמה",
+        "text": "במקרה המתואר, עובד מבצע עבודה על גג אסבסט ללא רתמה וללא היתר עבודה מסודר. הניתוח מצביע על לחץ להספיק, היעדר הערכת סיכונים, היעדר הדרכה מספקת ונורמליזציה של סטייה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרבות בטיחות ובטיחות התנהגותית",
+          "paragraphRange": "76-86",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "מקרה בוחן",
+        "tone": "field",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-leadership-contractor-pressure-case",
+      "blockType": "field-example",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-leadership-governance-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, מנהיגות בטיחות, לחץ תפוקות ומשילות",
+      "topicIds": [
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "לחץ תפוקות וקבלנים: מקרה בוחן",
+        "text": "המסמך מתאר קבלן שעובד במשמרות ארוכות, בתאורה ירודה וללא היתר עבודה יומי. במהלך הרמת קורה מתרחש אירוע קשה. המוקד הלימודי הוא הקשר בין לחץ תפוקות, ניהול קבלנים ומשילות בטיחותית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מנהיגות בטיחות, לחץ תפוקות ומשילות",
+          "paragraphRange": "215-217",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "מקרה בוחן",
+        "tone": "field",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-leadership-rca-governance",
+      "blockType": "summary-box",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-leadership-governance-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, מנהיגות בטיחות, לחץ תפוקות ומשילות",
+      "topicIds": [
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "שורש הכשל: משילות ולא רק ביצוע בשטח",
+        "text": "ניתוח ה־RCA במסמך מצביע על כשל ניהולי רחב: לחץ חוזי ותפעולי תורגם לקיצורי דרך, ולא הייתה אינטגרציה מספקת בין רכש, התקשרויות, ניהול סיכונים ובטיחות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מנהיגות בטיחות, לחץ תפוקות ומשילות",
+          "paragraphRange": "218-221",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-leadership-common-mistakes",
+      "blockType": "warning",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-leadership-governance-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, מנהיגות בטיחות, לחץ תפוקות ומשילות",
+      "topicIds": [
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "טעויות נפוצות בניהול אחריות",
+        "text": "החומר מזהיר מפני העברת אחריות ניהולית או משפטית אל ממונה הבטיחות, ומפני בונוסים של אפס תאונות שעלולים לעודד הסתרת פגיעות במקום למידה אמיתית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מנהיגות בטיחות, לחץ תפוקות ומשילות",
+          "paragraphRange": "225-227",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "טעות נפוצה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-leadership-safety-officer-boundaries",
+      "blockType": "legal-note",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-leadership-governance-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, מנהיגות בטיחות, לחץ תפוקות ומשילות",
+      "topicIds": [
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "teacherNote"
+      ],
+      "content": {
+        "title": "גבולות תפקיד ממונה הבטיחות כחומר הדרכה",
+        "text": "המסמך מדגיש שממונה הבטיחות צריך לשמור על תפקיד ייעוצי, להימנע מקבלת תפקיד אכיפה ישיר שאינו שלו, ולתעד המלצות, התרעות וסיורים. פריט זה נשאר חומר הדרכה ואינו מוצג כקביעה משפטית מחייבת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מנהיגות בטיחות, לחץ תפוקות ומשילות",
+          "paragraphRange": "228-231",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מקצועי",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-leadership-exam-focus",
+      "blockType": "exam-focus",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-leadership-governance-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, מנהיגות בטיחות, לחץ תפוקות ומשילות",
+      "topicIds": [
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "דגש למבחן: תפקיד הממונה מול קו הניהול",
+        "text": "המסמך מדגיש הבחנה בין תפקיד ממונה הבטיחות כגורם ייעוץ, בקרה ומעקב לבין אחריות מנהל או מנהל אתר לביצוע בפועל. ההבחנה מוצגת כחלק מהכנה למבחן, לא כתחליף למקור משפטי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מנהיגות בטיחות, לחץ תפוקות ומשילות",
+          "paragraphRange": "231-233",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-checklist-human-factors",
+      "blockType": "checklist",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-field-checklists-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, צ׳קליסטים מעשיים לניהול גורם אנושי",
+      "topicIds": [
+        "human-factors-field-tools-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "צ׳קליסט גורם אנושי",
+        "text": "כלי עבודה מתוך החומר לזיהוי מוקדם של שחיקה, אדישות ופערי תפיסת סיכון.",
+        "items": [
+          "לבצע שיחות בטיחות כאשר מזוהה אפתיה, כעס או פחד.",
+          "לתת מענה כתוב לדיווחי עובדים על מפגעים.",
+          "לזהות Satisficing במטלות שגרתיות.",
+          "לבדוק האם עובדים שונים תופסים את אותו סיכון באופן שונה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "צ׳קליסט 1",
+        "sourceStructure": {
+          "originalHeading": "צ׳קליסטים מעשיים לניהול גורם אנושי",
+          "paragraphRange": "238-242",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "checklist",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-checklist-safety-culture",
+      "blockType": "checklist",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-field-checklists-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, צ׳קליסטים מעשיים לניהול גורם אנושי",
+      "topicIds": [
+        "human-factors-field-tools-real",
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "צ׳קליסט תרבות בטיחות",
+        "text": "כלי בדיקה קצר לבחינת תרבות דיווח, אמון ולמידה בארגון.",
+        "items": [
+          "לקיים Just Culture ולא Blame Culture.",
+          "לאפשר דיווח Near Miss קל ואנונימי במידת הצורך.",
+          "לבדוק סימנים של Normalization of Deviance.",
+          "לחזק אוטונומיה בטוחה של עובדים."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "צ׳קליסט 2",
+        "sourceStructure": {
+          "originalHeading": "צ׳קליסטים מעשיים לניהול גורם אנושי",
+          "paragraphRange": "243-247",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "checklist",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-checklist-management-leadership",
+      "blockType": "checklist",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-field-checklists-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, צ׳קליסטים מעשיים לניהול גורם אנושי",
+      "topicIds": [
+        "human-factors-field-tools-real",
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "צ׳קליסט מנהיגות הנהלה",
+        "text": "בדיקה תפעולית קצרה של דוגמה אישית, סדרי עדיפויות ומדדי בטיחות חיוביים.",
+        "items": [
+          "לוודא שמנהלים משתמשים בציוד מגן אישי כשהם נכנסים לשטח.",
+          "להציב בטיחות כנושא ראשון בישיבות הנהלה רלוונטיות.",
+          "להגדיר איזון ברור בין תפוקה ובטיחות.",
+          "להפעיל KPI חיובי ולא רק ספירת תאונות."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "צ׳קליסט 3",
+        "sourceStructure": {
+          "originalHeading": "צ׳קליסטים מעשיים לניהול גורם אנושי",
+          "paragraphRange": "248-252",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "checklist",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-checklist-bbs",
+      "blockType": "checklist",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-field-checklists-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, צ׳קליסטים מעשיים לניהול גורם אנושי",
+      "topicIds": [
+        "human-factors-field-tools-real",
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "צ׳קליסט BBS",
+        "text": "רשימת פעולות להפעלת תצפיות התנהגותיות ומשוב בונה.",
+        "items": [
+          "לבצע תצפיות מובנות.",
+          "לתת משוב מיידי ובונה.",
+          "לנתח מגמות חוזרות.",
+          "לתגמל התנהגות בטוחה ולא רק היעדר תאונות."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "צ׳קליסט 4",
+        "sourceStructure": {
+          "originalHeading": "צ׳קליסטים מעשיים לניהול גורם אנושי",
+          "paragraphRange": "253-257",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "checklist",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-checklist-near-miss",
+      "blockType": "checklist",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-field-checklists-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, צ׳קליסטים מעשיים לניהול גורם אנושי",
+      "topicIds": [
+        "human-factors-field-tools-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "צ׳קליסט Near Miss",
+        "text": "כלי עבודה לשיפור דיווח וחקירה של כמעט תאונה.",
+        "items": [
+          "להגדיר Near Miss בצורה ברורה לעובדים.",
+          "לאפשר דיווח מהיר ופשוט.",
+          "לחקור Near Miss משמעותי.",
+          "לשמור על תרבות שאינה מענישה דיווח."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "צ׳קליסט 5",
+        "sourceStructure": {
+          "originalHeading": "צ׳קליסטים מעשיים לניהול גורם אנושי",
+          "paragraphRange": "258-262",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "checklist",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-checklist-rca",
+      "blockType": "checklist",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-field-checklists-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, צ׳קליסטים מעשיים לניהול גורם אנושי",
+      "topicIds": [
+        "human-factors-field-tools-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "צ׳קליסט RCA",
+        "text": "המסמך מדגיש חקירה שמחפשת שורש מערכת ולא מסתפקת בטעות אנוש.",
+        "items": [
+          "לכלול עובדים בחקירה.",
+          "להשתמש ב־5 Whys או Fishbone.",
+          "לא לעצור בהסבר של טעות אנוש בלבד.",
+          "להגדיר פעולות מתקנות במעלה היררכיית הבקרות."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "צ׳קליסט 6",
+        "sourceStructure": {
+          "originalHeading": "צ׳קליסטים מעשיים לניהול גורם אנושי",
+          "paragraphRange": "263-267",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "checklist",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-real-checklist-safety-officer-protection",
+      "blockType": "checklist",
+      "sourceId": "training-safety-management-human-factors",
+      "citationId": "citation-training-human-factors-field-checklists-real",
+      "sourceCitation": "ניהול בטיחות וגורם אנושי — סיכום שיעור מורחב ומקיף, צ׳קליסטים מעשיים לניהול גורם אנושי",
+      "topicIds": [
+        "human-factors-field-tools-real",
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "צ׳קליסט הגנה מקצועית לממונה בטיחות",
+        "text": "החומר מציע לשמור על מינוי רשמי, תיעוד המלצות והתראות, והימנעות מקבלת אחריות ביצועית שאינה חלק מתפקיד הממונה.",
+        "items": [
+          "לוודא קיום מינוי רשמי.",
+          "לתעד המלצות והתראות בכתב.",
+          "לא לקבל תפקיד קו או אכיפה ישירה במקום מנהלים.",
+          "לבצע סיור בטיחות מתועד בתדירות קבועה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "צ׳קליסט 9",
+        "sourceStructure": {
+          "originalHeading": "צ׳קליסטים מעשיים לניהול גורם אנושי",
+          "paragraphRange": "278-282",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "checklist",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
       }
     }
   ]
