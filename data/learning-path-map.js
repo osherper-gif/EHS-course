@@ -96,7 +96,11 @@
       examFocus: true,
       checklists: ["checklists.html?domain=ISO", "checklists.html?domain=Human%20Factors"]
     }),
-    session(10, "ניהול בטיחות בתעסוקה ו-PDCA", ["iso-45001", "process-safety"], {}),
+    session(10, "גידור מכונות ופתרונות", ["machine-guarding", "safety-ordinance", "loto-ptw"], {
+      prepHref: "prep/lesson-10-machine-guarding.html",
+      examFocus: true,
+      checklists: ["checklists.html?domain=Machine%20Guarding", "checklists.html?domain=LOTO"]
+    }),
     session(11, "תרבות בטיחות, Just Culture וגורם אנושי", ["human-factors", "iso-45001"], { examFocus: true }),
     session(12, "חזרה מבנית ודגשי מבחן ראשונים", ["human-factors", "labor-inspection-law", "iso-45001"], { examFocus: true }),
     session(13, "חשמל: מושגים, סיכונים ומנגנוני הגנה", ["electrical-safety"], { examFocus: true }),

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="description" content="הכנה לשיעור 10 בקורס ממונה בטיחות: גידור מכונות, פתרונות הנדסיים, LOTO, Interlock, סקר סיכונים, טעויות שטח ו-30 שאלות הכנה.">
+  <title>הכנה לשיעור 10 | גידור מכונות ופתרונות</title>
+  <script src="../../js/ui-mode.js"></script>
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <link rel="stylesheet" href="../../css/summary-stability.css">
+  <style>
+    body.prep-page-body,
+    body.prep-page-body .site-main {
+      direction: rtl;
+      text-align: right;
+      overflow-x: hidden;
+    }
+
+    .prep-page,
+    .prep-page * {
+      box-sizing: border-box;
+      min-width: 0;
+    }
+
+    .prep-page h1,
+    .prep-page h2,
+    .prep-page h3,
+    .prep-page p,
+    .prep-page li,
+    .prep-page td,
+    .prep-page th {
+      overflow-wrap: anywhere;
+      text-align: right;
+    }
+
+    .prep-quick-nav,
+    .content-accordion[id],
+    #prepQuestions {
+      scroll-margin-top: 96px;
+    }
+
+    .prep-quick-nav {
+      display: grid;
+      gap: .6rem;
+      grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+      margin: 1rem 0 1.25rem;
+    }
+
+    .prep-quick-nav a {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 999px;
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: .72rem .9rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .prep-note,
+    .prep-callout,
+    .prep-card,
+    .prep-action-card {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      padding: .9rem;
+    }
+
+    .prep-note {
+      border-inline-start: 5px solid #0b6f88;
+      margin: 1rem 0;
+    }
+
+    .prep-grid,
+    .prep-action-grid {
+      display: grid;
+      gap: .75rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin: .95rem 0;
+    }
+
+    .prep-card {
+      border-top: 4px solid rgba(8, 100, 128, .55);
+    }
+
+    .prep-action-card {
+      border-inline-start: 5px solid #0f766e;
+    }
+
+    .prep-action-card.is-stop,
+    .prep-callout.is-stop {
+      border-inline-start-color: #a51d2d;
+    }
+
+    .prep-action-card.is-exam,
+    .prep-callout.is-exam {
+      border-inline-start-color: #b45309;
+    }
+
+    .prep-card strong,
+    .prep-action-card strong,
+    .prep-callout strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .summary-foldout {
+      margin: 1rem 0;
+    }
+
+    .summary-foldout > summary {
+      align-items: center;
+      min-height: 58px;
+      text-align: right;
+    }
+
+    .summary-foldout > summary > strong {
+      display: block;
+      flex: 1 1 auto;
+      line-height: 1.45;
+      min-width: 0;
+      text-align: right;
+    }
+
+    .foldout-kicker {
+      color: var(--proto-muted);
+      display: inline-block;
+      flex: 0 0 auto;
+      font-size: .82rem;
+      font-weight: 900;
+      margin-inline-start: .6rem;
+      white-space: nowrap;
+    }
+
+    .foldout-content {
+      padding-block-start: .25rem;
+    }
+
+    .prep-table-wrap {
+      margin: 1rem 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .prep-table {
+      border-collapse: collapse;
+      min-width: 720px;
+      width: 100%;
+    }
+
+    .prep-table th,
+    .prep-table td {
+      border: 1px solid var(--proto-border);
+      padding: .75rem;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    .prep-table th {
+      background: #eef4f7;
+      font-weight: 900;
+    }
+
+    .prep-table tbody tr:nth-child(even) td {
+      background: #f8fbfc;
+    }
+
+    .prep-flow {
+      display: grid;
+      gap: .65rem;
+      margin: 1rem 0;
+    }
+
+    .prep-flow-step {
+      background: #f8fbfc;
+      border: 1px solid var(--proto-border);
+      border-inline-start: 5px solid #0b6f88;
+      border-radius: 14px;
+      padding: .85rem;
+    }
+
+    .prep-question-section {
+      background: linear-gradient(180deg, #eef7fb 0%, #ffffff 100%);
+      border: 1px solid #c9e2ec;
+      border-radius: 16px;
+      margin: 1.25rem 0;
+      padding: 1rem;
+    }
+
+    .related-links {
+      display: grid;
+      gap: .65rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    @media (max-width: 640px) {
+      .prep-quick-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .foldout-kicker {
+        white-space: normal;
+      }
+      .prep-table {
+        min-width: 620px;
+      }
+    }
+
+    @media print {
+      .prep-quick-nav,
+      .site-sidebar,
+      .bottom-nav,
+      .read-aloud-player,
+      .read-aloud-toggle {
+        display: none !important;
+      }
+      .summary-foldout {
+        break-inside: avoid;
+      }
+      .summary-foldout:not([open]) > .foldout-content {
+        display: block;
+      }
+      .prep-table-wrap {
+        overflow: visible;
+      }
+      .prep-table {
+        min-width: 0;
+        font-size: 10.5pt;
+      }
+      a[href]::after {
+        content: "";
+      }
+    }
+  </style>
+</head>
+<body data-course-id="safety-officer" data-domain-id="safety" data-page-title="הכנה לשיעור 10 — גידור מכונות ופתרונות" class="prep-page-body auth-protected lms-pro prototype-shell prototype-shell-page">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <main id="main" class="site-main prep-page" data-readable-content>
+    <section class="page-hero">
+      <p class="kicker">הכנה לשיעור 10</p>
+      <h1>גידור מכונות ופתרונות</h1>
+      <p>שיעור הכנה מקצועי על מנגנוני פציעה במכונות, בחירת פתרונות גידור, LOTO, Interlock, סקר סיכונים, טעויות שטח ודגשי מבחן.</p>
+    </section>
+
+    <nav class="prep-quick-nav" aria-label="ניווט מהיר" data-read-aloud-exclude="true">
+      <a href="#accidents">תאונות אופייניות</a>
+      <a href="#machines">מכונות וסיכונים</a>
+      <a href="#loto">LOTO</a>
+      <a href="#riskSurvey">סקר סיכונים</a>
+      <a href="#fieldMistakes">טעויות שטח</a>
+      <a href="#lecturer">שאלות מרצה</a>
+      <a href="#examFocus">דגשי מבחן</a>
+      <a href="#prepQuestions">שאלות הכנה</a>
+    </nav>
+
+    <section class="prep-note" data-read-aloud-exclude="true">
+      <p>מבוסס על קובץ המקור לשיעור 10. התרגול נשמר בדפדפן בלבד ואינו משנה ציונים, Firestore או מנגנוני מבחן.</p>
+    </section>
+
+    <details id="accidents" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">סוגי תאונות</span><strong>מנגנוני הפציעה הם נקודת ההתחלה למניעה</strong></summary>
+      <div class="foldout-content">
+        <p>הבנת מנגנוני הפציעה היא הצעד הראשון למניעת תאונות במכונות. הממונה צריך לזהות לא רק את המכונה, אלא את הדרך שבה הגוף עלול להיפגע ממנה.</p>
+        <div class="prep-grid">
+          <article class="prep-card"><strong>היכרכות (Entanglement)</strong><p>תפיסת בגדים, שיער או איברים על ידי חלקים מסתובבים.</p></article>
+          <article class="prep-card"><strong>גזירה (Shearing)</strong><p>פציעה כתוצאה מפעולה בין שני חלקים נעים, כמו גיליוטינה.</p></article>
+          <article class="prep-card"><strong>ריסוק / לחיצה (Crushing)</strong><p>הילכדות בין חלק נע לחלק קבוע או בין שני חלקים נעים.</p></article>
+          <article class="prep-card"><strong>חיתוך (Cutting / Severing)</strong><p>מגע ישיר עם להבים, משורים או כלי עיבוד חדים.</p></article>
+          <article class="prep-card"><strong>פליטת עצמים (Ejection)</strong><p>מעוף שבבים או חלקי מכונה עקב כשל מכני.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details id="machines" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">מכונות נפוצות</span><strong>סיכון מרכזי מול פתרון מומלץ</strong></summary>
+      <div class="foldout-content">
+        <div class="prep-table-wrap">
+          <table class="prep-table">
+            <thead><tr><th>מכונה</th><th>סיכון מרכזי</th><th>פתרון מומלץ</th></tr></thead>
+            <tbody>
+              <tr><td>מסורים</td><td>חיתוך, פליטת שבבים</td><td>כיסוי מתכוונן, דחף בטיחות.</td></tr>
+              <tr><td>מחרטות</td><td>היכרכות בציר מסתובב</td><td>גידור שקוף ננעל (Interlock).</td></tr>
+              <tr><td>כרסומות</td><td>היכרכות, פליטת שבבים</td><td>גידור היקפי, וילון אור.</td></tr>
+              <tr><td>מכבשים</td><td>ריסוק ולחיצה</td><td>שתי ידיים להפעלה, וילון אור.</td></tr>
+              <tr><td>מסועים</td><td>נקודות לכידה בגלגלי הנעה</td><td>כיסוי מוחלט של נקודות לכידה.</td></tr>
+              <tr><td>רובוטים</td><td>פגיעה מאנרגיה קינטית</td><td>כלוב בטיחות, סורקי לייזר.</td></tr>
+              <tr><td>מכונות אריזה</td><td>לכידה בחלקים נעים</td><td>כיסויים עם מנעולי בטיחות.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prep-callout is-exam">
+          <strong>דגש למבחן</strong>
+          <p>השאלה כמעט תמיד בוחנת התאמה בין סוג הסיכון לפתרון. אל תבחר PPE אם קיים פתרון הנדסי שמונע גישה לאזור הסכנה.</p>
+        </div>
+      </div>
+    </details>
+
+    <details id="loto" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">LOTO</span><strong>נעילה ותיוג למניעת הפעלה לא מתוכננת</strong></summary>
+      <div class="foldout-content">
+        <p>נוהל LOTO הוא נוהל קריטי למניעת הפעלה לא מתוכננת במהלך תחזוקה. מבצעים אותו בזמן ניקוי, שימון, תיקון, כיוונון או כל כניסה לאזור המסוכן. רק עובדים מוסמכים שעברו הדרכת LOTO ייעודית רשאים לבצעו.</p>
+        <div class="prep-flow" aria-label="שלבי LOTO">
+          <div class="prep-flow-step"><strong>1. יידוע עובדים</strong><span>מעדכנים את העובדים באזור לפני תחילת הפעולה.</span></div>
+          <div class="prep-flow-step"><strong>2. כיבוי המכונה</strong><span>מפסיקים פעולה באופן מבוקר.</span></div>
+          <div class="prep-flow-step"><strong>3. ניתוק מקור אנרגיה</strong><span>חשמל, אוויר, לחץ, קפיצים או כל מקור אנרגיה רלוונטי.</span></div>
+          <div class="prep-flow-step"><strong>4. נעילה ותיוג</strong><span>נעילה אישית ותיוג ברור למניעת החזרה לא מבוקרת.</span></div>
+          <div class="prep-flow-step"><strong>5. פריקת אנרגיה שיורית</strong><span>לחץ אוויר, קפיצים ואנרגיה אגורה עלולים להפעיל תנועה גם אחרי ניתוק.</span></div>
+          <div class="prep-flow-step"><strong>6. בדיקת אפס אנרגיה</strong><span>וידוא מוחלט שאין אנרגיה לפני תחילת העבודה.</span></div>
+        </div>
+        <div class="prep-action-grid">
+          <article class="prep-action-card is-stop"><strong>טעות נפוצה</strong><p>דילוג על פריקת אנרגיה שיורית, השאלת מנעול לאחר או ויתור על בדיקת הפעלה.</p></article>
+          <article class="prep-action-card"><strong>מקרה בוחן</strong><p>עובד החל לתקן מסוע לאחר ניתוק חשמל, אך לחץ אוויר לא נפרק. המסוע נע בפתאומיות וגרם לקטיעת אצבעות.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details id="riskSurvey" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">סקר סיכונים</span><strong>תהליך שיטתי של ממונה הבטיחות סביב המכונה</strong></summary>
+      <div class="foldout-content">
+        <div class="prep-grid">
+          <article class="prep-card"><strong>מיפוי</strong><p>זיהוי כל חלקי המכונה והפעולות המבוצעות בה.</p></article>
+          <article class="prep-card"><strong>ניתוח</strong><p>היכן קיימת סכנה, מה ההסתברות לפגיעה ומהי חומרת הפגיעה.</p></article>
+          <article class="prep-card"><strong>הערכה</strong><p>האם הסיכון קביל או דורש טיפול מיידי.</p></article>
+          <article class="prep-card"><strong>פעולה</strong><p>יישום היררכיית הבקרות: הנדסי, מנהלי, PPE.</p></article>
+        </div>
+        <p>תפקיד הממונה הוא עריכת הסקר, ליווי המעסיק ביישום הפתרונות ותיעוד התהליך בתיק המכונה.</p>
+      </div>
+    </details>
+
+    <details id="fieldMistakes" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">טעויות נפוצות בשטח</span><strong>עקיפות מנגנוני בטיחות הן קו אדום</strong></summary>
+      <div class="foldout-content">
+        <div class="prep-action-grid">
+          <article class="prep-action-card is-stop"><strong>עקיפת Interlock</strong><p>שימוש במגנטים או קפיצים כדי לעקוף מנגנוני בטיחות אסור בהחלט.</p></article>
+          <article class="prep-action-card is-stop"><strong>ביטול Curtain Light</strong><p>כיסוי חיישנים בסרט דביק כדי למנוע עצירות שווא הופך את ההגנה ללא קיימת.</p></article>
+          <article class="prep-action-card is-stop"><strong>גידור פתוח</strong><p>השארת גידור פתוח בזמן עבודה מחשש לפגיעה בתפוקה היא הפרת בטיחות חמורה.</p></article>
+          <article class="prep-action-card is-stop"><strong>תחזוקה ללא LOTO</strong><p>הסתמכות על "אני אזהר" או "המכונה כבויה במפסק" אינה בקרה.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details id="lecturer" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">מה המרצה עשוי לשאול?</span><strong>תרחישי חשיבה לשיעור ולמבחן</strong></summary>
+      <div class="foldout-content">
+        <ul>
+          <li>כיצד תתמודד עם מנהל ייצור שטוען שהגידור "מוריד את התפוקה"?</li>
+          <li>האם מותר לאשר הפעלת מכונה אם ה-Interlock תקול אך יש נוהל עבודה בטיחותי?</li>
+          <li>מה ההבדל בין מחסום קבוע למחסום בטיחות אלקטרוני?</li>
+        </ul>
+        <div class="prep-callout is-stop">
+          <strong>סימן עצירה</strong>
+          <p>Interlock תקול אינו הופך לבטוח בגלל נוהל. כאשר הבקרה ההנדסית אינה פועלת, יש לעצור, לדווח ולתקן.</p>
+        </div>
+      </div>
+    </details>
+
+    <details id="examFocus" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">דגשי מבחן</span><strong>עקרונות ברזל בגידור מכונות</strong></summary>
+      <div class="foldout-content">
+        <div class="prep-grid">
+          <article class="prep-card"><strong>בטיחות לפני תפוקה</strong><p>לעולם אין להעדיף תפוקה על פני בטיחות.</p></article>
+          <article class="prep-card"><strong>אחריות</strong><p>הממונה מייעץ, המעסיק מבצע ונושא באחריות החוקית.</p></article>
+          <article class="prep-card"><strong>היררכיה</strong><p>תמיד מעדיפים פתרון הנדסי כמו גידור על פני נוהל בלבד.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details id="lawAndRole" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">חוק ותפקיד הממונה</span><strong>דרישות פקודת הבטיחות ותפקיד ממונה הבטיחות</strong></summary>
+      <div class="foldout-content">
+        <p>על פי פקודת הבטיחות בעבודה, חלה חובה מוחלטת על המעסיק לגדר כל חלק מסוכן במכונה, לרבות גלגלי תנופה, גלגלי שיניים, רצועות הנעה, צירים מסתובבים וכל חלק אחר העלול להוות סכנה. הגידור חייב למנוע הגעה לאזור הסכנה, להיות בנוי מחומרים עמידים ולהיות מותקן באופן קבוע למכונה או משולב במערכת בטיחות מנתקת (Interlock) כאשר נדרשת גישה לעיתים קרובות.</p>
+        <p>תפקידו של ממונה הבטיחות הוא לוודא שהמעסיק עומד בדרישות החוק ובתקנים הרלוונטיים: לבצע סקרי סיכונים תקופתיים, לאתר מפגעים, לתת ייעוץ מקצועי לפתרונות הנדסיים, לוודא הדרכות עובדים ייעודיות ולבדוק שוטף את תקינות מנגנוני הבטיחות כמו Interlock ו-LOTO.</p>
+      </div>
+    </details>
+
+    <section id="prepQuestions" class="prep-question-section" data-read-aloud-exclude="true">
+      <div class="section-title">
+        <h2>שאלות הכנה</h2>
+        <p>30 שאלות אמריקאיות מתוך קובץ ההכנה. התרגול מוצג שאלה אחת בכל פעם, כולל תשובה נכונה, הסבר ומלכודת אפשרית.</p>
+      </div>
+      <div id="prepQuizApp" class="prep-quiz-app" data-prep-quiz="lesson-10-machine-guarding"></div>
+    </section>
+
+    <section class="related-panel" data-read-aloud-exclude="true">
+      <h2>קישורים קשורים</h2>
+      <div class="related-links">
+        <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
+        <a class="btn secondary" href="../knowledge/safety-ordinance.html">פקודת הבטיחות</a>
+        <a class="btn secondary" href="../knowledge/loto-ptw.html">LOTO והיתרי עבודה</a>
+        <a class="btn secondary" href="../knowledge/machine-guarding.html">גידור מכונות</a>
+        <a class="btn secondary" href="../checklists.html">צ'קליסטים</a>
+        <a class="btn secondary" href="../glossary.html">מילון מונחים</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../data/learning-path-map.js"></script>
+  <script src="../../data/prep-questions-map.js"></script>
+  <script src="../../js/prep-quiz.js"></script>
+  <script src="../../js/summary-stability.js"></script>
+  <script src="../../js/prototype-shell.js"></script>
+  <script src="../../js/read-aloud.js"></script>
+  <script type="module" src="../../js/auth.js"></script>
+  <script src="../../js/accessibility.js"></script>
+</body>
+</html>

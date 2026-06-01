@@ -374,18 +374,55 @@
       "Safety Leadership"
     ],
     "lastUpdated": "2026-06-01"
+  },
+  {
+    "lessonId": "lesson-10",
+    "sessionNumber": 10,
+    "title": "גידור מכונות ופתרונות",
+    "prep": {
+      "status": "available",
+      "href": "pages/prep/lesson-10-machine-guarding.html",
+      "updatedAt": "2026-06-01",
+      "questionCount": 30
+    },
+    "summary": {
+      "status": "missing",
+      "href": "",
+      "updatedAt": ""
+    },
+    "questions": {
+      "count": 30,
+      "href": "pages/prep/lesson-10-machine-guarding.html#prepQuestions"
+    },
+    "relatedKnowledge": [
+      "pages/knowledge/machine-guarding.html",
+      "pages/knowledge/safety-ordinance.html",
+      "pages/knowledge/loto-ptw.html"
+    ],
+    "relatedChecklists": [
+      "pages/checklists.html?domain=Machine%20Guarding",
+      "pages/checklists.html?domain=LOTO"
+    ],
+    "glossaryTerms": [
+      "LOTO",
+      "Interlock",
+      "Light Curtain",
+      "E-Stop",
+      "נקודת לכידה"
+    ],
+    "lastUpdated": "2026-06-01"
   }
 ];
   lessons.forEach(withCourseScope);
 
   const latestUpdate = {
-  "type": "summary",
-  "typeLabel": "סיכום",
-  "lessonId": "lesson-09",
-  "sessionNumber": 9,
-  "title": "נוסף סיכום שיעור 9 - עבודת ממונה בטיחות מול הנהלת הארגון כולל 60 שאלות תרגול",
-  "description": "יחידת Master Bible על קבלת החלטות מול הנהלה, ROI, BAT, ALARP, תיעוד, הסלמה ומקרי בוחן ניהוליים.",
-  "href": "pages/summaries/lesson-09-summary.html",
+  "type": "prep",
+  "typeLabel": "הכנה",
+  "lessonId": "lesson-10",
+  "sessionNumber": 10,
+  "title": "נוספה הכנה לשיעור 10 - גידור מכונות ופתרונות כולל 30 שאלות הכנה",
+  "description": "יחידת הכנה על סיכוני מכונות, גידור, LOTO, סקר סיכונים, טעויות שטח ודגשי מבחן.",
+  "href": "pages/prep/lesson-10-machine-guarding.html",
   "updatedAt": "2026-06-01"
 };
   withCourseScope(latestUpdate);
@@ -465,6 +502,14 @@
     "title": "עבודת ממונה בטיחות מול הנהלת הארגון",
     "href": "pages/prep/lesson-09-safety-management-leadership.html",
     "updatedAt": "2026-05-31",
+    "questionCount": 30
+  },
+  {
+    "lessonId": "lesson-10",
+    "sessionNumber": 10,
+    "title": "גידור מכונות ופתרונות",
+    "href": "pages/prep/lesson-10-machine-guarding.html",
+    "updatedAt": "2026-06-01",
     "questionCount": 30
   }
 ].map(withCourseScope),

@@ -13,7 +13,9 @@
   <style>
     body.summary-page { overflow-x: hidden; }
     body.summary-page .site-main,
+    body.summary-page .site-main > *,
     body.summary-page .page-hero,
+    body.summary-page .page-hero > *,
     body.summary-page .summary-zone-divider,
     body.summary-page .summary-foldout,
     body.summary-page .summary-practice-divider,
@@ -219,6 +221,12 @@
     }
 
     @media (max-width: 640px) {
+      body.summary-page .site-main {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
       body.summary-page .page-hero,
       body.summary-page .summary-foldout,
       body.summary-page .summary-practice-divider,
@@ -247,10 +255,9 @@
     }
   </style>
 </head>
-<body class="summary-page" data-course-id="safety-officer" data-domain-id="safety">
-  <a class="skip-link" href="#mainContent">דלג לתוכן</a>
-  <div id="appShell">
-    <main id="mainContent" class="site-main">
+<body data-course-id="safety-officer" data-domain-id="safety" data-page-title="סיכום שיעור 9 — עבודת ממונה בטיחות מול הנהלת הארגון" class="auth-protected lms-pro prototype-shell prototype-shell-page summary-page">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <main id="main" class="site-main prep-page" data-course-id="safety-officer" data-domain-id="safety" data-readable-content>
       <section class="page-hero">
         <p class="kicker">סיכום שיעור 9</p>
         <h1>עבודת ממונה בטיחות מול הנהלת הארגון</h1>
@@ -519,8 +526,7 @@
         <a href="lesson-08-summary.html">לסיכום שיעור 8</a>
         <a href="../summaries.html">לכל הסיכומים</a>
       </nav>
-    </main>
-  </div>
+  </main>
 
   <script src="../../js/prototype-shell.js"></script>
   <script src="../../js/read-aloud.js"></script>
