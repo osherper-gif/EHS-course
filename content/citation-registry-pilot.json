@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "registryStatus": "pilot",
+  "scope": {
+    "stableSourceId": "law-labor-inspection-1954",
+    "description": "Citation pilot for selected sections of חוק ארגון הפיקוח על העבודה, תשי\"ד-1954."
+  },
+  "citations": [
+    {
+      "citationId": "citation-law-labor-inspection-1954-section-10",
+      "stableSourceId": "law-labor-inspection-1954",
+      "citationType": "section",
+      "label": "סעיף 10 - ערעור ועונשין על צו שיפור",
+      "locator": {
+        "section": "10"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot citation located in the source document. Not legal approved."
+      },
+      "notes": "Pilot citation only. Do not use as legal-binding content without later legal/source review."
+    },
+    {
+      "citationId": "citation-law-labor-inspection-1954-section-11",
+      "stableSourceId": "law-labor-inspection-1954",
+      "citationType": "section",
+      "label": "סעיף 11 - תוכנית בטיחות",
+      "locator": {
+        "section": "11"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot citation located in the source document. Not legal approved."
+      },
+      "notes": "Pilot citation only. Do not use as legal-binding content without later legal/source review."
+    },
+    {
+      "citationId": "citation-law-labor-inspection-1954-section-14",
+      "stableSourceId": "law-labor-inspection-1954",
+      "citationType": "section",
+      "label": "סעיף 14 - הגדרות פרק שני",
+      "locator": {
+        "section": "14"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot citation located in the source document. Not legal approved."
+      },
+      "notes": "Pilot citation only. Do not use as legal-binding content without later legal/source review."
+    },
+    {
+      "citationId": "citation-law-labor-inspection-1954-section-15",
+      "stableSourceId": "law-labor-inspection-1954",
+      "citationType": "section",
+      "label": "סעיף 15 - הקמת ועדת בטיחות",
+      "locator": {
+        "section": "15"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot citation located in the source document. Not legal approved."
+      },
+      "notes": "Pilot citation only. Do not use as legal-binding content without later legal/source review."
+    },
+    {
+      "citationId": "citation-law-labor-inspection-1954-section-16",
+      "stableSourceId": "law-labor-inspection-1954",
+      "citationType": "section",
+      "label": "סעיף 16 - הרכבת ועדת בטיחות והודעות",
+      "locator": {
+        "section": "16"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot citation located in the source document. Not legal approved."
+      },
+      "notes": "Pilot citation only. Do not use as legal-binding content without later legal/source review."
+    }
+  ]
+}
