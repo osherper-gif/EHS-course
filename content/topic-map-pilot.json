@@ -9,7 +9,8 @@
     "stableSourceIds": [
       "training-safety-management-human-factors",
       "training-occupational-safety-management",
-      "training-safety-organization-final"
+      "training-safety-organization-final",
+      "training-operational-risks"
     ]
   },
   "topics": [
@@ -732,6 +733,220 @@
         "block-safety-org-ot-cyber",
         "block-safety-org-digital-twins",
         "block-safety-org-ai-safety"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "operational-risks-real",
+      "title": "סיכונים תפעוליים",
+      "description": "סיכונים בהפעלה, תחזוקה, הרמה, בנייה, בקרת אנרגיה ותחקור חסמים.",
+      "parentTopicId": null,
+      "aliases": [],
+      "relatedTopicIds": [
+        "operational-risk-barriers-real",
+        "pressure-process-safety-real",
+        "lifting-dynamics-real",
+        "construction-excavation-risk-real",
+        "loto-ptw-energy-control-real",
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "sourceIds": [
+        "training-operational-risks"
+      ],
+      "blockIds": [
+        "block-operational-risks-definition",
+        "block-operational-risks-barrier-integrity",
+        "block-operational-risks-swiss-cheese",
+        "block-operational-risks-safety-two",
+        "block-operational-pressure-stored-energy",
+        "block-operational-pressure-mawp-setpoint",
+        "block-operational-pressure-mechanical-integrity",
+        "block-operational-pressure-dry-fire",
+        "block-operational-lifting-dynamic-loads",
+        "block-operational-lifting-shock-loading",
+        "block-operational-lifting-critical-lift",
+        "block-operational-lifting-field-check",
+        "block-operational-construction-shoring",
+        "block-operational-construction-suspension-trauma",
+        "block-operational-construction-field-indicators",
+        "block-operational-construction-excavation-check",
+        "block-operational-loto-residual-energy",
+        "block-operational-ptw-hierarchy",
+        "block-operational-loto-steps",
+        "block-operational-loto-drift",
+        "block-operational-rca-bowtie",
+        "block-operational-rca-barrier-integrity-sil",
+        "block-operational-rca-just-culture",
+        "block-operational-rca-five-whys"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "operational-risk-barriers-real",
+      "title": "חסמים ו־Safety-II",
+      "description": "ניהול חסמים, מודל הגבינה השווייצרית ותפיסת Safety-II.",
+      "parentTopicId": "operational-risks-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "sourceIds": [
+        "training-operational-risks"
+      ],
+      "blockIds": [
+        "block-operational-risks-definition",
+        "block-operational-risks-barrier-integrity",
+        "block-operational-risks-swiss-cheese",
+        "block-operational-risks-safety-two"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "pressure-process-safety-real",
+      "title": "מתקני לחץ ובטיחות תהליכית",
+      "description": "אנרגיה אגורה, MAWP, Mechanical Integrity וסיכוני Dry Fire.",
+      "parentTopicId": "operational-risks-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "operational-risk-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "sourceIds": [
+        "training-operational-risks"
+      ],
+      "blockIds": [
+        "block-operational-pressure-stored-energy",
+        "block-operational-pressure-mawp-setpoint",
+        "block-operational-pressure-mechanical-integrity",
+        "block-operational-pressure-dry-fire"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "lifting-dynamics-real",
+      "title": "ציוד הרמה ודינמיקת עומסים",
+      "description": "עומסים דינמיים, Shock Loading, הרמה קריטית ובדיקות שטח.",
+      "parentTopicId": "operational-risks-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "sourceIds": [
+        "training-operational-risks"
+      ],
+      "blockIds": [
+        "block-operational-lifting-dynamic-loads",
+        "block-operational-lifting-shock-loading",
+        "block-operational-lifting-critical-lift",
+        "block-operational-lifting-field-check"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "construction-excavation-risk-real",
+      "title": "בנייה, חפירות ועבודה בגובה",
+      "description": "יציבות קרקע, Suspension Trauma ומחווני שטח לקריסת חפירה.",
+      "parentTopicId": "operational-risks-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "sourceIds": [
+        "training-operational-risks"
+      ],
+      "blockIds": [
+        "block-operational-construction-shoring",
+        "block-operational-construction-suspension-trauma",
+        "block-operational-construction-field-indicators",
+        "block-operational-construction-excavation-check"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "loto-ptw-energy-control-real",
+      "title": "LOTO והיתרי עבודה",
+      "description": "אנרגיה שיורית, PTW, שלבי LOTO וסחף תפעולי.",
+      "parentTopicId": "operational-risks-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "sourceIds": [
+        "training-operational-risks"
+      ],
+      "blockIds": [
+        "block-operational-loto-residual-energy",
+        "block-operational-ptw-hierarchy",
+        "block-operational-loto-steps",
+        "block-operational-loto-drift"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "operational-rca-barriers-real",
+      "title": "RCA ומודלי חסמים",
+      "description": "BowTie, שלמות חסמים, Just Culture וחמשת הלמה.",
+      "parentTopicId": "operational-risks-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "operational-risk-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "sourceIds": [
+        "training-operational-risks"
+      ],
+      "blockIds": [
+        "block-operational-rca-bowtie",
+        "block-operational-rca-barrier-integrity-sil",
+        "block-operational-rca-just-culture",
+        "block-operational-rca-five-whys"
       ],
       "status": "draft"
     }

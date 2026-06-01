@@ -8,7 +8,8 @@
       "law-labor-inspection-1954",
       "training-safety-management-human-factors",
       "training-occupational-safety-management",
-      "training-safety-organization-final"
+      "training-safety-organization-final",
+      "training-operational-risks"
     ]
   },
   "contentBlocks": [
@@ -3696,6 +3697,1223 @@
       "rendering": {
         "label": "חומר הדרכה",
         "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-risks-definition",
+      "blockType": "definition",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-intro-barriers",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / חסמים",
+      "topicIds": [
+        "operational-risks-real",
+        "operational-risk-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מהו סיכון תפעולי",
+        "text": "המקור מגדיר סיכון תפעולי כסיכון הנוצר בזמן הפעלה, תחזוקה, הרמה, שינוע או שינוי של ציוד ותהליכים בסביבה תעשייתית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מבוא לסיכונים תפעוליים וחסמים",
+          "paragraphRange": "35-36",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-risks-barrier-integrity",
+      "blockType": "summary-box",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-intro-barriers",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / חסמים",
+      "topicIds": [
+        "operational-risks-real",
+        "operational-risk-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ניהול חסמים במקום ספירת תאונות",
+        "text": "החומר מדגיש מעבר מתפיסה פסיבית של ספירת ימים ללא תאונות לניהול אקטיבי של שלמות שכבות ההגנה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מבוא לסיכונים תפעוליים וחסמים",
+          "paragraphRange": "37-40",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-risks-swiss-cheese",
+      "blockType": "definition",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-intro-barriers",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / חסמים",
+      "topicIds": [
+        "operational-risks-real",
+        "operational-risk-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "מודל הגבינה השווייצרית",
+        "text": "תאונות מוצגות כתוצאה של רצף כשלים פעילים ותנאים חבויים בשכבות הגנה ארגוניות והנדסיות, ולא ככשל יחיד מבודד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מבוא לסיכונים תפעוליים וחסמים",
+          "paragraphRange": "38-40",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-risks-safety-two",
+      "blockType": "teacher-note",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-intro-barriers",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / חסמים",
+      "topicIds": [
+        "operational-risks-real",
+        "operational-risk-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "teacherNote"
+      ],
+      "content": {
+        "title": "Safety-II: דברים מסתיימים בהצלחה",
+        "text": "החומר מציג את Safety-II כהבנה שבטיחות אינה רק היעדר תאונות, אלא יכולת מערכתית לגרום לדברים להסתיים בהצלחה גם בתנאים משתנים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מבוא לסיכונים תפעוליים וחסמים",
+          "paragraphRange": "40",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-pressure-stored-energy",
+      "blockType": "warning",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-pressure-equipment",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / מתקני לחץ",
+      "topicIds": [
+        "operational-risks-real",
+        "pressure-process-safety-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "אנרגיה אגורה במתקני לחץ",
+        "text": "המקור מתאר את האנרגיה האגורה במתקני לחץ כסיכון משמעותי. כשל מבני בדופן דוד או מתקן לחץ עלול להוביל לשחרור אנרגיה הרסני.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מתקני לחץ ובטיחות תהליכית",
+          "paragraphRange": "43-47",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת שטח",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-pressure-mawp-setpoint",
+      "blockType": "definition",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-pressure-equipment",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / מתקני לחץ",
+      "topicIds": [
+        "operational-risks-real",
+        "pressure-process-safety-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "MAWP ונקודת פריקה",
+        "text": "החומר מסביר ש־MAWP הוא לחץ העבודה המרבי המותר לפי תכנון היצרן, ושנקודת הפריקה של שסתום ביטחון צריכה להיות מותאמת להגנת המתקן.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מתקני לחץ ובטיחות תהליכית",
+          "paragraphRange": "29-47",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-pressure-mechanical-integrity",
+      "blockType": "paragraph",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-pressure-equipment",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / מתקני לחץ",
+      "topicIds": [
+        "operational-risks-real",
+        "pressure-process-safety-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "Mechanical Integrity",
+        "text": "תוכנית תחזוקה מונעת במתקני לחץ צריכה להתייחס לקורוזיה, אבנית ותנאים שעלולים לגרום להתחממות מתכת, עיוות מבני וכשל.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מתקני לחץ ובטיחות תהליכית",
+          "paragraphRange": "47",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-pressure-dry-fire",
+      "blockType": "warning",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-pressure-equipment",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / מתקני לחץ",
+      "topicIds": [
+        "operational-risks-real",
+        "pressure-process-safety-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "Dry Fire כסיכון תהליכי",
+        "text": "ירידת מפלס מים בדוד קיטור מתוארת כסיכון קריטי: חשיפת גופי חימום או צינורות אש לחום ישיר עלולה ליצור מצב מסוכן בעת הזנת מים קרה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מתקני לחץ ובטיחות תהליכית",
+          "paragraphRange": "63-64",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת תהליך",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-lifting-dynamic-loads",
+      "blockType": "definition",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-lifting",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / הרמה",
+      "topicIds": [
+        "operational-risks-real",
+        "lifting-dynamics-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "עומס דינמי בהרמה",
+        "text": "בעת סיבוב עגורן או תנועה פתאומית, כוחות דינמיים משנים את רדיוס העבודה ומשפיעים על יציבות המנוף והמטען.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ציוד הרמה ודינמיקת עומסים",
+          "paragraphRange": "69-72",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-lifting-shock-loading",
+      "blockType": "warning",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-lifting",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / הרמה",
+      "topicIds": [
+        "operational-risks-real",
+        "lifting-dynamics-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "Shock Loading",
+        "text": "החומר מתאר מצב שבו בלימה פתאומית, נפילה קצרה או שחרור עומס יוצרים עומס גבוה משמעותית מהעומס הסטטי. לכן נדרש ניהול זהיר של תנועה, בלימה וייצוב מטען.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ציוד הרמה ודינמיקת עומסים",
+          "paragraphRange": "72",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת הרמה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-lifting-critical-lift",
+      "blockType": "summary-box",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-lifting",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / הרמה",
+      "topicIds": [
+        "operational-risks-real",
+        "lifting-dynamics-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "הרמה קריטית כתהליך מתוכנן",
+        "text": "הרמה מורכבת או חריגה מוצגת כתהליך שדורש תכנון מוקדם: מרכז כובד, זוויות כבלים, רדיוס עבודה ותיאום בין גורמי הביצוע.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ציוד הרמה ודינמיקת עומסים",
+          "paragraphRange": "73",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-lifting-field-check",
+      "blockType": "checklist",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-lifting",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / הרמה",
+      "topicIds": [
+        "operational-risks-real",
+        "lifting-dynamics-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "בדיקות שטח להרמה",
+        "text": "המקור כולל בדיקות שטח שמטרתן לוודא שהמטען והציוד מוכנים לפני ביצוע ההרמה.",
+        "items": [
+          "לבצע הרמת ניסיון קצרה לבדיקת בלמים ויציבות המטען.",
+          "לבדוק רצועות הרמה לחתכים, פרימות או פגיעות חומר.",
+          "לוודא התרעות ותאורה של מלגזה או ציוד שינוע."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ציוד הרמה ודינמיקת עומסים",
+          "paragraphRange": "82-85",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "checklist",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-construction-shoring",
+      "blockType": "warning",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-construction",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / בנייה",
+      "topicIds": [
+        "operational-risks-real",
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "יציבות קרקע ודיפון",
+        "text": "החומר מדגיש שקריסת דופן חפירה עלולה להתרחש ללא אזהרה מוקדמת. לכן יש להתייחס לדיפון, עומסי קרקע וסימני תזוזה כאל נושא קריטי בתכנון העבודה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בנייה, חפירות ועבודה בגובה",
+          "paragraphRange": "86-89",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת חפירה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-construction-suspension-trauma",
+      "blockType": "warning",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-construction",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / בנייה",
+      "topicIds": [
+        "operational-risks-real",
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "Suspension Trauma",
+        "text": "המקור מתאר סיכון פיזיולוגי לעובד שנותר תלוי ברתמה לאחר נפילה. הדגש התפעולי הוא צורך בתוכנית חילוץ מהירה ולא רק במניעת הנפילה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בנייה, חפירות ועבודה בגובה",
+          "paragraphRange": "87-89",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת עבודה בגובה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-construction-field-indicators",
+      "blockType": "checklist",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-construction",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / בנייה",
+      "topicIds": [
+        "operational-risks-real",
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימני שטח לקריסת חפירה",
+        "text": "המסמך מציג מחווני שטח המעידים על אפשרות לתזוזת קרקע או כשל דיפון.",
+        "items": [
+          "סדקים מקבילים לדופן החפירה.",
+          "קולות חריקה או עיוות בתומכות.",
+          "נשירת אבנים או גושי עפר מדפנות החפירה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בנייה, חפירות ועבודה בגובה",
+          "paragraphRange": "99-102",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "checklist",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-construction-excavation-check",
+      "blockType": "checklist",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-construction",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / בנייה",
+      "topicIds": [
+        "operational-risks-real",
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "צ׳קליסט חפירה בטוחה",
+        "text": "המקור מציע בדיקות שטח לפני עבודה בחפירה, תוך התייחסות לדיפון, גישה וערימת עפר.",
+        "items": [
+          "לבחון האם נדרש דיפון או שיפוע בטוח.",
+          "לוודא אמצעי גישה יציב לעובדים.",
+          "להרחיק חומר חפור משפת החפירה כדי להפחית עומס חוזר."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בנייה, חפירות ועבודה בגובה",
+          "paragraphRange": "103-106",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "checklist",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-loto-residual-energy",
+      "blockType": "warning",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-loto-ptw",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / אנרגיה",
+      "topicIds": [
+        "operational-risks-real",
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "אנרגיה שיורית אינה מסתיימת במפסק ראשי",
+        "text": "החומר מדגיש שניתוק מפסק ראשי אינו מספיק. נדרש לטפל באנרגיה אגורה: לחץ, נוזלים חמים, קבלים חשמליים וחלקים נעים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרת אנרגיה והיתרי עבודה",
+          "paragraphRange": "107-110",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת אנרגיה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-ptw-hierarchy",
+      "blockType": "definition",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-loto-ptw",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / אנרגיה",
+      "topicIds": [
+        "operational-risks-real",
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "היררכיית היתרי עבודה",
+        "text": "Permit To Work מוצג ככלי ניהול המשלב סיכונים באתר ומבדיל בין סוגי עבודות מסוכנות כגון עבודה חמה, חלל מוקף ועבודה במתח חי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרת אנרגיה והיתרי עבודה",
+          "paragraphRange": "110",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-loto-steps",
+      "blockType": "checklist",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-loto-ptw",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / אנרגיה",
+      "topicIds": [
+        "operational-risks-real",
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "שלבי LOTO תפעוליים",
+        "text": "המסמך מציג רצף פעולות לבקרת אנרגיה לפני תחזוקה או ניקוי.",
+        "items": [
+          "זיהוי כל מקורות האנרגיה.",
+          "בידוד פיזי של הציוד ממקורות האנרגיה.",
+          "נעילה ותיוג אישי של כל עובד.",
+          "בדיקת Try-Out לאימות אפס אנרגיה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרת אנרגיה והיתרי עבודה",
+          "paragraphRange": "111-118",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-loto-drift",
+      "blockType": "warning",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-loto-ptw",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / אנרגיה",
+      "topicIds": [
+        "operational-risks-real",
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "Operational Drift ב־LOTO",
+        "text": "החומר מתאר סחף תפעולי שבו עובדים מדלגים על שלבי LOTO בגלל לחץ זמן או תחושה שזה ייקח רק שנייה. מבדקי פתע מוצגים ככלי לזיהוי הסחף לפני שהוא הופך לנורמה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרת אנרגיה והיתרי עבודה",
+          "paragraphRange": "119-120",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת התנהגות",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-rca-bowtie",
+      "blockType": "definition",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-human-factors-rca",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / RCA",
+      "topicIds": [
+        "operational-risks-real",
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "BowTie Analysis",
+        "text": "BowTie מוצג ככלי המקשר בין גורם סיכון לבין תוצאה אסורה, עם חסמים מונעים בצד אחד וחסמים מפחיתי חומרה בצד השני.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "גורמי אנוש, חסמים ו־RCA",
+          "paragraphRange": "121-123",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-rca-barrier-integrity-sil",
+      "blockType": "summary-box",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-human-factors-rca",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / RCA",
+      "topicIds": [
+        "operational-risks-real",
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "teacherNote"
+      ],
+      "content": {
+        "title": "שלמות חסמים בתעשייה תהליכית",
+        "text": "המקור מתאר חסמים הנדסיים כמערכות שדורשות אמינות, תחזוקה והתראה כאשר שלמות החסם נפגעת. הפריט מוצג כחומר הדרכה ולא כתקן מחייב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "גורמי אנוש, חסמים ו־RCA",
+          "paragraphRange": "124",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-rca-just-culture",
+      "blockType": "summary-box",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-human-factors-rca",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / RCA",
+      "topicIds": [
+        "operational-risks-real",
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "תרבות הוגנת ללמידה מאירועים",
+        "text": "Just Culture מוצגת כתרבות שמבחינה בין טעות אנוש בתום לב לבין רשלנות מכוונת, ומעודדת דיווח Near Miss ללא פחד מענישה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "גורמי אנוש, חסמים ו־RCA",
+          "paragraphRange": "125-126",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-operational-rca-five-whys",
+      "blockType": "field-example",
+      "sourceId": "training-operational-risks",
+      "citationId": "citation-training-operational-risks-human-factors-rca",
+      "sourceCitation": "מקור הדרכה: סיכונים תפעוליים / RCA",
+      "topicIds": [
+        "operational-risks-real",
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-15",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "חמשת הלמה: מעבר מהאשמת עובד לכשל מערכתי",
+        "text": "בדוגמת מלגזה שפגעה במדף, הניתוח מתקדם מהתנהגות הנהג אל יעדי הספק לא מאוזנים, תכנון כוח אדם לקוי והיעדר מנגנון לוויסות עומסים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "גורמי אנוש, חסמים ו־RCA",
+          "paragraphRange": "127-129",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דוגמת RCA",
+        "tone": "field",
         "showAuthorityBadge": true
       },
       "authoritySummary": {

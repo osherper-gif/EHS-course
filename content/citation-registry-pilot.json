@@ -7,7 +7,8 @@
       "law-labor-inspection-1954",
       "training-safety-management-human-factors",
       "training-occupational-safety-management",
-      "training-safety-organization-final"
+      "training-safety-organization-final",
+      "training-operational-risks"
     ]
   },
   "citations": [
@@ -333,6 +334,120 @@
         "heading": "תרבות בטיחות מודרנית וחדשנות",
         "paragraphRange": "162-178",
         "originalWordNumbering": "5"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-operational-risks-intro-barriers",
+      "stableSourceId": "training-operational-risks",
+      "citationType": "heading",
+      "label": "מבוא לסיכונים תפעוליים וחסמים",
+      "locator": {
+        "heading": "מבוא ופילוסופיית ניהול סיכונים",
+        "paragraphRange": "35-42",
+        "originalWordNumbering": "מודול 01"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-operational-risks-pressure-equipment",
+      "stableSourceId": "training-operational-risks",
+      "citationType": "heading",
+      "label": "מתקני לחץ ובטיחות תהליכית",
+      "locator": {
+        "heading": "מתקני לחץ ודודי קיטור",
+        "paragraphRange": "43-68",
+        "originalWordNumbering": "מודול 02"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-operational-risks-lifting",
+      "stableSourceId": "training-operational-risks",
+      "citationType": "heading",
+      "label": "ציוד הרמה ודינמיקת עומסים",
+      "locator": {
+        "heading": "ציוד הרמה, עגורנים ומלגזות",
+        "paragraphRange": "69-85",
+        "originalWordNumbering": "מודול 03"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-operational-risks-construction",
+      "stableSourceId": "training-operational-risks",
+      "citationType": "heading",
+      "label": "בנייה, חפירות ועבודה בגובה",
+      "locator": {
+        "heading": "בנייה, חפירות ועבודה בגובה",
+        "paragraphRange": "86-106",
+        "originalWordNumbering": "מודול 04"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-operational-risks-loto-ptw",
+      "stableSourceId": "training-operational-risks",
+      "citationType": "heading",
+      "label": "בקרת אנרגיה והיתרי עבודה",
+      "locator": {
+        "heading": "בקרת אנרגיה: LOTO ומערך PTW",
+        "paragraphRange": "107-120",
+        "originalWordNumbering": "מודול 05"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-operational-risks-human-factors-rca",
+      "stableSourceId": "training-operational-risks",
+      "citationType": "heading",
+      "label": "גורמי אנוש, חסמים ו־RCA",
+      "locator": {
+        "heading": "גורמי אנוש, מודלי הגנה ו-RCA",
+        "paragraphRange": "121-129",
+        "originalWordNumbering": "מודול 06"
       },
       "authorityLevelAtCitation": 6,
       "verification": {
