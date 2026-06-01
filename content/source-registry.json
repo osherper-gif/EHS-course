@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "registryStatus": "pilot",
+  "entries": [
+    {
+      "stableSourceId": "law-labor-inspection-1954",
+      "title": "חוק ארגון הפיקוח על העבודה, תשי\"ד-1954",
+      "sourceType": "law",
+      "authorityLevel": 1,
+      "authorityCategory": "primary-legislation",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "1954",
+      "aliases": {
+        "scannerIds": [
+          "source-013-b3e4e54502a2"
+        ],
+        "fileNames": [
+          "חוק ארגון הפיקוח על העבודה, תשי״ד–1954.docx"
+        ],
+        "hashes": [
+          "b3e4e54502a2e63ade6b01ef8d14e9c07797e22d8279f17ea5ea26d070cb9a39"
+        ]
+      },
+      "file": {
+        "currentFileName": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954.docx",
+        "extension": "docx",
+        "sha256": "b3e4e54502a2e63ade6b01ef8d14e9c07797e22d8279f17ea5ea26d070cb9a39",
+        "modifiedAt": "2026-05-08T08:34:49.490Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Initial pilot registry entry. Not verified."
+      },
+      "status": "draft",
+      "notes": ""
+    },
+    {
+      "stableSourceId": "ordinance-work-safety-1970",
+      "title": "פקודת הבטיחות בעבודה [נוסח חדש], תש\"ל-1970",
+      "sourceType": "ordinance",
+      "authorityLevel": 1,
+      "authorityCategory": "primary-legislation",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "1970",
+      "aliases": {
+        "scannerIds": [
+          "source-016-ee98d1a9709e"
+        ],
+        "fileNames": [
+          "פקודת הבטיחות בעבודה [נוסח חדש], תשל-1970.docx"
+        ],
+        "hashes": [
+          "ee98d1a9709ef048c269a16f005b753fd84033e0d5d0c683e0099db47b5c1216"
+        ]
+      },
+      "file": {
+        "currentFileName": "פקודת הבטיחות בעבודה [נוסח חדש], תשל-1970.docx",
+        "extension": "docx",
+        "sha256": "ee98d1a9709ef048c269a16f005b753fd84033e0d5d0c683e0099db47b5c1216",
+        "modifiedAt": "2026-05-08T14:11:39.047Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Initial pilot registry entry. Not verified."
+      },
+      "status": "draft",
+      "notes": ""
+    },
+    {
+      "stableSourceId": "standard-iso-45001-2018",
+      "title": "ISO 45001:2018",
+      "sourceType": "standard",
+      "authorityLevel": 4,
+      "authorityCategory": "standard",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2018",
+      "aliases": {
+        "scannerIds": [
+          "source-017-5e481be138f0"
+        ],
+        "fileNames": [
+          "ISO-45001-first-edition_2018.docx"
+        ],
+        "hashes": [
+          "5e481be138f01d00a21d04b4345a15ba28d276f37b2ba72fc273174be75e030f"
+        ]
+      },
+      "file": {
+        "currentFileName": "ISO-45001-first-edition_2018.docx",
+        "extension": "docx",
+        "sha256": "5e481be138f01d00a21d04b4345a15ba28d276f37b2ba72fc273174be75e030f",
+        "modifiedAt": "2026-05-09T19:57:44.314Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Initial pilot registry entry. Not verified."
+      },
+      "status": "draft",
+      "notes": ""
+    }
+  ]
+}

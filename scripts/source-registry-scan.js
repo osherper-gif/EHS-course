@@ -5,7 +5,9 @@ const fs = require("fs");
 const path = require("path");
 
 const SOURCE_ROOT = "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\חומר שהתקבל מבאר הדרכות\\WORD\\ALL_WORDS_FOR_WEBSITE";
+const REGISTRY_PATH = path.join(__dirname, "..", "content", "source-registry.json");
 const JSON_MODE = process.argv.includes("--json");
+const MATCH_REGISTRY_MODE = process.argv.includes("--match-registry");
 
 function sha256(filePath) {
   const hash = crypto.createHash("sha256");
@@ -111,6 +113,110 @@ function printText(records) {
   });
 }
 
+function readRegistry() {
+  if (!fs.existsSync(REGISTRY_PATH)) {
+    console.error(`Source registry not found: ${REGISTRY_PATH}`);
+    process.exitCode = 1;
+    return null;
+  }
+
+  try {
+    const parsed = JSON.parse(fs.readFileSync(REGISTRY_PATH, "utf8"));
+    const entries = Array.isArray(parsed) ? parsed : parsed.entries;
+    if (!Array.isArray(entries)) {
+      console.error("Source registry must be an array or an object with an entries array.");
+      process.exitCode = 1;
+      return null;
+    }
+    return entries;
+  } catch (error) {
+    console.error(`Failed to read source registry: ${error.message}`);
+    process.exitCode = 1;
+    return null;
+  }
+}
+
+function matchRegistry(records) {
+  const registryEntries = readRegistry();
+  if (!registryEntries) return;
+
+  const recordsByHash = new Map(records.map((record) => [record.sha256, record]));
+  const recordsByFileName = new Map(records.map((record) => [record.fileName, record]));
+  const matched = [];
+  const matchedRecordIds = new Set();
+  const registryNotFound = [];
+  const changedHashWarnings = [];
+
+  registryEntries.forEach((entry) => {
+    const aliases = entry.aliases || {};
+    const hashCandidates = [entry.file && entry.file.sha256, ...(aliases.hashes || [])].filter(Boolean);
+    const fileNameCandidates = [entry.file && entry.file.currentFileName, ...(aliases.fileNames || [])].filter(Boolean);
+
+    const hashMatch = hashCandidates.map((hash) => recordsByHash.get(hash)).find(Boolean);
+    const fileNameMatch = fileNameCandidates.map((fileName) => recordsByFileName.get(fileName)).find(Boolean);
+    const record = hashMatch || fileNameMatch;
+
+    if (!record) {
+      registryNotFound.push(entry);
+      return;
+    }
+
+    matched.push({
+      stableSourceId: entry.stableSourceId,
+      scannerId: record.sourceId,
+      fileName: record.fileName,
+      matchedBy: hashMatch ? "hash" : "fileName"
+    });
+    matchedRecordIds.add(record.sourceId);
+
+    if (!hashMatch && entry.file && entry.file.sha256 && entry.file.sha256 !== record.sha256) {
+      changedHashWarnings.push({
+        stableSourceId: entry.stableSourceId,
+        fileName: record.fileName,
+        registryHash: entry.file.sha256,
+        scannedHash: record.sha256
+      });
+    }
+  });
+
+  const unmatchedScannedFiles = records.filter((record) => !matchedRecordIds.has(record.sourceId));
+
+  console.log("Source Registry Match");
+  console.log("=====================");
+  console.log(`Registry entries: ${registryEntries.length}`);
+  console.log(`Scanned sources: ${records.length}`);
+  console.log("");
+
+  console.log(`Matched sources: ${matched.length}`);
+  matched.forEach((item) => {
+    console.log(`- ${item.stableSourceId}`);
+    console.log(`  scannerId: ${item.scannerId}`);
+    console.log(`  fileName: ${item.fileName}`);
+    console.log(`  matchedBy: ${item.matchedBy}`);
+  });
+  console.log("");
+
+  console.log(`Unmatched scanned files: ${unmatchedScannedFiles.length}`);
+  unmatchedScannedFiles.forEach((item) => {
+    console.log(`- ${item.sourceId} | ${item.fileName}`);
+  });
+  console.log("");
+
+  console.log(`Registry entries not found in scan: ${registryNotFound.length}`);
+  registryNotFound.forEach((item) => {
+    const fileName = item.file && item.file.currentFileName ? item.file.currentFileName : "(missing fileName)";
+    console.log(`- ${item.stableSourceId || "(missing stableSourceId)"} | ${fileName}`);
+  });
+  console.log("");
+
+  console.log(`Changed hash warnings: ${changedHashWarnings.length}`);
+  changedHashWarnings.forEach((item) => {
+    console.log(`- WARNING ${item.stableSourceId} | ${item.fileName}`);
+    console.log(`  registryHash: ${item.registryHash}`);
+    console.log(`  scannedHash: ${item.scannedHash}`);
+  });
+}
+
 function main() {
   if (!fs.existsSync(SOURCE_ROOT)) {
     console.error(`Source directory not found: ${SOURCE_ROOT}`);
@@ -129,6 +235,11 @@ function main() {
       count: records.length,
       records
     }, null, 2));
+    return;
+  }
+
+  if (MATCH_REGISTRY_MODE) {
+    matchRegistry(records);
     return;
   }
 
