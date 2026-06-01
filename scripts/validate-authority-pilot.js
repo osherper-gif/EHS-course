@@ -46,8 +46,8 @@ function sourceVerificationStatus(source, citation, item) {
   );
 }
 
-function sourceAuthorityLevel(source, citation, ref) {
-  return ref.authorityLevel || citation?.authorityLevel || source?.authorityLevel || null;
+function sourceAuthorityLevel(source, citation) {
+  return citation?.authorityLevel || source?.authorityLevel || null;
 }
 
 function validate() {
@@ -67,10 +67,6 @@ function validate() {
 
   function block(item, message) {
     blocked.push(`${item.knowledgeItemId || "(missing knowledgeItemId)"}: ${message}`);
-  }
-
-  function warn(item, message) {
-    warnings.push(`${item.knowledgeItemId || "(missing knowledgeItemId)"}: ${message}`);
   }
 
   knowledgeItems.forEach((item) => {
@@ -94,7 +90,7 @@ function validate() {
 
       const source = ref.stableSourceId ? sourceById.get(ref.stableSourceId) : null;
       const citation = ref.citationId ? citationById.get(ref.citationId) : null;
-      const authorityLevel = sourceAuthorityLevel(source, citation, ref);
+      const authorityLevel = sourceAuthorityLevel(source, citation);
       const verificationStatus = sourceVerificationStatus(source, citation, item);
 
       if (!source) block(item, `sourceRefs[${index}] stableSourceId not found: ${ref.stableSourceId || "(missing)"}`);
@@ -106,14 +102,6 @@ function validate() {
 
       if (!authorityLevel) block(item, `sourceRefs[${index}] missing authorityLevel`);
       if (!verificationStatus) block(item, `sourceRefs[${index}] missing verificationStatus`);
-
-      if (ref.authorityLevel == null) {
-        warn(item, `sourceRefs[${index}] authorityLevel is resolved from citation/source, not denormalized on sourceRef`);
-      }
-
-      if (ref.verificationStatus == null) {
-        warn(item, `sourceRefs[${index}] verificationStatus is resolved from citation/item/source, not denormalized on sourceRef`);
-      }
 
       if (authoritative && !ACCEPTED_AUTHORITY_STATUSES.has(verificationStatus)) {
         block(item, `authoritative claim has unsupported verificationStatus: ${verificationStatus}`);
