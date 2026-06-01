@@ -74,6 +74,46 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     blocked.push(`${itemId(item)}: ${message}`);
   }
 
+  function blockSource(source, message) {
+    blocked.push(`source:${source?.stableSourceId || "(missing stableSourceId)"}: ${message}`);
+  }
+
+  function validateSourceRegistry() {
+    const seenStableSourceIds = new Set();
+
+    sources.forEach((source) => {
+      if (!source.stableSourceId) {
+        blockSource(source, "missing stableSourceId");
+        return;
+      }
+
+      if (seenStableSourceIds.has(source.stableSourceId)) {
+        blockSource(source, "duplicate stableSourceId");
+      }
+      seenStableSourceIds.add(source.stableSourceId);
+
+      if (SCANNER_ID_PATTERN.test(source.stableSourceId)) {
+        blockSource(source, "stableSourceId must not be a scannerId");
+      }
+
+      if (source.status !== "draft") {
+        blockSource(source, `status must be draft, got ${source.status || "(missing)"}`);
+      }
+
+      if (source.verification?.status !== "unverified") {
+        blockSource(source, `verification.status must be unverified, got ${source.verification?.status || "(missing)"}`);
+      }
+
+      if (source.bindingDefault !== false) {
+        blockSource(source, "bindingDefault must be false");
+      }
+
+      if (source.verification?.status === "verified" && !source.verification?.reviewedBy) {
+        blockSource(source, "verified source must include reviewedBy");
+      }
+    });
+  }
+
   function validateSourceRefs(item, sourceRefs, refLabel, authoritative) {
     if (!sourceRefs.length) {
       block(item, `missing ${refLabel}`);
@@ -123,6 +163,8 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
       }
     }
   }
+
+  validateSourceRegistry();
 
   knowledgeItems.forEach((item) => {
     validateTraceableItem(item, "knowledge item");

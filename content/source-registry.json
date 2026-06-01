@@ -1,10 +1,442 @@
 {
   "schemaVersion": 1,
-  "registryStatus": "pilot",
+  "registryStatus": "expanded-draft",
   "entries": [
     {
+      "stableSourceId": "training-lecture-summary-upgraded-final",
+      "title": "0.1.9.תקציר הרצאות_משודרג-סופי. העלאה לאתר",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-001-7d46b5110bb0"
+        ],
+        "fileNames": [
+          "0.1.9.תקציר הרצאות_משודרג-סופי. העלאה לאתר.docx"
+        ],
+        "hashes": [
+          "7d46b5110bb0fa25b9170aaa584f5c195664c89a28c6c76e06a02db925079479"
+        ]
+      },
+      "file": {
+        "currentFileName": "0.1.9.תקציר הרצאות_משודרג-סופי. העלאה לאתר.docx",
+        "extension": "docx",
+        "sha256": "7d46b5110bb0fa25b9170aaa584f5c195664c89a28c6c76e06a02db925079479",
+        "modifiedAt": "2026-05-24T22:56:08.286Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "training-safety-organization-final",
+      "title": "0.2.8.ארגון מערך הבטיחות-סופי.העלאה לאתר",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-002-3d721bc99eb4"
+        ],
+        "fileNames": [
+          "0.2.8.ארגון מערך הבטיחות-סופי.העלאה לאתר.docx"
+        ],
+        "hashes": [
+          "3d721bc99eb455d33e698a20eee9f3f4aab4be6a6e5b12b158240a77276749aa"
+        ]
+      },
+      "file": {
+        "currentFileName": "0.2.8.ארגון מערך הבטיחות-סופי.העלאה לאתר.docx",
+        "extension": "docx",
+        "sha256": "3d721bc99eb455d33e698a20eee9f3f4aab4be6a6e5b12b158240a77276749aa",
+        "modifiedAt": "2026-06-01T13:24:58.319Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "course-syllabus",
+      "title": "0.תוכנית_לימוד",
+      "sourceType": "unknown",
+      "authorityLevel": 7,
+      "authorityCategory": "unknown",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "unknown",
+      "aliases": {
+        "scannerIds": [
+          "source-003-77555f260504"
+        ],
+        "fileNames": [
+          "0.תוכנית_לימוד.docx"
+        ],
+        "hashes": [
+          "77555f260504e45da13112fe80d521e6f11204536714e2db404f2f56afdc3e33"
+        ]
+      },
+      "file": {
+        "currentFileName": "0.תוכנית_לימוד.docx",
+        "extension": "docx",
+        "sha256": "77555f260504e45da13112fe80d521e6f11204536714e2db404f2f56afdc3e33",
+        "modifiedAt": "2026-05-25T09:36:37.976Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "training-maintenance-safety",
+      "title": "1.9.3.בטיחות בעבודת אחזקה-סופי. העלאה לאתר",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-004-e7001775568b"
+        ],
+        "fileNames": [
+          "1.9.3.בטיחות בעבודת אחזקה-סופי. העלאה לאתר.docx"
+        ],
+        "hashes": [
+          "e7001775568bb7e83bc28359f52ab9ad118f036488a78e331980852f936eec5c"
+        ]
+      },
+      "file": {
+        "currentFileName": "1.9.3.בטיחות בעבודת אחזקה-סופי. העלאה לאתר.docx",
+        "extension": "docx",
+        "sha256": "e7001775568bb7e83bc28359f52ab9ad118f036488a78e331980852f936eec5c",
+        "modifiedAt": "2026-05-24T23:32:46.844Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "training-operational-risks",
+      "title": "2.9.5.סיכונים תפעוליים-סופי.העלאה לאתר",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-005-6bf24b8422f6"
+        ],
+        "fileNames": [
+          "2.9.5.סיכונים תפעוליים-סופי.העלאה לאתר.docx"
+        ],
+        "hashes": [
+          "6bf24b8422f66a85cd9eeeb228d632a33d876a53798ff6c9b8a487d6687c5571"
+        ]
+      },
+      "file": {
+        "currentFileName": "2.9.5.סיכונים תפעוליים-סופי.העלאה לאתר.docx",
+        "extension": "docx",
+        "sha256": "6bf24b8422f66a85cd9eeeb228d632a33d876a53798ff6c9b8a487d6687c5571",
+        "modifiedAt": "2026-05-24T23:39:18.944Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "training-construction-sites-safety",
+      "title": "3.9.5.בטיחות באתרי בנייה-סופי.העלאה לאתר",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-006-6f280909f8db"
+        ],
+        "fileNames": [
+          "3.9.5.בטיחות באתרי בנייה-סופי.העלאה לאתר.docx"
+        ],
+        "hashes": [
+          "6f280909f8db08164b8c91ae5dbb4d700b9101c7f05b99a6cb4a479f1fee9012"
+        ]
+      },
+      "file": {
+        "currentFileName": "3.9.5.בטיחות באתרי בנייה-סופי.העלאה לאתר.docx",
+        "extension": "docx",
+        "sha256": "6f280909f8db08164b8c91ae5dbb4d700b9101c7f05b99a6cb4a479f1fee9012",
+        "modifiedAt": "2026-06-01T14:21:31.520Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "training-electrical-safety",
+      "title": "4.9.חשמל והגנה מחשמל-סופי. העלאה לאתר",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-007-2be6a3d6c2ee"
+        ],
+        "fileNames": [
+          "4.9.חשמל והגנה מחשמל-סופי. העלאה לאתר.docx"
+        ],
+        "hashes": [
+          "2be6a3d6c2ee9131a3bbe8613b6fdc96d61ed293101b9f3012251f8abcc65aa7"
+        ]
+      },
+      "file": {
+        "currentFileName": "4.9.חשמל והגנה מחשמל-סופי. העלאה לאתר.docx",
+        "extension": "docx",
+        "sha256": "2be6a3d6c2ee9131a3bbe8613b6fdc96d61ed293101b9f3012251f8abcc65aa7",
+        "modifiedAt": "2026-06-01T13:46:57.016Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "training-chemical-and-general-risks",
+      "title": "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-008-6d9591ad51f0"
+        ],
+        "fileNames": [
+          "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר.docx"
+        ],
+        "hashes": [
+          "6d9591ad51f0cf3d178936b8ea5ab49ea9b3212508edeac5c4648cd6282761a6"
+        ]
+      },
+      "file": {
+        "currentFileName": "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר.docx",
+        "extension": "docx",
+        "sha256": "6d9591ad51f0cf3d178936b8ea5ab49ea9b3212508edeac5c4648cd6282761a6",
+        "modifiedAt": "2026-06-01T15:27:01.095Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "training-occupational-hygiene",
+      "title": "6.3.גהות תעסוקתית-סופי.העלאה לאתר",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-009-a50e8d7c58fe"
+        ],
+        "fileNames": [
+          "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx"
+        ],
+        "hashes": [
+          "a50e8d7c58fedf55ba17dc8f861fdc28860517c9d56f453e64b751b216e02190"
+        ]
+      },
+      "file": {
+        "currentFileName": "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx",
+        "extension": "docx",
+        "sha256": "a50e8d7c58fedf55ba17dc8f861fdc28860517c9d56f453e64b751b216e02190",
+        "modifiedAt": "2026-06-01T15:24:02.699Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "training-safety-management-human-factors",
+      "title": "7.3.ניהול בטיחות גורם אנוש-סופי. העלאה לאתר",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-010-ff7e1514c4dc"
+        ],
+        "fileNames": [
+          "7.3.ניהול בטיחות גורם אנוש-סופי. העלאה לאתר.docx"
+        ],
+        "hashes": [
+          "ff7e1514c4dc4dc6b7247c565517e7e0391d50c45ef95f8bb3d407d90ef2a5e7"
+        ]
+      },
+      "file": {
+        "currentFileName": "7.3.ניהול בטיחות גורם אנוש-סופי. העלאה לאתר.docx",
+        "extension": "docx",
+        "sha256": "ff7e1514c4dc4dc6b7247c565517e7e0391d50c45ef95f8bb3d407d90ef2a5e7",
+        "modifiedAt": "2026-05-24T21:58:45.023Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "training-occupational-safety-management",
+      "title": "8.3.ניהול בטיחות בתעסוקה-סופי.העלאה לאתר",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-011-a306db107fef"
+        ],
+        "fileNames": [
+          "8.3.ניהול בטיחות בתעסוקה-סופי.העלאה לאתר.docx"
+        ],
+        "hashes": [
+          "a306db107fefe2e52220560fdd39eac701f889b1e7211af4e1e309907b314de6"
+        ]
+      },
+      "file": {
+        "currentFileName": "8.3.ניהול בטיחות בתעסוקה-סופי.העלאה לאתר.docx",
+        "extension": "docx",
+        "sha256": "a306db107fefe2e52220560fdd39eac701f889b1e7211af4e1e309907b314de6",
+        "modifiedAt": "2026-05-24T22:19:15.755Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "training-emergency-preparedness",
+      "title": "9.3.הערכות למצבי חירום-סופי.העלאה לאתר",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-012-1d7100d3451e"
+        ],
+        "fileNames": [
+          "9.3.הערכות למצבי חירום-סופי.העלאה לאתר.docx"
+        ],
+        "hashes": [
+          "1d7100d3451e07b524844ba5822a93f629dc735717adea6cc9347193cde003f7"
+        ]
+      },
+      "file": {
+        "currentFileName": "9.3.הערכות למצבי חירום-סופי.העלאה לאתר.docx",
+        "extension": "docx",
+        "sha256": "1d7100d3451e07b524844ba5822a93f629dc735717adea6cc9347193cde003f7",
+        "modifiedAt": "2026-06-01T15:20:51.983Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
       "stableSourceId": "law-labor-inspection-1954",
-      "title": "חוק ארגון הפיקוח על העבודה, תשי\"ד-1954",
+      "title": "חוק ארגון הפיקוח על העבודה, תשי״ד–1954",
       "sourceType": "law",
       "authorityLevel": 1,
       "authorityCategory": "primary-legislation",
@@ -33,14 +465,86 @@
         "status": "unverified",
         "reviewedBy": null,
         "reviewedAt": null,
-        "notes": "Initial pilot registry entry. Not verified."
+        "notes": "Pilot registry entry expanded from scanner metadata. Not verified."
       },
       "status": "draft",
-      "notes": ""
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "exam-readiness-safety-occupational-hygiene",
+      "title": "מוכנות למבחני בטיחות וגהות תעסוקתית",
+      "sourceType": "interpretation-or-exam-note",
+      "authorityLevel": 7,
+      "authorityCategory": "interpretation-or-exam-note",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-014-5e491e629c9d"
+        ],
+        "fileNames": [
+          "מוכנות למבחני בטיחות וגהות תעסוקתית.docx"
+        ],
+        "hashes": [
+          "5e491e629c9dbd8c1c7b200c2db3fa40f350ef8c9270b1e4343e14155e30389e"
+        ]
+      },
+      "file": {
+        "currentFileName": "מוכנות למבחני בטיחות וגהות תעסוקתית.docx",
+        "extension": "docx",
+        "sha256": "5e491e629c9dbd8c1c7b200c2db3fa40f350ef8c9270b1e4343e14155e30389e",
+        "modifiedAt": "2026-06-01T16:06:56.764Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
+    },
+    {
+      "stableSourceId": "exam-summary-safety-officer",
+      "title": "סיכום למבחן-ממונה בטיחות",
+      "sourceType": "training-material",
+      "authorityLevel": 6,
+      "authorityCategory": "training-material",
+      "bindingDefault": false,
+      "jurisdiction": "IL",
+      "language": "he",
+      "version": "2026",
+      "aliases": {
+        "scannerIds": [
+          "source-015-a3c0fd6b1446"
+        ],
+        "fileNames": [
+          "סיכום למבחן-ממונה בטיחות.pdf"
+        ],
+        "hashes": [
+          "a3c0fd6b14460d6c015c62a4c2434b14c97858d591ca377e0b913f02c5f4a162"
+        ]
+      },
+      "file": {
+        "currentFileName": "סיכום למבחן-ממונה בטיחות.pdf",
+        "extension": "pdf",
+        "sha256": "a3c0fd6b14460d6c015c62a4c2434b14c97858d591ca377e0b913f02c5f4a162",
+        "modifiedAt": "2026-05-28T19:37:07.046Z"
+      },
+      "verification": {
+        "status": "unverified",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Expanded registry entry from scanner metadata. Not verified."
+      },
+      "status": "draft",
+      "notes": "Pending source registry review."
     },
     {
       "stableSourceId": "ordinance-work-safety-1970",
-      "title": "פקודת הבטיחות בעבודה [נוסח חדש], תש\"ל-1970",
+      "title": "פקודת הבטיחות בעבודה [נוסח חדש], תשל-1970",
       "sourceType": "ordinance",
       "authorityLevel": 1,
       "authorityCategory": "primary-legislation",
@@ -69,20 +573,20 @@
         "status": "unverified",
         "reviewedBy": null,
         "reviewedAt": null,
-        "notes": "Initial pilot registry entry. Not verified."
+        "notes": "Pilot registry entry expanded from scanner metadata. Not verified."
       },
       "status": "draft",
-      "notes": ""
+      "notes": "Pending source registry review."
     },
     {
       "stableSourceId": "standard-iso-45001-2018",
-      "title": "ISO 45001:2018",
+      "title": "ISO-45001-first-edition_2018",
       "sourceType": "standard",
       "authorityLevel": 4,
       "authorityCategory": "standard",
       "bindingDefault": false,
-      "jurisdiction": "IL",
-      "language": "he",
+      "jurisdiction": "INTL",
+      "language": "en",
       "version": "2018",
       "aliases": {
         "scannerIds": [
@@ -105,10 +609,10 @@
         "status": "unverified",
         "reviewedBy": null,
         "reviewedAt": null,
-        "notes": "Initial pilot registry entry. Not verified."
+        "notes": "Pilot registry entry expanded from scanner metadata. Not verified."
       },
       "status": "draft",
-      "notes": ""
+      "notes": "Pending source registry review."
     }
   ]
 }
