@@ -3,10 +3,11 @@
   "registryStatus": "pilot",
   "scope": {
     "stableSourceId": "law-labor-inspection-1954",
-    "description": "Content Blocks pilot proving traceability, presentation rules, and real Level 6 training content migration.",
+    "description": "Content Blocks pilot with real Level 6 training content migration.",
     "stableSourceIds": [
       "law-labor-inspection-1954",
-      "training-safety-management-human-factors"
+      "training-safety-management-human-factors",
+      "training-occupational-safety-management"
     ]
   },
   "contentBlocks": [
@@ -1739,6 +1740,982 @@
       "rendering": {
         "label": "צ׳קליסט",
         "tone": "checklist",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-safety-sms-definition",
+      "blockType": "definition",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-sms",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / מערכת ניהול בטיחות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מהות מערכת ניהול בטיחות",
+        "text": "מערכת ניהול בטיחות היא מערכת ניהולית כוללת, מובנית ואינטגרטיבית, המחברת מבנה ארגוני, קווי אחריות, מדיניות, נהלים ומשאבים כדי למנוע תאונות, לצמצם סיכונים ולשמור על רציפות תפעולית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכת ניהול בטיחות בתעסוקה",
+          "paragraphRange": "8-10",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-safety-sms-simple-model",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-sms",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / מערכת ניהול בטיחות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בטיחות כמערכת ניהול ולא כאוסף ציוד",
+        "text": "המסמך מדגיש שבטיחות אינה מוצר מדף ואינה מסתכמת בציוד מגן אישי. כמו מערכת כספים או איכות, גם מערכת בטיחות מנהלת סיכונים, חשיפות, אחריות ותהליכי דיווח.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכת ניהול בטיחות בתעסוקה",
+          "paragraphRange": "11-14",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-safety-sms-pillars",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-sms",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / מערכת ניהול בטיחות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "ארבעת נדבכי ה־SMS",
+        "text": "ארכיטקטורת SMS מוצגת כבנויה ממדיניות, ניהול סיכונים, הבטחת בטיחות וקידום בטיחות.",
+        "items": [
+          "מדיניות ומטרות בטיחות חתומות ומגובה משאבים.",
+          "ניהול סיכונים שיטתי: זיהוי, הערכה ובקרה.",
+          "הבטחת בטיחות באמצעות מבדקים, סיורים, תחקור ו־KPI.",
+          "קידום בטיחות באמצעות הדרכות, תקשורת ותרבות דיווח."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכת ניהול בטיחות בתעסוקה",
+          "paragraphRange": "15-20",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "כרטיס פעולה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-safety-sms-workarounds",
+      "blockType": "warning",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-sms",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / מערכת ניהול בטיחות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "נהלים על הנייר ו־Workarounds בשטח",
+        "text": "כאשר נהלים מסורבלים, מנותקים מהשטח או סותרים יעדי ייצור, עובדים עלולים ליצור נהלים לא רשמיים כדי לעמוד בלחץ התפוקות. זהו סימן לכשל תכנוני ולא רק לכשל משמעת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכת ניהול בטיחות בתעסוקה",
+          "paragraphRange": "21-22",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת שטח",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-safety-sms-accident-chain",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-sms",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / מערכת ניהול בטיחות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תאונה כתוצאה מכשל מערכתי",
+        "text": "המסמך מציג תפיסה שלפיה תאונה במערכת SMS פגומה אינה רק “רשלנות עובד”, אלא רצף של כשל ניהולי, תנאי סמוי, לחץ תפעולי, פעולה לא בטוחה ותאונה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכת ניהול בטיחות בתעסוקה",
+          "paragraphRange": "23-26",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-safety-governance-definition",
+      "blockType": "definition",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-governance-kpi",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / מנהיגות ו-KPI",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-governance-kpi-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ממשל בטיחות",
+        "text": "ממשל בטיחות הוא המנגנון המבני והארגוני שבאמצעותו הנהלה ודירקטוריון מכוונים, מבקרים ומפקחים על ביצועי בטיחות וסיכונים תעסוקתיים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ממשל בטיחות ומדדי ביצוע",
+          "paragraphRange": "44-49",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-safety-governance-accountability",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-governance-kpi",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / מנהיגות ו-KPI",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-governance-kpi-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "Accountability של ההנהלה",
+        "text": "ממשל בטיחות קובע חלוקת סמכויות, אחריותיות ודיווחיות. הוא מעביר את הבטיחות משיח של רצפת ייצור בלבד לשיח ניהולי הכולל משאבים, סדרי עדיפויות ודוגמה אישית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ממשל בטיחות ומדדי ביצוע",
+          "paragraphRange": "49-51",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-safety-leading-lagging",
+      "blockType": "definition",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-governance-kpi",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / מנהיגות ו-KPI",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-governance-kpi-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "מדדים מובילים ומדדים מפגרים",
+        "text": "מדדים מובילים מעריכים את אפקטיביות הבקרות לפני אירוע, כגון ביצוע סיורים או סגירת פעולות מתקנות. מדדים מפגרים מודדים תוצאות שכבר קרו, כמו תאונות או ימי היעדרות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ממשל בטיחות ומדדי ביצוע",
+          "paragraphRange": "45-47",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-safety-production-pressure",
+      "blockType": "warning",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-governance-kpi",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / מנהיגות ו-KPI",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-governance-kpi-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "לחץ תפוקות כמסר כפול",
+        "text": "כאשר ההנהלה מצהירה שבטיחות מעל הכל אך בפועל מענישה עיכוב קו בשל תקלת מיגון, העובד חווה מסר כפול ועלול לבחור בקיצור דרך כדי לרצות את המערכת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ממשל בטיחות ומדדי ביצוע",
+          "paragraphRange": "78-79",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת ניהול",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-safety-governance-rca",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-governance-kpi",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / מנהיגות ו-KPI",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-governance-kpi-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "שורש כשל מנהיגותי",
+        "text": "בניתוח 5 Why שהמסמך מציג, הפגיעה אינה נעצרת בהחלטת העובד לחסוך זמן. שורש הכשל הוא ממשל בטיחות לקוי: בונוס ויעדי ייצור שאינם משלבים מדדי בטיחות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ממשל בטיחות ומדדי ביצוע",
+          "paragraphRange": "80-86",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-risk-hazard-risk",
+      "blockType": "definition",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-risk-assessment",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / הערכת סיכונים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "מפגע מול סיכון",
+        "text": "מפגע הוא מקור, מצב או פעולה בעלי פוטנציאל לנזק. סיכון הוא השילוב בין ההסתברות להתרחשות אירוע מסוכן לבין חומרת הנזק האפשרי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "זיהוי והערכת סיכונים",
+          "paragraphRange": "105-108",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-risk-simple-question",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-risk-assessment",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / הערכת סיכונים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "השאלה התפעולית של הערכת סיכונים",
+        "text": "הערכת סיכונים מתחילה בשאלה “מה יכול להזיק?”, וממשיכה לשאלה מה הסיכוי שהנזק יתרחש וכמה חמור הוא יהיה. התוצאה מסייעת לקבוע סדרי עדיפויות לטיפול.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "זיהוי והערכת סיכונים",
+          "paragraphRange": "109-110",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-risk-four-steps",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-risk-assessment",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / הערכת סיכונים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "ארבעת שלבי ניהול הסיכון",
+        "text": "המסמך מציג תהליך מעגלי של זיהוי, ניתוח, בקרת סיכון ובדיקה מחדש.",
+        "items": [
+          "זיהוי מפגעים באמצעות סקרים, רשימות תיוג, JSA או HAZOP.",
+          "ניתוח הסיכון לפי חומרה והסתברות.",
+          "הטמעת בקרות להפחתת הסיכון.",
+          "סקירה מחדש כדי לוודא שהבקרות עובדות ולא יצרו סיכון שיורי חדש."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "זיהוי והערכת סיכונים",
+          "paragraphRange": "111-116",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "כרטיס פעולה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-risk-complacency",
+      "blockType": "warning",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-risk-assessment",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / הערכת סיכונים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "שאננות של עובדים ותיקים",
+        "text": "עובדים ותיקים שביצעו משימה מסוכנת פעמים רבות ללא פגיעה עלולים לפתח עיוורון למפגעים וביטחון יתר. סקר סיכונים נועד לנתח את העבודה באופן אובייקטיבי ולא להסתמך על תחושת שליטה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "זיהוי והערכת סיכונים",
+          "paragraphRange": "159-160",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת גורם אנושי",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-risk-survey-failure-rca",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-risk-assessment",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / הערכת סיכונים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "כשל בסקר סיכונים כתמרור RCA",
+        "text": "בתחקיר תאונה, בודקים האם המפגע הופיע בסקר, האם הוערך נכון, ואם הוגדר גבוה אך לא טופל. כל אחת מהאפשרויות מצביעה על סוג שונה של כשל ניהולי או מקצועי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "זיהוי והערכת סיכונים",
+          "paragraphRange": "161-165",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-controls-hierarchy-definition",
+      "blockType": "definition",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-controls-hierarchy",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / היררכיית בקרות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "היררכיית בקרות הסיכון",
+        "text": "היררכיית הבקרות היא מדרג הנדסי וניהולי לקביעת סדר עדיפויות בטיפול בסיכונים, מהפחתה במקור ועד הגנה התלויה בהתנהגות העובד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "היררכיית בקרות הסיכון",
+          "paragraphRange": "182-190",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-controls-five-levels",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-controls-hierarchy",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / היררכיית בקרות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "סדר הבקרות לפי אפקטיביות",
+        "text": "המסמך מציג סדר יורד של אפקטיביות: סילוק, החלפה, בקרות הנדסיות, בקרות ניהוליות וציוד מגן אישי.",
+        "items": [
+          "סילוק הסיכון מהתהליך.",
+          "החלפה בחומר, ציוד או תהליך פחות מסוכנים.",
+          "בקרה הנדסית שמבודדת את המפגע.",
+          "בקרה ניהולית כמו נהלים, הדרכות והיתרי עבודה.",
+          "ציוד מגן אישי כמחסום אחרון על גוף העובד."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "היררכיית בקרות הסיכון",
+          "paragraphRange": "183-190",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-controls-dog-example",
+      "blockType": "field-example",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-controls-hierarchy",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / היררכיית בקרות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "דוגמת הכלב התוקפני",
+        "text": "המסמך משתמש בדוגמת כלב תוקפני כדי להמחיש מדוע סילוק או החלפה עדיפים על שלט, נוהל או ציוד מגן אישי. הדוגמה מלמדת על תלות הולכת וגוברת בהתנהגות העובד ככל שיורדים במדרג.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "היררכיית בקרות הסיכון",
+          "paragraphRange": "191-197",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דוגמה לימודית",
+        "tone": "field",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-controls-hard-soft",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-controls-hierarchy",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / היררכיית בקרות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בקרות קשיחות מול בקרות רכות",
+        "text": "בקרות שמטפלות במקור הסיכון או בסביבתו נחשבות יציבות יותר. נהלים, שילוט ו־PPE תלויים יותר בקשב, ציות ונוחות של האדם ולכן מועדים יותר לכשל חשיפה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "היררכיית בקרות הסיכון",
+          "paragraphRange": "198-199",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-occ-controls-human-factor-ppe",
+      "blockType": "warning",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-controls-hierarchy",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / היררכיית בקרות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "עומס קוגניטיבי וציוד מגן אישי",
+        "text": "המסמך מדגים כיצד פתרון מהיר וזול כמו PPE עלול להעביר עומס פיזי וקוגניטיבי לעובד. אם הציוד לא נוח או מתיש, העובד עשוי להסיר אותו כאשר אין פיקוח.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "היררכיית בקרות הסיכון",
+          "paragraphRange": "215-218",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת שטח",
+        "tone": "warning",
         "showAuthorityBadge": true
       },
       "authoritySummary": {

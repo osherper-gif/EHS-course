@@ -2,12 +2,13 @@
   "schemaVersion": 1,
   "registryStatus": "pilot",
   "scope": {
-    "description": "Topic mapping pilot covering legal content blocks and real Level 6 training-source content blocks.",
+    "description": "Topic mapping pilot with real Level 6 training-source topics.",
     "sourceIds": [
       "law-labor-inspection-1954"
     ],
     "stableSourceIds": [
-      "training-safety-management-human-factors"
+      "training-safety-management-human-factors",
+      "training-occupational-safety-management"
     ]
   },
   "topics": [
@@ -410,6 +411,156 @@
         "block-real-checklist-near-miss",
         "block-real-checklist-rca",
         "block-real-checklist-safety-officer-protection"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-safety-management-real",
+      "title": "ניהול בטיחות בתעסוקה",
+      "description": "מערכת ניהול בטיחות, ממשל בטיחות, מדדי ביצוע, הערכת סיכונים והיררכיית בקרות מתוך מקור הדרכה.",
+      "parentTopicId": null,
+      "aliases": [],
+      "relatedTopicIds": [
+        "sms-management-system-real",
+        "safety-governance-kpi-real",
+        "risk-assessment-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-occupational-safety-management"
+      ],
+      "blockIds": [
+        "block-occ-safety-sms-definition",
+        "block-occ-safety-sms-simple-model",
+        "block-occ-safety-sms-pillars",
+        "block-occ-safety-sms-workarounds",
+        "block-occ-safety-sms-accident-chain",
+        "block-occ-safety-governance-definition",
+        "block-occ-safety-governance-accountability",
+        "block-occ-safety-leading-lagging",
+        "block-occ-safety-production-pressure",
+        "block-occ-safety-governance-rca",
+        "block-occ-risk-hazard-risk",
+        "block-occ-risk-simple-question",
+        "block-occ-risk-four-steps",
+        "block-occ-risk-complacency",
+        "block-occ-risk-survey-failure-rca",
+        "block-occ-controls-hierarchy-definition",
+        "block-occ-controls-five-levels",
+        "block-occ-controls-dog-example",
+        "block-occ-controls-hard-soft",
+        "block-occ-controls-human-factor-ppe"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "sms-management-system-real",
+      "title": "מערכת ניהול בטיחות SMS",
+      "description": "מבנה SMS, אחריות, מדיניות, ניהול סיכונים, הבטחת בטיחות וקידום בטיחות.",
+      "parentTopicId": "occupational-safety-management-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "safety-governance-kpi-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-occupational-safety-management"
+      ],
+      "blockIds": [
+        "block-occ-safety-sms-definition",
+        "block-occ-safety-sms-simple-model",
+        "block-occ-safety-sms-pillars",
+        "block-occ-safety-sms-workarounds",
+        "block-occ-safety-sms-accident-chain"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-governance-kpi-real",
+      "title": "ממשל בטיחות ומדדי ביצוע",
+      "description": "Accountability ניהולי, מדדים מובילים ומדדים מפגרים, ולחצי תפוקה.",
+      "parentTopicId": "occupational-safety-management-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "sms-management-system-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-occupational-safety-management"
+      ],
+      "blockIds": [
+        "block-occ-safety-governance-definition",
+        "block-occ-safety-governance-accountability",
+        "block-occ-safety-leading-lagging",
+        "block-occ-safety-production-pressure",
+        "block-occ-safety-governance-rca"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "risk-assessment-management-real",
+      "title": "זיהוי והערכת סיכונים",
+      "description": "מפגע מול סיכון, תהליך הערכה, סקרי סיכונים וכשלי הערכה.",
+      "parentTopicId": "occupational-safety-management-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-occupational-safety-management"
+      ],
+      "blockIds": [
+        "block-occ-risk-hazard-risk",
+        "block-occ-risk-simple-question",
+        "block-occ-risk-four-steps",
+        "block-occ-risk-complacency",
+        "block-occ-risk-survey-failure-rca"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "hierarchy-of-controls-real",
+      "title": "היררכיית בקרות",
+      "description": "סדר עדיפויות לטיפול בסיכונים, מבקרות במקור ועד PPE.",
+      "parentTopicId": "occupational-safety-management-real",
+      "aliases": [],
+      "relatedTopicIds": [
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-occupational-safety-management"
+      ],
+      "blockIds": [
+        "block-occ-controls-hierarchy-definition",
+        "block-occ-controls-five-levels",
+        "block-occ-controls-dog-example",
+        "block-occ-controls-hard-soft",
+        "block-occ-controls-human-factor-ppe"
       ],
       "status": "draft"
     }

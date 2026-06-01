@@ -2,10 +2,11 @@
   "schemaVersion": 1,
   "registryStatus": "pilot",
   "scope": {
-    "description": "Citation registry pilot covering Level 1 legal source and real Level 6 training source locators.",
+    "description": "Citation registry pilot covering legal and real Level 6 training source locators.",
     "stableSourceIds": [
       "law-labor-inspection-1954",
-      "training-safety-management-human-factors"
+      "training-safety-management-human-factors",
+      "training-occupational-safety-management"
     ]
   },
   "citations": [
@@ -167,6 +168,82 @@
         "reviewedBy": null,
         "reviewedAt": null,
         "notes": "Real migration pilot from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-occupational-safety-sms",
+      "stableSourceId": "training-occupational-safety-management",
+      "citationType": "heading",
+      "label": "מערכת ניהול בטיחות בתעסוקה",
+      "locator": {
+        "heading": "מבוא לניהול בטיחות בתעסוקה ו-SMS",
+        "paragraphRange": "6-43",
+        "originalWordNumbering": "1"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-occupational-safety-governance-kpi",
+      "stableSourceId": "training-occupational-safety-management",
+      "citationType": "heading",
+      "label": "ממשל בטיחות ומדדי ביצוע",
+      "locator": {
+        "heading": "ממשל בטיחות, מנהיגות ומדדי ביצוע",
+        "paragraphRange": "44-102",
+        "originalWordNumbering": "2"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-occupational-safety-risk-assessment",
+      "stableSourceId": "training-occupational-safety-management",
+      "citationType": "heading",
+      "label": "זיהוי והערכת סיכונים",
+      "locator": {
+        "heading": "ארכיטקטורת ניהול סיכונים",
+        "paragraphRange": "103-181",
+        "originalWordNumbering": "3"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
+      },
+      "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-training-occupational-safety-controls-hierarchy",
+      "stableSourceId": "training-occupational-safety-management",
+      "citationType": "heading",
+      "label": "היררכיית בקרות הסיכון",
+      "locator": {
+        "heading": "היררכיית בקרות הסיכון",
+        "paragraphRange": "182-220",
+        "originalWordNumbering": "4"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Real migration from Level 6 training source."
       },
       "notes": "Training material locator; not a legal citation."
     }
