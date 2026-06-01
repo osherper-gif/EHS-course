@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "registryStatus": "pilot",
+  "scope": {
+    "description": "Lesson mapping pilot for Source Governance content only. This does not modify the official Learning Path.",
+    "sourceIds": [
+      "law-labor-inspection-1954"
+    ]
+  },
+  "lessonMappings": [
+    {
+      "lessonId": "lesson-03",
+      "title": "חוק ארגון הפיקוח על העבודה",
+      "relatedTopicIds": [
+        "labor-inspection-law",
+        "improvement-order",
+        "legal-definitions",
+        "exam-focus",
+        "source-governance"
+      ],
+      "blockIds": [
+        "block-labor-inspection-improvement-order-appeal-summary",
+        "block-labor-inspection-improvement-order-exam-focus",
+        "block-labor-inspection-second-chapter-definitions",
+        "block-labor-inspection-pilot-traceability-summary"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "status": "draft"
+    },
+    {
+      "lessonId": "lesson-05",
+      "title": "ועדת בטיחות ונאמני בטיחות",
+      "relatedTopicIds": [
+        "safety-committee",
+        "safety-committee-composition",
+        "roles-and-responsibilities",
+        "management-responsibility",
+        "exam-focus",
+        "source-governance"
+      ],
+      "blockIds": [
+        "block-labor-inspection-safety-committee-heading",
+        "block-labor-inspection-safety-committee-legal-reference",
+        "block-labor-inspection-safety-committee-warning",
+        "block-labor-inspection-committee-composition-note",
+        "block-labor-inspection-committee-composition-table",
+        "block-labor-inspection-committee-common-trap",
+        "block-labor-inspection-pilot-traceability-summary"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "status": "draft"
+    },
+    {
+      "lessonId": "lesson-07",
+      "title": "אחריות משפטית",
+      "relatedTopicIds": [
+        "labor-inspection-law",
+        "improvement-order"
+      ],
+      "blockIds": [
+        "block-labor-inspection-improvement-order-appeal-summary",
+        "block-labor-inspection-improvement-order-exam-focus"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "status": "draft"
+    },
+    {
+      "lessonId": "lesson-08",
+      "title": "ארגון מערך הבטיחות",
+      "relatedTopicIds": [
+        "safety-program",
+        "safety-management",
+        "management-responsibility",
+        "safety-committee",
+        "safety-committee-composition",
+        "roles-and-responsibilities"
+      ],
+      "blockIds": [
+        "block-labor-inspection-safety-program-definition",
+        "block-labor-inspection-safety-program-checklist",
+        "block-labor-inspection-safety-committee-heading",
+        "block-labor-inspection-safety-committee-legal-reference",
+        "block-labor-inspection-safety-committee-warning",
+        "block-labor-inspection-committee-composition-note",
+        "block-labor-inspection-committee-composition-table"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "status": "draft"
+    }
+  ]
+}

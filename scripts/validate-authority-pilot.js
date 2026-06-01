@@ -11,6 +11,7 @@ const QUESTION_ITEMS_PATH = path.join(ROOT, "content", "question-items-pilot.jso
 const GOLDEN_NUMBERS_PATH = path.join(ROOT, "content", "golden-numbers-pilot.json");
 const CONTENT_BLOCKS_PATH = path.join(ROOT, "content", "content-blocks-pilot.json");
 const TOPIC_MAP_PATH = path.join(ROOT, "content", "topic-map-pilot.json");
+const LESSON_MAP_PATH = path.join(ROOT, "content", "lesson-map-pilot.json");
 
 const AUTHORITATIVE_CLAIM_TYPES = new Set([
   "legalRequirement",
@@ -57,10 +58,10 @@ function sourceAuthorityLevel(source, citation) {
 }
 
 function itemId(item) {
-  return item.knowledgeItemId || item.questionId || item.goldenNumberId || item.blockId || "(missing item id)";
+  return item.knowledgeItemId || item.questionId || item.goldenNumberId || item.blockId || item.topicId || item.lessonId || "(missing item id)";
 }
 
-function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, questionRegistry, goldenNumberRegistry, contentBlockRegistry, topicMapRegistry) {
+function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, questionRegistry, goldenNumberRegistry, contentBlockRegistry, topicMapRegistry, lessonMapRegistry) {
   const sources = asArray(sourceRegistry.entries);
   const citations = asArray(citationRegistry.citations);
   const knowledgeItems = asArray(knowledgeRegistry.knowledgeItems);
@@ -68,9 +69,11 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
   const goldenNumbers = asArray(goldenNumberRegistry.goldenNumbers);
   const contentBlocks = asArray(contentBlockRegistry.contentBlocks);
   const topics = asArray(topicMapRegistry.topics);
+  const lessonMappings = asArray(lessonMapRegistry.lessonMappings);
   const sourceById = new Map(sources.map((source) => [source.stableSourceId, source]));
   const citationById = new Map(citations.map((citation) => [citation.citationId, citation]));
   const contentBlockById = new Map(contentBlocks.map((contentBlock) => [contentBlock.blockId, contentBlock]));
+  const topicById = new Map(topics.map((topic) => [topic.topicId, topic]));
 
   const blocked = [];
   const warnings = [];
@@ -207,18 +210,18 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
   }
 
   function validateTopicMap() {
-    const topicById = new Map();
     const mappedBlockIds = new Set();
+    const seenTopicIds = new Set();
 
     topics.forEach((topic) => {
       if (!topic.topicId) {
         block(topic, "missing topicId");
         return;
       }
-      if (topicById.has(topic.topicId)) {
+      if (seenTopicIds.has(topic.topicId)) {
         block(topic, "duplicate topicId");
       }
-      topicById.set(topic.topicId, topic);
+      seenTopicIds.add(topic.topicId);
     });
 
     topics.forEach((topic) => {
@@ -272,6 +275,59 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     });
   }
 
+  function validateLessonMap() {
+    const seenLessonIds = new Set();
+
+    lessonMappings.forEach((lessonMapping) => {
+      checkedItems += 1;
+
+      if (!lessonMapping.lessonId) {
+        block(lessonMapping, "missing lessonId");
+      } else if (seenLessonIds.has(lessonMapping.lessonId)) {
+        block(lessonMapping, "duplicate lessonId");
+      }
+      if (lessonMapping.lessonId) seenLessonIds.add(lessonMapping.lessonId);
+
+      if (SCANNER_ID_PATTERN.test(JSON.stringify(lessonMapping))) {
+        block(lessonMapping, "scannerId-like value found in lesson mapping");
+      }
+
+      const relatedTopicIds = asArray(lessonMapping.relatedTopicIds);
+      const blockIds = asArray(lessonMapping.blockIds);
+      const sourceIds = asArray(lessonMapping.sourceIds);
+
+      if (!relatedTopicIds.length) {
+        block(lessonMapping, "lesson mapping must include at least one relatedTopicId");
+      }
+
+      if (!blockIds.length) {
+        block(lessonMapping, "lesson mapping must include at least one blockId");
+      }
+
+      if (!sourceIds.length) {
+        block(lessonMapping, "lesson mapping must include at least one sourceId");
+      }
+
+      relatedTopicIds.forEach((topicId) => {
+        if (!topicById.has(topicId)) {
+          block(lessonMapping, `relatedTopicId not found: ${topicId}`);
+        }
+      });
+
+      blockIds.forEach((blockId) => {
+        if (!contentBlockById.has(blockId)) {
+          block(lessonMapping, `blockId not found: ${blockId}`);
+        }
+      });
+
+      sourceIds.forEach((sourceId) => {
+        if (!sourceById.has(sourceId)) {
+          block(lessonMapping, `sourceId not found: ${sourceId}`);
+        }
+      });
+    });
+  }
+
   validateSourceRegistry();
 
   knowledgeItems.forEach((item) => {
@@ -316,6 +372,7 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
   });
 
   validateTopicMap();
+  validateLessonMap();
 
   return {
     sources: sources.length,
@@ -325,6 +382,7 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     goldenNumbers: goldenNumbers.length,
     contentBlocks: contentBlocks.length,
     topics: topics.length,
+    lessonMappings: lessonMappings.length,
     checkedItems,
     blocked,
     warnings,
@@ -340,7 +398,8 @@ function loadRegistries() {
     questionRegistry: readJson(QUESTION_ITEMS_PATH),
     goldenNumberRegistry: readJson(GOLDEN_NUMBERS_PATH),
     contentBlockRegistry: readJson(CONTENT_BLOCKS_PATH),
-    topicMapRegistry: readJson(TOPIC_MAP_PATH)
+    topicMapRegistry: readJson(TOPIC_MAP_PATH),
+    lessonMapRegistry: readJson(LESSON_MAP_PATH)
   };
 }
 
@@ -353,7 +412,8 @@ function validate() {
     registries.questionRegistry,
     registries.goldenNumberRegistry,
     registries.contentBlockRegistry,
-    registries.topicMapRegistry
+    registries.topicMapRegistry,
+    registries.lessonMapRegistry
   );
 }
 
@@ -395,6 +455,8 @@ function runSelfTest() {
   const baseContentBlock = firstPilotContentBlock(base.contentBlockRegistry);
   const baseTopic = asArray(base.topicMapRegistry.topics)[0];
   if (!baseTopic) throw new Error("Self-test requires at least one pilot topic.");
+  const baseLessonMapping = asArray(base.lessonMapRegistry.lessonMappings)[0];
+  if (!baseLessonMapping) throw new Error("Self-test requires at least one pilot lesson mapping.");
   const knowledgeCases = [
     {
       name: "missing stableSourceId",
@@ -615,7 +677,51 @@ function runSelfTest() {
       }
     }
   ];
-  const cases = [...knowledgeCases, ...questionCases, ...goldenNumberCases, ...contentBlockCases, ...topicCases];
+  const lessonCases = [
+    {
+      name: "lesson with missing topicId",
+      type: "lesson",
+      mutate(item) {
+        item.relatedTopicIds = ["topic-not-found"];
+      }
+    },
+    {
+      name: "lesson with missing blockId",
+      type: "lesson",
+      mutate(item) {
+        item.blockIds = ["block-not-found"];
+      }
+    },
+    {
+      name: "lesson with missing sourceId",
+      type: "lesson",
+      mutate(item) {
+        item.sourceIds = ["source-not-found"];
+      }
+    },
+    {
+      name: "lesson without topics",
+      type: "lesson",
+      mutate(item) {
+        item.relatedTopicIds = [];
+      }
+    },
+    {
+      name: "lesson without blocks",
+      type: "lesson",
+      mutate(item) {
+        item.blockIds = [];
+      }
+    },
+    {
+      name: "lesson with scannerId as sourceId",
+      type: "lesson",
+      mutate(item) {
+        item.sourceIds = ["source-013-b3e4e54502a2"];
+      }
+    }
+  ];
+  const cases = [...knowledgeCases, ...questionCases, ...goldenNumberCases, ...contentBlockCases, ...topicCases, ...lessonCases];
 
   const results = cases.map((testCase) => {
     const registries = deepClone(base);
@@ -623,7 +729,8 @@ function runSelfTest() {
     const isGoldenNumberCase = testCase.type === "goldenNumber";
     const isContentBlockCase = testCase.type === "contentBlock";
     const isTopicCase = testCase.type === "topic";
-    const item = deepClone(isTopicCase ? baseTopic : isContentBlockCase ? baseContentBlock : isGoldenNumberCase ? baseGoldenNumber : isQuestionCase ? baseQuestion : baseItem);
+    const isLessonCase = testCase.type === "lesson";
+    const item = deepClone(isLessonCase ? baseLessonMapping : isTopicCase ? baseTopic : isContentBlockCase ? baseContentBlock : isGoldenNumberCase ? baseGoldenNumber : isQuestionCase ? baseQuestion : baseItem);
     if (isQuestionCase) {
       item.questionId = `negative-${item.questionId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     } else if (isGoldenNumberCase) {
@@ -632,16 +739,21 @@ function runSelfTest() {
       item.blockId = `negative-${item.blockId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     } else if (isTopicCase) {
       item.topicId = `negative-${item.topicId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+    } else if (isLessonCase) {
+      item.lessonId = `negative-${item.lessonId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     } else {
       item.knowledgeItemId = `negative-${item.knowledgeItemId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     }
     testCase.mutate(item, registries);
-    registries.knowledgeRegistry.knowledgeItems = !isQuestionCase && !isGoldenNumberCase && !isContentBlockCase && !isTopicCase ? [item] : [];
+    registries.knowledgeRegistry.knowledgeItems = !isQuestionCase && !isGoldenNumberCase && !isContentBlockCase && !isTopicCase && !isLessonCase ? [item] : [];
     registries.questionRegistry.questionItems = isQuestionCase ? [item] : [];
     registries.goldenNumberRegistry.goldenNumbers = isGoldenNumberCase ? [item] : [];
     registries.contentBlockRegistry.contentBlocks = isContentBlockCase ? [item] : [];
     if (isTopicCase && testCase.name !== "content block without topic coverage") {
       registries.topicMapRegistry.topics = [item];
+    }
+    if (isLessonCase) {
+      registries.lessonMapRegistry.lessonMappings = [item];
     }
     const report = validateData(
       registries.sourceRegistry,
@@ -650,7 +762,8 @@ function runSelfTest() {
       registries.questionRegistry,
       registries.goldenNumberRegistry,
       registries.contentBlockRegistry,
-      registries.topicMapRegistry
+      registries.topicMapRegistry,
+      registries.lessonMapRegistry
     );
     return {
       name: testCase.name,
@@ -669,6 +782,7 @@ function runSelfTest() {
     goldenNumbers: goldenNumberCases.length,
     contentBlocks: contentBlockCases.length,
     topics: topicCases.length,
+    lessonMappings: lessonCases.length,
     checkedItems: cases.length,
     blocked: missedCases.map((item) => `self-test case was not blocked: ${item.name}`),
     warnings: [],
@@ -688,6 +802,7 @@ function printReport(report) {
   console.log(`Golden Numbers: ${report.goldenNumbers}`);
   console.log(`Content Blocks: ${report.contentBlocks}`);
   console.log(`Topics: ${report.topics}`);
+  console.log(`Lesson Mappings: ${report.lessonMappings}`);
   console.log(`Checked Items: ${report.checkedItems}`);
   console.log(`Blocked Items: ${report.blocked.length}`);
   report.blocked.forEach((item) => console.log(`- ${item}`));
