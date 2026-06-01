@@ -1,0 +1,603 @@
+{
+  "schemaVersion": 1,
+  "registryStatus": "pilot",
+  "scope": {
+    "stableSourceId": "law-labor-inspection-1954",
+    "description": "Content Blocks pilot proving Source -> Citation -> Content Block traceability and presentation rules."
+  },
+  "contentBlocks": [
+    {
+      "blockId": "block-labor-inspection-improvement-order-appeal-summary",
+      "blockType": "summary-box",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-10",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 10",
+      "topicIds": [
+        "labor-inspection-law",
+        "improvement-order",
+        "legal-compliance"
+      ],
+      "lessonIds": [
+        "lesson-03",
+        "lesson-07"
+      ],
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ערעור וענישה סביב צו שיפור",
+        "text": "בלוק זה ממפה את סעיף 10 כמקור לנושא ערעור וענישה סביב צו שיפור. מטרתו להוכיח הצמדה למקור ולא לשמש נוסח משפטי מאושר.",
+        "items": [
+          "לזהות שצו שיפור הוא כלי אכיפה המחייב מעקב.",
+          "להבחין בין לימוד הנושא לבין קביעה משפטית מחייבת.",
+          "לשמור הפניה לסעיף החוק לצורך Traceability."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": null,
+          "sectionNumber": "10",
+          "originalHeading": "סעיף 10",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "legal-summary",
+        "emphasis": "medium"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot block linked to a source-backed citation. Not legally approved."
+      }
+    },
+    {
+      "blockId": "block-labor-inspection-improvement-order-exam-focus",
+      "blockType": "exam-focus",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-10",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 10",
+      "topicIds": [
+        "labor-inspection-law",
+        "exam-focus"
+      ],
+      "lessonIds": [
+        "lesson-03"
+      ],
+      "claimTypes": [
+        "examCritical",
+        "legal-reference"
+      ],
+      "content": {
+        "title": "צו שיפור כמוקד מבחן",
+        "text": "במסגרת הפיילוט, סעיף זה מסומן כרלוונטי ללמידת צו שיפור, ערעור והשלכות אי-עמידה. אין להציגו כתשובה רשמית ללא review נוסף.",
+        "items": [
+          "להכיר את הקשר בין צו שיפור לבין אחריות תיעודית.",
+          "להימנע מערבוב בין צו שיפור לצו בטיחות.",
+          "להציג לתלמיד את מקור הסמכות לצד הדגש."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": null,
+          "sectionNumber": "10",
+          "originalHeading": "סעיף 10",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "exam-focus",
+        "emphasis": "high"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot exam-focus block; source-backed but not verified."
+      }
+    },
+    {
+      "blockId": "block-labor-inspection-safety-program-definition",
+      "blockType": "definition",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-11",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 11",
+      "topicIds": [
+        "safety-program",
+        "safety-management",
+        "legal-compliance"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תוכנית בטיחות",
+        "text": "תוכנית בטיחות מוצגת כאן כפריט ידע המקושר לסעיף 11. התוכן משמש לפיילוט מבני של בלוק הגדרה ולא מחליף את נוסח החוק.",
+        "items": [
+          "הבלוק שומר קשר למקור החוקי.",
+          "ההגדרה מיועדת ללמידה ולמיפוי ידע.",
+          "פרסום כמקור מחייב יחייב verification נוסף."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": null,
+          "sectionNumber": "11",
+          "originalHeading": "סעיף 11",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "definition",
+        "emphasis": "medium"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot definition block linked to a source-backed citation."
+      }
+    },
+    {
+      "blockId": "block-labor-inspection-safety-program-checklist",
+      "blockType": "checklist",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-11",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 11",
+      "topicIds": [
+        "safety-program",
+        "management-responsibility"
+      ],
+      "lessonIds": [
+        "lesson-08"
+      ],
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בדיקת קיום תוכנית בטיחות",
+        "text": "בלוק צ'קליסט לפיילוט: הוא מדגים כיצד פריט פעולה יכול להישאר קשור למקור, בלי להפוך אוטומטית להוראה מחייבת באתר.",
+        "items": [
+          "האם קיים מסמך תוכנית בטיחות בארגון?",
+          "האם ברור מי אחראי לעדכון ולמעקב?",
+          "האם קיימת ראיה לכך שהתוכנית נבדקת לאורך זמן?"
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": null,
+          "sectionNumber": "11",
+          "originalHeading": "סעיף 11",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "checklist",
+        "emphasis": "medium"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot checklist block; not a validated operational checklist."
+      }
+    },
+    {
+      "blockId": "block-labor-inspection-second-chapter-definitions",
+      "blockType": "legal-note",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-14",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 14",
+      "topicIds": [
+        "definitions",
+        "labor-inspection-law"
+      ],
+      "lessonIds": [
+        "lesson-03"
+      ],
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "הגדרות בפרק ועדות בטיחות",
+        "text": "הבלוק מדגים הצגת דגש משפטי על סעיף הגדרות. הכותרת אינה מציגה מספור Word, אלא נושא למידה נקי.",
+        "items": [
+          "סעיף הגדרות קובע את שפת העבודה של הנושא.",
+          "במיפוי ידע יש להפריד בין הגדרה, חובה ופרשנות.",
+          "המקור נשמר לצורך בדיקה עתידית."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": "פרק שני",
+          "sectionNumber": "14",
+          "originalHeading": "סעיף 14",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "legal-note",
+        "emphasis": "medium"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot legal-note block linked to a source-backed citation."
+      }
+    },
+    {
+      "blockId": "block-labor-inspection-safety-committee-heading",
+      "blockType": "heading",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-15",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 15",
+      "topicIds": [
+        "safety-committee"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "claimTypes": [
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ועדת בטיחות",
+        "text": "כותרת נושאית נקייה עבור יחידת ידע בנושא ועדת בטיחות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": null,
+          "sectionNumber": "15",
+          "originalHeading": "סעיף 15",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "section-heading",
+        "emphasis": "low"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot heading block."
+      }
+    },
+    {
+      "blockId": "block-labor-inspection-safety-committee-legal-reference",
+      "blockType": "legal-quote",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-15",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 15",
+      "topicIds": [
+        "safety-committee",
+        "legal-compliance"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "claimTypes": [
+        "legalRequirement",
+        "legal-reference"
+      ],
+      "content": {
+        "title": "הקמת ועדת בטיחות",
+        "text": "בלוק זה מסמן את סעיף 15 כמקור לנושא הקמת ועדת בטיחות. הטקסט הוא ייצוג פיילוט מקוצר ואינו ציטוט משפטי מלא.",
+        "items": [
+          "הצגת הנושא חייבת לשמור על מקור הסמכות.",
+          "אין להציג את הבלוק כמאומת עד לבדיקת מקור מלאה.",
+          "ב־UI עתידי יש להציג את citation הרשמי לצד הבלוק."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": null,
+          "sectionNumber": "15",
+          "originalHeading": "סעיף 15",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "legal-quote",
+        "emphasis": "high"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot legal block. Source-backed but not verified or legally approved."
+      }
+    },
+    {
+      "blockId": "block-labor-inspection-safety-committee-warning",
+      "blockType": "warning",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-15",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 15",
+      "topicIds": [
+        "safety-committee",
+        "management-responsibility"
+      ],
+      "lessonIds": [
+        "lesson-05"
+      ],
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "לא להפוך ועדה לטקס בלבד",
+        "text": "אזהרת למידה: ועדת בטיחות צריכה להיתפס ככלי ניהולי ותיעודי, לא רק ככותרת ארגונית.",
+        "items": [
+          "לבדוק אם מתקיים מעקב אחר החלטות.",
+          "להבחין בין קיום פורמלי לבין אפקטיביות.",
+          "לשמור תיעוד החלטות ופעולות המשך."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": null,
+          "sectionNumber": "15",
+          "originalHeading": "סעיף 15",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "warning",
+        "emphasis": "medium"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot warning block; training interpretation requires later review before publication."
+      }
+    },
+    {
+      "blockId": "block-labor-inspection-committee-composition-note",
+      "blockType": "legal-note",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-16",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 16",
+      "topicIds": [
+        "safety-committee",
+        "roles-and-responsibilities"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "הרכב ועדת בטיחות והודעות",
+        "text": "הבלוק ממפה את סעיף 16 לנושא הרכב הוועדה והודעות. הוא מיועד לבדיקת מודל traceability לפני פרסום ידע מלא.",
+        "items": [
+          "להציג את הנושא כיחידת ידע נפרדת.",
+          "לקשור אותו לסעיף המתאים במקור.",
+          "לשמור distinction בין מקור, הסבר ויישום בשטח."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": null,
+          "sectionNumber": "16",
+          "originalHeading": "סעיף 16",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "legal-note",
+        "emphasis": "medium"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot legal-note block linked to section 16."
+      }
+    },
+    {
+      "blockId": "block-labor-inspection-committee-composition-table",
+      "blockType": "table",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-16",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 16",
+      "topicIds": [
+        "safety-committee",
+        "roles-and-responsibilities"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מיפוי אחריות סביב הרכב הוועדה",
+        "text": "טבלת פיילוט המדגימה כיצד ניתן לשמור טבלה מובנית עם מקור סמכות וציטוט.",
+        "items": [],
+        "table": {
+          "caption": "מיפוי למידה ראשוני לפי סעיף 16",
+          "headers": [
+            "רכיב",
+            "משמעות לימודית",
+            "בדיקה עתידית נדרשת"
+          ],
+          "rows": [
+            [
+              "הרכב הוועדה",
+              "הבנת מי משתתף במנגנון הבטיחות",
+              "אימות מול נוסח החוק"
+            ],
+            [
+              "הודעות",
+              "הבנת חובת תקשורת ותיעוד",
+              "אימות מול נוסח החוק"
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": null,
+          "sectionNumber": "16",
+          "originalHeading": "סעיף 16",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "legal-table",
+        "emphasis": "medium"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot table block; content requires later legal/source review."
+      }
+    },
+    {
+      "blockId": "block-labor-inspection-committee-common-trap",
+      "blockType": "exam-focus",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-16",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 16",
+      "topicIds": [
+        "exam-focus",
+        "safety-committee"
+      ],
+      "lessonIds": [
+        "lesson-05"
+      ],
+      "claimTypes": [
+        "examCritical",
+        "legal-reference"
+      ],
+      "content": {
+        "title": "הבחנה בין הקמה להרכב",
+        "text": "דגש מבחן פיילוט: חשוב להבחין בין עצם הקמת ועדת בטיחות לבין הרכב הוועדה וההודעות הקשורות אליה.",
+        "items": [
+          "הקמת הוועדה ממופה לסעיף 15.",
+          "הרכב והודעות ממופים לסעיף 16.",
+          "הצגה עתידית חייבת להציג את שני המקורות בנפרד."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": null,
+          "sectionNumber": "16",
+          "originalHeading": "סעיף 16",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "exam-focus",
+        "emphasis": "high"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot exam-focus block. Not an official exam answer."
+      }
+    },
+    {
+      "blockId": "block-labor-inspection-pilot-traceability-summary",
+      "blockType": "paragraph",
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-15",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, סעיף 15",
+      "topicIds": [
+        "source-governance",
+        "traceability"
+      ],
+      "lessonIds": [
+        "lesson-03",
+        "lesson-05"
+      ],
+      "claimTypes": [
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "שמירת עקיבות בין מקור לתוכן",
+        "text": "בלוק זה מסכם את מטרת הפיילוט: כל תוכן מקצועי עתידי צריך לשמור קשר ברור למקור, לציטוט ולמצב האימות.",
+        "items": [
+          "Source Structure נשמר ב־metadata.",
+          "UI Structure נשאר נקי ונושאי.",
+          "סעיפי חוק מוצגים רק כ־citation רשמי."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "chapter": null,
+          "sectionNumber": "15",
+          "originalHeading": "סעיף 15",
+          "wordOutlineLevel": null
+        }
+      },
+      "rendering": {
+        "variant": "paragraph",
+        "emphasis": "low"
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot traceability block."
+      }
+    }
+  ]
+}

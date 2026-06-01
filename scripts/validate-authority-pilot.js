@@ -9,6 +9,7 @@ const CITATION_REGISTRY_PATH = path.join(ROOT, "content", "citation-registry-pil
 const KNOWLEDGE_ITEMS_PATH = path.join(ROOT, "content", "knowledge-items-pilot.json");
 const QUESTION_ITEMS_PATH = path.join(ROOT, "content", "question-items-pilot.json");
 const GOLDEN_NUMBERS_PATH = path.join(ROOT, "content", "golden-numbers-pilot.json");
+const CONTENT_BLOCKS_PATH = path.join(ROOT, "content", "content-blocks-pilot.json");
 
 const AUTHORITATIVE_CLAIM_TYPES = new Set([
   "legalRequirement",
@@ -21,6 +22,7 @@ const AUTHORITATIVE_CLAIM_TYPES = new Set([
 
 const ACCEPTED_AUTHORITY_STATUSES = new Set(["verified", "source-backed"]);
 const SCANNER_ID_PATTERN = /source-\d{3}-[a-f0-9]{12}/i;
+const WORD_NUMBERING_TITLE_PATTERN = /^(?:פרק\s+\d+|\d+(?:\.\d+)+)(?:\s|$)/u;
 const SELF_TEST_MODE = process.argv.includes("--self-test");
 
 function readJson(filePath) {
@@ -54,15 +56,16 @@ function sourceAuthorityLevel(source, citation) {
 }
 
 function itemId(item) {
-  return item.knowledgeItemId || item.questionId || item.goldenNumberId || "(missing item id)";
+  return item.knowledgeItemId || item.questionId || item.goldenNumberId || item.blockId || "(missing item id)";
 }
 
-function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, questionRegistry, goldenNumberRegistry) {
+function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, questionRegistry, goldenNumberRegistry, contentBlockRegistry) {
   const sources = asArray(sourceRegistry.entries);
   const citations = asArray(citationRegistry.citations);
   const knowledgeItems = asArray(knowledgeRegistry.knowledgeItems);
   const questionItems = asArray(questionRegistry.questionItems);
   const goldenNumbers = asArray(goldenNumberRegistry.goldenNumbers);
+  const contentBlocks = asArray(contentBlockRegistry.contentBlocks);
   const sourceById = new Map(sources.map((source) => [source.stableSourceId, source]));
   const citationById = new Map(citations.map((citation) => [citation.citationId, citation]));
 
@@ -164,6 +167,42 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     }
   }
 
+  function validateContentBlock(contentBlock) {
+    checkedItems += 1;
+
+    if (SCANNER_ID_PATTERN.test(JSON.stringify(contentBlock))) {
+      block(contentBlock, "scannerId-like value found in content block");
+    }
+
+    const title = contentBlock.content?.title || "";
+    if (WORD_NUMBERING_TITLE_PATTERN.test(title)) {
+      block(contentBlock, `content.title must not expose Word numbering: ${title}`);
+    }
+
+    const authoritative = hasAuthoritativeClaim(contentBlock);
+    if (authoritative) {
+      if (!contentBlock.sourceId) block(contentBlock, "missing sourceId");
+      if (!contentBlock.citationId) block(contentBlock, "missing citationId");
+      if (!contentBlock.sourceCitation) block(contentBlock, "missing sourceCitation");
+    }
+
+    const source = contentBlock.sourceId ? sourceById.get(contentBlock.sourceId) : null;
+    const citation = contentBlock.citationId ? citationById.get(contentBlock.citationId) : null;
+    const verificationStatus = sourceVerificationStatus(source, citation, contentBlock);
+
+    if (contentBlock.sourceId && !source) block(contentBlock, `sourceId not found: ${contentBlock.sourceId}`);
+    if (contentBlock.citationId && !citation) block(contentBlock, `citationId not found: ${contentBlock.citationId}`);
+    if (source && citation && citation.stableSourceId !== source.stableSourceId) {
+      block(contentBlock, "citation/source mismatch");
+    }
+    if (authoritative && !ACCEPTED_AUTHORITY_STATUSES.has(verificationStatus)) {
+      block(contentBlock, `authoritative content block has unsupported verificationStatus: ${verificationStatus}`);
+    }
+    if (contentBlock.blockType === "golden-number" && !contentBlock.sourceCitation) {
+      block(contentBlock, "golden-number block missing sourceCitation");
+    }
+  }
+
   validateSourceRegistry();
 
   knowledgeItems.forEach((item) => {
@@ -203,12 +242,17 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     }
   });
 
+  contentBlocks.forEach((item) => {
+    validateContentBlock(item);
+  });
+
   return {
     sources: sources.length,
     citations: citations.length,
     knowledgeItems: knowledgeItems.length,
     questionItems: questionItems.length,
     goldenNumbers: goldenNumbers.length,
+    contentBlocks: contentBlocks.length,
     checkedItems,
     blocked,
     warnings,
@@ -222,7 +266,8 @@ function loadRegistries() {
     citationRegistry: readJson(CITATION_REGISTRY_PATH),
     knowledgeRegistry: readJson(KNOWLEDGE_ITEMS_PATH),
     questionRegistry: readJson(QUESTION_ITEMS_PATH),
-    goldenNumberRegistry: readJson(GOLDEN_NUMBERS_PATH)
+    goldenNumberRegistry: readJson(GOLDEN_NUMBERS_PATH),
+    contentBlockRegistry: readJson(CONTENT_BLOCKS_PATH)
   };
 }
 
@@ -233,7 +278,8 @@ function validate() {
     registries.citationRegistry,
     registries.knowledgeRegistry,
     registries.questionRegistry,
-    registries.goldenNumberRegistry
+    registries.goldenNumberRegistry,
+    registries.contentBlockRegistry
   );
 }
 
@@ -259,6 +305,12 @@ function firstPilotGoldenNumber(goldenNumberRegistry) {
   return item;
 }
 
+function firstPilotContentBlock(contentBlockRegistry) {
+  const item = asArray(contentBlockRegistry.contentBlocks)[0];
+  if (!item) throw new Error("Self-test requires at least one pilot content block.");
+  return item;
+}
+
 function runSelfTest() {
   const base = loadRegistries();
   const baseItem = firstPilotItem(base.knowledgeRegistry);
@@ -266,6 +318,7 @@ function runSelfTest() {
   const baseQuestion = firstPilotQuestion(base.questionRegistry);
   const baseQuestionRef = asArray(baseQuestion.sourceRefs)[0];
   const baseGoldenNumber = firstPilotGoldenNumber(base.goldenNumberRegistry);
+  const baseContentBlock = firstPilotContentBlock(base.contentBlockRegistry);
   const knowledgeCases = [
     {
       name: "missing stableSourceId",
@@ -391,30 +444,83 @@ function runSelfTest() {
       }
     }
   ];
-  const cases = [...knowledgeCases, ...questionCases, ...goldenNumberCases];
+  const contentBlockCases = [
+    {
+      name: "authoritative block without sourceId",
+      type: "contentBlock",
+      mutate(item) {
+        item.claimTypes = ["legalRequirement"];
+        delete item.sourceId;
+      }
+    },
+    {
+      name: "authoritative block without citationId",
+      type: "contentBlock",
+      mutate(item) {
+        item.claimTypes = ["legalRequirement"];
+        delete item.citationId;
+      }
+    },
+    {
+      name: "content block with scannerId",
+      type: "contentBlock",
+      mutate(item) {
+        item.sourceId = "source-013-b3e4e54502a2";
+      }
+    },
+    {
+      name: "content block title starts with chapter numbering",
+      type: "contentBlock",
+      mutate(item) {
+        item.content.title = "פרק 1 ועדת בטיחות";
+      }
+    },
+    {
+      name: "content block title starts with outline numbering",
+      type: "contentBlock",
+      mutate(item) {
+        item.content.title = "1.1 ועדת בטיחות";
+      }
+    },
+    {
+      name: "golden-number block without sourceCitation",
+      type: "contentBlock",
+      mutate(item) {
+        item.blockType = "golden-number";
+        item.claimTypes = ["goldenNumber"];
+        delete item.sourceCitation;
+      }
+    }
+  ];
+  const cases = [...knowledgeCases, ...questionCases, ...goldenNumberCases, ...contentBlockCases];
 
   const results = cases.map((testCase) => {
     const registries = deepClone(base);
     const isQuestionCase = testCase.type === "question";
     const isGoldenNumberCase = testCase.type === "goldenNumber";
-    const item = deepClone(isGoldenNumberCase ? baseGoldenNumber : isQuestionCase ? baseQuestion : baseItem);
+    const isContentBlockCase = testCase.type === "contentBlock";
+    const item = deepClone(isContentBlockCase ? baseContentBlock : isGoldenNumberCase ? baseGoldenNumber : isQuestionCase ? baseQuestion : baseItem);
     if (isQuestionCase) {
       item.questionId = `negative-${item.questionId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     } else if (isGoldenNumberCase) {
       item.goldenNumberId = `negative-${item.goldenNumberId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+    } else if (isContentBlockCase) {
+      item.blockId = `negative-${item.blockId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     } else {
       item.knowledgeItemId = `negative-${item.knowledgeItemId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     }
     testCase.mutate(item, registries);
-    registries.knowledgeRegistry.knowledgeItems = !isQuestionCase && !isGoldenNumberCase ? [item] : [];
+    registries.knowledgeRegistry.knowledgeItems = !isQuestionCase && !isGoldenNumberCase && !isContentBlockCase ? [item] : [];
     registries.questionRegistry.questionItems = isQuestionCase ? [item] : [];
     registries.goldenNumberRegistry.goldenNumbers = isGoldenNumberCase ? [item] : [];
+    registries.contentBlockRegistry.contentBlocks = isContentBlockCase ? [item] : [];
     const report = validateData(
       registries.sourceRegistry,
       registries.citationRegistry,
       registries.knowledgeRegistry,
       registries.questionRegistry,
-      registries.goldenNumberRegistry
+      registries.goldenNumberRegistry,
+      registries.contentBlockRegistry
     );
     return {
       name: testCase.name,
@@ -431,6 +537,7 @@ function runSelfTest() {
     knowledgeItems: knowledgeCases.length,
     questionItems: questionCases.length,
     goldenNumbers: goldenNumberCases.length,
+    contentBlocks: contentBlockCases.length,
     checkedItems: cases.length,
     blocked: missedCases.map((item) => `self-test case was not blocked: ${item.name}`),
     warnings: [],
@@ -448,6 +555,7 @@ function printReport(report) {
   console.log(`Knowledge Items: ${report.knowledgeItems}`);
   console.log(`Question Items: ${report.questionItems}`);
   console.log(`Golden Numbers: ${report.goldenNumbers}`);
+  console.log(`Content Blocks: ${report.contentBlocks}`);
   console.log(`Checked Items: ${report.checkedItems}`);
   console.log(`Blocked Items: ${report.blocked.length}`);
   report.blocked.forEach((item) => console.log(`- ${item}`));
