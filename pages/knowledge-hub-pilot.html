@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
-  <meta name="description" content="Knowledge Hub Pilot read-only המציג נתוני Source Governance בלבד: מקורות, citations, בלוקי תוכן, נושאים, מיפוי שיעורים, מספרי זהב ושאלות פיילוט.">
+  <meta name="description" content="Knowledge Hub Pilot read-only המציג חוויית ידע ראשונית לפי נושאים, תתי נושאים, תוכן לימודי, דגשי מבחן ודגשים משפטיים עם עקיבות מקור.">
   <title>Knowledge Hub Pilot | קורס ממונה בטיחות</title>
   <link rel="stylesheet" href="../css/styles.css">
   <style>
@@ -30,6 +30,7 @@
     .kh-topbar,
     .kh-hero,
     .kh-panel,
+    .kh-learning-map,
     .kh-card,
     .kh-topic-card,
     .kh-block-card,
@@ -39,6 +40,13 @@
       border: 1px solid var(--kh-border);
       background: #fff;
       box-shadow: 0 10px 28px rgba(15, 23, 42, .06);
+    }
+
+    .kh-learning-map {
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 18px;
+      background: #fff;
     }
 
     .kh-topbar {
@@ -195,6 +203,7 @@
     }
 
     .kh-summary-grid,
+    .kh-learning-path,
     .kh-card-grid,
     .kh-authority-grid {
       display: grid;
@@ -205,12 +214,17 @@
       grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
     }
 
+    .kh-learning-path {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+
     .kh-card-grid,
     .kh-authority-grid {
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 
     .kh-summary-card,
+    .kh-learning-step,
     .kh-card,
     .kh-topic-card,
     .kh-block-card,
@@ -218,6 +232,17 @@
     .kh-golden-card {
       border-radius: 12px;
       padding: 16px;
+    }
+
+    .kh-learning-step {
+      background: var(--kh-soft);
+      border: 1px solid var(--kh-border);
+    }
+
+    .kh-learning-step strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #0f5f75;
     }
 
     .kh-summary-card strong {
@@ -346,6 +371,7 @@
       }
 
       .kh-summary-grid,
+      .kh-learning-path,
       .kh-card-grid,
       .kh-authority-grid {
         grid-template-columns: 1fr;
@@ -391,7 +417,7 @@
         <span class="kh-brand-mark">EHS</span>
         <span>
           <strong>קורס ממונה בטיחות</strong>
-          <small>פיילוט ידע מבוקר מקור</small>
+          <small>פיילוט מרכז ידע לימודי</small>
         </span>
       </a>
       <span class="kh-badge" data-kind="unverified">לא מחובר לניווט הראשי</span>
@@ -399,9 +425,9 @@
 
     <main id="main" data-readable-content>
       <section class="kh-hero">
-        <p class="kh-kicker">Source Governance MVP</p>
+        <p class="kh-kicker">Knowledge Hub MVP</p>
         <h1>Knowledge Hub Pilot</h1>
-        <p>פיילוט תצוגת ידע מבוקר מקור. הדף מציג נתוני pilot בלבד, במצב read-only, ללא חיבור ל־Learning Path, לשאלות הקיימות, ל־Safety Game או ל־Knowledge Hub מלא.</p>
+        <p>פיילוט חוויית ידע לימודית: נושאים, תתי נושאים, תוכן לימודי, דגשי מבחן ודגשים משפטיים. הנתונים עדיין במצב pilot/read-only, עם עקיבות מקור גלויה, אך בלי להציג למשתמש שכבות registry פנימיות.</p>
         <div class="kh-badge-row" aria-label="סטטוס הפיילוט">
           <span class="kh-badge" data-kind="pilot">Pilot</span>
           <span class="kh-badge" data-kind="draft">Draft</span>
@@ -413,11 +439,12 @@
 
       <nav class="kh-tabs" aria-label="ניווט פנימי בפיילוט">
         <a href="#kh-summary">תמונת מצב</a>
-        <a href="#kh-authority">מדרג סמכות</a>
         <a href="#kh-topics">נושאים</a>
-        <a href="#kh-blocks">בלוקי תוכן</a>
+        <a href="#kh-learning">תוכן לימודי</a>
+        <a href="#kh-exam">דגשי מבחן</a>
+        <a href="#kh-legal">דגשים משפטיים</a>
         <a href="#kh-golden">מספרי זהב</a>
-        <a href="#kh-questions">שאלות פיילוט</a>
+        <a href="#kh-questions">שאלות</a>
       </nav>
 
       <section class="kh-section" id="kh-summary" aria-labelledby="khSummaryTitle">
@@ -427,57 +454,60 @@
         </div>
       </section>
 
-      <section class="kh-section" id="kh-authority" aria-labelledby="khAuthorityTitle">
-        <h2 id="khAuthorityTitle">מדרג סמכות והסתייגויות</h2>
-        <div class="kh-authority-grid">
-          <article class="kh-card">
-            <h3>Level 1 = חוק / פקודה</h3>
-            <p>מקור משפטי ברמת חקיקה ראשית. בפיילוט הוא מוצג כהפניה למקור בלבד, לא כייעוץ משפטי ולא כאישור משפטי.</p>
-            <span class="kh-badge" data-authority="1">מקור משפטי</span>
+      <section class="kh-learning-map" aria-labelledby="khHowToReadTitle">
+        <h2 id="khHowToReadTitle">איך לקרוא את הפיילוט</h2>
+        <div class="kh-learning-path">
+          <article class="kh-learning-step">
+            <strong>נושא</strong>
+            <span>הכניסה הראשית ללמידה. כל נושא מרכז כמה פריטי ידע ושיעורים קשורים.</span>
           </article>
-          <article class="kh-card">
-            <h3>Level 6 = חומר הדרכה</h3>
-            <p>סיכום, מצגת או חומר מרצה. יכול להיות רלוונטי ללמידה או לשטח, אך אינו הופך לדרישה חוקית מחייבת ללא מקור מחייב נפרד.</p>
-            <span class="kh-badge" data-authority="6">חומר הדרכה</span>
+          <article class="kh-learning-step">
+            <strong>תת נושא</strong>
+            <span>פירוק נושא רחב למוקד לימודי קטן יותר, למשל צו שיפור או תרבות בטיחות.</span>
           </article>
-          <article class="kh-card">
-            <h3>source-backed אינו verified</h3>
-            <p>הפריט מקושר למקור, אך טרם עבר אישור מקצועי או משפטי מלא. אין להציג אותו כתוכן מאושר לפרסום.</p>
-            <span class="kh-badge" data-kind="source-backed">source-backed</span>
+          <article class="kh-learning-step">
+            <strong>תוכן לימודי</strong>
+            <span>הסבר, הגדרה, דוגמה, טבלה או checklist שנועדו ללמידה ולא להצגת registry.</span>
           </article>
-          <article class="kh-card">
-            <h3>draft אינו published</h3>
-            <p>כל פריט בדף זה הוא טיוטת פיילוט. מטרת הדף היא להוכיח מודל Governance ותצוגת ידע, לא לפרסם בסיס ידע מלא.</p>
-            <span class="kh-badge" data-kind="draft">draft</span>
-          </article>
-          <article class="kh-card">
-            <h3>מקור unverified אינו legal approved</h3>
-            <p>מקור שטרם אומת נשאר בסיס לזיהוי ועקיבות בלבד. אין להסיק ממנו חובה מחייבת ללא אימות מתאים.</p>
-            <span class="kh-badge" data-kind="unverified">לא מאומת משפטית</span>
+          <article class="kh-learning-step">
+            <strong>עקיבות מקור</strong>
+            <span>כל דגש מחייב או מספר חשוב מציג מקור, רמת סמכות וסטטוס אימות בלי להפוך לטענה משפטית מאושרת.</span>
           </article>
         </div>
       </section>
 
       <section class="kh-section" id="kh-topics" aria-labelledby="khTopicsTitle">
-        <h2 id="khTopicsTitle">Topic Cards</h2>
+        <h2 id="khTopicsTitle">נושאים ותתי נושאים</h2>
         <div class="kh-card-grid" data-kh-topics></div>
       </section>
 
-      <section class="kh-section" id="kh-blocks" aria-labelledby="khBlocksTitle">
-        <h2 id="khBlocksTitle">Content Blocks</h2>
-        <p class="kh-muted">הבלוקים מוצגים לפי סוג תוכן, עם sourceId, source title, authorityLevel, verification.status ו־sourceCitation כאשר קיים.</p>
-        <div class="kh-card-grid" data-kh-blocks></div>
+      <section class="kh-section" id="kh-learning" aria-labelledby="khLearningTitle">
+        <h2 id="khLearningTitle">תוכן לימודי</h2>
+        <p class="kh-muted">פריטי ידע לימודיים מתוך הפיילוט, מוצגים לפי משמעות למידה ולא לפי מבנה registry פנימי.</p>
+        <div class="kh-card-grid" data-kh-learning></div>
+      </section>
+
+      <section class="kh-section" id="kh-exam" aria-labelledby="khExamTitle">
+        <h2 id="khExamTitle">דגשי מבחן</h2>
+        <p class="kh-muted">דגשים שמסומנים כרלוונטיים למבחן נשארים במצב פיילוט ומציגים עקיבות מקור.</p>
+        <div class="kh-card-grid" data-kh-exam></div>
+      </section>
+
+      <section class="kh-section" id="kh-legal" aria-labelledby="khLegalTitle">
+        <h2 id="khLegalTitle">דגשים משפטיים</h2>
+        <p class="kh-muted">הפניות משפטיות מוצגות כהפניות מקור בלבד. הן אינן ייעוץ משפטי ואינן מאושרות לפרסום מחייב.</p>
+        <div class="kh-card-grid" data-kh-legal></div>
       </section>
 
       <section class="kh-section" id="kh-golden" aria-labelledby="khGoldenTitle">
-        <h2 id="khGoldenTitle">Golden Numbers Pilot</h2>
-        <p class="kh-muted">מוצגים רק מספרי הפיילוט שיש להם sourceCitation. מספר ללא sourceCitation אינו מוצג.</p>
+        <h2 id="khGoldenTitle">מספרי זהב</h2>
+        <p class="kh-muted">מוצגים רק מספרים שיש להם ציטוט מקור מפורש. מספר ללא מקור אינו מוצג.</p>
         <div class="kh-card-grid" data-kh-golden></div>
       </section>
 
       <section class="kh-section" id="kh-questions" aria-labelledby="khQuestionsTitle">
-        <h2 id="khQuestionsTitle">Question Items Pilot</h2>
-        <p class="kh-muted">מוצגות רק שאלות הפיילוט. ליד התשובה הרשמית מוצגים sourceRef ו־citation.</p>
+        <h2 id="khQuestionsTitle">שאלות לימוד</h2>
+        <p class="kh-muted">שאלות הפיילוט מציגות את ההסבר ואת ההפניה למקור שעליו נשענת התשובה.</p>
         <div class="kh-card-grid" data-kh-questions></div>
       </section>
     </main>
