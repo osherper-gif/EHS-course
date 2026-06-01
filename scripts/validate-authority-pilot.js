@@ -19,6 +19,7 @@ const AUTHORITATIVE_CLAIM_TYPES = new Set([
 
 const ACCEPTED_AUTHORITY_STATUSES = new Set(["verified", "source-backed"]);
 const SCANNER_ID_PATTERN = /source-\d{3}-[a-f0-9]{12}/i;
+const SELF_TEST_MODE = process.argv.includes("--self-test");
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -50,11 +51,7 @@ function sourceAuthorityLevel(source, citation) {
   return citation?.authorityLevel || source?.authorityLevel || null;
 }
 
-function validate() {
-  const sourceRegistry = readJson(SOURCE_REGISTRY_PATH);
-  const citationRegistry = readJson(CITATION_REGISTRY_PATH);
-  const knowledgeRegistry = readJson(KNOWLEDGE_ITEMS_PATH);
-
+function validateData(sourceRegistry, citationRegistry, knowledgeRegistry) {
   const sources = asArray(sourceRegistry.entries);
   const citations = asArray(citationRegistry.citations);
   const knowledgeItems = asArray(knowledgeRegistry.knowledgeItems);
@@ -120,6 +117,97 @@ function validate() {
   };
 }
 
+function loadRegistries() {
+  return {
+    sourceRegistry: readJson(SOURCE_REGISTRY_PATH),
+    citationRegistry: readJson(CITATION_REGISTRY_PATH),
+    knowledgeRegistry: readJson(KNOWLEDGE_ITEMS_PATH)
+  };
+}
+
+function validate() {
+  const registries = loadRegistries();
+  return validateData(registries.sourceRegistry, registries.citationRegistry, registries.knowledgeRegistry);
+}
+
+function deepClone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function firstPilotItem(knowledgeRegistry) {
+  const item = asArray(knowledgeRegistry.knowledgeItems)[0];
+  if (!item) throw new Error("Self-test requires at least one pilot knowledge item.");
+  return item;
+}
+
+function runSelfTest() {
+  const base = loadRegistries();
+  const baseItem = firstPilotItem(base.knowledgeRegistry);
+  const baseRef = asArray(baseItem.sourceRefs)[0];
+  const cases = [
+    {
+      name: "missing stableSourceId",
+      mutate(item) {
+        item.sourceRefs = [{ citationId: baseRef.citationId }];
+      }
+    },
+    {
+      name: "missing citationId",
+      mutate(item) {
+        item.sourceRefs = [{ stableSourceId: baseRef.stableSourceId }];
+      }
+    },
+    {
+      name: "scannerId used as stableSourceId",
+      mutate(item) {
+        item.sourceRefs = [{ stableSourceId: "source-013-b3e4e54502a2", citationId: baseRef.citationId }];
+      }
+    },
+    {
+      name: "legalRequirement without citation",
+      mutate(item) {
+        item.claimTypes = ["legalRequirement"];
+        item.sourceRefs = [{ stableSourceId: baseRef.stableSourceId }];
+      }
+    },
+    {
+      name: "authoritative claim with unverified citation",
+      mutate(item, registries) {
+        item.claimTypes = ["legalRequirement"];
+        const citation = asArray(registries.citationRegistry.citations).find((entry) => entry.citationId === baseRef.citationId);
+        if (citation) citation.verification.status = "unverified";
+      }
+    }
+  ];
+
+  const results = cases.map((testCase) => {
+    const registries = deepClone(base);
+    const item = deepClone(baseItem);
+    item.knowledgeItemId = `negative-${item.knowledgeItemId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+    testCase.mutate(item, registries);
+    registries.knowledgeRegistry.knowledgeItems = [item];
+    const report = validateData(registries.sourceRegistry, registries.citationRegistry, registries.knowledgeRegistry);
+    return {
+      name: testCase.name,
+      blocked: report.blocked.length,
+      result: report.result
+    };
+  });
+
+  const missedCases = results.filter((item) => item.result !== "FAIL" || item.blocked < 1);
+  const report = {
+    sources: asArray(base.sourceRegistry.entries).length,
+    citations: asArray(base.citationRegistry.citations).length,
+    knowledgeItems: cases.length,
+    checkedItems: cases.length,
+    blocked: missedCases.map((item) => `self-test case was not blocked: ${item.name}`),
+    warnings: [],
+    result: missedCases.length ? "FAIL" : "PASS",
+    selfTestResults: results
+  };
+  return report;
+}
+
 function printReport(report) {
   console.log("Authority Validation Report");
   console.log("===========================");
@@ -131,9 +219,15 @@ function printReport(report) {
   report.blocked.forEach((item) => console.log(`- ${item}`));
   console.log(`Warnings: ${report.warnings.length}`);
   report.warnings.forEach((item) => console.log(`- ${item}`));
+  if (report.selfTestResults) {
+    console.log("Self-Test Cases:");
+    report.selfTestResults.forEach((item) => {
+      console.log(`- ${item.name}: blocked=${item.blocked}, expected=blocked`);
+    });
+  }
   console.log(`Result: ${report.result}`);
 }
 
-const report = validate();
+const report = SELF_TEST_MODE ? runSelfTest() : validate();
 printReport(report);
 if (report.result !== "PASS") process.exitCode = 1;
