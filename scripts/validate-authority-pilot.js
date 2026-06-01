@@ -10,6 +10,7 @@ const KNOWLEDGE_ITEMS_PATH = path.join(ROOT, "content", "knowledge-items-pilot.j
 const QUESTION_ITEMS_PATH = path.join(ROOT, "content", "question-items-pilot.json");
 const GOLDEN_NUMBERS_PATH = path.join(ROOT, "content", "golden-numbers-pilot.json");
 const CONTENT_BLOCKS_PATH = path.join(ROOT, "content", "content-blocks-pilot.json");
+const TOPIC_MAP_PATH = path.join(ROOT, "content", "topic-map-pilot.json");
 
 const AUTHORITATIVE_CLAIM_TYPES = new Set([
   "legalRequirement",
@@ -59,15 +60,17 @@ function itemId(item) {
   return item.knowledgeItemId || item.questionId || item.goldenNumberId || item.blockId || "(missing item id)";
 }
 
-function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, questionRegistry, goldenNumberRegistry, contentBlockRegistry) {
+function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, questionRegistry, goldenNumberRegistry, contentBlockRegistry, topicMapRegistry) {
   const sources = asArray(sourceRegistry.entries);
   const citations = asArray(citationRegistry.citations);
   const knowledgeItems = asArray(knowledgeRegistry.knowledgeItems);
   const questionItems = asArray(questionRegistry.questionItems);
   const goldenNumbers = asArray(goldenNumberRegistry.goldenNumbers);
   const contentBlocks = asArray(contentBlockRegistry.contentBlocks);
+  const topics = asArray(topicMapRegistry.topics);
   const sourceById = new Map(sources.map((source) => [source.stableSourceId, source]));
   const citationById = new Map(citations.map((citation) => [citation.citationId, citation]));
+  const contentBlockById = new Map(contentBlocks.map((contentBlock) => [contentBlock.blockId, contentBlock]));
 
   const blocked = [];
   const warnings = [];
@@ -203,6 +206,72 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     }
   }
 
+  function validateTopicMap() {
+    const topicById = new Map();
+    const mappedBlockIds = new Set();
+
+    topics.forEach((topic) => {
+      if (!topic.topicId) {
+        block(topic, "missing topicId");
+        return;
+      }
+      if (topicById.has(topic.topicId)) {
+        block(topic, "duplicate topicId");
+      }
+      topicById.set(topic.topicId, topic);
+    });
+
+    topics.forEach((topic) => {
+      checkedItems += 1;
+
+      if (SCANNER_ID_PATTERN.test(JSON.stringify(topic))) {
+        block(topic, "scannerId-like value found in topic");
+      }
+
+      const blockIds = asArray(topic.blockIds);
+      const sourceIds = asArray(topic.sourceIds);
+      const relatedTopicIds = asArray(topic.relatedTopicIds);
+
+      if (!blockIds.length) {
+        block(topic, "topic must include at least one blockId");
+      }
+
+      if (!sourceIds.length) {
+        block(topic, "topic must include at least one sourceId");
+      }
+
+      blockIds.forEach((blockId) => {
+        if (!contentBlockById.has(blockId)) {
+          block(topic, `blockId not found: ${blockId}`);
+          return;
+        }
+        mappedBlockIds.add(blockId);
+      });
+
+      sourceIds.forEach((sourceId) => {
+        if (!sourceById.has(sourceId)) {
+          block(topic, `sourceId not found: ${sourceId}`);
+        }
+      });
+
+      relatedTopicIds.forEach((topicId) => {
+        if (!topicById.has(topicId)) {
+          block(topic, `relatedTopicId not found: ${topicId}`);
+        }
+      });
+
+      if (topic.parentTopicId && !topicById.has(topic.parentTopicId)) {
+        block(topic, `parentTopicId not found: ${topic.parentTopicId}`);
+      }
+    });
+
+    contentBlocks.forEach((contentBlock) => {
+      if (!mappedBlockIds.has(contentBlock.blockId)) {
+        block(contentBlock, "content block is not mapped to any topic");
+      }
+    });
+  }
+
   validateSourceRegistry();
 
   knowledgeItems.forEach((item) => {
@@ -246,6 +315,8 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     validateContentBlock(item);
   });
 
+  validateTopicMap();
+
   return {
     sources: sources.length,
     citations: citations.length,
@@ -253,6 +324,7 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     questionItems: questionItems.length,
     goldenNumbers: goldenNumbers.length,
     contentBlocks: contentBlocks.length,
+    topics: topics.length,
     checkedItems,
     blocked,
     warnings,
@@ -267,7 +339,8 @@ function loadRegistries() {
     knowledgeRegistry: readJson(KNOWLEDGE_ITEMS_PATH),
     questionRegistry: readJson(QUESTION_ITEMS_PATH),
     goldenNumberRegistry: readJson(GOLDEN_NUMBERS_PATH),
-    contentBlockRegistry: readJson(CONTENT_BLOCKS_PATH)
+    contentBlockRegistry: readJson(CONTENT_BLOCKS_PATH),
+    topicMapRegistry: readJson(TOPIC_MAP_PATH)
   };
 }
 
@@ -279,7 +352,8 @@ function validate() {
     registries.knowledgeRegistry,
     registries.questionRegistry,
     registries.goldenNumberRegistry,
-    registries.contentBlockRegistry
+    registries.contentBlockRegistry,
+    registries.topicMapRegistry
   );
 }
 
@@ -319,6 +393,8 @@ function runSelfTest() {
   const baseQuestionRef = asArray(baseQuestion.sourceRefs)[0];
   const baseGoldenNumber = firstPilotGoldenNumber(base.goldenNumberRegistry);
   const baseContentBlock = firstPilotContentBlock(base.contentBlockRegistry);
+  const baseTopic = asArray(base.topicMapRegistry.topics)[0];
+  if (!baseTopic) throw new Error("Self-test requires at least one pilot topic.");
   const knowledgeCases = [
     {
       name: "missing stableSourceId",
@@ -492,35 +568,89 @@ function runSelfTest() {
       }
     }
   ];
-  const cases = [...knowledgeCases, ...questionCases, ...goldenNumberCases, ...contentBlockCases];
+  const topicCases = [
+    {
+      name: "topic with missing blockId",
+      type: "topic",
+      mutate(item) {
+        item.blockIds = ["block-not-found"];
+      }
+    },
+    {
+      name: "topic with missing sourceId",
+      type: "topic",
+      mutate(item) {
+        item.sourceIds = ["source-not-found"];
+      }
+    },
+    {
+      name: "topic with missing relatedTopicId",
+      type: "topic",
+      mutate(item) {
+        item.relatedTopicIds = ["topic-not-found"];
+      }
+    },
+    {
+      name: "topic without blocks",
+      type: "topic",
+      mutate(item) {
+        item.blockIds = [];
+      }
+    },
+    {
+      name: "content block without topic coverage",
+      type: "topic",
+      mutate(item, registries) {
+        registries.topicMapRegistry.topics = asArray(registries.topicMapRegistry.topics).map((topic) => ({
+          ...topic,
+          blockIds: asArray(topic.blockIds).filter((blockId) => blockId !== item.blockIds[0])
+        }));
+      }
+    },
+    {
+      name: "topic with scannerId as sourceId",
+      type: "topic",
+      mutate(item) {
+        item.sourceIds = ["source-013-b3e4e54502a2"];
+      }
+    }
+  ];
+  const cases = [...knowledgeCases, ...questionCases, ...goldenNumberCases, ...contentBlockCases, ...topicCases];
 
   const results = cases.map((testCase) => {
     const registries = deepClone(base);
     const isQuestionCase = testCase.type === "question";
     const isGoldenNumberCase = testCase.type === "goldenNumber";
     const isContentBlockCase = testCase.type === "contentBlock";
-    const item = deepClone(isContentBlockCase ? baseContentBlock : isGoldenNumberCase ? baseGoldenNumber : isQuestionCase ? baseQuestion : baseItem);
+    const isTopicCase = testCase.type === "topic";
+    const item = deepClone(isTopicCase ? baseTopic : isContentBlockCase ? baseContentBlock : isGoldenNumberCase ? baseGoldenNumber : isQuestionCase ? baseQuestion : baseItem);
     if (isQuestionCase) {
       item.questionId = `negative-${item.questionId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     } else if (isGoldenNumberCase) {
       item.goldenNumberId = `negative-${item.goldenNumberId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     } else if (isContentBlockCase) {
       item.blockId = `negative-${item.blockId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+    } else if (isTopicCase) {
+      item.topicId = `negative-${item.topicId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     } else {
       item.knowledgeItemId = `negative-${item.knowledgeItemId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     }
     testCase.mutate(item, registries);
-    registries.knowledgeRegistry.knowledgeItems = !isQuestionCase && !isGoldenNumberCase && !isContentBlockCase ? [item] : [];
+    registries.knowledgeRegistry.knowledgeItems = !isQuestionCase && !isGoldenNumberCase && !isContentBlockCase && !isTopicCase ? [item] : [];
     registries.questionRegistry.questionItems = isQuestionCase ? [item] : [];
     registries.goldenNumberRegistry.goldenNumbers = isGoldenNumberCase ? [item] : [];
     registries.contentBlockRegistry.contentBlocks = isContentBlockCase ? [item] : [];
+    if (isTopicCase && testCase.name !== "content block without topic coverage") {
+      registries.topicMapRegistry.topics = [item];
+    }
     const report = validateData(
       registries.sourceRegistry,
       registries.citationRegistry,
       registries.knowledgeRegistry,
       registries.questionRegistry,
       registries.goldenNumberRegistry,
-      registries.contentBlockRegistry
+      registries.contentBlockRegistry,
+      registries.topicMapRegistry
     );
     return {
       name: testCase.name,
@@ -538,6 +668,7 @@ function runSelfTest() {
     questionItems: questionCases.length,
     goldenNumbers: goldenNumberCases.length,
     contentBlocks: contentBlockCases.length,
+    topics: topicCases.length,
     checkedItems: cases.length,
     blocked: missedCases.map((item) => `self-test case was not blocked: ${item.name}`),
     warnings: [],
@@ -556,6 +687,7 @@ function printReport(report) {
   console.log(`Question Items: ${report.questionItems}`);
   console.log(`Golden Numbers: ${report.goldenNumbers}`);
   console.log(`Content Blocks: ${report.contentBlocks}`);
+  console.log(`Topics: ${report.topics}`);
   console.log(`Checked Items: ${report.checkedItems}`);
   console.log(`Blocked Items: ${report.blocked.length}`);
   report.blocked.forEach((item) => console.log(`- ${item}`));

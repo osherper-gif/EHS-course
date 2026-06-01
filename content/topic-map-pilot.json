@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "registryStatus": "pilot",
+  "scope": {
+    "description": "Topic mapping pilot for content-blocks-pilot.json only.",
+    "sourceIds": [
+      "law-labor-inspection-1954"
+    ]
+  },
+  "topics": [
+    {
+      "topicId": "labor-inspection-law",
+      "title": "חוק ארגון הפיקוח על העבודה",
+      "description": "Topic root for the pilot blocks extracted from the labor inspection law source.",
+      "parentTopicId": null,
+      "aliases": [
+        "labor inspection law",
+        "פיקוח על העבודה"
+      ],
+      "relatedTopicIds": [
+        "improvement-order",
+        "legal-definitions",
+        "source-governance"
+      ],
+      "lessonIds": [
+        "lesson-03",
+        "lesson-07"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "blockIds": [
+        "block-labor-inspection-improvement-order-appeal-summary",
+        "block-labor-inspection-improvement-order-exam-focus",
+        "block-labor-inspection-second-chapter-definitions"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "improvement-order",
+      "title": "צו שיפור",
+      "description": "Pilot topic for improvement-order learning, appeal and exam focus blocks.",
+      "parentTopicId": "labor-inspection-law",
+      "aliases": [
+        "improvement order",
+        "צו שיפור"
+      ],
+      "relatedTopicIds": [
+        "labor-inspection-law",
+        "exam-focus"
+      ],
+      "lessonIds": [
+        "lesson-03",
+        "lesson-07"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "blockIds": [
+        "block-labor-inspection-improvement-order-appeal-summary",
+        "block-labor-inspection-improvement-order-exam-focus"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-program",
+      "title": "תוכנית בטיחות",
+      "description": "Pilot topic for safety program definition and checklist blocks.",
+      "parentTopicId": "labor-inspection-law",
+      "aliases": [
+        "safety program",
+        "תכנית בטיחות"
+      ],
+      "relatedTopicIds": [
+        "safety-management",
+        "management-responsibility"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "blockIds": [
+        "block-labor-inspection-safety-program-definition",
+        "block-labor-inspection-safety-program-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-management",
+      "title": "ניהול בטיחות",
+      "description": "Management-facing topic for safety program and management responsibility blocks.",
+      "parentTopicId": null,
+      "aliases": [
+        "safety management",
+        "ניהול מערך בטיחות"
+      ],
+      "relatedTopicIds": [
+        "safety-program",
+        "management-responsibility"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "blockIds": [
+        "block-labor-inspection-safety-program-definition",
+        "block-labor-inspection-safety-program-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "management-responsibility",
+      "title": "אחריות ניהולית",
+      "description": "Pilot topic for management responsibility signals in checklist and warning blocks.",
+      "parentTopicId": "safety-management",
+      "aliases": [
+        "management responsibility",
+        "אחריות הנהלה"
+      ],
+      "relatedTopicIds": [
+        "safety-program",
+        "safety-committee"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "blockIds": [
+        "block-labor-inspection-safety-program-checklist",
+        "block-labor-inspection-safety-committee-warning"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "legal-definitions",
+      "title": "הגדרות משפטיות",
+      "description": "Pilot topic for legal definitions and source terminology blocks.",
+      "parentTopicId": "labor-inspection-law",
+      "aliases": [
+        "legal definitions",
+        "הגדרות"
+      ],
+      "relatedTopicIds": [
+        "labor-inspection-law",
+        "safety-committee"
+      ],
+      "lessonIds": [
+        "lesson-03"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "blockIds": [
+        "block-labor-inspection-second-chapter-definitions"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-committee",
+      "title": "ועדת בטיחות",
+      "description": "Pilot topic for safety committee establishment, interpretation and operational warnings.",
+      "parentTopicId": "labor-inspection-law",
+      "aliases": [
+        "safety committee",
+        "ועדות בטיחות"
+      ],
+      "relatedTopicIds": [
+        "safety-committee-composition",
+        "management-responsibility",
+        "legal-definitions"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "blockIds": [
+        "block-labor-inspection-safety-committee-heading",
+        "block-labor-inspection-safety-committee-legal-reference",
+        "block-labor-inspection-safety-committee-warning",
+        "block-labor-inspection-committee-common-trap",
+        "block-labor-inspection-pilot-traceability-summary"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-committee-composition",
+      "title": "הרכב ועדת בטיחות",
+      "description": "Pilot topic for composition, notices and related responsibility mapping.",
+      "parentTopicId": "safety-committee",
+      "aliases": [
+        "committee composition",
+        "הרכב ועדה"
+      ],
+      "relatedTopicIds": [
+        "safety-committee",
+        "roles-and-responsibilities",
+        "exam-focus"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "blockIds": [
+        "block-labor-inspection-committee-composition-note",
+        "block-labor-inspection-committee-composition-table",
+        "block-labor-inspection-committee-common-trap"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "roles-and-responsibilities",
+      "title": "בעלי תפקידים ואחריות",
+      "description": "Pilot topic for responsibility mapping around safety committee composition.",
+      "parentTopicId": null,
+      "aliases": [
+        "roles and responsibilities",
+        "אחריות בעלי תפקידים"
+      ],
+      "relatedTopicIds": [
+        "safety-committee-composition",
+        "management-responsibility"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "blockIds": [
+        "block-labor-inspection-committee-composition-note",
+        "block-labor-inspection-committee-composition-table"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "exam-focus",
+      "title": "דגשי מבחן",
+      "description": "Pilot topic for exam-focus blocks that still require source traceability.",
+      "parentTopicId": null,
+      "aliases": [
+        "exam focus",
+        "מלכודות מבחן"
+      ],
+      "relatedTopicIds": [
+        "improvement-order",
+        "safety-committee-composition"
+      ],
+      "lessonIds": [
+        "lesson-03",
+        "lesson-05"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "blockIds": [
+        "block-labor-inspection-improvement-order-exam-focus",
+        "block-labor-inspection-committee-common-trap"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "source-governance",
+      "title": "עקיבות מקור ותוכן",
+      "description": "Pilot governance topic that documents traceability from source to content block.",
+      "parentTopicId": null,
+      "aliases": [
+        "source governance",
+        "traceability"
+      ],
+      "relatedTopicIds": [
+        "labor-inspection-law"
+      ],
+      "lessonIds": [
+        "lesson-03",
+        "lesson-05"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954"
+      ],
+      "blockIds": [
+        "block-labor-inspection-pilot-traceability-summary"
+      ],
+      "status": "draft"
+    }
+  ]
+}
