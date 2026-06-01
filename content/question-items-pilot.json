@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "registryStatus": "pilot",
+  "scope": {
+    "stableSourceId": "law-labor-inspection-1954",
+    "description": "Question item pilot proving Source -> Citation -> Question -> Official Answer traceability."
+  },
+  "questionItems": [
+    {
+      "questionId": "question-labor-inspection-safety-program-section",
+      "title": "תוכנית בטיחות - מקור סעיף",
+      "questionType": "multiple-choice",
+      "topicIds": [
+        "safety-program",
+        "legal-compliance"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "question": "איזה סעיף בפיילוט המקור עוסק בתוכנית בטיחות?",
+      "options": [
+        "סעיף 10",
+        "סעיף 11",
+        "סעיף 15",
+        "סעיף 16"
+      ],
+      "correctIndex": 1,
+      "officialAnswer": {
+        "correctIndex": 1,
+        "sourceRefs": [
+          {
+            "stableSourceId": "law-labor-inspection-1954",
+            "citationId": "citation-law-labor-inspection-1954-section-11"
+          }
+        ]
+      },
+      "explanation": "בפיילוט ה-citation, סעיף 11 מסומן כ'תוכנית בטיחות'.",
+      "claimTypes": [
+        "officialAnswer"
+      ],
+      "sourceRefs": [
+        {
+          "stableSourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-11"
+        }
+      ],
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot question linked to source-backed citation. Not verified or legally approved."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "question-labor-inspection-safety-committee-establishment",
+      "title": "הקמת ועדת בטיחות - מקור סעיף",
+      "questionType": "multiple-choice",
+      "topicIds": [
+        "safety-committee",
+        "legal-compliance"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "question": "איזה סעיף בפיילוט המקור עוסק בהקמת ועדת בטיחות?",
+      "options": [
+        "סעיף 10",
+        "סעיף 14",
+        "סעיף 15",
+        "סעיף 16"
+      ],
+      "correctIndex": 2,
+      "officialAnswer": {
+        "correctIndex": 2,
+        "sourceRefs": [
+          {
+            "stableSourceId": "law-labor-inspection-1954",
+            "citationId": "citation-law-labor-inspection-1954-section-15"
+          }
+        ]
+      },
+      "explanation": "בפיילוט ה-citation, סעיף 15 מסומן כ'הקמת ועדת בטיחות'.",
+      "claimTypes": [
+        "officialAnswer"
+      ],
+      "sourceRefs": [
+        {
+          "stableSourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-15"
+        }
+      ],
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot question linked to source-backed citation. Not verified or legally approved."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "question-labor-inspection-safety-committee-composition",
+      "title": "הרכב ועדת בטיחות והודעות - מקור סעיף",
+      "questionType": "multiple-choice",
+      "topicIds": [
+        "safety-committee",
+        "roles-and-responsibilities"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "question": "איזה סעיף בפיילוט המקור עוסק בהרכבת ועדת בטיחות ובהודעות?",
+      "options": [
+        "סעיף 11",
+        "סעיף 14",
+        "סעיף 15",
+        "סעיף 16"
+      ],
+      "correctIndex": 3,
+      "officialAnswer": {
+        "correctIndex": 3,
+        "sourceRefs": [
+          {
+            "stableSourceId": "law-labor-inspection-1954",
+            "citationId": "citation-law-labor-inspection-1954-section-16"
+          }
+        ]
+      },
+      "explanation": "בפיילוט ה-citation, סעיף 16 מסומן כ'הרכבת ועדת בטיחות והודעות'.",
+      "claimTypes": [
+        "officialAnswer"
+      ],
+      "sourceRefs": [
+        {
+          "stableSourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-16"
+        }
+      ],
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot question linked to source-backed citation. Not verified or legally approved."
+      },
+      "status": "draft"
+    }
+  ]
+}

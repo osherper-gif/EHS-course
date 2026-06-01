@@ -7,6 +7,7 @@ const ROOT = path.join(__dirname, "..");
 const SOURCE_REGISTRY_PATH = path.join(ROOT, "content", "source-registry.json");
 const CITATION_REGISTRY_PATH = path.join(ROOT, "content", "citation-registry-pilot.json");
 const KNOWLEDGE_ITEMS_PATH = path.join(ROOT, "content", "knowledge-items-pilot.json");
+const QUESTION_ITEMS_PATH = path.join(ROOT, "content", "question-items-pilot.json");
 
 const AUTHORITATIVE_CLAIM_TYPES = new Set([
   "legalRequirement",
@@ -51,10 +52,15 @@ function sourceAuthorityLevel(source, citation) {
   return citation?.authorityLevel || source?.authorityLevel || null;
 }
 
-function validateData(sourceRegistry, citationRegistry, knowledgeRegistry) {
+function itemId(item) {
+  return item.knowledgeItemId || item.questionId || "(missing item id)";
+}
+
+function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, questionRegistry) {
   const sources = asArray(sourceRegistry.entries);
   const citations = asArray(citationRegistry.citations);
   const knowledgeItems = asArray(knowledgeRegistry.knowledgeItems);
+  const questionItems = asArray(questionRegistry.questionItems);
   const sourceById = new Map(sources.map((source) => [source.stableSourceId, source]));
   const citationById = new Map(citations.map((citation) => [citation.citationId, citation]));
 
@@ -63,53 +69,72 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry) {
   let checkedItems = 0;
 
   function block(item, message) {
-    blocked.push(`${item.knowledgeItemId || "(missing knowledgeItemId)"}: ${message}`);
+    blocked.push(`${itemId(item)}: ${message}`);
   }
 
-  knowledgeItems.forEach((item) => {
-    checkedItems += 1;
-
-    if (SCANNER_ID_PATTERN.test(JSON.stringify(item))) {
-      block(item, "scannerId-like value found in knowledge item");
-    }
-
-    const sourceRefs = asArray(item.sourceRefs);
-    const authoritative = hasAuthoritativeClaim(item);
-
+  function validateSourceRefs(item, sourceRefs, refLabel, authoritative) {
     if (!sourceRefs.length) {
-      block(item, "missing sourceRefs");
+      block(item, `missing ${refLabel}`);
       return;
     }
 
     sourceRefs.forEach((ref, index) => {
-      if (!ref.stableSourceId) block(item, `sourceRefs[${index}] missing stableSourceId`);
-      if (!ref.citationId) block(item, `sourceRefs[${index}] missing citationId`);
+      if (!ref.stableSourceId) block(item, `${refLabel}[${index}] missing stableSourceId`);
+      if (!ref.citationId) block(item, `${refLabel}[${index}] missing citationId`);
 
       const source = ref.stableSourceId ? sourceById.get(ref.stableSourceId) : null;
       const citation = ref.citationId ? citationById.get(ref.citationId) : null;
       const authorityLevel = sourceAuthorityLevel(source, citation);
       const verificationStatus = sourceVerificationStatus(source, citation, item);
 
-      if (!source) block(item, `sourceRefs[${index}] stableSourceId not found: ${ref.stableSourceId || "(missing)"}`);
-      if (!citation) block(item, `sourceRefs[${index}] citationId not found: ${ref.citationId || "(missing)"}`);
+      if (!source) block(item, `${refLabel}[${index}] stableSourceId not found: ${ref.stableSourceId || "(missing)"}`);
+      if (!citation) block(item, `${refLabel}[${index}] citationId not found: ${ref.citationId || "(missing)"}`);
 
       if (citation && source && citation.stableSourceId !== source.stableSourceId) {
-        block(item, `sourceRefs[${index}] citation/source mismatch`);
+        block(item, `${refLabel}[${index}] citation/source mismatch`);
       }
 
-      if (!authorityLevel) block(item, `sourceRefs[${index}] missing authorityLevel`);
-      if (!verificationStatus) block(item, `sourceRefs[${index}] missing verificationStatus`);
+      if (!authorityLevel) block(item, `${refLabel}[${index}] missing authorityLevel`);
+      if (!verificationStatus) block(item, `${refLabel}[${index}] missing verificationStatus`);
 
       if (authoritative && !ACCEPTED_AUTHORITY_STATUSES.has(verificationStatus)) {
         block(item, `authoritative claim has unsupported verificationStatus: ${verificationStatus}`);
       }
     });
+  }
+
+  function validateTraceableItem(item, itemType) {
+    checkedItems += 1;
+
+    if (SCANNER_ID_PATTERN.test(JSON.stringify(item))) {
+      block(item, `scannerId-like value found in ${itemType}`);
+    }
+
+    const authoritative = hasAuthoritativeClaim(item);
+    validateSourceRefs(item, asArray(item.sourceRefs), "sourceRefs", authoritative);
+
+    if (itemType === "question" && asArray(item.claimTypes).includes("officialAnswer")) {
+      const answerRefs = asArray(item.officialAnswer?.sourceRefs);
+      validateSourceRefs(item, answerRefs, "officialAnswer.sourceRefs", true);
+      if (item.officialAnswer?.correctIndex !== item.correctIndex) {
+        block(item, "officialAnswer.correctIndex does not match correctIndex");
+      }
+    }
+  }
+
+  knowledgeItems.forEach((item) => {
+    validateTraceableItem(item, "knowledge item");
+  });
+
+  questionItems.forEach((item) => {
+    validateTraceableItem(item, "question");
   });
 
   return {
     sources: sources.length,
     citations: citations.length,
     knowledgeItems: knowledgeItems.length,
+    questionItems: questionItems.length,
     checkedItems,
     blocked,
     warnings,
@@ -121,13 +146,14 @@ function loadRegistries() {
   return {
     sourceRegistry: readJson(SOURCE_REGISTRY_PATH),
     citationRegistry: readJson(CITATION_REGISTRY_PATH),
-    knowledgeRegistry: readJson(KNOWLEDGE_ITEMS_PATH)
+    knowledgeRegistry: readJson(KNOWLEDGE_ITEMS_PATH),
+    questionRegistry: readJson(QUESTION_ITEMS_PATH)
   };
 }
 
 function validate() {
   const registries = loadRegistries();
-  return validateData(registries.sourceRegistry, registries.citationRegistry, registries.knowledgeRegistry);
+  return validateData(registries.sourceRegistry, registries.citationRegistry, registries.knowledgeRegistry, registries.questionRegistry);
 }
 
 function deepClone(value) {
@@ -140,31 +166,43 @@ function firstPilotItem(knowledgeRegistry) {
   return item;
 }
 
+function firstPilotQuestion(questionRegistry) {
+  const item = asArray(questionRegistry.questionItems)[0];
+  if (!item) throw new Error("Self-test requires at least one pilot question item.");
+  return item;
+}
+
 function runSelfTest() {
   const base = loadRegistries();
   const baseItem = firstPilotItem(base.knowledgeRegistry);
   const baseRef = asArray(baseItem.sourceRefs)[0];
-  const cases = [
+  const baseQuestion = firstPilotQuestion(base.questionRegistry);
+  const baseQuestionRef = asArray(baseQuestion.sourceRefs)[0];
+  const knowledgeCases = [
     {
       name: "missing stableSourceId",
+      type: "knowledge",
       mutate(item) {
         item.sourceRefs = [{ citationId: baseRef.citationId }];
       }
     },
     {
       name: "missing citationId",
+      type: "knowledge",
       mutate(item) {
         item.sourceRefs = [{ stableSourceId: baseRef.stableSourceId }];
       }
     },
     {
       name: "scannerId used as stableSourceId",
+      type: "knowledge",
       mutate(item) {
         item.sourceRefs = [{ stableSourceId: "source-013-b3e4e54502a2", citationId: baseRef.citationId }];
       }
     },
     {
       name: "legalRequirement without citation",
+      type: "knowledge",
       mutate(item) {
         item.claimTypes = ["legalRequirement"];
         item.sourceRefs = [{ stableSourceId: baseRef.stableSourceId }];
@@ -172,6 +210,7 @@ function runSelfTest() {
     },
     {
       name: "authoritative claim with unverified citation",
+      type: "knowledge",
       mutate(item, registries) {
         item.claimTypes = ["legalRequirement"];
         const citation = asArray(registries.citationRegistry.citations).find((entry) => entry.citationId === baseRef.citationId);
@@ -179,16 +218,65 @@ function runSelfTest() {
       }
     }
   ];
+  const questionCases = [
+    {
+      name: "officialAnswer without source",
+      type: "question",
+      mutate(item) {
+        item.officialAnswer.sourceRefs = [];
+      }
+    },
+    {
+      name: "officialAnswer without citation",
+      type: "question",
+      mutate(item) {
+        item.officialAnswer.sourceRefs = [{ stableSourceId: baseQuestionRef.stableSourceId }];
+      }
+    },
+    {
+      name: "question scannerId used as stableSourceId",
+      type: "question",
+      mutate(item) {
+        item.sourceRefs = [{ stableSourceId: "source-013-b3e4e54502a2", citationId: baseQuestionRef.citationId }];
+        item.officialAnswer.sourceRefs = [{ stableSourceId: "source-013-b3e4e54502a2", citationId: baseQuestionRef.citationId }];
+      }
+    },
+    {
+      name: "question citation not found",
+      type: "question",
+      mutate(item) {
+        item.sourceRefs = [{ stableSourceId: baseQuestionRef.stableSourceId, citationId: "citation-missing" }];
+        item.officialAnswer.sourceRefs = [{ stableSourceId: baseQuestionRef.stableSourceId, citationId: "citation-missing" }];
+      }
+    },
+    {
+      name: "authoritative question with unverified source",
+      type: "question",
+      mutate(item, registries) {
+        item.claimTypes = ["officialAnswer"];
+        const citation = asArray(registries.citationRegistry.citations).find((entry) => entry.citationId === baseQuestionRef.citationId);
+        if (citation) citation.verification.status = "unverified";
+      }
+    }
+  ];
+  const cases = [...knowledgeCases, ...questionCases];
 
   const results = cases.map((testCase) => {
     const registries = deepClone(base);
-    const item = deepClone(baseItem);
-    item.knowledgeItemId = `negative-${item.knowledgeItemId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+    const isQuestionCase = testCase.type === "question";
+    const item = deepClone(isQuestionCase ? baseQuestion : baseItem);
+    if (isQuestionCase) {
+      item.questionId = `negative-${item.questionId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+    } else {
+      item.knowledgeItemId = `negative-${item.knowledgeItemId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+    }
     testCase.mutate(item, registries);
-    registries.knowledgeRegistry.knowledgeItems = [item];
-    const report = validateData(registries.sourceRegistry, registries.citationRegistry, registries.knowledgeRegistry);
+    registries.knowledgeRegistry.knowledgeItems = isQuestionCase ? [] : [item];
+    registries.questionRegistry.questionItems = isQuestionCase ? [item] : [];
+    const report = validateData(registries.sourceRegistry, registries.citationRegistry, registries.knowledgeRegistry, registries.questionRegistry);
     return {
       name: testCase.name,
+      type: testCase.type,
       blocked: report.blocked.length,
       result: report.result
     };
@@ -198,7 +286,8 @@ function runSelfTest() {
   const report = {
     sources: asArray(base.sourceRegistry.entries).length,
     citations: asArray(base.citationRegistry.citations).length,
-    knowledgeItems: cases.length,
+    knowledgeItems: knowledgeCases.length,
+    questionItems: questionCases.length,
     checkedItems: cases.length,
     blocked: missedCases.map((item) => `self-test case was not blocked: ${item.name}`),
     warnings: [],
@@ -214,6 +303,7 @@ function printReport(report) {
   console.log(`Sources: ${report.sources}`);
   console.log(`Citations: ${report.citations}`);
   console.log(`Knowledge Items: ${report.knowledgeItems}`);
+  console.log(`Question Items: ${report.questionItems}`);
   console.log(`Checked Items: ${report.checkedItems}`);
   console.log(`Blocked Items: ${report.blocked.length}`);
   report.blocked.forEach((item) => console.log(`- ${item}`));
@@ -222,7 +312,7 @@ function printReport(report) {
   if (report.selfTestResults) {
     console.log("Self-Test Cases:");
     report.selfTestResults.forEach((item) => {
-      console.log(`- ${item.name}: blocked=${item.blocked}, expected=blocked`);
+      console.log(`- ${item.type} | ${item.name}: blocked=${item.blocked}, expected=blocked`);
     });
   }
   console.log(`Result: ${report.result}`);
