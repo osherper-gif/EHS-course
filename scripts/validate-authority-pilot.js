@@ -25,6 +25,8 @@ const AUTHORITATIVE_CLAIM_TYPES = new Set([
 const ACCEPTED_AUTHORITY_STATUSES = new Set(["verified", "source-backed"]);
 const SCANNER_ID_PATTERN = /source-\d{3}-[a-f0-9]{12}/i;
 const WORD_NUMBERING_TITLE_PATTERN = /^(?:פרק\s+\d+|\d+(?:\.\d+)+)(?:\s|$)/u;
+const LEVEL_6_FORBIDDEN_CLAIM_TYPES = new Set(["legalRequirement", "regulatoryRequirement", "bindingRule"]);
+const LAW_LIKE_SOURCE_CITATION_PATTERN = /(?:חוק|פקודה|תקנה|צו|סעיף\s*\d+|section\s*\d+)/iu;
 const SELF_TEST_MODE = process.argv.includes("--self-test");
 
 function readJson(filePath) {
@@ -206,6 +208,27 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     }
     if (contentBlock.blockType === "golden-number" && !contentBlock.sourceCitation) {
       block(contentBlock, "golden-number block missing sourceCitation");
+    }
+
+    if (source?.authorityLevel === 6) {
+      const claimTypes = asArray(contentBlock.claimTypes);
+      if (contentBlock.authoritySummary?.legalBinding === true) {
+        block(contentBlock, "Level 6 content block must not be legalBinding");
+      }
+      claimTypes.forEach((claimType) => {
+        if (LEVEL_6_FORBIDDEN_CLAIM_TYPES.has(claimType)) {
+          block(contentBlock, `Level 6 content block must not use claimType ${claimType}`);
+        }
+      });
+      if (contentBlock.verification?.status === "verified") {
+        block(contentBlock, "Level 6 content block must not be verified");
+      }
+      if (contentBlock.blockType === "golden-number" || claimTypes.includes("goldenNumber")) {
+        block(contentBlock, "Level 6 content block must not be a golden-number");
+      }
+      if (contentBlock.sourceCitation && LAW_LIKE_SOURCE_CITATION_PATTERN.test(contentBlock.sourceCitation)) {
+        block(contentBlock, "Level 6 content block sourceCitation must not look like a binding legal citation");
+      }
     }
   }
 
@@ -445,6 +468,12 @@ function firstPilotContentBlock(contentBlockRegistry) {
   return item;
 }
 
+function firstLevel6ContentBlock(contentBlockRegistry) {
+  const item = asArray(contentBlockRegistry.contentBlocks).find((contentBlock) => contentBlock.sourceId === "training-safety-management-human-factors");
+  if (!item) throw new Error("Self-test requires at least one Level 6 pilot content block.");
+  return item;
+}
+
 function runSelfTest() {
   const base = loadRegistries();
   const baseItem = firstPilotItem(base.knowledgeRegistry);
@@ -453,6 +482,7 @@ function runSelfTest() {
   const baseQuestionRef = asArray(baseQuestion.sourceRefs)[0];
   const baseGoldenNumber = firstPilotGoldenNumber(base.goldenNumberRegistry);
   const baseContentBlock = firstPilotContentBlock(base.contentBlockRegistry);
+  const baseLevel6ContentBlock = firstLevel6ContentBlock(base.contentBlockRegistry);
   const baseTopic = asArray(base.topicMapRegistry.topics)[0];
   if (!baseTopic) throw new Error("Self-test requires at least one pilot topic.");
   const baseLessonMapping = asArray(base.lessonMapRegistry.lessonMappings)[0];
@@ -630,6 +660,65 @@ function runSelfTest() {
       }
     }
   ];
+  const level6ContentBlockCases = [
+    {
+      name: "Level 6 block with legalBinding true",
+      type: "level6ContentBlock",
+      mutate(item) {
+        item.authoritySummary.legalBinding = true;
+      }
+    },
+    {
+      name: "Level 6 block with legalRequirement claim",
+      type: "level6ContentBlock",
+      mutate(item) {
+        item.claimTypes = ["legalRequirement"];
+      }
+    },
+    {
+      name: "Level 6 block with regulatoryRequirement claim",
+      type: "level6ContentBlock",
+      mutate(item) {
+        item.claimTypes = ["regulatoryRequirement"];
+      }
+    },
+    {
+      name: "Level 6 block with verified status",
+      type: "level6ContentBlock",
+      mutate(item) {
+        item.verification.status = "verified";
+      }
+    },
+    {
+      name: "Level 6 block as golden-number",
+      type: "level6ContentBlock",
+      mutate(item) {
+        item.blockType = "golden-number";
+        item.claimTypes = ["goldenNumber"];
+      }
+    },
+    {
+      name: "Level 6 block title starts with chapter numbering",
+      type: "level6ContentBlock",
+      mutate(item) {
+        item.content.title = "׳₪׳¨׳§ 1 ׳”׳’׳•׳¨׳ ׳”׳׳ ׳•׳©׳™";
+      }
+    },
+    {
+      name: "Level 6 block title starts with outline numbering",
+      type: "level6ContentBlock",
+      mutate(item) {
+        item.content.title = "1.1 ׳”׳’׳•׳¨׳ ׳”׳׳ ׳•׳©׳™";
+      }
+    },
+    {
+      name: "Level 6 block with scannerId",
+      type: "level6ContentBlock",
+      mutate(item) {
+        item.sourceId = "source-010-ff7e1514c4dc";
+      }
+    }
+  ];
   const topicCases = [
     {
       name: "topic with missing blockId",
@@ -721,21 +810,22 @@ function runSelfTest() {
       }
     }
   ];
-  const cases = [...knowledgeCases, ...questionCases, ...goldenNumberCases, ...contentBlockCases, ...topicCases, ...lessonCases];
+  const cases = [...knowledgeCases, ...questionCases, ...goldenNumberCases, ...contentBlockCases, ...level6ContentBlockCases, ...topicCases, ...lessonCases];
 
   const results = cases.map((testCase) => {
     const registries = deepClone(base);
     const isQuestionCase = testCase.type === "question";
     const isGoldenNumberCase = testCase.type === "goldenNumber";
     const isContentBlockCase = testCase.type === "contentBlock";
+    const isLevel6ContentBlockCase = testCase.type === "level6ContentBlock";
     const isTopicCase = testCase.type === "topic";
     const isLessonCase = testCase.type === "lesson";
-    const item = deepClone(isLessonCase ? baseLessonMapping : isTopicCase ? baseTopic : isContentBlockCase ? baseContentBlock : isGoldenNumberCase ? baseGoldenNumber : isQuestionCase ? baseQuestion : baseItem);
+    const item = deepClone(isLevel6ContentBlockCase ? baseLevel6ContentBlock : isLessonCase ? baseLessonMapping : isTopicCase ? baseTopic : isContentBlockCase ? baseContentBlock : isGoldenNumberCase ? baseGoldenNumber : isQuestionCase ? baseQuestion : baseItem);
     if (isQuestionCase) {
       item.questionId = `negative-${item.questionId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     } else if (isGoldenNumberCase) {
       item.goldenNumberId = `negative-${item.goldenNumberId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
-    } else if (isContentBlockCase) {
+    } else if (isContentBlockCase || isLevel6ContentBlockCase) {
       item.blockId = `negative-${item.blockId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     } else if (isTopicCase) {
       item.topicId = `negative-${item.topicId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
@@ -745,10 +835,10 @@ function runSelfTest() {
       item.knowledgeItemId = `negative-${item.knowledgeItemId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     }
     testCase.mutate(item, registries);
-    registries.knowledgeRegistry.knowledgeItems = !isQuestionCase && !isGoldenNumberCase && !isContentBlockCase && !isTopicCase && !isLessonCase ? [item] : [];
+    registries.knowledgeRegistry.knowledgeItems = !isQuestionCase && !isGoldenNumberCase && !isContentBlockCase && !isLevel6ContentBlockCase && !isTopicCase && !isLessonCase ? [item] : [];
     registries.questionRegistry.questionItems = isQuestionCase ? [item] : [];
     registries.goldenNumberRegistry.goldenNumbers = isGoldenNumberCase ? [item] : [];
-    registries.contentBlockRegistry.contentBlocks = isContentBlockCase ? [item] : [];
+    registries.contentBlockRegistry.contentBlocks = isContentBlockCase || isLevel6ContentBlockCase ? [item] : [];
     if (isTopicCase && testCase.name !== "content block without topic coverage") {
       registries.topicMapRegistry.topics = [item];
     }
@@ -780,7 +870,7 @@ function runSelfTest() {
     knowledgeItems: knowledgeCases.length,
     questionItems: questionCases.length,
     goldenNumbers: goldenNumberCases.length,
-    contentBlocks: contentBlockCases.length,
+    contentBlocks: contentBlockCases.length + level6ContentBlockCases.length,
     topics: topicCases.length,
     lessonMappings: lessonCases.length,
     checkedItems: cases.length,

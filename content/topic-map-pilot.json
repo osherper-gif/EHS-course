@@ -297,6 +297,133 @@
         "block-labor-inspection-pilot-traceability-summary"
       ],
       "status": "draft"
+    },
+    {
+      "topicId": "human-factors",
+      "title": "????? ??????",
+      "description": "Level 6 training topic for human factors in safety management.",
+      "parentTopicId": "safety-management",
+      "aliases": [
+        "human factors",
+        "???? ????"
+      ],
+      "relatedTopicIds": [
+        "hop",
+        "safety-culture",
+        "organizational-learning"
+      ],
+      "lessonIds": [
+        "lesson-37"
+      ],
+      "sourceIds": [
+        "training-safety-management-human-factors"
+      ],
+      "blockIds": [
+        "block-training-human-factors-definition",
+        "block-training-human-factors-exam-focus"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "hop",
+      "title": "HOP",
+      "description": "Level 6 training topic for Human and Organizational Performance concepts.",
+      "parentTopicId": "human-factors",
+      "aliases": [
+        "Human and Organizational Performance"
+      ],
+      "relatedTopicIds": [
+        "human-factors",
+        "organizational-learning",
+        "field-guidance"
+      ],
+      "lessonIds": [
+        "lesson-37"
+      ],
+      "sourceIds": [
+        "training-safety-management-human-factors"
+      ],
+      "blockIds": [
+        "block-training-hop-principle",
+        "block-training-hop-field-guidance"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-culture",
+      "title": "????? ??????",
+      "description": "Level 6 training topic for reporting behavior and safety culture.",
+      "parentTopicId": "safety-management",
+      "aliases": [
+        "safety culture",
+        "????? ?????"
+      ],
+      "relatedTopicIds": [
+        "human-factors",
+        "management-responsibility"
+      ],
+      "lessonIds": [
+        "lesson-37"
+      ],
+      "sourceIds": [
+        "training-safety-management-human-factors"
+      ],
+      "blockIds": [
+        "block-training-safety-culture-definition",
+        "block-training-safety-culture-warning"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "organizational-learning",
+      "title": "????? ???????",
+      "description": "Level 6 training topic for learning from events and corrective action loops.",
+      "parentTopicId": "safety-management",
+      "aliases": [
+        "organizational learning",
+        "????? ????????"
+      ],
+      "relatedTopicIds": [
+        "hop",
+        "field-guidance",
+        "safety-culture"
+      ],
+      "lessonIds": [
+        "lesson-37"
+      ],
+      "sourceIds": [
+        "training-safety-management-human-factors"
+      ],
+      "blockIds": [
+        "block-training-organizational-learning-summary",
+        "block-training-organizational-learning-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "field-guidance",
+      "title": "?????? ???",
+      "description": "Training-only field guidance topic. It must not be treated as a legal requirement.",
+      "parentTopicId": null,
+      "aliases": [
+        "field guidance",
+        "??? ???"
+      ],
+      "relatedTopicIds": [
+        "hop",
+        "organizational-learning"
+      ],
+      "lessonIds": [
+        "lesson-37"
+      ],
+      "sourceIds": [
+        "training-safety-management-human-factors"
+      ],
+      "blockIds": [
+        "block-training-hop-field-guidance",
+        "block-training-organizational-learning-checklist"
+      ],
+      "status": "draft"
     }
   ]
 }

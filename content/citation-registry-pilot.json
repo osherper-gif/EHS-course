@@ -2,8 +2,11 @@
   "schemaVersion": 1,
   "registryStatus": "pilot",
   "scope": {
-    "stableSourceId": "law-labor-inspection-1954",
-    "description": "Citation pilot for selected sections of חוק ארגון הפיקוח על העבודה, תשי\"ד-1954."
+    "description": "Mixed authority citation pilot for one Level 1 legal source and one Level 6 training source.",
+    "stableSourceIds": [
+      "law-labor-inspection-1954",
+      "training-safety-management-human-factors"
+    ]
   },
   "citations": [
     {
@@ -90,6 +93,86 @@
         "notes": "Pilot citation located in the source document. Not legal approved."
       },
       "notes": "Pilot citation only. Do not use as legal-binding content without later legal/source review."
+    },
+    {
+      "citationId": "citation-training-human-factors-heading-human-factor",
+      "stableSourceId": "training-safety-management-human-factors",
+      "citationType": "heading",
+      "label": "Human factor in safety management",
+      "locator": {
+        "heading": "????? ?????? ?????? ??????",
+        "paragraphIndex": null,
+        "page": null
+      },
+      "authorityLevel": 6,
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot training-material citation located by source heading. Not verified."
+      },
+      "notes": "Level 6 training citation. Must not be treated as binding law."
+    },
+    {
+      "citationId": "citation-training-human-factors-heading-hop",
+      "stableSourceId": "training-safety-management-human-factors",
+      "citationType": "heading",
+      "label": "HOP - Human and Organizational Performance",
+      "locator": {
+        "heading": "HOP - Human and Organizational Performance",
+        "paragraphIndex": null,
+        "page": null
+      },
+      "authorityLevel": 6,
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot training-material citation located by source heading. Not verified."
+      },
+      "notes": "Level 6 training citation. May be examRelevant, not legalBinding."
+    },
+    {
+      "citationId": "citation-training-human-factors-heading-safety-culture",
+      "stableSourceId": "training-safety-management-human-factors",
+      "citationType": "heading",
+      "label": "Safety culture and reporting behavior",
+      "locator": {
+        "heading": "????? ?????? ??????",
+        "paragraphIndex": null,
+        "page": null
+      },
+      "authorityLevel": 6,
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot training-material citation located by source heading. Not verified."
+      },
+      "notes": "Level 6 training citation. Must not be promoted to regulatory requirement."
+    },
+    {
+      "citationId": "citation-training-human-factors-heading-organizational-learning",
+      "stableSourceId": "training-safety-management-human-factors",
+      "citationType": "heading",
+      "label": "Organizational learning from events",
+      "locator": {
+        "heading": "????? ??????? ????????",
+        "paragraphIndex": null,
+        "page": null
+      },
+      "authorityLevel": 6,
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot training-material citation located by source heading. Not verified."
+      },
+      "notes": "Level 6 training citation. Field guidance only."
     }
   ]
 }
