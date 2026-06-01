@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "registryStatus": "pilot",
+  "scope": {
+    "stableSourceId": "law-labor-inspection-1954",
+    "description": "Golden number pilot proving Source -> Citation -> Golden Number traceability."
+  },
+  "goldenNumbers": [
+    {
+      "goldenNumberId": "golden-labor-inspection-improvement-order-appeal-7-days",
+      "value": 7,
+      "unit": "days",
+      "displayValue": "7 ימים",
+      "meaning": "תקופת הערעור על צו שיפור לפי ציטוט המקור בפיילוט.",
+      "topicIds": [
+        "improvement-order",
+        "labor-inspection",
+        "legal-deadlines"
+      ],
+      "lessonIds": [
+        "lesson-03",
+        "lesson-09"
+      ],
+      "claimTypes": [
+        "goldenNumber"
+      ],
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-10",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, תשי\"ד-1954; citation-law-labor-inspection-1954-section-10; ציטוט המקור בפיילוט: \"תוך שבעה ימים\".",
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot golden number linked to source-backed citation. Not verified or legally approved."
+      },
+      "status": "draft"
+    },
+    {
+      "goldenNumberId": "golden-labor-inspection-safety-committee-25-workers",
+      "value": 25,
+      "unit": "workers",
+      "displayValue": "25 עובדים לפחות",
+      "meaning": "סף עובדים להקמת ועדת בטיחות לפי ציטוט המקור בפיילוט.",
+      "topicIds": [
+        "safety-committee",
+        "worker-representation",
+        "legal-thresholds"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "claimTypes": [
+        "goldenNumber"
+      ],
+      "sourceId": "law-labor-inspection-1954",
+      "citationId": "citation-law-labor-inspection-1954-section-15",
+      "sourceCitation": "חוק ארגון הפיקוח על העבודה, תשי\"ד-1954; citation-law-labor-inspection-1954-section-15; ציטוט המקור בפיילוט: \"25 עובדים לפחות\".",
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot golden number linked to source-backed citation. Not verified or legally approved."
+      },
+      "status": "draft"
+    }
+  ]
+}

@@ -8,6 +8,7 @@ const SOURCE_REGISTRY_PATH = path.join(ROOT, "content", "source-registry.json");
 const CITATION_REGISTRY_PATH = path.join(ROOT, "content", "citation-registry-pilot.json");
 const KNOWLEDGE_ITEMS_PATH = path.join(ROOT, "content", "knowledge-items-pilot.json");
 const QUESTION_ITEMS_PATH = path.join(ROOT, "content", "question-items-pilot.json");
+const GOLDEN_NUMBERS_PATH = path.join(ROOT, "content", "golden-numbers-pilot.json");
 
 const AUTHORITATIVE_CLAIM_TYPES = new Set([
   "legalRequirement",
@@ -53,14 +54,15 @@ function sourceAuthorityLevel(source, citation) {
 }
 
 function itemId(item) {
-  return item.knowledgeItemId || item.questionId || "(missing item id)";
+  return item.knowledgeItemId || item.questionId || item.goldenNumberId || "(missing item id)";
 }
 
-function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, questionRegistry) {
+function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, questionRegistry, goldenNumberRegistry) {
   const sources = asArray(sourceRegistry.entries);
   const citations = asArray(citationRegistry.citations);
   const knowledgeItems = asArray(knowledgeRegistry.knowledgeItems);
   const questionItems = asArray(questionRegistry.questionItems);
+  const goldenNumbers = asArray(goldenNumberRegistry.goldenNumbers);
   const sourceById = new Map(sources.map((source) => [source.stableSourceId, source]));
   const citationById = new Map(citations.map((citation) => [citation.citationId, citation]));
 
@@ -130,11 +132,41 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     validateTraceableItem(item, "question");
   });
 
+  goldenNumbers.forEach((item) => {
+    checkedItems += 1;
+
+    if (SCANNER_ID_PATTERN.test(JSON.stringify(item))) {
+      block(item, "scannerId-like value found in golden number");
+    }
+
+    if (!item.sourceId) block(item, "missing sourceId");
+    if (!item.citationId) block(item, "missing citationId");
+    if (!item.sourceCitation) block(item, "missing sourceCitation");
+    if (!item.authorityLevel) block(item, "missing authorityLevel");
+
+    const source = item.sourceId ? sourceById.get(item.sourceId) : null;
+    const citation = item.citationId ? citationById.get(item.citationId) : null;
+    const verificationStatus = item.verification?.status || "unverified";
+
+    if (!source) block(item, `sourceId not found: ${item.sourceId || "(missing)"}`);
+    if (!citation) block(item, `citationId not found: ${item.citationId || "(missing)"}`);
+    if (source && citation && citation.stableSourceId !== source.stableSourceId) {
+      block(item, "citation/source mismatch");
+    }
+    if (source && item.authorityLevel && item.authorityLevel !== source.authorityLevel) {
+      block(item, `authorityLevel mismatch: expected ${source.authorityLevel}, got ${item.authorityLevel}`);
+    }
+    if (!ACCEPTED_AUTHORITY_STATUSES.has(verificationStatus)) {
+      block(item, `goldenNumber has unsupported verificationStatus: ${verificationStatus}`);
+    }
+  });
+
   return {
     sources: sources.length,
     citations: citations.length,
     knowledgeItems: knowledgeItems.length,
     questionItems: questionItems.length,
+    goldenNumbers: goldenNumbers.length,
     checkedItems,
     blocked,
     warnings,
@@ -147,13 +179,20 @@ function loadRegistries() {
     sourceRegistry: readJson(SOURCE_REGISTRY_PATH),
     citationRegistry: readJson(CITATION_REGISTRY_PATH),
     knowledgeRegistry: readJson(KNOWLEDGE_ITEMS_PATH),
-    questionRegistry: readJson(QUESTION_ITEMS_PATH)
+    questionRegistry: readJson(QUESTION_ITEMS_PATH),
+    goldenNumberRegistry: readJson(GOLDEN_NUMBERS_PATH)
   };
 }
 
 function validate() {
   const registries = loadRegistries();
-  return validateData(registries.sourceRegistry, registries.citationRegistry, registries.knowledgeRegistry, registries.questionRegistry);
+  return validateData(
+    registries.sourceRegistry,
+    registries.citationRegistry,
+    registries.knowledgeRegistry,
+    registries.questionRegistry,
+    registries.goldenNumberRegistry
+  );
 }
 
 function deepClone(value) {
@@ -172,12 +211,19 @@ function firstPilotQuestion(questionRegistry) {
   return item;
 }
 
+function firstPilotGoldenNumber(goldenNumberRegistry) {
+  const item = asArray(goldenNumberRegistry.goldenNumbers)[0];
+  if (!item) throw new Error("Self-test requires at least one pilot golden number.");
+  return item;
+}
+
 function runSelfTest() {
   const base = loadRegistries();
   const baseItem = firstPilotItem(base.knowledgeRegistry);
   const baseRef = asArray(baseItem.sourceRefs)[0];
   const baseQuestion = firstPilotQuestion(base.questionRegistry);
   const baseQuestionRef = asArray(baseQuestion.sourceRefs)[0];
+  const baseGoldenNumber = firstPilotGoldenNumber(base.goldenNumberRegistry);
   const knowledgeCases = [
     {
       name: "missing stableSourceId",
@@ -259,21 +305,75 @@ function runSelfTest() {
       }
     }
   ];
-  const cases = [...knowledgeCases, ...questionCases];
+  const goldenNumberCases = [
+    {
+      name: "golden number without sourceId",
+      type: "goldenNumber",
+      mutate(item) {
+        delete item.sourceId;
+      }
+    },
+    {
+      name: "golden number without citationId",
+      type: "goldenNumber",
+      mutate(item) {
+        delete item.citationId;
+      }
+    },
+    {
+      name: "golden number without sourceCitation",
+      type: "goldenNumber",
+      mutate(item) {
+        delete item.sourceCitation;
+      }
+    },
+    {
+      name: "golden number without authorityLevel",
+      type: "goldenNumber",
+      mutate(item) {
+        delete item.authorityLevel;
+      }
+    },
+    {
+      name: "golden number with unverified status",
+      type: "goldenNumber",
+      mutate(item) {
+        item.verification.status = "unverified";
+      }
+    },
+    {
+      name: "golden number scannerId used as sourceId",
+      type: "goldenNumber",
+      mutate(item) {
+        item.sourceId = "source-013-b3e4e54502a2";
+      }
+    }
+  ];
+  const cases = [...knowledgeCases, ...questionCases, ...goldenNumberCases];
 
   const results = cases.map((testCase) => {
     const registries = deepClone(base);
     const isQuestionCase = testCase.type === "question";
-    const item = deepClone(isQuestionCase ? baseQuestion : baseItem);
+    const isGoldenNumberCase = testCase.type === "goldenNumber";
+    const item = deepClone(isGoldenNumberCase ? baseGoldenNumber : isQuestionCase ? baseQuestion : baseItem);
     if (isQuestionCase) {
       item.questionId = `negative-${item.questionId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+    } else if (isGoldenNumberCase) {
+      item.goldenNumberId = `negative-${item.goldenNumberId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     } else {
       item.knowledgeItemId = `negative-${item.knowledgeItemId}-${testCase.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
     }
     testCase.mutate(item, registries);
-    registries.knowledgeRegistry.knowledgeItems = isQuestionCase ? [] : [item];
+    registries.knowledgeRegistry.knowledgeItems = !isQuestionCase && !isGoldenNumberCase ? [item] : [];
     registries.questionRegistry.questionItems = isQuestionCase ? [item] : [];
-    const report = validateData(registries.sourceRegistry, registries.citationRegistry, registries.knowledgeRegistry, registries.questionRegistry);
+    registries.goldenNumberRegistry.goldenNumbers = isGoldenNumberCase ? [item] : [];
+    const report = validateData(
+      registries.sourceRegistry,
+      registries.citationRegistry,
+      registries.knowledgeRegistry,
+      registries.questionRegistry,
+      registries.goldenNumberRegistry
+    );
     return {
       name: testCase.name,
       type: testCase.type,
@@ -288,6 +388,7 @@ function runSelfTest() {
     citations: asArray(base.citationRegistry.citations).length,
     knowledgeItems: knowledgeCases.length,
     questionItems: questionCases.length,
+    goldenNumbers: goldenNumberCases.length,
     checkedItems: cases.length,
     blocked: missedCases.map((item) => `self-test case was not blocked: ${item.name}`),
     warnings: [],
@@ -304,6 +405,7 @@ function printReport(report) {
   console.log(`Citations: ${report.citations}`);
   console.log(`Knowledge Items: ${report.knowledgeItems}`);
   console.log(`Question Items: ${report.questionItems}`);
+  console.log(`Golden Numbers: ${report.goldenNumbers}`);
   console.log(`Checked Items: ${report.checkedItems}`);
   console.log(`Blocked Items: ${report.blocked.length}`);
   report.blocked.forEach((item) => console.log(`- ${item}`));
