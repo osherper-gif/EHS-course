@@ -1064,6 +1064,134 @@
         "notes": "Training-source locator. Not legally verified."
       },
       "notes": "Level 6 training citation. Do not create golden numbers from training values."
+    },
+    {
+      "citationId": "citation-training-construction-sites-governance",
+      "stableSourceId": "training-construction-sites-safety",
+      "citationType": "heading",
+      "label": "מבנה אחריות ורגולציה באתר בנייה",
+      "locator": {
+        "heading": "מבנה האתר, רגולציה ותפקידים",
+        "paragraphRange": "10-21",
+        "sourceFile": "3.9.5.בטיחות באתרי בנייה-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Legal references are treated as training context only."
+    },
+    {
+      "citationId": "citation-training-construction-sites-electrical",
+      "stableSourceId": "training-construction-sites-safety",
+      "citationType": "heading",
+      "label": "חשמל זמני ואנרגיות באתר בנייה",
+      "locator": {
+        "heading": "בטיחות בחשמל, אנרגיות מסוכנות ומערכות הזנה",
+        "paragraphRange": "22-57",
+        "sourceFile": "3.9.5.בטיחות באתרי בנייה-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Numeric values are not golden numbers."
+    },
+    {
+      "citationId": "citation-training-construction-sites-scaffolding-height",
+      "stableSourceId": "training-construction-sites-safety",
+      "citationType": "heading",
+      "label": "פיגומים ועבודה בגובה",
+      "locator": {
+        "heading": "קונסטרוקציות זמניות - פיגומים ועבודה בגובה",
+        "paragraphRange": "58-88",
+        "sourceFile": "3.9.5.בטיחות באתרי בנייה-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Heights and loads remain training content."
+    },
+    {
+      "citationId": "citation-training-construction-sites-cranes-lifting",
+      "stableSourceId": "training-construction-sites-safety",
+      "citationType": "heading",
+      "label": "עגורנים והרמות באתר בנייה",
+      "locator": {
+        "heading": "הנדסת הרמה ועגורני צריח",
+        "paragraphRange": "89-117",
+        "sourceFile": "3.9.5.בטיחות באתרי בנייה-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Load ratios and inspection frequencies are not golden numbers."
+    },
+    {
+      "citationId": "citation-training-construction-sites-excavations",
+      "stableSourceId": "training-construction-sites-safety",
+      "citationType": "heading",
+      "label": "חפירות, תעלות ומכניקת קרקע",
+      "locator": {
+        "heading": "עבודות עפר, חפירות וביסוס",
+        "paragraphRange": "118-139",
+        "sourceFile": "3.9.5.בטיחות באתרי בנייה-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Excavation values remain training material."
+    },
+    {
+      "citationId": "citation-training-construction-sites-ptw-loto",
+      "stableSourceId": "training-construction-sites-safety",
+      "citationType": "heading",
+      "label": "היתרי עבודה ו־LOTO באתר בנייה",
+      "locator": {
+        "heading": "מערכות היתרי עבודה ובידוד אנרגיות",
+        "paragraphRange": "140-161",
+        "sourceFile": "3.9.5.בטיחות באתרי בנייה-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Existing LOTO/PTW topic is reused."
+    },
+    {
+      "citationId": "citation-training-construction-sites-hop-bowtie",
+      "stableSourceId": "training-construction-sites-safety",
+      "citationType": "heading",
+      "label": "גורמי אנוש, HOP ו־BowTie באתר בנייה",
+      "locator": {
+        "heading": "ניהול גורמי אנוש והנדסת ביצוע ארגונית",
+        "paragraphRange": "185-216",
+        "sourceFile": "3.9.5.בטיחות באתרי בנייה-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Human factors and BowTie are training interpretation."
+    },
+    {
+      "citationId": "citation-training-construction-sites-emergency-toolbox",
+      "stableSourceId": "training-construction-sites-safety",
+      "citationType": "heading",
+      "label": "חירום, קבלנים ושיחות בטיחות באתר",
+      "locator": {
+        "heading": "תגובה לתקריות, בקרת קבלנים ושיחות בטיחות",
+        "paragraphRange": "217-264",
+        "sourceFile": "3.9.5.בטיחות באתרי בנייה-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Emergency and contractor controls are not marked binding."
     }
   ]
 }

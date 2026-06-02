@@ -10962,6 +10962,1679 @@
       "verification": {
         "status": "source-backed"
       }
+    },
+    {
+      "blockId": "block-construction-law-hierarchy-training",
+      "blockType": "legal-note",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-governance",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / רגולציה ותפקידים",
+      "topicIds": [
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "legalReference"
+      ],
+      "content": {
+        "title": "מדרג מקורות באתר בנייה כחומר לימוד",
+        "text": "המקור מציג לתלמיד את מדרג החקיקה, התקנות, הפקודות והתקנים המשפיעים על אתר בנייה, ומדגיש שהנוסח המחייב נמצא במקורות הרשמיים ולא בחומר ההדרכה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מבנה האתר, רגולציה ותפקידים",
+          "paragraphRange": "10-15",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש משפטי",
+        "tone": "legal",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-role-boundaries",
+      "blockType": "summary-box",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-governance",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / רגולציה ותפקידים",
+      "topicIds": [
+        "construction-excavation-risk-real",
+        "safety-management-critical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "גבולות אחריות בין מבצע בנייה, מנהל עבודה וממונה בטיחות",
+        "text": "המקור מבחין בין מבצע הבנייה כנושא האחריות הכוללת, מנהל העבודה כמפקד השטח והממונה כיועץ מקצועי שאינו מחליף את האחריות הניהולית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מדרג בעלי התפקידים והאחריות המשפטית בשטח",
+          "paragraphRange": "16-19",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-management-accountability",
+      "blockType": "warning",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-governance",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / רגולציה ותפקידים",
+      "topicIds": [
+        "construction-excavation-risk-real",
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "חתימה של עובד אינה תחליף לפיקוח אקטיבי",
+        "text": "החומר מדגיש שחתימת עובד על הצהרת בטיחות אינה מספיקה כאשר נדרש לוודא בפועל תקינות ציוד, בדיקת פיגום והגנות עובדים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "פסיקות מפתח ואחריות שילוחית ופלילית",
+          "paragraphRange": "20-21",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-arc-flash-site-risk",
+      "blockType": "warning",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-electrical",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חשמל זמני באתר",
+      "topicIds": [
+        "construction-site-electrical-utilities",
+        "electrical-safety-domain"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "Arc Flash באתר בנייה",
+        "text": "המקור מתאר הבזק קשת כסיכון חמור בלוחות חשמל חשופים באתרי בנייה, במיוחד כאשר קיימים זעזועים מכניים ופגעי מזג אוויר.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בטיחות בחשמל, אנרגיות מסוכנות ומערכות הזנה",
+          "paragraphRange": "22-34",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-temporary-power-controls",
+      "blockType": "checklist",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-electrical",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חשמל זמני באתר",
+      "topicIds": [
+        "construction-site-electrical-utilities",
+        "electrical-equipment-site"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בקרות בסיסיות לחשמל זמני באתר",
+        "text": "המקור מרכז בקרות לימודיות ללוחות, הארקה, מפסקי מגן, כבלים מוגנים וכלים בעלי בידוד כפול.",
+        "items": [
+          "בדוק שהלוח מתאים לתנאי שטח ולא חשוף למים.",
+          "ודא שכבלים מוגנים מפני דריסה ושחיקה.",
+          "העדף ציוד וכלים עם בידוד והגנות מתאימים.",
+          "התייחס לשלוליות ולגשם כאל גורמי סיכון שמחייבים עצירה ובקרה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכות הארקה, מפסק פחת וכבלי הזנה",
+          "paragraphRange": "38-43",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-overhead-lines-training-distances",
+      "blockType": "legal-note",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-electrical",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חשמל זמני באתר",
+      "topicIds": [
+        "construction-site-electrical-utilities",
+        "electrical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מרחקי קווי מתח כמידע הדרכתי בלבד",
+        "text": "המסמך מציג טבלת מרחקים לעבודה בקרבת קווי מתח עיליים. מכיוון שהמקור הוא חומר הדרכה, הערכים נשמרים כתוכן לימודי ולא כמספרי זהב מחייבים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "גנרטורים, עבודה בגשם ומרחקי בטיחות מקווי מתח עיליים",
+          "paragraphRange": "44-57",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-generator-rain-controls",
+      "blockType": "warning",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-electrical",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חשמל זמני באתר",
+      "topicIds": [
+        "construction-site-electrical-utilities",
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "גשם, גנרטורים ולוחות חשמל באתר",
+        "text": "המקור מדגיש בדיקת הארקה לגנרטור ועצירת עבודה עם חשמל חשוף בגשם, כדי למנוע שילוב מסוכן בין רטיבות, כבלים וציוד זמני.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "גנרטורים, עבודה בגשם ומרחקי בטיחות מקווי מתח עיליים",
+          "paragraphRange": "44-47",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-scaffold-types",
+      "blockType": "definition",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-scaffolding-height",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / פיגומים ועבודה בגובה",
+      "topicIds": [
+        "construction-scaffolding-temporary-structures"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סוגי פיגומים באתר",
+        "text": "המקור מבחין בין פיגום זקפים, פיגום תלוי ופיגום נייד, ומציג לכל אחד דגשי יציבות, בדיקה ותפעול שונים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "סוגי פיגומים והנדסת קשירות ועומסים",
+          "paragraphRange": "58-62",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-scaffold-tag-checks",
+      "blockType": "checklist",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-scaffolding-height",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / פיגומים ועבודה בגובה",
+      "topicIds": [
+        "construction-scaffolding-temporary-structures"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "תגי פיגום ובדיקות שטח",
+        "text": "המקור מציג מערכת תגים לפיגום ואת הצורך בבדיקה ותיעוד בפנקס האתר לאחר תנאים משתנים.",
+        "items": [
+          "תג ירוק מסמן פיגום שנבדק ואושר לעבודה.",
+          "תג אדום מסמן פיגום שאינו בטוח לעבודה.",
+          "בדוק מחדש אחרי גשם, רוח חזקה או שינוי במבנה הפיגום.",
+          "אל תאפשר עבודה על פיגום ללא בדיקה ותיעוד מתאימים."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "אישור בונה פיגומים מקצועי, תגים ובדיקות",
+          "paragraphRange": "79-83",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-scaffold-field-anatomy",
+      "blockType": "summary-box",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-scaffolding-height",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / פיגומים ועבודה בגובה",
+      "topicIds": [
+        "construction-scaffolding-temporary-structures"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "אנטומיה של פיגום בטוח",
+        "text": "התרשים במקור מדגיש שפיגום בטוח הוא מערכת של מעקה, אזן תיכון, לוח רגל, משטח עבודה רציף, קשירות, אלכסונים ובסיס קשיח.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "סוגי פיגומים והנדסת קשירות ועומסים",
+          "paragraphRange": "63-78",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-work-at-height-threshold-training",
+      "blockType": "definition",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-scaffolding-height",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / פיגומים ועבודה בגובה",
+      "topicIds": [
+        "construction-work-at-height-fall-controls",
+        "safe-access-and-fall-prevention"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "עבודה בגובה כחומר הדרכה",
+        "text": "המקור מציג את מושג העבודה בגובה דרך סיכון נפילה לעומק ומצב של משטח ללא גידור. הערכים נשמרים כחומר הדרכה ולא כמספרי זהב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תקנות עבודה בגובה, מערכות בלימת נפילה ועיגון",
+          "paragraphRange": "84-85",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-fall-prevention-hierarchy",
+      "blockType": "exam-focus",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-scaffolding-height",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / פיגומים ועבודה בגובה",
+      "topicIds": [
+        "construction-work-at-height-fall-controls",
+        "safe-access-and-fall-prevention"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "עדיפות למניעת נפילה לפני בלימת נפילה",
+        "text": "החומר מציג את העיקרון הלימודי שלפיו מעקות, פיגומים ובקרות הנדסיות עדיפים על הסתמכות בלעדית על רתמות ובלימת נפילה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תקנות עבודה בגובה, מערכות בלימת נפילה ועיגון",
+          "paragraphRange": "86",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-anchor-harness-controls",
+      "blockType": "checklist",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-scaffolding-height",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / פיגומים ועבודה בגובה",
+      "topicIds": [
+        "construction-work-at-height-fall-controls",
+        "safe-access-and-fall-prevention"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בקרת רתמה, בולם ועיגון",
+        "text": "המקור מדגיש בדיקת נקודת עיגון, קו חיים, רתמה מלאה ובולם זעזועים כחלק מתכנון עבודה בגובה.",
+        "items": [
+          "בדוק שלמות רצועות ואבזמים.",
+          "ודא חיבור לנקודת עיגון ייעודית.",
+          "אל תתחבר לצנרת או אלמנטים מזדמנים.",
+          "בדוק שבולם הזעזועים תקין וסגור."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תקנות עבודה בגובה, מערכות בלימת נפילה ועיגון",
+          "paragraphRange": "87-88",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-crane-moment-principle",
+      "blockType": "definition",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-cranes-lifting",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / עגורנים והרמות",
+      "topicIds": [
+        "construction-cranes-lifting-operations",
+        "lifting-dynamics-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "עקרון המומנט בעגורן",
+        "text": "המקור מסביר את הקשר בין כוח, מרחק וכושר הרמה: ככל שהמטען מתרחק מתורן העגורן, כושר ההרמה המותר קטן.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "פיזיקה של הרמה: מומנט, עומסים דינמיים וזוויות קשירה",
+          "paragraphRange": "89-97",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-dynamic-loads",
+      "blockType": "warning",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-cranes-lifting",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / עגורנים והרמות",
+      "topicIds": [
+        "construction-cranes-lifting-operations",
+        "lifting-dynamics-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "עומסים דינמיים בהרמה",
+        "text": "החומר מזהיר שרוח פתאומית, עצירה חדה או טלטול מטען עשויים להכפיל עומס סטטי וליצור סיכון לקריסת מערכת הרמה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "פיזיקה של הרמה: מומנט, עומסים דינמיים וזוויות קשירה",
+          "paragraphRange": "98",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-rigging-angles-training",
+      "blockType": "legal-note",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-cranes-lifting",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / עגורנים והרמות",
+      "topicIds": [
+        "construction-cranes-lifting-operations",
+        "lifting-dynamics-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "זוויות ריגינג כמידע הדרכתי",
+        "text": "המקור מציג טבלת מקדמי עומס לפי זווית הרמה. מכיוון שמדובר במקור הדרכה, הערכים מוצגים כהסבר לימודי ולא כמספרי זהב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "פיזיקה של הרמה: מומנט, עומסים דינמיים וזוויות קשירה",
+          "paragraphRange": "99-109",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-lifting-team-roles",
+      "blockType": "summary-box",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-cranes-lifting",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / עגורנים והרמות",
+      "topicIds": [
+        "construction-cranes-lifting-operations",
+        "lifting-dynamics-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "צוות הרמה: עגורנאי, אתת וקשרן",
+        "text": "המקור מציג חלוקת תפקידים בין מפעיל העגורן לבין הגורם המכוון בשטח, כדי למנוע פקודות סותרות והרמות בתנאי אי־ודאות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תפקידי צוות ההרמה והגדרות בטיחות",
+          "paragraphRange": "110-112",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-critical-lift-planning",
+      "blockType": "exam-focus",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-cranes-lifting",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / עגורנים והרמות",
+      "topicIds": [
+        "construction-cranes-lifting-operations",
+        "lifting-dynamics-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "הרמה קריטית כתהליך מתוכנן",
+        "text": "החומר מציג הרמה קריטית כפעולה המחייבת תכנון מוקדם, בדיקת תנאי השטח ואישור לפני ביצוע, במיוחד בהרמות מורכבות או רגישות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תפקידי צוות ההרמה והגדרות בטיחות",
+          "paragraphRange": "113",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-lifting-accessories-field-check",
+      "blockType": "checklist",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-cranes-lifting",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / עגורנים והרמות",
+      "topicIds": [
+        "construction-cranes-lifting-operations",
+        "lifting-accessories-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בדיקות שטח לאביזרי הרמה",
+        "text": "המקור מדגיש סימון עומס עבודה בטוח, תעודת בדיקה ובדיקה חזותית של כבלים, ווים ובלמים לפני תחילת משמרת.",
+        "items": [
+          "בדוק תג סימון על האביזר.",
+          "בדוק תעודת בדיקה בתוקף לפי מקור מחייב נפרד.",
+          "בדוק שחיקה, עיוות או קרעים.",
+          "עצור הרמה אם משקל המטען או תקינות האביזר אינם ברורים."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "אביזרי הרמה ובדיקות סטטוטוריות",
+          "paragraphRange": "114-117",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-excavation-soil-pressure",
+      "blockType": "definition",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-excavations",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חפירות ותעלות",
+      "topicIds": [
+        "construction-excavation-trenching-soil",
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "לחצי קרקע בחפירה",
+        "text": "המקור מסביר שחפירה משנה את שיווי המשקל של הקרקע, והלחץ הצידי שואף לדחוף את הדפנות פנימה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מכניקת קרקע, לחצים הידרוסטטיים ותופעות כשל",
+          "paragraphRange": "118-120",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-excavation-water-risk",
+      "blockType": "warning",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-excavations",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חפירות ותעלות",
+      "topicIds": [
+        "construction-excavation-trenching-soil",
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מים בקרקע כמכפיל סיכון",
+        "text": "החומר מתאר כיצד חדירת מים או מי תהום מגדילה משקל קרקע ומקטינה יציבות, ולכן עשויה להאיץ התמוטטות דופן.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מכניקת קרקע, לחצים הידרוסטטיים ותופעות כשל",
+          "paragraphRange": "121-122",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-excavation-shoring-training",
+      "blockType": "legal-note",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-excavations",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חפירות ותעלות",
+      "topicIds": [
+        "construction-excavation-trenching-soil",
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "דיפון ושיפוע בטוח כחומר הדרכה",
+        "text": "המקור מציג דיפון, קופסת חפירה או שיפוע דפנות כפתרונות מרכזיים למניעת התמוטטות. המספרים המופיעים במקור אינם מסומנים כמספרי זהב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "שיטות דיפון הנדסיות ומספרי זהב",
+          "paragraphRange": "123-139",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-excavation-access-atmosphere",
+      "blockType": "checklist",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-excavations",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חפירות ותעלות",
+      "topicIds": [
+        "construction-excavation-trenching-soil",
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "כניסה בטוחה לחפירה",
+        "text": "המקור מציג מרחקי יציאה, הרחקת עומסים משפת חפירה ובדיקת אטמוספירה כמוקדי בדיקה לפני כניסה.",
+        "items": [
+          "בדוק דיפון, שיפוע או קופסת חפירה.",
+          "הרחק עודפי עפר וכלים כבדים משפת החפירה.",
+          "ודא אמצעי יציאה זמינים לעובדים.",
+          "בדוק חשש לגזים או מחסור בחמצן לפני כניסה לחפירה עמוקה או חשודה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "שיטות דיפון הנדסיות ומספרי זהב",
+          "paragraphRange": "124-128",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-excavation-field-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-excavations",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חפירות ותעלות",
+      "topicIds": [
+        "construction-excavation-trenching-soil",
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "צ׳קליסט שטח לחפירה",
+        "text": "התרשים במקור מתורגם לבדיקת שטח קצרה שממקדת את הממונה בשוליים, דיפון, גישה וקרקעית החפירה.",
+        "items": [
+          "בדוק יציבות דפנות וסימני גלישה.",
+          "ודא שאין עומסים צמודים לשפה.",
+          "בדוק דיפון או קופסת חפירה במקום.",
+          "ודא שיש תוכנית חילוץ ולא רק אמצעי כניסה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "שיטות דיפון הנדסיות ומספרי זהב",
+          "paragraphRange": "129-139",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-ptw-control-system",
+      "blockType": "definition",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-ptw-loto",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / היתרי עבודה ו־LOTO",
+      "topicIds": [
+        "construction-ptw-simops-contractors",
+        "loto-ptw-energy-control-real",
+        "safety-management-critical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "PTW כמנגנון בקרת עבודה",
+        "text": "המקור מציג היתר עבודה ככלי ניהולי למשימות בסיכון גבוה שאינן חלק מהשגרה, כגון עבודה חמה, מרחב מוקף, חפירה ליד תשתיות ועבודה על מערכות חשמל.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכת היתרי עבודה",
+          "paragraphRange": "140-143",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-permit-components",
+      "blockType": "checklist",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-ptw-loto",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / היתרי עבודה ו־LOTO",
+      "topicIds": [
+        "construction-ptw-simops-contractors",
+        "loto-ptw-energy-control-real",
+        "safety-management-critical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "רכיבי היתר עבודה באתר",
+        "text": "החומר מציג היתר עבודה כמסמך תפעולי שכולל תיאור משימה, זיהוי סיכונים, בקרות, עובדים מוסמכים וחתימות אישור.",
+        "items": [
+          "תאר את המשימה במדויק.",
+          "זהה סיכונים וממשקי עבודה.",
+          "פרט בקרות נדרשות לפני התחלה.",
+          "ודא שההיתר מוגבל בזמן ומתוחזק בזמן אמת."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכת היתרי עבודה",
+          "paragraphRange": "144",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-loto-purpose",
+      "blockType": "definition",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-ptw-loto",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / היתרי עבודה ו־LOTO",
+      "topicIds": [
+        "construction-ptw-simops-contractors",
+        "loto-ptw-energy-control-real",
+        "maintenance-hazardous-energy"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "LOTO באתר בנייה",
+        "text": "המקור מציג LOTO כתהליך למניעת הפעלה לא מבוקרת או שחרור פתאומי של אנרגיה מסוכנת בזמן תחזוקה ותיקון של ציוד קצה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תהליך לוטו",
+          "paragraphRange": "145-160",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-one-lock-one-key",
+      "blockType": "exam-focus",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-ptw-loto",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / היתרי עבודה ו־LOTO",
+      "topicIds": [
+        "construction-ptw-simops-contractors",
+        "loto-ptw-energy-control-real",
+        "maintenance-hazardous-energy"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "מנעול אישי כעיקרון שליטה",
+        "text": "המקור מציג את הכלל הלימודי של שליטה אישית במנעול ובמפתח, כדי למנוע הסרה של נעילה על ידי מי שאינו העובד שביצע אותה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תהליך לוטו",
+          "paragraphRange": "161",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-hop-worker-as-solver",
+      "blockType": "teacher-note",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-hop-bowtie",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / גורמי אנוש באתר בנייה",
+      "topicIds": [
+        "construction-field-learning",
+        "human-factors-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "teacherNote"
+      ],
+      "content": {
+        "title": "העובד כפותר בעיות בשטח",
+        "text": "המקור מציג גישת HOP שלפיה העובד אינו הבעיה שיש לפתור, אלא גורם שפועל בתוך מערכת שצריכה להיות חסינה יותר לטעויות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "גישת ה-HOP וכלל הברזל",
+          "paragraphRange": "185-201",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-cognitive-traps",
+      "blockType": "warning",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-hop-bowtie",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / גורמי אנוש באתר בנייה",
+      "topicIds": [
+        "construction-field-learning",
+        "human-factors-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מלכודות קוגניטיביות באתר בנייה",
+        "text": "המקור מתאר עיוורון קשבי, עומס קוגניטיבי ועייפות כגורמים שמחלישים קבלת החלטות וזיהוי סיכון בזמן אמת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תופעות קוגניטיביות קריטיות בשטח",
+          "paragraphRange": "202-205",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-bowtie-field-model",
+      "blockType": "definition",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-hop-bowtie",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / גורמי אנוש באתר בנייה",
+      "topicIds": [
+        "construction-field-learning",
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "BowTie ככלי שטח באתר בנייה",
+        "text": "החומר מציג את BowTie כמפת סיכונים שמפרידה בין גורמי סיכון, מחסומי מניעה, אירוע קריטי וחסמי צמצום נזק.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ניתוח סיכונים פרואקטיבי באמצעות מודל BowTie",
+          "paragraphRange": "206-216",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-contractors-simops",
+      "blockType": "warning",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-emergency-toolbox",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חירום, קבלנים ושיחות בטיחות",
+      "topicIds": [
+        "construction-ptw-simops-contractors",
+        "safety-management-critical-work-controls",
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "קבלני משנה ו־SIMOPS",
+        "text": "המקור מציג קבלני משנה ועבודות מקבילות כמוקד סיכון באתר, ומדגיש תיאום יומי, הפרדת אזורי עבודה ובקרה על הסמכות וציוד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרת קבלני משנה וניהול SIMOPS",
+          "paragraphRange": "242-244",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-emergency-excavation-response",
+      "blockType": "warning",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-emergency-toolbox",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חירום, קבלנים ושיחות בטיחות",
+      "topicIds": [
+        "construction-emergency-response",
+        "construction-excavation-trenching-soil"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תגובה ראשונית לקריסת חפירה",
+        "text": "המקור מתאר עצירת כלים, מניעת רטט נוסף והזעקת חילוץ כחלק מתגובה ראשונית לתרחיש התמוטטות חפירה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "פרוטוקולי תגובה מיידית לאירועי קיצון",
+          "paragraphRange": "217-222",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-construction-toolbox-height-talk",
+      "blockType": "checklist",
+      "sourceId": "training-construction-sites-safety",
+      "citationId": "citation-training-construction-sites-emergency-toolbox",
+      "sourceCitation": "מקור הדרכה: בטיחות באתרי בנייה / חירום, קבלנים ושיחות בטיחות",
+      "topicIds": [
+        "construction-field-learning",
+        "construction-work-at-height-fall-controls"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "שיחת בטיחות יומית לעבודה בגובה",
+        "text": "המקור מציג דוגמה לשיחת בטיחות קצרה לפני יציקה בגובה, עם בדיקת רתמות, נקודות עיגון וחתימת עובדים.",
+        "items": [
+          "פתח בסיכון המרכזי של היום.",
+          "בדוק רתמות ובולמי זעזועים לפני עבודה.",
+          "הבהר נקודות עיגון מותרות ואסורות.",
+          "תעד השתתפות והבנה לפני יציאה לעבודה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערך שיחת בטיחות יומית",
+          "paragraphRange": "245-253",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
     }
   ]
 }

@@ -371,14 +371,19 @@
       "aliases": [],
       "relatedTopicIds": [
         "safety-culture-real",
-        "human-factors-field-tools-real"
+        "human-factors-field-tools-real",
+        "construction-excavation-risk-real"
       ],
       "lessonIds": [
         "lesson-08",
-        "lesson-09"
+        "lesson-09",
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
       ],
       "sourceIds": [
-        "training-safety-management-human-factors"
+        "training-safety-management-human-factors",
+        "training-construction-sites-safety"
       ],
       "blockIds": [
         "block-real-leadership-contractor-pressure-case",
@@ -387,7 +392,9 @@
         "block-real-leadership-safety-officer-boundaries",
         "block-real-leadership-exam-focus",
         "block-real-checklist-management-leadership",
-        "block-real-checklist-safety-officer-protection"
+        "block-real-checklist-safety-officer-protection",
+        "block-construction-management-accountability",
+        "block-construction-contractors-simops"
       ],
       "status": "draft"
     },
@@ -888,43 +895,104 @@
         "lesson-11",
         "lesson-12",
         "lesson-15",
-        "lesson-31"
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
       ],
       "sourceIds": [
-        "training-operational-risks"
+        "training-operational-risks",
+        "training-construction-sites-safety"
       ],
       "blockIds": [
         "block-operational-lifting-dynamic-loads",
         "block-operational-lifting-shock-loading",
         "block-operational-lifting-critical-lift",
-        "block-operational-lifting-field-check"
+        "block-operational-lifting-field-check",
+        "block-construction-crane-moment-principle",
+        "block-construction-dynamic-loads",
+        "block-construction-rigging-angles-training",
+        "block-construction-lifting-team-roles",
+        "block-construction-critical-lift-planning"
       ],
       "status": "draft"
     },
     {
       "topicId": "construction-excavation-risk-real",
-      "title": "בנייה, חפירות ועבודה בגובה",
-      "description": "יציבות קרקע, Suspension Trauma ומחווני שטח לקריסת חפירה.",
-      "parentTopicId": "operational-risks-real",
-      "aliases": [],
+      "title": "עבודות בנייה ועבודה בגובה",
+      "description": "Domain בנייה: פיגומים, עבודה בגובה, חפירות, עגורנים, חשמל זמני, קבלנים, SIMOPS וחירום באתר.",
+      "parentTopicId": null,
+      "aliases": [
+        "בנייה, חפירות ועבודה בגובה",
+        "עבודות בנייה",
+        "בטיחות באתרי בנייה",
+        "אתרי בנייה"
+      ],
       "relatedTopicIds": [
-        "loto-ptw-energy-control-real"
+        "loto-ptw-energy-control-real",
+        "operational-risks-real",
+        "construction-scaffolding-temporary-structures",
+        "construction-work-at-height-fall-controls",
+        "construction-excavation-trenching-soil",
+        "construction-cranes-lifting-operations",
+        "construction-site-electrical-utilities",
+        "construction-ptw-simops-contractors",
+        "construction-emergency-response",
+        "construction-field-learning",
+        "electrical-safety-domain",
+        "lifting-dynamics-real"
       ],
       "lessonIds": [
         "lesson-10",
         "lesson-11",
         "lesson-12",
         "lesson-15",
-        "lesson-31"
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
       ],
       "sourceIds": [
-        "training-operational-risks"
+        "training-operational-risks",
+        "training-construction-sites-safety"
       ],
       "blockIds": [
         "block-operational-construction-shoring",
         "block-operational-construction-suspension-trauma",
         "block-operational-construction-field-indicators",
-        "block-operational-construction-excavation-check"
+        "block-operational-construction-excavation-check",
+        "block-construction-law-hierarchy-training",
+        "block-construction-role-boundaries",
+        "block-construction-management-accountability",
+        "block-construction-arc-flash-site-risk",
+        "block-construction-temporary-power-controls",
+        "block-construction-overhead-lines-training-distances",
+        "block-construction-generator-rain-controls",
+        "block-construction-scaffold-types",
+        "block-construction-scaffold-tag-checks",
+        "block-construction-scaffold-field-anatomy",
+        "block-construction-work-at-height-threshold-training",
+        "block-construction-fall-prevention-hierarchy",
+        "block-construction-anchor-harness-controls",
+        "block-construction-crane-moment-principle",
+        "block-construction-dynamic-loads",
+        "block-construction-rigging-angles-training",
+        "block-construction-lifting-team-roles",
+        "block-construction-critical-lift-planning",
+        "block-construction-lifting-accessories-field-check",
+        "block-construction-excavation-soil-pressure",
+        "block-construction-excavation-water-risk",
+        "block-construction-excavation-shoring-training",
+        "block-construction-excavation-access-atmosphere",
+        "block-construction-excavation-field-checklist",
+        "block-construction-ptw-control-system",
+        "block-construction-permit-components",
+        "block-construction-loto-purpose",
+        "block-construction-one-lock-one-key",
+        "block-construction-hop-worker-as-solver",
+        "block-construction-cognitive-traps",
+        "block-construction-bowtie-field-model",
+        "block-construction-contractors-simops",
+        "block-construction-emergency-excavation-response",
+        "block-construction-toolbox-height-talk"
       ],
       "status": "draft"
     },
@@ -939,18 +1007,22 @@
         "maintenance-safety-domain",
         "maintenance-hazardous-energy",
         "maintenance-tools-machine-guarding",
-        "maintenance-hot-work"
+        "maintenance-hot-work",
+        "construction-excavation-risk-real"
       ],
       "lessonIds": [
         "lesson-10",
         "lesson-11",
         "lesson-12",
         "lesson-15",
-        "lesson-31"
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
       ],
       "sourceIds": [
         "training-operational-risks",
-        "training-maintenance-safety"
+        "training-maintenance-safety",
+        "training-construction-sites-safety"
       ],
       "blockIds": [
         "block-operational-loto-residual-energy",
@@ -962,7 +1034,11 @@
         "block-maintenance-loto-six-steps",
         "block-maintenance-stored-energy",
         "block-maintenance-try-out",
-        "block-maintenance-hot-work-watch"
+        "block-maintenance-hot-work-watch",
+        "block-construction-ptw-control-system",
+        "block-construction-permit-components",
+        "block-construction-loto-purpose",
+        "block-construction-one-lock-one-key"
       ],
       "status": "draft"
     },
@@ -973,23 +1049,28 @@
       "parentTopicId": "operational-risks-real",
       "aliases": [],
       "relatedTopicIds": [
-        "operational-risk-barriers-real"
+        "operational-risk-barriers-real",
+        "construction-excavation-risk-real"
       ],
       "lessonIds": [
         "lesson-10",
         "lesson-11",
         "lesson-12",
         "lesson-15",
-        "lesson-31"
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
       ],
       "sourceIds": [
-        "training-operational-risks"
+        "training-operational-risks",
+        "training-construction-sites-safety"
       ],
       "blockIds": [
         "block-operational-rca-bowtie",
         "block-operational-rca-barrier-integrity-sil",
         "block-operational-rca-just-culture",
-        "block-operational-rca-five-whys"
+        "block-operational-rca-five-whys",
+        "block-construction-bowtie-field-model"
       ],
       "status": "draft"
     },
@@ -1152,15 +1233,21 @@
       ],
       "lessonIds": [
         "lesson-04",
-        "lesson-31"
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
       ],
       "sourceIds": [
-        "ordinance-work-safety-1970"
+        "ordinance-work-safety-1970",
+        "training-construction-sites-safety"
       ],
       "blockIds": [
         "block-ordinance-access-falls-summary",
         "block-ordinance-access-falls-warning",
-        "block-ordinance-access-falls-checklist"
+        "block-ordinance-access-falls-checklist",
+        "block-construction-work-at-height-threshold-training",
+        "block-construction-fall-prevention-hierarchy",
+        "block-construction-anchor-harness-controls"
       ],
       "status": "draft"
     },
@@ -1407,23 +1494,31 @@
       "relatedTopicIds": [
         "loto-ptw-energy-control-real",
         "confined-space-and-hot-work",
-        "operational-risks-real"
+        "operational-risks-real",
+        "construction-excavation-risk-real"
       ],
       "lessonIds": [
         "lesson-08",
         "lesson-10",
         "lesson-14",
-        "lesson-31"
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
       ],
       "sourceIds": [
-        "training-occupational-safety-management"
+        "training-occupational-safety-management",
+        "training-construction-sites-safety"
       ],
       "blockIds": [
         "block-safety-management-critical-work-controls-summary",
         "block-safety-management-critical-work-controls-warning",
         "block-safety-management-critical-work-controls-checklist",
         "block-safety-management-critical-work-controls-exam-focus",
-        "block-safety-management-critical-work-controls-manager-note"
+        "block-safety-management-critical-work-controls-manager-note",
+        "block-construction-role-boundaries",
+        "block-construction-ptw-control-system",
+        "block-construction-permit-components",
+        "block-construction-contractors-simops"
       ],
       "status": "draft"
     },
@@ -1720,19 +1815,26 @@
       ],
       "relatedTopicIds": [
         "electrical-grounding-protection",
-        "electrical-work-controls"
+        "electrical-work-controls",
+        "construction-excavation-risk-real"
       ],
       "lessonIds": [
         "lesson-12",
-        "lesson-10"
+        "lesson-10",
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
       ],
       "sourceIds": [
-        "training-electrical-safety"
+        "training-electrical-safety",
+        "training-construction-sites-safety"
       ],
       "blockIds": [
         "block-electrical-site-equipment-overview",
         "block-electrical-rcd-training-value",
-        "block-electrical-cables-site-risk"
+        "block-electrical-cables-site-risk",
+        "block-construction-temporary-power-controls",
+        "block-construction-generator-rain-controls"
       ],
       "status": "draft"
     },
@@ -1807,19 +1909,25 @@
       "relatedTopicIds": [
         "electrical-safety-basics",
         "electrical-grounding-protection",
-        "safety-organization-field-tools-real"
+        "safety-organization-field-tools-real",
+        "construction-excavation-risk-real"
       ],
       "lessonIds": [
         "lesson-12",
-        "lesson-10"
+        "lesson-10",
+        "lesson-31",
+        "lesson-32",
+        "lesson-33"
       ],
       "sourceIds": [
-        "training-electrical-safety"
+        "training-electrical-safety",
+        "training-construction-sites-safety"
       ],
       "blockIds": [
         "block-electrical-live-conductor-rule",
         "block-electrical-isolation-transformer",
-        "block-electrical-case-tool-access"
+        "block-electrical-case-tool-access",
+        "block-construction-overhead-lines-training-distances"
       ],
       "status": "draft"
     },
@@ -2026,6 +2134,257 @@
         "block-maintenance-hot-work-fire-risk",
         "block-maintenance-hot-work-watch",
         "block-maintenance-flashback-arrestor"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "construction-scaffolding-temporary-structures",
+      "title": "פיגומים וקונסטרוקציות זמניות",
+      "description": "סוגי פיגומים, תגי פיגום, קשירות, בסיס, משטחי עבודה ובדיקות שטח.",
+      "parentTopicId": "construction-excavation-risk-real",
+      "aliases": [
+        "פיגומים",
+        "פיגום זקפים",
+        "פיגום תלוי",
+        "פיגום נייד",
+        "Scaff-Tag"
+      ],
+      "relatedTopicIds": [
+        "construction-work-at-height-fall-controls",
+        "safe-access-and-fall-prevention"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32"
+      ],
+      "sourceIds": [
+        "training-construction-sites-safety"
+      ],
+      "blockIds": [
+        "block-construction-scaffold-types",
+        "block-construction-scaffold-tag-checks",
+        "block-construction-scaffold-field-anatomy"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "construction-work-at-height-fall-controls",
+      "title": "עבודה בגובה ומניעת נפילה",
+      "description": "מניעת נפילה, רתמות, עיגון, בולמי זעזועים ושיחות בטיחות לעבודה בגובה.",
+      "parentTopicId": "construction-excavation-risk-real",
+      "aliases": [
+        "עבודה בגובה",
+        "רתמה",
+        "קו חיים",
+        "עיגון",
+        "מניעת נפילות"
+      ],
+      "relatedTopicIds": [
+        "safe-access-and-fall-prevention",
+        "construction-scaffolding-temporary-structures"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32"
+      ],
+      "sourceIds": [
+        "training-construction-sites-safety"
+      ],
+      "blockIds": [
+        "block-construction-work-at-height-threshold-training",
+        "block-construction-fall-prevention-hierarchy",
+        "block-construction-anchor-harness-controls",
+        "block-construction-toolbox-height-talk"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "construction-excavation-trenching-soil",
+      "title": "חפירות, תעלות ומכניקת קרקע",
+      "description": "לחצי קרקע, מים, דיפון, יציאות, אטמוספירה ובקרות שטח בחפירה.",
+      "parentTopicId": "construction-excavation-risk-real",
+      "aliases": [
+        "חפירות",
+        "תעלות",
+        "דיפון",
+        "קופסת חפירה",
+        "מכניקת קרקע"
+      ],
+      "relatedTopicIds": [
+        "construction-emergency-response",
+        "construction-ptw-simops-contractors"
+      ],
+      "lessonIds": [
+        "lesson-32"
+      ],
+      "sourceIds": [
+        "training-construction-sites-safety"
+      ],
+      "blockIds": [
+        "block-construction-excavation-soil-pressure",
+        "block-construction-excavation-water-risk",
+        "block-construction-excavation-shoring-training",
+        "block-construction-excavation-access-atmosphere",
+        "block-construction-excavation-field-checklist",
+        "block-construction-emergency-excavation-response"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "construction-cranes-lifting-operations",
+      "title": "עגורנים והרמות באתר בנייה",
+      "description": "מומנט, עומסים דינמיים, צוות הרמה, הרמה קריטית ואביזרי הרמה.",
+      "parentTopicId": "construction-excavation-risk-real",
+      "aliases": [
+        "עגורנים",
+        "עגורן צריח",
+        "אתת",
+        "קשרן",
+        "הרמה קריטית"
+      ],
+      "relatedTopicIds": [
+        "lifting-dynamics-real",
+        "lifting-accessories-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-15",
+        "lesson-33"
+      ],
+      "sourceIds": [
+        "training-construction-sites-safety"
+      ],
+      "blockIds": [
+        "block-construction-crane-moment-principle",
+        "block-construction-dynamic-loads",
+        "block-construction-rigging-angles-training",
+        "block-construction-lifting-team-roles",
+        "block-construction-critical-lift-planning",
+        "block-construction-lifting-accessories-field-check"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "construction-site-electrical-utilities",
+      "title": "חשמל זמני ותשתיות באתר",
+      "description": "לוחות זמניים, כבלים, גנרטורים, גשם, קווי מתח ו־Arc Flash באתר בנייה.",
+      "parentTopicId": "construction-excavation-risk-real",
+      "aliases": [
+        "חשמל באתר בנייה",
+        "גנרטור",
+        "קווי מתח",
+        "Arc Flash",
+        "לוח זמני"
+      ],
+      "relatedTopicIds": [
+        "electrical-safety-domain",
+        "electrical-equipment-site",
+        "electrical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-32"
+      ],
+      "sourceIds": [
+        "training-construction-sites-safety"
+      ],
+      "blockIds": [
+        "block-construction-arc-flash-site-risk",
+        "block-construction-temporary-power-controls",
+        "block-construction-overhead-lines-training-distances",
+        "block-construction-generator-rain-controls"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "construction-ptw-simops-contractors",
+      "title": "בקרת עבודות, קבלנים ו־SIMOPS",
+      "description": "היתרי עבודה, קבלני משנה, עבודות מקבילות, בידוד אנרגיה ותיאום בטיחות.",
+      "parentTopicId": "construction-excavation-risk-real",
+      "aliases": [
+        "PTW",
+        "קבלנים",
+        "קבלני משנה",
+        "SIMOPS",
+        "תיאום בטיחות"
+      ],
+      "relatedTopicIds": [
+        "loto-ptw-energy-control-real",
+        "safety-management-critical-work-controls",
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-10",
+        "lesson-32"
+      ],
+      "sourceIds": [
+        "training-construction-sites-safety"
+      ],
+      "blockIds": [
+        "block-construction-ptw-control-system",
+        "block-construction-permit-components",
+        "block-construction-loto-purpose",
+        "block-construction-one-lock-one-key",
+        "block-construction-contractors-simops"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "construction-emergency-response",
+      "title": "חירום וחילוץ באתר בנייה",
+      "description": "תגובה לתקריות קיצון, חפירות, התחשמלות ותסמונת תלייה ברתמה כחומר הדרכה.",
+      "parentTopicId": "construction-excavation-risk-real",
+      "aliases": [
+        "חירום באתר בנייה",
+        "חילוץ מחפירה",
+        "Suspension Trauma",
+        "תגובה לתקרית"
+      ],
+      "relatedTopicIds": [
+        "construction-excavation-trenching-soil",
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-32"
+      ],
+      "sourceIds": [
+        "training-construction-sites-safety"
+      ],
+      "blockIds": [
+        "block-construction-emergency-excavation-response"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "construction-field-learning",
+      "title": "למידת שטח וגורמי אנוש בבנייה",
+      "description": "HOP, עומס קוגניטיבי, BowTie, שיחות בטיחות ותחקור חשיבה באתר בנייה.",
+      "parentTopicId": "construction-excavation-risk-real",
+      "aliases": [
+        "HOP בבנייה",
+        "BowTie",
+        "שיחות בטיחות",
+        "גורמי אנוש באתר"
+      ],
+      "relatedTopicIds": [
+        "human-factors-real",
+        "operational-rca-barriers-real",
+        "construction-ptw-simops-contractors"
+      ],
+      "lessonIds": [
+        "lesson-31",
+        "lesson-32",
+        "lesson-37"
+      ],
+      "sourceIds": [
+        "training-construction-sites-safety"
+      ],
+      "blockIds": [
+        "block-construction-hop-worker-as-solver",
+        "block-construction-cognitive-traps",
+        "block-construction-bowtie-field-model",
+        "block-construction-toolbox-height-talk"
       ],
       "status": "draft"
     }
