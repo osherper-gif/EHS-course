@@ -8,7 +8,8 @@
       "training-safety-management-human-factors",
       "training-occupational-safety-management",
       "training-safety-organization-final",
-      "training-operational-risks"
+      "training-operational-risks",
+      "ordinance-work-safety-1970"
     ]
   },
   "citations": [
@@ -457,6 +458,196 @@
         "notes": "Real migration from Level 6 training source."
       },
       "notes": "Training material locator; not a legal citation."
+    },
+    {
+      "citationId": "citation-ordinance-work-safety-1970-factory-scope",
+      "stableSourceId": "ordinance-work-safety-1970",
+      "citationType": "heading",
+      "label": "תחולה והגדרת מפעל",
+      "locator": {
+        "heading": "תחולה והגדרות",
+        "paragraphRange": "8-20",
+        "originalWordNumbering": "2"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 migration citation located in the source document. Not legal approved."
+      },
+      "notes": "Real migration Wave 1. Uses document heading locator where exact statutory section number was not exposed in the source text."
+    },
+    {
+      "citationId": "citation-ordinance-work-safety-1970-occupational-health",
+      "stableSourceId": "ordinance-work-safety-1970",
+      "citationType": "heading",
+      "label": "בריאות העובדים",
+      "locator": {
+        "heading": "בריאות העובדים",
+        "paragraphRange": "23-95",
+        "originalWordNumbering": "3"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 migration citation located in the source document. Not legal approved."
+      },
+      "notes": "Real migration Wave 1. Uses document heading locator where exact statutory section number was not exposed in the source text."
+    },
+    {
+      "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+      "stableSourceId": "ordinance-work-safety-1970",
+      "citationType": "heading",
+      "label": "בטיחות מכונות וגידור",
+      "locator": {
+        "heading": "בטיחות מכונות וגידור",
+        "paragraphRange": "98-139",
+        "originalWordNumbering": "4"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 migration citation located in the source document. Not legal approved."
+      },
+      "notes": "Real migration Wave 1. Uses document heading locator where exact statutory section number was not exposed in the source text."
+    },
+    {
+      "citationId": "citation-ordinance-work-safety-1970-access-falls",
+      "stableSourceId": "ordinance-work-safety-1970",
+      "citationType": "heading",
+      "label": "גישה בטוחה, נפילה ופתחים ברצפה",
+      "locator": {
+        "heading": "גישה, מעברים, נפילה, סולמות ומדרגות",
+        "paragraphRange": "142-166",
+        "originalWordNumbering": "5"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 migration citation located in the source document. Not legal approved."
+      },
+      "notes": "Real migration Wave 1. Uses document heading locator where exact statutory section number was not exposed in the source text."
+    },
+    {
+      "citationId": "citation-ordinance-work-safety-1970-lifts-escalators",
+      "stableSourceId": "ordinance-work-safety-1970",
+      "citationType": "heading",
+      "label": "מעליות ודרגנועים",
+      "locator": {
+        "heading": "מעליות ודרגנועים",
+        "paragraphRange": "168-189",
+        "originalWordNumbering": "6"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 migration citation located in the source document. Not legal approved."
+      },
+      "notes": "Real migration Wave 1. Uses document heading locator where exact statutory section number was not exposed in the source text."
+    },
+    {
+      "citationId": "citation-ordinance-work-safety-1970-lifting-accessories",
+      "stableSourceId": "ordinance-work-safety-1970",
+      "citationType": "heading",
+      "label": "שרשרות, חבלים ואביזרי הרמה",
+      "locator": {
+        "heading": "שרשרות, חבלים ואביזרי הרמה",
+        "paragraphRange": "191-216",
+        "originalWordNumbering": "7"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 migration citation located in the source document. Not legal approved."
+      },
+      "notes": "Real migration Wave 1. Uses document heading locator where exact statutory section number was not exposed in the source text."
+    },
+    {
+      "citationId": "citation-ordinance-work-safety-1970-lifting-machines",
+      "stableSourceId": "ordinance-work-safety-1970",
+      "citationType": "heading",
+      "label": "מכונות הרמה",
+      "locator": {
+        "heading": "מכונות הרמה",
+        "paragraphRange": "218-239",
+        "originalWordNumbering": "8"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 migration citation located in the source document. Not legal approved."
+      },
+      "notes": "Real migration Wave 1. Uses document heading locator where exact statutory section number was not exposed in the source text."
+    },
+    {
+      "citationId": "citation-ordinance-work-safety-1970-confined-hot-work",
+      "stableSourceId": "ordinance-work-safety-1970",
+      "citationType": "heading",
+      "label": "מקום מוקף, אבק נפיץ וריתוך על מכלים",
+      "locator": {
+        "heading": "מקום מוקף ואדים מסוכנים; אבק נפיץ וריתוך על מכלים",
+        "paragraphRange": "242-277",
+        "originalWordNumbering": "9-10"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 migration citation located in the source document. Not legal approved."
+      },
+      "notes": "Real migration Wave 1. Uses document heading locator where exact statutory section number was not exposed in the source text."
+    },
+    {
+      "citationId": "citation-ordinance-work-safety-1970-pressure-equipment",
+      "stableSourceId": "ordinance-work-safety-1970",
+      "citationType": "heading",
+      "label": "דודי קיטור, קולטי קיטור וקולטי אוויר",
+      "locator": {
+        "heading": "דודי קיטור, קולטי קיטור וקולטי אוויר",
+        "paragraphRange": "279-333",
+        "originalWordNumbering": "11"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 migration citation located in the source document. Not legal approved."
+      },
+      "notes": "Real migration Wave 1. Uses document heading locator where exact statutory section number was not exposed in the source text."
+    },
+    {
+      "citationId": "citation-ordinance-work-safety-1970-factory-register",
+      "stableSourceId": "ordinance-work-safety-1970",
+      "citationType": "heading",
+      "label": "פנקס מפעל, חובות עובדים וסמכויות מפקח",
+      "locator": {
+        "heading": "פתיחת מפעל, פנקס מפעל, חובות עובדים וסמכויות מפקח",
+        "paragraphRange": "410-462",
+        "originalWordNumbering": "16-18"
+      },
+      "authorityLevel": 1,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 migration citation located in the source document. Not legal approved."
+      },
+      "notes": "Real migration Wave 1. Uses document heading locator where exact statutory section number was not exposed in the source text."
     }
   ]
 }

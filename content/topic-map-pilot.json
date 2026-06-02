@@ -4,13 +4,15 @@
   "scope": {
     "description": "Topic mapping pilot with real Level 6 training-source topics.",
     "sourceIds": [
-      "law-labor-inspection-1954"
+      "law-labor-inspection-1954",
+      "ordinance-work-safety-1970"
     ],
     "stableSourceIds": [
       "training-safety-management-human-factors",
       "training-occupational-safety-management",
       "training-safety-organization-final",
-      "training-operational-risks"
+      "training-operational-risks",
+      "ordinance-work-safety-1970"
     ]
   },
   "topics": [
@@ -947,6 +949,344 @@
         "block-operational-rca-barrier-integrity-sil",
         "block-operational-rca-just-culture",
         "block-operational-rca-five-whys"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "work-safety-ordinance",
+      "title": "פקודת הבטיחות בעבודה",
+      "description": "מקור משפטי רחב העוסק בתנאי עבודה, בריאות, מכונות, הרמה, מתקני לחץ, תיעוד ואחריות תפעולית.",
+      "parentTopicId": null,
+      "aliases": [
+        "פקודת הבטיחות",
+        "פקודת הבטיחות בעבודה",
+        "work safety ordinance"
+      ],
+      "relatedTopicIds": [
+        "machine-guarding-ordinance",
+        "occupational-health-environment",
+        "lifting-machines-ordinance",
+        "pressure-equipment-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-10",
+        "lesson-15",
+        "lesson-16",
+        "lesson-17"
+      ],
+      "sourceIds": [
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-ordinance-factory-scope-summary",
+        "block-ordinance-factory-scope-warning",
+        "block-ordinance-factory-scope-checklist",
+        "block-ordinance-occupational-health-summary",
+        "block-ordinance-occupational-health-warning",
+        "block-ordinance-occupational-health-checklist",
+        "block-ordinance-machine-guarding-summary",
+        "block-ordinance-machine-guarding-warning",
+        "block-ordinance-machine-guarding-checklist",
+        "block-ordinance-access-falls-summary",
+        "block-ordinance-access-falls-warning",
+        "block-ordinance-access-falls-checklist",
+        "block-ordinance-lifts-escalators-summary",
+        "block-ordinance-lifts-escalators-warning",
+        "block-ordinance-lifts-escalators-checklist",
+        "block-ordinance-lifting-accessories-summary",
+        "block-ordinance-lifting-accessories-warning",
+        "block-ordinance-lifting-accessories-checklist",
+        "block-ordinance-lifting-machines-summary",
+        "block-ordinance-lifting-machines-warning",
+        "block-ordinance-lifting-machines-checklist",
+        "block-ordinance-confined-hot-work-summary",
+        "block-ordinance-confined-hot-work-warning",
+        "block-ordinance-confined-hot-work-checklist",
+        "block-ordinance-pressure-equipment-summary",
+        "block-ordinance-pressure-equipment-warning",
+        "block-ordinance-pressure-equipment-checklist",
+        "block-ordinance-factory-register-summary",
+        "block-ordinance-factory-register-warning",
+        "block-ordinance-factory-register-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "factory-scope-definitions",
+      "title": "תחולה והגדרת מפעל",
+      "description": "המקור מציג תחולת מפעל לפי עבודת כפיים, תהליך עבודה, ציוד, חומרים ושליטת המעסיק בפועל.",
+      "parentTopicId": "work-safety-ordinance",
+      "aliases": [
+        "תחולה אינה מוגבלת למפעל ייצור קלאסי.",
+        "יש לבדוק עבודת כפיים, תהליך, ציוד ושליטה.",
+        "גם מעבדה, סדנה או מחסן עם כוח מכני עשויים להיות רלוונטיים."
+      ],
+      "relatedTopicIds": [
+        "factory-register-worker-duties",
+        "occupational-health-environment"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "sourceIds": [
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-ordinance-factory-scope-summary",
+        "block-ordinance-factory-scope-warning",
+        "block-ordinance-factory-scope-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-health-environment",
+      "title": "בריאות וסביבת עבודה",
+      "description": "המקור קושר ניקיון, צפיפות, אוורור, תאורה וחום לשליטה בסיכוני בריאות ובטיחות.",
+      "parentTopicId": "work-safety-ordinance",
+      "aliases": [
+        "ניקיון מונע החלקות, מפגעים תברואתיים ושריפות.",
+        "צפיפות משפיעה על מילוט, אוורור, תנועה וחשיפה.",
+        "אוורור נועד לסלק אדים, אבק וזוהמה העלולים להזיק לבריאות."
+      ],
+      "relatedTopicIds": [
+        "factory-scope-definitions",
+        "pressure-equipment-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-21",
+        "lesson-23"
+      ],
+      "sourceIds": [
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-ordinance-occupational-health-summary",
+        "block-ordinance-occupational-health-warning",
+        "block-ordinance-occupational-health-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "machine-guarding-ordinance",
+      "title": "גידור ובטיחות מכונות",
+      "description": "המקור מציג את עקרון הגידור סביב חלקים נעים, מסתובבים, גוזרים, לוכדים או מועכים.",
+      "parentTopicId": "work-safety-ordinance",
+      "aliases": [
+        "חלק מסוכן מחייב גידור או הגנה יעילה.",
+        "עבודה ליד מכונה בתנועה היא חריג צר ומבוקר.",
+        "גידור צריך להיות ממשי, תקין ובמקומו."
+      ],
+      "relatedTopicIds": [
+        "operational-risks-real",
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-ordinance-machine-guarding-summary",
+        "block-ordinance-machine-guarding-warning",
+        "block-ordinance-machine-guarding-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safe-access-and-fall-prevention",
+      "title": "גישה בטוחה ומניעת נפילה",
+      "description": "המקור עוסק בגישה בטוחה לעמדות עבודה, פתחים ברצפה וסיכון נפילה ממקום עבודה.",
+      "parentTopicId": "work-safety-ordinance",
+      "aliases": [
+        "מעבר חסום הוא מפגע מילוט, נפילה ותנועה.",
+        "המקור מתייחס לסיכון נפילה של יותר משני מטרים.",
+        "פתח ברצפה ללא גידור הוא מפגע נפילה חמור."
+      ],
+      "relatedTopicIds": [
+        "construction-excavation-risk-real"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-31"
+      ],
+      "sourceIds": [
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-ordinance-access-falls-summary",
+        "block-ordinance-access-falls-warning",
+        "block-ordinance-access-falls-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "lifts-and-escalators",
+      "title": "מעליות ודרגנועים",
+      "description": "המקור מציג מעליות ודרגנועים כמערכות המחייבות תקינות, סימון, התאמה לתקן ובדיקות תקופתיות.",
+      "parentTopicId": "work-safety-ordinance",
+      "aliases": [
+        "מעלית מחייבת מבנה תקין, הגנות, סימון עומס ותסקיר.",
+        "דרגנוע מחייב התאמה לתקן ובדיקה תקופתית.",
+        "אין להפעיל ציוד ללא בדיקה ותיעוד מתאימים."
+      ],
+      "relatedTopicIds": [
+        "lifting-machines-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-17"
+      ],
+      "sourceIds": [
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-ordinance-lifts-escalators-summary",
+        "block-ordinance-lifts-escalators-warning",
+        "block-ordinance-lifts-escalators-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "lifting-accessories-ordinance",
+      "title": "אביזרי הרמה",
+      "description": "המקור מציג אביזרי הרמה כפריטים המחייבים תקינות, סימון עומס עבודה בטוח, בדיקה ותיעוד.",
+      "parentTopicId": "work-safety-ordinance",
+      "aliases": [
+        "אין להשתמש באביזר עם פגם גלוי.",
+        "אסור לעבור עומס עבודה בטוח.",
+        "נדרש סימון או לוח עומסים כאשר אין סימון ברור."
+      ],
+      "relatedTopicIds": [
+        "lifting-machines-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-15"
+      ],
+      "sourceIds": [
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-ordinance-lifting-accessories-summary",
+        "block-ordinance-lifting-accessories-warning",
+        "block-ordinance-lifting-accessories-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "lifting-machines-ordinance",
+      "title": "מכונות הרמה",
+      "description": "המקור כולל עגורן, מלגזה, כננת, גלגלת, מסוע עילי והתקנים אחרים המיועדים להרים או להחזיק עומס.",
+      "parentTopicId": "work-safety-ordinance",
+      "aliases": [
+        "מכונת הרמה דורשת מבנה תקין.",
+        "נדרש עומס עבודה בטוח מסומן.",
+        "אין להעמיס מעבר לעומס העבודה הבטוח."
+      ],
+      "relatedTopicIds": [
+        "lifting-accessories-ordinance",
+        "lifts-and-escalators"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-15"
+      ],
+      "sourceIds": [
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-ordinance-lifting-machines-summary",
+        "block-ordinance-lifting-machines-warning",
+        "block-ordinance-lifting-machines-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "confined-space-and-hot-work",
+      "title": "מקום מוקף ועבודה חמה",
+      "description": "המקור עוסק בכניסה למקום מוקף, אדים מסוכנים, אבק נפיץ וריתוך או חיתוך בחום על מכלים.",
+      "parentTopicId": "work-safety-ordinance",
+      "aliases": [
+        "מקום מוקף עלול לכלול חוסר חמצן, גזים רעילים או אדים דליקים.",
+        "אבק קמח, עץ, מתכת או פלסטיק עלול להיות נפיץ.",
+        "מכל שהיה בו חומר דליק עלול להישאר מסוכן גם כשהוא ריק."
+      ],
+      "relatedTopicIds": [
+        "operational-risks-real",
+        "pressure-process-safety-real"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-11",
+        "lesson-14",
+        "lesson-20"
+      ],
+      "sourceIds": [
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-ordinance-confined-hot-work-summary",
+        "block-ordinance-confined-hot-work-warning",
+        "block-ordinance-confined-hot-work-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "pressure-equipment-ordinance",
+      "title": "מתקני לחץ ודודי קיטור",
+      "description": "המקור מציג דודי קיטור, קולטי קיטור וקולטי אוויר כמתקני לחץ המחייבים תסקיר, אביזרי בטיחות והפעלה לפי תנאי הבדיקה.",
+      "parentTopicId": "work-safety-ordinance",
+      "aliases": [
+        "דוד קיטור דורש היתר, אביזרי בטיחות ותסקיר.",
+        "קולט אוויר הוא מיכל לחץ שכשל בו עלול לגרום הדף.",
+        "תסקיר חסר הוא חולשת שליטה תפעולית ומשפטית."
+      ],
+      "relatedTopicIds": [
+        "pressure-process-safety-real"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-16"
+      ],
+      "sourceIds": [
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-ordinance-pressure-equipment-summary",
+        "block-ordinance-pressure-equipment-warning",
+        "block-ordinance-pressure-equipment-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "factory-register-worker-duties",
+      "title": "פנקס מפעל וחובות עובדים",
+      "description": "המקור עוסק בהודעה על פתיחת מפעל, הצגת מידע לעובדים, פנקס מפעל, חובות עובדים וסמכויות מפקח.",
+      "parentTopicId": "work-safety-ordinance",
+      "aliases": [
+        "פנקס מפעל כולל תסקירים, תאונות, פטורים ותעודות.",
+        "לעובד יש חובה לא לפגוע באמצעי בטיחות ולהשתמש בהם.",
+        "מפקח רשאי לבדוק, לדרוש פנקסים, לחקור ולצלם."
+      ],
+      "relatedTopicIds": [
+        "source-governance",
+        "roles-and-responsibilities"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-07"
+      ],
+      "sourceIds": [
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-ordinance-factory-register-summary",
+        "block-ordinance-factory-register-warning",
+        "block-ordinance-factory-register-checklist"
       ],
       "status": "draft"
     }

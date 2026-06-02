@@ -9,7 +9,8 @@
       "training-safety-management-human-factors",
       "training-occupational-safety-management",
       "training-safety-organization-final",
-      "training-operational-risks"
+      "training-operational-risks",
+      "ordinance-work-safety-1970"
     ]
   },
   "contentBlocks": [
@@ -4924,6 +4925,1672 @@
       "status": "draft",
       "verification": {
         "status": "source-backed"
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-factory-scope",
+      "sourceCitation": "פקודת הבטיחות בעבודה, תחולה והגדרת מפעל",
+      "topicIds": [
+        "work-safety-ordinance",
+        "factory-scope-definitions"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "metadata": {
+        "originalWordNumbering": "2",
+        "sourceStructure": {
+          "originalHeading": "תחולה והגדרות",
+          "paragraphRange": "8-20",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "דגש משפטי"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-factory-scope-summary",
+      "blockType": "summary-box",
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תחולה והגדרת מפעל",
+        "text": "המקור מציג תחולת מפעל לפי עבודת כפיים, תהליך עבודה, ציוד, חומרים ושליטת המעסיק בפועל.",
+        "items": [
+          "תחולה אינה מוגבלת למפעל ייצור קלאסי.",
+          "יש לבדוק עבודת כפיים, תהליך, ציוד ושליטה.",
+          "גם מעבדה, סדנה או מחסן עם כוח מכני עשויים להיות רלוונטיים."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-factory-scope",
+      "sourceCitation": "פקודת הבטיחות בעבודה, תחולה והגדרת מפעל",
+      "topicIds": [
+        "work-safety-ordinance",
+        "factory-scope-definitions"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "metadata": {
+        "originalWordNumbering": "2",
+        "sourceStructure": {
+          "originalHeading": "תחולה והגדרות",
+          "paragraphRange": "8-20",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "high",
+        "showAuthorityBadge": true,
+        "label": "סימן עצירה"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-factory-scope-warning",
+      "blockType": "warning",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: תחולה והגדרת מפעל",
+        "text": "שם העסק אינו קובע לבדו; מה שקובע הוא אופי הפעילות והשליטה במקום.",
+        "items": [],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-factory-scope",
+      "sourceCitation": "פקודת הבטיחות בעבודה, תחולה והגדרת מפעל",
+      "topicIds": [
+        "work-safety-ordinance",
+        "factory-scope-definitions"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "metadata": {
+        "originalWordNumbering": "2",
+        "sourceStructure": {
+          "originalHeading": "תחולה והגדרות",
+          "paragraphRange": "8-20",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "צ׳קליסט"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-factory-scope-checklist",
+      "blockType": "checklist",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance",
+        "examCritical"
+      ],
+      "content": {
+        "title": "בדיקת שטח: תחולה והגדרת מפעל",
+        "text": "רשימת בדיקה תפעולית שנגזרת מהנושא כפי שהוא מופיע במקור.",
+        "items": [
+          "האם יש עבודת כפיים.",
+          "האם יש תהליך עבודה.",
+          "האם קיימות מכונות או חומרים.",
+          "האם למעסיק יש שליטה או גישה."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-occupational-health",
+      "sourceCitation": "פקודת הבטיחות בעבודה, בריאות העובדים",
+      "topicIds": [
+        "work-safety-ordinance",
+        "occupational-health-environment"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-21",
+        "lesson-23"
+      ],
+      "metadata": {
+        "originalWordNumbering": "3",
+        "sourceStructure": {
+          "originalHeading": "בריאות העובדים",
+          "paragraphRange": "23-95",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "דגש משפטי"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-occupational-health-summary",
+      "blockType": "summary-box",
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בריאות וסביבת עבודה",
+        "text": "המקור קושר ניקיון, צפיפות, אוורור, תאורה וחום לשליטה בסיכוני בריאות ובטיחות.",
+        "items": [
+          "ניקיון מונע החלקות, מפגעים תברואתיים ושריפות.",
+          "צפיפות משפיעה על מילוט, אוורור, תנועה וחשיפה.",
+          "אוורור נועד לסלק אדים, אבק וזוהמה העלולים להזיק לבריאות."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-occupational-health",
+      "sourceCitation": "פקודת הבטיחות בעבודה, בריאות העובדים",
+      "topicIds": [
+        "work-safety-ordinance",
+        "occupational-health-environment"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-21",
+        "lesson-23"
+      ],
+      "metadata": {
+        "originalWordNumbering": "3",
+        "sourceStructure": {
+          "originalHeading": "בריאות העובדים",
+          "paragraphRange": "23-95",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "high",
+        "showAuthorityBadge": true,
+        "label": "סימן עצירה"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-occupational-health-warning",
+      "blockType": "warning",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: בריאות וסביבת עבודה",
+        "text": "פתיחת חלון אינה בהכרח בקרה מספקת כאשר קיים מקור פליטה ממשי.",
+        "items": [],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-occupational-health",
+      "sourceCitation": "פקודת הבטיחות בעבודה, בריאות העובדים",
+      "topicIds": [
+        "work-safety-ordinance",
+        "occupational-health-environment"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-21",
+        "lesson-23"
+      ],
+      "metadata": {
+        "originalWordNumbering": "3",
+        "sourceStructure": {
+          "originalHeading": "בריאות העובדים",
+          "paragraphRange": "23-95",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "צ׳קליסט"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-occupational-health-checklist",
+      "blockType": "checklist",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance",
+        "examCritical"
+      ],
+      "content": {
+        "title": "בדיקת שטח: בריאות וסביבת עבודה",
+        "text": "רשימת בדיקה תפעולית שנגזרת מהנושא כפי שהוא מופיע במקור.",
+        "items": [
+          "בדוק ניקיון ומטרדים.",
+          "בדוק צפיפות ותנועה.",
+          "בדוק אוורור וסילוק מזהמים.",
+          "בדוק תאורה וחום סביר."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+      "sourceCitation": "פקודת הבטיחות בעבודה, בטיחות מכונות וגידור",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-10"
+      ],
+      "metadata": {
+        "originalWordNumbering": "4",
+        "sourceStructure": {
+          "originalHeading": "בטיחות מכונות וגידור",
+          "paragraphRange": "98-139",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "דגש משפטי"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-machine-guarding-summary",
+      "blockType": "summary-box",
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "גידור ובטיחות מכונות",
+        "text": "המקור מציג את עקרון הגידור סביב חלקים נעים, מסתובבים, גוזרים, לוכדים או מועכים.",
+        "items": [
+          "חלק מסוכן מחייב גידור או הגנה יעילה.",
+          "עבודה ליד מכונה בתנועה היא חריג צר ומבוקר.",
+          "גידור צריך להיות ממשי, תקין ובמקומו."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+      "sourceCitation": "פקודת הבטיחות בעבודה, בטיחות מכונות וגידור",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-10"
+      ],
+      "metadata": {
+        "originalWordNumbering": "4",
+        "sourceStructure": {
+          "originalHeading": "בטיחות מכונות וגידור",
+          "paragraphRange": "98-139",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "high",
+        "showAuthorityBadge": true,
+        "label": "סימן עצירה"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-machine-guarding-warning",
+      "blockType": "warning",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: גידור ובטיחות מכונות",
+        "text": "מגן שהוסר כי הוא מפריע לעבודה הוא סימן עצירה, לא התאמה תפעולית.",
+        "items": [],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+      "sourceCitation": "פקודת הבטיחות בעבודה, בטיחות מכונות וגידור",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-10"
+      ],
+      "metadata": {
+        "originalWordNumbering": "4",
+        "sourceStructure": {
+          "originalHeading": "בטיחות מכונות וגידור",
+          "paragraphRange": "98-139",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "צ׳קליסט"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-machine-guarding-checklist",
+      "blockType": "checklist",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance",
+        "examCritical"
+      ],
+      "content": {
+        "title": "בדיקת שטח: גידור ובטיחות מכונות",
+        "text": "רשימת בדיקה תפעולית שנגזרת מהנושא כפי שהוא מופיע במקור.",
+        "items": [
+          "האם כל חלק מסוכן מגודר.",
+          "האם המגן נמצא במקומו.",
+          "האם בוצעה הדרכה לא להסיר מגן.",
+          "האם קיימת רשימת מכונות מסוכנות."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-access-falls",
+      "sourceCitation": "פקודת הבטיחות בעבודה, גישה בטוחה, נפילה ופתחים ברצפה",
+      "topicIds": [
+        "work-safety-ordinance",
+        "safe-access-and-fall-prevention"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-31"
+      ],
+      "metadata": {
+        "originalWordNumbering": "5",
+        "sourceStructure": {
+          "originalHeading": "גישה, מעברים, נפילה, סולמות ומדרגות",
+          "paragraphRange": "142-166",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "דגש משפטי"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-access-falls-summary",
+      "blockType": "summary-box",
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "גישה בטוחה ומניעת נפילה",
+        "text": "המקור עוסק בגישה בטוחה לעמדות עבודה, פתחים ברצפה וסיכון נפילה ממקום עבודה.",
+        "items": [
+          "מעבר חסום הוא מפגע מילוט, נפילה ותנועה.",
+          "המקור מתייחס לסיכון נפילה של יותר משני מטרים.",
+          "פתח ברצפה ללא גידור הוא מפגע נפילה חמור."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-access-falls",
+      "sourceCitation": "פקודת הבטיחות בעבודה, גישה בטוחה, נפילה ופתחים ברצפה",
+      "topicIds": [
+        "work-safety-ordinance",
+        "safe-access-and-fall-prevention"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-31"
+      ],
+      "metadata": {
+        "originalWordNumbering": "5",
+        "sourceStructure": {
+          "originalHeading": "גישה, מעברים, נפילה, סולמות ומדרגות",
+          "paragraphRange": "142-166",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "high",
+        "showAuthorityBadge": true,
+        "label": "סימן עצירה"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-access-falls-warning",
+      "blockType": "warning",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: גישה בטוחה ומניעת נפילה",
+        "text": "עבודה בגובה אינה מתחילה רק בגג; גם סולם, במה או פתח ברצפה עשויים ליצור סיכון.",
+        "items": [],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-access-falls",
+      "sourceCitation": "פקודת הבטיחות בעבודה, גישה בטוחה, נפילה ופתחים ברצפה",
+      "topicIds": [
+        "work-safety-ordinance",
+        "safe-access-and-fall-prevention"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-31"
+      ],
+      "metadata": {
+        "originalWordNumbering": "5",
+        "sourceStructure": {
+          "originalHeading": "גישה, מעברים, נפילה, סולמות ומדרגות",
+          "paragraphRange": "142-166",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "צ׳קליסט"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-access-falls-checklist",
+      "blockType": "checklist",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance",
+        "examCritical"
+      ],
+      "content": {
+        "title": "בדיקת שטח: גישה בטוחה ומניעת נפילה",
+        "text": "רשימת בדיקה תפעולית שנגזרת מהנושא כפי שהוא מופיע במקור.",
+        "items": [
+          "מעברים פנויים.",
+          "גישה יציבה לעמדת העבודה.",
+          "פתחים מגודרים או מכוסים.",
+          "בחירת אמצעי גישה לפי הסיכון."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-lifts-escalators",
+      "sourceCitation": "פקודת הבטיחות בעבודה, מעליות ודרגנועים",
+      "topicIds": [
+        "work-safety-ordinance",
+        "lifts-and-escalators"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-17"
+      ],
+      "metadata": {
+        "originalWordNumbering": "6",
+        "sourceStructure": {
+          "originalHeading": "מעליות ודרגנועים",
+          "paragraphRange": "168-189",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "דגש משפטי"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-lifts-escalators-summary",
+      "blockType": "summary-box",
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מעליות ודרגנועים",
+        "text": "המקור מציג מעליות ודרגנועים כמערכות המחייבות תקינות, סימון, התאמה לתקן ובדיקות תקופתיות.",
+        "items": [
+          "מעלית מחייבת מבנה תקין, הגנות, סימון עומס ותסקיר.",
+          "דרגנוע מחייב התאמה לתקן ובדיקה תקופתית.",
+          "אין להפעיל ציוד ללא בדיקה ותיעוד מתאימים."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-lifts-escalators",
+      "sourceCitation": "פקודת הבטיחות בעבודה, מעליות ודרגנועים",
+      "topicIds": [
+        "work-safety-ordinance",
+        "lifts-and-escalators"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-17"
+      ],
+      "metadata": {
+        "originalWordNumbering": "6",
+        "sourceStructure": {
+          "originalHeading": "מעליות ודרגנועים",
+          "paragraphRange": "168-189",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "high",
+        "showAuthorityBadge": true,
+        "label": "סימן עצירה"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-lifts-escalators-warning",
+      "blockType": "warning",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: מעליות ודרגנועים",
+        "text": "ציוד שנראה תקין אך חסר תסקיר בתוקף עדיין אינו בשליטה מלאה.",
+        "items": [],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-lifts-escalators",
+      "sourceCitation": "פקודת הבטיחות בעבודה, מעליות ודרגנועים",
+      "topicIds": [
+        "work-safety-ordinance",
+        "lifts-and-escalators"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-17"
+      ],
+      "metadata": {
+        "originalWordNumbering": "6",
+        "sourceStructure": {
+          "originalHeading": "מעליות ודרגנועים",
+          "paragraphRange": "168-189",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "צ׳קליסט"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-lifts-escalators-checklist",
+      "blockType": "checklist",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance",
+        "examCritical"
+      ],
+      "content": {
+        "title": "בדיקת שטח: מעליות ודרגנועים",
+        "text": "רשימת בדיקה תפעולית שנגזרת מהנושא כפי שהוא מופיע במקור.",
+        "items": [
+          "בדוק תסקיר מעלית.",
+          "בדוק סימון עומס.",
+          "בדוק התאמה ותקינות דרגנוע.",
+          "בדוק תיעוד לאחר תיקון מהותי."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-lifting-accessories",
+      "sourceCitation": "פקודת הבטיחות בעבודה, שרשרות, חבלים ואביזרי הרמה",
+      "topicIds": [
+        "work-safety-ordinance",
+        "lifting-accessories-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-15"
+      ],
+      "metadata": {
+        "originalWordNumbering": "7",
+        "sourceStructure": {
+          "originalHeading": "שרשרות, חבלים ואביזרי הרמה",
+          "paragraphRange": "191-216",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "דגש משפטי"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-lifting-accessories-summary",
+      "blockType": "summary-box",
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "אביזרי הרמה",
+        "text": "המקור מציג אביזרי הרמה כפריטים המחייבים תקינות, סימון עומס עבודה בטוח, בדיקה ותיעוד.",
+        "items": [
+          "אין להשתמש באביזר עם פגם גלוי.",
+          "אסור לעבור עומס עבודה בטוח.",
+          "נדרש סימון או לוח עומסים כאשר אין סימון ברור."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-lifting-accessories",
+      "sourceCitation": "פקודת הבטיחות בעבודה, שרשרות, חבלים ואביזרי הרמה",
+      "topicIds": [
+        "work-safety-ordinance",
+        "lifting-accessories-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-15"
+      ],
+      "metadata": {
+        "originalWordNumbering": "7",
+        "sourceStructure": {
+          "originalHeading": "שרשרות, חבלים ואביזרי הרמה",
+          "paragraphRange": "191-216",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "high",
+        "showAuthorityBadge": true,
+        "label": "סימן עצירה"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-lifting-accessories-warning",
+      "blockType": "warning",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: אביזרי הרמה",
+        "text": "שאקל או מענב ללא סימון עומס עבודה בטוח הוא סימן לעצירת שימוש.",
+        "items": [],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-lifting-accessories",
+      "sourceCitation": "פקודת הבטיחות בעבודה, שרשרות, חבלים ואביזרי הרמה",
+      "topicIds": [
+        "work-safety-ordinance",
+        "lifting-accessories-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-15"
+      ],
+      "metadata": {
+        "originalWordNumbering": "7",
+        "sourceStructure": {
+          "originalHeading": "שרשרות, חבלים ואביזרי הרמה",
+          "paragraphRange": "191-216",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "צ׳קליסט"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-lifting-accessories-checklist",
+      "blockType": "checklist",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance",
+        "examCritical"
+      ],
+      "content": {
+        "title": "בדיקת שטח: אביזרי הרמה",
+        "text": "רשימת בדיקה תפעולית שנגזרת מהנושא כפי שהוא מופיע במקור.",
+        "items": [
+          "בדוק פגם גלוי.",
+          "בדוק סימון עומס.",
+          "בדוק תסקיר.",
+          "בודד אביזר שאינו מזוהה."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-lifting-machines",
+      "sourceCitation": "פקודת הבטיחות בעבודה, מכונות הרמה",
+      "topicIds": [
+        "work-safety-ordinance",
+        "lifting-machines-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-15"
+      ],
+      "metadata": {
+        "originalWordNumbering": "8",
+        "sourceStructure": {
+          "originalHeading": "מכונות הרמה",
+          "paragraphRange": "218-239",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "דגש משפטי"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-lifting-machines-summary",
+      "blockType": "summary-box",
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מכונות הרמה",
+        "text": "המקור כולל עגורן, מלגזה, כננת, גלגלת, מסוע עילי והתקנים אחרים המיועדים להרים או להחזיק עומס.",
+        "items": [
+          "מכונת הרמה דורשת מבנה תקין.",
+          "נדרש עומס עבודה בטוח מסומן.",
+          "אין להעמיס מעבר לעומס העבודה הבטוח."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-lifting-machines",
+      "sourceCitation": "פקודת הבטיחות בעבודה, מכונות הרמה",
+      "topicIds": [
+        "work-safety-ordinance",
+        "lifting-machines-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-15"
+      ],
+      "metadata": {
+        "originalWordNumbering": "8",
+        "sourceStructure": {
+          "originalHeading": "מכונות הרמה",
+          "paragraphRange": "218-239",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "high",
+        "showAuthorityBadge": true,
+        "label": "סימן עצירה"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-lifting-machines-warning",
+      "blockType": "warning",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: מכונות הרמה",
+        "text": "תסקיר אינו רק תאריך; תנאי התסקיר הם חלק מהפעלה בטוחה.",
+        "items": [],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-lifting-machines",
+      "sourceCitation": "פקודת הבטיחות בעבודה, מכונות הרמה",
+      "topicIds": [
+        "work-safety-ordinance",
+        "lifting-machines-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-15"
+      ],
+      "metadata": {
+        "originalWordNumbering": "8",
+        "sourceStructure": {
+          "originalHeading": "מכונות הרמה",
+          "paragraphRange": "218-239",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "צ׳קליסט"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-lifting-machines-checklist",
+      "blockType": "checklist",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance",
+        "examCritical"
+      ],
+      "content": {
+        "title": "בדיקת שטח: מכונות הרמה",
+        "text": "רשימת בדיקה תפעולית שנגזרת מהנושא כפי שהוא מופיע במקור.",
+        "items": [
+          "בדוק תסקיר.",
+          "בדוק עומס עבודה בטוח.",
+          "בדוק התאמת המכונה למשימה.",
+          "ודא שאין עומס יתר."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-confined-hot-work",
+      "sourceCitation": "פקודת הבטיחות בעבודה, מקום מוקף, אבק נפיץ וריתוך על מכלים",
+      "topicIds": [
+        "work-safety-ordinance",
+        "confined-space-and-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-11",
+        "lesson-14",
+        "lesson-20"
+      ],
+      "metadata": {
+        "originalWordNumbering": "9-10",
+        "sourceStructure": {
+          "originalHeading": "מקום מוקף ואדים מסוכנים; אבק נפיץ וריתוך על מכלים",
+          "paragraphRange": "242-277",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "דגש משפטי"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-confined-hot-work-summary",
+      "blockType": "summary-box",
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מקום מוקף ועבודה חמה",
+        "text": "המקור עוסק בכניסה למקום מוקף, אדים מסוכנים, אבק נפיץ וריתוך או חיתוך בחום על מכלים.",
+        "items": [
+          "מקום מוקף עלול לכלול חוסר חמצן, גזים רעילים או אדים דליקים.",
+          "אבק קמח, עץ, מתכת או פלסטיק עלול להיות נפיץ.",
+          "מכל שהיה בו חומר דליק עלול להישאר מסוכן גם כשהוא ריק."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-confined-hot-work",
+      "sourceCitation": "פקודת הבטיחות בעבודה, מקום מוקף, אבק נפיץ וריתוך על מכלים",
+      "topicIds": [
+        "work-safety-ordinance",
+        "confined-space-and-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-11",
+        "lesson-14",
+        "lesson-20"
+      ],
+      "metadata": {
+        "originalWordNumbering": "9-10",
+        "sourceStructure": {
+          "originalHeading": "מקום מוקף ואדים מסוכנים; אבק נפיץ וריתוך על מכלים",
+          "paragraphRange": "242-277",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "high",
+        "showAuthorityBadge": true,
+        "label": "סימן עצירה"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-confined-hot-work-warning",
+      "blockType": "warning",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: מקום מוקף ועבודה חמה",
+        "text": "לא נכנסים למקום מוקף לפני בדיקה, אוורור, היתר, השגחה והיערכות חילוץ.",
+        "items": [],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-confined-hot-work",
+      "sourceCitation": "פקודת הבטיחות בעבודה, מקום מוקף, אבק נפיץ וריתוך על מכלים",
+      "topicIds": [
+        "work-safety-ordinance",
+        "confined-space-and-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-11",
+        "lesson-14",
+        "lesson-20"
+      ],
+      "metadata": {
+        "originalWordNumbering": "9-10",
+        "sourceStructure": {
+          "originalHeading": "מקום מוקף ואדים מסוכנים; אבק נפיץ וריתוך על מכלים",
+          "paragraphRange": "242-277",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "צ׳קליסט"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-confined-hot-work-checklist",
+      "blockType": "checklist",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance",
+        "examCritical"
+      ],
+      "content": {
+        "title": "בדיקת שטח: מקום מוקף ועבודה חמה",
+        "text": "רשימת בדיקה תפעולית שנגזרת מהנושא כפי שהוא מופיע במקור.",
+        "items": [
+          "בדוק אווירה.",
+          "אוורר וסלק אדים.",
+          "הכן היתר עבודה.",
+          "הצב משגיח וציוד חילוץ."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-pressure-equipment",
+      "sourceCitation": "פקודת הבטיחות בעבודה, דודי קיטור, קולטי קיטור וקולטי אוויר",
+      "topicIds": [
+        "work-safety-ordinance",
+        "pressure-equipment-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-16"
+      ],
+      "metadata": {
+        "originalWordNumbering": "11",
+        "sourceStructure": {
+          "originalHeading": "דודי קיטור, קולטי קיטור וקולטי אוויר",
+          "paragraphRange": "279-333",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "דגש משפטי"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-pressure-equipment-summary",
+      "blockType": "summary-box",
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מתקני לחץ ודודי קיטור",
+        "text": "המקור מציג דודי קיטור, קולטי קיטור וקולטי אוויר כמתקני לחץ המחייבים תסקיר, אביזרי בטיחות והפעלה לפי תנאי הבדיקה.",
+        "items": [
+          "דוד קיטור דורש היתר, אביזרי בטיחות ותסקיר.",
+          "קולט אוויר הוא מיכל לחץ שכשל בו עלול לגרום הדף.",
+          "תסקיר חסר הוא חולשת שליטה תפעולית ומשפטית."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-pressure-equipment",
+      "sourceCitation": "פקודת הבטיחות בעבודה, דודי קיטור, קולטי קיטור וקולטי אוויר",
+      "topicIds": [
+        "work-safety-ordinance",
+        "pressure-equipment-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-16"
+      ],
+      "metadata": {
+        "originalWordNumbering": "11",
+        "sourceStructure": {
+          "originalHeading": "דודי קיטור, קולטי קיטור וקולטי אוויר",
+          "paragraphRange": "279-333",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "high",
+        "showAuthorityBadge": true,
+        "label": "סימן עצירה"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-pressure-equipment-warning",
+      "blockType": "warning",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: מתקני לחץ ודודי קיטור",
+        "text": "מתקן לחץ ללא תסקיר בתוקף מחייב עצירת שימוש עד בירור ואישור מתאים.",
+        "items": [],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-pressure-equipment",
+      "sourceCitation": "פקודת הבטיחות בעבודה, דודי קיטור, קולטי קיטור וקולטי אוויר",
+      "topicIds": [
+        "work-safety-ordinance",
+        "pressure-equipment-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-16"
+      ],
+      "metadata": {
+        "originalWordNumbering": "11",
+        "sourceStructure": {
+          "originalHeading": "דודי קיטור, קולטי קיטור וקולטי אוויר",
+          "paragraphRange": "279-333",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "צ׳קליסט"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-pressure-equipment-checklist",
+      "blockType": "checklist",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance",
+        "examCritical"
+      ],
+      "content": {
+        "title": "בדיקת שטח: מתקני לחץ ודודי קיטור",
+        "text": "רשימת בדיקה תפעולית שנגזרת מהנושא כפי שהוא מופיע במקור.",
+        "items": [
+          "בדוק תסקיר.",
+          "בדוק שסתומי בטיחות.",
+          "בדוק מדי לחץ ומפלס.",
+          "ודא הפעלה לפי תנאי התסקיר."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-factory-register",
+      "sourceCitation": "פקודת הבטיחות בעבודה, פנקס מפעל, חובות עובדים וסמכויות מפקח",
+      "topicIds": [
+        "work-safety-ordinance",
+        "factory-register-worker-duties"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-07"
+      ],
+      "metadata": {
+        "originalWordNumbering": "16-18",
+        "sourceStructure": {
+          "originalHeading": "פתיחת מפעל, פנקס מפעל, חובות עובדים וסמכויות מפקח",
+          "paragraphRange": "410-462",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "דגש משפטי"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-factory-register-summary",
+      "blockType": "summary-box",
+      "claimTypes": [
+        "legal-reference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "פנקס מפעל וחובות עובדים",
+        "text": "המקור עוסק בהודעה על פתיחת מפעל, הצגת מידע לעובדים, פנקס מפעל, חובות עובדים וסמכויות מפקח.",
+        "items": [
+          "פנקס מפעל כולל תסקירים, תאונות, פטורים ותעודות.",
+          "לעובד יש חובה לא לפגוע באמצעי בטיחות ולהשתמש בהם.",
+          "מפקח רשאי לבדוק, לדרוש פנקסים, לחקור ולצלם."
+        ],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-factory-register",
+      "sourceCitation": "פקודת הבטיחות בעבודה, פנקס מפעל, חובות עובדים וסמכויות מפקח",
+      "topicIds": [
+        "work-safety-ordinance",
+        "factory-register-worker-duties"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-07"
+      ],
+      "metadata": {
+        "originalWordNumbering": "16-18",
+        "sourceStructure": {
+          "originalHeading": "פתיחת מפעל, פנקס מפעל, חובות עובדים וסמכויות מפקח",
+          "paragraphRange": "410-462",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "high",
+        "showAuthorityBadge": true,
+        "label": "סימן עצירה"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-factory-register-warning",
+      "blockType": "warning",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: פנקס מפעל וחובות עובדים",
+        "text": "אין תסקיר, אין פנקס ואין תיעוד הם חולשה מקצועית ומשפטית.",
+        "items": [],
+        "table": null
+      }
+    },
+    {
+      "sourceId": "ordinance-work-safety-1970",
+      "citationId": "citation-ordinance-work-safety-1970-factory-register",
+      "sourceCitation": "פקודת הבטיחות בעבודה, פנקס מפעל, חובות עובדים וסמכויות מפקח",
+      "topicIds": [
+        "work-safety-ordinance",
+        "factory-register-worker-duties"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-07"
+      ],
+      "metadata": {
+        "originalWordNumbering": "16-18",
+        "sourceStructure": {
+          "originalHeading": "פתיחת מפעל, פנקס מפעל, חובות עובדים וסמכויות מפקח",
+          "paragraphRange": "410-462",
+          "sourceType": "ordinance"
+        }
+      },
+      "rendering": {
+        "tone": "legal",
+        "variant": "legal-reference",
+        "emphasis": "medium",
+        "showAuthorityBadge": true,
+        "label": "צ׳קליסט"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 1,
+        "legalBinding": true,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed ordinance citation. Not verified and not legal approved."
+      },
+      "blockId": "block-ordinance-factory-register-checklist",
+      "blockType": "checklist",
+      "claimTypes": [
+        "legal-reference",
+        "fieldGuidance",
+        "examCritical"
+      ],
+      "content": {
+        "title": "בדיקת שטח: פנקס מפעל וחובות עובדים",
+        "text": "רשימת בדיקה תפעולית שנגזרת מהנושא כפי שהוא מופיע במקור.",
+        "items": [
+          "בדוק פנקס מפעל.",
+          "בדוק הצגת תקצירים ותעודות.",
+          "בדוק חובות עובדים והדרכה.",
+          "הכן תיעוד לביקורת מפקח."
+        ],
+        "table": null
       }
     }
   ]
