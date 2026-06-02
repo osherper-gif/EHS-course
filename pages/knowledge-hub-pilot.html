@@ -441,6 +441,82 @@
       color: #7f1d1d;
     }
 
+    .kh-search-panel {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0 16px;
+      padding: 14px;
+      border: 1px solid var(--kh-border);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .kh-search-panel label {
+      font-weight: 800;
+      color: #0f5f75;
+    }
+
+    .kh-search-input {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--kh-border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: inherit;
+      background: #fff;
+      color: var(--kh-ink);
+    }
+
+    .kh-search-input:focus-visible {
+      outline: 3px solid rgba(15, 95, 117, .22);
+      outline-offset: 2px;
+      border-color: #0f5f75;
+    }
+
+    .kh-topic-empty {
+      grid-column: 1 / -1;
+    }
+
+    .kh-breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 14px 0 10px;
+      color: var(--kh-muted);
+      font-weight: 800;
+    }
+
+    .kh-breadcrumb span:last-child {
+      color: #0f5f75;
+    }
+
+    .kh-related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+    }
+
+    .kh-related-button {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--kh-border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #fff;
+      color: #0f5f75;
+      font-weight: 800;
+      text-align: right;
+      cursor: pointer;
+    }
+
+    .kh-related-button:hover,
+    .kh-related-button:focus-visible {
+      background: #edf7fb;
+      outline: 3px solid rgba(15, 95, 117, .18);
+      outline-offset: 2px;
+    }
+
     @media (max-width: 560px) {
       .kh-shell {
         width: min(100% - 20px, 1180px);
@@ -561,6 +637,11 @@
       <section class="kh-section" id="kh-topics" aria-labelledby="khTopicsTitle">
         <h2 id="khTopicsTitle">נושאים מרכזיים</h2>
         <p class="kh-muted">בחר נושא כדי לפתוח פירוט ממוקד. שאר התוכן נשאר מוסתר עד לבחירה.</p>
+        <div class="kh-search-panel" role="search">
+          <label for="khTopicSearch">חיפוש נושא</label>
+          <input class="kh-search-input" id="khTopicSearch" type="search" data-kh-search placeholder="לדוגמה: LOTO, גורם אנושי, ועדת בטיחות" autocomplete="off">
+          <span class="kh-muted">החיפוש מסנן לפי שם נושא, תיאור ומילים נרדפות.</span>
+        </div>
         <div class="kh-topic-grid" data-kh-topics></div>
       </section>
 
@@ -568,6 +649,7 @@
         <div class="kh-detail-actions">
           <button class="kh-back-button" type="button" data-kh-back-topics>חזרה לכל הנושאים</button>
         </div>
+        <nav class="kh-breadcrumb" aria-label="מיקום בנושא" data-kh-breadcrumb></nav>
         <h2 id="khDetailTitle" data-kh-detail-title></h2>
         <p class="kh-muted" data-kh-detail-summary></p>
 
@@ -599,6 +681,11 @@
         <section class="kh-detail-section" aria-labelledby="khQuestionsTitle">
           <h3 id="khQuestionsTitle">שאלות לימוד</h3>
           <div class="kh-card-grid" data-kh-detail-questions></div>
+        </section>
+
+        <section class="kh-detail-section" aria-labelledby="khRelatedTitle">
+          <h3 id="khRelatedTitle">נושאים קשורים</h3>
+          <div data-kh-detail-related></div>
         </section>
       </section>
     </main>

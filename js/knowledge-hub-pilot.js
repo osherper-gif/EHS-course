@@ -33,6 +33,7 @@
       .then((data) => {
         pilotState = buildState(data);
         renderPilot(pilotState);
+        setupSearch(pilotState);
       })
       .catch(renderError);
 
@@ -106,12 +107,20 @@
     const target = document.querySelector('[data-kh-topics]');
     if (!target) return;
 
-    const rootTopics = getRootTopics(state.data.topics);
+    const query = normalizeSearch(document.querySelector('[data-kh-search]')?.value || '');
+    const rootTopics = getRootTopics(state.data.topics).filter((topic) => topicMatchesSearch(topic, query));
+
+    if (!rootTopics.length) {
+      target.innerHTML = '<article class="kh-empty kh-topic-empty">לא נמצאו נושאים מתאימים</article>';
+      return;
+    }
+
     target.innerHTML = rootTopics.map((topic) => {
       const scope = getTopicScope(state, topic.topicId);
       const blockCount = getBlocksForScope(state, scope).length;
       const goldenCount = getGoldenForScope(state, scope).length;
       const questionCount = getQuestionsForScope(state, scope).length;
+      const subtopicCount = scope.topicIds.size - 1;
       const authority = primaryAuthorityForScope(state, scope);
 
       return `
@@ -121,13 +130,13 @@
             <span class="kh-badge" data-kind="draft">${escapeHtml(blockCount)} פריטי תוכן</span>
           </div>
           <h3>${escapeHtml(presentationTitle(topic.title))}</h3>
-          <p>${escapeHtml(topic.description || 'נושא לימודי מתוך הפיילוט.')}</p>
+          <p>${escapeHtml(localizedTopicDescription(topic))}</p>
           <div class="kh-meta-row">
-            <span class="kh-badge" data-kind="source-backed">${escapeHtml(scope.topicIds.size - 1)} תתי נושאים</span>
-            <span class="kh-badge" data-role="gold">${escapeHtml(goldenCount)} מספרי זהב</span>
-            <span class="kh-badge" data-kind="draft">${escapeHtml(questionCount)} שאלות</span>
+            ${countBadge(subtopicCount, 'תתי נושאים', 'source-backed')}
+            ${countBadge(goldenCount, 'מספרי זהב', 'gold')}
+            ${countBadge(questionCount, 'שאלות', 'draft')}
           </div>
-          <button class="kh-topic-open" type="button" data-topic-open="${escapeAttribute(topic.topicId)}">פתח נושא</button>
+          <button class="kh-topic-open" type="button" data-topic-open="${escapeAttribute(topic.topicId)}">כניסה לנושא</button>
         </article>
       `;
     }).join('');
@@ -138,6 +147,12 @@
     if (openButton) {
       const topicId = openButton.getAttribute('data-topic-open');
       openTopic(topicId);
+      return;
+    }
+
+    const relatedButton = event.target.closest('[data-related-topic-open]');
+    if (relatedButton) {
+      openTopic(relatedButton.getAttribute('data-related-topic-open'));
       return;
     }
 
@@ -161,15 +176,18 @@
     const legalBlocks = blocks.filter(isLegalBlock);
     const golden = getGoldenForScope(pilotState, scope);
     const questions = getQuestionsForScope(pilotState, scope);
+    const relatedTopics = getRelatedTopics(pilotState, topic);
 
     setText('[data-kh-detail-title]', presentationTitle(topic.title));
-    setText('[data-kh-detail-summary]', topic.description || 'פירוט ממוקד לנושא שנבחר.');
+    setText('[data-kh-detail-summary]', localizedTopicDescription(topic));
+    setHtml('[data-kh-breadcrumb]', renderBreadcrumb(pilotState, topic));
     setHtml('[data-kh-detail-subtopics]', renderSubtopics(subtopics));
     setHtml('[data-kh-detail-learning]', renderBlockCards(learningBlocks, pilotState, 'אין פריטי תוכן לימודי לנושא זה בפיילוט.'));
     setHtml('[data-kh-detail-exam]', renderBlockCards(examBlocks, pilotState, 'אין דגשי מבחן לנושא זה בפיילוט.'));
     setHtml('[data-kh-detail-legal]', renderBlockCards(legalBlocks, pilotState, 'אין דגשים משפטיים לנושא זה בפיילוט.'));
     setHtml('[data-kh-detail-golden]', renderGoldenNumbers(golden, pilotState));
     setHtml('[data-kh-detail-questions]', renderQuestions(questions, pilotState));
+    setHtml('[data-kh-detail-related]', renderRelatedTopics(relatedTopics));
 
     detail.hidden = false;
     detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -180,6 +198,76 @@
     if (!detail) return;
     detail.hidden = true;
     document.querySelector('#kh-topics')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function setupSearch(state) {
+    const search = document.querySelector('[data-kh-search]');
+    if (!search) return;
+    search.addEventListener('input', () => {
+      closeTopicDetail();
+      renderTopicCards(state);
+    });
+  }
+
+  function topicMatchesSearch(topic, query) {
+    if (!query) return true;
+    const haystack = normalizeSearch([
+      topic.title,
+      topic.description,
+      ...(Array.isArray(topic.aliases) ? topic.aliases : [])
+    ].filter(Boolean).join(' '));
+    return haystack.includes(query);
+  }
+
+  function normalizeSearch(value) {
+    return String(value || '').trim().toLowerCase();
+  }
+
+  function localizedTopicDescription(topic) {
+    const description = String(topic.description || '').trim();
+    if (!description || /topic root|pilot topic|management-facing|extracted from|traceability/i.test(description)) {
+      return 'נושא לימודי מבוסס מקור מתוך הפיילוט.';
+    }
+    return description;
+  }
+
+  function countBadge(count, label, kind) {
+    if (!count) return '';
+    const attr = kind === 'gold' ? 'data-role="gold"' : `data-kind="${escapeAttribute(kind)}"`;
+    return `<span class="kh-badge" ${attr}>${escapeHtml(count)} ${escapeHtml(label)}</span>`;
+  }
+
+  function renderBreadcrumb(state, topic) {
+    const chain = [];
+    let current = topic;
+    while (current) {
+      chain.unshift(current);
+      current = current.parentTopicId ? state.topicById.get(current.parentTopicId) : null;
+    }
+    const parts = ['ידע מקצועי', ...chain.map((item) => presentationTitle(item.title))];
+    return parts.map((part, index) => `
+      <span>${escapeHtml(part)}</span>${index < parts.length - 1 ? '<span aria-hidden="true">←</span>' : ''}
+    `).join('');
+  }
+
+  function getRelatedTopics(state, topic) {
+    return (topic.relatedTopicIds || [])
+      .map((topicId) => state.topicById.get(topicId))
+      .filter(Boolean);
+  }
+
+  function renderRelatedTopics(topics) {
+    if (!topics.length) {
+      return '<article class="kh-empty">אין נושאים קשורים לנושא זה בשלב הפיילוט.</article>';
+    }
+
+    return topics.map((topic) => `
+      <article class="kh-card">
+        <h3>${escapeHtml(presentationTitle(topic.title))}</h3>
+        <p>${escapeHtml(localizedTopicDescription(topic))}</p>
+        <button class="kh-related-button" type="button" data-related-topic-open="${escapeAttribute(topic.topicId)}">פתח נושא קשור</button>
+      </article>
+    `).join('');
   }
 
   function renderSubtopics(subtopics) {
