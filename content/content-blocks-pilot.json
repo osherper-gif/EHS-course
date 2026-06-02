@@ -8903,6 +8903,1042 @@
         "tone": "exam",
         "showAuthorityBadge": true
       }
+    },
+    {
+      "blockId": "block-electrical-safety-domain-scope",
+      "blockType": "summary-box",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-scope-warning",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / היקף לימודי",
+      "topicIds": [
+        "electrical-safety-domain"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בטיחות בחשמל כתחום לימודי מקצועי",
+        "text": "המקור מציג את בטיחות החשמל כמדריך לימודי להכנה, העשרה והבנת סיכונים מקצועיים, תוך הדגשה שאינו מחליף מקור רשמי או בדיקת מומחה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "הודעת הבהרה ורגולציה מחייבת",
+          "paragraphRange": "0-3",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-safety-source-limits",
+      "blockType": "warning",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-scope-warning",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / היקף לימודי",
+      "topicIds": [
+        "electrical-safety-domain"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "המקור אינו אישור משפטי או הנדסי",
+        "text": "המסמך עצמו מבהיר שהנוסח המחייב נמצא במקורות הרשמיים, ולכן ה־Knowledge Hub מציג את התוכן כחומר הדרכה מבוסס מקור בלבד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "הודעת הבהרה ורגולציה מחייבת",
+          "paragraphRange": "3",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרת סמכות",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-ohm-voltage-current-resistance",
+      "blockType": "definition",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-basics-ohm",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / יסודות חשמל",
+      "topicIds": [
+        "electrical-safety-basics"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "מתח, זרם והתנגדות",
+        "text": "המקור מסביר את החשמל דרך שלושה מושגים: מתח ככוח הדוחף, זרם כזרימה בפועל, והתנגדות כהפרעה לזרימה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "פרק 1",
+        "sourceStructure": {
+          "originalHeading": "יסודות הנדסיים, פיזיקה של החשמל וחוק אוהם",
+          "paragraphRange": "7-15",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "מושג מרכזי",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-current-is-harm-factor",
+      "blockType": "exam-focus",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-basics-ohm",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / יסודות חשמל",
+      "topicIds": [
+        "electrical-safety-basics",
+        "electrical-shock-risk"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "הזרם הוא גורם הפגיעה",
+        "text": "המקור מדגיש כי הזרם החשמלי הוא הגורם הפיזיקלי שפוגע ברקמות הגוף, בעוד שהמתח הוא הכוח שמאפשר את מעבר הזרם דרך הגוף.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "1",
+        "sourceStructure": {
+          "originalHeading": "Quick Learning",
+          "paragraphRange": "7-8",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-ohm-law-learning",
+      "blockType": "summary-box",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-basics-ohm",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / יסודות חשמל",
+      "topicIds": [
+        "electrical-safety-basics"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "חוק אוהם ככלי להבנת סיכון",
+        "text": "חוק אוהם מוצג כמסגרת להבנת הקשר בין מתח, זרם והתנגדות. בהקשר בטיחותי הוא מסייע להבין מדוע שינוי בתנאי הגוף או הסביבה משנה את רמת הסיכון.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3-4",
+        "sourceStructure": {
+          "originalHeading": "הסבר מקצועי ופיזיקלי",
+          "paragraphRange": "23-27",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-live-conductor-rule",
+      "blockType": "warning",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-basics-ohm",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / יסודות חשמל",
+      "topicIds": [
+        "electrical-safety-basics",
+        "electrical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "אין לגעת לפני אימות היעדר מתח",
+        "text": "בנקודות המפתח של המקור מודגש שאין לגעת במוליך לפני וידוא מדוד ומוחלט שאינו חי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "9",
+        "sourceStructure": {
+          "originalHeading": "Key Takeaways",
+          "paragraphRange": "48-50",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-case-tool-access",
+      "blockType": "field-example",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-basics-ohm",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / יסודות חשמל",
+      "topicIds": [
+        "electrical-safety-basics",
+        "electrical-equipment-site"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "מקרה בוחן: כלי לא מבודד בלוח",
+        "text": "המקור מתאר טכנאי שנפגע בעת בדיקה בלוח, ומנתח את האירוע ככשל מערכתי של נגישות לציוד מתאים ותרבות קיצורי דרך.",
+        "items": [
+          "האירוע אינו מוסבר רק כטעות עובד.",
+          "הכשל קשור לנגישות כלי עבודה מבודדים.",
+          "הפקת הלקח היא ניהולית וארגונית."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "6",
+        "sourceStructure": {
+          "originalHeading": "ניתוח כשל ושורש",
+          "paragraphRange": "38-43",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דוגמה מהשטח",
+        "tone": "field",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-site-equipment-overview",
+      "blockType": "checklist",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-site-equipment",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / ציוד באתר",
+      "topicIds": [
+        "electrical-equipment-site"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "ציוד חשמלי באתר בנייה - נקודות בדיקה",
+        "text": "המקור מרכז דרישות הדרכתיות לציוד באתר: דרגת הגנה, פחת, הארקה וכבלים מאריכים.",
+        "items": [
+          "דרגת הגנה לציוד ולוחות.",
+          "מפסק מגן למעגלים מזינים.",
+          "הארקת ציוד מתכתי.",
+          "כבלים גמישים, מוגנים ומורמים מהקרקע."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דרישות בטיחות בסיסיות בציוד באתר בניה",
+          "paragraphRange": "16-20",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-rcd-training-value",
+      "blockType": "exam-focus",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-site-equipment",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / ציוד באתר",
+      "topicIds": [
+        "electrical-equipment-site",
+        "electrical-protective-devices"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "מפסק מגן מוצג כחומר הדרכה, לא כמספר זהב",
+        "text": "המקור מזכיר רגישות פחת מספרית, אך מאחר שמדובר במקור הדרכה בלבד, הערך אינו מוצג כ־Golden Number אלא כחלק מתוכן לימודי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דרישות בטיחות בסיסיות בציוד באתר בניה",
+          "paragraphRange": "18",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש סמכות",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-cables-site-risk",
+      "blockType": "warning",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-site-equipment",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / ציוד באתר",
+      "topicIds": [
+        "electrical-equipment-site"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "כבלים מאריכים הם נקודת כשל נפוצה",
+        "text": "המקור מדגיש שימוש בכבלים מתאימים, מוגבהים ומוגנים מפני שחיקה, משום שכבל פגום או מונח בשטח רטוב עלול להפוך לסיכון התחשמלות ושריפה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דרישות בטיחות בסיסיות בציוד באתר בניה",
+          "paragraphRange": "20",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-body-conductivity",
+      "blockType": "summary-box",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-electrocution-physiology",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / פיזיולוגיה",
+      "topicIds": [
+        "electrical-shock-risk"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "גוף האדם כמוליך לאחר פריצת מחסום העור",
+        "text": "המקור מסביר שהגוף מוליך היטב כאשר מחסום העור נפרץ, במיוחד בתנאי רטיבות, זיעה או לחות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "פרק 2",
+        "sourceStructure": {
+          "originalHeading": "פיזיולוגיה של ההתחשמלות ומסלולי זרם בגוף האדם",
+          "paragraphRange": "51-57",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-critical-current-path",
+      "blockType": "exam-focus",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-electrocution-physiology",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / פיזיולוגיה",
+      "topicIds": [
+        "electrical-shock-risk"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "מסלול הזרם הקריטי בגוף",
+        "text": "המקור מדגיש מסלולי זרם שעוברים דרך הלב, הריאות ומערכת העצבים כמסלולים מסוכנים במיוחד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "1",
+        "sourceStructure": {
+          "originalHeading": "Quick Learning",
+          "paragraphRange": "52-55",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-wet-skin-risk",
+      "blockType": "warning",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-electrocution-physiology",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / פיזיולוגיה",
+      "topicIds": [
+        "electrical-shock-risk"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "רטיבות משנה את רמת הסיכון",
+        "text": "המקור מתאר ירידה משמעותית בהתנגדות העור בתנאי רטיבות. המספרים מופיעים כחומר הדרכה בלבד ולא כמספרי זהב מאומתים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "1-4",
+        "sourceStructure": {
+          "originalHeading": "Quick Learning",
+          "paragraphRange": "55-61",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-ac-physiology",
+      "blockType": "paragraph",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-electrocution-physiology",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / פיזיולוגיה",
+      "topicIds": [
+        "electrical-shock-risk"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "זרם חילופין והשפעה על הלב",
+        "text": "המקור מתאר את הסיכון הפיזיולוגי של זרם חילופין בתדר רשת, בעיקר בגלל השפעתו על מערכת ההולכה החשמלית של הלב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3",
+        "sourceStructure": {
+          "originalHeading": "הסבר מקצועי",
+          "paragraphRange": "58-59",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-body-path-diagram-learning",
+      "blockType": "summary-box",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-electrocution-physiology",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / פיזיולוגיה",
+      "topicIds": [
+        "electrical-shock-risk"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מסלול הזרם דרך הגוף",
+        "text": "התרשים במקור מתאר כניסה דרך יד, מעבר דרך איברים קריטיים ויציאה אל אדמה או מוליך אחר. המטרה הלימודית היא לזהות מסלולי זרם מסכני חיים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרשים מסלול הזרם בגוף האדם והתנגדות העור",
+          "paragraphRange": "63-78",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-grounding-system-purpose",
+      "blockType": "definition",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-grounding-protection",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / הארקה והגנות",
+      "topicIds": [
+        "electrical-grounding-protection"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "הארקת שיטה והארקת הגנה",
+        "text": "המקור מציג תרשימים שמבדילים בין ייחוס מקור החשמל לאדמה לבין חיבור מעטפות ציוד מתכתי למסלול הגנה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרשימי הארקה והגנה",
+          "paragraphRange": "80-95",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "מושג מרכזי",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-protective-earth-loop",
+      "blockType": "summary-box",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-grounding-protection",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / הארקה והגנות",
+      "topicIds": [
+        "electrical-grounding-protection"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מסלול תקלה צריך להיות מתוכנן",
+        "text": "התרשימים במקור ממחישים כי הגנה חשמלית אינה רק חיבור חוט, אלא יצירת מסלול תקלה צפוי שמאפשר למערכת ההגנה לפעול.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרשימי הארקה והגנה",
+          "paragraphRange": "98-111",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-isolation-transformer",
+      "blockType": "definition",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-grounding-protection",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / הארקה והגנות",
+      "topicIds": [
+        "electrical-grounding-protection",
+        "electrical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "שנאי מבדל כהפרדה מגן",
+        "text": "המקור מציג שנאי מבדל שמנתק את הייחוס המקומי לאדמה עבור כלי עבודה בסביבה מוגדרת, כחלק מחשיבה על אמצעי הגנה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "רשת החשמל הכללית ושנאי מבדל",
+          "paragraphRange": "113-116",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-grounding-hidden-risk",
+      "blockType": "warning",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-grounding-protection",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / הארקה והגנות",
+      "topicIds": [
+        "electrical-grounding-protection"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "כשל בהארקה עלול להיות חבוי",
+        "text": "מתוך הדגשים במקור עולה שתקינות ההארקה אינה תמיד נראית לעין, ולכן נדרש להבין את מסלול התקלה ולא להסתפק בהנחות או מראה חיצוני.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרשימי הארקה והגנה",
+          "paragraphRange": "80-111",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-second-victim-logic",
+      "blockType": "warning",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-emergency-response",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / חירום חשמלי",
+      "topicIds": [
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "קורבן שני באירוע התחשמלות",
+        "text": "המקור מתאר כי במצב חירום עובדים עלולים לפעול אינסטינקטיבית ולנסות חילוץ ללא בידוד. תרגול מוקדם נועד למנוע הפיכת המחלץ לנפגע נוסף.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Human Factors & Second Victim Logic",
+          "paragraphRange": "119-120",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-fire-rca-water-extinguisher",
+      "blockType": "field-example",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-emergency-response",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / חירום חשמלי",
+      "topicIds": [
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "מקרה בוחן: כיבוי לא מתאים ליד לוח חי",
+        "text": "המקור מתאר אירוע שבו שימוש באמצעי כיבוי לא מתאים ליד לוח חי יצר קשת חשמלית והחמיר את האירוע. הלקח הוא התאמת אמצעי החירום לסיכון החשמלי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ניתוח כשל ושורש, תרבות בטיחות וכיבוי אש",
+          "paragraphRange": "125-128",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דוגמה מהשטח",
+        "tone": "field",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-electrical-emergency-priorities",
+      "blockType": "checklist",
+      "sourceId": "training-electrical-safety",
+      "citationId": "citation-training-electrical-safety-emergency-response",
+      "sourceCitation": "מקור הדרכה: בטיחות בחשמל / חירום חשמלי",
+      "topicIds": [
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "סדר קדימויות בחירום חשמלי",
+        "text": "המקור מציג סדר פעולות לימודי שמתחיל בבטיחות המחלץ ורק לאחר מכן ניתוק, חילוץ וקריאה לעזרה.",
+        "items": [
+          "בטיחות המחלץ.",
+          "ניתוק מקור הזרם.",
+          "חילוץ הנפגע.",
+          "החייאה וקריאה לכוחות חירום."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "9",
+        "sourceStructure": {
+          "originalHeading": "Key Takeaways",
+          "paragraphRange": "141-145",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
     }
   ]
 }

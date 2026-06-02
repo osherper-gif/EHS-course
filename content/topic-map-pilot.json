@@ -1604,6 +1604,213 @@
         "block-safety-org-zero-energy-check"
       ],
       "status": "draft"
+    },
+    {
+      "topicId": "electrical-safety-domain",
+      "title": "בטיחות בחשמל",
+      "description": "תחום ידע מקצועי לבטיחות בחשמל: יסודות, התחשמלות, ציוד, הארקה, הגנות וחירום.",
+      "parentTopicId": null,
+      "aliases": [
+        "חשמל",
+        "בטיחות חשמל",
+        "הגנה מחשמל"
+      ],
+      "relatedTopicIds": [
+        "electrical-safety-basics",
+        "electrical-shock-risk",
+        "electrical-equipment-site",
+        "electrical-grounding-protection",
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-electrical-safety"
+      ],
+      "blockIds": [
+        "block-electrical-safety-domain-scope",
+        "block-electrical-safety-source-limits"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "electrical-safety-basics",
+      "title": "יסודות חשמל וסיכון",
+      "description": "מתח, זרם, התנגדות וחוק אוהם כהסבר לימודי להבנת סיכון חשמלי.",
+      "parentTopicId": "electrical-safety-domain",
+      "aliases": [
+        "חוק אוהם",
+        "מתח",
+        "זרם",
+        "התנגדות"
+      ],
+      "relatedTopicIds": [
+        "electrical-shock-risk",
+        "electrical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-electrical-safety"
+      ],
+      "blockIds": [
+        "block-electrical-ohm-voltage-current-resistance",
+        "block-electrical-current-is-harm-factor",
+        "block-electrical-ohm-law-learning",
+        "block-electrical-live-conductor-rule",
+        "block-electrical-case-tool-access"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "electrical-shock-risk",
+      "title": "התחשמלות ומסלולי זרם בגוף",
+      "description": "פיזיולוגיה של התחשמלות, מסלולי זרם מסוכנים והשפעת רטיבות על הסיכון.",
+      "parentTopicId": "electrical-safety-domain",
+      "aliases": [
+        "התחשמלות",
+        "מסלול זרם",
+        "רטיבות"
+      ],
+      "relatedTopicIds": [
+        "electrical-safety-basics",
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-electrical-safety"
+      ],
+      "blockIds": [
+        "block-electrical-body-conductivity",
+        "block-electrical-critical-current-path",
+        "block-electrical-wet-skin-risk",
+        "block-electrical-ac-physiology",
+        "block-electrical-body-path-diagram-learning"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "electrical-equipment-site",
+      "title": "ציוד חשמלי באתר",
+      "description": "ציוד חשמלי נייד, לוחות, כבלים, פחת והארקה כחומר הדרכה לבדיקות שטח.",
+      "parentTopicId": "electrical-safety-domain",
+      "aliases": [
+        "ציוד חשמלי",
+        "כבלים מאריכים",
+        "פחת",
+        "אתר בנייה"
+      ],
+      "relatedTopicIds": [
+        "electrical-grounding-protection",
+        "electrical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-electrical-safety"
+      ],
+      "blockIds": [
+        "block-electrical-site-equipment-overview",
+        "block-electrical-rcd-training-value",
+        "block-electrical-cables-site-risk"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "electrical-grounding-protection",
+      "title": "הארקה ואמצעי הגנה",
+      "description": "הארקת שיטה, הארקת הגנה, מסלול תקלה והפרדה מגן מתוך חומר ההדרכה.",
+      "parentTopicId": "electrical-safety-domain",
+      "aliases": [
+        "הארקה",
+        "הארקת הגנה",
+        "שנאי מבדל",
+        "מסלול תקלה"
+      ],
+      "relatedTopicIds": [
+        "electrical-equipment-site",
+        "electrical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-electrical-safety"
+      ],
+      "blockIds": [
+        "block-electrical-grounding-system-purpose",
+        "block-electrical-protective-earth-loop",
+        "block-electrical-isolation-transformer",
+        "block-electrical-grounding-hidden-risk"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "electrical-emergency-response",
+      "title": "חירום חשמלי וקורבן שני",
+      "description": "תגובה לאירוע התחשמלות או שריפה חשמלית תוך מניעת פגיעה במחלץ.",
+      "parentTopicId": "electrical-safety-domain",
+      "aliases": [
+        "חירום חשמלי",
+        "קורבן שני",
+        "כיבוי חשמל"
+      ],
+      "relatedTopicIds": [
+        "electrical-shock-risk",
+        "electrical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-electrical-safety"
+      ],
+      "blockIds": [
+        "block-electrical-second-victim-logic",
+        "block-electrical-fire-rca-water-extinguisher",
+        "block-electrical-emergency-priorities"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "electrical-work-controls",
+      "title": "בקרת עבודה במתקני חשמל",
+      "description": "בקרה תפעולית לפני מגע, אימות היעדר מתח, הפרדה מגן וכלי עבודה מתאימים.",
+      "parentTopicId": "electrical-safety-domain",
+      "aliases": [
+        "עבודה במתקני חשמל",
+        "אימות היעדר מתח",
+        "בידוד אנרגיה"
+      ],
+      "relatedTopicIds": [
+        "electrical-safety-basics",
+        "electrical-grounding-protection",
+        "safety-organization-field-tools-real"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-electrical-safety"
+      ],
+      "blockIds": [
+        "block-electrical-live-conductor-rule",
+        "block-electrical-isolation-transformer",
+        "block-electrical-case-tool-access"
+      ],
+      "status": "draft"
     }
   ]
 }

@@ -824,6 +824,126 @@
         "notes": "Training-source locator. Not legally verified."
       },
       "notes": "Level 6 training citation. Do not present as binding legal authority."
+    },
+    {
+      "citationId": "citation-training-electrical-safety-scope-warning",
+      "stableSourceId": "training-electrical-safety",
+      "citationType": "heading",
+      "label": "הבהרת מקור והיקף לימודי",
+      "locator": {
+        "heading": "הודעת הבהרה ורגולציה מחייבת",
+        "paragraphRange": "0-3",
+        "originalWordNumbering": null
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present as binding legal authority."
+    },
+    {
+      "citationId": "citation-training-electrical-safety-basics-ohm",
+      "stableSourceId": "training-electrical-safety",
+      "citationType": "heading",
+      "label": "יסודות חשמל וחוק אוהם",
+      "locator": {
+        "heading": "יסודות הנדסיים, פיזיקה של החשמל וחוק אוהם",
+        "paragraphRange": "4-15,22-50",
+        "originalWordNumbering": "שער ראשון / פרק 1"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present as binding legal authority."
+    },
+    {
+      "citationId": "citation-training-electrical-safety-site-equipment",
+      "stableSourceId": "training-electrical-safety",
+      "citationType": "heading",
+      "label": "ציוד חשמלי באתר בנייה",
+      "locator": {
+        "heading": "דרישות בטיחות בסיסיות בציוד באתר בניה",
+        "paragraphRange": "16-20",
+        "originalWordNumbering": null
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Numeric thresholds remain training material only."
+    },
+    {
+      "citationId": "citation-training-electrical-safety-electrocution-physiology",
+      "stableSourceId": "training-electrical-safety",
+      "citationType": "heading",
+      "label": "פיזיולוגיה של התחשמלות",
+      "locator": {
+        "heading": "פיזיולוגיה של ההתחשמלות ומסלולי זרם בגוף האדם",
+        "paragraphRange": "51-63",
+        "originalWordNumbering": "פרק 2"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present values as golden numbers."
+    },
+    {
+      "citationId": "citation-training-electrical-safety-grounding-protection",
+      "stableSourceId": "training-electrical-safety",
+      "citationType": "heading",
+      "label": "הארקה, הפרדה מגן ומסלולי תקלה",
+      "locator": {
+        "heading": "תרשימי הארקה, הארקת שיטה, הארקת הגנה והפרדה מגן",
+        "paragraphRange": "80-116",
+        "originalWordNumbering": null
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present as binding legal authority."
+    },
+    {
+      "citationId": "citation-training-electrical-safety-emergency-response",
+      "stableSourceId": "training-electrical-safety",
+      "citationType": "heading",
+      "label": "חירום חשמלי וקורבן שני",
+      "locator": {
+        "heading": "Human Factors, Second Victim Logic וניתוח אירוע כיבוי אש",
+        "paragraphRange": "119-145",
+        "originalWordNumbering": null
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present as binding legal authority."
     }
   ]
 }
