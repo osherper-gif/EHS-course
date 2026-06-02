@@ -724,6 +724,106 @@
         "notes": "Wave 1 safety-management citation located in the training source. Not verified."
       },
       "notes": "Training-source locator only. Must not be presented as a binding legal citation."
+    },
+    {
+      "citationId": "citation-training-safety-organization-internal-governance",
+      "stableSourceId": "training-safety-organization-final",
+      "citationType": "heading",
+      "label": "ניהול בטיחות מפעלי וממשל פנימי",
+      "locator": {
+        "heading": "ניהול בטיחות מפעלי, ממשל פנימי והגדרת סמכויות",
+        "paragraphRange": "78-80",
+        "originalWordNumbering": "3"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present as binding legal authority."
+    },
+    {
+      "citationId": "citation-training-safety-organization-committee-trustees",
+      "stableSourceId": "training-safety-organization-final",
+      "citationType": "heading",
+      "label": "ועדת בטיחות ונאמני בטיחות",
+      "locator": {
+        "heading": "ועדת בטיחות ונאמני בטיחות",
+        "paragraphRange": "81-85",
+        "originalWordNumbering": "3.2"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present as binding legal authority."
+    },
+    {
+      "citationId": "citation-training-safety-organization-defect-escalation",
+      "stableSourceId": "training-safety-organization-final",
+      "citationType": "heading",
+      "label": "טיפול בליקויים והסלמה",
+      "locator": {
+        "heading": "פרוטוקול טיפול בליקויים ומטריצת הסלמה רגולטורית",
+        "paragraphRange": "86-87",
+        "originalWordNumbering": "3.3"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present as binding legal authority."
+    },
+    {
+      "citationId": "citation-training-safety-organization-safety-officer-role",
+      "stableSourceId": "training-safety-organization-final",
+      "citationType": "heading",
+      "label": "ממונה בטיחות בארגון",
+      "locator": {
+        "heading": "ממונה הבטיחות בארגון: מעמד, חובות ופרקטיקה",
+        "paragraphRange": "88-102",
+        "originalWordNumbering": "4"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present as binding legal authority."
+    },
+    {
+      "citationId": "citation-training-safety-organization-field-tools",
+      "stableSourceId": "training-safety-organization-final",
+      "citationType": "heading",
+      "label": "כלי עבודה יישומיים לממונה בשטח",
+      "locator": {
+        "heading": "כלי עבודה יישומיים לממונה בשטח",
+        "paragraphRange": "103-116",
+        "originalWordNumbering": "4.3"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present as binding legal authority."
     }
   ]
 }

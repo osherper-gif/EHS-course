@@ -168,7 +168,7 @@
     const detail = document.querySelector('[data-kh-detail-title]')?.closest('.kh-detail-panel');
     if (!topic || !detail) return;
 
-    const scope = getTopicScope(pilotState, topicId);
+    const scope = getDirectTopicScope(pilotState, topicId);
     const subtopics = getSubtopicsForScope(pilotState, topicId);
     const blocks = getBlocksForScope(pilotState, scope);
     const learningBlocks = blocks.filter((block) => !isExamBlock(block) && !isLegalBlock(block));
@@ -279,6 +279,7 @@
       <article class="kh-card">
         <h3>${escapeHtml(presentationTitle(topic.title))}</h3>
         <p>${escapeHtml(topic.description || 'תת נושא בפיילוט.')}</p>
+        <button class="kh-related-button" type="button" data-related-topic-open="${escapeAttribute(topic.topicId)}">כניסה לתת נושא</button>
       </article>
     `).join('');
   }
@@ -413,6 +414,14 @@
     }
 
     return { topicIds, blockIds };
+  }
+
+  function getDirectTopicScope(state, topicId) {
+    const topic = state.topicById.get(topicId);
+    return {
+      topicIds: new Set([topicId]),
+      blockIds: new Set((topic && topic.blockIds) || [])
+    };
   }
 
   function getBlocksForScope(state, scope) {

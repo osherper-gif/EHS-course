@@ -596,7 +596,7 @@
     {
       "topicId": "safety-organization-governance-real",
       "title": "ארגון מערך הבטיחות",
-      "description": "מבנה ניהולי, לוחות מחוונים, SMS, בקרות, תרבות בטיחות וטכנולוגיה מתוך מקור הדרכה.",
+      "description": "מבנה ניהולי, לוחות מחוונים, SMS, בקרות, תרבות בטיחות, ממשל פנימי, ועדה, נאמנים ותפקיד ממונה הבטיחות מתוך מקור הדרכה.",
       "parentTopicId": null,
       "aliases": [],
       "relatedTopicIds": [
@@ -604,7 +604,12 @@
         "safety-dashboard-management-real",
         "safety-organization-sms-pdca-real",
         "safety-organization-controls-engineering-real",
-        "safety-culture-hro-technology-real"
+        "safety-culture-hro-technology-real",
+        "safety-organization-internal-governance-real",
+        "safety-organization-committee-trustees-real",
+        "safety-organization-defect-escalation-real",
+        "safety-organization-safety-officer-role-real",
+        "safety-organization-field-tools-real"
       ],
       "lessonIds": [
         "lesson-08",
@@ -1440,6 +1445,163 @@
         "block-safety-management-safety-officer-toolkit-checklist",
         "block-safety-management-safety-officer-toolkit-exam-focus",
         "block-safety-management-safety-officer-toolkit-manager-note"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-organization-internal-governance-real",
+      "title": "ממשל פנימי ואחריות הנהלה",
+      "description": "אחריות תופש המפעל, גבול תפקיד הממונה ומשמעות ניהולית של ממשל בטיחות.",
+      "parentTopicId": "safety-organization-governance-real",
+      "aliases": [
+        "אחריות הנהלה",
+        "תופש מפעל",
+        "ממשל בטיחות"
+      ],
+      "relatedTopicIds": [
+        "safety-organization-committee-trustees-real",
+        "safety-organization-safety-officer-role-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-safety-organization-final"
+      ],
+      "blockIds": [
+        "block-safety-org-internal-governance-scope",
+        "block-safety-org-duty-holder-top-accountability",
+        "block-safety-org-safety-officer-advisory-boundary",
+        "block-safety-org-management-accountability-field-meaning"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-organization-committee-trustees-real",
+      "title": "ועדת בטיחות ונאמני בטיחות",
+      "description": "מנגנון משילות פנימי שמשלב הנהלה, עובדים ונאמני בטיחות.",
+      "parentTopicId": "safety-organization-governance-real",
+      "aliases": [
+        "ועדת בטיחות",
+        "נאמני בטיחות",
+        "נציגי עובדים"
+      ],
+      "relatedTopicIds": [
+        "safety-organization-internal-governance-real",
+        "safety-organization-defect-escalation-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-safety-organization-final"
+      ],
+      "blockIds": [
+        "block-safety-org-committee-trigger-training",
+        "block-safety-org-committee-composition",
+        "block-safety-org-committee-functions",
+        "block-safety-org-trustees-role",
+        "block-safety-org-trustees-protection-training-note"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-organization-defect-escalation-real",
+      "title": "טיפול בליקויים והסלמה",
+      "description": "CAPA, סיווג סיכונים, אחריות טיפול וסגירת מעגל מול הנהלה.",
+      "parentTopicId": "safety-organization-governance-real",
+      "aliases": [
+        "CAPA",
+        "סגירת ליקויים",
+        "הסלמה"
+      ],
+      "relatedTopicIds": [
+        "safety-dashboard-management-real",
+        "safety-organization-safety-officer-role-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-safety-organization-final"
+      ],
+      "blockIds": [
+        "block-safety-org-capa-entry",
+        "block-safety-org-defect-risk-classification",
+        "block-safety-org-escalation-profile",
+        "block-safety-org-capa-management-loop"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-organization-safety-officer-role-real",
+      "title": "ממונה בטיחות: תפקיד וגבולות",
+      "description": "מעמד הממונה, כשירות, תיעוד, הדרכה, חקירת אירועים והסלמה.",
+      "parentTopicId": "safety-organization-governance-real",
+      "aliases": [
+        "ממונה בטיחות",
+        "תפקיד הממונה",
+        "גבולות תפקיד"
+      ],
+      "relatedTopicIds": [
+        "safety-organization-internal-governance-real",
+        "safety-organization-defect-escalation-real",
+        "safety-organization-field-tools-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-safety-organization-final"
+      ],
+      "blockIds": [
+        "block-safety-org-safety-officer-appointment-training",
+        "block-safety-org-safety-officer-competence",
+        "block-safety-org-safety-officer-advisory-role",
+        "block-safety-org-safety-officer-hazard-written-notice",
+        "block-safety-org-safety-officer-sms-update",
+        "block-safety-org-safety-officer-incident-learning",
+        "block-safety-org-safety-officer-training-ppe-monitoring",
+        "block-safety-org-safety-officer-critical-escalation"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-organization-field-tools-real",
+      "title": "כלי עבודה לממונה בשטח",
+      "description": "היתרי עבודה, LOTO, בידוד אנרגיה ובדיקת אפס אנרגיה כחומר הדרכה תפעולי.",
+      "parentTopicId": "safety-organization-governance-real",
+      "aliases": [
+        "היתר עבודה",
+        "LOTO",
+        "בידוד אנרגיה"
+      ],
+      "relatedTopicIds": [
+        "safety-organization-safety-officer-role-real",
+        "safety-organization-controls-engineering-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "sourceIds": [
+        "training-safety-organization-final"
+      ],
+      "blockIds": [
+        "block-safety-org-ptw-purpose",
+        "block-safety-org-ptw-control-points",
+        "block-safety-org-loto-energy-isolation",
+        "block-safety-org-loto-sequence",
+        "block-safety-org-zero-energy-check"
       ],
       "status": "draft"
     }

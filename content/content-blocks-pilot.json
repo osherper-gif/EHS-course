@@ -2738,7 +2738,6 @@
       "citationId": "citation-training-safety-organization-manual-purpose",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / מבנה ושימוש",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-organization-architecture-real"
       ],
       "lessonIds": [
@@ -2786,7 +2785,6 @@
       "citationId": "citation-training-safety-organization-manual-purpose",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / מבנה ושימוש",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-organization-architecture-real"
       ],
       "lessonIds": [
@@ -2838,7 +2836,6 @@
       "citationId": "citation-training-safety-organization-dashboards",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / לוחות ניהול",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-dashboard-management-real"
       ],
       "lessonIds": [
@@ -2886,7 +2883,6 @@
       "citationId": "citation-training-safety-organization-dashboards",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / לוחות ניהול",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-dashboard-management-real"
       ],
       "lessonIds": [
@@ -2934,7 +2930,6 @@
       "citationId": "citation-training-safety-organization-dashboards",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / לוחות ניהול",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-dashboard-management-real"
       ],
       "lessonIds": [
@@ -2986,7 +2981,6 @@
       "citationId": "citation-training-safety-organization-dashboards",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / לוחות ניהול",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-dashboard-management-real"
       ],
       "lessonIds": [
@@ -3034,7 +3028,6 @@
       "citationId": "citation-training-safety-organization-sms-pdca",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / SMS ו-PDCA",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-organization-sms-pdca-real"
       ],
       "lessonIds": [
@@ -3082,7 +3075,6 @@
       "citationId": "citation-training-safety-organization-sms-pdca",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / SMS ו-PDCA",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-organization-sms-pdca-real"
       ],
       "lessonIds": [
@@ -3135,7 +3127,6 @@
       "citationId": "citation-training-safety-organization-controls-stamp",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-organization-controls-engineering-real"
       ],
       "lessonIds": [
@@ -3183,7 +3174,6 @@
       "citationId": "citation-training-safety-organization-controls-stamp",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-organization-controls-engineering-real"
       ],
       "lessonIds": [
@@ -3231,7 +3221,6 @@
       "citationId": "citation-training-safety-organization-controls-stamp",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-organization-controls-engineering-real"
       ],
       "lessonIds": [
@@ -3279,7 +3268,6 @@
       "citationId": "citation-training-safety-organization-controls-stamp",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-organization-controls-engineering-real"
       ],
       "lessonIds": [
@@ -3327,7 +3315,6 @@
       "citationId": "citation-training-safety-organization-controls-stamp",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-organization-controls-engineering-real"
       ],
       "lessonIds": [
@@ -3375,7 +3362,6 @@
       "citationId": "citation-training-safety-organization-controls-stamp",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / בקרות והנדסה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-organization-controls-engineering-real"
       ],
       "lessonIds": [
@@ -3423,7 +3409,6 @@
       "citationId": "citation-training-safety-organization-culture-technology",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-culture-hro-technology-real"
       ],
       "lessonIds": [
@@ -3471,7 +3456,6 @@
       "citationId": "citation-training-safety-organization-culture-technology",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-culture-hro-technology-real"
       ],
       "lessonIds": [
@@ -3519,7 +3503,6 @@
       "citationId": "citation-training-safety-organization-culture-technology",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-culture-hro-technology-real"
       ],
       "lessonIds": [
@@ -3573,7 +3556,6 @@
       "citationId": "citation-training-safety-organization-culture-technology",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-culture-hro-technology-real"
       ],
       "lessonIds": [
@@ -3621,7 +3603,6 @@
       "citationId": "citation-training-safety-organization-culture-technology",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-culture-hro-technology-real"
       ],
       "lessonIds": [
@@ -3669,7 +3650,6 @@
       "citationId": "citation-training-safety-organization-culture-technology",
       "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / תרבות וטכנולוגיה",
       "topicIds": [
-        "safety-organization-governance-real",
         "safety-culture-hro-technology-real"
       ],
       "lessonIds": [
@@ -7663,6 +7643,1265 @@
         "reviewedBy": null,
         "reviewedAt": null,
         "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-org-internal-governance-scope",
+      "blockType": "summary-box",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-internal-governance",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממשל פנימי",
+      "topicIds": [
+        "safety-organization-internal-governance-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ממשל פנימי של בטיחות במפעל",
+        "text": "המקור מציג את ניהול הבטיחות המפעלי כמערכת של אחריות, סמכויות, תפקידים ותהליכי הסלמה, ולא כפעילות נקודתית של ממונה בלבד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3",
+        "sourceStructure": {
+          "originalHeading": "ניהול בטיחות מפעלי, ממשל פנימי והגדרת סמכויות",
+          "paragraphRange": "78-80",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-duty-holder-top-accountability",
+      "blockType": "exam-focus",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "citationId": "citation-training-safety-organization-internal-governance",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממשל פנימי",
+      "topicIds": [
+        "safety-organization-internal-governance-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "האחריות העליונה נשארת אצל תופש המפעל",
+        "text": "בחומר ההדרכה מודגש כי האחריות הכוללת לבטיחות במקום העבודה מיוחסת לתופש המפעל או למי שמנהל בפועל את האתר. ממונה הבטיחות אינו מחליף את אחריות הדרג הניהולי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3.1",
+        "sourceStructure": {
+          "originalHeading": "אחריות שילוחית וסטטוטורית של תופש המפעל",
+          "paragraphRange": "79-80",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-safety-officer-advisory-boundary",
+      "blockType": "warning",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "citationId": "citation-training-safety-organization-internal-governance",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממשל פנימי",
+      "topicIds": [
+        "safety-organization-internal-governance-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "גבול תפקיד: ממונה הבטיחות הוא גורם מייעץ",
+        "text": "המקור מדגיש שממונה הבטיחות הוא גוף מייעץ להנהלה ולעובדים. טעות למידה נפוצה היא לראות בו מי שנושא לבדו באחריות הביצועית במקום המנהלים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3.1",
+        "sourceStructure": {
+          "originalHeading": "אחריות שילוחית וסטטוטורית של תופש המפעל",
+          "paragraphRange": "79-80",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "טעות נפוצה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-management-accountability-field-meaning",
+      "blockType": "paragraph",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-internal-governance",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממשל פנימי",
+      "topicIds": [
+        "safety-organization-internal-governance-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "המשמעות הניהולית בשטח",
+        "text": "מבחינה תפעולית, האחריות של ההנהלה מתורגמת להקצאת משאבים, קבלת החלטות, טיפול בליקויים וסגירת מעגל מול דרישות הממונה והשטח.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3",
+        "sourceStructure": {
+          "originalHeading": "ניהול בטיחות מפעלי, ממשל פנימי והגדרת סמכויות",
+          "paragraphRange": "78-80",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-committee-trigger-training",
+      "blockType": "exam-focus",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "citationId": "citation-training-safety-organization-committee-trustees",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ועדה ונאמנים",
+      "topicIds": [
+        "safety-organization-committee-trustees-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "ועדת בטיחות כמנגנון משילות פנימי",
+        "text": "בחומר ההדרכה מוצג כי ועדת בטיחות היא מנגנון משילות פנימי שמחבר בין הנהלה, עובדים ומערך הבטיחות, ומאפשר מעקב שיטתי אחר תנאי הבטיחות.",
+        "items": [
+          "הנתון הכמותי שמופיע במקור נשמר כחומר הדרכה ולא כמספר זהב מאומת.",
+          "הדגש הלימודי הוא על תפקיד הוועדה כמנגנון מעקב והמלצה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3.2",
+        "sourceStructure": {
+          "originalHeading": "ועדת בטיחות ונאמני בטיחות",
+          "paragraphRange": "81-84",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-committee-composition",
+      "blockType": "summary-box",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-committee-trustees",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ועדה ונאמנים",
+      "topicIds": [
+        "safety-organization-committee-trustees-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "הרכב ועדת הבטיחות",
+        "text": "המקור מתאר ועדה המורכבת מנציגי הנהלה ומנציגי עובדים, כדי ליצור מנגנון שמחבר בין אחריות ניהולית לבין ידע מהשטח.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3.2",
+        "sourceStructure": {
+          "originalHeading": "ועדת בטיחות ונאמני בטיחות",
+          "paragraphRange": "82-83",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-committee-functions",
+      "blockType": "checklist",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-committee-trustees",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ועדה ונאמנים",
+      "topicIds": [
+        "safety-organization-committee-trustees-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תפקידי הוועדה לפי חומר ההדרכה",
+        "text": "הוועדה מוצגת ככלי למעקב, המלצה והטמעה של שיפורים.",
+        "items": [
+          "מעקב אחר תנאי בטיחות.",
+          "המלצה על שיפורים.",
+          "סיוע בהטמעת נהלים.",
+          "עיון בדוחות תאונות ולמידה מהם."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3.2",
+        "sourceStructure": {
+          "originalHeading": "ועדת בטיחות ונאמני בטיחות",
+          "paragraphRange": "84",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-trustees-role",
+      "blockType": "paragraph",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-committee-trustees",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ועדה ונאמנים",
+      "topicIds": [
+        "safety-organization-committee-trustees-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "נאמני בטיחות כעיניים בשטח",
+        "text": "נאמני בטיחות מתוארים כעובדים במחלקות השונות שתפקידם להמריץ שמירה על כללי בטיחות ולהתריע בפני מנהלים על ליקויים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3.2",
+        "sourceStructure": {
+          "originalHeading": "ועדת בטיחות ונאמני בטיחות",
+          "paragraphRange": "85",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-trustees-protection-training-note",
+      "blockType": "legal-note",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "citationId": "citation-training-safety-organization-committee-trustees",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ועדה ונאמנים",
+      "topicIds": [
+        "safety-organization-committee-trustees-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "הגנה על נאמני בטיחות - חומר הדרכה",
+        "text": "המקור מציין הגנה מפני פגיעה בעובד עקב פעילותו כנאמן בטיחות. בשכבת הידע הדבר נשמר כחומר הדרכה מבוסס מקור, לא כקביעה משפטית מאומתת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3.2",
+        "sourceStructure": {
+          "originalHeading": "ועדת בטיחות ונאמני בטיחות",
+          "paragraphRange": "85",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש משפטי זהיר",
+        "tone": "legal-note",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-capa-entry",
+      "blockType": "summary-box",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-defect-escalation",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / טיפול בליקויים",
+      "topicIds": [
+        "safety-organization-defect-escalation-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "כל ליקוי נכנס למנגנון CAPA",
+        "text": "המקור מציג טיפול בליקויים כחלק ממערכת CAPA, כלומר פעולה מתקנת ומונעת עם מעקב, סיווג וסגירת מעגל.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3.3",
+        "sourceStructure": {
+          "originalHeading": "פרוטוקול טיפול בליקויים ומטריצת הסלמה רגולטורית",
+          "paragraphRange": "86-87",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-defect-risk-classification",
+      "blockType": "checklist",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-defect-escalation",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / טיפול בליקויים",
+      "topicIds": [
+        "safety-organization-defect-escalation-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סיווג סיכונים לפני טיפול",
+        "text": "הטיפול בליקוי מתחיל בהבנת רמת הסיכון ולא רק ברישום טכני.",
+        "items": [
+          "זיהוי הליקוי.",
+          "הערכת חומרה ודחיפות.",
+          "שיוך לגורם מטפל.",
+          "מעקב אחר סגירה בפועל."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3.3",
+        "sourceStructure": {
+          "originalHeading": "פרוטוקול טיפול בליקויים ומטריצת הסלמה רגולטורית",
+          "paragraphRange": "86-87",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-escalation-profile",
+      "blockType": "warning",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "citationId": "citation-training-safety-organization-defect-escalation",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / טיפול בליקויים",
+      "topicIds": [
+        "safety-organization-defect-escalation-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "הסלמה היא חלק מהמערכת, לא פעולה חריגה",
+        "text": "כאשר ליקוי אינו נסגר או כאשר הסיכון משמעותי, חומר ההדרכה מציג צורך במטריצת הסלמה כדי להעביר את הנושא לדרג שמוסמך לקבל החלטה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3.3",
+        "sourceStructure": {
+          "originalHeading": "פרוטוקול טיפול בליקויים ומטריצת הסלמה רגולטורית",
+          "paragraphRange": "86-87",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "טיפ לממונה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-capa-management-loop",
+      "blockType": "paragraph",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-defect-escalation",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / טיפול בליקויים",
+      "topicIds": [
+        "safety-organization-defect-escalation-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סגירת מעגל מול הנהלה",
+        "text": "הערך הניהולי של CAPA הוא ביכולת להראות שהליקוי לא רק זוהה, אלא עבר אחריות, תאריך יעד, פעולה מתקנת ואימות סגירה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "3.3",
+        "sourceStructure": {
+          "originalHeading": "פרוטוקול טיפול בליקויים ומטריצת הסלמה רגולטורית",
+          "paragraphRange": "86-87",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-safety-officer-appointment-training",
+      "blockType": "exam-focus",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "citationId": "citation-training-safety-organization-safety-officer-role",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממונה בטיחות",
+      "topicIds": [
+        "safety-organization-safety-officer-role-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "מינוי ממונה בטיחות - נתון הדרכתי",
+        "text": "המקור מציג את חובת המינוי והכשירות כחלק מלמידת תפקיד הממונה. המספרים המופיעים במקור נשמרים כאן כחומר הדרכה בלבד ולא כמספרי זהב מאומתים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.1",
+        "sourceStructure": {
+          "originalHeading": "חובת מינוי וכשירות ממוני בטיחות",
+          "paragraphRange": "89-91",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-safety-officer-competence",
+      "blockType": "summary-box",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-safety-officer-role",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממונה בטיחות",
+      "topicIds": [
+        "safety-organization-safety-officer-role-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "כשירות והסמכה כחלק מתפקיד הממונה",
+        "text": "המקור מתאר כשירות המבוססת על השכלה רלוונטית, קורס מאושר, בחינות הסמכה ואישור כשירות. בשכבת הידע הדבר מוצג כחומר הדרכה שמכוון ללמידה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.1",
+        "sourceStructure": {
+          "originalHeading": "חובת מינוי וכשירות ממוני בטיחות",
+          "paragraphRange": "89-91",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-safety-officer-advisory-role",
+      "blockType": "definition",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "citationId": "citation-training-safety-organization-safety-officer-role",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממונה בטיחות",
+      "topicIds": [
+        "safety-organization-safety-officer-role-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "ממונה בטיחות כגורם מייעץ",
+        "text": "תפקיד הממונה מוצג כייעוץ להנהלה ולעובדים. זוהי הבחנה חשובה בין מומחיות מקצועית לבין סמכות ביצועית ניהולית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.2",
+        "sourceStructure": {
+          "originalHeading": "תפקידיו וחובותיו של ממונה הבטיחות",
+          "paragraphRange": "92-94",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "מושג מרכזי",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-safety-officer-hazard-written-notice",
+      "blockType": "legal-note",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "citationId": "citation-training-safety-organization-safety-officer-role",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממונה בטיחות",
+      "topicIds": [
+        "safety-organization-safety-officer-role-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "איתור מפגעים והבאה בכתב לידיעת מנהלים",
+        "text": "המקור מדגיש את פעולת האיתור והדיווח בכתב למנהלים. התוכן מוצג כחומר הדרכה לתיעוד והסלמה, לא כאישור משפטי מחייב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.2",
+        "sourceStructure": {
+          "originalHeading": "תפקידיו וחובותיו של ממונה הבטיחות",
+          "paragraphRange": "95",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש משפטי זהיר",
+        "tone": "legal-note",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-safety-officer-sms-update",
+      "blockType": "paragraph",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-safety-officer-role",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממונה בטיחות",
+      "topicIds": [
+        "safety-organization-safety-officer-role-real",
+        "safety-organization-sms-pdca-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תוכנית ניהול בטיחות כעבודה שוטפת",
+        "text": "לפי המקור, הכנת תוכנית לניהול הבטיחות ועדכונה השוטף הם חלק מרכזי בעבודת הממונה, ולכן התפקיד מתחבר ישירות למערכת ה־SMS ולשיפור מתמיד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.2",
+        "sourceStructure": {
+          "originalHeading": "תפקידיו וחובותיו של ממונה הבטיחות",
+          "paragraphRange": "96",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-safety-officer-incident-learning",
+      "blockType": "paragraph",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-safety-officer-role",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממונה בטיחות",
+      "topicIds": [
+        "safety-organization-safety-officer-role-real",
+        "safety-management-incident-learning-rca"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "חקירת אירועים והפקת לקחים",
+        "text": "המקור מחבר את תפקיד הממונה לווידוא חקירות תאונות ואירועי Near Miss, כדי להפוך אירועים למקור למידה ארגוני.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.2",
+        "sourceStructure": {
+          "originalHeading": "תפקידיו וחובותיו של ממונה הבטיחות",
+          "paragraphRange": "97",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-safety-officer-training-ppe-monitoring",
+      "blockType": "checklist",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-safety-officer-role",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממונה בטיחות",
+      "topicIds": [
+        "safety-organization-safety-officer-role-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "תחומי מעקב שוטפים של הממונה",
+        "text": "המקור מפרט תחומי עבודה שמחברים בין הדרכה, אמצעי בטיחות, ניטור ופנקסי מעקב.",
+        "items": [
+          "ארגון הדרכות וימי הסברה.",
+          "פיקוח על תקינות אמצעי בטיחות וציוד מגן אישי.",
+          "מעקב אחר בדיקות סביבתיות ורפואיות.",
+          "וידוא קיום פנקס מפעל מנוהל."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.2",
+        "sourceStructure": {
+          "originalHeading": "תפקידיו וחובותיו של ממונה הבטיחות",
+          "paragraphRange": "98-101",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-safety-officer-critical-escalation",
+      "blockType": "warning",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "citationId": "citation-training-safety-organization-safety-officer-role",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / ממונה בטיחות",
+      "topicIds": [
+        "safety-organization-safety-officer-role-real",
+        "safety-organization-defect-escalation-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "ליקוי קריטי מחייב תיעוד והסלמה לפי חומר ההדרכה",
+        "text": "המקור מדגיש כי במצב של ליקוי קריטי ומסוכן, פעולת הממונה צריכה לכלול התרעה בכתב לתופש המפעל, ובהמשך הסלמה בכתב אם הסכנה נותרת. זה מוצג כחומר הדרכה להתנהלות מגן.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.2",
+        "sourceStructure": {
+          "originalHeading": "Inspector Note",
+          "paragraphRange": "102",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "טיפ לממונה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-ptw-purpose",
+      "blockType": "definition",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-field-tools",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / כלי שטח",
+      "topicIds": [
+        "safety-organization-field-tools-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "היתר עבודה ככלי ניהולי",
+        "text": "המקור מציג מערכת היתרי עבודה כפרוטוקול ניהולי לעבודות בעלות סיכון גבוה, שבו מוגדרים גבולות העבודה, הבדיקות, הסיכונים והאישורים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.3",
+        "sourceStructure": {
+          "originalHeading": "מערכת היתרי עבודה",
+          "paragraphRange": "103-105",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-ptw-control-points",
+      "blockType": "checklist",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-field-tools",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / כלי שטח",
+      "topicIds": [
+        "safety-organization-field-tools-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "מה היתר עבודה צריך לסגור",
+        "text": "המקור מפרט את המרכיבים שהיתר עבודה נועד להחזיק יחד לפני ביצוע עבודה מסוכנת.",
+        "items": [
+          "בדיקות מקדימות.",
+          "זיהוי סיכונים באזור.",
+          "ציוד מגן נדרש.",
+          "חתימות מאשרות של בעלי תפקידים רלוונטיים."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.3",
+        "sourceStructure": {
+          "originalHeading": "מערכת היתרי עבודה",
+          "paragraphRange": "104-105",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-loto-energy-isolation",
+      "blockType": "warning",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "citationId": "citation-training-safety-organization-field-tools",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / כלי שטח",
+      "topicIds": [
+        "safety-organization-field-tools-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "LOTO מתחיל בבידוד אנרגיה",
+        "text": "המקור מציג ניתוק אנרגיה כפרוטוקול לפני עבודות אחזקה, תיקון או ניקוי של מכונות, תוך התייחסות למקורות אנרגיה שונים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.3",
+        "sourceStructure": {
+          "originalHeading": "פרוטוקול ניתוק אנרגיה קשיח",
+          "paragraphRange": "106-107",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-loto-sequence",
+      "blockType": "checklist",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "citationId": "citation-training-safety-organization-field-tools",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / כלי שטח",
+      "topicIds": [
+        "safety-organization-field-tools-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "רצף פעולות LOTO לפי חומר ההדרכה",
+        "text": "המקור מציג רצף תפעולי שמטרתו למנוע הפעלה לא מבוקרת של מכונה בזמן עבודה.",
+        "items": [
+          "זיהוי וכיבוי המכונה.",
+          "בידוד וניתוק פיזי של מקור האנרגיה.",
+          "נעילה אישית ושילוט.",
+          "בדיקת אפס אנרגיה לפני עבודה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.3",
+        "sourceStructure": {
+          "originalHeading": "פרוטוקול ניתוק אנרגיה קשיח",
+          "paragraphRange": "108-112",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      }
+    },
+    {
+      "blockId": "block-safety-org-zero-energy-check",
+      "blockType": "summary-box",
+      "sourceId": "training-safety-organization-final",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-10"
+      ],
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "citationId": "citation-training-safety-organization-field-tools",
+      "sourceCitation": "מקור הדרכה: ארגון מערך הבטיחות / כלי שטח",
+      "topicIds": [
+        "safety-organization-field-tools-real"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "בדיקת אפס אנרגיה לפני ביצוע",
+        "text": "המקור מדגיש ניסיון הפעלה מבוקר לאחר נעילה ושילוט, כדי לוודא שאין אנרגיה שיורית לפני תחילת העבודה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "4.3",
+        "sourceStructure": {
+          "originalHeading": "פרוטוקול ניתוק אנרגיה קשיח",
+          "paragraphRange": "112-116",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
       }
     }
   ]
