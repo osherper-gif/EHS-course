@@ -648,6 +648,82 @@
         "notes": "Wave 1 migration citation located in the source document. Not legal approved."
       },
       "notes": "Real migration Wave 1. Uses document heading locator where exact statutory section number was not exposed in the source text."
+    },
+    {
+      "citationId": "citation-training-occupational-safety-human-factors-culture",
+      "stableSourceId": "training-occupational-safety-management",
+      "citationType": "heading",
+      "label": "הגורם האנושי, תרבות בטיחות וסטייה תפעולית",
+      "locator": {
+        "heading": "תיאוריות הגורם האנושי ותרבות ארגונית",
+        "paragraphRange": "236-286",
+        "originalWordNumbering": "5"
+      },
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 safety-management citation located in the training source. Not verified."
+      },
+      "notes": "Training-source locator only. Must not be presented as a binding legal citation."
+    },
+    {
+      "citationId": "citation-training-occupational-safety-incident-learning-rca",
+      "stableSourceId": "training-occupational-safety-management",
+      "citationType": "heading",
+      "label": "תחקור אירועים וכלי ניתוח מתקדמים",
+      "locator": {
+        "heading": "תחקור אירועים וכלי ניתוח מתקדמים",
+        "paragraphRange": "290-345",
+        "originalWordNumbering": "6"
+      },
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 safety-management citation located in the training source. Not verified."
+      },
+      "notes": "Training-source locator only. Must not be presented as a binding legal citation."
+    },
+    {
+      "citationId": "citation-training-occupational-safety-critical-work-controls",
+      "stableSourceId": "training-occupational-safety-management",
+      "citationType": "heading",
+      "label": "היתרי עבודה, קבלנים וסיכונים מורחבים",
+      "locator": {
+        "heading": "היתרי עבודה, קבלנים וסיכונים מורחבים",
+        "paragraphRange": "393-442",
+        "originalWordNumbering": "8"
+      },
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 safety-management citation located in the training source. Not verified."
+      },
+      "notes": "Training-source locator only. Must not be presented as a binding legal citation."
+    },
+    {
+      "citationId": "citation-training-occupational-safety-safety-officer-toolkit",
+      "stableSourceId": "training-occupational-safety-management",
+      "citationType": "heading",
+      "label": "תבניות צ׳קליסטים מקצועיות",
+      "locator": {
+        "heading": "עשרת תבניות ה-Checklists המקצועיות",
+        "paragraphRange": "446-504",
+        "originalWordNumbering": "9"
+      },
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 safety-management citation located in the training source. Not verified."
+      },
+      "notes": "Training-source locator only. Must not be presented as a binding legal citation."
     }
   ]
 }

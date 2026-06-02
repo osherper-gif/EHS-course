@@ -5,7 +5,8 @@
     "description": "Topic mapping pilot with real Level 6 training-source topics.",
     "sourceIds": [
       "law-labor-inspection-1954",
-      "ordinance-work-safety-1970"
+      "ordinance-work-safety-1970",
+      "training-occupational-safety-management"
     ],
     "stableSourceIds": [
       "training-safety-management-human-factors",
@@ -428,7 +429,11 @@
         "sms-management-system-real",
         "safety-governance-kpi-real",
         "risk-assessment-management-real",
-        "hierarchy-of-controls-real"
+        "hierarchy-of-controls-real",
+        "safety-management-human-factors-interface",
+        "safety-management-incident-learning-rca",
+        "safety-management-critical-work-controls",
+        "safety-management-officer-toolkit"
       ],
       "lessonIds": [
         "lesson-08",
@@ -458,7 +463,27 @@
         "block-occ-controls-five-levels",
         "block-occ-controls-dog-example",
         "block-occ-controls-hard-soft",
-        "block-occ-controls-human-factor-ppe"
+        "block-occ-controls-human-factor-ppe",
+        "block-safety-management-human-factors-culture-summary",
+        "block-safety-management-human-factors-culture-warning",
+        "block-safety-management-human-factors-culture-checklist",
+        "block-safety-management-human-factors-culture-exam-focus",
+        "block-safety-management-human-factors-culture-manager-note",
+        "block-safety-management-incident-learning-rca-summary",
+        "block-safety-management-incident-learning-rca-warning",
+        "block-safety-management-incident-learning-rca-checklist",
+        "block-safety-management-incident-learning-rca-exam-focus",
+        "block-safety-management-incident-learning-rca-manager-note",
+        "block-safety-management-critical-work-controls-summary",
+        "block-safety-management-critical-work-controls-warning",
+        "block-safety-management-critical-work-controls-checklist",
+        "block-safety-management-critical-work-controls-exam-focus",
+        "block-safety-management-critical-work-controls-manager-note",
+        "block-safety-management-safety-officer-toolkit-summary",
+        "block-safety-management-safety-officer-toolkit-warning",
+        "block-safety-management-safety-officer-toolkit-checklist",
+        "block-safety-management-safety-officer-toolkit-exam-focus",
+        "block-safety-management-safety-officer-toolkit-manager-note"
       ],
       "status": "draft"
     },
@@ -1287,6 +1312,134 @@
         "block-ordinance-factory-register-summary",
         "block-ordinance-factory-register-warning",
         "block-ordinance-factory-register-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-management-human-factors-interface",
+      "title": "גורם אנושי ותרבות בניהול בטיחות",
+      "description": "המקור מציג תרבות בטיחות, גורם אנושי וסטייה תפעולית כחלק ממערכת הניהול ולא כעניין של משמעת פרטנית בלבד.",
+      "parentTopicId": "occupational-safety-management-real",
+      "aliases": [
+        "Workarounds נוצרים כאשר נהלים אינם תואמים את תנאי השטח.",
+        "Just Culture מבחינה בין טעות אנוש לבין הפרה מכוונת.",
+        "תרבות דיווח מאפשרת ללמוד מכמעט ונפגע לפני תאונה."
+      ],
+      "relatedTopicIds": [
+        "human-factors-real",
+        "safety-culture-real",
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36",
+        "lesson-37"
+      ],
+      "sourceIds": [
+        "training-occupational-safety-management"
+      ],
+      "blockIds": [
+        "block-safety-management-human-factors-culture-summary",
+        "block-safety-management-human-factors-culture-warning",
+        "block-safety-management-human-factors-culture-checklist",
+        "block-safety-management-human-factors-culture-exam-focus",
+        "block-safety-management-human-factors-culture-manager-note"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-management-incident-learning-rca",
+      "title": "תחקור אירועים ולמידה מערכתית",
+      "description": "המקור מציג RCA, חמשת הלמה, Swiss Cheese ו־BowTie ככלים להבנת כשל מערכתי ולא רק לתיאור הפעולה האחרונה של העובד.",
+      "parentTopicId": "occupational-safety-management-real",
+      "aliases": [
+        "תחקור איכותי מחפש תנאים סמויים, החלטות ניהול וחסמי הגנה שנכשלו.",
+        "BowTie מפריד בין גורמים מאיימים, חסמים מניעתיים וחסמי צמצום נזק.",
+        "חמשת הלמה מובילים מהאירוע הגלוי לשורש המערכתי."
+      ],
+      "relatedTopicIds": [
+        "operational-rca-barriers-real",
+        "human-factors-field-tools-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36"
+      ],
+      "sourceIds": [
+        "training-occupational-safety-management"
+      ],
+      "blockIds": [
+        "block-safety-management-incident-learning-rca-summary",
+        "block-safety-management-incident-learning-rca-warning",
+        "block-safety-management-incident-learning-rca-checklist",
+        "block-safety-management-incident-learning-rca-exam-focus",
+        "block-safety-management-incident-learning-rca-manager-note"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-management-critical-work-controls",
+      "title": "בקרת עבודות קריטיות",
+      "description": "המקור מציג היתר עבודה, ניהול קבלנים ומקום מוקף כבקרות ניהוליות לעבודות חריגות ומסוכנות.",
+      "parentTopicId": "occupational-safety-management-real",
+      "aliases": [
+        "PTW אינו טופס בלבד אלא מנגנון תכנון, אישור ובקרה.",
+        "קבלן חיצוני אינו מוציא את הסיכון מאחריות המפעל המארח.",
+        "עבודה קריטית דורשת תנאי פתיחה, בקרה בשטח וסגירה מסודרת."
+      ],
+      "relatedTopicIds": [
+        "loto-ptw-energy-control-real",
+        "confined-space-and-hot-work",
+        "operational-risks-real"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-10",
+        "lesson-14",
+        "lesson-31"
+      ],
+      "sourceIds": [
+        "training-occupational-safety-management"
+      ],
+      "blockIds": [
+        "block-safety-management-critical-work-controls-summary",
+        "block-safety-management-critical-work-controls-warning",
+        "block-safety-management-critical-work-controls-checklist",
+        "block-safety-management-critical-work-controls-exam-focus",
+        "block-safety-management-critical-work-controls-manager-note"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "safety-management-officer-toolkit",
+      "title": "ארגז כלים לממונה בטיחות",
+      "description": "המקור מרכז תבניות עבודה לממונה בטיחות: ממשל בטיחות, הערכת סיכונים, LOTO, PTW, הדרכה, near miss, RCA ושגרת עבודה יומית.",
+      "parentTopicId": "occupational-safety-management-real",
+      "aliases": [
+        "צ׳קליסט טוב הוא כלי שליטה ולא רשימת סימון ריקה.",
+        "כלי עבודה צריכים לחבר בין הנהלה, שטח, תיעוד וסגירת פעולות.",
+        "ממונה בטיחות צריך להשתמש בתבניות כדי לייצר עקביות, לא כדי להחליף שיקול דעת מקצועי."
+      ],
+      "relatedTopicIds": [
+        "occupational-safety-management-real",
+        "safety-governance-kpi-real",
+        "safety-management-incident-learning-rca"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-36"
+      ],
+      "sourceIds": [
+        "training-occupational-safety-management"
+      ],
+      "blockIds": [
+        "block-safety-management-safety-officer-toolkit-summary",
+        "block-safety-management-safety-officer-toolkit-warning",
+        "block-safety-management-safety-officer-toolkit-checklist",
+        "block-safety-management-safety-officer-toolkit-exam-focus",
+        "block-safety-management-safety-officer-toolkit-manager-note"
       ],
       "status": "draft"
     }

@@ -6592,6 +6592,1078 @@
         ],
         "table": null
       }
+    },
+    {
+      "blockId": "block-safety-management-human-factors-culture-summary",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-human-factors-culture",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / הגורם האנושי, תרבות בטיחות וסטייה תפעולית",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-human-factors-interface"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36",
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "גורם אנושי ותרבות בניהול בטיחות",
+        "text": "המקור מציג תרבות בטיחות, גורם אנושי וסטייה תפעולית כחלק ממערכת הניהול ולא כעניין של משמעת פרטנית בלבד.",
+        "items": [
+          "Workarounds נוצרים כאשר נהלים אינם תואמים את תנאי השטח.",
+          "Just Culture מבחינה בין טעות אנוש לבין הפרה מכוונת.",
+          "תרבות דיווח מאפשרת ללמוד מכמעט ונפגע לפני תאונה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "5",
+        "sourceStructure": {
+          "originalHeading": "תיאוריות הגורם האנושי ותרבות ארגונית",
+          "paragraphRange": "236-286",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-human-factors-culture-warning",
+      "blockType": "warning",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-human-factors-culture",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / הגורם האנושי, תרבות בטיחות וסטייה תפעולית",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-human-factors-interface"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36",
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: גורם אנושי ותרבות בניהול בטיחות",
+        "text": "כאשר מערכת ניהול מתעלמת מלחצי תפוקה ומנהלים בפועל מודדים רק ייצור, העובדים יקבלו מסר כפול.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "5",
+        "sourceStructure": {
+          "originalHeading": "תיאוריות הגורם האנושי ותרבות ארגונית",
+          "paragraphRange": "236-286",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "סימן עצירה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-human-factors-culture-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-human-factors-culture",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / הגורם האנושי, תרבות בטיחות וסטייה תפעולית",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-human-factors-interface"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36",
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "בדיקת שטח: גורם אנושי ותרבות בניהול בטיחות",
+        "text": "רשימת פעולה תפעולית מתוך מקור ההדרכה.",
+        "items": [
+          "בדוק אם נהלים ניתנים לביצוע בשטח.",
+          "בדוק האם עובדים מדווחים בלי פחד מענישה אוטומטית.",
+          "בדוק אם מנהלים מתגמלים קיצורי דרך.",
+          "בדוק אם near miss מוביל ללמידה ולא לחיפוש אשמים."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "5",
+        "sourceStructure": {
+          "originalHeading": "תיאוריות הגורם האנושי ותרבות ארגונית",
+          "paragraphRange": "236-286",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-human-factors-culture-exam-focus",
+      "blockType": "exam-focus",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-human-factors-culture",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / הגורם האנושי, תרבות בטיחות וסטייה תפעולית",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-human-factors-interface"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36",
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examCritical"
+      ],
+      "content": {
+        "title": "דגש מבחן: גורם אנושי ותרבות בניהול בטיחות",
+        "text": "במבחן חשוב להבחין בין טעות אנוש לבין כשל מערכתי שנוצר מתכנון עבודה, יעדים, הדרכה או פיקוח לקויים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "5",
+        "sourceStructure": {
+          "originalHeading": "תיאוריות הגורם האנושי ותרבות ארגונית",
+          "paragraphRange": "236-286",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-human-factors-culture-manager-note",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-human-factors-culture",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / הגורם האנושי, תרבות בטיחות וסטייה תפעולית",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-human-factors-interface"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36",
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "מה הממונה עושה עם גורם אנושי ותרבות בניהול בטיחות",
+        "text": "המשמעות המעשית היא לחבר בין הנהלה, מנהלי קו, עובדים ותיעוד כדי לוודא שהבקרה אינה נשארת על הנייר.",
+        "items": [
+          "הצג להנהלה פערי מערכת ולא רק רשימת מפגעים.",
+          "חבר כל ממצא לבעלים, משאב ולוח זמנים.",
+          "בדוק אפקטיביות לאחר סגירת הפעולה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "5",
+        "sourceStructure": {
+          "originalHeading": "תיאוריות הגורם האנושי ותרבות ארגונית",
+          "paragraphRange": "236-286",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-incident-learning-rca-summary",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-incident-learning-rca",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / תחקור אירועים וכלי ניתוח מתקדמים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-incident-learning-rca"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "תחקור אירועים ולמידה מערכתית",
+        "text": "המקור מציג RCA, חמשת הלמה, Swiss Cheese ו־BowTie ככלים להבנת כשל מערכתי ולא רק לתיאור הפעולה האחרונה של העובד.",
+        "items": [
+          "תחקור איכותי מחפש תנאים סמויים, החלטות ניהול וחסמי הגנה שנכשלו.",
+          "BowTie מפריד בין גורמים מאיימים, חסמים מניעתיים וחסמי צמצום נזק.",
+          "חמשת הלמה מובילים מהאירוע הגלוי לשורש המערכתי."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "6",
+        "sourceStructure": {
+          "originalHeading": "תחקור אירועים וכלי ניתוח מתקדמים",
+          "paragraphRange": "290-345",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-incident-learning-rca-warning",
+      "blockType": "warning",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-incident-learning-rca",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / תחקור אירועים וכלי ניתוח מתקדמים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-incident-learning-rca"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: תחקור אירועים ולמידה מערכתית",
+        "text": "תחקור שמסתיים ב'העובד לא נזהר' מחמיץ כשלים בתכנון, במשאבים, בהדרכה ובפיקוח.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "6",
+        "sourceStructure": {
+          "originalHeading": "תחקור אירועים וכלי ניתוח מתקדמים",
+          "paragraphRange": "290-345",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "סימן עצירה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-incident-learning-rca-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-incident-learning-rca",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / תחקור אירועים וכלי ניתוח מתקדמים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-incident-learning-rca"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "בדיקת שטח: תחקור אירועים ולמידה מערכתית",
+        "text": "רשימת פעולה תפעולית מתוך מקור ההדרכה.",
+        "items": [
+          "זהה את האירוע ואת התוצאה.",
+          "מפה חסמים שהיו אמורים למנוע את האירוע.",
+          "בדוק אילו חסמים לא היו, לא עבדו או נעקפו.",
+          "הפק פעולות מתקנות עם בעלים ותאריך יעד."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "6",
+        "sourceStructure": {
+          "originalHeading": "תחקור אירועים וכלי ניתוח מתקדמים",
+          "paragraphRange": "290-345",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-incident-learning-rca-exam-focus",
+      "blockType": "exam-focus",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-incident-learning-rca",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / תחקור אירועים וכלי ניתוח מתקדמים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-incident-learning-rca"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examCritical"
+      ],
+      "content": {
+        "title": "דגש מבחן: תחקור אירועים ולמידה מערכתית",
+        "text": "שאלה טובה תבדוק האם הלומד מזהה Root Cause מערכתי ולא רק גורם מיידי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "6",
+        "sourceStructure": {
+          "originalHeading": "תחקור אירועים וכלי ניתוח מתקדמים",
+          "paragraphRange": "290-345",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-incident-learning-rca-manager-note",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-incident-learning-rca",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / תחקור אירועים וכלי ניתוח מתקדמים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-incident-learning-rca"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "מה הממונה עושה עם תחקור אירועים ולמידה מערכתית",
+        "text": "המשמעות המעשית היא לחבר בין הנהלה, מנהלי קו, עובדים ותיעוד כדי לוודא שהבקרה אינה נשארת על הנייר.",
+        "items": [
+          "הצג להנהלה פערי מערכת ולא רק רשימת מפגעים.",
+          "חבר כל ממצא לבעלים, משאב ולוח זמנים.",
+          "בדוק אפקטיביות לאחר סגירת הפעולה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "6",
+        "sourceStructure": {
+          "originalHeading": "תחקור אירועים וכלי ניתוח מתקדמים",
+          "paragraphRange": "290-345",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-critical-work-controls-summary",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-critical-work-controls",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / היתרי עבודה, קבלנים וסיכונים מורחבים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-critical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-10",
+        "lesson-14",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "בקרת עבודות קריטיות",
+        "text": "המקור מציג היתר עבודה, ניהול קבלנים ומקום מוקף כבקרות ניהוליות לעבודות חריגות ומסוכנות.",
+        "items": [
+          "PTW אינו טופס בלבד אלא מנגנון תכנון, אישור ובקרה.",
+          "קבלן חיצוני אינו מוציא את הסיכון מאחריות המפעל המארח.",
+          "עבודה קריטית דורשת תנאי פתיחה, בקרה בשטח וסגירה מסודרת."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "8",
+        "sourceStructure": {
+          "originalHeading": "היתרי עבודה, קבלנים וסיכונים מורחבים",
+          "paragraphRange": "393-442",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-critical-work-controls-warning",
+      "blockType": "warning",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-critical-work-controls",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / היתרי עבודה, קבלנים וסיכונים מורחבים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-critical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-10",
+        "lesson-14",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: בקרת עבודות קריטיות",
+        "text": "חתימה על היתר ללא בדיקת תנאי השטח היא ציות פורמלי שאינו מגן על העובדים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "8",
+        "sourceStructure": {
+          "originalHeading": "היתרי עבודה, קבלנים וסיכונים מורחבים",
+          "paragraphRange": "393-442",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "סימן עצירה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-critical-work-controls-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-critical-work-controls",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / היתרי עבודה, קבלנים וסיכונים מורחבים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-critical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-10",
+        "lesson-14",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "בדיקת שטח: בקרת עבודות קריטיות",
+        "text": "רשימת פעולה תפעולית מתוך מקור ההדרכה.",
+        "items": [
+          "הגדר את גבולות העבודה.",
+          "זהה אנרגיות וחומרים מסוכנים.",
+          "ודא מפקח או אחראי בשטח.",
+          "סגור את ההיתר רק לאחר החזרת כשירות וניקוי אזור העבודה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "8",
+        "sourceStructure": {
+          "originalHeading": "היתרי עבודה, קבלנים וסיכונים מורחבים",
+          "paragraphRange": "393-442",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-critical-work-controls-exam-focus",
+      "blockType": "exam-focus",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-critical-work-controls",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / היתרי עבודה, קבלנים וסיכונים מורחבים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-critical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-10",
+        "lesson-14",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examCritical"
+      ],
+      "content": {
+        "title": "דגש מבחן: בקרת עבודות קריטיות",
+        "text": "מלכודת נפוצה היא לחשוב שהיתר עבודה מעביר אחריות לקבלן; בפועל הוא כלי בקרה של הארגון.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "8",
+        "sourceStructure": {
+          "originalHeading": "היתרי עבודה, קבלנים וסיכונים מורחבים",
+          "paragraphRange": "393-442",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-critical-work-controls-manager-note",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-critical-work-controls",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / היתרי עבודה, קבלנים וסיכונים מורחבים",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-critical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-10",
+        "lesson-14",
+        "lesson-31"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "מה הממונה עושה עם בקרת עבודות קריטיות",
+        "text": "המשמעות המעשית היא לחבר בין הנהלה, מנהלי קו, עובדים ותיעוד כדי לוודא שהבקרה אינה נשארת על הנייר.",
+        "items": [
+          "הצג להנהלה פערי מערכת ולא רק רשימת מפגעים.",
+          "חבר כל ממצא לבעלים, משאב ולוח זמנים.",
+          "בדוק אפקטיביות לאחר סגירת הפעולה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "8",
+        "sourceStructure": {
+          "originalHeading": "היתרי עבודה, קבלנים וסיכונים מורחבים",
+          "paragraphRange": "393-442",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-safety-officer-toolkit-summary",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-safety-officer-toolkit",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / תבניות פעולה לממונה בטיחות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-officer-toolkit"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "ארגז כלים לממונה בטיחות",
+        "text": "המקור מרכז תבניות עבודה לממונה בטיחות: ממשל בטיחות, הערכת סיכונים, LOTO, PTW, הדרכה, near miss, RCA ושגרת עבודה יומית.",
+        "items": [
+          "צ׳קליסט טוב הוא כלי שליטה ולא רשימת סימון ריקה.",
+          "כלי עבודה צריכים לחבר בין הנהלה, שטח, תיעוד וסגירת פעולות.",
+          "ממונה בטיחות צריך להשתמש בתבניות כדי לייצר עקביות, לא כדי להחליף שיקול דעת מקצועי."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "9",
+        "sourceStructure": {
+          "originalHeading": "עשרת תבניות ה-Checklists המקצועיות",
+          "paragraphRange": "446-504",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-safety-officer-toolkit-warning",
+      "blockType": "warning",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-safety-officer-toolkit",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / תבניות פעולה לממונה בטיחות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-officer-toolkit"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "סימן עצירה: ארגז כלים לממונה בטיחות",
+        "text": "טפסים שאינם מובילים לפעולה, בעלים, תאריך יעד ובדיקה חוזרת הופכים לביורוקרטיה בלבד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "9",
+        "sourceStructure": {
+          "originalHeading": "עשרת תבניות ה-Checklists המקצועיות",
+          "paragraphRange": "446-504",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "סימן עצירה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-safety-officer-toolkit-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-safety-officer-toolkit",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / תבניות פעולה לממונה בטיחות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-officer-toolkit"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "בדיקת שטח: ארגז כלים לממונה בטיחות",
+        "text": "רשימת פעולה תפעולית מתוך מקור ההדרכה.",
+        "items": [
+          "בחר צ׳קליסט לפי סוג הסיכון.",
+          "תעד ממצא, בעלים ותאריך יעד.",
+          "עקוב אחרי סגירת פעולה.",
+          "בדוק אפקטיביות ולא רק השלמת טופס."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "9",
+        "sourceStructure": {
+          "originalHeading": "עשרת תבניות ה-Checklists המקצועיות",
+          "paragraphRange": "446-504",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-safety-officer-toolkit-exam-focus",
+      "blockType": "exam-focus",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-safety-officer-toolkit",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / תבניות פעולה לממונה בטיחות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-officer-toolkit"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examCritical"
+      ],
+      "content": {
+        "title": "דגש מבחן: ארגז כלים לממונה בטיחות",
+        "text": "דגש מבחן: ממונה הבטיחות הוא פונקציית מטה מקצועית; הביצוע והאחריות התפעולית נשארים בקו הניהולי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "9",
+        "sourceStructure": {
+          "originalHeading": "עשרת תבניות ה-Checklists המקצועיות",
+          "paragraphRange": "446-504",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
+    },
+    {
+      "blockId": "block-safety-management-safety-officer-toolkit-manager-note",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-safety-management",
+      "citationId": "citation-training-occupational-safety-safety-officer-toolkit",
+      "sourceCitation": "מקור הדרכה: ניהול בטיחות בתעסוקה / תבניות פעולה לממונה בטיחות",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "safety-management-officer-toolkit"
+      ],
+      "lessonIds": [
+        "lesson-08",
+        "lesson-09",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "מה הממונה עושה עם ארגז כלים לממונה בטיחות",
+        "text": "המשמעות המעשית היא לחבר בין הנהלה, מנהלי קו, עובדים ותיעוד כדי לוודא שהבקרה אינה נשארת על הנייר.",
+        "items": [
+          "הצג להנהלה פערי מערכת ולא רק רשימת מפגעים.",
+          "חבר כל ממצא לבעלים, משאב ולוח זמנים.",
+          "בדוק אפקטיביות לאחר סגירת הפעולה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "9",
+        "sourceStructure": {
+          "originalHeading": "עשרת תבניות ה-Checklists המקצועיות",
+          "paragraphRange": "446-504",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Linked to a source-backed training citation. Not verified and not legally binding."
+      }
     }
   ]
 }
