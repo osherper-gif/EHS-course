@@ -14774,6 +14774,1922 @@
       "verification": {
         "status": "source-backed"
       }
+    },
+    {
+      "blockId": "block-hygiene-domain-scope",
+      "blockType": "definition",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-introduction",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / מבוא",
+      "topicIds": [
+        "occupational-hygiene-domain",
+        "occupational-health-environment"
+      ],
+      "lessonIds": [
+        "lesson-21"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מהי גהות תעסוקתית",
+        "text": "המקור מציג את הגהות התעסוקתית כתחום שמטרתו למנוע מחלות מקצוע ונזקים כרוניים באמצעות זיהוי, הערכה ובקרה של גורמי סיכון סביבתיים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מבוא לגהות תעסוקתית",
+          "paragraphRange": "3-8",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-safety-vs-hygiene",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-introduction",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / מבוא",
+      "topicIds": [
+        "occupational-hygiene-domain"
+      ],
+      "lessonIds": [
+        "lesson-21"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בטיחות אקוטית מול גהות כרונית",
+        "text": "החומר מבחין בין בטיחות שמטפלת באירועים מיידיים כמו נפילה או פציעה, לבין גהות ורפואה תעסוקתית שמטפלות בחשיפות מתמשכות ובנזקים המתפתחים לאורך שנים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ההבדל בין בטיחות לגהות",
+          "paragraphRange": "5-10",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-recognition-evaluation-control",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-introduction",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / מבוא",
+      "topicIds": [
+        "occupational-hygiene-domain",
+        "occupational-hygiene-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-21"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "זיהוי, הערכה ובקרה",
+        "text": "שלושת עמודי התווך במקור הם הכרת התהליך והמזהמים, הערכת חשיפה באמצעות מדידות, ויישום בקרות הנדסיות, ארגוניות ואישיות.",
+        "items": [
+          "זיהוי תהליכים, חומרי גלם ותוצרי לוואי.",
+          "הערכת חשיפה באמצעות ניטור והשוואה לערכי סף כחומר לימודי.",
+          "בקרה באמצעות פתרונות הנדסיים, ניהוליים ואישיים."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "שלושת עמודי התווך של הגיהותן",
+          "paragraphRange": "11-14",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-disciplines",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-introduction",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / מבוא",
+      "topicIds": [
+        "occupational-hygiene-domain",
+        "occupational-hygiene-disease-prevention"
+      ],
+      "lessonIds": [
+        "lesson-21"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "שלוש דיסציפלינות בריאות תעסוקתית",
+        "text": "המקור מפריד בין גהות תעסוקתית כמדידת סביבה ובקרה הנדסית, טוקסיקולוגיה תעסוקתית כמנגנוני פגיעה, ורפואה תעסוקתית כמעקב קליני ובדיקות התאמה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Industrial / Engineering Deep Dive",
+          "paragraphRange": "15-19",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-hidden-exposure-human-factor",
+      "blockType": "warning",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-introduction",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / מבוא",
+      "topicIds": [
+        "occupational-hygiene-domain",
+        "human-factors-real"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "חשיפה סמויה יוצרת שאננות",
+        "text": "המקור מתאר מזהמים שאינם נראים ואינם יוצרים פידבק מיידי, ולכן עובדים עלולים לנרמל חריגות קלות או אי־שימוש בציוד מגן עד שהנזק המצטבר מתגלה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Human Factors",
+          "paragraphRange": "20-22",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-seg-benzene-case",
+      "blockType": "field-example",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-introduction",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / מבוא",
+      "topicIds": [
+        "occupational-hygiene-domain",
+        "occupational-hygiene-exposure-monitoring",
+        "chemical-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "קבוצות חשיפה דומות אינן פורמליות בלבד",
+        "text": "במקרה הבנזן המתואר, הניטור בדק רצפת ייצור אך לא עמדות מעבדה. הכשל מלמד שחייבים לזהות קבוצות חשיפה דומות ולא להניח שמדידה אחת מייצגת את כל הארגון.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תאונות ומקרי אמת",
+          "paragraphRange": "34-35",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-exam-definition",
+      "blockType": "exam-focus",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-introduction",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / מבוא",
+      "topicIds": [
+        "occupational-hygiene-domain"
+      ],
+      "lessonIds": [
+        "lesson-21"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "הגדרת גהות למבחן",
+        "text": "המקור מדגיש למבחן את ההגדרה: זיהוי, הערכה ובקרה של גורמי סיכון סביבתיים, ואת ההבדל בין גיהותן לבין רופא תעסוקתי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים למבחן",
+          "paragraphRange": "41-43",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-risk-categories",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-risk-categories",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / גורמי סיכון",
+      "topicIds": [
+        "occupational-hygiene-domain",
+        "occupational-hygiene-physical-agents",
+        "occupational-hygiene-ergonomics-msd"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-23",
+        "lesson-29"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "משפחות גורמי סיכון תעסוקתיים",
+        "text": "המקור מסווג גורמי סיכון לכימיים, פיזיקליים, ביולוגיים, ארגונומיים ופסיכוסוציאליים.",
+        "items": [
+          "כימיים: חומצות, בסיסים, ממיסים ומתכות כבדות.",
+          "פיזיקליים: רעש, קרינה, עומסי חום/קור ורטט.",
+          "ארגונומיים ופסיכוסוציאליים: תנוחות, מאמץ, לחץ ושחיקה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "סיווג מפורט של גורמי הסיכון",
+          "paragraphRange": "47-59",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-aerosol-types-table",
+      "blockType": "table",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-risk-categories",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / גורמי סיכון",
+      "topicIds": [
+        "occupational-hygiene-domain",
+        "chemical-specific-contaminants"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "אירוסולים ומזהמים באוויר",
+        "text": "המקור מבחין בין אבק, נדפים, עשן, ערפילים, אדים וגזים לפי אופן היווצרותם והתנהגותם באוויר.",
+        "items": [],
+        "table": {
+          "headers": [
+            "סוג מזהם",
+            "משמעות גהותית"
+          ],
+          "rows": [
+            [
+              "אבק",
+              "חלקיקים מפירוק מכני; חלק נשימים עלולים להגיע לעומק הריאה."
+            ],
+            [
+              "נדפים",
+              "חלקיקים קטנים מהתעבות מתכת, אופייניים לריתוך."
+            ],
+            [
+              "אדים וגזים",
+              "מתפשטים בנפח האוויר ודורשים התאמת מסננים ובקרות."
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Aerosol Science",
+          "paragraphRange": "60-89",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-respirator-mismatch",
+      "blockType": "warning",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-risk-categories",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / גורמי סיכון",
+      "topicIds": [
+        "occupational-hygiene-ppe-respiratory",
+        "chemical-controls-ppe"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מסכת חלקיקים אינה מסנן לאדים",
+        "text": "המקור מזהיר משימוש בנשמית חלקיקים להגנה מפני אדי צבע או ממיסים. חלקיקים וגזים דורשים מנגנוני סינון שונים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טעויות נפוצות",
+          "paragraphRange": "103-105",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-entry-routes-overview",
+      "blockType": "definition",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-toxicology-values",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / טוקסיקולוגיה",
+      "topicIds": [
+        "occupational-hygiene-domain",
+        "chemical-exposure-routes"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "שלושת מסלולי החדירה",
+        "text": "המקור מציג שאיפה, ספיגה דרך העור והעיניים, ובליעה כמסלולי חדירה מרכזיים של מזהמים במקום העבודה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מסלולי חדירה מרכזיים",
+          "paragraphRange": "115-124",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-twa-stel-ceiling-bei-training",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-toxicology-values",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / ערכי חשיפה",
+      "topicIds": [
+        "occupational-hygiene-exposure-monitoring",
+        "chemical-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "TWA, STEL, Ceiling ו־BEI כחומר לימודי",
+        "text": "המקור מסביר מושגי חשיפה סביבתיים וביולוגיים. הם נשמרים כאן כהסבר לימודי בלבד ולא כמספרי זהב או ערכים מחייבים.",
+        "items": [
+          "TWA מתייחס לממוצע משוקלל בזמן.",
+          "STEL מתייחס לחשיפה קצרה.",
+          "Ceiling הוא ערך תקרה.",
+          "BEI משקף מדד ביולוגי בגוף העובד."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טבלת הגדרות ערכי חשיפה",
+          "paragraphRange": "125-146",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-dermal-bypasses-air-monitoring",
+      "blockType": "field-example",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-toxicology-values",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / טוקסיקולוגיה",
+      "topicIds": [
+        "occupational-hygiene-exposure-monitoring",
+        "chemical-exposure-routes"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ספיגה עורית יכולה לעקוף ניטור אוויר תקין",
+        "text": "במקרה הפרכלורואתילן, ניטור TWA סביבתי נראה תקין אך BEI בשתן היה גבוה. החקירה הצביעה על עבודה בידיים חשופות ועל חדירה עורית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תאונות ומקרי אמת",
+          "paragraphRange": "160-161",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-action-level-training",
+      "blockType": "exam-focus",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-toxicology-values",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / ערכי חשיפה",
+      "topicIds": [
+        "occupational-hygiene-exposure-monitoring",
+        "chemical-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "רמת פעולה אינה מספר זהב בפיילוט",
+        "text": "המקור מציג את רמת הפעולה כנקודת החלטה לימודית להפעלת בקרות והגברת ניטור. בפיילוט זה היא אינה מסומנת כמספר זהב משום שמדובר במקור הדרכה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים לממונה בטיחות",
+          "paragraphRange": "165-166",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-monitoring-methods",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-monitoring",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / ניטור",
+      "topicIds": [
+        "occupational-hygiene-exposure-monitoring",
+        "chemical-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ניטור סביבתי, אישי וביולוגי",
+        "text": "המקור מבחין בין מדידת המזהם בחלל, מדידה באזור הנשימה של העובד, ומדידת מזהם או מטבוליט בדגימות גוף.",
+        "items": [
+          "ניטור סביבתי בודק את סביבת העבודה.",
+          "ניטור אישי בודק את מה שהעובד נושם.",
+          "ניטור ביולוגי בודק מה נספג בגוף."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ניטור סביבתי, אישי וביולוגי",
+          "paragraphRange": "173-180",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-seg-sampling-strategy",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-monitoring",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / ניטור",
+      "topicIds": [
+        "occupational-hygiene-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "אסטרטגיית ניטור לפי קבוצות חשיפה",
+        "text": "המקור מסביר שתוכנית ניטור מבוססת על חלוקת עובדים לקבוצות חשיפה דומות, כך שמדגם מייצג יבטא פעולה, חלל וסביבת חשיפה דומים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Sampling Strategy",
+          "paragraphRange": "181-184",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-personal-monitoring-breathing-zone",
+      "blockType": "exam-focus",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-monitoring",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / ניטור",
+      "topicIds": [
+        "occupational-hygiene-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "אזור הנשימה כמדד חשיפה אישי",
+        "text": "המקור מדגיש שניטור אישי באזור הנשימה אמין יותר להערכת חשיפת העובד מאשר מכשיר מרוחק על קיר האולם.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים למבחן",
+          "paragraphRange": "209-213",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-monitoring-representative-day",
+      "blockType": "warning",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-monitoring",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / ניטור",
+      "topicIds": [
+        "occupational-hygiene-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ניטור ביום לא מייצג מטעה",
+        "text": "המקור מזהיר מפני דוחות ניטור שמבוצעים ביום שבו הייצור חלקי או התנאים נוחים מדי, ולכן אינם משקפים עומס מלא או שינויי עונתיות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים לממונה בטיחות",
+          "paragraphRange": "200-208",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-lev-vs-dilution",
+      "blockType": "definition",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-ventilation-lev",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / אוורור",
+      "topicIds": [
+        "occupational-hygiene-ventilation-controls",
+        "chemical-controls-ppe"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-23"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "LEV מול אוורור מהילה",
+        "text": "המקור מבחין בין אוורור מהילה שמדלל מזהם בחלל לבין יניקה מקומית שלוכדת אותו בנקודת ההיווצרות לפני הגעתו לאזור הנשימה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "אוורור מהילה כללי מול יניקה מקומית",
+          "paragraphRange": "215-220",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-lev-components",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-ventilation-lev",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / אוורור",
+      "topicIds": [
+        "occupational-hygiene-ventilation-controls"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-23"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "רכיבי מערכת LEV",
+        "text": "המקור מתאר חמישה רכיבים קריטיים במערכת יניקה מקומית.",
+        "items": [
+          "מקלט או Hood ליצירת מהירות לכידה.",
+          "צנרת להובלת המזהם.",
+          "מתקן ניקוי אוויר.",
+          "מפוח ליצירת הפרשי לחץ.",
+          "ארובת פליטה במיקום מתאים."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "רכיבי מערכת ה-LEV",
+          "paragraphRange": "221-227",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-makeup-air-failure",
+      "blockType": "field-example",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-ventilation-lev",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / אוורור",
+      "topicIds": [
+        "occupational-hygiene-ventilation-controls",
+        "operational-risk-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-23"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מערכת יניקה ללא פיצוי אוויר",
+        "text": "במקרה המתואר, מערכת LEV חדשה לא הצליחה למשוך אוויר משום שהמבנה היה אטום ולא תוכננה אספקת אוויר צח מפצה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "RCA / Root Cause Thinking",
+          "paragraphRange": "253-255",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-lev-inspection-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-ventilation-lev",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / אוורור",
+      "topicIds": [
+        "occupational-hygiene-ventilation-controls"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-23"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בדיקות שטח למערכת LEV",
+        "text": "המקור מציע לממונה לבדוק פילטרים, סתימות ומדדי לחץ כדי לזהות ירידה בספיקת האוויר לפני כשל חשיפה.",
+        "items": [
+          "בדוק פילטרים וסתימות.",
+          "בדוק אינדיקציית לחץ דיפרנציאלי.",
+          "ודא מיקום נכון של זרועות יניקה.",
+          "בדוק שאין קצר אוויר בין כניסה ליציאה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים לממונה בטיחות",
+          "paragraphRange": "263-275",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-controls-hierarchy",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-controls-ppe",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / בקרות",
+      "topicIds": [
+        "occupational-hygiene-ppe-respiratory",
+        "hierarchy-of-controls-real",
+        "chemical-controls-ppe"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22",
+        "lesson-23"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "היררכיית הבקרות בגהות",
+        "text": "המקור מציב ציוד מגן אישי כקו הגנה אחרון אחרי סילוק, החלפה, בקרה הנדסית ובקרה ניהולית.",
+        "items": [
+          "סילוק המפגע.",
+          "החלפת חומר או תהליך.",
+          "בקרה הנדסית כגון LEV או בידוד.",
+          "בקרה ניהולית לצמצום חשיפה.",
+          "PPE כקו אחרון."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "היררכיית הבקרות",
+          "paragraphRange": "276-288",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-respirator-filters-table",
+      "blockType": "table",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-controls-ppe",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / PPE",
+      "topicIds": [
+        "occupational-hygiene-ppe-respiratory",
+        "chemical-controls-ppe"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "התאמת מסנן למזהם",
+        "text": "המקור מסביר שמסנן חלקיקים, מסנן אדים אורגניים, מסנן גזים אנאורגניים ומסנן אמוניה נועדו למזהמים שונים.",
+        "items": [],
+        "table": {
+          "headers": [
+            "סוג מסנן",
+            "שימוש לימודי"
+          ],
+          "rows": [
+            [
+              "P3",
+              "אבק, נדפים, ערפילים ומזהמים חלקיקיים."
+            ],
+            [
+              "A",
+              "אדים אורגניים."
+            ],
+            [
+              "B/E/K",
+              "קבוצות גזים ואדים לפי מאפייני מזהם."
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טבלת סוגי מסננים להגנת נשימה",
+          "paragraphRange": "289-314",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-fit-testing-human-factors",
+      "blockType": "warning",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-controls-ppe",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / PPE",
+      "topicIds": [
+        "occupational-hygiene-ppe-respiratory",
+        "human-factors-real"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "Fit Testing אינו תוספת נחמדה",
+        "text": "המקור מתאר כשל שבו מסכות יקרות לא הגנו כי לא התאימו למבנה הפנים, ולא בוצעה בדיקת התאמה לפני תחילת העבודה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Fit Testing וגורמי אנוש",
+          "paragraphRange": "315-323",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-ppe-last-line-exam",
+      "blockType": "exam-focus",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-controls-ppe",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / PPE",
+      "topicIds": [
+        "occupational-hygiene-ppe-respiratory",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "PPE הוא קו ההגנה האחרון",
+        "text": "דגש המבחן במקור: יש למצות בקרות הנדסיות לפני הסתמכות על PPE, ולהתאים מסנן למפגע המדויק.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים למבחן",
+          "paragraphRange": "337-342",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-specific-contaminants-disease",
+      "blockType": "warning",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-specific-diseases",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / תחלואה תעסוקתית",
+      "topicIds": [
+        "occupational-hygiene-disease-prevention",
+        "chemical-specific-contaminants"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מזהמים שקטים ומחלות מקצוע",
+        "text": "המקור מתאר אסבסט, סיליקה, VOCs ונדפי ריתוך כמפגעים שעלולים לגרום לפגיעה כרונית קשה גם ללא תאונה מיידית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מפגעים גהותיים ספציפיים",
+          "paragraphRange": "343-354",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-disease-values-not-golden",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-specific-diseases",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / תחלואה תעסוקתית",
+      "topicIds": [
+        "occupational-hygiene-disease-prevention",
+        "chemical-specific-contaminants"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ערכי חשיפה בטבלאות המחלה אינם מספרי זהב",
+        "text": "המקור כולל דוגמאות לערכי TLV-TWA, בדיקות רפואיות ותקופות חביון. בפיילוט זה הם נשמרים כחומר לימודי בלבד ולא כערכים מחייבים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טבלת ריכוז מפגעים גהותיים",
+          "paragraphRange": "355-381",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-wet-cleaning-hepa",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-specific-diseases",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / תחלואה תעסוקתית",
+      "topicIds": [
+        "occupational-hygiene-disease-prevention",
+        "chemical-specific-contaminants"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ניקוי רטוב ו־HEPA לאבק מזיק",
+        "text": "המקור מזהיר מניקוי אבק סיליקה או אסבסט במטאטא יבש או לחץ אוויר, ומכוון לשיטות רטובות או שאיבה תעשייתית עם HEPA.",
+        "items": [
+          "אל תעלה אבק נשים חזרה לאוויר.",
+          "העדף שטיפה רטובה או שאיבה מתאימה.",
+          "חבר חשיפה כרונית לפנקס בריאות ומעקב רפואי."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טעויות נפוצות ודגשים לממונה",
+          "paragraphRange": "395-405",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-noise-radiation-heat-overview",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-physical-agents",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / גורמים פיזיקליים",
+      "topicIds": [
+        "occupational-hygiene-physical-agents",
+        "occupational-hygiene-noise-hearing",
+        "occupational-hygiene-radiation",
+        "occupational-hygiene-thermal-stress"
+      ],
+      "lessonIds": [
+        "lesson-23",
+        "lesson-24",
+        "lesson-26"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "רעש, קרינה ועומס חום",
+        "text": "המקור מציג גורמים פיזיקליים כאנרגיות סביבתיות: רעש שפוגע בשמיעה, קרינה מייננת ובלתי מייננת, ועומס חום שמעמיס על ויסות הגוף.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "גורמים פיזיקליים",
+          "paragraphRange": "406-418",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-noise-hearing-damage",
+      "blockType": "warning",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-physical-agents",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / רעש",
+      "topicIds": [
+        "occupational-hygiene-noise-hearing"
+      ],
+      "lessonIds": [
+        "lesson-24"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "פגיעת רעש היא בלתי הפיכה",
+        "text": "המקור מסביר שרעש מזיק פוגע בתאי השערה באוזן הפנימית, תאים שאינם מתחדשים, ולכן הפגיעה עלולה להיות קבועה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "רעש מזיק",
+          "paragraphRange": "413-417",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-noise-values-training-only",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-physical-agents",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / רעש",
+      "topicIds": [
+        "occupational-hygiene-noise-hearing"
+      ],
+      "lessonIds": [
+        "lesson-24"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מפלסי רעש כחומר לימודי בלבד",
+        "text": "המקור כולל טבלת dBA וזמני חשיפה ודוגמאות NRR. מאחר שהמקור הוא חומר הדרכה, הערכים אינם נוצרים כמספרי זהב בפיילוט.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טבלת מפלסי רעש",
+          "paragraphRange": "421-451",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-radiation-time-distance-shielding",
+      "blockType": "summary-box",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-physical-agents",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / קרינה",
+      "topicIds": [
+        "occupational-hygiene-radiation"
+      ],
+      "lessonIds": [
+        "lesson-26"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "זמן, מרחק ומיסוך",
+        "text": "המקור מציג את עקרונות הגנת הקרינה החיצונית כזמן, מרחק ומיסוך, כולל כלל הריבוע ההפוך כהסבר הנדסי לימודי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Acoustics & Radiation Physics",
+          "paragraphRange": "418-420",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-heat-wbgt-training",
+      "blockType": "warning",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-physical-agents",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / עומס חום",
+      "topicIds": [
+        "occupational-hygiene-thermal-stress"
+      ],
+      "lessonIds": [
+        "lesson-23"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מדחום יבש אינו מספיק לעומס חום",
+        "text": "במקרה מכת החום במקור, הכשל היה שימוש במדידה רגילה ולא במדד המתייחס ללחות, קרינת חום, מהירות אוויר וביגוד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "RCA / Root Cause Thinking",
+          "paragraphRange": "443-456",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-physical-exam-focus",
+      "blockType": "exam-focus",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-physical-agents",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / גורמים פיזיקליים",
+      "topicIds": [
+        "occupational-hygiene-physical-agents",
+        "occupational-hygiene-noise-hearing",
+        "occupational-hygiene-radiation"
+      ],
+      "lessonIds": [
+        "lesson-23",
+        "lesson-24",
+        "lesson-26"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "דגשי מבחן בגורמים פיזיקליים",
+        "text": "המקור מדגיש את כלל 3 dB ברעש ואת שלושת עקרונות הגנת הקרינה. הערכים מוצגים כדגש לימודי בלבד, לא כמספרי זהב בפיילוט.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים למבחן",
+          "paragraphRange": "459-464",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-ergonomics-definition",
+      "blockType": "definition",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-ergonomics-human-factors",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / ארגונומיה",
+      "topicIds": [
+        "occupational-hygiene-ergonomics-msd"
+      ],
+      "lessonIds": [
+        "lesson-29"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ארגונומיה: התאמת העבודה לאדם",
+        "text": "המקור מגדיר ארגונומיה כהתאמת מקום העבודה, המכונות והמטלות ליכולות ולמגבלות האדם.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ארגונומיה",
+          "paragraphRange": "465-475",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-msd-risk-factors",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-ergonomics-human-factors",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / ארגונומיה",
+      "topicIds": [
+        "occupational-hygiene-ergonomics-msd"
+      ],
+      "lessonIds": [
+        "lesson-29"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "גורמי סיכון להפרעות שלד־שריר",
+        "text": "המקור מפרט גורמים ביומכניים ופגיעות נפוצות הקשורות לתכנון עבודה לקוי.",
+        "items": [
+          "הפעלת כוח מוגזם והרמה כבדה.",
+          "תנוחות קיצוניות ותנועות חזרתיות.",
+          "לחץ מכני ישיר על רקמות.",
+          "פגיעות גב, כתף, מרפק ושורש כף היד."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "הפרעות שלד-שריר",
+          "paragraphRange": "472-475",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-just-culture-near-miss",
+      "blockType": "paragraph",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-ergonomics-human-factors",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / גורמים אנושיים",
+      "topicIds": [
+        "occupational-hygiene-ergonomics-msd",
+        "safety-culture-real",
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-29",
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תרבות הוגנת ודיווח כמעט־תאונה",
+        "text": "המקור קושר בין סחיפה תפעולית, Just Culture ודיווח Near Miss כדי ללמוד מתנאים מסוכנים לפני שמתרחש אירוע חמור.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Just Culture",
+          "paragraphRange": "465-511",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-hygiene-checklist-program",
+      "blockType": "checklist",
+      "sourceId": "training-occupational-hygiene",
+      "citationId": "citation-training-occupational-hygiene-field-checklists",
+      "sourceCitation": "מקור הדרכה: גהות תעסוקתית / צ׳קליסטים",
+      "topicIds": [
+        "occupational-hygiene-domain",
+        "occupational-hygiene-exposure-monitoring",
+        "occupational-hygiene-ventilation-controls",
+        "occupational-hygiene-ppe-respiratory"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22",
+        "lesson-23"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "צ׳קליסט בסיסי לתוכנית גהות",
+        "text": "המקור מציע בדיקות שטח לניהול גהות, ניטור, LEV, PPE, SDS ותוכנית שנתית.",
+        "items": [
+          "בדוק קיום סקר סיכונים גהותי.",
+          "ודא תוכנית ניטור שנתית ויום עבודה מייצג.",
+          "בדוק מערכות LEV ופילטרים.",
+          "בדוק התאמת מסננים ו־Fit Testing.",
+          "ודא תוכנית גהות שנתית מתוקצבת."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערך ה-Checklists המעשי",
+          "paragraphRange": "557-618",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
     }
   ]
 }

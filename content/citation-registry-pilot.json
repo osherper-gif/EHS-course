@@ -1336,6 +1336,166 @@
         "status": "source-backed"
       },
       "notes": "Level 6 training citation. Oxygen and contaminant values are not golden numbers."
+    },
+    {
+      "citationId": "citation-training-occupational-hygiene-introduction",
+      "stableSourceId": "training-occupational-hygiene",
+      "citationType": "heading",
+      "label": "מבוא לגהות תעסוקתית ובריאות בארגון",
+      "locator": {
+        "heading": "מבוא לגהות תעסוקתית, Industrial Hygiene & Occupational Health",
+        "paragraphRange": "3-46",
+        "sourceFile": "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Hygiene definition remains training content and not legal approval."
+    },
+    {
+      "citationId": "citation-training-occupational-hygiene-risk-categories",
+      "stableSourceId": "training-occupational-hygiene",
+      "citationType": "heading",
+      "label": "גורמי סיכון תעסוקתיים ומזהמי אוויר",
+      "locator": {
+        "heading": "גורמי סיכון תעסוקתיים ומזהמי אוויר",
+        "paragraphRange": "47-113",
+        "sourceFile": "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Particle sizes and exposure examples are not golden numbers."
+    },
+    {
+      "citationId": "citation-training-occupational-hygiene-toxicology-values",
+      "stableSourceId": "training-occupational-hygiene",
+      "citationType": "heading",
+      "label": "טוקסיקולוגיה, מסלולי חדירה וערכי חשיפה",
+      "locator": {
+        "heading": "טוקסיקולוגיה תעסוקתית, מסלולי חדירה וערכי חשיפה",
+        "paragraphRange": "114-172",
+        "sourceFile": "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. TLV/TWA/STEL/BEI values remain training concepts only."
+    },
+    {
+      "citationId": "citation-training-occupational-hygiene-monitoring",
+      "stableSourceId": "training-occupational-hygiene",
+      "citationType": "heading",
+      "label": "ניטור סביבתי, אישי וביולוגי",
+      "locator": {
+        "heading": "ניטור סביבתי, אישי וביולוגי",
+        "paragraphRange": "173-214",
+        "sourceFile": "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Monitoring intervals and thresholds are not golden numbers here."
+    },
+    {
+      "citationId": "citation-training-occupational-hygiene-ventilation-lev",
+      "stableSourceId": "training-occupational-hygiene",
+      "citationType": "heading",
+      "label": "אוורור תעשייתי ובקרות הנדסיות",
+      "locator": {
+        "heading": "אוורור תעשייתי ובקרות הנדסיות",
+        "paragraphRange": "215-275",
+        "sourceFile": "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Air velocity figures are training examples only."
+    },
+    {
+      "citationId": "citation-training-occupational-hygiene-controls-ppe",
+      "stableSourceId": "training-occupational-hygiene",
+      "citationType": "heading",
+      "label": "היררכיית בקרות, PPE ו־Fit Testing",
+      "locator": {
+        "heading": "היררכיית בקרות, ציוד מגן אישי והתאמה",
+        "paragraphRange": "276-342",
+        "sourceFile": "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Filter codes and fit testing intervals remain training material."
+    },
+    {
+      "citationId": "citation-training-occupational-hygiene-specific-diseases",
+      "stableSourceId": "training-occupational-hygiene",
+      "citationType": "heading",
+      "label": "מפגעים גהותיים ספציפיים ומחלות מקצוע",
+      "locator": {
+        "heading": "מפגעים גהותיים ספציפיים",
+        "paragraphRange": "343-405",
+        "sourceFile": "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Disease latency and exposure values are not golden numbers."
+    },
+    {
+      "citationId": "citation-training-occupational-hygiene-physical-agents",
+      "stableSourceId": "training-occupational-hygiene",
+      "citationType": "heading",
+      "label": "רעש, קרינה ועומס חום",
+      "locator": {
+        "heading": "גורמים פיזיקליים",
+        "paragraphRange": "406-464",
+        "sourceFile": "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. dB, WBGT, mSv and temperature values are training content only."
+    },
+    {
+      "citationId": "citation-training-occupational-hygiene-ergonomics-human-factors",
+      "stableSourceId": "training-occupational-hygiene",
+      "citationType": "heading",
+      "label": "ארגונומיה, גורמים אנושיים ותרבות הוגנת",
+      "locator": {
+        "heading": "ארגונומיה, גורמים אנושיים וניהול סיכונים מתקדם",
+        "paragraphRange": "465-511",
+        "sourceFile": "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Human factors guidance is training content."
+    },
+    {
+      "citationId": "citation-training-occupational-hygiene-field-checklists",
+      "stableSourceId": "training-occupational-hygiene",
+      "citationType": "heading",
+      "label": "צ׳קליסטים לניהול גהות בשטח",
+      "locator": {
+        "heading": "מערך ה-Checklists המעשי לממונה בטיחות",
+        "paragraphRange": "557-618",
+        "sourceFile": "6.3.גהות תעסוקתית-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Checklist percentages and intervals are training prompts only."
     }
   ]
 }

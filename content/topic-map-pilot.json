@@ -316,7 +316,8 @@
       "relatedTopicIds": [
         "safety-culture-real",
         "human-factors-field-tools-real",
-        "chemical-hazardous-materials-domain"
+        "chemical-hazardous-materials-domain",
+        "occupational-hygiene-domain"
       ],
       "lessonIds": [
         "lesson-08",
@@ -328,7 +329,8 @@
       ],
       "sourceIds": [
         "training-safety-management-human-factors",
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "training-occupational-hygiene"
       ],
       "blockIds": [
         "block-real-human-factor-operational-definition",
@@ -337,7 +339,9 @@
         "block-real-human-factors-risk-perception",
         "block-real-human-factors-satisficing",
         "block-real-human-factors-near-miss-rca",
-        "block-chemical-ppe-human-factors"
+        "block-chemical-ppe-human-factors",
+        "block-hygiene-hidden-exposure-human-factor",
+        "block-hygiene-fit-testing-human-factors"
       ],
       "status": "draft"
     },
@@ -349,14 +353,16 @@
       "aliases": [],
       "relatedTopicIds": [
         "human-factors-real",
-        "safety-leadership-governance-real"
+        "safety-leadership-governance-real",
+        "occupational-hygiene-ergonomics-msd"
       ],
       "lessonIds": [
         "lesson-08",
         "lesson-09"
       ],
       "sourceIds": [
-        "training-safety-management-human-factors"
+        "training-safety-management-human-factors",
+        "training-occupational-hygiene"
       ],
       "blockIds": [
         "block-real-safety-culture-core",
@@ -366,7 +372,8 @@
         "block-real-safety-culture-drift",
         "block-real-safety-culture-asbestos-case",
         "block-real-checklist-safety-culture",
-        "block-real-checklist-bbs"
+        "block-real-checklist-bbs",
+        "block-hygiene-just-culture-near-miss"
       ],
       "status": "draft"
     },
@@ -596,7 +603,8 @@
       "aliases": [],
       "relatedTopicIds": [
         "risk-assessment-management-real",
-        "chemical-hazardous-materials-domain"
+        "chemical-hazardous-materials-domain",
+        "occupational-hygiene-ppe-respiratory"
       ],
       "lessonIds": [
         "lesson-08",
@@ -609,7 +617,8 @@
       ],
       "sourceIds": [
         "training-occupational-safety-management",
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "training-occupational-hygiene"
       ],
       "blockIds": [
         "block-occ-controls-hierarchy-definition",
@@ -619,7 +628,9 @@
         "block-occ-controls-human-factor-ppe",
         "block-chemical-hierarchy-chemical-controls",
         "block-chemical-lev-before-ppe",
-        "block-chemical-route-matched-controls"
+        "block-chemical-route-matched-controls",
+        "block-hygiene-controls-hierarchy",
+        "block-hygiene-ppe-last-line-exam"
       ],
       "status": "draft"
     },
@@ -1204,7 +1215,8 @@
       "relatedTopicIds": [
         "factory-scope-definitions",
         "pressure-equipment-ordinance",
-        "chemical-hazardous-materials-domain"
+        "chemical-hazardous-materials-domain",
+        "occupational-hygiene-domain"
       ],
       "lessonIds": [
         "lesson-04",
@@ -1216,7 +1228,8 @@
       ],
       "sourceIds": [
         "ordinance-work-safety-1970",
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "training-occupational-hygiene"
       ],
       "blockIds": [
         "block-ordinance-occupational-health-summary",
@@ -1226,7 +1239,10 @@
         "block-chemical-monitoring-twa-stel-ceiling-training",
         "block-chemical-environmental-vs-biological-monitoring",
         "block-chemical-specific-contaminants-overview",
-        "block-chemical-specific-contaminants-controls"
+        "block-chemical-specific-contaminants-controls",
+        "block-hygiene-domain-scope",
+        "block-hygiene-disciplines",
+        "block-hygiene-checklist-program"
       ],
       "status": "draft"
     },
@@ -2614,7 +2630,8 @@
       ],
       "relatedTopicIds": [
         "occupational-health-environment",
-        "chemical-exposure-routes"
+        "chemical-exposure-routes",
+        "occupational-hygiene-exposure-monitoring"
       ],
       "lessonIds": [
         "lesson-18",
@@ -2623,7 +2640,8 @@
         "lesson-25"
       ],
       "sourceIds": [
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "training-occupational-hygiene"
       ],
       "blockIds": [
         "block-chemical-odor-is-not-monitoring",
@@ -2631,7 +2649,12 @@
         "block-chemical-monitoring-twa-stel-ceiling-training",
         "block-chemical-environmental-vs-biological-monitoring",
         "block-chemical-monitoring-routine-error",
-        "block-chemical-action-level-training"
+        "block-chemical-action-level-training",
+        "block-hygiene-seg-benzene-case",
+        "block-hygiene-twa-stel-ceiling-bei-training",
+        "block-hygiene-dermal-bypasses-air-monitoring",
+        "block-hygiene-action-level-training",
+        "block-hygiene-monitoring-methods"
       ],
       "status": "draft"
     },
@@ -2720,7 +2743,9 @@
       ],
       "relatedTopicIds": [
         "hierarchy-of-controls-real",
-        "chemical-exposure-routes"
+        "chemical-exposure-routes",
+        "occupational-hygiene-ppe-respiratory",
+        "occupational-hygiene-ventilation-controls"
       ],
       "lessonIds": [
         "lesson-18",
@@ -2729,7 +2754,8 @@
         "lesson-25"
       ],
       "sourceIds": [
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "training-occupational-hygiene"
       ],
       "blockIds": [
         "block-chemical-route-matched-controls",
@@ -2740,7 +2766,13 @@
         "block-chemical-respirator-filter-selection",
         "block-chemical-fit-testing-filter-life",
         "block-chemical-air-purifying-limitations",
-        "block-chemical-specific-contaminants-controls"
+        "block-chemical-specific-contaminants-controls",
+        "block-hygiene-respirator-mismatch",
+        "block-hygiene-lev-vs-dilution",
+        "block-hygiene-controls-hierarchy",
+        "block-hygiene-respirator-filters-table",
+        "block-hygiene-fit-testing-human-factors",
+        "block-hygiene-ppe-last-line-exam"
       ],
       "status": "draft"
     },
@@ -2792,7 +2824,8 @@
       ],
       "relatedTopicIds": [
         "occupational-health-environment",
-        "chemical-controls-ppe"
+        "chemical-controls-ppe",
+        "occupational-hygiene-disease-prevention"
       ],
       "lessonIds": [
         "lesson-18",
@@ -2801,12 +2834,379 @@
         "lesson-25"
       ],
       "sourceIds": [
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "training-occupational-hygiene"
       ],
       "blockIds": [
         "block-chemical-specific-contaminants-overview",
         "block-chemical-silica-asbestos-voc-fumes",
-        "block-chemical-specific-contaminants-controls"
+        "block-chemical-specific-contaminants-controls",
+        "block-hygiene-specific-contaminants-disease",
+        "block-hygiene-disease-values-not-golden",
+        "block-hygiene-wet-cleaning-hepa"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-hygiene-domain",
+      "title": "גהות תעסוקתית",
+      "description": "Domain גהות: חשיפות תעסוקתיות, ניטור, אוורור, PPE, רעש, קרינה, עומסי חום, מחלות מקצוע וארגונומיה.",
+      "parentTopicId": null,
+      "aliases": [
+        "גהות",
+        "בריאות תעסוקתית",
+        "Industrial Hygiene",
+        "Occupational Hygiene",
+        "חשיפות תעסוקתיות"
+      ],
+      "relatedTopicIds": [
+        "chemical-hazardous-materials-domain",
+        "occupational-health-environment",
+        "chemical-exposure-monitoring",
+        "chemical-controls-ppe"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22",
+        "lesson-23",
+        "lesson-24",
+        "lesson-26",
+        "lesson-29"
+      ],
+      "sourceIds": [
+        "training-occupational-hygiene"
+      ],
+      "blockIds": [
+        "block-hygiene-domain-scope",
+        "block-hygiene-safety-vs-hygiene",
+        "block-hygiene-recognition-evaluation-control",
+        "block-hygiene-disciplines",
+        "block-hygiene-hidden-exposure-human-factor",
+        "block-hygiene-seg-benzene-case",
+        "block-hygiene-exam-definition",
+        "block-hygiene-risk-categories",
+        "block-hygiene-aerosol-types-table",
+        "block-hygiene-respirator-mismatch",
+        "block-hygiene-entry-routes-overview",
+        "block-hygiene-twa-stel-ceiling-bei-training",
+        "block-hygiene-dermal-bypasses-air-monitoring",
+        "block-hygiene-action-level-training",
+        "block-hygiene-monitoring-methods",
+        "block-hygiene-seg-sampling-strategy",
+        "block-hygiene-personal-monitoring-breathing-zone",
+        "block-hygiene-monitoring-representative-day",
+        "block-hygiene-lev-vs-dilution",
+        "block-hygiene-lev-components",
+        "block-hygiene-makeup-air-failure",
+        "block-hygiene-lev-inspection-checklist",
+        "block-hygiene-controls-hierarchy",
+        "block-hygiene-respirator-filters-table",
+        "block-hygiene-fit-testing-human-factors",
+        "block-hygiene-ppe-last-line-exam",
+        "block-hygiene-specific-contaminants-disease",
+        "block-hygiene-disease-values-not-golden",
+        "block-hygiene-wet-cleaning-hepa",
+        "block-hygiene-noise-radiation-heat-overview",
+        "block-hygiene-noise-hearing-damage",
+        "block-hygiene-noise-values-training-only",
+        "block-hygiene-radiation-time-distance-shielding",
+        "block-hygiene-heat-wbgt-training",
+        "block-hygiene-physical-exam-focus",
+        "block-hygiene-ergonomics-definition",
+        "block-hygiene-msd-risk-factors",
+        "block-hygiene-just-culture-near-miss",
+        "block-hygiene-checklist-program"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-hygiene-exposure-monitoring",
+      "title": "ניטור חשיפות תעסוקתיות",
+      "description": "ניטור סביבתי, אישי וביולוגי, קבוצות חשיפה דומות, אזור הנשימה ופענוח דוחות ניטור כחומר הדרכה.",
+      "parentTopicId": "occupational-hygiene-domain",
+      "aliases": [
+        "ניטור סביבתי",
+        "ניטור אישי",
+        "ניטור ביולוגי",
+        "SEGs",
+        "אזור הנשימה",
+        "TWA",
+        "STEL",
+        "BEI"
+      ],
+      "relatedTopicIds": [
+        "chemical-exposure-monitoring",
+        "chemical-exposure-routes",
+        "occupational-hygiene-disease-prevention"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "sourceIds": [
+        "training-occupational-hygiene"
+      ],
+      "blockIds": [
+        "block-hygiene-recognition-evaluation-control",
+        "block-hygiene-seg-benzene-case",
+        "block-hygiene-twa-stel-ceiling-bei-training",
+        "block-hygiene-dermal-bypasses-air-monitoring",
+        "block-hygiene-action-level-training",
+        "block-hygiene-monitoring-methods",
+        "block-hygiene-seg-sampling-strategy",
+        "block-hygiene-personal-monitoring-breathing-zone",
+        "block-hygiene-monitoring-representative-day",
+        "block-hygiene-checklist-program"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-hygiene-ventilation-controls",
+      "title": "אוורור ובקרות הנדסיות",
+      "description": "LEV, אוורור מהילה, רכיבי מערכת יניקה, פיצוי אוויר צח ובדיקות שטח למניעת חשיפה.",
+      "parentTopicId": "occupational-hygiene-domain",
+      "aliases": [
+        "LEV",
+        "אוורור יניקה מקומי",
+        "אוורור מהילה",
+        "Make-up Air",
+        "בקרות הנדסיות"
+      ],
+      "relatedTopicIds": [
+        "chemical-controls-ppe",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-23"
+      ],
+      "sourceIds": [
+        "training-occupational-hygiene"
+      ],
+      "blockIds": [
+        "block-hygiene-lev-vs-dilution",
+        "block-hygiene-lev-components",
+        "block-hygiene-makeup-air-failure",
+        "block-hygiene-lev-inspection-checklist",
+        "block-hygiene-checklist-program"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-hygiene-ppe-respiratory",
+      "title": "ציוד מגן נשימתי ו־PPE",
+      "description": "PPE כקו אחרון, התאמת מסננים, Fit Testing, אטימה וגורמי אנוש בשימוש במסכות.",
+      "parentTopicId": "occupational-hygiene-domain",
+      "aliases": [
+        "PPE",
+        "מסכות",
+        "מסנני נשימה",
+        "Fit Testing",
+        "User Seal Check"
+      ],
+      "relatedTopicIds": [
+        "chemical-controls-ppe",
+        "hierarchy-of-controls-real",
+        "human-factors-real"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22"
+      ],
+      "sourceIds": [
+        "training-occupational-hygiene"
+      ],
+      "blockIds": [
+        "block-hygiene-respirator-mismatch",
+        "block-hygiene-controls-hierarchy",
+        "block-hygiene-respirator-filters-table",
+        "block-hygiene-fit-testing-human-factors",
+        "block-hygiene-ppe-last-line-exam",
+        "block-hygiene-checklist-program"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-hygiene-disease-prevention",
+      "title": "מחלות מקצוע ומזהמים כרוניים",
+      "description": "אסבסט, סיליקה, VOCs, נדפי ריתוך, חשיפה סמויה ומעקב רפואי כחומר הדרכה.",
+      "parentTopicId": "occupational-hygiene-domain",
+      "aliases": [
+        "מחלות מקצוע",
+        "סיליקה",
+        "אסבסט",
+        "VOC",
+        "נדפי ריתוך",
+        "פנקס בריאות"
+      ],
+      "relatedTopicIds": [
+        "chemical-specific-contaminants",
+        "occupational-hygiene-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "sourceIds": [
+        "training-occupational-hygiene"
+      ],
+      "blockIds": [
+        "block-hygiene-disciplines",
+        "block-hygiene-specific-contaminants-disease",
+        "block-hygiene-disease-values-not-golden",
+        "block-hygiene-wet-cleaning-hepa"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-hygiene-physical-agents",
+      "title": "גורמי סיכון פיזיקליים",
+      "description": "רעש, קרינה, עומס חום, רטט וחשיפות פיזיקליות כחלק מדומיין הגהות.",
+      "parentTopicId": "occupational-hygiene-domain",
+      "aliases": [
+        "רעש",
+        "קרינה",
+        "עומס חום",
+        "רטט",
+        "גורמים פיזיקליים"
+      ],
+      "relatedTopicIds": [
+        "occupational-hygiene-noise-hearing",
+        "occupational-hygiene-radiation",
+        "occupational-hygiene-thermal-stress"
+      ],
+      "lessonIds": [
+        "lesson-23",
+        "lesson-24",
+        "lesson-26"
+      ],
+      "sourceIds": [
+        "training-occupational-hygiene"
+      ],
+      "blockIds": [
+        "block-hygiene-risk-categories",
+        "block-hygiene-noise-radiation-heat-overview",
+        "block-hygiene-physical-exam-focus"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-hygiene-noise-hearing",
+      "title": "רעש והגנת שמיעה",
+      "description": "פגיעת שמיעה מרעש, ניטור רעש, דוזימטריה, אודיומטריה ודגשי מבחן כחומר הדרכה.",
+      "parentTopicId": "occupational-hygiene-domain",
+      "aliases": [
+        "רעש מזיק",
+        "שמיעה",
+        "NIHL",
+        "dBA",
+        "אודיומטריה",
+        "דוזימטריה"
+      ],
+      "relatedTopicIds": [
+        "occupational-hygiene-physical-agents"
+      ],
+      "lessonIds": [
+        "lesson-24"
+      ],
+      "sourceIds": [
+        "training-occupational-hygiene"
+      ],
+      "blockIds": [
+        "block-hygiene-noise-radiation-heat-overview",
+        "block-hygiene-noise-hearing-damage",
+        "block-hygiene-noise-values-training-only",
+        "block-hygiene-physical-exam-focus"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-hygiene-radiation",
+      "title": "קרינה תעסוקתית",
+      "description": "קרינה מייננת ובלתי מייננת, עקרונות זמן־מרחק־מיסוך ודוזימטריה כחומר הדרכה.",
+      "parentTopicId": "occupational-hygiene-domain",
+      "aliases": [
+        "קרינה",
+        "קרינה מייננת",
+        "קרינה בלתי מייננת",
+        "ALARA",
+        "דוזימטר"
+      ],
+      "relatedTopicIds": [
+        "occupational-hygiene-physical-agents"
+      ],
+      "lessonIds": [
+        "lesson-26"
+      ],
+      "sourceIds": [
+        "training-occupational-hygiene"
+      ],
+      "blockIds": [
+        "block-hygiene-noise-radiation-heat-overview",
+        "block-hygiene-radiation-time-distance-shielding",
+        "block-hygiene-physical-exam-focus"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-hygiene-thermal-stress",
+      "title": "עומס חום וקור",
+      "description": "תנאי סביבה, עומס חום, WBGT, ביגוד, לחות ופינוי חום הגוף כחומר הדרכה.",
+      "parentTopicId": "occupational-hygiene-domain",
+      "aliases": [
+        "עומס חום",
+        "עומס קור",
+        "WBGT",
+        "תנאי סביבה",
+        "אוורור"
+      ],
+      "relatedTopicIds": [
+        "occupational-hygiene-physical-agents",
+        "occupational-health-environment"
+      ],
+      "lessonIds": [
+        "lesson-23"
+      ],
+      "sourceIds": [
+        "training-occupational-hygiene"
+      ],
+      "blockIds": [
+        "block-hygiene-noise-radiation-heat-overview",
+        "block-hygiene-heat-wbgt-training"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "occupational-hygiene-ergonomics-msd",
+      "title": "ארגונומיה ועומס פיזי",
+      "description": "התאמת העבודה לאדם, גורמי סיכון ביומכניים, הפרעות שלד־שריר ותרבות דיווח.",
+      "parentTopicId": "occupational-hygiene-domain",
+      "aliases": [
+        "ארגונומיה",
+        "MSD",
+        "שלד-שריר",
+        "CTS",
+        "Just Culture",
+        "Near Miss"
+      ],
+      "relatedTopicIds": [
+        "human-factors-real",
+        "safety-culture-real",
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-29",
+        "lesson-37"
+      ],
+      "sourceIds": [
+        "training-occupational-hygiene"
+      ],
+      "blockIds": [
+        "block-hygiene-risk-categories",
+        "block-hygiene-ergonomics-definition",
+        "block-hygiene-msd-risk-factors",
+        "block-hygiene-just-culture-near-miss"
       ],
       "status": "draft"
     }
