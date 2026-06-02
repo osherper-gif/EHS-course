@@ -354,7 +354,8 @@
       "relatedTopicIds": [
         "human-factors-real",
         "safety-leadership-governance-real",
-        "occupational-hygiene-ergonomics-msd"
+        "occupational-hygiene-ergonomics-msd",
+        "emergency-training-drills"
       ],
       "lessonIds": [
         "lesson-08",
@@ -362,7 +363,8 @@
       ],
       "sourceIds": [
         "training-safety-management-human-factors",
-        "training-occupational-hygiene"
+        "training-occupational-hygiene",
+        "training-emergency-preparedness"
       ],
       "blockIds": [
         "block-real-safety-culture-core",
@@ -373,7 +375,9 @@
         "block-real-safety-culture-asbestos-case",
         "block-real-checklist-safety-culture",
         "block-real-checklist-bbs",
-        "block-hygiene-just-culture-near-miss"
+        "block-hygiene-just-culture-near-miss",
+        "block-emergency-human-factors-stress",
+        "block-emergency-near-miss-learning"
       ],
       "status": "draft"
     },
@@ -1085,7 +1089,8 @@
       "relatedTopicIds": [
         "operational-risk-barriers-real",
         "construction-excavation-risk-real",
-        "chemical-hazardous-materials-domain"
+        "chemical-hazardous-materials-domain",
+        "emergency-business-continuity"
       ],
       "lessonIds": [
         "lesson-10",
@@ -1103,7 +1108,8 @@
       "sourceIds": [
         "training-operational-risks",
         "training-construction-sites-safety",
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "training-emergency-preparedness"
       ],
       "blockIds": [
         "block-operational-rca-bowtie",
@@ -1111,7 +1117,10 @@
         "block-operational-rca-just-culture",
         "block-operational-rca-five-whys",
         "block-construction-bowtie-field-model",
-        "block-chemical-hazop-bowtie-rca"
+        "block-chemical-hazop-bowtie-rca",
+        "block-emergency-bowtie-barriers",
+        "block-emergency-lessons-learned-rca",
+        "block-emergency-near-miss-learning"
       ],
       "status": "draft"
     },
@@ -1953,19 +1962,25 @@
       ],
       "relatedTopicIds": [
         "electrical-shock-risk",
-        "electrical-work-controls"
+        "electrical-work-controls",
+        "emergency-fire-explosion",
+        "emergency-medical-first-aid"
       ],
       "lessonIds": [
         "lesson-12",
         "lesson-10"
       ],
       "sourceIds": [
-        "training-electrical-safety"
+        "training-electrical-safety",
+        "training-emergency-preparedness"
       ],
       "blockIds": [
         "block-electrical-second-victim-logic",
         "block-electrical-fire-rca-water-extinguisher",
-        "block-electrical-emergency-priorities"
+        "block-electrical-emergency-priorities",
+        "block-emergency-extinguisher-choice-exam",
+        "block-emergency-medical-first-response",
+        "block-emergency-extinguisher-table"
       ],
       "status": "draft"
     },
@@ -2194,7 +2209,8 @@
       "relatedTopicIds": [
         "loto-ptw-energy-control-real",
         "safety-management-critical-work-controls",
-        "chemical-hazardous-materials-domain"
+        "chemical-hazardous-materials-domain",
+        "emergency-fire-explosion"
       ],
       "lessonIds": [
         "lesson-10",
@@ -2207,13 +2223,15 @@
       ],
       "sourceIds": [
         "training-maintenance-safety",
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "training-emergency-preparedness"
       ],
       "blockIds": [
         "block-maintenance-hot-work-fire-risk",
         "block-maintenance-hot-work-watch",
         "block-maintenance-flashback-arrestor",
-        "block-chemical-non-sparking-tools-warning"
+        "block-chemical-non-sparking-tools-warning",
+        "block-emergency-fire-systems-checklist"
       ],
       "status": "draft"
     },
@@ -2422,17 +2440,21 @@
       ],
       "relatedTopicIds": [
         "construction-excavation-trenching-soil",
-        "electrical-emergency-response"
+        "electrical-emergency-response",
+        "emergency-evacuation-rescue"
       ],
       "lessonIds": [
         "lesson-04",
         "lesson-32"
       ],
       "sourceIds": [
-        "training-construction-sites-safety"
+        "training-construction-sites-safety",
+        "training-emergency-preparedness"
       ],
       "blockIds": [
-        "block-construction-emergency-excavation-response"
+        "block-construction-emergency-excavation-response",
+        "block-emergency-evacuation-checklist",
+        "block-emergency-heroic-rescue-warning"
       ],
       "status": "draft"
     },
@@ -2671,7 +2693,8 @@
       ],
       "relatedTopicIds": [
         "chemical-classification-ghs-sds",
-        "chemical-fire-explosion-risks"
+        "chemical-fire-explosion-risks",
+        "emergency-hazmat-response"
       ],
       "lessonIds": [
         "lesson-18",
@@ -2680,7 +2703,8 @@
         "lesson-25"
       ],
       "sourceIds": [
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "training-emergency-preparedness"
       ],
       "blockIds": [
         "block-chemical-incompatibility-warning",
@@ -2690,7 +2714,9 @@
         "block-chemical-bunds-training-value",
         "block-chemical-spill-response-flow",
         "block-chemical-oxidizer-sawdust-warning",
-        "block-chemical-spill-kit-checklist"
+        "block-chemical-spill-kit-checklist",
+        "block-emergency-spill-checklist",
+        "block-emergency-hazmat-confined-overview"
       ],
       "status": "draft"
     },
@@ -2708,7 +2734,8 @@
       ],
       "relatedTopicIds": [
         "maintenance-hot-work",
-        "chemical-storage-segregation-spill"
+        "chemical-storage-segregation-spill",
+        "emergency-fire-explosion"
       ],
       "lessonIds": [
         "lesson-18",
@@ -2717,7 +2744,8 @@
         "lesson-25"
       ],
       "sourceIds": [
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "training-emergency-preparedness"
       ],
       "blockIds": [
         "block-chemical-reactive-water-mistake",
@@ -2725,7 +2753,12 @@
         "block-chemical-oxidizer-sawdust-warning",
         "block-chemical-flammability-range-training",
         "block-chemical-bleve-dust-static",
-        "block-chemical-non-sparking-tools-warning"
+        "block-chemical-non-sparking-tools-warning",
+        "block-emergency-fire-triangle",
+        "block-emergency-fire-classes",
+        "block-emergency-fire-systems-checklist",
+        "block-emergency-fire-extended-triangle",
+        "block-emergency-extinguisher-table"
       ],
       "status": "draft"
     },
@@ -2791,7 +2824,8 @@
       "relatedTopicIds": [
         "confined-space-and-hot-work",
         "operational-rca-barriers-real",
-        "loto-ptw-energy-control-real"
+        "loto-ptw-energy-control-real",
+        "emergency-hazmat-response"
       ],
       "lessonIds": [
         "lesson-18",
@@ -2800,13 +2834,19 @@
         "lesson-25"
       ],
       "sourceIds": [
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "training-emergency-preparedness"
       ],
       "blockIds": [
         "block-chemical-air-purifying-limitations",
         "block-chemical-confined-space-atmosphere",
         "block-chemical-confined-space-standby-rescue",
-        "block-chemical-hazop-bowtie-rca"
+        "block-chemical-hazop-bowtie-rca",
+        "block-emergency-hazmat-confined-overview",
+        "block-emergency-confined-entry-protocol",
+        "block-emergency-confined-values-not-golden",
+        "block-emergency-heroic-rescue-warning",
+        "block-emergency-hazmat-exam-idlh"
       ],
       "status": "draft"
     },
@@ -3207,6 +3247,353 @@
         "block-hygiene-ergonomics-definition",
         "block-hygiene-msd-risk-factors",
         "block-hygiene-just-culture-near-miss"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "emergency-preparedness-domain",
+      "title": "היערכות למצבי חירום",
+      "description": "Domain חירום: מוכנות ארגונית, ניהול אירוע, פינוי, חילוץ, אש, חומ״ס, עזרה ראשונה, תרגילים ורציפות תפקודית.",
+      "parentTopicId": null,
+      "aliases": [
+        "חירום",
+        "מוכנות לחירום",
+        "Emergency Preparedness",
+        "רציפות תפקודית",
+        "ניהול משברים"
+      ],
+      "relatedTopicIds": [
+        "emergency-incident-command",
+        "emergency-fire-explosion",
+        "emergency-hazmat-response",
+        "emergency-business-continuity",
+        "construction-emergency-response",
+        "chemical-storage-segregation-spill"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-13",
+        "lesson-18",
+        "lesson-30",
+        "lesson-35"
+      ],
+      "sourceIds": [
+        "training-emergency-preparedness"
+      ],
+      "blockIds": [
+        "block-emergency-domain-scope",
+        "block-emergency-four-phases",
+        "block-emergency-bowtie-barriers",
+        "block-emergency-human-factors-stress",
+        "block-emergency-bhopal-lessons",
+        "block-emergency-dead-binder-warning",
+        "block-emergency-safety-officer-field-actions",
+        "block-emergency-exam-responsibility",
+        "block-emergency-ics-purpose",
+        "block-emergency-ics-functions",
+        "block-emergency-command-chain-visual",
+        "block-emergency-command-breakdown",
+        "block-emergency-hot-zone-exam",
+        "block-emergency-fire-triangle",
+        "block-emergency-fire-classes",
+        "block-emergency-foam-values-not-golden",
+        "block-emergency-extinguisher-choice-exam",
+        "block-emergency-hazmat-confined-overview",
+        "block-emergency-confined-entry-protocol",
+        "block-emergency-confined-values-not-golden",
+        "block-emergency-heroic-rescue-warning",
+        "block-emergency-hazmat-exam-idlh",
+        "block-emergency-medical-first-response",
+        "block-emergency-cpr-aed-values-not-golden",
+        "block-emergency-aed-maintenance-failure",
+        "block-emergency-bcp-purpose",
+        "block-emergency-rto-rpo-training",
+        "block-emergency-lessons-learned-rca",
+        "block-emergency-bcp-case",
+        "block-emergency-near-miss-learning",
+        "block-emergency-plan-checklist",
+        "block-emergency-ert-checklist",
+        "block-emergency-evacuation-checklist",
+        "block-emergency-fire-systems-checklist",
+        "block-emergency-spill-checklist",
+        "block-emergency-communication-checklist",
+        "block-emergency-drills-checklist",
+        "block-emergency-glossary-core",
+        "block-emergency-fire-extended-triangle",
+        "block-emergency-extinguisher-table",
+        "block-emergency-extinguisher-numbers-not-golden"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "emergency-incident-command",
+      "title": "ניהול אירוע ומבנה פיקוד",
+      "description": "ICS, מפקד אירוע, שרשרת פיקוד, חפ״ק, טווח שליטה ומניעת פיקוד כפול.",
+      "parentTopicId": "emergency-preparedness-domain",
+      "aliases": [
+        "ICS",
+        "Incident Command",
+        "חפ״ק",
+        "מפקד אירוע",
+        "מבנה פיקוד"
+      ],
+      "relatedTopicIds": [
+        "emergency-communication-command",
+        "emergency-training-drills"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "sourceIds": [
+        "training-emergency-preparedness"
+      ],
+      "blockIds": [
+        "block-emergency-ics-purpose",
+        "block-emergency-ics-functions",
+        "block-emergency-command-chain-visual",
+        "block-emergency-command-breakdown",
+        "block-emergency-hot-zone-exam",
+        "block-emergency-ert-checklist",
+        "block-emergency-communication-checklist",
+        "block-emergency-glossary-core"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "emergency-communication-command",
+      "title": "תקשורת בחירום",
+      "description": "ערוץ חירום, כריזה, דוברות, דיווח, העברת מקל פיקוד ומניעת עומס קשר.",
+      "parentTopicId": "emergency-preparedness-domain",
+      "aliases": [
+        "תקשורת חירום",
+        "דובר",
+        "כריזה",
+        "קשר",
+        "Handover"
+      ],
+      "relatedTopicIds": [
+        "emergency-incident-command"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "sourceIds": [
+        "training-emergency-preparedness"
+      ],
+      "blockIds": [
+        "block-emergency-ics-purpose",
+        "block-emergency-command-chain-visual",
+        "block-emergency-command-breakdown",
+        "block-emergency-communication-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "emergency-fire-explosion",
+      "title": "אש ופיצוץ בחירום",
+      "description": "משולש האש, סיווג שריפות, בחירת מטפים, קצף, מערכות כיבוי ודגשי מבחן באש.",
+      "parentTopicId": "emergency-preparedness-domain",
+      "aliases": [
+        "אש",
+        "שריפה",
+        "פיצוץ",
+        "מטפים",
+        "CO2",
+        "קצף",
+        "משולש האש"
+      ],
+      "relatedTopicIds": [
+        "chemical-fire-explosion-risks",
+        "maintenance-hot-work",
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-13",
+        "lesson-18",
+        "lesson-12"
+      ],
+      "sourceIds": [
+        "training-emergency-preparedness"
+      ],
+      "blockIds": [
+        "block-emergency-fire-triangle",
+        "block-emergency-fire-classes",
+        "block-emergency-foam-values-not-golden",
+        "block-emergency-extinguisher-choice-exam",
+        "block-emergency-fire-systems-checklist",
+        "block-emergency-fire-extended-triangle",
+        "block-emergency-extinguisher-table",
+        "block-emergency-extinguisher-numbers-not-golden"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "emergency-hazmat-response",
+      "title": "אירוע חומרים מסוכנים וחללים מוקפים",
+      "description": "שפך חומ״ס, IDLH, ניטור אטמוספרי, LOTO, PTW, משגיח וחילוץ ללא כניסה.",
+      "parentTopicId": "emergency-preparedness-domain",
+      "aliases": [
+        "חומ״ס",
+        "HazMat",
+        "IDLH",
+        "חלל מוקף",
+        "Spill Response",
+        "גלאי גזים"
+      ],
+      "relatedTopicIds": [
+        "chemical-storage-segregation-spill",
+        "chemical-confined-space-process-risks",
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-14"
+      ],
+      "sourceIds": [
+        "training-emergency-preparedness"
+      ],
+      "blockIds": [
+        "block-emergency-bhopal-lessons",
+        "block-emergency-hot-zone-exam",
+        "block-emergency-hazmat-confined-overview",
+        "block-emergency-confined-entry-protocol",
+        "block-emergency-confined-values-not-golden",
+        "block-emergency-heroic-rescue-warning",
+        "block-emergency-hazmat-exam-idlh",
+        "block-emergency-spill-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "emergency-evacuation-rescue",
+      "title": "פינוי וחילוץ",
+      "description": "נתיבי מילוט, נקודות כינוס, מפקד שמי, חילוץ חיצוני ומניעת חילוץ גבורה.",
+      "parentTopicId": "emergency-preparedness-domain",
+      "aliases": [
+        "פינוי",
+        "חילוץ",
+        "נקודת כינוס",
+        "נתיבי מילוט",
+        "משגיח חוץ"
+      ],
+      "relatedTopicIds": [
+        "construction-emergency-response",
+        "emergency-hazmat-response",
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-32"
+      ],
+      "sourceIds": [
+        "training-emergency-preparedness"
+      ],
+      "blockIds": [
+        "block-emergency-safety-officer-field-actions",
+        "block-emergency-heroic-rescue-warning",
+        "block-emergency-evacuation-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "emergency-medical-first-aid",
+      "title": "עזרה ראשונה ו־AED בחירום",
+      "description": "בטיחות הזירה, CAB/ABC, AED, מכת חום, בדיקות ציוד ומניעת כשל בזמן אמת.",
+      "parentTopicId": "emergency-preparedness-domain",
+      "aliases": [
+        "AED",
+        "עזרה ראשונה",
+        "החייאה",
+        "מכת חום",
+        "CAB"
+      ],
+      "relatedTopicIds": [
+        "electrical-emergency-response",
+        "occupational-hygiene-thermal-stress"
+      ],
+      "lessonIds": [
+        "lesson-30",
+        "lesson-12",
+        "lesson-23"
+      ],
+      "sourceIds": [
+        "training-emergency-preparedness"
+      ],
+      "blockIds": [
+        "block-emergency-medical-first-response",
+        "block-emergency-cpr-aed-values-not-golden",
+        "block-emergency-aed-maintenance-failure"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "emergency-business-continuity",
+      "title": "רציפות תפקודית והפקת לקחים",
+      "description": "BCP, BIA, RTO/RPO, Disaster Recovery, RCA, Near Miss ותחקיר לאחר אירוע.",
+      "parentTopicId": "emergency-preparedness-domain",
+      "aliases": [
+        "BCP",
+        "BIA",
+        "RTO",
+        "RPO",
+        "Disaster Recovery",
+        "הפקת לקחים"
+      ],
+      "relatedTopicIds": [
+        "operational-rca-barriers-real",
+        "safety-culture-real",
+        "safety-governance-kpi-real"
+      ],
+      "lessonIds": [
+        "lesson-35",
+        "lesson-36",
+        "lesson-37"
+      ],
+      "sourceIds": [
+        "training-emergency-preparedness"
+      ],
+      "blockIds": [
+        "block-emergency-four-phases",
+        "block-emergency-bhopal-lessons",
+        "block-emergency-bcp-purpose",
+        "block-emergency-rto-rpo-training",
+        "block-emergency-lessons-learned-rca",
+        "block-emergency-bcp-case",
+        "block-emergency-near-miss-learning",
+        "block-emergency-plan-checklist",
+        "block-emergency-glossary-core"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "emergency-training-drills",
+      "title": "תרגילי חירום ומוכנות צוותים",
+      "description": "תרגילי הנהלה, צוותי חירום, פינוי, סימולציות, תחקיר תרגיל והפיכת פעולה לאינסטינקט.",
+      "parentTopicId": "emergency-preparedness-domain",
+      "aliases": [
+        "תרגיל חירום",
+        "סימולציה",
+        "ERT",
+        "צוות חירום",
+        "תרגיל פינוי"
+      ],
+      "relatedTopicIds": [
+        "emergency-incident-command",
+        "emergency-evacuation-rescue",
+        "human-factors-real"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "sourceIds": [
+        "training-emergency-preparedness"
+      ],
+      "blockIds": [
+        "block-emergency-human-factors-stress",
+        "block-emergency-dead-binder-warning",
+        "block-emergency-ert-checklist",
+        "block-emergency-drills-checklist",
+        "block-emergency-aed-maintenance-failure"
       ],
       "status": "draft"
     }

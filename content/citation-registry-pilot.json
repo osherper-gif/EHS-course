@@ -1496,6 +1496,150 @@
         "status": "source-backed"
       },
       "notes": "Level 6 training citation. Checklist percentages and intervals are training prompts only."
+    },
+    {
+      "citationId": "citation-training-emergency-preparedness-introduction",
+      "stableSourceId": "training-emergency-preparedness",
+      "citationType": "heading",
+      "label": "מבוא לניהול חירום ומוכנות ארגונית",
+      "locator": {
+        "heading": "מבוא לניהול חירום ומוכנות ארגונית",
+        "paragraphRange": "5-49",
+        "sourceFile": "9.3.הערכות למצבי חירום-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Legal references in the source are not promoted to binding claims."
+    },
+    {
+      "citationId": "citation-training-emergency-preparedness-incident-command",
+      "stableSourceId": "training-emergency-preparedness",
+      "citationType": "heading",
+      "label": "פיקודיות וניהול אירוע",
+      "locator": {
+        "heading": "פיקודיות וניהול אירוע",
+        "paragraphRange": "50-104",
+        "sourceFile": "9.3.הערכות למצבי חירום-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Span of control figures remain training content only."
+    },
+    {
+      "citationId": "citation-training-emergency-preparedness-fire",
+      "stableSourceId": "training-emergency-preparedness",
+      "citationType": "heading",
+      "label": "שריפות ובטיחות אש",
+      "locator": {
+        "heading": "תרחישי חירום תעשייתיים — שריפות ובטיחות אש",
+        "paragraphRange": "105-147",
+        "sourceFile": "9.3.הערכות למצבי חירום-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Foam ratios and first-response times are not golden numbers."
+    },
+    {
+      "citationId": "citation-training-emergency-preparedness-hazmat-confined",
+      "stableSourceId": "training-emergency-preparedness",
+      "citationType": "heading",
+      "label": "חומרים מסוכנים וחללים מוקפים",
+      "locator": {
+        "heading": "חומרים מסוכנים, דליפות גז וחללים מוקפים",
+        "paragraphRange": "148-201",
+        "sourceFile": "9.3.הערכות למצבי חירום-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Oxygen, LEL and IDLH values remain training concepts only."
+    },
+    {
+      "citationId": "citation-training-emergency-preparedness-medical-aed",
+      "stableSourceId": "training-emergency-preparedness",
+      "citationType": "heading",
+      "label": "אירועים רפואיים, עזרה ראשונה ו־AED",
+      "locator": {
+        "heading": "אירועים רפואיים, עזרה ראשונה והחייאה",
+        "paragraphRange": "202-252",
+        "sourceFile": "9.3.הערכות למצבי חירום-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. CPR and AED numbers are training content and not golden numbers."
+    },
+    {
+      "citationId": "citation-training-emergency-preparedness-bcp-lessons",
+      "stableSourceId": "training-emergency-preparedness",
+      "citationType": "heading",
+      "label": "רציפות תפקודית והפקת לקחים",
+      "locator": {
+        "heading": "המשכיות עסקית, רגולציה ולמידה מהפקת לקחים",
+        "paragraphRange": "253-292",
+        "sourceFile": "9.3.הערכות למצבי חירום-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. RTO/RPO are planning concepts and not binding values."
+    },
+    {
+      "citationId": "citation-training-emergency-preparedness-checklists",
+      "stableSourceId": "training-emergency-preparedness",
+      "citationType": "heading",
+      "label": "צ׳קליסטים לחירום בשטח",
+      "locator": {
+        "heading": "ערכת צ'קליסטים יישומיים לממונה הבטיחות",
+        "paragraphRange": "293-354",
+        "sourceFile": "9.3.הערכות למצבי חירום-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Checklist intervals and quantities remain training prompts."
+    },
+    {
+      "citationId": "citation-training-emergency-preparedness-glossary",
+      "stableSourceId": "training-emergency-preparedness",
+      "citationType": "heading",
+      "label": "מונחי חירום מרכזיים",
+      "locator": {
+        "heading": "מילון מונחים חכם",
+        "paragraphRange": "381-398",
+        "sourceFile": "9.3.הערכות למצבי חירום-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Definitions remain source-backed training content."
+    },
+    {
+      "citationId": "citation-training-emergency-preparedness-fire-extended",
+      "stableSourceId": "training-emergency-preparedness",
+      "citationType": "heading",
+      "label": "בטיחות אש, סיווג שריפות ומטפים",
+      "locator": {
+        "heading": "בטיחות אש — יסודות ותיאוריה יישומית",
+        "paragraphRange": "399-456",
+        "sourceFile": "9.3.הערכות למצבי חירום-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Extinguisher distances, heights and maintenance intervals are not golden numbers."
     }
   ]
 }

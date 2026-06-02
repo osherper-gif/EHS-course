@@ -16690,6 +16690,1990 @@
       "verification": {
         "status": "source-backed"
       }
+    },
+    {
+      "blockId": "block-emergency-domain-scope",
+      "blockType": "definition",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-introduction",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / מבוא",
+      "topicIds": [
+        "emergency-preparedness-domain"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-35"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מהי היערכות למצבי חירום",
+        "text": "המקור מציג מוכנות לחירום כמערכת ניהולית, הנדסית ותפעולית שנבנית בשגרה כדי להציל חיים, לצמצם נזק ולשמור על רציפות תפקודית בעת אירוע.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מבוא לניהול חירום ומוכנות ארגונית",
+          "paragraphRange": "5-10",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-four-phases",
+      "blockType": "summary-box",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-introduction",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / מבוא",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-business-continuity"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-35"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ארבעה שלבי ניהול חירום",
+        "text": "המקור מחלק את ניהול החירום למניעה וצמצום, מוכנות, מענה והתאוששות.",
+        "items": [
+          "מניעה וצמצום להפחתת סבירות או עוצמה.",
+          "מוכנות באמצעות נהלים, צוותים, ציוד ותרגול.",
+          "מענה תפעולי להצלת חיים ושליטה במקור הסיכון.",
+          "התאוששות והשבת פעילות קריטית."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ניהול משברים וחירום תעשייתי",
+          "paragraphRange": "11-15",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-bowtie-barriers",
+      "blockType": "paragraph",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-introduction",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / חסמים",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "חסמי מניעה וחסמי מענה",
+        "text": "המקור משתמש במודל BowTie כדי להפריד בין חסמי מניעה לפני האירוע לבין חסמי הפחתה ומענה לאחר התרחשות האירוע המרכזי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Emergency & Engineering Deep Dive",
+          "paragraphRange": "16-22",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-human-factors-stress",
+      "blockType": "warning",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-introduction",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / גורמי אנוש",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-training-drills",
+        "human-factors-real"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ראיית מנהרה וקפיאה קוגניטיבית",
+        "text": "החומר מתאר כיצד לחץ קיצוני עלול לצמצם קשב ולגרום לקיפאון, ולכן פעולות חירום חייבות להיות מתורגלות מראש עד לרמה תפקודית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Human Factors",
+          "paragraphRange": "23-26",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-bhopal-lessons",
+      "blockType": "field-example",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-introduction",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / מקרי אמת",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-hazmat-response",
+        "emergency-business-continuity"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-18"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בופאל ככשל רב־שכבתי",
+        "text": "המקור מציג את אסון בופאל ככשל של מערכות מושבתות, חיסכון בעלויות, חוסר תרגול וחוסר הדרכה לציבור.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דוגמאות מהשטח ומקרי אמת",
+          "paragraphRange": "35-36",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-dead-binder-warning",
+      "blockType": "warning",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-introduction",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / טעויות",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-training-drills"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תוכנית חירום שאינה מתורגלת היא קלסר מת",
+        "text": "המקור מזהיר מתוכנית עבה שנשארת על המדף ומהסתמכות על כוחות חוץ בלבד בדקות הראשונות של האירוע.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טעויות נפוצות",
+          "paragraphRange": "37-39",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-safety-officer-field-actions",
+      "blockType": "checklist",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-introduction",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / פעולות ממונה",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-evacuation-rescue"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "פעולות שטח לממונה בחירום",
+        "text": "המקור מדגיש סקר תרחישי קיצון, נגישות לחצני ESD, ברזי ניתוק ושילוט מילוט ברור.",
+        "items": [
+          "בצע סקר תרחישי קיצון.",
+          "בדוק נגישות לחצני חירום וברזי ניתוק.",
+          "ודא שילוט מילוט ברור ועמיד לתנאי חירום."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים לממונה הבטיחות",
+          "paragraphRange": "40-43",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-exam-responsibility",
+      "blockType": "exam-focus",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-introduction",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / דגשי מבחן",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-35"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "אחריות הנהלה מול תפקיד ממונה",
+        "text": "המקור מדגיש למבחן כי ממונה הבטיחות הוא יועץ מקצועי, והאחריות לביצוע מוכנות לחירום נשארת אצל תופש המפעל וההנהלה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים למבחן",
+          "paragraphRange": "44-49",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-ics-purpose",
+      "blockType": "definition",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-incident-command",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / פיקוד",
+      "topicIds": [
+        "emergency-incident-command",
+        "emergency-communication-command"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מערכת פיקוד אירוע",
+        "text": "המקור מציג ICS כמבנה פיקודי שמגדיר מפקד אחד, שרשרת דיווח ברורה ושפה אחידה כדי למנוע כאוס ופאניקה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Incident Command System",
+          "paragraphRange": "50-55",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-ics-functions",
+      "blockType": "checklist",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-incident-command",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / פיקוד",
+      "topicIds": [
+        "emergency-incident-command"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תחומי תפקוד ב־ICS",
+        "text": "המקור מפרט תחומי תפקוד מרכזיים לניהול אירוע מפעלי.",
+        "items": [
+          "פיקוד ואחריות כוללת.",
+          "מבצעים מול מקור הסיכון.",
+          "תכנון והערכת מצב.",
+          "לוגיסטיקה וציוד.",
+          "כספים ומנהלה לתיעוד ועלויות."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מבנה ה-ICS המפעלי",
+          "paragraphRange": "56-61",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-command-chain-visual",
+      "blockType": "summary-box",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-incident-command",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / פיקוד",
+      "topicIds": [
+        "emergency-incident-command",
+        "emergency-communication-command"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "שרשרת פיקוד מפעלית",
+        "text": "המקור מתאר מנהל אירוע, קצין בטיחות, קצין קשר, דובר, אגף מבצעים, תכנון ולוגיסטיקה. המספרים במקור נשמרים כחומר הדרכה ולא כמספרי זהב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "תרשים מבנה שרשרת הפיקוד",
+          "paragraphRange": "62-81",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-command-breakdown",
+      "blockType": "warning",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-incident-command",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / תקשורת",
+      "topicIds": [
+        "emergency-incident-command",
+        "emergency-communication-command"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "פיקוד כפול וערוץ קשר עמוס",
+        "text": "המקור מזהיר שפיקוד כפול, פקודות סותרות וערוץ קשר פתוח מדי עלולים להפוך אירוע נשלט לכאוס תפעולי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טעויות נפוצות",
+          "paragraphRange": "84-99",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-hot-zone-exam",
+      "blockType": "exam-focus",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-incident-command",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / דגשי מבחן",
+      "topicIds": [
+        "emergency-incident-command",
+        "emergency-hazmat-response"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-18"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "אזור חם במבחן",
+        "text": "המקור מציג אזור חם כשטח שבו קיים סיכון ישיר לבריאות, והכניסה אליו מיועדת לכוחות מוגנים ומצוידים. זהו דגש לימודי בלבד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים למבחן",
+          "paragraphRange": "100-104",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-fire-triangle",
+      "blockType": "definition",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-fire",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / אש",
+      "topicIds": [
+        "emergency-fire-explosion",
+        "chemical-fire-explosion-risks"
+      ],
+      "lessonIds": [
+        "lesson-13",
+        "lesson-18"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "משולש האש ופירמידת האש",
+        "text": "המקור מסביר שכדי לכבות שריפה יש לגרוע חומר דליק, חמצן או חום, ובמקרים מתקדמים גם לקטוע תגובת שרשרת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "משולש האש",
+          "paragraphRange": "105-115",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-fire-classes",
+      "blockType": "table",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-fire",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / אש",
+      "topicIds": [
+        "emergency-fire-explosion",
+        "chemical-fire-explosion-risks"
+      ],
+      "lessonIds": [
+        "lesson-13",
+        "lesson-18"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סיווג שריפות והתאמת כיבוי",
+        "text": "המקור מציג התאמת חומר כיבוי לסוג שריפה כדי למנוע שימוש מסוכן באמצעי לא מתאים.",
+        "items": [],
+        "table": {
+          "headers": [
+            "סוג שריפה",
+            "עיקרון התאמה"
+          ],
+          "rows": [
+            [
+              "A",
+              "מוצקים אורגניים, לרוב כיבוי בקירור."
+            ],
+            [
+              "B/C",
+              "נוזלים או גזים דליקים, טיפול באמצעות חניקה או סגירת מקור."
+            ],
+            [
+              "D/E/F",
+              "מתכות, חשמל או שמנים דורשים חומר כיבוי מתאים לסיכון."
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "סיווג השריפות",
+          "paragraphRange": "116-121",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-foam-values-not-golden",
+      "blockType": "paragraph",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-fire",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / אש",
+      "topicIds": [
+        "emergency-fire-explosion"
+      ],
+      "lessonIds": [
+        "lesson-13"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "יחסי קצף וזמן תגובה כחומר לימודי",
+        "text": "המקור כולל אחוזי תרכיז, יחסי קצף וחלונות זמן ראשוניים. בפיילוט זה הם אינם מוצגים כמספרי זהב משום שמדובר במקור הדרכה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכות הכיבוי המפעליות",
+          "paragraphRange": "122-147",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-extinguisher-choice-exam",
+      "blockType": "exam-focus",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-fire",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / אש",
+      "topicIds": [
+        "emergency-fire-explosion",
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-12",
+        "lesson-13"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מטף CO2 באולם שרתים כדגש לימודי",
+        "text": "המקור מציג שאלה טיפוסית על התאמת CO2 לשריפה חשמלית/אלקטרונית משום שאינו מוליך ואינו משאיר משקעים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים למבחן",
+          "paragraphRange": "143-147",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-hazmat-confined-overview",
+      "blockType": "definition",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-hazmat-confined",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / חומ״ס וחלל מוקף",
+      "topicIds": [
+        "emergency-hazmat-response",
+        "chemical-confined-space-process-risks",
+        "confined-space-and-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-14"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תקרית חומ״ס וחלל מוקף",
+        "text": "המקור מגדיר תקרית חומ״ס כאירוע בלתי מבוקר של חומר מסוכן, וחלל מוקף כמקום שבו הסיכון המרכזי הוא אטמוספירה מסוכנת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "חומרים מסוכנים, דליפות גז וחללים מוקפים",
+          "paragraphRange": "148-155",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-confined-entry-protocol",
+      "blockType": "checklist",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-hazmat-confined",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / חומ״ס וחלל מוקף",
+      "topicIds": [
+        "emergency-hazmat-response",
+        "chemical-confined-space-process-risks",
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-14"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "כניסה לחלל מוקף כחומר הדרכה",
+        "text": "המקור מציג רצף עבודה הכולל בידוד אנרגיות, אוורור, ניטור אטמוספרי, היתר כניסה ומשגיח חוץ.",
+        "items": [
+          "בידוד מקורות ואנרגיות.",
+          "שטיפה ואוורור מאולץ.",
+          "ניטור אטמוספרי בגבהים שונים.",
+          "חתימה על היתר כניסה.",
+          "משגיח חוץ וחילוץ ללא כניסה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "פרוטוקול כניסה ועבודה בחלל מוקף",
+          "paragraphRange": "156-178",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-confined-values-not-golden",
+      "blockType": "paragraph",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-hazmat-confined",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / חומ״ס וחלל מוקף",
+      "topicIds": [
+        "emergency-hazmat-response",
+        "chemical-confined-space-process-risks"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-14"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "IDLH, חמצן ו־LEL אינם מספרי זהב כאן",
+        "text": "המקור כולל ערכי IDLH, חמצן ו־LEL. הם נשמרים כהסבר לימודי בלבד ולא נוצרו כמספרי זהב ממקור הדרכה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "IDLH וניטור אטמוספרי",
+          "paragraphRange": "153-163",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-heroic-rescue-warning",
+      "blockType": "warning",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-hazmat-confined",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / חילוץ",
+      "topicIds": [
+        "emergency-evacuation-rescue",
+        "emergency-hazmat-response",
+        "chemical-confined-space-process-risks"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-14"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "חילוץ גבורה יוצר נפגע נוסף",
+        "text": "המקור מדגיש שבחללים מוקפים מחלצים ומשגיחים עלולים להפוך לנפגעים כאשר הם נכנסים ללא הגנת נשימה וללא תוכנית חילוץ.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Human Factors",
+          "paragraphRange": "179-195",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-hazmat-exam-idlh",
+      "blockType": "exam-focus",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-hazmat-confined",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / חומ״ס וחלל מוקף",
+      "topicIds": [
+        "emergency-hazmat-response",
+        "chemical-confined-space-process-risks"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-14"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "IDLH כדגש לימודי בלבד",
+        "text": "המקור מדגיש את מושג IDLH ואת המשמעות של אטמוספירה מסוכנת. הערכים המספריים אינם מסומנים כמספרי זהב בפיילוט.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים למבחן",
+          "paragraphRange": "196-201",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-medical-first-response",
+      "blockType": "summary-box",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-medical-aed",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / עזרה ראשונה",
+      "topicIds": [
+        "emergency-medical-first-aid",
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-30",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בטיחות הזירה לפני טיפול רפואי",
+        "text": "המקור מציג סדר פעולה שבו קודם מוודאים שהזירה בטוחה למחלץ, ורק לאחר מכן בודקים הכרה, מזעיקים עזרה ומפעילים AED או החייאה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "אירועים רפואיים, עזרה ראשונה והחייאה",
+          "paragraphRange": "202-212",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-cpr-aed-values-not-golden",
+      "blockType": "paragraph",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-medical-aed",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / עזרה ראשונה",
+      "topicIds": [
+        "emergency-medical-first-aid"
+      ],
+      "lessonIds": [
+        "lesson-30"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "יחסי החייאה וזמני תגובה כחומר לימודי",
+        "text": "המקור כולל מספרי עיסויים, קצב, עומק, זמני בדיקה וסיכויי הישרדות. הם אינם נוצרים כמספרי זהב ממקור הדרכה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "פרוטוקול ABC / CAB",
+          "paragraphRange": "208-252",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-aed-maintenance-failure",
+      "blockType": "warning",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-medical-aed",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / עזרה ראשונה",
+      "topicIds": [
+        "emergency-medical-first-aid",
+        "emergency-training-drills"
+      ],
+      "lessonIds": [
+        "lesson-30"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "AED שלא נבדק עלול להיכשל ברגע האמת",
+        "text": "המקור מתאר כשל סמוי של סוללה או מדבקות פגומות בשל היעדר בדיקה תקופתית, שמתגלה רק בזמן אירוע לב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Root Cause Thinking",
+          "paragraphRange": "234-247",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-bcp-purpose",
+      "blockType": "definition",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-bcp-lessons",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / רציפות",
+      "topicIds": [
+        "emergency-business-continuity"
+      ],
+      "lessonIds": [
+        "lesson-35"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "רציפות תפקודית אחרי האירוע",
+        "text": "המקור מסביר שניהול חירום אינו מסתיים בכיבוי הלהבות או עצירת הדליפה, אלא כולל תוכנית להמשך פעילות קריטית והתאוששות עסקית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "המשכיות עסקית",
+          "paragraphRange": "253-258",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-rto-rpo-training",
+      "blockType": "paragraph",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-bcp-lessons",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / רציפות",
+      "topicIds": [
+        "emergency-business-continuity"
+      ],
+      "lessonIds": [
+        "lesson-35"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "RTO ו־RPO הם כלי תכנון",
+        "text": "המקור מציג RTO ו־RPO כחלק מניתוח השפעות עסקיות. הם נשמרים כמושגי תכנון לימודיים ולא כמספרים מחייבים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Business Impact Analysis",
+          "paragraphRange": "259-261",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-lessons-learned-rca",
+      "blockType": "summary-box",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-bcp-lessons",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / הפקת לקחים",
+      "topicIds": [
+        "emergency-business-continuity",
+        "operational-rca-barriers-real",
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-35",
+        "lesson-36",
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תחקור אחרי חירום וכמעט־נפגע",
+        "text": "המקור מציג שימוש ב־RCA ובחמשת הלמה לאחר אירוע או כמעט־נפגע כדי לחשוף כשלי רכש, הדרכה, ציוד והגדרה תהליכית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מתודולוגיית למידה והפקת לקחים",
+          "paragraphRange": "262-276",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-bcp-case",
+      "blockType": "field-example",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-bcp-lessons",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / רציפות",
+      "topicIds": [
+        "emergency-business-continuity"
+      ],
+      "lessonIds": [
+        "lesson-35"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "שרפה בחדר שרתים ללא BCP",
+        "text": "במקרה המתואר, שרפה בחדר שרתים השביתה מערכת מלאי והובילה לפגיעה תפעולית ממושכת משום שלא הייתה תוכנית המשכיות מגובשת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דוגמאות מהשטח ומקרי אמת",
+          "paragraphRange": "279-280",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-near-miss-learning",
+      "blockType": "exam-focus",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-bcp-lessons",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / הפקת לקחים",
+      "topicIds": [
+        "emergency-business-continuity",
+        "safety-culture-real",
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-35",
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "כמעט־נפגע הוא מקור למידה",
+        "text": "המקור מדגיש שהתעלמות מכמעט־נפגע או האשמת עובד מחמיצות הזדמנות לתיקון כשל מערכתי לפני אסון.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טעויות נפוצות ודגשים",
+          "paragraphRange": "281-292",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש מבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-plan-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-checklists",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / צ׳קליסטים",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-business-continuity"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-35"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בדיקות בסיס לתוכנית חירום",
+        "text": "המקור מציע בדיקות לתוכנית כתובה, מיפוי תרחישי קיצון, RTO/RPO, חפ״ק ורשימת קשר.",
+        "items": [
+          "תוכנית חירום כתובה ומעודכנת.",
+          "מיפוי תרחישי קיצון.",
+          "חפ״ק וחפ״ק חלופי.",
+          "רשימת קשר חירום מעודכנת."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Checklist תוכנית חירום מפעלית",
+          "paragraphRange": "293-300",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-ert-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-checklists",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / מענה מפעלי",
+      "topicIds": [
+        "emergency-incident-command",
+        "emergency-training-drills"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "צוותי חירום מפעליים",
+        "text": "המקור מתייחס למיפוי צוותי חירום לכל משמרת, הדרכה מעשית, ציוד מגן, מפקד אירוע וכשירות רפואית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Checklist צוותי חירום מפעליים",
+          "paragraphRange": "301-306",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-evacuation-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-checklists",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / פינוי",
+      "topicIds": [
+        "emergency-evacuation-rescue",
+        "construction-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-32"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "פינוי ונקודות כינוס",
+        "text": "המקור מדגיש נתיבי מילוט פנויים, דלתות חירום, שילוט, נקודות כינוס ומפקד שמי מול רשימת נוכחות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Checklist פינוי ועובדים",
+          "paragraphRange": "307-312",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-fire-systems-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-checklists",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / אש",
+      "topicIds": [
+        "emergency-fire-explosion",
+        "chemical-fire-explosion-risks",
+        "maintenance-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-13",
+        "lesson-18"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ציוד כיבוי ומערכות אש",
+        "text": "המקור מציע בדיקות נגישות מטפים, גלגלונים, הידרנטים, ספרינקלרים, דלתות אש ומערכת גילוי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Checklist ציוד כיבוי אש",
+          "paragraphRange": "313-318",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-spill-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-checklists",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / חומ״ס",
+      "topicIds": [
+        "emergency-hazmat-response",
+        "chemical-storage-segregation-spill"
+      ],
+      "lessonIds": [
+        "lesson-18"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תגובה לשפך חומ״ס",
+        "text": "המקור מתייחס לערכות שפך, חומרים סופגים, PPE, SDS וכיסויי נקזים למניעת הגעת שפך לביוב או לסביבה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Checklist Spill Response",
+          "paragraphRange": "325-330",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-communication-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-checklists",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / תקשורת",
+      "topicIds": [
+        "emergency-communication-command",
+        "emergency-incident-command"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תקשורת ודוברות בחירום",
+        "text": "המקור מדגיש כריזה, מכשירי קשר, גיבוי תקשורת, מספרי חירום ודובר רשמי אחד למניעת שמועות ומידע שגוי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Checklist תקשורת חירום",
+          "paragraphRange": "337-342",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-drills-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-checklists",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / תרגילים",
+      "topicIds": [
+        "emergency-training-drills"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תרגילים וסימולציות",
+        "text": "המקור מציע תוכנית תרגילים שנתית, תרגילי פינוי, תרגילי צוות חירום ותחקיר מסודר לאחר כל תרגיל.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Checklist תרגילי חירום וסימולציות",
+          "paragraphRange": "349-354",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-glossary-core",
+      "blockType": "definition",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-glossary",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / מונחים",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-incident-command",
+        "emergency-business-continuity"
+      ],
+      "lessonIds": [
+        "lesson-04",
+        "lesson-35"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מונחי יסוד בחירום",
+        "text": "המילון במקור מגדיר היערכות לחירום, ניהול משברים, ICS, ERT, Spill Response, BCP, AED, Near Miss ו־RCA כחומר הדרכה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מילון מונחים חכם",
+          "paragraphRange": "381-398",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-fire-extended-triangle",
+      "blockType": "definition",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-fire-extended",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / בטיחות אש",
+      "topicIds": [
+        "emergency-fire-explosion",
+        "chemical-fire-explosion-risks"
+      ],
+      "lessonIds": [
+        "lesson-13",
+        "lesson-18"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "טטראהדרון האש והתגובה הכימית",
+        "text": "המקור מרחיב את משולש האש לפירמידת אש עם תגובת שרשרת כימית, ומסביר כי כיבוי מורכב עשוי לדרוש קטיעת תגובת השרשרת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בטיחות אש — יסודות ותיאוריה יישומית",
+          "paragraphRange": "399-407",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-extinguisher-table",
+      "blockType": "table",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-fire-extended",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / מטפים",
+      "topicIds": [
+        "emergency-fire-explosion",
+        "electrical-emergency-response"
+      ],
+      "lessonIds": [
+        "lesson-13",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בחירת מטף לפי סוג שריפה",
+        "text": "המקור מסכם מטפי אבקה, CO2, קצף וכימיקל רטוב לפי מנגנון פעולה והתאמה לסוג השריפה.",
+        "items": [],
+        "table": {
+          "headers": [
+            "סוג מטף",
+            "שימוש לימודי"
+          ],
+          "rows": [
+            [
+              "אבקה",
+              "רב־שימושי לסוגי A/B/C."
+            ],
+            [
+              "CO2",
+              "מתאים לחשמל ונוזלים דליקים, ללא שאריות."
+            ],
+            [
+              "קצף",
+              "מתאים בעיקר לנוזלים דליקים ולמוצקים מסוימים."
+            ],
+            [
+              "כימיקל רטוב",
+              "ייעודי לשמני בישול."
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערך המטפים",
+          "paragraphRange": "408-456",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-emergency-extinguisher-numbers-not-golden",
+      "blockType": "paragraph",
+      "sourceId": "training-emergency-preparedness",
+      "citationId": "citation-training-emergency-preparedness-fire-extended",
+      "sourceCitation": "מקור הדרכה: היערכות חירום / מטפים",
+      "topicIds": [
+        "emergency-fire-explosion"
+      ],
+      "lessonIds": [
+        "lesson-13"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מרחקי מטפים וגובה התקנה אינם מספרי זהב כאן",
+        "text": "המקור כולל מרחקי הליכה, גובה הצבה ותדירויות בדיקה. הם נשמרים כחומר הדרכה בלבד ולא כמספרי זהב ממקור Level 6.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים תפעוליים לממונה הבטיחות",
+          "paragraphRange": "451-456",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
     }
   ]
 }
