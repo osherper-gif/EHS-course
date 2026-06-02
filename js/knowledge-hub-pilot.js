@@ -108,7 +108,7 @@
     if (!target) return;
 
     const query = normalizeSearch(document.querySelector('[data-kh-search]')?.value || '');
-    const rootTopics = getRootTopics(state.data.topics).filter((topic) => topicMatchesSearch(topic, query));
+    const rootTopics = getRootTopics(state.data.topics).filter((topic) => topicMatchesSearch(state, topic, query));
 
     if (!rootTopics.length) {
       target.innerHTML = '<article class="kh-empty kh-topic-empty">לא נמצאו נושאים מתאימים</article>';
@@ -209,13 +209,17 @@
     });
   }
 
-  function topicMatchesSearch(topic, query) {
+  function topicMatchesSearch(state, topic, query) {
     if (!query) return true;
-    const haystack = normalizeSearch([
-      topic.title,
-      topic.description,
-      ...(Array.isArray(topic.aliases) ? topic.aliases : [])
-    ].filter(Boolean).join(' '));
+    const scope = getTopicScope(state, topic.topicId);
+    const scopedTopics = Array.from(scope.topicIds)
+      .map((topicId) => state.topicById.get(topicId))
+      .filter(Boolean);
+    const haystack = normalizeSearch(scopedTopics.flatMap((scopedTopic) => [
+      scopedTopic.title,
+      scopedTopic.description,
+      ...(Array.isArray(scopedTopic.aliases) ? scopedTopic.aliases : [])
+    ]).filter(Boolean).join(' '));
     return haystack.includes(query);
   }
 

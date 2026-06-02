@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "registryStatus": "pilot",
   "scope": {
-    "description": "Topic mapping pilot with real Level 6 training-source topics.",
+    "description": "Normalized topic map for Knowledge Hub pilot. Root cards are limited to stable knowledge domains; existing topics remain as subtopics, related topics, or aliases.",
     "sourceIds": [
       "law-labor-inspection-1954",
       "ordinance-work-safety-1970",
@@ -14,6 +14,18 @@
       "training-safety-organization-final",
       "training-operational-risks",
       "ordinance-work-safety-1970"
+    ],
+    "rootDomainTarget": [
+      "regulation-governance-domain",
+      "occupational-safety-management-real",
+      "human-factors-real",
+      "operational-risks-real",
+      "electrical-safety-domain",
+      "maintenance-safety-domain",
+      "construction-excavation-risk-real",
+      "chemical-hazardous-materials-domain",
+      "emergency-preparedness-domain",
+      "exam-preparation-domain"
     ]
   },
   "topics": [
@@ -21,7 +33,7 @@
       "topicId": "labor-inspection-law",
       "title": "חוק ארגון הפיקוח על העבודה",
       "description": "Topic root for the pilot blocks extracted from the labor inspection law source.",
-      "parentTopicId": null,
+      "parentTopicId": "regulation-governance-domain",
       "aliases": [
         "labor inspection law",
         "פיקוח על העבודה"
@@ -101,7 +113,7 @@
       "topicId": "safety-management",
       "title": "ניהול בטיחות",
       "description": "Management-facing topic for safety program and management responsibility blocks.",
-      "parentTopicId": null,
+      "parentTopicId": "occupational-safety-management-real",
       "aliases": [
         "safety management",
         "ניהול מערך בטיחות"
@@ -235,7 +247,7 @@
       "topicId": "roles-and-responsibilities",
       "title": "בעלי תפקידים ואחריות",
       "description": "Pilot topic for responsibility mapping around safety committee composition.",
-      "parentTopicId": null,
+      "parentTopicId": "regulation-governance-domain",
       "aliases": [
         "roles and responsibilities",
         "אחריות בעלי תפקידים"
@@ -261,10 +273,13 @@
       "topicId": "exam-focus",
       "title": "דגשי מבחן",
       "description": "Pilot topic for exam-focus blocks that still require source traceability.",
-      "parentTopicId": null,
+      "parentTopicId": "exam-preparation-domain",
       "aliases": [
         "exam focus",
-        "מלכודות מבחן"
+        "מלכודות מבחן",
+        "??? ????",
+        "?????? ????",
+        "???? ?????"
       ],
       "relatedTopicIds": [
         "improvement-order",
@@ -287,10 +302,14 @@
       "topicId": "source-governance",
       "title": "עקיבות מקור ותוכן",
       "description": "Pilot governance topic that documents traceability from source to content block.",
-      "parentTopicId": null,
+      "parentTopicId": "regulation-governance-domain",
       "aliases": [
         "source governance",
-        "traceability"
+        "traceability",
+        "??????",
+        "????",
+        "?????",
+        "Traceability"
       ],
       "relatedTopicIds": [
         "labor-inspection-law"
@@ -309,15 +328,26 @@
     },
     {
       "topicId": "human-factors-real",
-      "title": "גורם אנושי ומצב רגשי",
-      "description": "איך תפיסת סיכון, מצב רגשי, קשב והחלטות מספיק טובות משפיעים על בטיחות בשטח.",
+      "title": "???? ????? ??????",
+      "description": "???? ?? ????? ?????, HOP, Just Culture, ????? ?????, Near Miss, RCA, ????? ??? ?????? ??? ?????? ????? ?? ????? ?????.",
       "parentTopicId": null,
-      "aliases": [],
+      "aliases": [
+        "HOP",
+        "Human Factors",
+        "Just Culture",
+        "Safety Culture",
+        "Near Miss",
+        "RCA",
+        "????? ??????",
+        "???? ?????"
+      ],
       "relatedTopicIds": [
         "safety-culture-real",
         "human-factors-field-tools-real",
         "chemical-hazardous-materials-domain",
-        "occupational-hygiene-domain"
+        "occupational-hygiene-domain",
+        "operational-risks-real",
+        "occupational-safety-management-real"
       ],
       "lessonIds": [
         "lesson-08",
@@ -349,7 +379,7 @@
       "topicId": "safety-culture-real",
       "title": "תרבות בטיחות ובטיחות התנהגותית",
       "description": "תרבות דיווח, Just Culture, HOP, BBS ונורמליזציה של סטייה.",
-      "parentTopicId": null,
+      "parentTopicId": "human-factors-real",
       "aliases": [],
       "relatedTopicIds": [
         "human-factors-real",
@@ -385,7 +415,7 @@
       "topicId": "safety-leadership-governance-real",
       "title": "מנהיגות בטיחות ומשילות",
       "description": "לחצי תפוקה, ניהול קבלנים, גבולות תפקיד הממונה ומדדי בטיחות מובילים.",
-      "parentTopicId": null,
+      "parentTopicId": "occupational-safety-management-real",
       "aliases": [],
       "relatedTopicIds": [
         "safety-culture-real",
@@ -420,7 +450,7 @@
       "topicId": "human-factors-field-tools-real",
       "title": "כלי שטח לניהול גורם אנושי",
       "description": "צ׳קליסטים מעשיים לניהול דיווח, Near Miss, RCA, הדרכה וניהול סיכונים.",
-      "parentTopicId": null,
+      "parentTopicId": "human-factors-real",
       "aliases": [],
       "relatedTopicIds": [
         "human-factors-real",
@@ -446,10 +476,18 @@
     },
     {
       "topicId": "occupational-safety-management-real",
-      "title": "ניהול בטיחות בתעסוקה",
-      "description": "מערכת ניהול בטיחות, ממשל בטיחות, מדדי ביצוע, הערכת סיכונים והיררכיית בקרות מתוך מקור הדרכה.",
+      "title": "????? ??????",
+      "description": "???? ?? ?????? ????? ??????, ???? ??????, ?????? ?????, KPI, CAPA, ????? ???????, ???????? ????? ?????? ???? ???????.",
       "parentTopicId": null,
-      "aliases": [],
+      "aliases": [
+        "????? ?????? ???????",
+        "SMS",
+        "PDCA",
+        "KPI",
+        "CAPA",
+        "?????? ?????",
+        "????? ???? ???????"
+      ],
       "relatedTopicIds": [
         "sms-management-system-real",
         "safety-governance-kpi-real",
@@ -458,7 +496,12 @@
         "safety-management-human-factors-interface",
         "safety-management-incident-learning-rca",
         "safety-management-critical-work-controls",
-        "safety-management-officer-toolkit"
+        "safety-management-officer-toolkit",
+        "safety-management",
+        "safety-organization-governance-real",
+        "safety-leadership-governance-real",
+        "operational-risks-real",
+        "human-factors-real"
       ],
       "lessonIds": [
         "lesson-08",
@@ -642,7 +685,7 @@
       "topicId": "safety-organization-governance-real",
       "title": "ארגון מערך הבטיחות",
       "description": "מבנה ניהולי, לוחות מחוונים, SMS, בקרות, תרבות בטיחות, ממשל פנימי, ועדה, נאמנים ותפקיד ממונה הבטיחות מתוך מקור הדרכה.",
-      "parentTopicId": null,
+      "parentTopicId": "occupational-safety-management-real",
       "aliases": [],
       "relatedTopicIds": [
         "safety-organization-architecture-real",
@@ -815,17 +858,29 @@
     },
     {
       "topicId": "operational-risks-real",
-      "title": "סיכונים תפעוליים",
-      "description": "סיכונים בהפעלה, תחזוקה, הרמה, בנייה, בקרת אנרגיה ותחקור חסמים.",
+      "title": "??????? ????????",
+      "description": "???? ?? ?????? ??????? ????????, Hazard/Risk, Bow Tie, ????? ??????, PTW, LOTO, RCA, Near Miss ?????? ?????? ????.",
       "parentTopicId": null,
-      "aliases": [],
+      "aliases": [
+        "Hazard",
+        "Risk",
+        "Bow Tie",
+        "PTW",
+        "LOTO",
+        "RCA",
+        "Near Miss",
+        "????? ???????"
+      ],
       "relatedTopicIds": [
         "operational-risk-barriers-real",
         "pressure-process-safety-real",
         "lifting-dynamics-real",
         "construction-excavation-risk-real",
         "loto-ptw-energy-control-real",
-        "operational-rca-barriers-real"
+        "operational-rca-barriers-real",
+        "maintenance-safety-domain",
+        "human-factors-real",
+        "occupational-safety-management-real"
       ],
       "lessonIds": [
         "lesson-10",
@@ -956,14 +1011,18 @@
     },
     {
       "topicId": "construction-excavation-risk-real",
-      "title": "עבודות בנייה ועבודה בגובה",
-      "description": "Domain בנייה: פיגומים, עבודה בגובה, חפירות, עגורנים, חשמל זמני, קבלנים, SIMOPS וחירום באתר.",
+      "title": "????? ?????? ?????",
+      "description": "???? ?? ??????? ?????, ????? ?????, ???????, ??????, ???????, ??????, ???? ???? ?????, ????? ?????? ??????? ?????.",
       "parentTopicId": null,
       "aliases": [
         "בנייה, חפירות ועבודה בגובה",
         "עבודות בנייה",
         "בטיחות באתרי בנייה",
-        "אתרי בנייה"
+        "אתרי בנייה",
+        "?????? ?????",
+        "????? ?????",
+        "???????",
+        "??????"
       ],
       "relatedTopicIds": [
         "loto-ptw-energy-control-real",
@@ -977,7 +1036,8 @@
         "construction-emergency-response",
         "construction-field-learning",
         "electrical-safety-domain",
-        "lifting-dynamics-real"
+        "lifting-dynamics-real",
+        "emergency-preparedness-domain"
       ],
       "lessonIds": [
         "lesson-10",
@@ -1128,7 +1188,7 @@
       "topicId": "work-safety-ordinance",
       "title": "פקודת הבטיחות בעבודה",
       "description": "מקור משפטי רחב העוסק בתנאי עבודה, בריאות, מכונות, הרמה, מתקני לחץ, תיעוד ואחריות תפעולית.",
-      "parentTopicId": null,
+      "parentTopicId": "regulation-governance-domain",
       "aliases": [
         "פקודת הבטיחות",
         "פקודת הבטיחות בעבודה",
@@ -1795,20 +1855,26 @@
     },
     {
       "topicId": "electrical-safety-domain",
-      "title": "בטיחות בחשמל",
-      "description": "תחום ידע מקצועי לבטיחות בחשמל: יסודות, התחשמלות, ציוד, הארקה, הגנות וחירום.",
+      "title": "????",
+      "description": "???? ?? ??????? ?????: ????????, ?????, ???? ???, ????? ?????? ????, ??????, ???? ????? ?????? ?????? ?????.",
       "parentTopicId": null,
       "aliases": [
         "חשמל",
         "בטיחות חשמל",
-        "הגנה מחשמל"
+        "הגנה מחשמל",
+        "?????? ?????",
+        "???",
+        "?????",
+        "????????",
+        "LOTO ????"
       ],
       "relatedTopicIds": [
         "electrical-safety-basics",
         "electrical-shock-risk",
         "electrical-equipment-site",
         "electrical-grounding-protection",
-        "electrical-emergency-response"
+        "electrical-emergency-response",
+        "maintenance-safety-domain"
       ],
       "lessonIds": [
         "lesson-12",
@@ -2021,13 +2087,18 @@
     },
     {
       "topicId": "maintenance-safety-domain",
-      "title": "בטיחות תחזוקה",
-      "description": "Domain אחזקה: סיכוני מכונות, אנרגיות מסוכנות, LOTO, כלי כוח, שלמות מכנית ועבודה באש.",
+      "title": "?????? ??????",
+      "description": "???? ?? ??????? ??????, ?????? ??????, LOTO, ????? ?????, ??????? ???????, PTW, ????? ?????? ?????? ?? ???? ?????.",
       "parentTopicId": null,
       "aliases": [
         "אחזקה",
         "בטיחות אחזקה",
-        "תחזוקה"
+        "תחזוקה",
+        "?????? ??????",
+        "LOTO",
+        "????? ?????",
+        "PTW",
+        "??????? ???????"
       ],
       "relatedTopicIds": [
         "maintenance-human-performance",
@@ -2036,7 +2107,9 @@
         "loto-ptw-energy-control-real",
         "maintenance-hazardous-energy",
         "maintenance-arc-flash-cat",
-        "maintenance-hot-work"
+        "maintenance-hot-work",
+        "electrical-safety-domain",
+        "operational-risks-real"
       ],
       "lessonIds": [
         "lesson-10",
@@ -2492,14 +2565,21 @@
     },
     {
       "topicId": "chemical-hazardous-materials-domain",
-      "title": "חומרים מסוכנים וסיכונים כימיים",
-      "description": "Domain כימי: חומ״ס, SDS, GHS, מסלולי חשיפה, ניטור, אחסון, שפך, אש, PPE ומזהמים ספציפיים.",
+      "title": "?????? ??????? ?????",
+      "description": "???? ?? ??????? ???????, GHS, SDS, ????? ??????, ?????? ?????, ????? ?????, ???? ???, ?????, ???, ????? ????? ?????? ????? ?????????.",
       "parentTopicId": null,
       "aliases": [
         "חומ״ס",
         "חומרים מסוכנים",
         "סיכונים כימיים",
-        "כימיקלים"
+        "כימיקלים",
+        "?????? ???????",
+        "?????",
+        "GHS",
+        "SDS",
+        "PPE",
+        "???? ????????",
+        "????? ?????"
       ],
       "relatedTopicIds": [
         "chemical-classification-ghs-sds",
@@ -2509,7 +2589,10 @@
         "chemical-fire-explosion-risks",
         "chemical-controls-ppe",
         "chemical-confined-space-process-risks",
-        "chemical-specific-contaminants"
+        "chemical-specific-contaminants",
+        "occupational-hygiene-domain",
+        "emergency-preparedness-domain",
+        "human-factors-real"
       ],
       "lessonIds": [
         "lesson-18",
@@ -2891,7 +2974,7 @@
       "topicId": "occupational-hygiene-domain",
       "title": "גהות תעסוקתית",
       "description": "Domain גהות: חשיפות תעסוקתיות, ניטור, אוורור, PPE, רעש, קרינה, עומסי חום, מחלות מקצוע וארגונומיה.",
-      "parentTopicId": null,
+      "parentTopicId": "chemical-hazardous-materials-domain",
       "aliases": [
         "גהות",
         "בריאות תעסוקתית",
@@ -3252,15 +3335,20 @@
     },
     {
       "topicId": "emergency-preparedness-domain",
-      "title": "היערכות למצבי חירום",
-      "description": "Domain חירום: מוכנות ארגונית, ניהול אירוע, פינוי, חילוץ, אש, חומ״ס, עזרה ראשונה, תרגילים ורציפות תפקודית.",
+      "title": "????? ??????? ???????",
+      "description": "???? ?? ???????? ????? ?????, ????? ?????, ????? ??????, ?? ??????, ????? ?????? ???????, ??????? ??????? ???????.",
       "parentTopicId": null,
       "aliases": [
         "חירום",
         "מוכנות לחירום",
         "Emergency Preparedness",
         "רציפות תפקודית",
-        "ניהול משברים"
+        "ניהול משברים",
+        "??????? ????? ?????",
+        "?????",
+        "?????? ???????",
+        "BCP",
+        "??"
       ],
       "relatedTopicIds": [
         "emergency-incident-command",
@@ -3268,7 +3356,9 @@
         "emergency-hazmat-response",
         "emergency-business-continuity",
         "construction-emergency-response",
-        "chemical-storage-segregation-spill"
+        "chemical-storage-segregation-spill",
+        "chemical-hazardous-materials-domain",
+        "operational-risks-real"
       ],
       "lessonIds": [
         "lesson-04",
@@ -3594,6 +3684,181 @@
         "block-emergency-ert-checklist",
         "block-emergency-drills-checklist",
         "block-emergency-aed-maintenance-failure"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "regulation-governance-domain",
+      "title": "??????? ????? ??????",
+      "description": "???? ?? ????? ?????, ??????, ??????, ??????? ??????. ??????? ???????? ?????? ?? ????? ????? ??? ???? ????? ???? ???? ?????.",
+      "parentTopicId": null,
+      "aliases": [
+        "?????",
+        "???????",
+        "???? ??????",
+        "???",
+        "????? ?? ??????"
+      ],
+      "relatedTopicIds": [
+        "labor-inspection-law",
+        "work-safety-ordinance",
+        "roles-and-responsibilities",
+        "safety-organization-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-02",
+        "lesson-03",
+        "lesson-04",
+        "lesson-05",
+        "lesson-07",
+        "lesson-08"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954",
+        "ordinance-work-safety-1970"
+      ],
+      "blockIds": [
+        "block-labor-inspection-improvement-order-appeal-summary",
+        "block-labor-inspection-improvement-order-exam-focus",
+        "block-labor-inspection-second-chapter-definitions",
+        "block-ordinance-factory-scope-summary",
+        "block-ordinance-factory-scope-warning",
+        "block-ordinance-factory-scope-checklist",
+        "block-ordinance-occupational-health-summary",
+        "block-ordinance-occupational-health-warning",
+        "block-ordinance-occupational-health-checklist",
+        "block-ordinance-machine-guarding-summary",
+        "block-ordinance-machine-guarding-warning",
+        "block-ordinance-machine-guarding-checklist",
+        "block-ordinance-access-falls-summary",
+        "block-ordinance-access-falls-warning",
+        "block-ordinance-access-falls-checklist",
+        "block-ordinance-lifts-escalators-summary",
+        "block-ordinance-lifts-escalators-warning",
+        "block-ordinance-lifts-escalators-checklist",
+        "block-ordinance-lifting-accessories-summary",
+        "block-ordinance-lifting-accessories-warning",
+        "block-ordinance-lifting-accessories-checklist",
+        "block-ordinance-lifting-machines-summary",
+        "block-ordinance-lifting-machines-warning",
+        "block-ordinance-lifting-machines-checklist",
+        "block-ordinance-confined-hot-work-summary",
+        "block-ordinance-confined-hot-work-warning",
+        "block-ordinance-confined-hot-work-checklist",
+        "block-ordinance-pressure-equipment-summary",
+        "block-ordinance-pressure-equipment-warning",
+        "block-ordinance-pressure-equipment-checklist",
+        "block-ordinance-factory-register-summary",
+        "block-ordinance-factory-register-warning",
+        "block-ordinance-factory-register-checklist",
+        "block-labor-inspection-committee-composition-note",
+        "block-labor-inspection-committee-composition-table",
+        "block-labor-inspection-pilot-traceability-summary"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "exam-preparation-domain",
+      "title": "???? ?????",
+      "description": "???? ?? ????? ????, ??????? ?????? ?????. ???? ?? ??? ???? ?? ???? ???? ???? ??????? ????? ????? ????? ?????.",
+      "parentTopicId": null,
+      "aliases": [
+        "???? ????",
+        "??????? ????",
+        "????? ?????",
+        "???? ?????"
+      ],
+      "relatedTopicIds": [
+        "exam-focus",
+        "regulation-governance-domain",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-03",
+        "lesson-05",
+        "lesson-08",
+        "lesson-09",
+        "lesson-04",
+        "lesson-21",
+        "lesson-23",
+        "lesson-10",
+        "lesson-31",
+        "lesson-17",
+        "lesson-15",
+        "lesson-11",
+        "lesson-14",
+        "lesson-20",
+        "lesson-16",
+        "lesson-07",
+        "lesson-36",
+        "lesson-37",
+        "lesson-12",
+        "lesson-32",
+        "lesson-33",
+        "lesson-18",
+        "lesson-22",
+        "lesson-25",
+        "lesson-24",
+        "lesson-26",
+        "lesson-35",
+        "lesson-13"
+      ],
+      "sourceIds": [
+        "law-labor-inspection-1954",
+        "training-safety-management-human-factors",
+        "ordinance-work-safety-1970",
+        "training-occupational-safety-management",
+        "training-safety-organization-final",
+        "training-electrical-safety",
+        "training-maintenance-safety",
+        "training-construction-sites-safety",
+        "training-chemical-and-general-risks",
+        "training-occupational-hygiene",
+        "training-emergency-preparedness"
+      ],
+      "blockIds": [
+        "block-labor-inspection-improvement-order-exam-focus",
+        "block-labor-inspection-committee-common-trap",
+        "block-real-leadership-exam-focus",
+        "block-ordinance-factory-scope-checklist",
+        "block-ordinance-occupational-health-checklist",
+        "block-ordinance-machine-guarding-checklist",
+        "block-ordinance-access-falls-checklist",
+        "block-ordinance-lifts-escalators-checklist",
+        "block-ordinance-lifting-accessories-checklist",
+        "block-ordinance-lifting-machines-checklist",
+        "block-ordinance-confined-hot-work-checklist",
+        "block-ordinance-pressure-equipment-checklist",
+        "block-ordinance-factory-register-checklist",
+        "block-safety-management-human-factors-culture-exam-focus",
+        "block-safety-management-incident-learning-rca-exam-focus",
+        "block-safety-management-critical-work-controls-exam-focus",
+        "block-safety-management-safety-officer-toolkit-exam-focus",
+        "block-safety-org-duty-holder-top-accountability",
+        "block-safety-org-committee-trigger-training",
+        "block-safety-org-safety-officer-appointment-training",
+        "block-electrical-current-is-harm-factor",
+        "block-electrical-rcd-training-value",
+        "block-electrical-critical-current-path",
+        "block-maintenance-fatigue-fracture",
+        "block-maintenance-guard-removal-loto",
+        "block-maintenance-try-out",
+        "block-maintenance-cat-ratings",
+        "block-construction-fall-prevention-hierarchy",
+        "block-construction-critical-lift-planning",
+        "block-construction-one-lock-one-key",
+        "block-chemical-sds-critical-sections",
+        "block-chemical-lev-before-ppe",
+        "block-hygiene-exam-definition",
+        "block-hygiene-action-level-training",
+        "block-hygiene-personal-monitoring-breathing-zone",
+        "block-hygiene-ppe-last-line-exam",
+        "block-hygiene-physical-exam-focus",
+        "block-emergency-exam-responsibility",
+        "block-emergency-hot-zone-exam",
+        "block-emergency-extinguisher-choice-exam",
+        "block-emergency-hazmat-exam-idlh",
+        "block-emergency-near-miss-learning"
       ],
       "status": "draft"
     }
