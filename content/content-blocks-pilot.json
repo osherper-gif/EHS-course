@@ -9939,6 +9939,1029 @@
       "verification": {
         "status": "source-backed"
       }
+    },
+    {
+      "blockId": "block-maintenance-domain-scope",
+      "blockType": "summary-box",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-risk-anatomy",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / סיכון בעבודות אחזקה",
+      "topicIds": [
+        "maintenance-safety-domain"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בטיחות תחזוקה כתחום סיכון עצמאי",
+        "text": "המקור מציג עבודת אחזקה כאירוע משנה מציאות שבו איש התחזוקה חודר אל תוך המכונה, מנטרל הגנות ומתמודד עם מקורות אנרגיה חשופים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 1",
+        "sourceStructure": {
+          "originalHeading": "פתיח מקצועי: האנטומיה של הסיכון בעבודות אחזקה",
+          "paragraphRange": "13-14",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-just-a-second-trap",
+      "blockType": "warning",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-risk-anatomy",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / סיכון בעבודות אחזקה",
+      "topicIds": [
+        "maintenance-safety-domain",
+        "maintenance-human-performance"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "מלכודת רק שנייה באחזקה",
+        "text": "המקור מתאר קיצור דרך קוגניטיבי שבו משימה קצרה גורמת לעובד לוותר על בידוד אנרגיה או ציוד מגן, במיוחד כאשר הסיכון מוכר ושגרתי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 1",
+        "sourceStructure": {
+          "originalHeading": "Human Performance Note",
+          "paragraphRange": "15-16",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-normalization-deviance",
+      "blockType": "summary-box",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-risk-anatomy",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / סיכון בעבודות אחזקה",
+      "topicIds": [
+        "maintenance-human-performance",
+        "safety-culture-hro-technology-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "נרמול סטייה בעבודות אחזקה",
+        "text": "כאשר עקיפת נוהל חוזרת ועוברת בשלום, היא עלולה להפוך לסטנדרט מעשי עד שמתרחש כשל חמור. המקור מציג זאת ככשל תרבותי ולא רק כהחלטה של עובד יחיד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 1",
+        "sourceStructure": {
+          "originalHeading": "Human Performance Note",
+          "paragraphRange": "16",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-mechanical-integrity-scope",
+      "blockType": "definition",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-mechanical-integrity",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / שלמות מכנית",
+      "topicIds": [
+        "maintenance-mechanical-integrity"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "שלמות מכנית",
+        "text": "המקור מדגיש שממונה בטיחות בתחום אחזקה צריך להבין את התנהגות המכונות והחומרים כדי לזהות כשלי שלמות מכנית ולא להסתפק בהנחיות התנהגותיות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 1 / 2",
+        "sourceStructure": {
+          "originalHeading": "הנדסת חומרים, מאמצים ומכניקת השבר",
+          "paragraphRange": "17-18",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "מושג מרכזי",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-stress-types",
+      "blockType": "checklist",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-mechanical-integrity",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / שלמות מכנית",
+      "topicIds": [
+        "maintenance-mechanical-integrity"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "סוגי מאמצים מכניים לזיהוי סיכון",
+        "text": "המקור מפרט סוגי מאמצים שיכולים להוביל לכשל מכני.",
+        "items": [
+          "מתיחה.",
+          "לחיצה.",
+          "גזירה.",
+          "כפיפה.",
+          "פיתול.",
+          "קריסה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 1 / 2",
+        "sourceStructure": {
+          "originalHeading": "ששת סוגי העיוותים והמאמצים המכניים",
+          "paragraphRange": "19-27",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-fatigue-fracture",
+      "blockType": "exam-focus",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-mechanical-integrity",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / שלמות מכנית",
+      "topicIds": [
+        "maintenance-mechanical-integrity"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "שבר התעייפות אינו תמיד נראה מראש",
+        "text": "המקור מסביר כי שבר התעייפות מתפתח תחת עומסים מחזוריים ויכול להתקדם בלי עיוות חזותי ברור עד לכשל פתאומי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 1 / 2",
+        "sourceStructure": {
+          "originalHeading": "דינמיקת התפשטות סדקים",
+          "paragraphRange": "29-34",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-bolt-failure-case",
+      "blockType": "field-example",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-mechanical-integrity",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / שלמות מכנית",
+      "topicIds": [
+        "maintenance-mechanical-integrity"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "מקרה בוחן: בורג עיגון שכשל",
+        "text": "המקור מתאר פני שבר עם אזור חלק וסימני חוף לצד אזור גס, ומנתח זאת כהתפתחות התעייפות חומר שהסתיימה בשבר פתאומי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 1",
+        "sourceStructure": {
+          "originalHeading": "בלוק חשיבה וניתוח חזותי אינטראקטיבי",
+          "paragraphRange": "35-38",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דוגמה מהשטח",
+        "tone": "field",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-hand-power-tools",
+      "blockType": "summary-box",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-tools-machine-guarding",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / כלי כוח וגידור",
+      "topicIds": [
+        "maintenance-tools-machine-guarding"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "כלי יד וכלי כוח כמקור אנרגיה",
+        "text": "המקור מציג כלי עבודה פנאומטיים, הידראוליים וחשמליים כמקורות אנרגיה משמעותיים לפציעות באחזקה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 2",
+        "sourceStructure": {
+          "originalHeading": "בטיחות בכלי יד וכלי כוח באחזקה",
+          "paragraphRange": "39-41",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-grinder-risk",
+      "blockType": "warning",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-tools-machine-guarding",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / כלי כוח וגידור",
+      "topicIds": [
+        "maintenance-tools-machine-guarding"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "משחזת זווית היא כלי עתיר סיכון",
+        "text": "המקור מתאר שבר דיסק במשחזת זווית כסיכון לרסיסים במהירות גבוהה. הערכים המספריים במסמך נשמרים כחומר הדרכה בלבד ולא כמספרי זהב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 2",
+        "sourceStructure": {
+          "originalHeading": "סכנות מהירות קצה במשחזות זווית",
+          "paragraphRange": "42-45",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-tamper-resistant-interlocks",
+      "blockType": "summary-box",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-tools-machine-guarding",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / כלי כוח וגידור",
+      "topicIds": [
+        "maintenance-tools-machine-guarding"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "אינטרלוקים חסיני חבלה",
+        "text": "המקור מציג שימוש באינטרלוקים מקודדים או מערכות שאינן ניתנות למעקף פשוט, כדי להתמודד עם נטייה לעקוף מפסקי בטיחות בזמן אחזקה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 2",
+        "sourceStructure": {
+          "originalHeading": "בקרות הנדסיות חסינות חבלה",
+          "paragraphRange": "46-48",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-guard-removal-loto",
+      "blockType": "exam-focus",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-tools-machine-guarding",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / כלי כוח וגידור",
+      "topicIds": [
+        "maintenance-tools-machine-guarding",
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "פירוק מגן מחייב בידוד אנרגטי לפי חומר ההדרכה",
+        "text": "המקור מדגיש כי פירוק מגן לצורך תיקון חייב להיות מלווה בבידוד אנרגטי מלא, והחזרת המכונה לעבודה מחייבת החזרת מגנים ובדיקת תקינות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 2",
+        "sourceStructure": {
+          "originalHeading": "כרטיסיית שליפה מהירה - גידור מכונות",
+          "paragraphRange": "49-52",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-loto-purpose",
+      "blockType": "definition",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-loto",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / LOTO",
+      "topicIds": [
+        "loto-ptw-energy-control-real",
+        "maintenance-safety-domain"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "LOTO כקו הגנה מרכזי באחזקה",
+        "text": "המקור מציג LOTO כקו הגנה מרכזי מפני הפעלה פתאומית של מכונות, ומזהיר שחצי עבודה בנעילה היא הזמנה לאסון.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 3",
+        "sourceStructure": {
+          "originalHeading": "פרוטוקול נעילה ותיוג",
+          "paragraphRange": "53-55",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "מושג מרכזי",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-loto-six-steps",
+      "blockType": "checklist",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-loto",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / LOTO",
+      "topicIds": [
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "ששת שלבי LOTO לפי חומר ההדרכה",
+        "text": "המקור מפרט רצף עבודה מובנה לבידוד אנרגיה ונעילה.",
+        "items": [
+          "הכנה וזיהוי מקורות אנרגיה.",
+          "כיבוי תפעולי.",
+          "בידוד מקורות אנרגיה.",
+          "יישום מנעולים ותגיות.",
+          "שחרור אנרגיה אגורה.",
+          "אימות אפס אנרגיה באמצעות Try-Out."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 3",
+        "sourceStructure": {
+          "originalHeading": "ששת שלבי פרוטוקול LOTO",
+          "paragraphRange": "56-63",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "צ׳קליסט",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-stored-energy",
+      "blockType": "warning",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-loto",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / LOTO",
+      "topicIds": [
+        "loto-ptw-energy-control-real",
+        "maintenance-hazardous-energy"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "אנרגיה אגורה אינה נעלמת עם הורדת מפסק",
+        "text": "המקור מדגיש פריקת קבלים, שחרור לחץ פנאומטי, הורדת משקלות או חסימה פיזית כחלק מתהליך הגעה לאפס אנרגיה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 3",
+        "sourceStructure": {
+          "originalHeading": "שחרור אנרגיה אגורה",
+          "paragraphRange": "61",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-try-out",
+      "blockType": "exam-focus",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-loto",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / LOTO",
+      "topicIds": [
+        "loto-ptw-energy-control-real",
+        "maintenance-hazardous-energy"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "Try-Out הוא אימות אקטיבי של אפס אנרגיה",
+        "text": "המקור מציג ניסיון הפעלה פיזי כמבחן קריטי לכך שהמכונה אינה מגיבה. מדידת מתח לבדה אינה מזהה לחץ הידראולי, קפיץ דרוך או אנרגיה מכנית אחרת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 3",
+        "sourceStructure": {
+          "originalHeading": "Field Practice Warning Box",
+          "paragraphRange": "62-65",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-arc-flash-overview",
+      "blockType": "summary-box",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-arc-flash-cat",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / Arc Flash",
+      "topicIds": [
+        "maintenance-arc-flash-cat",
+        "electrical-safety-domain"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "Arc Flash כסיכון אחזקה בלוחות",
+        "text": "המקור מתאר קשת חשמלית כשחרור אנרגיה פתאומי דרך האוויר, בעל פוטנציאל תרמי ומכני חריף. המספרים המופיעים במקור נשמרים כחומר הדרכה בלבד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 3 / 2",
+        "sourceStructure": {
+          "originalHeading": "הנדסת קשת חשמלית וגבולות הגנה",
+          "paragraphRange": "66-80",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-cat-ratings",
+      "blockType": "exam-focus",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-arc-flash-cat",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / Arc Flash",
+      "topicIds": [
+        "maintenance-arc-flash-cat",
+        "electrical-safety-domain"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "דירוג CAT של כלי מדידה",
+        "text": "המקור מדגיש התאמת מולטימטר לרמת האנרגיה בנקודת המדידה, ומבחין בין שימושים שונים של CAT I עד CAT IV כחומר הדרכה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 3 / 2",
+        "sourceStructure": {
+          "originalHeading": "סיווג קטגוריות כלי מדידה",
+          "paragraphRange": "81-86",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-arc-flash-rca",
+      "blockType": "field-example",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-arc-flash-cat",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / Arc Flash",
+      "topicIds": [
+        "maintenance-arc-flash-cat",
+        "safety-management-incident-learning-rca"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "RCA: כלי מדידה לא מתאים בלוח ראשי",
+        "text": "מקרה המבחן במקור מנתח פגיעת קשת חשמלית דרך שרשרת סיבות: ציוד מדידה לא מתאים, רכש לא בטיחותי והיעדר הערכת סיכונים הנדסית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 3",
+        "sourceStructure": {
+          "originalHeading": "ניתוח סיבות שורש - 5 הלמה",
+          "paragraphRange": "87-93",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דוגמה מהשטח",
+        "tone": "field",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-hot-work-fire-risk",
+      "blockType": "warning",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-hot-work",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / עבודה באש",
+      "topicIds": [
+        "maintenance-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "עבודת אש היא גורם שריפה מרכזי באחזקה",
+        "text": "המקור מציג ריתוך, חיתוך בדיסק והלחמה כגורמים מרכזיים לשריפות בתעשייה, במיוחד כאשר קיימים חומרים דליקים או מוקדי הצתה סמויים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 4",
+        "sourceStructure": {
+          "originalHeading": "בטיחות בעבודות אש גלויה",
+          "paragraphRange": "94-97",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "אזהרה",
+        "tone": "warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-hot-work-watch",
+      "blockType": "checklist",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-hot-work",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / עבודה באש",
+      "topicIds": [
+        "maintenance-hot-work",
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "בקרות עבודה באש מתוך חומר ההדרכה",
+        "text": "המקור מציג פינוי חומרים דליקים וצופה אש כחלק ממערכת בקרה לעבודה באש. המספרים המופיעים בו אינם מוצגים כמספרי זהב.",
+        "items": [
+          "בדיקת סביבת העבודה לפני התחלה.",
+          "פינוי או בידוד חומרים דליקים.",
+          "צופה אש ייעודי.",
+          "מעקב לאחר סיום כדי לזהות שריפה סמויה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 4",
+        "sourceStructure": {
+          "originalHeading": "רדיוס בידוד אש ותפקיד צופה האש",
+          "paragraphRange": "97-100",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-maintenance-flashback-arrestor",
+      "blockType": "summary-box",
+      "sourceId": "training-maintenance-safety",
+      "citationId": "citation-training-maintenance-safety-hot-work",
+      "sourceCitation": "מקור הדרכה: בטיחות תחזוקה / עבודה באש",
+      "topicIds": [
+        "maintenance-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "fieldGuidance"
+      ],
+      "content": {
+        "title": "מחסום רתיעה במערכות גז",
+        "text": "המקור מזכיר מחסום רתיעה כאביזר בטיחות מכני במערכות חמצן-אצטילן, כחלק ממניעת חזרת להבה בצנרת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": "מודול 4",
+        "sourceStructure": {
+          "originalHeading": "מערכות חמצן-אצטילן ובטיחות בגזים",
+          "paragraphRange": "100-101",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
     }
   ]
 }

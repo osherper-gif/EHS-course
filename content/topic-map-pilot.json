@@ -935,7 +935,11 @@
       "parentTopicId": "operational-risks-real",
       "aliases": [],
       "relatedTopicIds": [
-        "operational-rca-barriers-real"
+        "operational-rca-barriers-real",
+        "maintenance-safety-domain",
+        "maintenance-hazardous-energy",
+        "maintenance-tools-machine-guarding",
+        "maintenance-hot-work"
       ],
       "lessonIds": [
         "lesson-10",
@@ -945,13 +949,20 @@
         "lesson-31"
       ],
       "sourceIds": [
-        "training-operational-risks"
+        "training-operational-risks",
+        "training-maintenance-safety"
       ],
       "blockIds": [
         "block-operational-loto-residual-energy",
         "block-operational-ptw-hierarchy",
         "block-operational-loto-steps",
-        "block-operational-loto-drift"
+        "block-operational-loto-drift",
+        "block-maintenance-guard-removal-loto",
+        "block-maintenance-loto-purpose",
+        "block-maintenance-loto-six-steps",
+        "block-maintenance-stored-energy",
+        "block-maintenance-try-out",
+        "block-maintenance-hot-work-watch"
       ],
       "status": "draft"
     },
@@ -1809,6 +1820,212 @@
         "block-electrical-live-conductor-rule",
         "block-electrical-isolation-transformer",
         "block-electrical-case-tool-access"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "maintenance-safety-domain",
+      "title": "בטיחות תחזוקה",
+      "description": "Domain אחזקה: סיכוני מכונות, אנרגיות מסוכנות, LOTO, כלי כוח, שלמות מכנית ועבודה באש.",
+      "parentTopicId": null,
+      "aliases": [
+        "אחזקה",
+        "בטיחות אחזקה",
+        "תחזוקה"
+      ],
+      "relatedTopicIds": [
+        "maintenance-human-performance",
+        "maintenance-mechanical-integrity",
+        "maintenance-tools-machine-guarding",
+        "loto-ptw-energy-control-real",
+        "maintenance-hazardous-energy",
+        "maintenance-arc-flash-cat",
+        "maintenance-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "sourceIds": [
+        "training-maintenance-safety"
+      ],
+      "blockIds": [
+        "block-maintenance-domain-scope",
+        "block-maintenance-loto-purpose"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "maintenance-human-performance",
+      "title": "גורמי אנוש באחזקה",
+      "description": "מלכודת רק שנייה, קיצורי דרך ונרמול סטייה בעבודות תחזוקה.",
+      "parentTopicId": "maintenance-safety-domain",
+      "aliases": [
+        "רק שנייה",
+        "נרמול סטייה",
+        "גורמי אנוש"
+      ],
+      "relatedTopicIds": [
+        "maintenance-safety-domain",
+        "safety-culture-hro-technology-real"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "sourceIds": [
+        "training-maintenance-safety"
+      ],
+      "blockIds": [
+        "block-maintenance-just-a-second-trap",
+        "block-maintenance-normalization-deviance"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "maintenance-mechanical-integrity",
+      "title": "שלמות מכנית וכשלי חומר",
+      "description": "מאמצים, שבר התעייפות, ריכוז מאמצים וניתוח פני שבר.",
+      "parentTopicId": "maintenance-safety-domain",
+      "aliases": [
+        "Mechanical Integrity",
+        "התעייפות חומר",
+        "שבר מכני"
+      ],
+      "relatedTopicIds": [
+        "maintenance-tools-machine-guarding"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "sourceIds": [
+        "training-maintenance-safety"
+      ],
+      "blockIds": [
+        "block-maintenance-mechanical-integrity-scope",
+        "block-maintenance-stress-types",
+        "block-maintenance-fatigue-fracture",
+        "block-maintenance-bolt-failure-case"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "maintenance-tools-machine-guarding",
+      "title": "כלי כוח וגידור מכונות באחזקה",
+      "description": "כלי כוח, משחזות, אינטרלוקים חסיני חבלה ופירוק מגנים רק לאחר בידוד אנרגטי.",
+      "parentTopicId": "maintenance-safety-domain",
+      "aliases": [
+        "כלי כוח",
+        "גידור מכונות",
+        "אינטרלוק"
+      ],
+      "relatedTopicIds": [
+        "loto-ptw-energy-control-real",
+        "maintenance-mechanical-integrity"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "sourceIds": [
+        "training-maintenance-safety"
+      ],
+      "blockIds": [
+        "block-maintenance-hand-power-tools",
+        "block-maintenance-grinder-risk",
+        "block-maintenance-tamper-resistant-interlocks",
+        "block-maintenance-guard-removal-loto"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "maintenance-hazardous-energy",
+      "title": "אנרגיות מסוכנות ואפס אנרגיה",
+      "description": "אנרגיה אגורה, לחץ, קפיצים, משקולות ו־Try-Out מעבר למדידת מתח בלבד.",
+      "parentTopicId": "maintenance-safety-domain",
+      "aliases": [
+        "אנרגיה אגורה",
+        "אפס אנרגיה",
+        "Try-Out"
+      ],
+      "relatedTopicIds": [
+        "loto-ptw-energy-control-real",
+        "electrical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "sourceIds": [
+        "training-maintenance-safety"
+      ],
+      "blockIds": [
+        "block-maintenance-stored-energy",
+        "block-maintenance-try-out"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "maintenance-arc-flash-cat",
+      "title": "Arc Flash וכלי מדידה באחזקה",
+      "description": "קשת חשמלית, גבולות גישה ודירוג CAT של כלי מדידה כחומר הדרכה.",
+      "parentTopicId": "maintenance-safety-domain",
+      "aliases": [
+        "Arc Flash",
+        "CAT",
+        "כלי מדידה"
+      ],
+      "relatedTopicIds": [
+        "electrical-safety-domain",
+        "electrical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "sourceIds": [
+        "training-maintenance-safety"
+      ],
+      "blockIds": [
+        "block-maintenance-arc-flash-overview",
+        "block-maintenance-cat-ratings",
+        "block-maintenance-arc-flash-rca"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "maintenance-hot-work",
+      "title": "עבודה באש באחזקה",
+      "description": "ריתוך, חיתוך, צופה אש ומחסום רתיעה כחומר הדרכה לבקרת עבודות תחזוקה.",
+      "parentTopicId": "maintenance-safety-domain",
+      "aliases": [
+        "Hot Work",
+        "ריתוך",
+        "צופה אש"
+      ],
+      "relatedTopicIds": [
+        "loto-ptw-energy-control-real",
+        "safety-management-critical-work-controls"
+      ],
+      "lessonIds": [
+        "lesson-10",
+        "lesson-11",
+        "lesson-12"
+      ],
+      "sourceIds": [
+        "training-maintenance-safety"
+      ],
+      "blockIds": [
+        "block-maintenance-hot-work-fire-risk",
+        "block-maintenance-hot-work-watch",
+        "block-maintenance-flashback-arrestor"
       ],
       "status": "draft"
     }

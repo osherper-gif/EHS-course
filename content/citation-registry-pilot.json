@@ -944,6 +944,126 @@
         "notes": "Training-source locator. Not legally verified."
       },
       "notes": "Level 6 training citation. Do not present as binding legal authority."
+    },
+    {
+      "citationId": "citation-training-maintenance-safety-risk-anatomy",
+      "stableSourceId": "training-maintenance-safety",
+      "citationType": "heading",
+      "label": "האנטומיה של סיכון בעבודות אחזקה",
+      "locator": {
+        "heading": "פתיח מקצועי: האנטומיה של הסיכון בעבודות אחזקה",
+        "paragraphRange": "12-16",
+        "originalWordNumbering": "מודול 1"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present as binding legal authority."
+    },
+    {
+      "citationId": "citation-training-maintenance-safety-mechanical-integrity",
+      "stableSourceId": "training-maintenance-safety",
+      "citationType": "heading",
+      "label": "שלמות מכנית ומנגנוני כשל",
+      "locator": {
+        "heading": "הנדסת חומרים, מאמצים ומכניקת השבר",
+        "paragraphRange": "17-38",
+        "originalWordNumbering": "מודול 1 / 2"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Numeric statements remain training material only."
+    },
+    {
+      "citationId": "citation-training-maintenance-safety-tools-machine-guarding",
+      "stableSourceId": "training-maintenance-safety",
+      "citationType": "heading",
+      "label": "כלי יד, כלי כוח וגידור מכונות",
+      "locator": {
+        "heading": "כלי יד, כלי כוח וגידור מכונות",
+        "paragraphRange": "39-52",
+        "originalWordNumbering": "מודול 2"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not present as binding legal authority."
+    },
+    {
+      "citationId": "citation-training-maintenance-safety-loto",
+      "stableSourceId": "training-maintenance-safety",
+      "citationType": "heading",
+      "label": "פרוטוקול נעילה ותיוג",
+      "locator": {
+        "heading": "פרוטוקול LOTO מלא וסיכוני חשמל מתקדמים",
+        "paragraphRange": "53-65",
+        "originalWordNumbering": "מודול 3"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Existing LOTO/PTW topic reused to avoid duplication."
+    },
+    {
+      "citationId": "citation-training-maintenance-safety-arc-flash-cat",
+      "stableSourceId": "training-maintenance-safety",
+      "citationType": "heading",
+      "label": "Arc Flash ודירוג כלי מדידה",
+      "locator": {
+        "heading": "הנדסת קשת חשמלית וגבולות הגנה",
+        "paragraphRange": "66-93",
+        "originalWordNumbering": "מודול 3 / 2"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Numeric thresholds remain training material only."
+    },
+    {
+      "citationId": "citation-training-maintenance-safety-hot-work",
+      "stableSourceId": "training-maintenance-safety",
+      "citationType": "heading",
+      "label": "עבודה באש גלויה באחזקה",
+      "locator": {
+        "heading": "עבודה באש גלויה ועבודה בגובה באחזקה",
+        "paragraphRange": "94-101",
+        "originalWordNumbering": "מודול 4"
+      },
+      "authorityLevelAtCitation": 6,
+      "authorityLevel": 6,
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Training-source locator. Not legally verified."
+      },
+      "notes": "Level 6 training citation. Do not create golden numbers from training values."
     }
   ]
 }
