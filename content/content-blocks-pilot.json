@@ -12635,6 +12635,2145 @@
       "verification": {
         "status": "source-backed"
       }
+    },
+    {
+      "blockId": "block-chemical-domain-scope",
+      "blockType": "summary-box",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-glossary-intro",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / מבוא והיגיינה תעסוקתית",
+      "topicIds": [
+        "chemical-hazardous-materials-domain"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "חומרים מסוכנים כדומיין ידע",
+        "text": "המקור מציג סיכונים כימיים כתחום שבו הנזק עשוי להיות סמוי, כרוני ומצטבר, ולכן נדרש זיהוי, ניטור ובקרה שיטתיים ולא הסתמכות על תחושה או ריח.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מבוא לסיכונים כימיים וניהול היגיינה תעסוקתית",
+          "paragraphRange": "24-32",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-source-limits",
+      "blockType": "legal-note",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-glossary-intro",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / מבוא והיגיינה תעסוקתית",
+      "topicIds": [
+        "chemical-hazardous-materials-domain"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "legalReference"
+      ],
+      "content": {
+        "title": "המקור הוא חומר הדרכה ולא נוסח מחייב",
+        "text": "המסמך עצמו מבהיר שהנוסח המחייב של חוקים, תקנות ותקנים נמצא ברשומות המדינה בלבד. לכן התוכן מוצג ב־Knowledge Hub כחומר הדרכה מבוסס מקור.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "הערת מקור",
+          "paragraphRange": "1",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש משפטי",
+        "tone": "legal",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-risk-hidden-chronic",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-glossary-intro",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / מבוא והיגיינה תעסוקתית",
+      "topicIds": [
+        "chemical-hazardous-materials-domain",
+        "chemical-exposure-routes"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "הסיכון הכימי סמוי וכרוני",
+        "text": "המקור מדגיש שחומרים רבים חסרי ריח, צבע או תחושת צריבה מיידית, ולכן נזקם עלול להצטבר במשך שנים עד להופעת מחלת מקצוע.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מבוא לסיכונים כימיים וניהול היגיינה תעסוקתית",
+          "paragraphRange": "24-32",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-toxicity-vs-risk",
+      "blockType": "definition",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-glossary-intro",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / מבוא והיגיינה תעסוקתית",
+      "topicIds": [
+        "chemical-hazardous-materials-domain",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "רעילות מול סיכון",
+        "text": "המקור מבחין בין רעילות כתכונה פנימית של החומר לבין סיכון כתוצאה של עוצמת ומשך החשיפה בפועל.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Toxicology & Industrial Hygiene",
+          "paragraphRange": "29-32",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-chemical-inventory-sds",
+      "blockType": "checklist",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-glossary-intro",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / מבוא והיגיינה תעסוקתית",
+      "topicIds": [
+        "chemical-hazardous-materials-domain",
+        "chemical-classification-ghs-sds"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ספר כימיקלים ו־SDS",
+        "text": "המקור מציג צורך בניהול רשימה אחידה ומעודכנת של חומרי המפעל, כולל גרסאות SDS זמינות ומתורגמות.",
+        "items": [
+          "זהה שמות מסחריים וכימיים.",
+          "אסוף SDS מלא מהיצרן או היבואן.",
+          "עדכן גרסאות ושמור נגישות לעובדים.",
+          "חבר Near Miss כימי לתחקור וללמידה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים לממונה בטיחות",
+          "paragraphRange": "33-44",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-odor-is-not-monitoring",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-glossary-intro",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / מבוא והיגיינה תעסוקתית",
+      "topicIds": [
+        "chemical-hazardous-materials-domain",
+        "chemical-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ריח אינו ניטור",
+        "text": "החומר מזהיר מפני הסתמכות על חוש הריח לזיהוי חומרים מסוכנים; חלק מהחומרים חסרי ריח וחלקם גורמים להתרגלות או אלחוש חוש הריח.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טעויות נפוצות",
+          "paragraphRange": "40-41",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-un-classes-overview",
+      "blockType": "definition",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-classification",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / סיווג חומ״ס",
+      "topicIds": [
+        "chemical-classification-ghs-sds"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "משפחות סיכון של חומרים מסוכנים",
+        "text": "המקור מציג חלוקה למשפחות סיכון כגון נפיצים, גזים, נוזלים דליקים, מוצקים דליקים, מחמצנים, רעילים, רדיואקטיביים, קורוזיביים וחומרים מסוכנים שונים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "הגדרה, סיווג וקבוצות סיכון של חומרים מסוכנים",
+          "paragraphRange": "50-85",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-incompatibility-warning",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-classification",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / סיווג חומ״ס",
+      "topicIds": [
+        "chemical-storage-segregation-spill",
+        "chemical-classification-ghs-sds"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "אי־תאימות כימית באחסון",
+        "text": "המקור מזהיר שאחסון משותף או ערבוב מקרי של קבוצות מסוימות עלול ליצור פליטת גזים, תגובות אקזותרמיות או שריפה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "סינרגיזם וחומרים אסורים למגע",
+          "paragraphRange": "86-91",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-compatibility-field-check",
+      "blockType": "checklist",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-classification",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / סיווג חומ״ס",
+      "topicIds": [
+        "chemical-storage-segregation-spill"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בדיקת תאימות לפני אחסון או הובלה",
+        "text": "המקור מציג כשלי תאימות כימית כגורם מרכזי לאירועי חומ״ס, ודורש חשיבה לפי פיקטוגרמות, קבוצות סיכון ותעודות משלוח.",
+        "items": [
+          "בדוק קבוצת סיכון ופיקטוגרמות.",
+          "השווה מול מטריצת תאימות.",
+          "אל תערבב חומצות, בסיסים, מחמצנים ודליקים בלי בדיקה.",
+          "ודא שילוט מחסן ומשאית בהתאם לחומר בפועל."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דוגמאות מהשטח וניתוח RCA",
+          "paragraphRange": "92-99",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-reactive-water-mistake",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-classification",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / סיווג חומ״ס",
+      "topicIds": [
+        "chemical-storage-segregation-spill",
+        "chemical-fire-explosion-risks"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "לא כל חומר דליק מתאים לכיבוי במים",
+        "text": "המקור מציג טעות נפוצה שבה חומר מגיב עם מים עלול לייצר גז דליק ונפיץ ולהחמיר את האירוע.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טעויות נפוצות",
+          "paragraphRange": "95-96",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-exposure-routes-overview",
+      "blockType": "definition",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-exposure-routes",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / מסלולי חדירה",
+      "topicIds": [
+        "chemical-exposure-routes"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "שלושה מסלולי חדירה עיקריים",
+        "text": "המקור מציג שאיפה, ספיגה דרך עור ועיניים, ובליעה כמסלולי חדירה מרכזיים של חומרים כימיים מסוכנים בגוף האדם.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מסלולי חדירה של חומרים מסוכנים לגוף האדם",
+          "paragraphRange": "105-113",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-inhalation-route",
+      "blockType": "summary-box",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-exposure-routes",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / מסלולי חדירה",
+      "topicIds": [
+        "chemical-exposure-routes",
+        "chemical-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "שאיפה כאפיק חשיפה מרכזי",
+        "text": "המקור מתאר מעבר מזהם מהריאות לזרם הדם דרך נאדיות הריאה, ולכן מיקוד הניטור באזור הנשימה של העובד הוא קריטי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Toxicokinetics",
+          "paragraphRange": "110-113",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-dermal-absorption",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-exposure-routes",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / מסלולי חדירה",
+      "topicIds": [
+        "chemical-exposure-routes",
+        "chemical-controls-ppe"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ספיגה עורית אינה נראית באוויר",
+        "text": "המקור מדגיש שחומרים מסיסי שומן עלולים לחדור דרך העור וליצור חשיפה סיסטמית גם כאשר ניטור האוויר נראה תקין.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Toxicokinetics",
+          "paragraphRange": "112-123",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-ingestion-hygiene",
+      "blockType": "checklist",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-exposure-routes",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / מסלולי חדירה",
+      "topicIds": [
+        "chemical-exposure-routes",
+        "occupational-health-environment"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מניעת בליעה מקרית",
+        "text": "המקור מחבר בליעה לחשיפה דרך ידיים מזוהמות, אכילה ועישון באזורי עבודה.",
+        "items": [
+          "הפרד אזורי אוכל מאזורי כימיקלים.",
+          "אסור לעשן או לאכול בידיים מזוהמות.",
+          "הטמע שטיפת ידיים והחלפת כפפות.",
+          "בדוק ניקיון עמדות עבודה וסימון חומרים."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Toxicokinetics",
+          "paragraphRange": "113-123",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-route-matched-controls",
+      "blockType": "summary-box",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-exposure-routes",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / מסלולי חדירה",
+      "topicIds": [
+        "chemical-exposure-routes",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "התאמת בקרה למסלול חדירה",
+        "text": "המקור מדגים כיצד שאיפה מובילה לאוורור ו־LEV, ספיגה מובילה לבחירת כפפות וחליפות, ובליעה מובילה להיגיינה והפרדת אזורי אוכל.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "הנדסת הגנה מותאמת מסלול חדירה",
+          "paragraphRange": "114-123",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-monitoring-twa-stel-ceiling-training",
+      "blockType": "legal-note",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-airborne-monitoring",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / ניטור וערכי חשיפה",
+      "topicIds": [
+        "chemical-exposure-monitoring",
+        "occupational-health-environment"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "TWA, STEL ו־Ceiling כחומר הדרכה",
+        "text": "המקור מסביר את מושגי TWA, STEL ו־Ceiling במדידת חשיפה. הם מוצגים כאן כמושגי לימוד בלבד ולא כמספרי זהב או גבולות מחייבים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ניטור סביבתי ותעסוקתי, ערכי חשיפה",
+          "paragraphRange": "177-186",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-environmental-vs-biological-monitoring",
+      "blockType": "definition",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-airborne-monitoring",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / ניטור וערכי חשיפה",
+      "topicIds": [
+        "chemical-exposure-monitoring",
+        "occupational-health-environment"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ניטור סביבתי מול ניטור ביולוגי",
+        "text": "החומר מבחין בין מדידת ריכוז מזהם באוויר באזור הנשימה לבין בדיקת מזהם או מטבוליט בגוף העובד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ניטור סביבתי מול ניטור ביולוגי",
+          "paragraphRange": "187-195",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-monitoring-routine-error",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-airborne-monitoring",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / ניטור וערכי חשיפה",
+      "topicIds": [
+        "chemical-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ניטור ביום חלש מטעה את המערכת",
+        "text": "המקור מזהיר שמדידה ביום שבו המפעל מושבת חלקית עלולה ליצור תמונה נמוכה שאינה מייצגת את החשיפה בשיא הייצור.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טעויות נפוצות",
+          "paragraphRange": "196-197",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-action-level-training",
+      "blockType": "legal-note",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-airborne-monitoring",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / ניטור וערכי חשיפה",
+      "topicIds": [
+        "chemical-exposure-monitoring"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "רמת פעולה אינה Golden Number בפיילוט",
+        "text": "המקור מזכיר רמת פעולה ביחס לערך חשיפה. מכיוון שמדובר במקור הדרכה, הנתון נשמר כמידע לימודי ולא כמספר זהב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים לממונה בטיחות ודגשים למבחן",
+          "paragraphRange": "198-205",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-sds-identity-card",
+      "blockType": "definition",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-sds-ghs",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / SDS ו־GHS",
+      "topicIds": [
+        "chemical-classification-ghs-sds"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "SDS כתעודת זהות של חומר",
+        "text": "המקור מציג SDS כמסמך שמרכז מידע על סיכונים, אחסון, עזרה ראשונה, בקרת חשיפה וציוד מגן.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "גיליונות בטיחות וסימון חומרים מסוכנים",
+          "paragraphRange": "206-212",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-sds-critical-sections",
+      "blockType": "exam-focus",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-sds-ghs",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / SDS ו־GHS",
+      "topicIds": [
+        "chemical-classification-ghs-sds",
+        "chemical-controls-ppe"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "סעיפי SDS קריטיים ללמידה",
+        "text": "המקור מדגיש במיוחד את סעיפי זיהוי הסיכונים, עזרה ראשונה, טיפול ואחסון, ובקרת חשיפה והגנה אישית. מספרי הסעיפים נשמרים כמבנה SDS ולא כ־Word numbering.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "סעיפי ה-SDS המרכזיים ומערכות הסימון",
+          "paragraphRange": "211-212",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-ghs-secondary-containers",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-sds-ghs",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / SDS ו־GHS",
+      "topicIds": [
+        "chemical-classification-ghs-sds",
+        "chemical-storage-segregation-spill"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מכלי משנה אנונימיים",
+        "text": "המקור מתאר כשל שכיח שבו חומר מועבר לבקבוק קטן או שפריצר ללא סימון GHS, מתוך הנחה שכולם יודעים מה נמצא בפנים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "GHS וסימון מכלי משנה",
+          "paragraphRange": "240-243",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-nfpa-emergency-communication",
+      "blockType": "summary-box",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-sds-ghs",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / SDS ו־GHS",
+      "topicIds": [
+        "chemical-classification-ghs-sds",
+        "chemical-fire-explosion-risks"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "NFPA ככלי תקשורת לחירום",
+        "text": "המקור מציג את יהלום NFPA ככלי שמסייע לכוחות חירום להבין במהירות סיכון בריאות, דליקות, ריאקטיביות וסיכונים מיוחדים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מערכת NFPA 704",
+          "paragraphRange": "213-246",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-storage-segregation",
+      "blockType": "checklist",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-storage-spill",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / אחסון ושפך",
+      "topicIds": [
+        "chemical-storage-segregation-spill"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "הפרדת חומרים באחסון",
+        "text": "המקור מדגיש הפרדה בין קבוצות סיכון סותרות כדי למנוע תגובות חמות, פליטת גזים או הצתה.",
+        "items": [
+          "הפרד חומצות ובסיסים.",
+          "הפרד חומצות מציאנידים וגופרתיים.",
+          "הפרד מחמצנים מחומרים אורגניים או דליקים.",
+          "אחסן חומרים מגיבים עם מים באזור יבש ומוגן."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ניהול אחסון, הפרדת כימיקלים וטיפול בשפך",
+          "paragraphRange": "257-267",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-bunds-training-value",
+      "blockType": "legal-note",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-storage-spill",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / אחסון ושפך",
+      "topicIds": [
+        "chemical-storage-segregation-spill"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מאצרות כמידע הדרכתי",
+        "text": "המקור מציג ערכי נפח למאצרות, אך מכיוון שהוא מקור הדרכה בלבד הערכים אינם מסומנים כמספרי זהב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "הנדסת אחסון וחוק המאצרות",
+          "paragraphRange": "262-264",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-spill-response-flow",
+      "blockType": "checklist",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-storage-spill",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / אחסון ושפך",
+      "topicIds": [
+        "chemical-storage-segregation-spill",
+        "chemical-hazardous-materials-domain"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "רצף תגובה לשפך כימי",
+        "text": "המקור מציג טיפול בשפך כרצף של זיהוי, בידוד, התמגנות, עצירת מקור, ספיגה, איסוף ופינוי פסולת.",
+        "items": [
+          "זהה חומר וסיכון מתוך SDS.",
+          "בודד אזור ופנה עובדים.",
+          "לבש PPE מתאים לחומר.",
+          "עצור מקור דליפה וחסום ניקוזים.",
+          "אסוף פסולת לחבית מסומנת."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "פרוטוקול תגובה לשפך",
+          "paragraphRange": "268-277",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-oxidizer-sawdust-warning",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-storage-spill",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / אחסון ושפך",
+      "topicIds": [
+        "chemical-storage-segregation-spill",
+        "chemical-fire-explosion-risks"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מחמצנים ונסורת עץ",
+        "text": "המקור מזהיר מפני שימוש בחומרים אורגניים לספיגת מחמצנים חזקים, בגלל אפשרות להצתה עצמית.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "חומרים מחמצנים ונסורת עץ",
+          "paragraphRange": "278-279",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-spill-kit-checklist",
+      "blockType": "checklist",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-storage-spill",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / אחסון ושפך",
+      "topicIds": [
+        "chemical-storage-segregation-spill"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ערכת שפך ותחזוקת מאצרות",
+        "text": "המקור מציג צורך בערכות ספיגה תואמות, שילוט ברור ותחזוקה של מאצרות כדי שלא יאבדו נפח אפקטיבי.",
+        "items": [
+          "בדוק שסופגים מתאימים לסוג החומר.",
+          "ודא כפות וכלים שאינם יוצרים ניצוץ כאשר נדרש.",
+          "פנה פסולת כימית לאתר מתאים.",
+          "רוקן מי גשמים ממאצרות חיצוניות."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים לממונה בטיחות",
+          "paragraphRange": "280-292",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-flammability-range-training",
+      "blockType": "definition",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-fire-explosion",
+      "sourceCitation": "???? ?????: ??????? ?????? ??????? ?????",
+      "topicIds": [
+        "chemical-fire-explosion-risks"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "טווח נפיצות כחומר הדרכה",
+        "text": "המקור מסביר שדליקה או פיצוץ של אדי חומר מתרחשים בטווח שבין LEL ל־UEL. אין להפוך ערכים אלו למספרי זהב ללא מקור רגולטורי או תקני נפרד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "הנדסת אש, פיצוצים וסיכוני בעירה",
+          "paragraphRange": "293-305",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-bleve-dust-static",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-fire-explosion",
+      "sourceCitation": "???? ?????: ??????? ?????? ??????? ?????",
+      "topicIds": [
+        "chemical-fire-explosion-risks"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "BLEVE, פיצוץ אבק וחשמל סטטי",
+        "text": "המקור מציג BLEVE, פיצוצי אבק ופריקת חשמל סטטי כתרחישים קטסטרופליים שמחייבים בקרות הנדסיות, הארקה וגישור.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "BLEVE, פיצוצי אבק וחשמל סטטי",
+          "paragraphRange": "306-309",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-non-sparking-tools-warning",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-fire-explosion",
+      "sourceCitation": "???? ?????: ??????? ?????? ??????? ?????",
+      "topicIds": [
+        "chemical-fire-explosion-risks",
+        "maintenance-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "כלים רגילים באטמוספירה דליקה",
+        "text": "המקור מזהיר שכלי פלדה רגילים עלולים לייצר ניצוץ מכני באזור עם אדי חומר דליק, ולכן נדרש תכנון כלי עבודה ובקרה מתאימים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טעויות נפוצות",
+          "paragraphRange": "313-319",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-hierarchy-chemical-controls",
+      "blockType": "summary-box",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-controls-ppe",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / בקרות ו־PPE",
+      "topicIds": [
+        "chemical-controls-ppe",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "היררכיית בקרות בסיכון כימי",
+        "text": "המקור מציג סילוק, החלפה, בקרה הנדסית, בקרה ניהולית ו־PPE כסדר חשיבה להפחתת סיכון כימי.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "בקרות הנדסיות, אוורור והיררכיית בקרות",
+          "paragraphRange": "323-340",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-lev-before-ppe",
+      "blockType": "exam-focus",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-controls-ppe",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / בקרות ו־PPE",
+      "topicIds": [
+        "chemical-controls-ppe",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "LEV לפני הסתמכות על מסכה",
+        "text": "החומר מדגיש שיניקה מקומית ובקרה במקור עדיפות על מתן מסכה לעובד, משום שהן מפחיתות את המזהם לפני אזור הנשימה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "היררכיית הבקרות בכימיקלים",
+          "paragraphRange": "328-357",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-ppe-human-factors",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-controls-ppe",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / בקרות ו־PPE",
+      "topicIds": [
+        "chemical-controls-ppe",
+        "human-factors-real"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "PPE יוצר עומס אנושי",
+        "text": "המקור מתאר מסכות וחליפות כהגנות שעלולות ליצור עומס חום, קושי נשימה וצמצום שדה ראייה, ולכן עובדים עשויים להסיר אותן כשהפיקוח נחלש.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "גורמי אנוש ומסכות פנים",
+          "paragraphRange": "341-347",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-respirator-filter-selection",
+      "blockType": "definition",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-controls-ppe",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / בקרות ו־PPE",
+      "topicIds": [
+        "chemical-controls-ppe"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בחירת מסנן לפי מזהם",
+        "text": "המקור מציג מסנני נשימה לפי אותיות וצבעים כדרך להתאים את המסנן לסוג החומר: אדים אורגניים, גזים אנאורגניים, גזים חומציים, אמוניה או חלקיקים.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ציוד מגן אישי למערכת הנשימה והגוף",
+          "paragraphRange": "358-388",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-fit-testing-filter-life",
+      "blockType": "checklist",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-controls-ppe",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / בקרות ו־PPE",
+      "topicIds": [
+        "chemical-controls-ppe"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "אטימות מסכה וחיי מסנן",
+        "text": "המקור מדגיש שבדיקת התאמה, גילוח כאשר נדרש, וניהול החלפת מסננים חשובים לא פחות מסוג המסכה.",
+        "items": [
+          "בדוק Fit Testing לפי סוג המסכה.",
+          "נהל יומן החלפת מסננים.",
+          "אל תחכה לריח כימי כסימן להחלפה.",
+          "בדוק אחסון מסנן באריזה אטומה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "מנגנוני ספיחה ובדיקות אטימות",
+          "paragraphRange": "389-404",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-air-purifying-limitations",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-controls-ppe",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / בקרות ו־PPE",
+      "topicIds": [
+        "chemical-controls-ppe",
+        "confined-space-and-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מסנן אינו מייצר חמצן",
+        "text": "המקור מזהיר שמסכות מטהרות אוויר אינן מתאימות לסביבה חסרת חמצן או לריכוז מזהמים קיצוני; במצבים אלה נדרש מקור אוויר נקי חיצוני.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "טעויות נפוצות",
+          "paragraphRange": "396-397",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-confined-space-atmosphere",
+      "blockType": "legal-note",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-confined-specific-contaminants",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / חללים ומזהמים ספציפיים",
+      "topicIds": [
+        "chemical-confined-space-process-risks",
+        "confined-space-and-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ניטור חלל מוקף כחומר הדרכה",
+        "text": "המקור מציג חוסר חמצן, גזים רעילים ודליקים, וניטור במספר גבהים כעקרונות למידה לפני כניסה לחלל מוקף. ערכי החמצן וה־LEL אינם מסומנים כמספרי זהב.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "עבודה בטוחה בחללים מוקפים",
+          "paragraphRange": "405-435",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-confined-space-standby-rescue",
+      "blockType": "checklist",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-confined-specific-contaminants",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / חללים ומזהמים ספציפיים",
+      "topicIds": [
+        "chemical-confined-space-process-risks",
+        "confined-space-and-hot-work"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "משגיח וחילוץ בחלל מוקף",
+        "text": "המקור מדגיש שהמשגיח החיצוני אינו נכנס לחלץ אלא מפעיל ציוד חילוץ ומזעיק עזרה.",
+        "items": [
+          "הכן חצובה, כננת ורתמה לפני כניסה.",
+          "בדוק קשר רציף עם הנכנס.",
+          "אל תחליף משגיח בעובד שעוזב את הפתח.",
+          "תכנן חילוץ לפני תחילת העבודה."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "דגשים לממונה בטיחות",
+          "paragraphRange": "426-435",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-hazop-bowtie-rca",
+      "blockType": "definition",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-confined-specific-contaminants",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / חללים ומזהמים ספציפיים",
+      "topicIds": [
+        "chemical-confined-space-process-risks",
+        "operational-rca-barriers-real"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "HAZOP, BowTie ו־RCA במערכות כימיות",
+        "text": "המקור מציג HAZOP לניתוח סטיות תהליך, BowTie למיפוי חסמים ו־RCA לזיהוי כשל מערכתי לאחר אירוע או כמעט ונפגע.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "ניהול סיכונים מתקדם, חקירת אירועים ומודלים",
+          "paragraphRange": "436-468",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-specific-contaminants-overview",
+      "blockType": "summary-box",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-confined-specific-contaminants",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / חללים ומזהמים ספציפיים",
+      "topicIds": [
+        "chemical-specific-contaminants",
+        "occupational-health-environment"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מזהמים ספציפיים ומחלות מקצוע",
+        "text": "המקור מציג אסבסט, סיליקה, VOCs ונדפי ריתוך כמזהמים בעלי השפעות כרוניות חמורות, חלקן מסרטנות או פיברוטיות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "סקירה מורחבת של מזהמים ספציפיים ומחלות מקצוע",
+          "paragraphRange": "469-478",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-silica-asbestos-voc-fumes",
+      "blockType": "warning",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-confined-specific-contaminants",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / חללים ומזהמים ספציפיים",
+      "topicIds": [
+        "chemical-specific-contaminants",
+        "chemical-exposure-routes"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סיליקה, אסבסט, VOCs ונדפי ריתוך",
+        "text": "המקור מתאר את מסלולי הפגיעה של מזהמים נפוצים: חדירה עמוקה לריאות, ספיגה דרך עור ושאיפה של נדפי מתכת.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "Occupational Pathology & Toxicology",
+          "paragraphRange": "474-478",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-chemical-specific-contaminants-controls",
+      "blockType": "checklist",
+      "sourceId": "training-chemical-and-general-risks",
+      "citationId": "citation-training-chemical-risks-confined-specific-contaminants",
+      "sourceCitation": "מקור הדרכה: סיכונים כימיים וסיכונים כלליים / חללים ומזהמים ספציפיים",
+      "topicIds": [
+        "chemical-specific-contaminants",
+        "chemical-controls-ppe",
+        "occupational-health-environment"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "claimTypes": [
+        "trainingMaterial",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "בקרות למזהמים ספציפיים",
+        "text": "המקור מציג עבודה רטובה, LEV, יניקה שלילית, קבלנים מורשים ובדיקות רפואיות כחלק ממערך שליטה במזהמים קשים.",
+        "items": [
+          "העדף עבודה רטובה ויניקה במקור לסיליקה.",
+          "השתמש בקבלן מורשה באסבסט לפי מקור מחייב נפרד.",
+          "בדוק התאמת מסנן או PAPR לנדפי ריתוך.",
+          "חבר חשיפה כרונית למעקב רפואי וסקרי גהות."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "הנדסת בטיחות באבק מזיק ובממסים",
+          "paragraphRange": "479-495",
+          "sourceType": "training-material"
+        }
+      },
+      "rendering": {
+        "label": "חומר הדרכה",
+        "tone": "training",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
     }
   ]
 }

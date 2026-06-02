@@ -315,14 +315,20 @@
       "aliases": [],
       "relatedTopicIds": [
         "safety-culture-real",
-        "human-factors-field-tools-real"
+        "human-factors-field-tools-real",
+        "chemical-hazardous-materials-domain"
       ],
       "lessonIds": [
         "lesson-08",
-        "lesson-09"
+        "lesson-09",
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
       ],
       "sourceIds": [
-        "training-safety-management-human-factors"
+        "training-safety-management-human-factors",
+        "training-chemical-and-general-risks"
       ],
       "blockIds": [
         "block-real-human-factor-operational-definition",
@@ -330,7 +336,8 @@
         "block-real-human-factors-emotional-tone",
         "block-real-human-factors-risk-perception",
         "block-real-human-factors-satisficing",
-        "block-real-human-factors-near-miss-rca"
+        "block-real-human-factors-near-miss-rca",
+        "block-chemical-ppe-human-factors"
       ],
       "status": "draft"
     },
@@ -555,22 +562,29 @@
       "parentTopicId": "occupational-safety-management-real",
       "aliases": [],
       "relatedTopicIds": [
-        "hierarchy-of-controls-real"
+        "hierarchy-of-controls-real",
+        "chemical-hazardous-materials-domain"
       ],
       "lessonIds": [
         "lesson-08",
         "lesson-09",
-        "lesson-10"
+        "lesson-10",
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
       ],
       "sourceIds": [
-        "training-occupational-safety-management"
+        "training-occupational-safety-management",
+        "training-chemical-and-general-risks"
       ],
       "blockIds": [
         "block-occ-risk-hazard-risk",
         "block-occ-risk-simple-question",
         "block-occ-risk-four-steps",
         "block-occ-risk-complacency",
-        "block-occ-risk-survey-failure-rca"
+        "block-occ-risk-survey-failure-rca",
+        "block-chemical-toxicity-vs-risk"
       ],
       "status": "draft"
     },
@@ -581,22 +595,31 @@
       "parentTopicId": "occupational-safety-management-real",
       "aliases": [],
       "relatedTopicIds": [
-        "risk-assessment-management-real"
+        "risk-assessment-management-real",
+        "chemical-hazardous-materials-domain"
       ],
       "lessonIds": [
         "lesson-08",
         "lesson-09",
-        "lesson-10"
+        "lesson-10",
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
       ],
       "sourceIds": [
-        "training-occupational-safety-management"
+        "training-occupational-safety-management",
+        "training-chemical-and-general-risks"
       ],
       "blockIds": [
         "block-occ-controls-hierarchy-definition",
         "block-occ-controls-five-levels",
         "block-occ-controls-dog-example",
         "block-occ-controls-hard-soft",
-        "block-occ-controls-human-factor-ppe"
+        "block-occ-controls-human-factor-ppe",
+        "block-chemical-hierarchy-chemical-controls",
+        "block-chemical-lev-before-ppe",
+        "block-chemical-route-matched-controls"
       ],
       "status": "draft"
     },
@@ -1050,7 +1073,8 @@
       "aliases": [],
       "relatedTopicIds": [
         "operational-risk-barriers-real",
-        "construction-excavation-risk-real"
+        "construction-excavation-risk-real",
+        "chemical-hazardous-materials-domain"
       ],
       "lessonIds": [
         "lesson-10",
@@ -1059,18 +1083,24 @@
         "lesson-15",
         "lesson-31",
         "lesson-32",
-        "lesson-33"
+        "lesson-33",
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
       ],
       "sourceIds": [
         "training-operational-risks",
-        "training-construction-sites-safety"
+        "training-construction-sites-safety",
+        "training-chemical-and-general-risks"
       ],
       "blockIds": [
         "block-operational-rca-bowtie",
         "block-operational-rca-barrier-integrity-sil",
         "block-operational-rca-just-culture",
         "block-operational-rca-five-whys",
-        "block-construction-bowtie-field-model"
+        "block-construction-bowtie-field-model",
+        "block-chemical-hazop-bowtie-rca"
       ],
       "status": "draft"
     },
@@ -1173,20 +1203,30 @@
       ],
       "relatedTopicIds": [
         "factory-scope-definitions",
-        "pressure-equipment-ordinance"
+        "pressure-equipment-ordinance",
+        "chemical-hazardous-materials-domain"
       ],
       "lessonIds": [
         "lesson-04",
         "lesson-21",
-        "lesson-23"
+        "lesson-23",
+        "lesson-18",
+        "lesson-22",
+        "lesson-25"
       ],
       "sourceIds": [
-        "ordinance-work-safety-1970"
+        "ordinance-work-safety-1970",
+        "training-chemical-and-general-risks"
       ],
       "blockIds": [
         "block-ordinance-occupational-health-summary",
         "block-ordinance-occupational-health-warning",
-        "block-ordinance-occupational-health-checklist"
+        "block-ordinance-occupational-health-checklist",
+        "block-chemical-ingestion-hygiene",
+        "block-chemical-monitoring-twa-stel-ceiling-training",
+        "block-chemical-environmental-vs-biological-monitoring",
+        "block-chemical-specific-contaminants-overview",
+        "block-chemical-specific-contaminants-controls"
       ],
       "status": "draft"
     },
@@ -1345,21 +1385,30 @@
       ],
       "relatedTopicIds": [
         "operational-risks-real",
-        "pressure-process-safety-real"
+        "pressure-process-safety-real",
+        "chemical-hazardous-materials-domain"
       ],
       "lessonIds": [
         "lesson-04",
         "lesson-11",
         "lesson-14",
-        "lesson-20"
+        "lesson-20",
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
       ],
       "sourceIds": [
-        "ordinance-work-safety-1970"
+        "ordinance-work-safety-1970",
+        "training-chemical-and-general-risks"
       ],
       "blockIds": [
         "block-ordinance-confined-hot-work-summary",
         "block-ordinance-confined-hot-work-warning",
-        "block-ordinance-confined-hot-work-checklist"
+        "block-ordinance-confined-hot-work-checklist",
+        "block-chemical-air-purifying-limitations",
+        "block-chemical-confined-space-atmosphere",
+        "block-chemical-confined-space-standby-rescue"
       ],
       "status": "draft"
     },
@@ -1495,7 +1544,8 @@
         "loto-ptw-energy-control-real",
         "confined-space-and-hot-work",
         "operational-risks-real",
-        "construction-excavation-risk-real"
+        "construction-excavation-risk-real",
+        "chemical-hazardous-materials-domain"
       ],
       "lessonIds": [
         "lesson-08",
@@ -1503,11 +1553,16 @@
         "lesson-14",
         "lesson-31",
         "lesson-32",
-        "lesson-33"
+        "lesson-33",
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
       ],
       "sourceIds": [
         "training-occupational-safety-management",
-        "training-construction-sites-safety"
+        "training-construction-sites-safety",
+        "training-chemical-and-general-risks"
       ],
       "blockIds": [
         "block-safety-management-critical-work-controls-summary",
@@ -1518,7 +1573,9 @@
         "block-construction-role-boundaries",
         "block-construction-ptw-control-system",
         "block-construction-permit-components",
-        "block-construction-contractors-simops"
+        "block-construction-contractors-simops",
+        "block-chemical-spill-response-flow",
+        "block-chemical-hazop-bowtie-rca"
       ],
       "status": "draft"
     },
@@ -2120,20 +2177,27 @@
       ],
       "relatedTopicIds": [
         "loto-ptw-energy-control-real",
-        "safety-management-critical-work-controls"
+        "safety-management-critical-work-controls",
+        "chemical-hazardous-materials-domain"
       ],
       "lessonIds": [
         "lesson-10",
         "lesson-11",
-        "lesson-12"
+        "lesson-12",
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
       ],
       "sourceIds": [
-        "training-maintenance-safety"
+        "training-maintenance-safety",
+        "training-chemical-and-general-risks"
       ],
       "blockIds": [
         "block-maintenance-hot-work-fire-risk",
         "block-maintenance-hot-work-watch",
-        "block-maintenance-flashback-arrestor"
+        "block-maintenance-flashback-arrestor",
+        "block-chemical-non-sparking-tools-warning"
       ],
       "status": "draft"
     },
@@ -2385,6 +2449,364 @@
         "block-construction-cognitive-traps",
         "block-construction-bowtie-field-model",
         "block-construction-toolbox-height-talk"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "chemical-hazardous-materials-domain",
+      "title": "חומרים מסוכנים וסיכונים כימיים",
+      "description": "Domain כימי: חומ״ס, SDS, GHS, מסלולי חשיפה, ניטור, אחסון, שפך, אש, PPE ומזהמים ספציפיים.",
+      "parentTopicId": null,
+      "aliases": [
+        "חומ״ס",
+        "חומרים מסוכנים",
+        "סיכונים כימיים",
+        "כימיקלים"
+      ],
+      "relatedTopicIds": [
+        "chemical-classification-ghs-sds",
+        "chemical-exposure-routes",
+        "chemical-exposure-monitoring",
+        "chemical-storage-segregation-spill",
+        "chemical-fire-explosion-risks",
+        "chemical-controls-ppe",
+        "chemical-confined-space-process-risks",
+        "chemical-specific-contaminants"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "sourceIds": [
+        "training-chemical-and-general-risks"
+      ],
+      "blockIds": [
+        "block-chemical-domain-scope",
+        "block-chemical-source-limits",
+        "block-chemical-risk-hidden-chronic",
+        "block-chemical-toxicity-vs-risk",
+        "block-chemical-chemical-inventory-sds",
+        "block-chemical-odor-is-not-monitoring",
+        "block-chemical-un-classes-overview",
+        "block-chemical-incompatibility-warning",
+        "block-chemical-compatibility-field-check",
+        "block-chemical-reactive-water-mistake",
+        "block-chemical-exposure-routes-overview",
+        "block-chemical-inhalation-route",
+        "block-chemical-dermal-absorption",
+        "block-chemical-ingestion-hygiene",
+        "block-chemical-route-matched-controls",
+        "block-chemical-monitoring-twa-stel-ceiling-training",
+        "block-chemical-environmental-vs-biological-monitoring",
+        "block-chemical-monitoring-routine-error",
+        "block-chemical-action-level-training",
+        "block-chemical-sds-identity-card",
+        "block-chemical-sds-critical-sections",
+        "block-chemical-ghs-secondary-containers",
+        "block-chemical-nfpa-emergency-communication",
+        "block-chemical-storage-segregation",
+        "block-chemical-bunds-training-value",
+        "block-chemical-spill-response-flow",
+        "block-chemical-oxidizer-sawdust-warning",
+        "block-chemical-spill-kit-checklist",
+        "block-chemical-flammability-range-training",
+        "block-chemical-bleve-dust-static",
+        "block-chemical-non-sparking-tools-warning",
+        "block-chemical-hierarchy-chemical-controls",
+        "block-chemical-lev-before-ppe",
+        "block-chemical-ppe-human-factors",
+        "block-chemical-respirator-filter-selection",
+        "block-chemical-fit-testing-filter-life",
+        "block-chemical-air-purifying-limitations",
+        "block-chemical-confined-space-atmosphere",
+        "block-chemical-confined-space-standby-rescue",
+        "block-chemical-hazop-bowtie-rca",
+        "block-chemical-specific-contaminants-overview",
+        "block-chemical-silica-asbestos-voc-fumes",
+        "block-chemical-specific-contaminants-controls"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "chemical-classification-ghs-sds",
+      "title": "סיווג, SDS ו־GHS",
+      "description": "סיווג חומ״ס, SDS, GHS, NFPA וסימון מכלי משנה מתוך חומר הדרכה.",
+      "parentTopicId": "chemical-hazardous-materials-domain",
+      "aliases": [
+        "SDS",
+        "MSDS",
+        "GHS",
+        "NFPA",
+        "סימון חומרים"
+      ],
+      "relatedTopicIds": [
+        "chemical-storage-segregation-spill",
+        "chemical-fire-explosion-risks"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "sourceIds": [
+        "training-chemical-and-general-risks"
+      ],
+      "blockIds": [
+        "block-chemical-chemical-inventory-sds",
+        "block-chemical-un-classes-overview",
+        "block-chemical-sds-identity-card",
+        "block-chemical-sds-critical-sections",
+        "block-chemical-ghs-secondary-containers",
+        "block-chemical-nfpa-emergency-communication"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "chemical-exposure-routes",
+      "title": "מסלולי חשיפה כימית",
+      "description": "שאיפה, ספיגה עורית, בליעה והתאמת בקרות לפי מסלול חדירה.",
+      "parentTopicId": "chemical-hazardous-materials-domain",
+      "aliases": [
+        "שאיפה",
+        "ספיגה עורית",
+        "בליעה",
+        "חשיפה כימית"
+      ],
+      "relatedTopicIds": [
+        "chemical-exposure-monitoring",
+        "chemical-controls-ppe"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "sourceIds": [
+        "training-chemical-and-general-risks"
+      ],
+      "blockIds": [
+        "block-chemical-risk-hidden-chronic",
+        "block-chemical-exposure-routes-overview",
+        "block-chemical-inhalation-route",
+        "block-chemical-dermal-absorption",
+        "block-chemical-ingestion-hygiene",
+        "block-chemical-route-matched-controls",
+        "block-chemical-silica-asbestos-voc-fumes"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "chemical-exposure-monitoring",
+      "title": "ניטור חשיפה וגהות כימית",
+      "description": "ניטור סביבתי, ניטור ביולוגי, TWA/STEL/Ceiling ורמת פעולה כחומר הדרכה.",
+      "parentTopicId": "chemical-hazardous-materials-domain",
+      "aliases": [
+        "TWA",
+        "STEL",
+        "Ceiling",
+        "BEI",
+        "ניטור סביבתי",
+        "ניטור ביולוגי"
+      ],
+      "relatedTopicIds": [
+        "occupational-health-environment",
+        "chemical-exposure-routes"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "sourceIds": [
+        "training-chemical-and-general-risks"
+      ],
+      "blockIds": [
+        "block-chemical-odor-is-not-monitoring",
+        "block-chemical-inhalation-route",
+        "block-chemical-monitoring-twa-stel-ceiling-training",
+        "block-chemical-environmental-vs-biological-monitoring",
+        "block-chemical-monitoring-routine-error",
+        "block-chemical-action-level-training"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "chemical-storage-segregation-spill",
+      "title": "אחסון, הפרדה ושפך כימי",
+      "description": "תאימות כימית, מאצרות, Spill Response, ערכות שפך ופינוי פסולת.",
+      "parentTopicId": "chemical-hazardous-materials-domain",
+      "aliases": [
+        "אחסון חומרים מסוכנים",
+        "שפך כימי",
+        "מאצרה",
+        "Compatibility Matrix"
+      ],
+      "relatedTopicIds": [
+        "chemical-classification-ghs-sds",
+        "chemical-fire-explosion-risks"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "sourceIds": [
+        "training-chemical-and-general-risks"
+      ],
+      "blockIds": [
+        "block-chemical-incompatibility-warning",
+        "block-chemical-compatibility-field-check",
+        "block-chemical-reactive-water-mistake",
+        "block-chemical-storage-segregation",
+        "block-chemical-bunds-training-value",
+        "block-chemical-spill-response-flow",
+        "block-chemical-oxidizer-sawdust-warning",
+        "block-chemical-spill-kit-checklist"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "chemical-fire-explosion-risks",
+      "title": "אש, פיצוץ ונפיצות כימית",
+      "description": "LEL/UEL, BLEVE, פיצוץ אבק, חשמל סטטי, כלים אל־ניצוץ ובקרות אש.",
+      "parentTopicId": "chemical-hazardous-materials-domain",
+      "aliases": [
+        "LEL",
+        "UEL",
+        "BLEVE",
+        "פיצוץ אבק",
+        "חשמל סטטי"
+      ],
+      "relatedTopicIds": [
+        "maintenance-hot-work",
+        "chemical-storage-segregation-spill"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "sourceIds": [
+        "training-chemical-and-general-risks"
+      ],
+      "blockIds": [
+        "block-chemical-reactive-water-mistake",
+        "block-chemical-nfpa-emergency-communication",
+        "block-chemical-oxidizer-sawdust-warning",
+        "block-chemical-flammability-range-training",
+        "block-chemical-bleve-dust-static",
+        "block-chemical-non-sparking-tools-warning"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "chemical-controls-ppe",
+      "title": "בקרות חשיפה וציוד מגן",
+      "description": "היררכיית בקרות, LEV, מסנני נשימה, Fit Testing ומגבלות PPE.",
+      "parentTopicId": "chemical-hazardous-materials-domain",
+      "aliases": [
+        "PPE",
+        "LEV",
+        "מסכות",
+        "Fit Testing",
+        "מסננים"
+      ],
+      "relatedTopicIds": [
+        "hierarchy-of-controls-real",
+        "chemical-exposure-routes"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "sourceIds": [
+        "training-chemical-and-general-risks"
+      ],
+      "blockIds": [
+        "block-chemical-route-matched-controls",
+        "block-chemical-sds-critical-sections",
+        "block-chemical-hierarchy-chemical-controls",
+        "block-chemical-lev-before-ppe",
+        "block-chemical-ppe-human-factors",
+        "block-chemical-respirator-filter-selection",
+        "block-chemical-fit-testing-filter-life",
+        "block-chemical-air-purifying-limitations",
+        "block-chemical-specific-contaminants-controls"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "chemical-confined-space-process-risks",
+      "title": "חללים מוקפים ותהליכים כימיים",
+      "description": "ניטור גזים, PTW, משגיח, חילוץ, HAZOP, BowTie ו־RCA בתהליכים כימיים.",
+      "parentTopicId": "chemical-hazardous-materials-domain",
+      "aliases": [
+        "חלל מוקף",
+        "HAZOP",
+        "BowTie",
+        "RCA",
+        "ניטור גזים"
+      ],
+      "relatedTopicIds": [
+        "confined-space-and-hot-work",
+        "operational-rca-barriers-real",
+        "loto-ptw-energy-control-real"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "sourceIds": [
+        "training-chemical-and-general-risks"
+      ],
+      "blockIds": [
+        "block-chemical-air-purifying-limitations",
+        "block-chemical-confined-space-atmosphere",
+        "block-chemical-confined-space-standby-rescue",
+        "block-chemical-hazop-bowtie-rca"
+      ],
+      "status": "draft"
+    },
+    {
+      "topicId": "chemical-specific-contaminants",
+      "title": "מזהמים ספציפיים ומחלות מקצוע",
+      "description": "אסבסט, סיליקה, VOCs ונדפי ריתוך כמזהמים כרוניים המחייבים בקרות במקור.",
+      "parentTopicId": "chemical-hazardous-materials-domain",
+      "aliases": [
+        "אסבסט",
+        "סיליקה",
+        "VOC",
+        "נדפי ריתוך",
+        "מחלות מקצוע"
+      ],
+      "relatedTopicIds": [
+        "occupational-health-environment",
+        "chemical-controls-ppe"
+      ],
+      "lessonIds": [
+        "lesson-18",
+        "lesson-21",
+        "lesson-22",
+        "lesson-25"
+      ],
+      "sourceIds": [
+        "training-chemical-and-general-risks"
+      ],
+      "blockIds": [
+        "block-chemical-specific-contaminants-overview",
+        "block-chemical-silica-asbestos-voc-fumes",
+        "block-chemical-specific-contaminants-controls"
       ],
       "status": "draft"
     }

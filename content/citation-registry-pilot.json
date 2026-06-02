@@ -1192,6 +1192,150 @@
         "status": "source-backed"
       },
       "notes": "Level 6 training citation. Emergency and contractor controls are not marked binding."
+    },
+    {
+      "citationId": "citation-training-chemical-risks-glossary-intro",
+      "stableSourceId": "training-chemical-and-general-risks",
+      "citationType": "heading",
+      "label": "מבוא לסיכונים כימיים והיגיינה תעסוקתית",
+      "locator": {
+        "heading": "מבוא לסיכונים כימיים וניהול היגיינה תעסוקתית",
+        "paragraphRange": "1-49",
+        "sourceFile": "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Exposure values are not golden numbers."
+    },
+    {
+      "citationId": "citation-training-chemical-risks-classification",
+      "stableSourceId": "training-chemical-and-general-risks",
+      "citationType": "heading",
+      "label": "סיווג וקבוצות סיכון של חומרים מסוכנים",
+      "locator": {
+        "heading": "הגדרה, סיווג וקבוצות סיכון של חומרים מסוכנים",
+        "paragraphRange": "50-104",
+        "sourceFile": "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. UN class numbers are training taxonomy only."
+    },
+    {
+      "citationId": "citation-training-chemical-risks-exposure-routes",
+      "stableSourceId": "training-chemical-and-general-risks",
+      "citationType": "heading",
+      "label": "מסלולי חדירה של חומרים לגוף",
+      "locator": {
+        "heading": "מסלולי חדירה של חומרים מסוכנים לגוף האדם",
+        "paragraphRange": "105-176",
+        "sourceFile": "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation."
+    },
+    {
+      "citationId": "citation-training-chemical-risks-airborne-monitoring",
+      "stableSourceId": "training-chemical-and-general-risks",
+      "citationType": "heading",
+      "label": "ניטור סביבתי ותעסוקתי",
+      "locator": {
+        "heading": "ניטור סביבתי ותעסוקתי, ערכי חשיפה",
+        "paragraphRange": "177-205",
+        "sourceFile": "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. TWA/STEL/Ceiling remain training content only."
+    },
+    {
+      "citationId": "citation-training-chemical-risks-sds-ghs",
+      "stableSourceId": "training-chemical-and-general-risks",
+      "citationType": "heading",
+      "label": "SDS, GHS וסימון חומרים",
+      "locator": {
+        "heading": "גיליונות בטיחות וסימון חומרים מסוכנים",
+        "paragraphRange": "206-256",
+        "sourceFile": "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Section numbers are SDS structure, not legal golden numbers."
+    },
+    {
+      "citationId": "citation-training-chemical-risks-storage-spill",
+      "stableSourceId": "training-chemical-and-general-risks",
+      "citationType": "heading",
+      "label": "אחסון, הפרדה וטיפול בשפך",
+      "locator": {
+        "heading": "ניהול אחסון, הפרדת כימיקלים וטיפול בשפך",
+        "paragraphRange": "257-292",
+        "sourceFile": "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Bund percentages are not golden numbers."
+    },
+    {
+      "citationId": "citation-training-chemical-risks-fire-explosion",
+      "stableSourceId": "training-chemical-and-general-risks",
+      "citationType": "heading",
+      "label": "אש, פיצוץ ונפיצות כימית",
+      "locator": {
+        "heading": "הנדסת אש, פיצוצים וסיכוני בעירה",
+        "paragraphRange": "293-322",
+        "sourceFile": "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. LEL/UEL values remain training concepts."
+    },
+    {
+      "citationId": "citation-training-chemical-risks-controls-ppe",
+      "stableSourceId": "training-chemical-and-general-risks",
+      "citationType": "heading",
+      "label": "בקרות הנדסיות, אוורור ו־PPE",
+      "locator": {
+        "heading": "בקרות הנדסיות, אוורור, היררכיית בקרות וציוד מגן",
+        "paragraphRange": "323-404",
+        "sourceFile": "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Respirator codes remain training classification."
+    },
+    {
+      "citationId": "citation-training-chemical-risks-confined-specific-contaminants",
+      "stableSourceId": "training-chemical-and-general-risks",
+      "citationType": "heading",
+      "label": "חללים מוקפים, HAZOP ומזהמים ספציפיים",
+      "locator": {
+        "heading": "חללים מוקפים, HAZOP ומזהמים ספציפיים",
+        "paragraphRange": "405-495",
+        "sourceFile": "5.4.סיכונים כימיים וסיכונים כלליים-סופי.העלאה לאתר.docx"
+      },
+      "authorityLevelAtCitation": 6,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Level 6 training citation. Oxygen and contaminant values are not golden numbers."
     }
   ]
 }
