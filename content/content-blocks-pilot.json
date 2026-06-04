@@ -14033,7 +14033,7 @@
       "blockType": "definition",
       "sourceId": "training-chemical-and-general-risks",
       "citationId": "citation-training-chemical-risks-fire-explosion",
-      "sourceCitation": "???? ?????: ??????? ?????? ??????? ?????",
+      "sourceCitation": "חומר הדרכה: דליקה ואדי חומר",
       "topicIds": [
         "chemical-fire-explosion-risks"
       ],
@@ -14081,7 +14081,7 @@
       "blockType": "warning",
       "sourceId": "training-chemical-and-general-risks",
       "citationId": "citation-training-chemical-risks-fire-explosion",
-      "sourceCitation": "???? ?????: ??????? ?????? ??????? ?????",
+      "sourceCitation": "חומר הדרכה: דליקה ואדי חומר",
       "topicIds": [
         "chemical-fire-explosion-risks"
       ],
@@ -14129,7 +14129,7 @@
       "blockType": "warning",
       "sourceId": "training-chemical-and-general-risks",
       "citationId": "citation-training-chemical-risks-fire-explosion",
-      "sourceCitation": "???? ?????: ??????? ?????? ??????? ?????",
+      "sourceCitation": "חומר הדרכה: דליקה ואדי חומר",
       "topicIds": [
         "chemical-fire-explosion-risks",
         "maintenance-hot-work"

@@ -27,6 +27,9 @@ const SCANNER_ID_PATTERN = /source-\d{3}-[a-f0-9]{12}/i;
 const WORD_NUMBERING_TITLE_PATTERN = /^(?:פרק\s+\d+|\d+(?:\.\d+)+)(?:\s|$)/u;
 const LEVEL_6_FORBIDDEN_CLAIM_TYPES = new Set(["legalRequirement", "regulatoryRequirement", "bindingRule"]);
 const LAW_LIKE_SOURCE_CITATION_PATTERN = /(?:חוק|פקודה|תקנה|צו|סעיף\s*\d+|section\s*\d+)/iu;
+const FORBIDDEN_PLACEHOLDER_PATTERN = /\?{4,}/;
+const PLACEHOLDER_FIELD_NAMES = new Set(["title", "description", "sourceCitation", "label"]);
+const SELF_TEST_PLACEHOLDER = "?".repeat(4);
 const SELF_TEST_MODE = process.argv.includes("--self-test");
 
 function readJson(filePath) {
@@ -79,6 +82,11 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
 
   const blocked = [];
   const warnings = [];
+  const placeholderValidation = {
+    checked: 0,
+    blocked: 0,
+    filesAffected: new Set()
+  };
   let checkedItems = 0;
 
   function block(item, message) {
@@ -89,10 +97,40 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     blocked.push(`source:${source?.stableSourceId || "(missing stableSourceId)"}: ${message}`);
   }
 
+  function validateForbiddenPlaceholders(item, fileLabel) {
+    function visit(value, keyPath) {
+      if (Array.isArray(value)) {
+        value.forEach((entry, index) => visit(entry, keyPath.concat(index)));
+        return;
+      }
+
+      if (value && typeof value === "object") {
+        Object.entries(value).forEach(([key, entry]) => visit(entry, keyPath.concat(key)));
+        return;
+      }
+
+      const fieldName = keyPath[keyPath.length - 1];
+      const isAlias = keyPath.some((part) => part === "aliases");
+      const isCheckedField = PLACEHOLDER_FIELD_NAMES.has(fieldName) || isAlias;
+      if (!isCheckedField || typeof value !== "string") return;
+
+      placeholderValidation.checked += 1;
+      if (FORBIDDEN_PLACEHOLDER_PATTERN.test(value)) {
+        placeholderValidation.blocked += 1;
+        placeholderValidation.filesAffected.add(fileLabel);
+        block(item, `forbidden placeholder found in ${keyPath.join(".")}`);
+      }
+    }
+
+    visit(item, []);
+  }
+
   function validateSourceRegistry() {
     const seenStableSourceIds = new Set();
 
     sources.forEach((source) => {
+      validateForbiddenPlaceholders(source, "content/source-registry.json");
+
       if (!source.stableSourceId) {
         blockSource(source, "missing stableSourceId");
         return;
@@ -158,6 +196,10 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
 
   function validateTraceableItem(item, itemType) {
     checkedItems += 1;
+    validateForbiddenPlaceholders(
+      item,
+      itemType === "question" ? "content/question-items-pilot.json" : "content/knowledge-items-pilot.json"
+    );
 
     if (SCANNER_ID_PATTERN.test(JSON.stringify(item))) {
       block(item, `scannerId-like value found in ${itemType}`);
@@ -177,6 +219,7 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
 
   function validateContentBlock(contentBlock) {
     checkedItems += 1;
+    validateForbiddenPlaceholders(contentBlock, "content/content-blocks-pilot.json");
 
     if (SCANNER_ID_PATTERN.test(JSON.stringify(contentBlock))) {
       block(contentBlock, "scannerId-like value found in content block");
@@ -249,6 +292,7 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
 
     topics.forEach((topic) => {
       checkedItems += 1;
+      validateForbiddenPlaceholders(topic, "content/topic-map-pilot.json");
 
       if (SCANNER_ID_PATTERN.test(JSON.stringify(topic))) {
         block(topic, "scannerId-like value found in topic");
@@ -303,6 +347,7 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
 
     lessonMappings.forEach((lessonMapping) => {
       checkedItems += 1;
+      validateForbiddenPlaceholders(lessonMapping, "content/lesson-map-pilot.json");
 
       if (!lessonMapping.lessonId) {
         block(lessonMapping, "missing lessonId");
@@ -363,6 +408,7 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
 
   goldenNumbers.forEach((item) => {
     checkedItems += 1;
+    validateForbiddenPlaceholders(item, "content/golden-numbers-pilot.json");
 
     if (SCANNER_ID_PATTERN.test(JSON.stringify(item))) {
       block(item, "scannerId-like value found in golden number");
@@ -409,6 +455,11 @@ function validateData(sourceRegistry, citationRegistry, knowledgeRegistry, quest
     checkedItems,
     blocked,
     warnings,
+    placeholderValidation: {
+      checked: placeholderValidation.checked,
+      blocked: placeholderValidation.blocked,
+      filesAffected: Array.from(placeholderValidation.filesAffected).sort()
+    },
     result: blocked.length ? "FAIL" : "PASS"
   };
 }
@@ -658,6 +709,13 @@ function runSelfTest() {
         item.claimTypes = ["goldenNumber"];
         delete item.sourceCitation;
       }
+    },
+    {
+      name: "content block sourceCitation placeholder",
+      type: "contentBlock",
+      mutate(item) {
+        item.sourceCitation = SELF_TEST_PLACEHOLDER;
+      }
     }
   ];
   const level6ContentBlockCases = [
@@ -763,6 +821,27 @@ function runSelfTest() {
       type: "topic",
       mutate(item) {
         item.sourceIds = ["source-013-b3e4e54502a2"];
+      }
+    },
+    {
+      name: "topic title placeholder",
+      type: "topic",
+      mutate(item) {
+        item.title = SELF_TEST_PLACEHOLDER;
+      }
+    },
+    {
+      name: "topic description placeholder",
+      type: "topic",
+      mutate(item) {
+        item.description = SELF_TEST_PLACEHOLDER;
+      }
+    },
+    {
+      name: "topic alias placeholder",
+      type: "topic",
+      mutate(item) {
+        item.aliases = [SELF_TEST_PLACEHOLDER];
       }
     }
   ];
@@ -876,6 +955,11 @@ function runSelfTest() {
     checkedItems: cases.length,
     blocked: missedCases.map((item) => `self-test case was not blocked: ${item.name}`),
     warnings: [],
+    placeholderValidation: {
+      checked: 0,
+      blocked: 0,
+      filesAffected: []
+    },
     result: missedCases.length ? "FAIL" : "PASS",
     selfTestResults: results
   };
@@ -898,6 +982,13 @@ function printReport(report) {
   report.blocked.forEach((item) => console.log(`- ${item}`));
   console.log(`Warnings: ${report.warnings.length}`);
   report.warnings.forEach((item) => console.log(`- ${item}`));
+  console.log("");
+  console.log("Placeholder Validation");
+  console.log("======================");
+  console.log(`Checked: ${report.placeholderValidation?.checked || 0}`);
+  console.log(`Blocked: ${report.placeholderValidation?.blocked || 0}`);
+  const filesAffected = report.placeholderValidation?.filesAffected || [];
+  console.log(`Files Affected: ${filesAffected.length ? filesAffected.join(", ") : "none"}`);
   if (report.selfTestResults) {
     console.log("Self-Test Cases:");
     report.selfTestResults.forEach((item) => {
