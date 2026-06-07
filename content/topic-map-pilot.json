@@ -26,7 +26,13 @@
       "chemical-hazardous-materials-domain",
       "emergency-preparedness-domain",
       "exam-preparation-domain"
-    ]
+    ],
+    "alignment": {
+      "status": "draft",
+      "model": "learning-path-aligned",
+      "officialLessonCount": 58,
+      "note": "Lesson IDs were normalized to reduce over-assignment and align Knowledge Hub topics with the official learning path. No sources, citations or content blocks were added."
+    }
   },
   "topics": [
     {
@@ -45,7 +51,8 @@
       ],
       "lessonIds": [
         "lesson-03",
-        "lesson-07"
+        "lesson-07",
+        "lesson-55"
       ],
       "sourceIds": [
         "law-labor-inspection-1954"
@@ -72,7 +79,8 @@
       ],
       "lessonIds": [
         "lesson-03",
-        "lesson-07"
+        "lesson-07",
+        "lesson-55"
       ],
       "sourceIds": [
         "law-labor-inspection-1954"
@@ -98,7 +106,10 @@
       ],
       "lessonIds": [
         "lesson-08",
-        "lesson-09"
+        "lesson-09",
+        "lesson-36",
+        "lesson-39",
+        "lesson-50"
       ],
       "sourceIds": [
         "law-labor-inspection-1954"
@@ -124,7 +135,13 @@
       ],
       "lessonIds": [
         "lesson-08",
-        "lesson-09"
+        "lesson-09",
+        "lesson-36",
+        "lesson-37",
+        "lesson-38",
+        "lesson-39",
+        "lesson-50",
+        "lesson-51"
       ],
       "sourceIds": [
         "law-labor-inspection-1954"
@@ -149,8 +166,10 @@
         "safety-committee"
       ],
       "lessonIds": [
+        "lesson-02",
         "lesson-05",
-        "lesson-08"
+        "lesson-08",
+        "lesson-09"
       ],
       "sourceIds": [
         "law-labor-inspection-1954"
@@ -175,7 +194,10 @@
         "safety-committee"
       ],
       "lessonIds": [
-        "lesson-03"
+        "lesson-03",
+        "lesson-04",
+        "lesson-07",
+        "lesson-55"
       ],
       "sourceIds": [
         "law-labor-inspection-1954"
@@ -230,8 +252,7 @@
         "exam-focus"
       ],
       "lessonIds": [
-        "lesson-05",
-        "lesson-08"
+        "lesson-05"
       ],
       "sourceIds": [
         "law-labor-inspection-1954"
@@ -257,8 +278,11 @@
         "management-responsibility"
       ],
       "lessonIds": [
+        "lesson-02",
         "lesson-05",
-        "lesson-08"
+        "lesson-07",
+        "lesson-08",
+        "lesson-48"
       ],
       "sourceIds": [
         "law-labor-inspection-1954"
@@ -283,8 +307,10 @@
         "safety-committee-composition"
       ],
       "lessonIds": [
-        "lesson-03",
-        "lesson-05"
+        "lesson-55",
+        "lesson-56",
+        "lesson-57",
+        "lesson-58"
       ],
       "sourceIds": [
         "law-labor-inspection-1954"
@@ -309,7 +335,9 @@
       ],
       "lessonIds": [
         "lesson-03",
-        "lesson-05"
+        "lesson-04",
+        "lesson-07",
+        "lesson-55"
       ],
       "sourceIds": [
         "law-labor-inspection-1954"
@@ -341,12 +369,15 @@
         "occupational-safety-management-real"
       ],
       "lessonIds": [
+        "lesson-01",
         "lesson-08",
         "lesson-09",
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-26",
+        "lesson-41",
+        "lesson-48",
+        "lesson-49",
+        "lesson-50",
+        "lesson-58"
       ],
       "sourceIds": [
         "training-safety-management-human-factors",
@@ -380,7 +411,10 @@
       ],
       "lessonIds": [
         "lesson-08",
-        "lesson-09"
+        "lesson-09",
+        "lesson-41",
+        "lesson-48",
+        "lesson-49"
       ],
       "sourceIds": [
         "training-safety-management-human-factors",
@@ -416,9 +450,8 @@
       "lessonIds": [
         "lesson-08",
         "lesson-09",
-        "lesson-31",
-        "lesson-32",
-        "lesson-33"
+        "lesson-50",
+        "lesson-51"
       ],
       "sourceIds": [
         "training-safety-management-human-factors",
@@ -448,8 +481,10 @@
         "safety-leadership-governance-real"
       ],
       "lessonIds": [
-        "lesson-08",
-        "lesson-09"
+        "lesson-09",
+        "lesson-48",
+        "lesson-49",
+        "lesson-58"
       ],
       "sourceIds": [
         "training-safety-management-human-factors"
@@ -494,7 +529,12 @@
       "lessonIds": [
         "lesson-08",
         "lesson-09",
-        "lesson-10"
+        "lesson-36",
+        "lesson-37",
+        "lesson-38",
+        "lesson-39",
+        "lesson-50",
+        "lesson-51"
       ],
       "sourceIds": [
         "training-occupational-safety-management"
@@ -555,8 +595,10 @@
       ],
       "lessonIds": [
         "lesson-08",
-        "lesson-09",
-        "lesson-10"
+        "lesson-36",
+        "lesson-37",
+        "lesson-38",
+        "lesson-39"
       ],
       "sourceIds": [
         "training-occupational-safety-management"
@@ -583,7 +625,10 @@
       "lessonIds": [
         "lesson-08",
         "lesson-09",
-        "lesson-10"
+        "lesson-36",
+        "lesson-39",
+        "lesson-50",
+        "lesson-51"
       ],
       "sourceIds": [
         "training-occupational-safety-management"
@@ -608,13 +653,12 @@
         "chemical-hazardous-materials-domain"
       ],
       "lessonIds": [
-        "lesson-08",
-        "lesson-09",
+        "lesson-01",
         "lesson-10",
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-11",
+        "lesson-37",
+        "lesson-40",
+        "lesson-52"
       ],
       "sourceIds": [
         "training-occupational-safety-management",
@@ -642,13 +686,12 @@
         "occupational-hygiene-ppe-respiratory"
       ],
       "lessonIds": [
-        "lesson-08",
-        "lesson-09",
         "lesson-10",
-        "lesson-18",
-        "lesson-21",
+        "lesson-11",
         "lesson-22",
-        "lesson-25"
+        "lesson-37",
+        "lesson-43",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-occupational-safety-management",
@@ -689,8 +732,7 @@
       ],
       "lessonIds": [
         "lesson-08",
-        "lesson-09",
-        "lesson-10"
+        "lesson-09"
       ],
       "sourceIds": [
         "training-safety-organization-final"
@@ -730,8 +772,7 @@
       ],
       "lessonIds": [
         "lesson-08",
-        "lesson-09",
-        "lesson-10"
+        "lesson-09"
       ],
       "sourceIds": [
         "training-safety-organization-final"
@@ -754,7 +795,8 @@
       "lessonIds": [
         "lesson-08",
         "lesson-09",
-        "lesson-10"
+        "lesson-50",
+        "lesson-51"
       ],
       "sourceIds": [
         "training-safety-organization-final"
@@ -778,8 +820,8 @@
       ],
       "lessonIds": [
         "lesson-08",
-        "lesson-09",
-        "lesson-10"
+        "lesson-36",
+        "lesson-39"
       ],
       "sourceIds": [
         "training-safety-organization-final"
@@ -801,8 +843,8 @@
       ],
       "lessonIds": [
         "lesson-08",
-        "lesson-09",
-        "lesson-10"
+        "lesson-10",
+        "lesson-11"
       ],
       "sourceIds": [
         "training-safety-organization-final"
@@ -829,7 +871,7 @@
       "lessonIds": [
         "lesson-08",
         "lesson-09",
-        "lesson-10"
+        "lesson-41"
       ],
       "sourceIds": [
         "training-safety-organization-final"
@@ -870,11 +912,13 @@
         "occupational-safety-management-real"
       ],
       "lessonIds": [
-        "lesson-10",
         "lesson-11",
-        "lesson-12",
-        "lesson-15",
-        "lesson-31"
+        "lesson-16",
+        "lesson-40",
+        "lesson-41",
+        "lesson-52",
+        "lesson-54",
+        "lesson-58"
       ],
       "sourceIds": [
         "training-operational-risks"
@@ -917,11 +961,10 @@
         "operational-rca-barriers-real"
       ],
       "lessonIds": [
-        "lesson-10",
         "lesson-11",
-        "lesson-12",
-        "lesson-15",
-        "lesson-31"
+        "lesson-40",
+        "lesson-41",
+        "lesson-52"
       ],
       "sourceIds": [
         "training-operational-risks"
@@ -944,11 +987,9 @@
         "operational-risk-barriers-real"
       ],
       "lessonIds": [
-        "lesson-10",
-        "lesson-11",
-        "lesson-12",
-        "lesson-15",
-        "lesson-31"
+        "lesson-40",
+        "lesson-46",
+        "lesson-52"
       ],
       "sourceIds": [
         "training-operational-risks"
@@ -971,13 +1012,10 @@
         "construction-excavation-risk-real"
       ],
       "lessonIds": [
-        "lesson-10",
-        "lesson-11",
-        "lesson-12",
-        "lesson-15",
-        "lesson-31",
-        "lesson-32",
-        "lesson-33"
+        "lesson-24",
+        "lesson-25",
+        "lesson-26",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-operational-risks",
@@ -1023,13 +1061,13 @@
         "emergency-preparedness-domain"
       ],
       "lessonIds": [
-        "lesson-10",
-        "lesson-11",
-        "lesson-12",
-        "lesson-15",
-        "lesson-31",
-        "lesson-32",
-        "lesson-33"
+        "lesson-19",
+        "lesson-20",
+        "lesson-21",
+        "lesson-22",
+        "lesson-23",
+        "lesson-25",
+        "lesson-42"
       ],
       "sourceIds": [
         "training-operational-risks",
@@ -1092,13 +1130,14 @@
         "construction-excavation-risk-real"
       ],
       "lessonIds": [
-        "lesson-10",
-        "lesson-11",
-        "lesson-12",
         "lesson-15",
-        "lesson-31",
-        "lesson-32",
-        "lesson-33"
+        "lesson-16",
+        "lesson-18",
+        "lesson-42",
+        "lesson-45",
+        "lesson-53",
+        "lesson-54",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-operational-risks",
@@ -1136,17 +1175,10 @@
         "emergency-business-continuity"
       ],
       "lessonIds": [
-        "lesson-10",
-        "lesson-11",
-        "lesson-12",
-        "lesson-15",
-        "lesson-31",
-        "lesson-32",
-        "lesson-33",
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-35",
+        "lesson-41",
+        "lesson-49",
+        "lesson-58"
       ],
       "sourceIds": [
         "training-operational-risks",
@@ -1186,9 +1218,11 @@
       "lessonIds": [
         "lesson-04",
         "lesson-10",
-        "lesson-15",
-        "lesson-16",
-        "lesson-17"
+        "lesson-17",
+        "lesson-24",
+        "lesson-46",
+        "lesson-47",
+        "lesson-55"
       ],
       "sourceIds": [
         "ordinance-work-safety-1970"
@@ -1272,11 +1306,9 @@
       ],
       "lessonIds": [
         "lesson-04",
-        "lesson-21",
-        "lesson-23",
-        "lesson-18",
-        "lesson-22",
-        "lesson-25"
+        "lesson-30",
+        "lesson-31",
+        "lesson-32"
       ],
       "sourceIds": [
         "ordinance-work-safety-1970",
@@ -1313,8 +1345,9 @@
         "loto-ptw-energy-control-real"
       ],
       "lessonIds": [
-        "lesson-04",
-        "lesson-10"
+        "lesson-10",
+        "lesson-17",
+        "lesson-56"
       ],
       "sourceIds": [
         "ordinance-work-safety-1970"
@@ -1340,10 +1373,9 @@
         "construction-excavation-risk-real"
       ],
       "lessonIds": [
-        "lesson-04",
-        "lesson-31",
-        "lesson-32",
-        "lesson-33"
+        "lesson-20",
+        "lesson-22",
+        "lesson-23"
       ],
       "sourceIds": [
         "ordinance-work-safety-1970",
@@ -1373,8 +1405,8 @@
         "lifting-machines-ordinance"
       ],
       "lessonIds": [
-        "lesson-04",
-        "lesson-17"
+        "lesson-24",
+        "lesson-47"
       ],
       "sourceIds": [
         "ordinance-work-safety-1970"
@@ -1400,8 +1432,8 @@
         "lifting-machines-ordinance"
       ],
       "lessonIds": [
-        "lesson-04",
-        "lesson-15"
+        "lesson-24",
+        "lesson-47"
       ],
       "sourceIds": [
         "ordinance-work-safety-1970"
@@ -1428,8 +1460,9 @@
         "lifts-and-escalators"
       ],
       "lessonIds": [
-        "lesson-04",
-        "lesson-15"
+        "lesson-24",
+        "lesson-25",
+        "lesson-47"
       ],
       "sourceIds": [
         "ordinance-work-safety-1970"
@@ -1457,14 +1490,9 @@
         "chemical-hazardous-materials-domain"
       ],
       "lessonIds": [
-        "lesson-04",
-        "lesson-11",
-        "lesson-14",
-        "lesson-20",
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-16",
+        "lesson-44",
+        "lesson-45"
       ],
       "sourceIds": [
         "ordinance-work-safety-1970",
@@ -1494,8 +1522,8 @@
         "pressure-process-safety-real"
       ],
       "lessonIds": [
-        "lesson-04",
-        "lesson-16"
+        "lesson-46",
+        "lesson-47"
       ],
       "sourceIds": [
         "ordinance-work-safety-1970"
@@ -1523,7 +1551,8 @@
       ],
       "lessonIds": [
         "lesson-04",
-        "lesson-07"
+        "lesson-07",
+        "lesson-55"
       ],
       "sourceIds": [
         "ordinance-work-safety-1970"
@@ -1552,8 +1581,9 @@
       ],
       "lessonIds": [
         "lesson-08",
+        "lesson-09",
         "lesson-36",
-        "lesson-37"
+        "lesson-41"
       ],
       "sourceIds": [
         "training-occupational-safety-management"
@@ -1583,8 +1613,10 @@
         "risk-assessment-management-real"
       ],
       "lessonIds": [
-        "lesson-08",
-        "lesson-36"
+        "lesson-35",
+        "lesson-41",
+        "lesson-49",
+        "lesson-58"
       ],
       "sourceIds": [
         "training-occupational-safety-management"
@@ -1616,16 +1648,11 @@
         "chemical-hazardous-materials-domain"
       ],
       "lessonIds": [
-        "lesson-08",
-        "lesson-10",
-        "lesson-14",
-        "lesson-31",
-        "lesson-32",
-        "lesson-33",
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-16",
+        "lesson-42",
+        "lesson-45",
+        "lesson-53",
+        "lesson-54"
       ],
       "sourceIds": [
         "training-occupational-safety-management",
@@ -1663,9 +1690,10 @@
         "safety-management-incident-learning-rca"
       ],
       "lessonIds": [
+        "lesson-07",
         "lesson-08",
         "lesson-09",
-        "lesson-36"
+        "lesson-51"
       ],
       "sourceIds": [
         "training-occupational-safety-management"
@@ -1695,8 +1723,7 @@
       ],
       "lessonIds": [
         "lesson-08",
-        "lesson-09",
-        "lesson-10"
+        "lesson-09"
       ],
       "sourceIds": [
         "training-safety-organization-final"
@@ -1724,9 +1751,8 @@
         "safety-organization-defect-escalation-real"
       ],
       "lessonIds": [
-        "lesson-08",
-        "lesson-09",
-        "lesson-10"
+        "lesson-05",
+        "lesson-08"
       ],
       "sourceIds": [
         "training-safety-organization-final"
@@ -1757,7 +1783,7 @@
       "lessonIds": [
         "lesson-08",
         "lesson-09",
-        "lesson-10"
+        "lesson-51"
       ],
       "sourceIds": [
         "training-safety-organization-final"
@@ -1786,9 +1812,9 @@
         "safety-organization-field-tools-real"
       ],
       "lessonIds": [
+        "lesson-07",
         "lesson-08",
-        "lesson-09",
-        "lesson-10"
+        "lesson-09"
       ],
       "sourceIds": [
         "training-safety-organization-final"
@@ -1822,7 +1848,7 @@
       "lessonIds": [
         "lesson-08",
         "lesson-09",
-        "lesson-10"
+        "lesson-51"
       ],
       "sourceIds": [
         "training-safety-organization-final"
@@ -1855,8 +1881,10 @@
         "maintenance-safety-domain"
       ],
       "lessonIds": [
-        "lesson-12",
-        "lesson-10"
+        "lesson-13",
+        "lesson-14",
+        "lesson-15",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-electrical-safety"
@@ -1883,8 +1911,8 @@
         "electrical-work-controls"
       ],
       "lessonIds": [
-        "lesson-12",
-        "lesson-10"
+        "lesson-13",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-electrical-safety"
@@ -1913,8 +1941,9 @@
         "electrical-emergency-response"
       ],
       "lessonIds": [
-        "lesson-12",
-        "lesson-10"
+        "lesson-13",
+        "lesson-14",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-electrical-safety"
@@ -1945,11 +1974,10 @@
         "construction-excavation-risk-real"
       ],
       "lessonIds": [
-        "lesson-12",
-        "lesson-10",
-        "lesson-31",
-        "lesson-32",
-        "lesson-33"
+        "lesson-13",
+        "lesson-14",
+        "lesson-19",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-electrical-safety",
@@ -1980,8 +2008,8 @@
         "electrical-work-controls"
       ],
       "lessonIds": [
-        "lesson-12",
-        "lesson-10"
+        "lesson-14",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-electrical-safety"
@@ -2011,8 +2039,10 @@
         "emergency-medical-first-aid"
       ],
       "lessonIds": [
-        "lesson-12",
-        "lesson-10"
+        "lesson-13",
+        "lesson-14",
+        "lesson-15",
+        "lesson-44"
       ],
       "sourceIds": [
         "training-electrical-safety",
@@ -2045,11 +2075,10 @@
         "construction-excavation-risk-real"
       ],
       "lessonIds": [
-        "lesson-12",
-        "lesson-10",
-        "lesson-31",
-        "lesson-32",
-        "lesson-33"
+        "lesson-14",
+        "lesson-15",
+        "lesson-42",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-electrical-safety",
@@ -2085,9 +2114,13 @@
         "operational-risks-real"
       ],
       "lessonIds": [
-        "lesson-10",
-        "lesson-11",
-        "lesson-12"
+        "lesson-15",
+        "lesson-18",
+        "lesson-42",
+        "lesson-45",
+        "lesson-53",
+        "lesson-54",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-maintenance-safety"
@@ -2113,9 +2146,8 @@
         "safety-culture-hro-technology-real"
       ],
       "lessonIds": [
-        "lesson-10",
-        "lesson-11",
-        "lesson-12"
+        "lesson-18",
+        "lesson-53"
       ],
       "sourceIds": [
         "training-maintenance-safety"
@@ -2140,9 +2172,9 @@
         "maintenance-tools-machine-guarding"
       ],
       "lessonIds": [
-        "lesson-10",
-        "lesson-11",
-        "lesson-12"
+        "lesson-18",
+        "lesson-46",
+        "lesson-53"
       ],
       "sourceIds": [
         "training-maintenance-safety"
@@ -2171,8 +2203,10 @@
       ],
       "lessonIds": [
         "lesson-10",
-        "lesson-11",
-        "lesson-12"
+        "lesson-17",
+        "lesson-18",
+        "lesson-53",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-maintenance-safety"
@@ -2200,9 +2234,10 @@
         "electrical-work-controls"
       ],
       "lessonIds": [
-        "lesson-10",
-        "lesson-11",
-        "lesson-12"
+        "lesson-15",
+        "lesson-18",
+        "lesson-53",
+        "lesson-54"
       ],
       "sourceIds": [
         "training-maintenance-safety"
@@ -2228,9 +2263,10 @@
         "electrical-work-controls"
       ],
       "lessonIds": [
-        "lesson-10",
-        "lesson-11",
-        "lesson-12"
+        "lesson-13",
+        "lesson-14",
+        "lesson-15",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-maintenance-safety"
@@ -2259,13 +2295,10 @@
         "emergency-fire-explosion"
       ],
       "lessonIds": [
-        "lesson-10",
-        "lesson-11",
-        "lesson-12",
+        "lesson-16",
         "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-45",
+        "lesson-53"
       ],
       "sourceIds": [
         "training-maintenance-safety",
@@ -2298,8 +2331,7 @@
         "safe-access-and-fall-prevention"
       ],
       "lessonIds": [
-        "lesson-31",
-        "lesson-32"
+        "lesson-20"
       ],
       "sourceIds": [
         "training-construction-sites-safety"
@@ -2328,8 +2360,9 @@
         "construction-scaffolding-temporary-structures"
       ],
       "lessonIds": [
-        "lesson-31",
-        "lesson-32"
+        "lesson-22",
+        "lesson-23",
+        "lesson-43"
       ],
       "sourceIds": [
         "training-construction-sites-safety"
@@ -2359,7 +2392,7 @@
         "construction-ptw-simops-contractors"
       ],
       "lessonIds": [
-        "lesson-32"
+        "lesson-21"
       ],
       "sourceIds": [
         "training-construction-sites-safety"
@@ -2391,8 +2424,7 @@
         "lifting-accessories-ordinance"
       ],
       "lessonIds": [
-        "lesson-15",
-        "lesson-33"
+        "lesson-25"
       ],
       "sourceIds": [
         "training-construction-sites-safety"
@@ -2425,8 +2457,9 @@
         "electrical-work-controls"
       ],
       "lessonIds": [
-        "lesson-12",
-        "lesson-32"
+        "lesson-13",
+        "lesson-19",
+        "lesson-56"
       ],
       "sourceIds": [
         "training-construction-sites-safety"
@@ -2457,9 +2490,8 @@
         "safety-leadership-governance-real"
       ],
       "lessonIds": [
-        "lesson-08",
-        "lesson-10",
-        "lesson-32"
+        "lesson-19",
+        "lesson-42"
       ],
       "sourceIds": [
         "training-construction-sites-safety"
@@ -2490,8 +2522,10 @@
         "emergency-evacuation-rescue"
       ],
       "lessonIds": [
-        "lesson-04",
-        "lesson-32"
+        "lesson-06",
+        "lesson-23",
+        "lesson-34",
+        "lesson-35"
       ],
       "sourceIds": [
         "training-construction-sites-safety",
@@ -2521,9 +2555,10 @@
         "construction-ptw-simops-contractors"
       ],
       "lessonIds": [
-        "lesson-31",
-        "lesson-32",
-        "lesson-37"
+        "lesson-19",
+        "lesson-21",
+        "lesson-22",
+        "lesson-23"
       ],
       "sourceIds": [
         "training-construction-sites-safety"
@@ -2564,10 +2599,12 @@
         "human-factors-real"
       ],
       "lessonIds": [
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-27",
+        "lesson-28",
+        "lesson-29",
+        "lesson-44",
+        "lesson-45",
+        "lesson-57"
       ],
       "sourceIds": [
         "training-chemical-and-general-risks"
@@ -2636,10 +2673,7 @@
         "chemical-fire-explosion-risks"
       ],
       "lessonIds": [
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-27"
       ],
       "sourceIds": [
         "training-chemical-and-general-risks"
@@ -2670,10 +2704,9 @@
         "chemical-controls-ppe"
       ],
       "lessonIds": [
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-27",
+        "lesson-28",
+        "lesson-30"
       ],
       "sourceIds": [
         "training-chemical-and-general-risks"
@@ -2708,10 +2741,8 @@
         "occupational-hygiene-exposure-monitoring"
       ],
       "lessonIds": [
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-28",
+        "lesson-30"
       ],
       "sourceIds": [
         "training-chemical-and-general-risks",
@@ -2749,10 +2780,8 @@
         "emergency-hazmat-response"
       ],
       "lessonIds": [
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-27",
+        "lesson-29"
       ],
       "sourceIds": [
         "training-chemical-and-general-risks",
@@ -2790,10 +2819,9 @@
         "emergency-fire-explosion"
       ],
       "lessonIds": [
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-28",
+        "lesson-33",
+        "lesson-45"
       ],
       "sourceIds": [
         "training-chemical-and-general-risks",
@@ -2833,10 +2861,9 @@
         "occupational-hygiene-ventilation-controls"
       ],
       "lessonIds": [
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-28",
+        "lesson-30",
+        "lesson-43"
       ],
       "sourceIds": [
         "training-chemical-and-general-risks",
@@ -2880,10 +2907,9 @@
         "emergency-hazmat-response"
       ],
       "lessonIds": [
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-29",
+        "lesson-44",
+        "lesson-45"
       ],
       "sourceIds": [
         "training-chemical-and-general-risks",
@@ -2920,10 +2946,9 @@
         "occupational-hygiene-disease-prevention"
       ],
       "lessonIds": [
-        "lesson-18",
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-27",
+        "lesson-30",
+        "lesson-31"
       ],
       "sourceIds": [
         "training-chemical-and-general-risks",
@@ -2958,12 +2983,11 @@
         "chemical-controls-ppe"
       ],
       "lessonIds": [
-        "lesson-21",
-        "lesson-22",
-        "lesson-23",
-        "lesson-24",
-        "lesson-26",
-        "lesson-29"
+        "lesson-30",
+        "lesson-31",
+        "lesson-32",
+        "lesson-43",
+        "lesson-57"
       ],
       "sourceIds": [
         "training-occupational-hygiene"
@@ -3032,8 +3056,7 @@
         "occupational-hygiene-disease-prevention"
       ],
       "lessonIds": [
-        "lesson-21",
-        "lesson-22"
+        "lesson-30"
       ],
       "sourceIds": [
         "training-occupational-hygiene"
@@ -3069,8 +3092,9 @@
         "hierarchy-of-controls-real"
       ],
       "lessonIds": [
-        "lesson-21",
-        "lesson-23"
+        "lesson-28",
+        "lesson-30",
+        "lesson-32"
       ],
       "sourceIds": [
         "training-occupational-hygiene"
@@ -3102,8 +3126,8 @@
         "human-factors-real"
       ],
       "lessonIds": [
-        "lesson-21",
-        "lesson-22"
+        "lesson-30",
+        "lesson-43"
       ],
       "sourceIds": [
         "training-occupational-hygiene"
@@ -3136,9 +3160,8 @@
         "occupational-hygiene-exposure-monitoring"
       ],
       "lessonIds": [
-        "lesson-21",
-        "lesson-22",
-        "lesson-25"
+        "lesson-30",
+        "lesson-31"
       ],
       "sourceIds": [
         "training-occupational-hygiene"
@@ -3169,9 +3192,7 @@
         "occupational-hygiene-thermal-stress"
       ],
       "lessonIds": [
-        "lesson-23",
-        "lesson-24",
-        "lesson-26"
+        "lesson-32"
       ],
       "sourceIds": [
         "training-occupational-hygiene"
@@ -3200,7 +3221,7 @@
         "occupational-hygiene-physical-agents"
       ],
       "lessonIds": [
-        "lesson-24"
+        "lesson-31"
       ],
       "sourceIds": [
         "training-occupational-hygiene"
@@ -3229,7 +3250,7 @@
         "occupational-hygiene-physical-agents"
       ],
       "lessonIds": [
-        "lesson-26"
+        "lesson-32"
       ],
       "sourceIds": [
         "training-occupational-hygiene"
@@ -3258,7 +3279,7 @@
         "occupational-health-environment"
       ],
       "lessonIds": [
-        "lesson-23"
+        "lesson-32"
       ],
       "sourceIds": [
         "training-occupational-hygiene"
@@ -3288,8 +3309,9 @@
         "operational-rca-barriers-real"
       ],
       "lessonIds": [
-        "lesson-29",
-        "lesson-37"
+        "lesson-26",
+        "lesson-32",
+        "lesson-43"
       ],
       "sourceIds": [
         "training-occupational-hygiene"
@@ -3326,11 +3348,12 @@
         "operational-risks-real"
       ],
       "lessonIds": [
-        "lesson-04",
-        "lesson-13",
-        "lesson-18",
-        "lesson-30",
-        "lesson-35"
+        "lesson-06",
+        "lesson-33",
+        "lesson-34",
+        "lesson-35",
+        "lesson-44",
+        "lesson-57"
       ],
       "sourceIds": [
         "training-emergency-preparedness"
@@ -3397,7 +3420,8 @@
         "emergency-training-drills"
       ],
       "lessonIds": [
-        "lesson-04"
+        "lesson-34",
+        "lesson-35"
       ],
       "sourceIds": [
         "training-emergency-preparedness"
@@ -3430,7 +3454,8 @@
         "emergency-incident-command"
       ],
       "lessonIds": [
-        "lesson-04"
+        "lesson-34",
+        "lesson-35"
       ],
       "sourceIds": [
         "training-emergency-preparedness"
@@ -3463,9 +3488,8 @@
         "electrical-emergency-response"
       ],
       "lessonIds": [
-        "lesson-13",
-        "lesson-18",
-        "lesson-12"
+        "lesson-33",
+        "lesson-45"
       ],
       "sourceIds": [
         "training-emergency-preparedness"
@@ -3501,8 +3525,9 @@
         "loto-ptw-energy-control-real"
       ],
       "lessonIds": [
-        "lesson-18",
-        "lesson-14"
+        "lesson-29",
+        "lesson-44",
+        "lesson-57"
       ],
       "sourceIds": [
         "training-emergency-preparedness"
@@ -3537,8 +3562,10 @@
         "electrical-emergency-response"
       ],
       "lessonIds": [
-        "lesson-04",
-        "lesson-32"
+        "lesson-06",
+        "lesson-23",
+        "lesson-34",
+        "lesson-44"
       ],
       "sourceIds": [
         "training-emergency-preparedness"
@@ -3567,9 +3594,9 @@
         "occupational-hygiene-thermal-stress"
       ],
       "lessonIds": [
-        "lesson-30",
-        "lesson-12",
-        "lesson-23"
+        "lesson-06",
+        "lesson-34",
+        "lesson-35"
       ],
       "sourceIds": [
         "training-emergency-preparedness"
@@ -3600,9 +3627,8 @@
         "safety-governance-kpi-real"
       ],
       "lessonIds": [
-        "lesson-35",
-        "lesson-36",
-        "lesson-37"
+        "lesson-34",
+        "lesson-35"
       ],
       "sourceIds": [
         "training-emergency-preparedness"
@@ -3638,7 +3664,9 @@
         "human-factors-real"
       ],
       "lessonIds": [
-        "lesson-04"
+        "lesson-06",
+        "lesson-34",
+        "lesson-35"
       ],
       "sourceIds": [
         "training-emergency-preparedness"
@@ -3673,7 +3701,15 @@
         "lesson-04",
         "lesson-05",
         "lesson-07",
-        "lesson-08"
+        "lesson-08",
+        "lesson-10",
+        "lesson-11",
+        "lesson-24",
+        "lesson-46",
+        "lesson-47",
+        "lesson-48",
+        "lesson-55",
+        "lesson-56"
       ],
       "sourceIds": [
         "law-labor-inspection-1954",
@@ -3736,34 +3772,10 @@
         "occupational-safety-management-real"
       ],
       "lessonIds": [
-        "lesson-03",
-        "lesson-05",
-        "lesson-08",
-        "lesson-09",
-        "lesson-04",
-        "lesson-21",
-        "lesson-23",
-        "lesson-10",
-        "lesson-31",
-        "lesson-17",
-        "lesson-15",
-        "lesson-11",
-        "lesson-14",
-        "lesson-20",
-        "lesson-16",
-        "lesson-07",
-        "lesson-36",
-        "lesson-37",
-        "lesson-12",
-        "lesson-32",
-        "lesson-33",
-        "lesson-18",
-        "lesson-22",
-        "lesson-25",
-        "lesson-24",
-        "lesson-26",
-        "lesson-35",
-        "lesson-13"
+        "lesson-55",
+        "lesson-56",
+        "lesson-57",
+        "lesson-58"
       ],
       "sourceIds": [
         "law-labor-inspection-1954",
