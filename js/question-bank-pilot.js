@@ -10,6 +10,13 @@
   };
 
   const PAGE_SIZE = 10;
+  const LEARNING_STATE_STORAGE_KEY = 'ehs.practiceHub.learningState.v1';
+
+  const LEARNING_STATE_LABELS = {
+    unknown: 'לא סומן',
+    mastered: 'ידעתי',
+    review: 'צריך חזרה'
+  };
 
   const DIFFICULTY_LABELS = {
     easy: 'קל',
@@ -58,6 +65,7 @@
         bindFilters();
         bindRevealMode();
         bindBookmarkMode();
+        bindLearningStateMode();
         bindPagination();
       })
       .catch(renderError);
@@ -98,12 +106,14 @@
         lesson: '',
         difficulty: '',
         examRelevant: '',
-        examCritical: ''
+        examCritical: '',
+        learningState: ''
       },
       pagination: {
         page: 1,
         pageSize: PAGE_SIZE
-      }
+      },
+      learningStates: loadLearningStates()
     };
   }
 
@@ -114,7 +124,8 @@
       '[data-qb-filter-lesson]',
       '[data-qb-filter-difficulty]',
       '[data-qb-filter-exam-relevant]',
-      '[data-qb-filter-exam-critical]'
+      '[data-qb-filter-exam-critical]',
+      '[data-qb-filter-learning-state]'
     ];
 
     for (const selector of selectors) {
@@ -159,6 +170,30 @@
     });
   }
 
+  function bindLearningStateMode() {
+    document.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-qb-set-learning-state]');
+      if (!button || !state) return;
+
+      const questionId = button.dataset.qbQuestionId;
+      const value = button.dataset.qbSetLearningState;
+      if (!questionId || !['mastered', 'review'].includes(value)) return;
+
+      const current = getLearningState(questionId);
+      const next = current === value ? 'unknown' : value;
+      setLearningState(questionId, next);
+
+      if (state.filters.learningState) {
+        renderLearningDashboard();
+        renderQuestions();
+        return;
+      }
+
+      updateLearningStateControls(questionId);
+      renderLearningDashboard();
+    });
+  }
+
   function bindPagination() {
     document.addEventListener('click', (event) => {
       const actionButton = event.target.closest('[data-qb-page-action]');
@@ -182,8 +217,28 @@
 
   function renderAll() {
     renderSummary();
+    renderLearningDashboard();
     renderFilterOptions();
     renderQuestions();
+  }
+
+  function renderLearningDashboard() {
+    const target = document.querySelector('[data-qb-learning-dashboard]');
+    if (!target || !state) return;
+
+    const counts = countLearningStates(state.questions);
+    const cards = [
+      [counts.mastered, 'ידעתי'],
+      [counts.review, 'צריך חזרה'],
+      [counts.unknown, 'לא סומנו']
+    ];
+
+    target.innerHTML = cards.map(([count, label]) => `
+      <article class="qb-state-card">
+        <strong>${escapeHtml(count)}</strong>
+        <span>${escapeHtml(label)}</span>
+      </article>
+    `).join('');
   }
 
   function renderSummary() {
@@ -294,7 +349,8 @@
       lesson: document.querySelector('[data-qb-filter-lesson]')?.value || '',
       difficulty: document.querySelector('[data-qb-filter-difficulty]')?.value || '',
       examRelevant: document.querySelector('[data-qb-filter-exam-relevant]')?.value || '',
-      examCritical: document.querySelector('[data-qb-filter-exam-critical]')?.value || ''
+      examCritical: document.querySelector('[data-qb-filter-exam-critical]')?.value || '',
+      learningState: document.querySelector('[data-qb-filter-learning-state]')?.value || ''
     };
   }
 
@@ -315,6 +371,7 @@
     if (filters.difficulty && question.difficulty !== filters.difficulty) return false;
     if (filters.examRelevant && String(Boolean(question.examFacets && question.examFacets.examRelevant)) !== filters.examRelevant) return false;
     if (filters.examCritical && String(Boolean(question.examFacets && question.examFacets.examCritical)) !== filters.examCritical) return false;
+    if (filters.learningState && getLearningState(question.questionId) !== filters.learningState) return false;
     return true;
   }
 
@@ -360,6 +417,8 @@
           <p><strong>תשובה נכונה:</strong> ${escapeHtml(correctAnswer.answerText || correctAnswer.optionId || '')}</p>
           <p><strong>הסבר:</strong> ${escapeHtml(question.explanation || '')}</p>
 
+          ${renderLearningStateControls(question)}
+
           <section class="qb-learning-nav" aria-label="קשור ללמידה">
             <p class="qb-section-title">קשור ללמידה</p>
             <div class="qb-nav-group">
@@ -389,6 +448,26 @@
           </details>
         </section>
       </article>
+    `;
+  }
+
+  function renderLearningStateControls(question) {
+    const questionId = question.questionId || '';
+    const current = getLearningState(questionId);
+
+    return `
+      <section class="qb-learning-state-control" data-qb-learning-state-panel="${escapeAttribute(questionId)}" aria-label="מצב למידה לשאלה">
+        <p>סמן לעצמך להמשך תרגול</p>
+        <div class="qb-state-actions">
+          <button class="qb-state-button" type="button" data-state-value="mastered" data-qb-set-learning-state="mastered" data-qb-question-id="${escapeAttribute(questionId)}" aria-pressed="${current === 'mastered'}">
+            👍 ידעתי
+          </button>
+          <button class="qb-state-button" type="button" data-state-value="review" data-qb-set-learning-state="review" data-qb-question-id="${escapeAttribute(questionId)}" aria-pressed="${current === 'review'}">
+            👎 צריך חזרה
+          </button>
+        </div>
+        <span class="qb-state-current" data-qb-learning-state-current="${escapeAttribute(questionId)}">${escapeHtml(learningStateDisplay(current))}</span>
+      </section>
     `;
   }
 
@@ -574,6 +653,69 @@
       counts[key] = (counts[key] || 0) + 1;
       return counts;
     }, {});
+  }
+
+  function loadLearningStates() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(LEARNING_STATE_STORAGE_KEY) || '{}');
+      return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function saveLearningStates() {
+    try {
+      localStorage.setItem(LEARNING_STATE_STORAGE_KEY, JSON.stringify(state.learningStates));
+    } catch (error) {
+      // Learning state is a pilot enhancement; failure to persist should not block practice.
+    }
+  }
+
+  function getLearningState(questionId) {
+    const value = state && questionId ? state.learningStates[questionId] : '';
+    return ['mastered', 'review'].includes(value) ? value : 'unknown';
+  }
+
+  function setLearningState(questionId, value) {
+    if (value === 'unknown') {
+      delete state.learningStates[questionId];
+    } else {
+      state.learningStates[questionId] = value;
+    }
+    saveLearningStates();
+  }
+
+  function countLearningStates(questions) {
+    return questions.reduce((counts, question) => {
+      const value = getLearningState(question.questionId);
+      counts[value] = (counts[value] || 0) + 1;
+      return counts;
+    }, { mastered: 0, review: 0, unknown: 0 });
+  }
+
+  function learningStateDisplay(value) {
+    if (value === 'mastered') return '✓ ידעתי';
+    if (value === 'review') return '⚠ מסומן לחזרה';
+    return LEARNING_STATE_LABELS.unknown;
+  }
+
+  function updateLearningStateControls(questionId) {
+    const current = getLearningState(questionId);
+    const panel = document.querySelector(`[data-qb-learning-state-panel="${cssEscape(questionId)}"]`);
+    if (!panel) return;
+
+    for (const button of panel.querySelectorAll('[data-qb-set-learning-state]')) {
+      button.setAttribute('aria-pressed', String(button.dataset.qbSetLearningState === current));
+    }
+
+    const label = panel.querySelector('[data-qb-learning-state-current]');
+    if (label) label.textContent = learningStateDisplay(current);
+  }
+
+  function cssEscape(value) {
+    if (window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+    return String(value).replace(/"/g, '\\"');
   }
 
   function clamp(value, min, max) {

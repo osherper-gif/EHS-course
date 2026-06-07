@@ -197,6 +197,35 @@
       font-weight: 700;
     }
 
+    .qb-learning-state-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .qb-state-card {
+      border: 1px solid var(--qb-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: #fff;
+    }
+
+    .qb-state-card strong {
+      display: block;
+      font-size: 1.45rem;
+      line-height: 1;
+      color: var(--qb-ink);
+    }
+
+    .qb-state-card span {
+      display: block;
+      margin-top: 5px;
+      color: var(--qb-muted);
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
     .qb-panel {
       padding: 16px;
       margin-bottom: 16px;
@@ -317,6 +346,60 @@
     .qb-reveal-button:focus-visible {
       background: var(--qb-brand-dark);
       outline: 3px solid rgba(15, 95, 117, .18);
+    }
+
+    .qb-learning-state-control {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 12px;
+      border: 1px solid var(--qb-border);
+      border-radius: 10px;
+      background: var(--qb-soft);
+    }
+
+    .qb-learning-state-control p {
+      margin: 0;
+      color: var(--qb-muted);
+      font-size: .86rem;
+      font-weight: 800;
+    }
+
+    .qb-state-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .qb-state-button {
+      min-height: 36px;
+      border: 1px solid var(--qb-border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      color: var(--qb-brand);
+      font: inherit;
+      font-size: .84rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .qb-state-button[aria-pressed="true"][data-state-value="mastered"] {
+      border-color: #86efac;
+      background: #ecfdf5;
+      color: #047857;
+    }
+
+    .qb-state-button[aria-pressed="true"][data-state-value="review"] {
+      border-color: #fde68a;
+      background: #fffbeb;
+      color: #92400e;
+    }
+
+    .qb-state-current {
+      color: var(--qb-ink);
+      font-size: .88rem;
+      font-weight: 800;
     }
 
     .qb-answer-panel {
@@ -585,6 +668,13 @@
         </article>
       </section>
 
+      <section class="qb-learning-state-grid" data-qb-learning-dashboard aria-label="מצב למידה">
+        <article class="qb-state-card">
+          <strong>...</strong>
+          <span>טוען מצב למידה</span>
+        </article>
+      </section>
+
       <section class="qb-panel" aria-labelledby="qbFiltersTitle">
         <h2 id="qbFiltersTitle">סינון וחיפוש</h2>
         <div class="qb-filter-grid">
@@ -618,6 +708,15 @@
               <option value="">הכול</option>
               <option value="true">כן</option>
               <option value="false">לא</option>
+            </select>
+          </div>
+          <div class="qb-field">
+            <label for="qbLearningStateFilter">מצב למידה</label>
+            <select id="qbLearningStateFilter" data-qb-filter-learning-state>
+              <option value="">הכול</option>
+              <option value="mastered">ידעתי</option>
+              <option value="review">צריך חזרה</option>
+              <option value="unknown">לא סומנו</option>
             </select>
           </div>
         </div>
