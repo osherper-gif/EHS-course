@@ -45,6 +45,7 @@
         state = buildState(raw);
         renderAll();
         bindFilters();
+        bindRevealMode();
       })
       .catch(renderError);
   });
@@ -101,6 +102,24 @@
       element.addEventListener('input', renderQuestions);
       element.addEventListener('change', renderQuestions);
     }
+  }
+
+  function bindRevealMode() {
+    document.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-qb-reveal]');
+      if (!button) return;
+
+      const card = button.closest('.qb-card');
+      const panel = card && card.querySelector('[data-qb-answer-panel]');
+      const prompt = card && card.querySelector('[data-qb-reveal-prompt]');
+      if (!card || !panel) return;
+
+      card.dataset.revealed = 'true';
+      panel.hidden = false;
+      button.hidden = true;
+      if (prompt) prompt.hidden = true;
+      panel.focus({ preventScroll: true });
+    });
   }
 
   function renderAll() {
@@ -218,47 +237,60 @@
           `).join('')}
         </ul>
 
-        <p><strong>תשובה נכונה:</strong> ${escapeHtml(correctAnswer.answerText || correctAnswer.optionId || '')}</p>
-        <p><strong>הסבר:</strong> ${escapeHtml(question.explanation || '')}</p>
-
-        <section class="qb-learning-nav" aria-label="קשור ללמידה">
-          <p class="qb-section-title">קשור ללמידה</p>
-          <div class="qb-nav-group">
-            <strong>📚 שיעורים קשורים</strong>
-            <div class="qb-link-grid">
-              ${(question.lessonIds || []).map(renderLessonLink).join('')}
-            </div>
-          </div>
-          <div class="qb-nav-group">
-            <strong>🏷️ נושאים קשורים</strong>
-            <div class="qb-link-grid">
-              ${(question.topicIds || []).map(renderTopicLink).join('')}
-            </div>
-          </div>
-        </section>
-
-        <p class="qb-section-title">Facets למבחן</p>
-        <div class="qb-badge-row">
-          ${facets.length ? facets.map((facet) => `<span class="qb-badge" data-kind="exam">${escapeHtml(facet)}</span>`).join('') : '<span class="qb-badge">אין Facets פעילים</span>'}
+        <div class="qb-reveal-prompt" data-qb-reveal-prompt>
+          <strong>🤔 חשוב לפני שאתה מגלה את התשובה</strong>
+          <span>נסה לבחור תשובה בעצמך ורק אז בדוק את ההסבר והמקור.</span>
         </div>
+        <button class="qb-reveal-button" type="button" data-qb-reveal="${escapeAttribute(question.questionId || String(index))}">
+          בדוק את עצמך
+        </button>
 
-        <section class="qb-governance" aria-label="עקיבות מקור">
-          <div class="qb-governance-row">
-            <strong>sourceId</strong>
-            <span>${escapeHtml(provenance.map((item) => item.sourceId).join(', ') || 'חסר')}</span>
+        <section class="qb-answer-panel" data-qb-answer-panel hidden tabindex="-1" aria-label="תשובה והסבר">
+          <p><strong>תשובה נכונה:</strong> ${escapeHtml(correctAnswer.answerText || correctAnswer.optionId || '')}</p>
+          <p><strong>הסבר:</strong> ${escapeHtml(question.explanation || '')}</p>
+
+          <section class="qb-learning-nav" aria-label="קשור ללמידה">
+            <p class="qb-section-title">קשור ללמידה</p>
+            <div class="qb-nav-group">
+              <strong>📚 שיעורים קשורים</strong>
+              <div class="qb-link-grid">
+                ${(question.lessonIds || []).map(renderLessonLink).join('')}
+              </div>
+            </div>
+            <div class="qb-nav-group">
+              <strong>🏷️ נושאים קשורים</strong>
+              <div class="qb-link-grid">
+                ${(question.topicIds || []).map(renderTopicLink).join('')}
+              </div>
+            </div>
+          </section>
+
+          <p class="qb-section-title">Facets למבחן</p>
+          <div class="qb-badge-row">
+            ${facets.length ? facets.map((facet) => `<span class="qb-badge" data-kind="exam">${escapeHtml(facet)}</span>`).join('') : '<span class="qb-badge">אין Facets פעילים</span>'}
           </div>
-          <div class="qb-governance-row">
-            <strong>citationId</strong>
-            <span>${escapeHtml(provenance.map((item) => item.citationId).join(', ') || 'חסר')}</span>
-          </div>
-          <div class="qb-governance-row">
-            <strong>רמת סמכות</strong>
-            <span>${provenance.map(authorityBadge).join(' ') || 'חסר'}</span>
-          </div>
-          <div class="qb-governance-row">
-            <strong>סטטוס אימות</strong>
-            <span>${escapeHtml(provenance.map((item) => statusLabel(item.verificationStatus)).join(', ') || 'חסר')}</span>
-          </div>
+
+          <details class="qb-source-details">
+            <summary>פרטי מקור</summary>
+            <section class="qb-governance" aria-label="עקיבות מקור">
+              <div class="qb-governance-row">
+                <strong>sourceId</strong>
+                <span>${escapeHtml(provenance.map((item) => item.sourceId).join(', ') || 'חסר')}</span>
+              </div>
+              <div class="qb-governance-row">
+                <strong>citationId</strong>
+                <span>${escapeHtml(provenance.map((item) => item.citationId).join(', ') || 'חסר')}</span>
+              </div>
+              <div class="qb-governance-row">
+                <strong>רמת סמכות</strong>
+                <span>${provenance.map(authorityBadge).join(' ') || 'חסר'}</span>
+              </div>
+              <div class="qb-governance-row">
+                <strong>סטטוס אימות</strong>
+                <span>${escapeHtml(provenance.map((item) => statusLabel(item.verificationStatus)).join(', ') || 'חסר')}</span>
+              </div>
+            </section>
+          </details>
         </section>
       </article>
     `;
