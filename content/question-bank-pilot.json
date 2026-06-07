@@ -1,0 +1,797 @@
+{
+  "schemaVersion": 1,
+  "registryStatus": "pilot",
+  "scope": {
+    "description": "Central Question Bank governance pilot. Ten legacy-origin questions only; no full migration.",
+    "questionCount": 10,
+    "originCounts": {
+      "prep": 4,
+      "summary": 3,
+      "exam": 3
+    }
+  },
+  "questions": [
+    {
+      "questionId": "qb-pilot-prep-reactive-proactive",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-01-introduction-safety",
+        "legacyQuestionId": "lesson-01-introduction-safety-q01",
+        "migrationStatus": "pilot"
+      },
+      "questionType": "multipleChoice",
+      "questionText": "מהו ההבדל המהותי בין גישה תגובתית לגישה מניעתית בבטיחות?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "הגישה התגובתית מגיבה לאחר אירועים, בעוד המניעתית מנהלת סיכונים מראש."
+        },
+        {
+          "optionId": "b",
+          "text": "הגישה התגובתית מתמקדת בציוד מגן בלבד."
+        },
+        {
+          "optionId": "c",
+          "text": "הגישה המניעתית מבוססת רק על ועדת חקירה."
+        },
+        {
+          "optionId": "d",
+          "text": "אין הבדל מהותי בין הגישות."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "הגישה התגובתית מגיבה לאחר אירועים, בעוד המניעתית מנהלת סיכונים מראש.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "גישה מניעתית מחפשת לזהות, להעריך ולבקר סיכונים לפני התממשותם.",
+      "difficulty": "easy",
+      "topicIds": [
+        "risk-assessment-management-real",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-01"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment",
+          "authorityLevel": 6,
+          "answerSourceType": "training",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot migration from prep question. Source-backed, not verified."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-pilot-prep-hierarchy-controls",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-01-introduction-safety",
+        "legacyQuestionId": "lesson-01-introduction-safety-q02",
+        "migrationStatus": "pilot"
+      },
+      "questionType": "multipleChoice",
+      "questionText": "על פי מדרג בקרות הסיכונים, מהי הבקרה האפקטיבית ביותר?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "בקרה מנהלית."
+        },
+        {
+          "optionId": "b",
+          "text": "סילוק גורם הסיכון."
+        },
+        {
+          "optionId": "c",
+          "text": "ציוד מגן אישי."
+        },
+        {
+          "optionId": "d",
+          "text": "שילוט אזהרה."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "סילוק גורם הסיכון.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "סילוק גורם הסיכון הוא הבקרה הגבוהה ביותר במדרג הבקרות.",
+      "difficulty": "easy",
+      "topicIds": [
+        "hierarchy-of-controls-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-01",
+        "lesson-11"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-controls-hierarchy"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-controls-hierarchy",
+          "authorityLevel": 6,
+          "answerSourceType": "training",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": true,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot migration from prep question. Source-backed, not verified."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-pilot-prep-safety-program-responsibility",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-08-safety-organization",
+        "legacyQuestionId": "lesson08-q01",
+        "migrationStatus": "pilot"
+      },
+      "questionType": "multipleChoice",
+      "questionText": "מי האחראי העליון לכתיבת תוכנית בטיחות במפעל?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "תופש המפעל, בסיוע ממונה הבטיחות."
+        },
+        {
+          "optionId": "b",
+          "text": "ועדת הבטיחות בלבד."
+        },
+        {
+          "optionId": "c",
+          "text": "מפקח עבודה אזורי."
+        },
+        {
+          "optionId": "d",
+          "text": "נאמן הבטיחות בלבד."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "תופש המפעל, בסיוע ממונה הבטיחות.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "הפיילוט משייך את שאלת תוכנית הבטיחות למקור משפטי ולנושא תוכנית בטיחות; אין בכך אישור משפטי סופי.",
+      "difficulty": "medium",
+      "topicIds": [
+        "safety-program",
+        "management-responsibility"
+      ],
+      "lessonIds": [
+        "lesson-08"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-11"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-11",
+          "authorityLevel": 1,
+          "answerSourceType": "legal",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": true,
+        "examTrap": true,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot migration from prep question. Source-backed, not verified."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-pilot-prep-safety-trustee-role",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-08-safety-organization",
+        "legacyQuestionId": "lesson08-q02",
+        "migrationStatus": "pilot"
+      },
+      "questionType": "multipleChoice",
+      "questionText": "מהו התפקיד המרכזי של נאמן בטיחות?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "לתקן מכונות תקולות באופן עצמאי."
+        },
+        {
+          "optionId": "b",
+          "text": "נציג עובדים המסייע בזיהוי ודיווח על מפגעים."
+        },
+        {
+          "optionId": "c",
+          "text": "לחתום על היתרי עבודה בגובה."
+        },
+        {
+          "optionId": "d",
+          "text": "להחליף את המנכ״ל בהיעדרו."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "נציג עובדים המסייע בזיהוי ודיווח על מפגעים.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "נאמן בטיחות הוא חלק ממנגנון מעורבות עובדים ודיווח, ואינו מחליף מנהל או ממונה בטיחות.",
+      "difficulty": "easy",
+      "topicIds": [
+        "safety-committee",
+        "roles-and-responsibilities"
+      ],
+      "lessonIds": [
+        "lesson-05",
+        "lesson-08"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-16"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-16",
+          "authorityLevel": 1,
+          "answerSourceType": "legal",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": true,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot migration from prep question. Source-backed, not verified."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-pilot-summary-knesset-law",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-02-summary-practice-source",
+        "legacyQuestionId": "lesson-02-summary-full-q01",
+        "migrationStatus": "pilot"
+      },
+      "questionType": "multipleChoice",
+      "questionText": "מי הגוף המוסמך לחוקק חוק במדינת ישראל?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "כנסת ישראל."
+        },
+        {
+          "optionId": "b",
+          "text": "מפקח עבודה ראשי."
+        },
+        {
+          "optionId": "c",
+          "text": "שר העבודה."
+        },
+        {
+          "optionId": "d",
+          "text": "המוסד לבטיחות ולגיהות."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "כנסת ישראל.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "חוק הוא חקיקה ראשית. הפיילוט מסמן את התשובה כמבוססת מקור משפטי לצורך בדיקת governance בלבד.",
+      "difficulty": "easy",
+      "topicIds": [
+        "legal-definitions",
+        "regulation-governance-domain"
+      ],
+      "lessonIds": [
+        "lesson-03"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14",
+          "authorityLevel": 1,
+          "answerSourceType": "legal",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot migration from summary question. Source-backed, not verified."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-pilot-summary-labor-inspection-nickname",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-02-summary-practice-source",
+        "legacyQuestionId": "lesson-02-summary-full-q02",
+        "migrationStatus": "pilot"
+      },
+      "questionType": "multipleChoice",
+      "questionText": "מהו הכינוי המקצועי המקובל לחוק ארגון הפיקוח על העבודה?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "חוק ה\"מה\"."
+        },
+        {
+          "optionId": "b",
+          "text": "חוק ה\"מי\"."
+        },
+        {
+          "optionId": "c",
+          "text": "חוק הנזיקין."
+        },
+        {
+          "optionId": "d",
+          "text": "פקודת המוסכים."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "חוק ה\"מי\".",
+        "isOfficialAnswer": true
+      },
+      "explanation": "הכינוי הוא חומר לימודי/מבחני ולא נוסח מחייב של החוק.",
+      "difficulty": "easy",
+      "topicIds": [
+        "labor-inspection-law",
+        "exam-focus"
+      ],
+      "lessonIds": [
+        "lesson-03"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-lecture-summary-upgraded-final",
+          "citationId": null
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14",
+          "authorityLevel": 1,
+          "answerSourceType": "legal",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": true,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot migration from summary question. Nickname remains exam/training framing, not binding law."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-pilot-summary-committee-threshold",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-04-summary-full-practice-source",
+        "legacyQuestionId": "lesson-04-summary-full-q02",
+        "migrationStatus": "pilot"
+      },
+      "questionType": "multipleChoice",
+      "questionText": "באיזה מקום עבודה חלה חובה סטטוטורית להקים ועדת בטיחות?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "בכל מקום עבודה המעסיק 15 עובדים לפחות."
+        },
+        {
+          "optionId": "b",
+          "text": "בכל מקום עבודה המעסיק 25 עובדים לפחות."
+        },
+        {
+          "optionId": "c",
+          "text": "רק במפעלים כימיים המעסיקים מעל 50 עובדים."
+        },
+        {
+          "optionId": "d",
+          "text": "בכל אתר בנייה, ללא קשר למספר העובדים."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "בכל מקום עבודה המעסיק 25 עובדים לפחות.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "הפיילוט מקשר את שאלת ועדת הבטיחות לציטוט החוקי הקיים; המספר אינו נוצר כאן כ-Golden Number.",
+      "difficulty": "medium",
+      "topicIds": [
+        "safety-committee",
+        "safety-committee-composition"
+      ],
+      "lessonIds": [
+        "lesson-05"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-15"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-15",
+          "authorityLevel": 1,
+          "answerSourceType": "legal",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": true,
+        "examTrap": true,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot migration from summary question. Source-backed, not verified."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-pilot-exam-hazard-risk",
+      "origin": {
+        "legacySource": "exam",
+        "legacySetId": "EXAM_QUESTIONS",
+        "legacyQuestionId": "lesson-01-source-01",
+        "migrationStatus": "pilot"
+      },
+      "questionType": "multipleChoice",
+      "questionText": "מה ההבדל המעשי בין גורם סיכון לבין סיכון?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "גורם סיכון הוא מקור אפשרי לפגיעה; סיכון הוא הערכת ההסתברות והחומרה."
+        },
+        {
+          "optionId": "b",
+          "text": "גורם סיכון הוא תאונה שכבר התרחשה."
+        },
+        {
+          "optionId": "c",
+          "text": "גורם סיכון מתייחס רק לחומרים מסוכנים."
+        },
+        {
+          "optionId": "d",
+          "text": "אין הבדל מקצועי בין המונחים."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "גורם סיכון הוא מקור אפשרי לפגיעה; סיכון הוא הערכת ההסתברות והחומרה.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "השאלה בוחנת הבחנה בסיסית הנדרשת לפני הערכת סיכונים ובחירת בקרות.",
+      "difficulty": "easy",
+      "topicIds": [
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-01"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment",
+          "authorityLevel": 6,
+          "answerSourceType": "training",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot migration from exam question. Source-backed, not verified."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-pilot-exam-standard-binding",
+      "origin": {
+        "legacySource": "exam",
+        "legacySetId": "EXAM_QUESTIONS",
+        "legacyQuestionId": "lesson-01-source-02",
+        "migrationStatus": "pilot"
+      },
+      "questionType": "multipleChoice",
+      "questionText": "באיזה מקרה תקן עשוי להיות מחייב בארגון?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "כאשר הוא מופיע בפרסום מקצועי כללי בלבד."
+        },
+        {
+          "optionId": "b",
+          "text": "כאשר התקן אומץ בדין, בחוזה, בדרישת לקוח או בנוהל מחייב."
+        },
+        {
+          "optionId": "c",
+          "text": "כאשר עובד ותיק ממליץ להשתמש בו."
+        },
+        {
+          "optionId": "d",
+          "text": "כאשר הוא נשמע מחמיר יותר מנוהל פנימי."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "כאשר התקן אומץ בדין, בחוזה, בדרישת לקוח או בנוהל מחייב.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "תקן אינו חוק בפני עצמו. הוא יכול להפוך למחייב אם מקור מחייב או הארגון מאמצים אותו.",
+      "difficulty": "medium",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "regulation-governance-domain"
+      ],
+      "lessonIds": [
+        "lesson-38"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "standard-iso-45001-2018",
+          "citationId": "citation-standard-iso-45001-purpose-framework"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "standard-iso-45001-2018",
+          "citationId": "citation-standard-iso-45001-purpose-framework",
+          "authorityLevel": 4,
+          "answerSourceType": "standard",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": true,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot migration from exam question. ISO is represented as Level 4 standard, not law."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-pilot-exam-pdca-order",
+      "origin": {
+        "legacySource": "exam",
+        "legacySetId": "EXAM_QUESTIONS",
+        "legacyQuestionId": "lesson-01-source-09",
+        "migrationStatus": "pilot"
+      },
+      "questionType": "multipleChoice",
+      "questionText": "מהו סדר החשיבה הנכון בתהליך זיהוי, הערכה ובקרה של סיכונים?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "זיהוי גורם הסיכון, הערכת רמת הסיכון, בחירת בקרה ומעקב."
+        },
+        {
+          "optionId": "b",
+          "text": "בחירת ציוד מגן, הדרכה כללית ורק אחר כך בדיקת הסיכון."
+        },
+        {
+          "optionId": "c",
+          "text": "כתיבת נוהל בלבד."
+        },
+        {
+          "optionId": "d",
+          "text": "סגירת הממצא אם לא הייתה תאונה בפועל."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "זיהוי גורם הסיכון, הערכת רמת הסיכון, בחירת בקרה ומעקב.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "ניהול סיכונים דורש תהליך מלא: זיהוי, הערכה, בקרה ומעקב אחר יעילות הבקרה.",
+      "difficulty": "easy",
+      "topicIds": [
+        "risk-assessment-management-real",
+        "iso-45001-management-system-standard"
+      ],
+      "lessonIds": [
+        "lesson-01",
+        "lesson-38"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "standard-iso-45001-2018",
+          "citationId": "citation-standard-iso-45001-planning-risk-objectives"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "standard-iso-45001-2018",
+          "citationId": "citation-standard-iso-45001-planning-risk-objectives",
+          "authorityLevel": 4,
+          "answerSourceType": "standard",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Pilot migration from exam question. Source-backed, not verified."
+      },
+      "status": "draft"
+    }
+  ]
+}
