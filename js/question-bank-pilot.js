@@ -9,6 +9,8 @@
     citations: '../content/citation-registry-pilot.json'
   };
 
+  const PAGE_SIZE = 10;
+
   const DIFFICULTY_LABELS = {
     easy: 'קל',
     medium: 'בינוני',
@@ -55,6 +57,8 @@
         renderAll();
         bindFilters();
         bindRevealMode();
+        bindBookmarkMode();
+        bindPagination();
       })
       .catch(renderError);
   });
@@ -95,6 +99,10 @@
         difficulty: '',
         examRelevant: '',
         examCritical: ''
+      },
+      pagination: {
+        page: 1,
+        pageSize: PAGE_SIZE
       }
     };
   }
@@ -112,9 +120,14 @@
     for (const selector of selectors) {
       const element = document.querySelector(selector);
       if (!element) continue;
-      element.addEventListener('input', renderQuestions);
-      element.addEventListener('change', renderQuestions);
+      element.addEventListener('input', handleFilterChange);
+      element.addEventListener('change', handleFilterChange);
     }
+  }
+
+  function handleFilterChange() {
+    state.pagination.page = 1;
+    renderQuestions();
   }
 
   function bindRevealMode() {
@@ -135,6 +148,38 @@
     });
   }
 
+  function bindBookmarkMode() {
+    document.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-qb-bookmark]');
+      if (!button) return;
+
+      const isPressed = button.getAttribute('aria-pressed') === 'true';
+      button.setAttribute('aria-pressed', String(!isPressed));
+      button.textContent = isPressed ? '⭐ שמור לעיון' : '★ נשמר לעיון';
+    });
+  }
+
+  function bindPagination() {
+    document.addEventListener('click', (event) => {
+      const actionButton = event.target.closest('[data-qb-page-action]');
+      const numberButton = event.target.closest('[data-qb-page-number]');
+      if (!actionButton && !numberButton) return;
+
+      if (actionButton) {
+        const action = actionButton.dataset.qbPageAction;
+        if (action === 'previous') state.pagination.page -= 1;
+        if (action === 'next') state.pagination.page += 1;
+      }
+
+      if (numberButton) {
+        state.pagination.page = Number(numberButton.dataset.qbPageNumber) || 1;
+      }
+
+      renderQuestions();
+      document.querySelector('[data-qb-questions]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
   function renderAll() {
     renderSummary();
     renderFilterOptions();
@@ -145,14 +190,14 @@
     const target = document.querySelector('[data-qb-summary]');
     if (!target || !state) return;
 
-    const questions = state.questions;
+    const questions = getFilteredQuestions();
     const topics = unique(flatMap(questions, (question) => question.topicIds || []));
     const lessons = unique(flatMap(questions, (question) => question.lessonIds || []));
     const difficulties = countBy(questions, (question) => question.difficulty || 'unknown');
     const provenanceCount = questions.reduce((sum, question) => sum + (question.answerProvenance || []).length, 0);
 
     const cards = [
-      [questions.length, 'שאלות בפיילוט'],
+      [questions.length, 'שאלות בתצוגה'],
       [topics.length, 'נושאים'],
       [lessons.length, 'שיעורים'],
       [provenanceCount, 'הפניות מקור'],
@@ -186,13 +231,60 @@
     if (!target || !state) return;
 
     state.filters = readFiltersFromDom();
-    const filtered = state.questions.filter(matchesFilters);
+    const filtered = getFilteredQuestions();
+    renderSummary();
+
     if (!filtered.length) {
       target.innerHTML = '<article class="qb-empty">לא נמצאו שאלות מתאימות לסינון הנוכחי.</article>';
+      renderPagination(filtered.length);
       return;
     }
 
-    target.innerHTML = filtered.map(renderQuestionCard).join('');
+    const totalPages = Math.max(1, Math.ceil(filtered.length / state.pagination.pageSize));
+    state.pagination.page = clamp(state.pagination.page, 1, totalPages);
+    const start = (state.pagination.page - 1) * state.pagination.pageSize;
+    const pageQuestions = filtered.slice(start, start + state.pagination.pageSize);
+
+    target.innerHTML = pageQuestions
+      .map((question, index) => renderQuestionCard(question, start + index))
+      .join('');
+    renderPagination(filtered.length);
+  }
+
+  function getFilteredQuestions() {
+    return state.questions.filter(matchesFilters);
+  }
+
+  function renderPagination(totalItems) {
+    const target = document.querySelector('[data-qb-pagination]');
+    if (!target || !state) return;
+
+    const pageSize = state.pagination.pageSize;
+    const totalPages = Math.ceil(totalItems / pageSize);
+    if (totalPages <= 1) {
+      target.hidden = true;
+      target.innerHTML = '';
+      return;
+    }
+
+    target.hidden = false;
+    const currentPage = clamp(state.pagination.page, 1, totalPages);
+    const startItem = (currentPage - 1) * pageSize + 1;
+    const endItem = Math.min(currentPage * pageSize, totalItems);
+    const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
+
+    target.innerHTML = `
+      <button class="qb-page-button" type="button" data-qb-page-action="previous" ${currentPage === 1 ? 'disabled' : ''}>עמוד קודם</button>
+      <span class="qb-page-status">${escapeHtml(startItem)}-${escapeHtml(endItem)} מתוך ${escapeHtml(totalItems)}</span>
+      <div class="qb-badge-row" aria-label="מספרי עמודים">
+        ${pageNumbers.map((pageNumber) => `
+          <button class="qb-page-number" type="button" data-qb-page-number="${escapeAttribute(pageNumber)}" ${pageNumber === currentPage ? 'aria-current="page"' : ''}>
+            ${escapeHtml(pageNumber)}
+          </button>
+        `).join('')}
+      </div>
+      <button class="qb-page-button" type="button" data-qb-page-action="next" ${currentPage === totalPages ? 'disabled' : ''}>עמוד הבא</button>
+    `;
   }
 
   function readFiltersFromDom() {
@@ -249,6 +341,12 @@
             </li>
           `).join('')}
         </ul>
+
+        <div class="qb-card-actions">
+          <button class="qb-bookmark-button" type="button" data-qb-bookmark="${escapeAttribute(question.questionId || String(index))}" aria-pressed="false">
+            ⭐ שמור לעיון
+          </button>
+        </div>
 
         <div class="qb-reveal-prompt" data-qb-reveal-prompt>
           <strong>🤔 חשוב לפני שאתה מגלה את התשובה</strong>
@@ -476,6 +574,10 @@
       counts[key] = (counts[key] || 0) + 1;
       return counts;
     }, {});
+  }
+
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
   }
 
   function renderError(error) {

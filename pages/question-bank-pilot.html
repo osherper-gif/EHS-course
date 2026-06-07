@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
-  <meta name="description" content="תצוגת פיילוט לקריאה בלבד של Question Bank מבוסס מקור.">
-  <title>Question Bank Pilot | קורס ממונה בטיחות</title>
+  <meta name="description" content="מרכז תרגול פיילוט עם שאלות מבוססות מקור, חיפוש, סינון וגילוי תשובה.">
+  <title>מרכז תרגול | קורס ממונה בטיחות</title>
   <link rel="stylesheet" href="../css/styles.css">
   <style>
     .qb-page {
@@ -450,6 +450,85 @@
       color: #7f1d1d;
     }
 
+    .qb-card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .qb-bookmark-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      border: 1px solid var(--qb-border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: var(--qb-soft);
+      color: var(--qb-muted);
+      font: inherit;
+      font-size: .82rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .qb-bookmark-button[aria-pressed="true"] {
+      border-color: #fde68a;
+      background: #fffbeb;
+      color: #92400e;
+    }
+
+    .qb-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 0;
+      padding: 12px;
+      border: 1px solid var(--qb-border);
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .qb-pagination[hidden] {
+      display: none;
+    }
+
+    .qb-page-button,
+    .qb-page-number {
+      min-height: 34px;
+      border: 1px solid var(--qb-border);
+      border-radius: 8px;
+      padding: 6px 11px;
+      background: var(--qb-soft);
+      color: var(--qb-brand);
+      font: inherit;
+      font-size: .86rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .qb-page-button:disabled,
+    .qb-page-number[aria-current="page"] {
+      cursor: default;
+      opacity: .58;
+    }
+
+    .qb-page-number[aria-current="page"] {
+      background: var(--qb-brand);
+      color: #fff;
+      border-color: var(--qb-brand);
+      opacity: 1;
+    }
+
+    .qb-page-status {
+      color: var(--qb-muted);
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
     @media (max-width: 640px) {
       .qb-shell {
         width: calc(100% - 20px);
@@ -472,7 +551,7 @@
     }
   </style>
 </head>
-<body class="qb-page" data-page-title="Question Bank Pilot">
+<body class="qb-page" data-page-title="מרכז תרגול">
   <a class="skip-link" href="#main">דלג לתוכן</a>
   <div class="qb-shell">
     <header class="qb-topbar" aria-label="כותרת עמוד">
@@ -480,7 +559,7 @@
         <span class="qb-brand-mark">EHS</span>
         <span>
           <strong>קורס ממונה בטיחות</strong>
-          <small>Question Bank Pilot Viewer</small>
+          <small>מרכז תרגול</small>
         </span>
       </a>
       <span class="qb-badge">קריאה בלבד</span>
@@ -488,9 +567,9 @@
 
     <main id="main">
       <section class="qb-hero">
-        <p class="qb-kicker">פיילוט צפייה בשאלות</p>
-        <h1>Question Bank Pilot</h1>
-        <p>תצוגת קריאה בלבד של שאלות הפיילוט מתוך מודל Question Governance. זה אינו בוחן, אינו סימולציה ואינו שומר תשובות.</p>
+        <p class="qb-kicker">פיילוט תרגול מבוסס מקור</p>
+        <h1>מרכז תרגול</h1>
+        <p>תרגול מונחה עם שאלות מבוססות מקור, סינון לפי נושא ושיעור, וגילוי תשובה רק אחרי ניסיון עצמי. זה עדיין אינו בוחן, אינו סימולציה ואינו שומר תשובות.</p>
         <div class="qb-badge-row">
           <span class="qb-badge" data-kind="exam">פיילוט</span>
           <span class="qb-badge" data-kind="source-backed">מבוסס מקור</span>
@@ -545,6 +624,7 @@
       </section>
 
       <section class="qb-question-list" data-qb-questions aria-label="רשימת שאלות"></section>
+      <nav class="qb-pagination" data-qb-pagination aria-label="דפדוף שאלות" hidden></nav>
     </main>
   </div>
 
