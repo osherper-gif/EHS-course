@@ -588,6 +588,121 @@
     return escapeHtml(value).replace(/`/g, '&#96;');
   }
 
+  function handlePageClick(event) {
+    const openButton = event.target.closest('[data-topic-open]');
+    if (openButton) {
+      openTopic(openButton.getAttribute('data-topic-open'));
+      return;
+    }
+
+    const relatedButton = event.target.closest('[data-related-topic-open]');
+    if (relatedButton) {
+      openTopic(relatedButton.getAttribute('data-related-topic-open'));
+      return;
+    }
+
+    const backSubtopicsButton = event.target.closest('[data-kh-back-subtopics]');
+    if (backSubtopicsButton) {
+      openTopic(backSubtopicsButton.getAttribute('data-parent-topic-id'));
+      return;
+    }
+
+    if (event.target.closest('[data-kh-back-topics]')) {
+      closeTopicDetail();
+    }
+  }
+
+  function openTopic(topicId) {
+    if (!pilotState) return;
+
+    const topic = pilotState.topicById.get(topicId);
+    const detail = document.querySelector('[data-kh-detail-title]')?.closest('.kh-detail-panel');
+    if (!topic || !detail) return;
+
+    const isRootTopic = !topic.parentTopicId;
+    const subtopics = getChildTopics(pilotState, topicId);
+
+    setText('[data-kh-detail-title]', presentationTitle(topic.title));
+    setText('[data-kh-detail-summary]', localizedTopicDescription(topic));
+    setHtml('[data-kh-breadcrumb]', renderBreadcrumb(pilotState, topic));
+    setHtml('[data-kh-detail-subtopics]', renderSubtopics(subtopics));
+    setDetailMode(isRootTopic, topic.parentTopicId);
+
+    if (isRootTopic) {
+      clearDetailContent();
+    } else {
+      const scope = getDirectTopicScope(pilotState, topicId);
+      const blocks = getBlocksForScope(pilotState, scope);
+      const learningBlocks = blocks.filter((block) => !isExamBlock(block) && !isLegalBlock(block));
+      const examBlocks = blocks.filter(isExamBlock);
+      const legalBlocks = blocks.filter(isLegalBlock);
+      const golden = getGoldenForScope(pilotState, scope);
+      const questions = getQuestionsForScope(pilotState, scope);
+      const relatedTopics = getRelatedTopics(pilotState, topic);
+
+      setHtml('[data-kh-detail-learning]', renderBlockCards(learningBlocks, pilotState, '\u05d0\u05d9\u05df \u05e4\u05e8\u05d9\u05d8\u05d9 \u05ea\u05d5\u05db\u05df \u05dc\u05d9\u05de\u05d5\u05d3\u05d9 \u05dc\u05ea\u05ea \u05e0\u05d5\u05e9\u05d0 \u05d6\u05d4 \u05d1\u05e4\u05d9\u05d9\u05dc\u05d5\u05d8.'));
+      setHtml('[data-kh-detail-exam]', renderBlockCards(examBlocks, pilotState, '\u05d0\u05d9\u05df \u05d3\u05d2\u05e9\u05d9 \u05de\u05d1\u05d7\u05df \u05dc\u05ea\u05ea \u05e0\u05d5\u05e9\u05d0 \u05d6\u05d4 \u05d1\u05e4\u05d9\u05d9\u05dc\u05d5\u05d8.'));
+      setHtml('[data-kh-detail-legal]', renderBlockCards(legalBlocks, pilotState, '\u05d0\u05d9\u05df \u05d3\u05d2\u05e9\u05d9\u05dd \u05de\u05e9\u05e4\u05d8\u05d9\u05d9\u05dd \u05dc\u05ea\u05ea \u05e0\u05d5\u05e9\u05d0 \u05d6\u05d4 \u05d1\u05e4\u05d9\u05d9\u05dc\u05d5\u05d8.'));
+      setHtml('[data-kh-detail-golden]', renderGoldenNumbers(golden, pilotState));
+      setHtml('[data-kh-detail-questions]', renderQuestions(questions, pilotState));
+      setHtml('[data-kh-detail-related]', renderRelatedTopics(relatedTopics));
+    }
+
+    detail.hidden = false;
+    detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderSubtopics(subtopics) {
+    if (!subtopics.length) {
+      return '<article class="kh-empty">\u05dc\u05d0 \u05e0\u05de\u05e6\u05d0\u05d5 \u05ea\u05ea\u05d9 \u05e0\u05d5\u05e9\u05d0\u05d9\u05dd \u05dc\u05d4\u05e6\u05d2\u05d4</article>';
+    }
+
+    return subtopics.map((topic) => `
+      <article class="kh-card">
+        <h3>${escapeHtml(presentationTitle(topic.title))}</h3>
+        <p>${escapeHtml(localizedTopicDescription(topic))}</p>
+        <button class="kh-related-button" type="button" data-related-topic-open="${escapeAttribute(topic.topicId)}">\u05db\u05e0\u05d9\u05e1\u05d4 \u05dc\u05ea\u05ea \u05e0\u05d5\u05e9\u05d0</button>
+      </article>
+    `).join('');
+  }
+
+  function getChildTopics(state, parentTopicId) {
+    return state.data.topics
+      .filter((topic) => topic.parentTopicId === parentTopicId)
+      .sort((a, b) => presentationTitle(a.title).localeCompare(presentationTitle(b.title), 'he'));
+  }
+
+  function setDetailMode(isRootTopic, parentTopicId) {
+    setSectionHidden('[data-kh-subtopics-section]', !isRootTopic);
+    setSectionHidden('[data-kh-learning-section]', isRootTopic);
+    setSectionHidden('[data-kh-exam-section]', isRootTopic);
+    setSectionHidden('[data-kh-legal-section]', isRootTopic);
+    setSectionHidden('[data-kh-golden-section]', isRootTopic);
+    setSectionHidden('[data-kh-questions-section]', isRootTopic);
+    setSectionHidden('[data-kh-related-section]', isRootTopic);
+
+    const backSubtopicsButton = document.querySelector('[data-kh-back-subtopics]');
+    if (backSubtopicsButton) {
+      backSubtopicsButton.hidden = isRootTopic || !parentTopicId;
+      backSubtopicsButton.setAttribute('data-parent-topic-id', parentTopicId || '');
+      backSubtopicsButton.textContent = '\u05d7\u05d6\u05e8\u05d4 \u05dc\u05ea\u05ea\u05d9 \u05d4\u05e0\u05d5\u05e9\u05d0\u05d9\u05dd';
+    }
+  }
+
+  function clearDetailContent() {
+    setHtml('[data-kh-detail-learning]', '');
+    setHtml('[data-kh-detail-exam]', '');
+    setHtml('[data-kh-detail-legal]', '');
+    setHtml('[data-kh-detail-golden]', '');
+    setHtml('[data-kh-detail-questions]', '');
+    setHtml('[data-kh-detail-related]', '');
+  }
+
+  function setSectionHidden(selector, hidden) {
+    const section = document.querySelector(selector);
+    if (section) section.hidden = hidden;
+  }
+
   function renderError(error) {
     const main = document.querySelector('#main');
     if (!main) return;
