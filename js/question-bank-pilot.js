@@ -301,7 +301,7 @@
 
     return provenance.map((item) => `
       <div class="qb-governance-row">
-        <strong>מקור</strong>
+        <strong>${escapeHtml(sourceRoleLabel(item))}</strong>
         <span>${escapeHtml(sourceTitle(item.sourceId))}</span>
       </div>
       <div class="qb-governance-row">
@@ -314,7 +314,7 @@
       </div>
       <div class="qb-governance-row">
         <strong>סטטוס אימות</strong>
-        <span>${escapeHtml(statusLabel(item.verificationStatus))}</span>
+        <span>${escapeHtml(sourceStatusLabel(item))}</span>
       </div>
     `).join('');
   }
@@ -345,6 +345,19 @@
     const kind = level === 1 ? 'legal' : level === 4 ? 'standard' : 'training';
     const label = AUTHORITY_LABELS[level] || `רמה ${level || 'לא ידועה'}`;
     return `<span class="qb-badge" data-kind="${kind}">${escapeHtml(label)}</span>`;
+  }
+
+  function sourceRoleLabel(item) {
+    const level = Number(item.authorityLevel);
+    return level >= 6 ? 'מקור לימודי' : 'מקור אימות';
+  }
+
+  function sourceStatusLabel(item) {
+    const level = Number(item.authorityLevel);
+    if (level >= 6 && item.verificationStatus === 'source-backed') {
+      return 'הסבר מבוסס חומר לימודי';
+    }
+    return statusLabel(item.verificationStatus);
   }
 
   function sourceTitle(sourceId) {

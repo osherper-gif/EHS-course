@@ -42,7 +42,7 @@
       "correctAnswer": {
         "optionId": "a",
         "answerText": "הגישה התגובתית מגיבה לאחר אירועים, בעוד המניעתית מנהלת סיכונים מראש.",
-        "isOfficialAnswer": true
+        "isOfficialAnswer": false
       },
       "explanation": "גישה מניעתית מחפשת לזהות, להעריך ולבקר סיכונים לפני התממשותם.",
       "difficulty": "easy",
@@ -120,7 +120,7 @@
       "correctAnswer": {
         "optionId": "b",
         "answerText": "סילוק גורם הסיכון.",
-        "isOfficialAnswer": true
+        "isOfficialAnswer": false
       },
       "explanation": "סילוק גורם הסיכון הוא הבקרה הגבוהה ביותר במדרג הבקרות.",
       "difficulty": "easy",
@@ -590,7 +590,7 @@
       "correctAnswer": {
         "optionId": "a",
         "answerText": "גורם סיכון הוא מקור אפשרי לפגיעה; סיכון הוא הערכת ההסתברות והחומרה.",
-        "isOfficialAnswer": true
+        "isOfficialAnswer": false
       },
       "explanation": "השאלה בוחנת הבחנה בסיסית הנדרשת לפני הערכת סיכונים ובחירת בקרות.",
       "difficulty": "easy",

@@ -9,6 +9,7 @@ const SOURCE_REGISTRY_PATH = path.join(ROOT, "content", "source-registry.json");
 const CITATION_REGISTRY_PATH = path.join(ROOT, "content", "citation-registry-pilot.json");
 
 const VALID_VERIFICATION = new Set(["source-backed", "verified"]);
+const AUTHORITATIVE_ANSWER_LEVELS = new Set([1, 2, 3, 4, 5]);
 const REQUIRED_FACETS = [
   "examRelevant",
   "examCritical",
@@ -52,6 +53,7 @@ function buildContext(overrides = {}) {
     topicIds: new Set((topicMap.topics || []).map((topic) => topic.topicId)),
     lessonIds: new Set((lessonMap.lessonMappings || []).map((lesson) => lesson.lessonId)),
     sourceIds: new Set((sourceRegistry.entries || []).map((source) => source.stableSourceId)),
+    sourceById: new Map((sourceRegistry.entries || []).map((source) => [source.stableSourceId, source])),
     citationById: new Map((citationRegistry.citations || []).map((citation) => [citation.citationId, citation]))
   };
 }
@@ -142,12 +144,45 @@ function validateQuestion(question, context, blocked, warnings) {
   if (facets.examCritical && !answerProvenance.some((item) => VALID_VERIFICATION.has(item.verificationStatus))) {
     block(blocked, itemId, "examCritical requires source-backed or verified answerProvenance.");
   }
+  if (correct.isOfficialAnswer && !hasAuthoritativeAnswerSource(answerProvenance, sourceRefs, context)) {
+    block(blocked, itemId, "officialAnswer requires Level 1-5 authoritative answer provenance; Level 6/7 training sources are not sufficient.");
+  }
   if (facets.goldenNumberRelated) {
     block(blocked, itemId, "goldenNumberRelated is not supported in this pilot without a validated Golden Number entity.");
   }
   if (facets.legalBasisRequired && !answerProvenance.some((item) => item.authorityLevel >= 1 && item.authorityLevel <= 3 && VALID_VERIFICATION.has(item.verificationStatus))) {
     block(blocked, itemId, "legalBasisRequired requires Level 1-3 source-backed or verified provenance.");
   }
+  if (facets.legalBasisRequired && onlyLowAuthoritySources(answerProvenance, sourceRefs, context)) {
+    block(blocked, itemId, "legalBasisRequired cannot rely only on Level 6/7 learning sources.");
+  }
+}
+
+function hasAuthoritativeAnswerSource(answerProvenance, sourceRefs, context) {
+  return answerProvenance.some((item) => {
+    const level = authorityLevelFor(item, context);
+    return AUTHORITATIVE_ANSWER_LEVELS.has(level) && VALID_VERIFICATION.has(item.verificationStatus);
+  }) || sourceRefs.some((ref) => {
+    const level = authorityLevelFor(ref, context);
+    return AUTHORITATIVE_ANSWER_LEVELS.has(level);
+  });
+}
+
+function onlyLowAuthoritySources(answerProvenance, sourceRefs, context) {
+  const levels = [
+    ...answerProvenance.map((item) => authorityLevelFor(item, context)),
+    ...sourceRefs.map((item) => authorityLevelFor(item, context))
+  ].filter(Boolean);
+  return levels.length > 0 && levels.every((level) => level >= 6);
+}
+
+function authorityLevelFor(item, context) {
+  if (typeof item.authorityLevel === "number") return item.authorityLevel;
+  const citation = item.citationId ? context.citationById.get(item.citationId) : null;
+  if (citation && typeof citation.authorityLevel === "number") return citation.authorityLevel;
+  const sourceId = item.sourceId || item.stableSourceId;
+  const source = sourceId ? context.sourceById.get(sourceId) : null;
+  return source && typeof source.authorityLevel === "number" ? source.authorityLevel : null;
 }
 
 function validate(context) {
@@ -185,11 +220,14 @@ function clone(value) {
 function makeSelfTests() {
   const baseContext = buildContext();
   const baseQuestion = clone(baseContext.questionBank.questions[0]);
+  const levelOneQuestion = clone(baseContext.questionBank.questions.find((question) => question.answerProvenance && question.answerProvenance.some((item) => item.authorityLevel === 1)) || baseQuestion);
+  const levelFourQuestion = clone(baseContext.questionBank.questions.find((question) => question.answerProvenance && question.answerProvenance.some((item) => item.authorityLevel === 4)) || baseQuestion);
   const tests = [
     {
       name: "officialAnswer without sourceRefs",
       mutate(questionBank) {
         questionBank.questions = [clone(baseQuestion)];
+        questionBank.questions[0].correctAnswer.isOfficialAnswer = true;
         questionBank.questions[0].sourceRefs = [];
       }
     },
@@ -227,6 +265,64 @@ function makeSelfTests() {
         questionBank.questions[0].examFacets.examCritical = true;
         questionBank.questions[0].answerProvenance[0].verificationStatus = "unverified";
       }
+    },
+    {
+      name: "officialAnswer with Level 6 only",
+      mutate(questionBank) {
+        questionBank.questions = [clone(baseQuestion)];
+        questionBank.questions[0].correctAnswer.isOfficialAnswer = true;
+        questionBank.questions[0].answerProvenance[0].authorityLevel = 6;
+      }
+    },
+    {
+      name: "officialAnswer with Level 7 only",
+      mutate(questionBank) {
+        questionBank.questions = [clone(baseQuestion)];
+        questionBank.questions[0].correctAnswer.isOfficialAnswer = true;
+        questionBank.questions[0].answerProvenance[0].authorityLevel = 7;
+        questionBank.questions[0].sourceRefs = [
+          {
+            sourceId: "training-lecture-summary-upgraded-final",
+            citationId: null
+          }
+        ];
+      }
+    },
+    {
+      name: "legalBasisRequired with Level 6 only",
+      mutate(questionBank) {
+        questionBank.questions = [clone(baseQuestion)];
+        questionBank.questions[0].correctAnswer.isOfficialAnswer = false;
+        questionBank.questions[0].examFacets.legalBasisRequired = true;
+        questionBank.questions[0].answerProvenance[0].authorityLevel = 6;
+      }
+    },
+    {
+      name: "officialAnswer with Level 1",
+      expectBlocked: false,
+      mutate(questionBank) {
+        questionBank.questions = [clone(levelOneQuestion)];
+        questionBank.questions[0].correctAnswer.isOfficialAnswer = true;
+      }
+    },
+    {
+      name: "officialAnswer with Level 4",
+      expectBlocked: false,
+      mutate(questionBank) {
+        questionBank.questions = [clone(levelFourQuestion)];
+        questionBank.questions[0].correctAnswer.isOfficialAnswer = true;
+      }
+    },
+    {
+      name: "explanation with Level 6",
+      expectBlocked: false,
+      mutate(questionBank) {
+        questionBank.questions = [clone(baseQuestion)];
+        questionBank.questions[0].correctAnswer.isOfficialAnswer = false;
+        questionBank.questions[0].examFacets.legalBasisRequired = false;
+        questionBank.questions[0].examFacets.examCritical = false;
+        questionBank.questions[0].answerProvenance[0].authorityLevel = 6;
+      }
     }
   ];
 
@@ -237,7 +333,7 @@ function makeSelfTests() {
     return {
       name: test.name,
       blocked: result.blocked.length,
-      passed: result.blocked.length > 0
+      passed: test.expectBlocked === false ? result.blocked.length === 0 : result.blocked.length > 0
     };
   });
 }
@@ -277,7 +373,7 @@ function printReport(result, selfTestResults) {
       console.log(`- ${item.name}: ${item.passed ? "PASS" : "FAIL"} (${item.blocked} blocked)`);
     }
     const failed = selfTestResults.filter((item) => !item.passed).length;
-    console.log(`Negative Cases Blocked: ${selfTestResults.filter((item) => item.passed).length}/${selfTestResults.length}`);
+    console.log(`Self Test Cases Passed: ${selfTestResults.filter((item) => item.passed).length}/${selfTestResults.length}`);
     console.log(`Self Test Result: ${failed === 0 ? "PASS" : "FAIL"}`);
   }
 
