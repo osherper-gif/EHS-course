@@ -1,12 +1,18 @@
 (function () {
   'use strict';
 
-  const DATA_FILE = '../content/question-bank-pilot.json';
+  const DATA_FILES = {
+    questions: '../content/question-bank-pilot.json',
+    topics: '../content/topic-map-pilot.json',
+    lessons: '../content/lesson-map-pilot.json'
+  };
+
   const DIFFICULTY_LABELS = {
     easy: 'קל',
     medium: 'בינוני',
     hard: 'קשה'
   };
+
   const FACET_LABELS = {
     examRelevant: 'רלוונטי למבחן',
     examCritical: 'דגש קריטי',
@@ -20,6 +26,7 @@
     fieldPractice: 'יישום שטח',
     reviewOnly: 'סקירה בלבד'
   };
+
   const AUTHORITY_LABELS = {
     1: 'מקור משפטי',
     2: 'חקיקת משנה',
@@ -34,8 +41,8 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     loadQuestionBank()
-      .then((data) => {
-        state = buildState(data);
+      .then((raw) => {
+        state = buildState(raw);
         renderAll();
         bindFilters();
       })
@@ -43,18 +50,30 @@
   });
 
   async function loadQuestionBank() {
-    const response = await fetch(DATA_FILE, { cache: 'no-store' });
-    if (!response.ok) {
-      throw new Error('טעינת קובץ שאלות הפיילוט נכשלה.');
-    }
-    return response.json();
+    const entries = await Promise.all(
+      Object.entries(DATA_FILES).map(async ([key, file]) => {
+        const response = await fetch(file, { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error('טעינת קובץ הפיילוט נכשלה.');
+        }
+        return [key, await response.json()];
+      })
+    );
+
+    return Object.fromEntries(entries);
   }
 
-  function buildState(data) {
+  function buildState(raw) {
+    const data = raw.questions || {};
     const questions = Array.isArray(data.questions) ? data.questions : [];
+    const topics = raw.topics && Array.isArray(raw.topics.topics) ? raw.topics.topics : [];
+    const lessons = raw.lessons && Array.isArray(raw.lessons.lessonMappings) ? raw.lessons.lessonMappings : [];
+
     return {
       data,
       questions,
+      topicById: new Map(topics.map((topic) => [topic.topicId, topic])),
+      lessonById: new Map(lessons.map((lesson) => [lesson.lessonId, lesson])),
       filters: {
         search: '',
         topic: '',
@@ -67,24 +86,20 @@
   }
 
   function bindFilters() {
-    const bindings = [
-      ['[data-qb-search]', 'search'],
-      ['[data-qb-filter-topic]', 'topic'],
-      ['[data-qb-filter-lesson]', 'lesson'],
-      ['[data-qb-filter-difficulty]', 'difficulty'],
-      ['[data-qb-filter-exam-relevant]', 'examRelevant'],
-      ['[data-qb-filter-exam-critical]', 'examCritical']
+    const selectors = [
+      '[data-qb-search]',
+      '[data-qb-filter-topic]',
+      '[data-qb-filter-lesson]',
+      '[data-qb-filter-difficulty]',
+      '[data-qb-filter-exam-relevant]',
+      '[data-qb-filter-exam-critical]'
     ];
 
-    for (const [selector, key] of bindings) {
+    for (const selector of selectors) {
       const element = document.querySelector(selector);
       if (!element) continue;
-      element.addEventListener('input', () => {
-        renderQuestions();
-      });
-      element.addEventListener('change', () => {
-        renderQuestions();
-      });
+      element.addEventListener('input', renderQuestions);
+      element.addEventListener('change', renderQuestions);
     }
   }
 
@@ -129,8 +144,8 @@
     const lessons = unique(flatMap(state.questions, (question) => question.lessonIds || [])).sort();
     const difficulties = unique(state.questions.map((question) => question.difficulty || '').filter(Boolean)).sort();
 
-    setOptions('[data-qb-filter-topic]', topics, 'כל הנושאים', (value) => value);
-    setOptions('[data-qb-filter-lesson]', lessons, 'כל השיעורים', (value) => value);
+    setOptions('[data-qb-filter-topic]', topics, 'כל הנושאים', topicLabel);
+    setOptions('[data-qb-filter-lesson]', lessons, 'כל השיעורים', lessonLabel);
     setOptions('[data-qb-filter-difficulty]', difficulties, 'כל הרמות', (value) => DIFFICULTY_LABELS[value] || value);
   }
 
@@ -165,7 +180,9 @@
       question.questionText,
       question.explanation,
       ...(question.topicIds || []),
-      ...(question.lessonIds || [])
+      ...(question.lessonIds || []),
+      ...(question.topicIds || []).map(topicLabel),
+      ...(question.lessonIds || []).map(lessonLabel)
     ].join(' '));
 
     if (filters.search && !text.includes(normalize(filters.search))) return false;
@@ -204,11 +221,21 @@
         <p><strong>תשובה נכונה:</strong> ${escapeHtml(correctAnswer.answerText || correctAnswer.optionId || '')}</p>
         <p><strong>הסבר:</strong> ${escapeHtml(question.explanation || '')}</p>
 
-        <p class="qb-section-title">שיוך לימודי</p>
-        <div class="qb-badge-row">
-          ${(question.topicIds || []).map((topicId) => `<span class="qb-badge">${escapeHtml(topicId)}</span>`).join('')}
-          ${(question.lessonIds || []).map((lessonId) => `<span class="qb-badge">${escapeHtml(lessonId)}</span>`).join('')}
-        </div>
+        <section class="qb-learning-nav" aria-label="קשור ללמידה">
+          <p class="qb-section-title">קשור ללמידה</p>
+          <div class="qb-nav-group">
+            <strong>📚 שיעורים קשורים</strong>
+            <div class="qb-link-grid">
+              ${(question.lessonIds || []).map(renderLessonLink).join('')}
+            </div>
+          </div>
+          <div class="qb-nav-group">
+            <strong>🏷️ נושאים קשורים</strong>
+            <div class="qb-link-grid">
+              ${(question.topicIds || []).map(renderTopicLink).join('')}
+            </div>
+          </div>
+        </section>
 
         <p class="qb-section-title">Facets למבחן</p>
         <div class="qb-badge-row">
@@ -234,6 +261,22 @@
           </div>
         </section>
       </article>
+    `;
+  }
+
+  function renderLessonLink(lessonId) {
+    return `
+      <a class="qb-link-chip" href="${escapeAttribute(lessonHref(lessonId))}" data-lesson-id="${escapeAttribute(lessonId)}">
+        ${escapeHtml(lessonLabel(lessonId))}
+      </a>
+    `;
+  }
+
+  function renderTopicLink(topicId) {
+    return `
+      <a class="qb-link-chip" href="${escapeAttribute(topicHref(topicId))}" data-topic-id="${escapeAttribute(topicId)}">
+        ${escapeHtml(topicLabel(topicId))}
+      </a>
     `;
   }
 
@@ -266,6 +309,30 @@
     target.value = values.includes(current) ? current : '';
   }
 
+  function lessonLabel(lessonId) {
+    const lesson = state && state.lessonById ? state.lessonById.get(lessonId) : null;
+    const lessonNumber = lessonNumberFromId(lessonId);
+    if (!lesson) {
+      return lessonNumber ? `📚 שיעור ${lessonNumber}` : '📚 שיעור';
+    }
+    const shortTitle = shortenTitle(lesson.title || '', 46);
+    return lessonNumber ? `📚 שיעור ${lessonNumber} – ${shortTitle}` : `📚 ${shortTitle}`;
+  }
+
+  function topicLabel(topicId) {
+    const topic = state && state.topicById ? state.topicById.get(topicId) : null;
+    return `🏷️ ${topic ? presentationTitle(topic.title) : 'נושא קשור'}`;
+  }
+
+  function lessonHref(lessonId) {
+    return `learning-path.html#${encodeURIComponent(lessonId)}`;
+  }
+
+  function topicHref(topicId) {
+    // TODO: Replace this placeholder with a true Knowledge Hub deep-link when URL-state opening is supported.
+    return `knowledge-hub-pilot.html?topic=${encodeURIComponent(topicId)}`;
+  }
+
   function difficultyLabel(value) {
     return DIFFICULTY_LABELS[value] || value || 'לא סווג';
   }
@@ -275,6 +342,21 @@
     if (status === 'verified') return 'מאומת';
     if (status === 'unverified') return 'לא מאומת';
     return status || 'לא ידוע';
+  }
+
+  function lessonNumberFromId(lessonId) {
+    const match = String(lessonId || '').match(/lesson-(\d+)/);
+    return match ? String(Number(match[1])) : '';
+  }
+
+  function shortenTitle(title, maxLength) {
+    const value = String(title || '').trim();
+    if (value.length <= maxLength) return value;
+    return `${value.slice(0, maxLength - 1).trim()}…`;
+  }
+
+  function presentationTitle(value) {
+    return String(value || '').trim();
   }
 
   function normalize(value) {
