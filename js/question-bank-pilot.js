@@ -4,7 +4,9 @@
   const DATA_FILES = {
     questions: '../content/question-bank-pilot.json',
     topics: '../content/topic-map-pilot.json',
-    lessons: '../content/lesson-map-pilot.json'
+    lessons: '../content/lesson-map-pilot.json',
+    sources: '../content/source-registry.json',
+    citations: '../content/citation-registry-pilot.json'
   };
 
   const DIFFICULTY_LABELS = {
@@ -35,6 +37,13 @@
     5: 'נוהל',
     6: 'חומר הדרכה',
     7: 'פרשנות / דגש מבחן'
+  };
+
+  const SOURCE_DISPLAY_LABELS = {
+    'law-labor-inspection-1954': 'חוק ארגון הפיקוח על העבודה, תשי"ד-1954',
+    'ordinance-work-safety-1970': 'פקודת הבטיחות בעבודה, תש"ל-1970',
+    'standard-iso-45001-2018': 'ISO 45001:2018',
+    'training-occupational-safety-management': 'ניהול בטיחות בתעסוקה'
   };
 
   let state = null;
@@ -69,12 +78,16 @@
     const questions = Array.isArray(data.questions) ? data.questions : [];
     const topics = raw.topics && Array.isArray(raw.topics.topics) ? raw.topics.topics : [];
     const lessons = raw.lessons && Array.isArray(raw.lessons.lessonMappings) ? raw.lessons.lessonMappings : [];
+    const sources = raw.sources && Array.isArray(raw.sources.entries) ? raw.sources.entries : [];
+    const citations = raw.citations && Array.isArray(raw.citations.citations) ? raw.citations.citations : [];
 
     return {
       data,
       questions,
       topicById: new Map(topics.map((topic) => [topic.topicId, topic])),
       lessonById: new Map(lessons.map((lesson) => [lesson.lessonId, lesson])),
+      sourceById: new Map(sources.map((source) => [source.stableSourceId, source])),
+      citationById: new Map(citations.map((citation) => [citation.citationId, citation])),
       filters: {
         search: '',
         topic: '',
@@ -273,27 +286,37 @@
           <details class="qb-source-details">
             <summary>פרטי מקור</summary>
             <section class="qb-governance" aria-label="עקיבות מקור">
-              <div class="qb-governance-row">
-                <strong>sourceId</strong>
-                <span>${escapeHtml(provenance.map((item) => item.sourceId).join(', ') || 'חסר')}</span>
-              </div>
-              <div class="qb-governance-row">
-                <strong>citationId</strong>
-                <span>${escapeHtml(provenance.map((item) => item.citationId).join(', ') || 'חסר')}</span>
-              </div>
-              <div class="qb-governance-row">
-                <strong>רמת סמכות</strong>
-                <span>${provenance.map(authorityBadge).join(' ') || 'חסר'}</span>
-              </div>
-              <div class="qb-governance-row">
-                <strong>סטטוס אימות</strong>
-                <span>${escapeHtml(provenance.map((item) => statusLabel(item.verificationStatus)).join(', ') || 'חסר')}</span>
-              </div>
+              ${renderSourceDetails(provenance)}
             </section>
           </details>
         </section>
       </article>
     `;
+  }
+
+  function renderSourceDetails(provenance) {
+    if (!provenance.length) {
+      return '<div class="qb-governance-row"><strong>מקור</strong><span>לא נמצא מקור לשאלה זו</span></div>';
+    }
+
+    return provenance.map((item) => `
+      <div class="qb-governance-row">
+        <strong>מקור</strong>
+        <span>${escapeHtml(sourceTitle(item.sourceId))}</span>
+      </div>
+      <div class="qb-governance-row">
+        <strong>הפניה</strong>
+        <span>${escapeHtml(citationLabel(item.citationId))}</span>
+      </div>
+      <div class="qb-governance-row">
+        <strong>רמת סמכות</strong>
+        <span>${authorityBadge(item)}</span>
+      </div>
+      <div class="qb-governance-row">
+        <strong>סטטוס אימות</strong>
+        <span>${escapeHtml(statusLabel(item.verificationStatus))}</span>
+      </div>
+    `).join('');
   }
 
   function renderLessonLink(lessonId) {
@@ -321,7 +344,38 @@
     const level = Number(item.authorityLevel);
     const kind = level === 1 ? 'legal' : level === 4 ? 'standard' : 'training';
     const label = AUTHORITY_LABELS[level] || `רמה ${level || 'לא ידועה'}`;
-    return `<span class="qb-badge" data-kind="${kind}">${escapeHtml(label)} (${escapeHtml(level || '')})</span>`;
+    return `<span class="qb-badge" data-kind="${kind}">${escapeHtml(label)}</span>`;
+  }
+
+  function sourceTitle(sourceId) {
+    if (SOURCE_DISPLAY_LABELS[sourceId]) return SOURCE_DISPLAY_LABELS[sourceId];
+    const source = state && state.sourceById ? state.sourceById.get(sourceId) : null;
+    if (!source) return 'מקור לא מזוהה';
+    return cleanSourceTitle(source.title || source.stableSourceId);
+  }
+
+  function citationLabel(citationId) {
+    const citation = state && state.citationById ? state.citationById.get(citationId) : null;
+    if (!citation) return 'הפניה לא מזוהה';
+    return citation.label || locatorLabel(citation.locator) || 'הפניה במקור';
+  }
+
+  function cleanSourceTitle(title) {
+    return String(title || '')
+      .replace(/^\d+(?:\.\d+)*\./, '')
+      .replace(/-?סופי\.?העלאה לאתר$/u, '')
+      .replace(/-?סופי$/u, '')
+      .replace(/_/g, ' ')
+      .trim();
+  }
+
+  function locatorLabel(locator) {
+    if (!locator || typeof locator !== 'object') return '';
+    if (locator.section) return `סעיף ${locator.section}`;
+    if (locator.heading) return locator.heading;
+    if (locator.sectionTitle) return locator.sectionTitle;
+    if (locator.page) return `עמוד ${locator.page}`;
+    return '';
   }
 
   function activeFacets(facets) {
