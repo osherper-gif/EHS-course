@@ -448,6 +448,7 @@
       .map((block) => state.sourceById.get(block.sourceId))
       .filter(Boolean);
     if (sources.some((source) => Number(source.authorityLevel) === 1)) return 'legal';
+    if (sources.some((source) => Number(source.authorityLevel) === 4)) return 'standard';
     if (sources.some((source) => Number(source.authorityLevel) === 6)) return 'training';
     return 'training';
   }
@@ -457,7 +458,10 @@
   }
 
   function authorityGroupFromLevel(level) {
-    return Number(level) === 1 ? 'legal' : 'training';
+    const numericLevel = Number(level);
+    if (numericLevel === 1) return 'legal';
+    if (numericLevel === 4) return 'standard';
+    return 'training';
   }
 
   function renderRef(ref, state) {
@@ -510,14 +514,18 @@
 
   function authorityBadgeByGroup(group) {
     if (group === 'legal') {
-      return '<span class="kh-badge" data-authority="legal">מקור משפטי</span>';
+      return '<span class="kh-badge" data-authority="legal" title="מקור משפטי מחייב: חוק או פקודה.">⚖️ מקור משפטי</span>';
     }
-    return '<span class="kh-badge" data-authority="training">חומר הדרכה</span>';
+    if (group === 'standard') {
+      return '<span class="kh-badge" data-authority="standard" title="תקן בינלאומי. אינו חוק, אך משמש Best Practice ועלול להיות מחייב אם אומץ על ידי הארגון או הרגולטור.">📘 תקן בינלאומי</span>';
+    }
+    return '<span class="kh-badge" data-authority="training" title="חומר הדרכה או סיכום לימודי. אינו מקור רגולטורי מחייב בפני עצמו.">🎓 חומר הדרכה</span>';
   }
 
   function authorityText(source) {
     if (!source) return 'לא ידוע';
     if (Number(source.authorityLevel) === 1) return 'מקור משפטי';
+    if (Number(source.authorityLevel) === 4) return 'תקן בינלאומי - אינו חוק, אך משמש Best Practice ועלול להיות מחייב אם אומץ על ידי הארגון או הרגולטור';
     if (Number(source.authorityLevel) === 6) return 'חומר הדרכה';
     return `רמת סמכות ${source.authorityLevel}`;
   }

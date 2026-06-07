@@ -33,6 +33,10 @@
       --kh-training-bg:     #eff6ff;
       --kh-training-border: #bfdbfe;
 
+      --kh-standard:        #4338ca;
+      --kh-standard-bg:     #eef2ff;
+      --kh-standard-border: #c7d2fe;
+
       --kh-exam:            #92400e;
       --kh-exam-bg:         #fffbeb;
       --kh-exam-border:     #fde68a;
@@ -209,6 +213,13 @@
       background: var(--kh-training-bg);
       border-color: var(--kh-training-border);
       color: var(--kh-training);
+      font-weight: 700;
+    }
+
+    .kh-badge[data-authority="standard"] {
+      background: var(--kh-standard-bg);
+      border-color: var(--kh-standard-border);
+      color: var(--kh-standard);
       font-weight: 700;
     }
 
@@ -655,6 +666,10 @@
       border-inline-start-color: var(--kh-training);
     }
 
+    .kh-block-card[data-authority-group="standard"] {
+      border-inline-start-color: var(--kh-standard);
+    }
+
     .kh-block-card[data-block-type="warning"] {
       background: #fff7ed;
       border-inline-start-color: #ea580c;
@@ -988,6 +1003,9 @@
           <span class="kh-badge" data-kind="source-backed">מבוסס מקור</span>
           <span class="kh-badge" data-kind="unverified">קריאה בלבד</span>
           <span class="kh-badge" data-kind="unverified">לא מאומת משפטית</span>
+          <span class="kh-badge" data-authority="legal" title="מקור משפטי מחייב: חוק או פקודה.">⚖️ מקור משפטי</span>
+          <span class="kh-badge" data-authority="standard" title="תקן בינלאומי. אינו חוק, אך משמש Best Practice ועלול להיות מחייב אם אומץ על ידי הארגון או הרגולטור.">📘 תקן בינלאומי</span>
+          <span class="kh-badge" data-authority="training" title="חומר הדרכה או סיכום לימודי. אינו מקור רגולטורי מחייב בפני עצמו.">🎓 חומר הדרכה</span>
         </div>
       </section>
 
@@ -1017,7 +1035,7 @@
           </article>
           <article class="kh-learning-step">
             <strong>זהה סמכות</strong>
-            <span>תגים מבדילים בין מקור משפטי, חומר הדרכה, דגש מבחן ומספר זהב.</span>
+            <span>תגים מבדילים בין מקור משפטי, תקן בינלאומי, חומר הדרכה, דגש מבחן ומספר זהב.</span>
           </article>
           <article class="kh-learning-step">
             <strong>חזור לנושאים</strong>
