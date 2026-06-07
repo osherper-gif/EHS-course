@@ -6,14 +6,16 @@
     "sourceIds": [
       "law-labor-inspection-1954",
       "ordinance-work-safety-1970",
-      "training-occupational-safety-management"
+      "training-occupational-safety-management",
+      "standard-iso-45001-2018"
     ],
     "stableSourceIds": [
       "training-safety-management-human-factors",
       "training-occupational-safety-management",
       "training-safety-organization-final",
       "training-operational-risks",
-      "ordinance-work-safety-1970"
+      "ordinance-work-safety-1970",
+      "standard-iso-45001-2018"
     ],
     "rootDomainTarget": [
       "regulation-governance-domain",
@@ -445,17 +447,20 @@
       "relatedTopicIds": [
         "safety-culture-real",
         "human-factors-field-tools-real",
-        "construction-excavation-risk-real"
+        "construction-excavation-risk-real",
+        "iso-45001-management-system-standard"
       ],
       "lessonIds": [
         "lesson-08",
         "lesson-09",
         "lesson-50",
-        "lesson-51"
+        "lesson-51",
+        "lesson-36"
       ],
       "sourceIds": [
         "training-safety-management-human-factors",
-        "training-construction-sites-safety"
+        "training-construction-sites-safety",
+        "standard-iso-45001-2018"
       ],
       "blockIds": [
         "block-real-leadership-contractor-pressure-case",
@@ -466,7 +471,10 @@
         "block-real-checklist-management-leadership",
         "block-real-checklist-safety-officer-protection",
         "block-construction-management-accountability",
-        "block-construction-contractors-simops"
+        "block-construction-contractors-simops",
+        "block-iso-45001-leadership-accountability",
+        "block-iso-45001-policy-commitments",
+        "block-iso-45001-worker-consultation-participation"
       ],
       "status": "draft"
     },
@@ -524,7 +532,8 @@
         "safety-organization-governance-real",
         "safety-leadership-governance-real",
         "operational-risks-real",
-        "human-factors-real"
+        "human-factors-real",
+        "iso-45001-management-system-standard"
       ],
       "lessonIds": [
         "lesson-08",
@@ -537,7 +546,8 @@
         "lesson-51"
       ],
       "sourceIds": [
-        "training-occupational-safety-management"
+        "training-occupational-safety-management",
+        "standard-iso-45001-2018"
       ],
       "blockIds": [
         "block-occ-safety-sms-definition",
@@ -579,7 +589,17 @@
         "block-safety-management-safety-officer-toolkit-warning",
         "block-safety-management-safety-officer-toolkit-checklist",
         "block-safety-management-safety-officer-toolkit-exam-focus",
-        "block-safety-management-safety-officer-toolkit-manager-note"
+        "block-safety-management-safety-officer-toolkit-manager-note",
+        "block-iso-45001-standard-scope-not-law",
+        "block-iso-45001-applicability-all-organizations",
+        "block-iso-45001-does-not-define-legal-intervals",
+        "block-iso-45001-context-internal-external",
+        "block-iso-45001-interested-parties",
+        "block-iso-45001-leadership-accountability",
+        "block-iso-45001-legal-other-requirements-interface",
+        "block-iso-45001-competence-model",
+        "block-iso-45001-procurement-contractors-outsourcing",
+        "block-iso-45001-compliance-evaluation-audit-review"
       ],
       "status": "draft"
     },
@@ -591,7 +611,8 @@
       "aliases": [],
       "relatedTopicIds": [
         "safety-governance-kpi-real",
-        "risk-assessment-management-real"
+        "risk-assessment-management-real",
+        "iso-45001-management-system-standard"
       ],
       "lessonIds": [
         "lesson-08",
@@ -601,14 +622,22 @@
         "lesson-39"
       ],
       "sourceIds": [
-        "training-occupational-safety-management"
+        "training-occupational-safety-management",
+        "standard-iso-45001-2018"
       ],
       "blockIds": [
         "block-occ-safety-sms-definition",
         "block-occ-safety-sms-simple-model",
         "block-occ-safety-sms-pillars",
         "block-occ-safety-sms-workarounds",
-        "block-occ-safety-sms-accident-chain"
+        "block-occ-safety-sms-accident-chain",
+        "block-iso-45001-ohs-management-purpose",
+        "block-iso-45001-pdca-cycle-map",
+        "block-iso-45001-system-scope-boundaries",
+        "block-iso-45001-policy-commitments",
+        "block-iso-45001-support-resources",
+        "block-iso-45001-awareness-and-communication",
+        "block-iso-45001-documented-information"
       ],
       "status": "draft"
     },
@@ -620,7 +649,8 @@
       "aliases": [],
       "relatedTopicIds": [
         "sms-management-system-real",
-        "risk-assessment-management-real"
+        "risk-assessment-management-real",
+        "iso-45001-management-system-standard"
       ],
       "lessonIds": [
         "lesson-08",
@@ -628,17 +658,23 @@
         "lesson-36",
         "lesson-39",
         "lesson-50",
-        "lesson-51"
+        "lesson-51",
+        "lesson-37"
       ],
       "sourceIds": [
-        "training-occupational-safety-management"
+        "training-occupational-safety-management",
+        "standard-iso-45001-2018"
       ],
       "blockIds": [
         "block-occ-safety-governance-definition",
         "block-occ-safety-governance-accountability",
         "block-occ-safety-leading-lagging",
         "block-occ-safety-production-pressure",
-        "block-occ-safety-governance-rca"
+        "block-occ-safety-governance-rca",
+        "block-iso-45001-ohs-objectives",
+        "block-iso-45001-monitoring-measurement-kpi",
+        "block-iso-45001-compliance-evaluation-audit-review",
+        "block-iso-45001-continual-improvement"
       ],
       "status": "draft"
     },
@@ -650,7 +686,8 @@
       "aliases": [],
       "relatedTopicIds": [
         "hierarchy-of-controls-real",
-        "chemical-hazardous-materials-domain"
+        "chemical-hazardous-materials-domain",
+        "iso-45001-management-system-standard"
       ],
       "lessonIds": [
         "lesson-01",
@@ -658,11 +695,14 @@
         "lesson-11",
         "lesson-37",
         "lesson-40",
-        "lesson-52"
+        "lesson-52",
+        "lesson-36",
+        "lesson-38"
       ],
       "sourceIds": [
         "training-occupational-safety-management",
-        "training-chemical-and-general-risks"
+        "training-chemical-and-general-risks",
+        "standard-iso-45001-2018"
       ],
       "blockIds": [
         "block-occ-risk-hazard-risk",
@@ -670,7 +710,15 @@
         "block-occ-risk-four-steps",
         "block-occ-risk-complacency",
         "block-occ-risk-survey-failure-rca",
-        "block-chemical-toxicity-vs-risk"
+        "block-chemical-toxicity-vs-risk",
+        "block-iso-45001-pdca-machine-guard-example",
+        "block-iso-45001-hazard-definition",
+        "block-iso-45001-ohs-risk-definition",
+        "block-iso-45001-planning-risk-opportunities",
+        "block-iso-45001-proactive-hazard-identification",
+        "block-iso-45001-operational-control-examples",
+        "block-iso-45001-hierarchy-of-controls",
+        "block-iso-45001-management-of-change"
       ],
       "status": "draft"
     },
@@ -683,7 +731,8 @@
       "relatedTopicIds": [
         "risk-assessment-management-real",
         "chemical-hazardous-materials-domain",
-        "occupational-hygiene-ppe-respiratory"
+        "occupational-hygiene-ppe-respiratory",
+        "iso-45001-management-system-standard"
       ],
       "lessonIds": [
         "lesson-10",
@@ -691,12 +740,14 @@
         "lesson-22",
         "lesson-37",
         "lesson-43",
-        "lesson-56"
+        "lesson-56",
+        "lesson-38"
       ],
       "sourceIds": [
         "training-occupational-safety-management",
         "training-chemical-and-general-risks",
-        "training-occupational-hygiene"
+        "training-occupational-hygiene",
+        "standard-iso-45001-2018"
       ],
       "blockIds": [
         "block-occ-controls-hierarchy-definition",
@@ -708,7 +759,9 @@
         "block-chemical-lev-before-ppe",
         "block-chemical-route-matched-controls",
         "block-hygiene-controls-hierarchy",
-        "block-hygiene-ppe-last-line-exam"
+        "block-hygiene-ppe-last-line-exam",
+        "block-iso-45001-operational-control-examples",
+        "block-iso-45001-hierarchy-of-controls"
       ],
       "status": "draft"
     },
@@ -816,19 +869,24 @@
       "parentTopicId": "safety-organization-governance-real",
       "aliases": [],
       "relatedTopicIds": [
-        "safety-organization-controls-engineering-real"
+        "safety-organization-controls-engineering-real",
+        "iso-45001-management-system-standard"
       ],
       "lessonIds": [
         "lesson-08",
         "lesson-36",
-        "lesson-39"
+        "lesson-39",
+        "lesson-37"
       ],
       "sourceIds": [
-        "training-safety-organization-final"
+        "training-safety-organization-final",
+        "standard-iso-45001-2018"
       ],
       "blockIds": [
         "block-safety-org-integral-sms",
-        "block-safety-org-pdca-cycle"
+        "block-safety-org-pdca-cycle",
+        "block-iso-45001-pdca-cycle-map",
+        "block-iso-45001-pdca-machine-guard-example"
       ],
       "status": "draft"
     },
@@ -1778,21 +1836,27 @@
       ],
       "relatedTopicIds": [
         "safety-dashboard-management-real",
-        "safety-organization-safety-officer-role-real"
+        "safety-organization-safety-officer-role-real",
+        "iso-45001-management-system-standard"
       ],
       "lessonIds": [
         "lesson-08",
         "lesson-09",
-        "lesson-51"
+        "lesson-51",
+        "lesson-39"
       ],
       "sourceIds": [
-        "training-safety-organization-final"
+        "training-safety-organization-final",
+        "standard-iso-45001-2018"
       ],
       "blockIds": [
         "block-safety-org-capa-entry",
         "block-safety-org-defect-risk-classification",
         "block-safety-org-escalation-profile",
-        "block-safety-org-capa-management-loop"
+        "block-safety-org-capa-management-loop",
+        "block-iso-45001-incident-near-miss",
+        "block-iso-45001-incident-nonconformity-corrective-action",
+        "block-iso-45001-continual-improvement"
       ],
       "status": "draft"
     },
@@ -2487,21 +2551,25 @@
       "relatedTopicIds": [
         "loto-ptw-energy-control-real",
         "safety-management-critical-work-controls",
-        "safety-leadership-governance-real"
+        "safety-leadership-governance-real",
+        "iso-45001-management-system-standard"
       ],
       "lessonIds": [
         "lesson-19",
-        "lesson-42"
+        "lesson-42",
+        "lesson-38"
       ],
       "sourceIds": [
-        "training-construction-sites-safety"
+        "training-construction-sites-safety",
+        "standard-iso-45001-2018"
       ],
       "blockIds": [
         "block-construction-ptw-control-system",
         "block-construction-permit-components",
         "block-construction-loto-purpose",
         "block-construction-one-lock-one-key",
-        "block-construction-contractors-simops"
+        "block-construction-contractors-simops",
+        "block-iso-45001-procurement-contractors-outsourcing"
       ],
       "status": "draft"
     },
@@ -3345,7 +3413,8 @@
         "construction-emergency-response",
         "chemical-storage-segregation-spill",
         "chemical-hazardous-materials-domain",
-        "operational-risks-real"
+        "operational-risks-real",
+        "iso-45001-management-system-standard"
       ],
       "lessonIds": [
         "lesson-06",
@@ -3353,10 +3422,12 @@
         "lesson-34",
         "lesson-35",
         "lesson-44",
-        "lesson-57"
+        "lesson-57",
+        "lesson-38"
       ],
       "sourceIds": [
-        "training-emergency-preparedness"
+        "training-emergency-preparedness",
+        "standard-iso-45001-2018"
       ],
       "blockIds": [
         "block-emergency-domain-scope",
@@ -3399,7 +3470,8 @@
         "block-emergency-glossary-core",
         "block-emergency-fire-extended-triangle",
         "block-emergency-extinguisher-table",
-        "block-emergency-extinguisher-numbers-not-golden"
+        "block-emergency-extinguisher-numbers-not-golden",
+        "block-iso-45001-emergency-preparedness"
       ],
       "status": "draft"
     },
@@ -3836,6 +3908,72 @@
       ],
       "status": "draft",
       "reviewNotes": "Restored after encoding repair. Domain wrapper metadata, not a new source-derived claim."
+    },
+    {
+      "topicId": "iso-45001-management-system-standard",
+      "title": "ISO 45001 כמערכת ניהול",
+      "description": "ISO 45001 הוא תקן למערכת ניהול בטיחות ובריאות בתעסוקה. הוא אינו רק “רשימת בדיקות”, אלא שיטה ניהולית מלאה שמטרתה לאפשר לארגון לנהל סיכוני בטיחות ובריאות, למנוע פציעה ופגיעה בבריאות, לשפר ביצועים ולעמוד בדרישות דין ודרישות אחרות. התקן לא מחליף חוק, תקנות או פקודות. להפך — הוא מחייב את הארגון לזהות את הדרישות החוקיות החלות עליו ולנהל אותן כחלק ממערכת הבטיחות.",
+      "parentTopicId": "occupational-safety-management-real",
+      "aliases": [
+        "ISO 45001",
+        "ISO 45001:2018",
+        "ת״י 45001",
+        "תקן ISO 45001",
+        "OH&S management system"
+      ],
+      "relatedTopicIds": [
+        "sms-management-system-real",
+        "safety-organization-sms-pdca-real",
+        "safety-governance-kpi-real",
+        "risk-assessment-management-real",
+        "hierarchy-of-controls-real",
+        "safety-leadership-governance-real",
+        "safety-organization-defect-escalation-real"
+      ],
+      "lessonIds": [
+        "lesson-36",
+        "lesson-37",
+        "lesson-38",
+        "lesson-39"
+      ],
+      "sourceIds": [
+        "standard-iso-45001-2018"
+      ],
+      "blockIds": [
+        "block-iso-45001-standard-scope-not-law",
+        "block-iso-45001-ohs-management-purpose",
+        "block-iso-45001-applicability-all-organizations",
+        "block-iso-45001-does-not-define-legal-intervals",
+        "block-iso-45001-pdca-cycle-map",
+        "block-iso-45001-pdca-machine-guard-example",
+        "block-iso-45001-hazard-definition",
+        "block-iso-45001-ohs-risk-definition",
+        "block-iso-45001-incident-near-miss",
+        "block-iso-45001-context-internal-external",
+        "block-iso-45001-interested-parties",
+        "block-iso-45001-system-scope-boundaries",
+        "block-iso-45001-leadership-accountability",
+        "block-iso-45001-policy-commitments",
+        "block-iso-45001-worker-consultation-participation",
+        "block-iso-45001-planning-risk-opportunities",
+        "block-iso-45001-proactive-hazard-identification",
+        "block-iso-45001-legal-other-requirements-interface",
+        "block-iso-45001-ohs-objectives",
+        "block-iso-45001-support-resources",
+        "block-iso-45001-competence-model",
+        "block-iso-45001-awareness-and-communication",
+        "block-iso-45001-documented-information",
+        "block-iso-45001-operational-control-examples",
+        "block-iso-45001-hierarchy-of-controls",
+        "block-iso-45001-management-of-change",
+        "block-iso-45001-procurement-contractors-outsourcing",
+        "block-iso-45001-emergency-preparedness",
+        "block-iso-45001-monitoring-measurement-kpi",
+        "block-iso-45001-compliance-evaluation-audit-review",
+        "block-iso-45001-incident-nonconformity-corrective-action",
+        "block-iso-45001-continual-improvement"
+      ],
+      "status": "draft"
     }
   ]
 }

@@ -9,7 +9,8 @@
       "training-occupational-safety-management",
       "training-safety-organization-final",
       "training-operational-risks",
-      "ordinance-work-safety-1970"
+      "ordinance-work-safety-1970",
+      "standard-iso-45001-2018"
     ]
   },
   "citations": [
@@ -1640,6 +1641,142 @@
         "status": "source-backed"
       },
       "notes": "Level 6 training citation. Extinguisher distances, heights and maintenance intervals are not golden numbers."
+    },
+    {
+      "citationId": "citation-standard-iso-45001-purpose-framework",
+      "stableSourceId": "standard-iso-45001-2018",
+      "citationType": "standard-clause",
+      "label": "ISO 45001 - מהות התקן",
+      "locator": {
+        "clause": "Introduction / 1",
+        "heading": "מהות התקן",
+        "paragraphRange": "3-19",
+        "sourceFile": "ISO-45001-first-edition_2018.docx"
+      },
+      "authorityLevel": 4,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Real migration Wave 9 locator from ISO 45001 source. Draft, not verified."
+    },
+    {
+      "citationId": "citation-standard-iso-45001-pdca",
+      "stableSourceId": "standard-iso-45001-2018",
+      "citationType": "standard-clause",
+      "label": "ISO 45001 - מחזור PDCA — תכנן, בצע, בדוק, פעל",
+      "locator": {
+        "clause": "PDCA",
+        "heading": "מחזור PDCA — תכנן, בצע, בדוק, פעל",
+        "paragraphRange": "38-61",
+        "sourceFile": "ISO-45001-first-edition_2018.docx"
+      },
+      "authorityLevel": 4,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Real migration Wave 9 locator from ISO 45001 source. Draft, not verified."
+    },
+    {
+      "citationId": "citation-standard-iso-45001-core-concepts",
+      "stableSourceId": "standard-iso-45001-2018",
+      "citationType": "standard-clause",
+      "label": "ISO 45001 - מושגים מרכזיים בתקן",
+      "locator": {
+        "clause": "3",
+        "heading": "מושגים מרכזיים בתקן",
+        "paragraphRange": "77-120",
+        "sourceFile": "ISO-45001-first-edition_2018.docx"
+      },
+      "authorityLevel": 4,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Real migration Wave 9 locator from ISO 45001 source. Draft, not verified."
+    },
+    {
+      "citationId": "citation-standard-iso-45001-context-scope",
+      "stableSourceId": "standard-iso-45001-2018",
+      "citationType": "standard-clause",
+      "label": "ISO 45001 - סעיף 4 — הקשר הארגון / תחום החלות של המערכת",
+      "locator": {
+        "clause": "4",
+        "heading": "סעיף 4 — הקשר הארגון / תחום החלות של המערכת",
+        "paragraphRange": "121-183",
+        "sourceFile": "ISO-45001-first-edition_2018.docx"
+      },
+      "authorityLevel": 4,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Real migration Wave 9 locator from ISO 45001 source. Draft, not verified."
+    },
+    {
+      "citationId": "citation-standard-iso-45001-leadership-workers",
+      "stableSourceId": "standard-iso-45001-2018",
+      "citationType": "standard-clause",
+      "label": "ISO 45001 - סעיף 5 — מנהיגות ושיתוף עובדים / סעיף 5.4 — התייעצות עם עובדים ושיתוף עובדים",
+      "locator": {
+        "clause": "5",
+        "heading": "סעיף 5 — מנהיגות ושיתוף עובדים / סעיף 5.4 — התייעצות עם עובדים ושיתוף עובדים",
+        "paragraphRange": "184-250",
+        "sourceFile": "ISO-45001-first-edition_2018.docx"
+      },
+      "authorityLevel": 4,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Real migration Wave 9 locator from ISO 45001 source. Draft, not verified."
+    },
+    {
+      "citationId": "citation-standard-iso-45001-planning-risk-objectives",
+      "stableSourceId": "standard-iso-45001-2018",
+      "citationType": "standard-clause",
+      "label": "ISO 45001 - סעיף 6 — תכנון / דרישות דין ודרישות אחרות / מטרות בטיחות ובריאות",
+      "locator": {
+        "clause": "6",
+        "heading": "סעיף 6 — תכנון / דרישות דין ודרישות אחרות / מטרות בטיחות ובריאות",
+        "paragraphRange": "251-370",
+        "sourceFile": "ISO-45001-first-edition_2018.docx"
+      },
+      "authorityLevel": 4,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Real migration Wave 9 locator from ISO 45001 source. Draft, not verified."
+    },
+    {
+      "citationId": "citation-standard-iso-45001-support-operation",
+      "stableSourceId": "standard-iso-45001-2018",
+      "citationType": "standard-clause",
+      "label": "ISO 45001 - סעיף 7 — תמיכה / סעיף 8 — תפעול",
+      "locator": {
+        "clause": "7-8",
+        "heading": "סעיף 7 — תמיכה / סעיף 8 — תפעול",
+        "paragraphRange": "371-568",
+        "sourceFile": "ISO-45001-first-edition_2018.docx"
+      },
+      "authorityLevel": 4,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Real migration Wave 9 locator from ISO 45001 source. Draft, not verified."
+    },
+    {
+      "citationId": "citation-standard-iso-45001-performance-improvement",
+      "stableSourceId": "standard-iso-45001-2018",
+      "citationType": "standard-clause",
+      "label": "ISO 45001 - סעיף 9 — הערכת ביצועים / סעיף 10 — שיפור",
+      "locator": {
+        "clause": "9-10",
+        "heading": "סעיף 9 — הערכת ביצועים / סעיף 10 — שיפור",
+        "paragraphRange": "569-718",
+        "sourceFile": "ISO-45001-first-edition_2018.docx"
+      },
+      "authorityLevel": 4,
+      "verification": {
+        "status": "source-backed"
+      },
+      "notes": "Real migration Wave 9 locator from ISO 45001 source. Draft, not verified."
     }
   ]
 }

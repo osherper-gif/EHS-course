@@ -3450,10 +3450,13 @@
         "safety-management-human-factors-interface",
         "safety-organization-sms-pdca-real",
         "safety-program",
-        "sms-management-system-real"
+        "sms-management-system-real",
+        "iso-45001-management-system-standard",
+        "risk-assessment-management-real",
+        "safety-leadership-governance-real"
       ],
       "coverageStatus": "FULL",
-      "coverageNote": "Mapped to source-backed pilot topics in all expected root domains.",
+      "coverageNote": "Includes source-backed ISO 45001:2018 Level 4 standard content. Draft, not verified, not legal binding.",
       "blockIds": [
         "block-occ-safety-sms-definition",
         "block-occ-safety-sms-simple-model",
@@ -3498,12 +3501,25 @@
         "block-labor-inspection-safety-program-definition",
         "block-labor-inspection-safety-program-checklist",
         "block-safety-org-integral-sms",
-        "block-safety-org-pdca-cycle"
+        "block-safety-org-pdca-cycle",
+        "block-iso-45001-standard-scope-not-law",
+        "block-iso-45001-ohs-management-purpose",
+        "block-iso-45001-applicability-all-organizations",
+        "block-iso-45001-does-not-define-legal-intervals",
+        "block-iso-45001-pdca-cycle-map",
+        "block-iso-45001-pdca-machine-guard-example",
+        "block-iso-45001-context-internal-external",
+        "block-iso-45001-interested-parties",
+        "block-iso-45001-system-scope-boundaries",
+        "block-iso-45001-leadership-accountability",
+        "block-iso-45001-policy-commitments",
+        "block-iso-45001-worker-consultation-participation"
       ],
       "sourceIds": [
         "training-occupational-safety-management",
         "law-labor-inspection-1954",
-        "training-safety-organization-final"
+        "training-safety-organization-final",
+        "standard-iso-45001-2018"
       ],
       "status": "draft"
     },
@@ -3521,10 +3537,13 @@
         "hierarchy-of-controls-real",
         "risk-assessment-management-real",
         "safety-management",
-        "sms-management-system-real"
+        "sms-management-system-real",
+        "iso-45001-management-system-standard",
+        "safety-organization-sms-pdca-real",
+        "safety-governance-kpi-real"
       ],
       "coverageStatus": "FULL",
-      "coverageNote": "Mapped to source-backed pilot topics in all expected root domains.",
+      "coverageNote": "Includes source-backed ISO 45001:2018 Level 4 standard content. Draft, not verified, not legal binding.",
       "blockIds": [
         "block-occ-safety-sms-definition",
         "block-occ-safety-sms-simple-model",
@@ -3597,14 +3616,23 @@
         "block-hygiene-ppe-last-line-exam",
         "block-chemical-toxicity-vs-risk",
         "block-labor-inspection-safety-program-definition",
-        "block-labor-inspection-safety-program-checklist"
+        "block-labor-inspection-safety-program-checklist",
+        "block-iso-45001-pdca-machine-guard-example",
+        "block-iso-45001-hazard-definition",
+        "block-iso-45001-ohs-risk-definition",
+        "block-iso-45001-planning-risk-opportunities",
+        "block-iso-45001-proactive-hazard-identification",
+        "block-iso-45001-legal-other-requirements-interface",
+        "block-iso-45001-ohs-objectives",
+        "block-iso-45001-hierarchy-of-controls"
       ],
       "sourceIds": [
         "training-occupational-safety-management",
         "training-operational-risks",
         "training-chemical-and-general-risks",
         "training-occupational-hygiene",
-        "law-labor-inspection-1954"
+        "law-labor-inspection-1954",
+        "standard-iso-45001-2018"
       ],
       "status": "draft"
     },
@@ -3622,10 +3650,15 @@
         "occupational-safety-management-real",
         "operational-risks-real",
         "safety-management",
-        "sms-management-system-real"
+        "sms-management-system-real",
+        "iso-45001-management-system-standard",
+        "hierarchy-of-controls-real",
+        "risk-assessment-management-real",
+        "construction-ptw-simops-contractors",
+        "emergency-preparedness-domain"
       ],
       "coverageStatus": "FULL",
-      "coverageNote": "Mapped to source-backed pilot topics in all expected root domains.",
+      "coverageNote": "Includes source-backed ISO 45001:2018 Level 4 standard content. Draft, not verified, not legal binding.",
       "blockIds": [
         "block-maintenance-domain-scope",
         "block-maintenance-loto-purpose",
@@ -3694,13 +3727,23 @@
         "block-operational-rca-just-culture",
         "block-operational-rca-five-whys",
         "block-labor-inspection-safety-program-definition",
-        "block-labor-inspection-safety-program-checklist"
+        "block-labor-inspection-safety-program-checklist",
+        "block-iso-45001-support-resources",
+        "block-iso-45001-competence-model",
+        "block-iso-45001-awareness-and-communication",
+        "block-iso-45001-documented-information",
+        "block-iso-45001-operational-control-examples",
+        "block-iso-45001-hierarchy-of-controls",
+        "block-iso-45001-management-of-change",
+        "block-iso-45001-procurement-contractors-outsourcing",
+        "block-iso-45001-emergency-preparedness"
       ],
       "sourceIds": [
         "training-maintenance-safety",
         "training-occupational-safety-management",
         "training-operational-risks",
-        "law-labor-inspection-1954"
+        "law-labor-inspection-1954",
+        "standard-iso-45001-2018"
       ],
       "status": "draft"
     },
@@ -3717,10 +3760,12 @@
         "safety-management",
         "safety-organization-sms-pdca-real",
         "safety-program",
-        "sms-management-system-real"
+        "sms-management-system-real",
+        "iso-45001-management-system-standard",
+        "safety-organization-defect-escalation-real"
       ],
       "coverageStatus": "FULL",
-      "coverageNote": "Mapped to source-backed pilot topics in all expected root domains.",
+      "coverageNote": "Includes source-backed ISO 45001:2018 Level 4 standard content. Draft, not verified, not legal binding.",
       "blockIds": [
         "block-occ-safety-sms-definition",
         "block-occ-safety-sms-simple-model",
@@ -3765,12 +3810,20 @@
         "block-labor-inspection-safety-program-definition",
         "block-labor-inspection-safety-program-checklist",
         "block-safety-org-integral-sms",
-        "block-safety-org-pdca-cycle"
+        "block-safety-org-pdca-cycle",
+        "block-iso-45001-pdca-cycle-map",
+        "block-iso-45001-incident-near-miss",
+        "block-iso-45001-ohs-objectives",
+        "block-iso-45001-monitoring-measurement-kpi",
+        "block-iso-45001-compliance-evaluation-audit-review",
+        "block-iso-45001-incident-nonconformity-corrective-action",
+        "block-iso-45001-continual-improvement"
       ],
       "sourceIds": [
         "training-occupational-safety-management",
         "law-labor-inspection-1954",
-        "training-safety-organization-final"
+        "training-safety-organization-final",
+        "standard-iso-45001-2018"
       ],
       "status": "draft"
     },

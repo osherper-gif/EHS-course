@@ -10,7 +10,8 @@
       "training-occupational-safety-management",
       "training-safety-organization-final",
       "training-operational-risks",
-      "ordinance-work-safety-1970"
+      "ordinance-work-safety-1970",
+      "standard-iso-45001-2018"
     ]
   },
   "contentBlocks": [
@@ -18667,6 +18668,1870 @@
       },
       "authoritySummary": {
         "highestAuthorityLevel": 6,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-standard-scope-not-law",
+      "blockType": "warning",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-purpose-framework",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / מהות התקן",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מהות התקן",
+        "text": "ISO 45001 הוא תקן למערכת ניהול בטיחות ובריאות בתעסוקה. הוא אינו רק “רשימת בדיקות”, אלא שיטה ניהולית מלאה שמטרתה לאפשר לארגון לנהל סיכוני בטיחות ובריאות, למנוע פציעה ופגיעה בבריאות, לשפר ביצועים ולעמוד בדרישות דין ודרישות אחרות. התקן לא מחליף חוק, תקנות או פקודות. להפך — הוא מחייב את הארגון לזהות את הדרישות החוקיות החלות עליו ולנהל אותן כחלק ממערכת הבטיחות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "1. מהות התקן",
+          "paragraphRange": "3-8",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard-warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-ohs-management-purpose",
+      "blockType": "summary-box",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-purpose-framework",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / מהות התקן",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מטרת מערכת ניהול בטיחות ובריאות בתעסוקה",
+        "text": "“מטרתה של מערכת ניהול בב״ת היא לספק מסגרת לניהול סיכונים והזדמנויות בתחום הבב״ת.” התקן מתמקד בשני כיוונים: כלומר, הארגון לא אמור לפעול רק אחרי תאונות. הוא צריך לזהות מראש מה עלול להשתבש, ולבנות מערכת שמונעת זאת.",
+        "items": [
+          "ניהול סיכונים זיהוי גורמי סיכון, הערכת סיכונים, הפחתה ובקרה",
+          "ניהול הזדמנויות שיפור בטיחות, שיפור תרבות, שיפור שיטות עבודה"
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "2. מטרת מערכת ניהול בטיחות ובריאות בתעסוקה",
+          "paragraphRange": "16-27",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-applicability-all-organizations",
+      "blockType": "paragraph",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-purpose-framework",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / מהות התקן",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "חלות התקן",
+        "text": "“תקן זה ישים לכל ארגון, ללא תלות בגודל, בסוג ובפעילויות שלו.” הסבר התקן מתאים לכל ארגון:",
+        "items": [
+          "מפעל.",
+          "אתר בנייה.",
+          "מעבדה.",
+          "מחסן.",
+          "בית חולים.",
+          "חברת שירותים.",
+          "רשות מקומית.",
+          "מוסד חינוכי.",
+          "חברת הייטק עם מעבדות או שטח תפעולי."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "4. חלות התקן",
+          "paragraphRange": "62-76",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-does-not-define-legal-intervals",
+      "blockType": "warning",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-purpose-framework",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / מהות התקן",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "התקן אינו מקור לתדירויות חוקיות",
+        "text": "התקן אינו קובע דרישות טכניות כמו “בדיקת מעלית כל 6 חודשים” או “אביזרי הרמה כל 6 חודשים”. הדרישות האלה מגיעות מהחוק והתקנות. התקן דורש שהארגון יזהה את הדרישות האלה, ינהל אותן, יוודא עמידה בהן וישמור מידע מתועד.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "4. חלות התקן",
+          "paragraphRange": "76",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard-warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-pdca-cycle-map",
+      "blockType": "table",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-pdca",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / מחזור PDCA — תכנן, בצע, בדוק, פעל",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "safety-organization-sms-pdca-real",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-36",
+        "lesson-39"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מחזור PDCA — תכנן, בצע, בדוק, פעל",
+        "text": "התקן מבוסס על מחזור שיפור מתמיד: Plan–Do–Check–Act. בתקן מופיע תרשים שמחבר בין PDCA לבין סעיפי התקן: הקשר הארגון, מנהיגות ושיתוף עובדים במרכז, סביבם תכנון, תמיכה ותפעול, הערכת ביצועים ושיפור .",
+        "items": [],
+        "table": {
+          "headers": [
+            "שלב",
+            "יישום במערכת הבטיחות"
+          ],
+          "rows": [
+            [
+              "תכנן PLAN",
+              "זיהוי סיכונים, דרישות דין, מטרות ותוכניות"
+            ],
+            [
+              "בצע DO",
+              "יישום בקרות, הדרכות, תפעול, חירום, רכש וקבלנים"
+            ],
+            [
+              "בדוק CHECK",
+              "ניטור, מדידה, מבדקים, הערכת עמידה בדרישות"
+            ],
+            [
+              "פעל ACT",
+              "פעולה מתקנת, חקירת אירועים, שיפור מתמיד"
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "3. מחזור PDCA — תכנן, בצע, בדוק, פעל",
+          "paragraphRange": "38-50",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-pdca-machine-guard-example",
+      "blockType": "field-example",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-pdca",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / מחזור PDCA — תכנן, בצע, בדוק, פעל",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "safety-organization-sms-pdca-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-36",
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "דוגמת PDCA לגידור מכונה",
+        "text": "דוגמה בשטח",
+        "items": [],
+        "table": {
+          "headers": [
+            "שלב",
+            "דוגמה במפעל"
+          ],
+          "rows": [
+            [
+              "תכנן",
+              "מזהים סיכון הילכדות במכונה"
+            ],
+            [
+              "בצע",
+              "מתקינים מגן, הדרכה ונוהל נעילה ותיוג"
+            ],
+            [
+              "בדוק",
+              "בודקים אם העובדים משתמשים נכון במגן"
+            ],
+            [
+              "פעל",
+              "אם נמצאה עקיפה של מגן — חוקרים, מתקנים ומעדכנים שיטה"
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "3. מחזור PDCA — תכנן, בצע, בדוק, פעל",
+          "paragraphRange": "51-61",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-hazard-definition",
+      "blockType": "definition",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-core-concepts",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / מושגים מרכזיים בתקן",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "גורם סיכון",
+        "text": "“גורם סיכון — מקור בעל פוטנציאל לגרום פציעה ופגיעה בבריאות.” הסבר גורם סיכון הוא המקור האפשרי לנזק.",
+        "items": [
+          "מכונה עם חלק נע.",
+          "עבודה בגובה.",
+          "חומר כימי.",
+          "רעש.",
+          "אבק.",
+          "עומס חום.",
+          "עבודה לבד.",
+          "לחץ עבודה חריג.",
+          "קבלן לא מוכשר.",
+          "מלגזה באזור הולכי רגל."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "5.1 גורם סיכון",
+          "paragraphRange": "78-93",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-ohs-risk-definition",
+      "blockType": "definition",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-core-concepts",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / מושגים מרכזיים בתקן",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סיכון בב״ת",
+        "text": "“שילוב של הסבירות להתרחשות אירועים מסוכנים... עם חומרת הפציעה והפגיעה בבריאות...” הסבר סיכון הוא לא רק “מה עלול לקרות”, אלא שילוב של: סיכון = סבירות × חומרה",
+        "items": [
+          "גורם סיכון: עבודה על גג.",
+          "אירוע מסוכן: נפילה.",
+          "חומרה: מוות או פציעה קשה.",
+          "סבירות: תלויה בגידור, רתמה, הדרכה, תנאי מזג אוויר ופיקוח."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "5.2 סיכון בב״ת",
+          "paragraphRange": "94-104",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-incident-near-miss",
+      "blockType": "definition",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-core-concepts",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / מושגים מרכזיים בתקן",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "safety-organization-defect-escalation-real"
+      ],
+      "lessonIds": [
+        "lesson-39"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תקרית בטיחות",
+        "text": "“התרחשות הנגרמת בשל העבודה או במהלכה, העלולה להוביל, או המובילה, לפציעה או פגיעה בבריאות.” הסבר תקרית בטיחות כוללת גם תאונה וגם כמעט תאונה. התקן דורש להתייחס גם לכמעט תאונה, כי היא הזדמנות למנוע תאונה אמיתית.",
+        "items": [],
+        "table": {
+          "headers": [
+            "סוג",
+            "דוגמה"
+          ],
+          "rows": [
+            [
+              "תאונה",
+              "עובד נפגע ממלגזה"
+            ],
+            [
+              "כמעט תאונה",
+              "מלגזה כמעט פגעה בעובד"
+            ],
+            [
+              "אירוע ללא פגיעה",
+              "מטען נפל ליד עובד"
+            ],
+            [
+              "אירוע מערכת",
+              "עובד נכנס לאזור מסוכן בלי הרשאה"
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "5.3 תקרית בטיחות",
+          "paragraphRange": "105-120",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-context-internal-external",
+      "blockType": "summary-box",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-context-scope",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 4 — הקשר הארגון / תחום החלות של המערכת",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סעיף 4 — הקשר הארגון",
+        "text": "הארגון חייב להבין את ההקשר שבו הוא פועל: פנימי וחיצוני. “הארגון יקבע נושאים חיצוניים ופנימיים הרלוונטיים לייעודו...” הסבר התקן דורש להבין מה משפיע על מערכת הבטיחות. דגש לממונה בטיחות ממונה בטיחות צריך לתרגם את “הקשר הארגון” לרשימת סיכונים והזדמנויות. לדוגמה: אם יש הרבה עובדים זמניים — נדרש חיזוק תהליך קליטה והדרכה.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "6. סעיף 4 — הקשר הארגון",
+          "paragraphRange": "121-154",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-interested-parties",
+      "blockType": "table",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-context-scope",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 4 — הקשר הארגון / תחום החלות של המערכת",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מחזיקי עניין",
+        "text": "“הארגון יקבע... מיהם מחזיקי העניין... ומהם הצרכים והציפיות הרלוונטיים...” הסבר מחזיקי עניין הם כל מי שמשפיע או מושפע מהבטיחות.",
+        "items": [],
+        "table": {
+          "headers": [
+            "מחזיק עניין",
+            "ציפייה אפשרית"
+          ],
+          "rows": [
+            [
+              "עובדים",
+              "סביבת עבודה בטוחה, הדרכה, מיגון"
+            ],
+            [
+              "הנהלה",
+              "עמידה בדין, הפחתת תאונות, רציפות תפעולית"
+            ],
+            [
+              "קבלנים",
+              "דרישות ברורות לפני עבודה"
+            ],
+            [
+              "לקוחות",
+              "עבודה בטוחה באתרם"
+            ],
+            [
+              "רגולטור",
+              "עמידה בחוק ובתקנות"
+            ],
+            [
+              "שכנים",
+              "מניעת השפעות מסוכנות מחוץ לאתר"
+            ],
+            [
+              "חברות ביטוח",
+              "ניהול סיכונים ותיעוד"
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "7. מחזיקי עניין",
+          "paragraphRange": "155-175",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-system-scope-boundaries",
+      "blockType": "warning",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-context-scope",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 4 — הקשר הארגון / תחום החלות של המערכת",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "תחום החלות של המערכת",
+        "text": "הארגון צריך להגדיר מה כלול במערכת ניהול הבטיחות. טעות נפוצה להוציא מתחום החלות אזור מסוכן כדי “להקל” על ההתעדה. התקן מבהיר שתחום החלות לא אמור לשמש כדי להתחמק מפעילויות שיש להן השפעה על ביצועי הבטיחות.",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "8. תחום החלות של המערכת",
+          "paragraphRange": "176-183",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard-warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-leadership-accountability",
+      "blockType": "summary-box",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-leadership-workers",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 5 — מנהיגות ושיתוף עובדים / סעיף 5.4 — התייעצות עם עובדים ושיתוף עובדים",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "safety-leadership-governance-real",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סעיף 5 — מנהיגות ושיתוף עובדים",
+        "text": "“ההנהלה הבכירה תוכיח מנהיגות ומחויבות...” התקן דורש מההנהלה: דגש חשוב אפשר להאציל סמכות. אי אפשר להאציל אחריות כוללת. גם אם יש ממונה בטיחות, ההנהלה הבכירה עדיין נושאת באחריות למערכת.",
+        "items": [
+          "לשאת באחריות כוללת.",
+          "להבטיח מדיניות ומטרות.",
+          "לשלב בטיחות בתהליכים העסקיים.",
+          "לספק משאבים.",
+          "לקדם תרבות בטיחות.",
+          "להגן על עובדים שמדווחים.",
+          "לתמוך בוועדות בטיחות ובריאות."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "9. סעיף 5 — מנהיגות ושיתוף עובדים",
+          "paragraphRange": "184-199",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-policy-commitments",
+      "blockType": "checklist",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-leadership-workers",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 5 — מנהיגות ושיתוף עובדים / סעיף 5.4 — התייעצות עם עובדים ושיתוף עובדים",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "safety-leadership-governance-real",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מדיניות בטיחות ובריאות בתעסוקה",
+        "text": "המדיניות צריכה לכלול מחויבות:",
+        "items": [
+          "לספק תנאי עבודה בטוחים ובריאים.",
+          "לעמוד בדרישות דין ודרישות אחרות.",
+          "לסלק גורמי סיכון ולצמצם סיכונים.",
+          "לשיפור מתמיד.",
+          "להתייעצות עם עובדים ולשיתופם."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "9.2 מדיניות בטיחות ובריאות בתעסוקה",
+          "paragraphRange": "200-206",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-worker-consultation-participation",
+      "blockType": "table",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-leadership-workers",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 5 — מנהיגות ושיתוף עובדים / סעיף 5.4 — התייעצות עם עובדים ושיתוף עובדים",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "safety-leadership-governance-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סעיף 5.4 — התייעצות עם עובדים ושיתוף עובדים",
+        "text": "זה אחד הסעיפים החשובים ביותר בתקן. “הארגון יקבע, יישם ויתחזק תהליכים להתייעצות עם עובדים ולשיתוף עובדים...” דגש לממונה בטיחות ממונה בטיחות טוב לא רק “בודק את העובדים”, אלא לומד מהם. העובד יודע איך העבודה מתבצעת בפועל, ולא רק איך היא כתובה בנוהל.",
+        "items": [],
+        "table": {
+          "headers": [
+            "מושג",
+            "משמעות"
+          ],
+          "rows": [
+            [
+              "התייעצות",
+              "שומעים את דעת העובדים לפני החלטה"
+            ],
+            [
+              "שיתוף",
+              "העובדים מעורבים בקבלת החלטות וביישום"
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "10. סעיף 5.4 — התייעצות עם עובדים ושיתוף עובדים",
+          "paragraphRange": "227-250",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-planning-risk-opportunities",
+      "blockType": "summary-box",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-planning-risk-objectives",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 6 — תכנון / דרישות דין ודרישות אחרות / מטרות בטיחות ובריאות",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סעיף 6 — תכנון",
+        "text": "הארגון צריך לזהות:",
+        "items": [
+          "גורמי סיכון.",
+          "סיכוני בטיחות ובריאות.",
+          "הזדמנויות לשיפור.",
+          "דרישות דין ודרישות אחרות."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "11. סעיף 6 — תכנון",
+          "paragraphRange": "251-257",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-proactive-hazard-identification",
+      "blockType": "checklist",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-planning-risk-objectives",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 6 — תכנון / דרישות דין ודרישות אחרות / מטרות בטיחות ובריאות",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "זיהוי גורמי סיכון",
+        "text": "“הארגון יקבע, יישם ויתחזק תהליכים לזיהוי גורמי סיכון באופן שוטף ופרואקטיבי.” הסבר זיהוי סיכונים אינו אירוע חד־פעמי. הוא צריך להיות מתמשך. התקן דורש להביא בחשבון בין היתר:",
+        "items": [
+          "אופן ארגון העבודה עומס, שעות עבודה, לחץ, הטרדה",
+          "ציוד וחומרים מכונות, חומרים מסוכנים, תשתיות",
+          "גורמי אנוש עייפות, טעות, מגבלות אנוש",
+          "אירועים קודמים תאונות, כמעט תאונות",
+          "מצבי חירום אש, דליפה, רעידת אדמה",
+          "אנשים עובדים, קבלנים, מבקרים, שכנים",
+          "שינויים ציוד חדש, תהליך חדש, שינוי רגולטורי"
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "11.2 זיהוי גורמי סיכון",
+          "paragraphRange": "272-293",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-legal-other-requirements-interface",
+      "blockType": "warning",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-planning-risk-objectives",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 6 — תכנון / דרישות דין ודרישות אחרות / מטרות בטיחות ובריאות",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-37"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "דרישות דין ודרישות אחרות",
+        "text": "“הארגון יקבע, יישם ויתחזק תהליכים כדי לברר מהן הדרישות-על-פי-דין והדרישות האחרות העדכניות...” הסבר זה הסעיף שמחבר בין התקן לבין החקיקה.",
+        "items": [
+          "ממונה בטיחות צריך להחזיק מרשם דרישות דין:",
+          "דרישה",
+          "מקור",
+          "למי חלה",
+          "מה צריך לעשות",
+          "תדירות",
+          "ראיה"
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "12. דרישות דין ודרישות אחרות",
+          "paragraphRange": "294-321",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard-warning",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-ohs-objectives",
+      "blockType": "checklist",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-planning-risk-objectives",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 6 — תכנון / דרישות דין ודרישות אחרות / מטרות בטיחות ובריאות",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "safety-governance-kpi-real"
+      ],
+      "lessonIds": [
+        "lesson-37",
+        "lesson-39"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מטרות בטיחות ובריאות",
+        "text": "“הארגון יקבע מטרות בב״ת בפונקציות וברמות הרלוונטיות...” מטרות צריכות להיות טעות נפוצה מטרה כמו “אפס תאונות” יכולה להיות חזון, אבל כיעד ניהולי צריך גם מטרות תפעוליות שמקדמות אותו: הדרכות, בקרות, סגירת מפגעים, תצפיות, פעולות מתקנות.",
+        "items": [
+          "עקביות עם המדיניות לא לסתור את ההתחייבות לבטיחות",
+          "מדידות או ניתנות להערכה לא רק סיסמה",
+          "מבוססות סיכונים קשורות לסיכונים אמיתיים",
+          "מנוטרות יש מעקב",
+          "מתוקשרות העובדים מכירים",
+          "מעודכנות משתנות לפי צורך"
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "13. מטרות בטיחות ובריאות",
+          "paragraphRange": "340-370",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-support-resources",
+      "blockType": "checklist",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-support-operation",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 7 — תמיכה / סעיף 8 — תפעול",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-38"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סעיף 7 — תמיכה",
+        "text": "הארגון חייב לספק משאבים למערכת הבטיחות:",
+        "items": [
+          "כוח אדם.",
+          "זמן.",
+          "תקציב.",
+          "ציוד.",
+          "מערכות מידע.",
+          "יועצים.",
+          "הכשרות.",
+          "מערכות חירום."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "14. סעיף 7 — תמיכה",
+          "paragraphRange": "371-383",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-competence-model",
+      "blockType": "checklist",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-support-operation",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 7 — תמיכה / סעיף 8 — תפעול",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-38"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "כשירות",
+        "text": "“הארגון... יבטיח שהעובדים כשירים... על בסיס של השכלה, הדרכה או ניסיון נאותים.” הסבר כשירות אינה רק הדרכה. כשירות היא שילוב של: ידע + מיומנות + ניסיון + הבנה של הסיכונים דוגמה עובד שהשתתף בהדרכת מלגזה אך לא יודע ליישם בפועל — אינו בהכרח כשיר.",
+        "items": [
+          "האם הוגדרו דרישות כשירות לתפקיד?",
+          "האם העובד עבר הדרכה?",
+          "האם נבדקה הבנה?",
+          "האם יש תיעוד?",
+          "האם נדרש ריענון?",
+          "האם השינוי בתפקיד מחייב כשירות חדשה?"
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "14.2 כשירות",
+          "paragraphRange": "384-398",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-awareness-and-communication",
+      "blockType": "table",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-support-operation",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 7 — תמיכה / סעיף 8 — תפעול",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-38"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מודעות ותקשורת",
+        "text": "העובדים צריכים להיות מודעים ל: דגש חשוב התקן מציין את יכולת העובדים להתרחק ממצבים שלדעתם מהווים סכנה מיידית וחמורה לחיים או לבריאות, ואת ההסדרים להגנה עליהם מהשלכות לא מוצדקות . הארגון צריך לקבוע: דוגמה הדרכת בטיחות בעברית לעובדים שאינם קוראים עברית אינה תקשורת אפקטיבית.",
+        "items": [],
+        "table": {
+          "headers": [
+            "נושא",
+            "קהל יעד / אמצעי"
+          ],
+          "rows": [
+            [
+              "אירוע בטיחות",
+              "עובדים רלוונטיים תדריך בטיחות"
+            ],
+            [
+              "שינוי נוהל",
+              "מנהלים ועובדים הדרכה + חתימה"
+            ],
+            [
+              "עבודת קבלן",
+              "קבלנים ומנהל אתר תיאום לפני עבודה"
+            ],
+            [
+              "מצב חירום",
+              "כלל האתר תרגיל, שילוט, כריזה"
+            ],
+            [
+              "דרישת דין חדשה",
+              "הנהלה וממונה עדכון מרשם דין"
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "14.3 מודעות / 15. תקשורת",
+          "paragraphRange": "399-439",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-documented-information",
+      "blockType": "summary-box",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-support-operation",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 7 — תמיכה / סעיף 8 — תפעול",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "sms-management-system-real"
+      ],
+      "lessonIds": [
+        "lesson-38"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מידע מתועד",
+        "text": "“מידע מתועד” כולל מסמכים ורשומות: דגש מה שלא מתועד — קשה להוכיח. מה שלא מבוקר — עלול להיות לא מעודכן.",
+        "items": [
+          "מדיניות.",
+          "נהלים.",
+          "הערכות סיכונים.",
+          "מרשם דרישות דין.",
+          "תוכניות עבודה.",
+          "הדרכות.",
+          "תסקירים.",
+          "מבדקים.",
+          "סקר הנהלה.",
+          "חקירות אירועים.",
+          "פעולות מתקנות."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "16. מידע מתועד",
+          "paragraphRange": "440-456",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-operational-control-examples",
+      "blockType": "table",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-support-operation",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 7 — תמיכה / סעיף 8 — תפעול",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "hierarchy-of-controls-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-38"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סעיף 8 — תפעול",
+        "text": "הארגון צריך לתכנן ולבקר את התהליכים הדרושים כדי לעמוד בדרישות מערכת הבטיחות. דוגמאות לבקרות",
+        "items": [],
+        "table": {
+          "headers": [
+            "סיכון",
+            "בקרה"
+          ],
+          "rows": [
+            [
+              "מלגזות",
+              "נתיבים, הדרכה, מהירות, הפרדה"
+            ],
+            [
+              "עבודה בגובה",
+              "תכנון, ציוד, הרשאה, פיקוח"
+            ],
+            [
+              "חומרים מסוכנים",
+              "SDS, אחסון, אוורור, מיגון"
+            ],
+            [
+              "מכונות",
+              "גידור, נעילה ותיוג, תחזוקה"
+            ],
+            [
+              "קבלנים",
+              "אישור, תדריך, פיקוח, הרשאות"
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "17. סעיף 8 — תפעול",
+          "paragraphRange": "457-472",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-hierarchy-of-controls",
+      "blockType": "exam-focus",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-support-operation",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 7 — תמיכה / סעיף 8 — תפעול",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "hierarchy-of-controls-real",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-37",
+        "lesson-38"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge",
+        "examRelevant"
+      ],
+      "content": {
+        "title": "מדרג הבקרות",
+        "text": "זה אחד הנושאים החשובים ביותר בתקן. “הארגון... יתחזק תהליכים לסילוק גורמי סיכון ולהפחתת סיכוני בב״ת באמצעות מדרג הבקרות...” דגש למבחן ציוד מגן אישי הוא השלב האחרון במדרג, לא הפתרון הראשון.",
+        "items": [
+          "1. סילוק גורם הסיכון",
+          "2. החלפה בגורם מסוכן פחות",
+          "3. בקרות הנדסיות וארגון מחדש",
+          "4. בקרות מנהלתיות והדרכה",
+          "5. ציוד מגן אישי"
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "18. מדרג הבקרות",
+          "paragraphRange": "473-496",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "דגש למבחן",
+        "tone": "exam",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": true
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-management-of-change",
+      "blockType": "checklist",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-support-operation",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 7 — תמיכה / סעיף 8 — תפעול",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "risk-assessment-management-real"
+      ],
+      "lessonIds": [
+        "lesson-38"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "ניהול שינויים",
+        "text": "“הארגון יקבע תהליכים ליישום ולבקרה של שינויים מתוכננים זמניים וקבועים...” דוגמאות לשינויים שמחייבים בדיקת בטיחות",
+        "items": [
+          "ציוד חדש.",
+          "חומר חדש.",
+          "שינוי סידור קו.",
+          "שינוי כוח אדם.",
+          "שינוי שעות עבודה.",
+          "שינוי קבלן.",
+          "שינוי רגולטורי.",
+          "שינוי בטכנולוגיה.",
+          "שינוי תהליך."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "19. ניהול שינויים",
+          "paragraphRange": "497-518",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-procurement-contractors-outsourcing",
+      "blockType": "checklist",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-support-operation",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 7 — תמיכה / סעיף 8 — תפעול",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "construction-ptw-simops-contractors",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-38"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "רכש, קבלנים ומיקור חוץ",
+        "text": "הארגון צריך לוודא שמוצרים ושירותים שנרכשים מתאימים למערכת הבטיחות. “הארגון יבטיח שהקבלנים ועובדיהם עומדים בדרישות של מערכת ניהול הבב״ת שלו.” דגש קבלן אינו “בעיה של מישהו אחר”. הארגון חייב לתאם, לבקר ולוודא כשירות.",
+        "items": [
+          "לא רוכשים מכונה רק לפי מחיר. בודקים:",
+          "תקינה.",
+          "מיגונים.",
+          "הוראות יצרן.",
+          "דרישות תחזוקה.",
+          "רעש.",
+          "פליטות.",
+          "הדרכה.",
+          "חלקי חילוף.",
+          "התאמה לעובדים."
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "20. רכש, קבלנים ומיקור חוץ",
+          "paragraphRange": "519-548",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-emergency-preparedness",
+      "blockType": "checklist",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-support-operation",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 7 — תמיכה / סעיף 8 — תפעול",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "emergency-preparedness-domain"
+      ],
+      "lessonIds": [
+        "lesson-38"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "מוכנות ותגובה לחירום",
+        "text": "“הארגון יקבע, יישם ויתחזק את התהליכים הנחוצים כדי להתכונן ולהגיב למצבי חירום פוטנציאליים...” מערכת חירום צריכה לכלול",
+        "items": [
+          "זיהוי תרחישים אש, דליפה, רעידת אדמה, פציעה",
+          "תגובה מתוכננת נוהל, צוות, ציוד",
+          "הדרכה בעלי תפקידים ועובדים",
+          "תרגול תרגילים תקופתיים",
+          "הערכה הפקת לקחים",
+          "תקשורת עובדים, קבלנים, רשויות",
+          "תיעוד תוכניות ותרגילים"
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "21. מוכנות ותגובה לחירום",
+          "paragraphRange": "549-568",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-monitoring-measurement-kpi",
+      "blockType": "table",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-performance-improvement",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 9 — הערכת ביצועים / סעיף 10 — שיפור",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "safety-governance-kpi-real"
+      ],
+      "lessonIds": [
+        "lesson-39"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סעיף 9 — הערכת ביצועים",
+        "text": "הארגון צריך לקבוע: דגש חשוב מדד טוב אינו רק “כמה תאונות היו”. מדדים מובילים עוזרים למנוע תאונות לפני שהן קורות.",
+        "items": [],
+        "table": {
+          "headers": [
+            "סוג מדד",
+            "דוגמה"
+          ],
+          "rows": [
+            [
+              "מדד תוצאה",
+              "מספר תאונות"
+            ],
+            [
+              "מדד מוביל",
+              "אחוז סגירת מפגעים בזמן"
+            ],
+            [
+              "מדד כשירות",
+              "אחוז עובדים שעברו הדרכה"
+            ],
+            [
+              "מדד תפעולי",
+              "מספר תצפיות בטיחות"
+            ],
+            [
+              "מדד חוקי",
+              "אחוז תסקירים בתוקף"
+            ],
+            [
+              "מדד תרבות",
+              "מספר דיווחי כמעט תאונה"
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "22. סעיף 9 — הערכת ביצועים",
+          "paragraphRange": "569-594",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-compliance-evaluation-audit-review",
+      "blockType": "summary-box",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-performance-improvement",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 9 — הערכת ביצועים / סעיף 10 — שיפור",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "safety-governance-kpi-real",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-39"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "הערכת עמידה בדרישות, מבדק פנימי וסקר הנהלה",
+        "text": "הארגון חייב לבדוק עמידה בדרישות דין ודרישות אחרות. “הארגון יערוך, בפרקי זמן מתוכננים, מבדקים פנימיים...” מטרת המבדק לבדוק אם מערכת הבטיחות: סקר הנהלה הוא אחד הכלים המרכזיים שבהם ההנהלה מוכיחה מעורבות. דגש סקר הנהלה אינו “ישיבת סיכום”. הוא מנגנון קבלת החלטות. נתונים → ניתוח → החלטות → משאבים → פעולות → מעקב",
+        "items": [],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "22.2 הערכת עמידה בדרישות / 23. מבדק פנימי / 24. סקר הנהלה",
+          "paragraphRange": "595-646",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-incident-nonconformity-corrective-action",
+      "blockType": "checklist",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-performance-improvement",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 9 — הערכת ביצועים / סעיף 10 — שיפור",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "safety-organization-defect-escalation-real"
+      ],
+      "lessonIds": [
+        "lesson-39"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "סעיף 10 — שיפור",
+        "text": "ציטוט קצר “הארגון יקבע, יישם ויתחזק תהליכים, לרבות דיווח, חקירה ונקיטת פעולה...” לאחר אירוע יש לבצע",
+        "items": [
+          "תגובה מיידית",
+          "בקרת מצב ותיקון ראשוני",
+          "חקירה",
+          "זיהוי גורמי שורש",
+          "בדיקת אירועים דומים",
+          "פעולה מתקנת לפי מדרג הבקרות",
+          "בדיקת אפקטיביות",
+          "עדכון מערכת הבטיחות"
+        ],
+        "table": null
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "25. סעיף 10 — שיפור",
+          "paragraphRange": "647-679",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
+        "legalBinding": false,
+        "examRelevant": false
+      },
+      "status": "draft",
+      "verification": {
+        "status": "source-backed"
+      }
+    },
+    {
+      "blockId": "block-iso-45001-continual-improvement",
+      "blockType": "summary-box",
+      "sourceId": "standard-iso-45001-2018",
+      "citationId": "citation-standard-iso-45001-performance-improvement",
+      "sourceCitation": "תקן בינלאומי: ISO 45001:2018 / סעיף 9 — הערכת ביצועים / סעיף 10 — שיפור",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "safety-organization-defect-escalation-real",
+        "safety-governance-kpi-real"
+      ],
+      "lessonIds": [
+        "lesson-39"
+      ],
+      "claimTypes": [
+        "standardReference",
+        "course-knowledge"
+      ],
+      "content": {
+        "title": "שיפור מתמיד",
+        "text": "התקן דורש לשפר בהתמדה את התאמת המערכת, הלימותה והאפקטיביות שלה.",
+        "items": [],
+        "table": {
+          "headers": [
+            "תחום",
+            "שיפור"
+          ],
+          "rows": [
+            [
+              "טכנולוגיה",
+              "חיישני קרבה למלגזות"
+            ],
+            [
+              "הדרכה",
+              "סימולטור לעבודה בגובה"
+            ],
+            [
+              "תהליך",
+              "היתר עבודה דיגיטלי"
+            ],
+            [
+              "תרבות",
+              "עידוד דיווח כמעט תאונה"
+            ],
+            [
+              "תכנון",
+              "הפרדת הולכי רגל וכלים"
+            ],
+            [
+              "בריאות",
+              "תוכנית להפחתת רעש"
+            ]
+          ]
+        }
+      },
+      "metadata": {
+        "originalWordNumbering": null,
+        "sourceStructure": {
+          "originalHeading": "26. שיפור מתמיד",
+          "paragraphRange": "680-696",
+          "sourceType": "international-standard"
+        }
+      },
+      "rendering": {
+        "label": "תקן בינלאומי",
+        "tone": "standard",
+        "showAuthorityBadge": true
+      },
+      "authoritySummary": {
+        "highestAuthorityLevel": 4,
         "legalBinding": false,
         "examRelevant": false
       },
