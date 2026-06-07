@@ -1,14 +1,16 @@
 {
   "schemaVersion": 1,
-  "registryStatus": "pilot",
+  "registryStatus": "wave1",
   "scope": {
-    "description": "Central Question Bank governance pilot. Ten legacy-origin questions only; no full migration.",
-    "questionCount": 10,
+    "description": "Central Question Bank governance wave 1. Fifty legacy-origin questions only; no full question-bank migration.",
+    "questionCount": 50,
     "originCounts": {
-      "prep": 4,
-      "summary": 3,
-      "exam": 3
-    }
+      "prep": 25,
+      "summary": 15,
+      "exam": 10
+    },
+    "migratedAt": "2026-06-07",
+    "notes": "Wave 1 appends 40 curated legacy questions to the existing 10-question pilot."
   },
   "questions": [
     {
@@ -792,6 +794,3153 @@
         "notes": "Pilot migration from exam question. Source-backed, not verified."
       },
       "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-01",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-01-introduction-safety",
+        "legacyQuestionId": "lesson-01-introduction-safety-q03",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מתי מותר לארגון להקל בהוראות בטיחות מעבר למה שקבוע בתקנות?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "אם קיים נוהל ארגוני פנימי המאשר זאת."
+        },
+        {
+          "optionId": "b",
+          "text": "אם העובדים חתמו על ויתור אחריות."
+        },
+        {
+          "optionId": "c",
+          "text": "לעולם לא; נהלים יכולים רק להחמיר על החוק ולא להקל בו."
+        },
+        {
+          "optionId": "d",
+          "text": "במידה והמנכ\"ל אישר זאת בכתב."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "c",
+        "answerText": "לעולם לא; נהלים יכולים רק להחמיר על החוק ולא להקל בו.",
+        "isOfficialAnswer": false
+      },
+      "explanation": "היררכיית הנורמות אוסרת על סתירה או הקלה מהחוק.",
+      "difficulty": "medium",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "risk-assessment-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-01"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-02",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-01-introduction-safety",
+        "legacyQuestionId": "lesson-01-introduction-safety-q04",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו המושג \"הסכמה שבשתיקה\" לפי פסק דין סלימאן מחג'נה?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "הסכמת העובד לקבל על עצמו סיכונים."
+        },
+        {
+          "optionId": "b",
+          "text": "הסכמת העובד לכללי הבטיחות ללא ערעור."
+        },
+        {
+          "optionId": "c",
+          "text": "הסכמת המעסיק להקצות תקציב לממונה בטיחות."
+        },
+        {
+          "optionId": "d",
+          "text": "מצב בו מנהל רואה עבודה מסוכנת ואינו עוצר אותה, ובכך נחשב כנותן אישור."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "d",
+        "answerText": "מצב בו מנהל רואה עבודה מסוכנת ואינו עוצר אותה, ובכך נחשב כנותן אישור.",
+        "isOfficialAnswer": false
+      },
+      "explanation": "שתיקת מנהל מול מפגע נחשבת למחדל ורשלנות פלילית.",
+      "difficulty": "medium",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "risk-assessment-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-01"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-03",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-01-introduction-safety",
+        "legacyQuestionId": "lesson-01-introduction-safety-q05",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו תפקידו המרכזי של ממונה הבטיחות בארגון?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "פונקציה מייעצת ומנחה להנהלה ולעובדים."
+        },
+        {
+          "optionId": "b",
+          "text": "האחראי הבלעדי לכל תאונה שקורית במפעל."
+        },
+        {
+          "optionId": "c",
+          "text": "בעל סמכות ביצועית ישירה לנהל את הפועלים."
+        },
+        {
+          "optionId": "d",
+          "text": "הגורם היחיד שיכול להחליט על השבתת מפעל."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "פונקציה מייעצת ומנחה להנהלה ולעובדים.",
+        "isOfficialAnswer": false
+      },
+      "explanation": "הממונה מנחה ומלווה, אך אינו מחליף את סמכות הניהול.",
+      "difficulty": "medium",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "risk-assessment-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-01"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-04",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-06-emergency-preparedness",
+        "legacyQuestionId": "lesson-06-emergency-preparedness-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו גובה המינימום המוגדר בחוק כ\"עבודה בגובה\"?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "1.5 מטר"
+        },
+        {
+          "optionId": "b",
+          "text": "2.0 מטר"
+        },
+        {
+          "optionId": "c",
+          "text": "2.5 מטר"
+        },
+        {
+          "optionId": "d",
+          "text": "3.0 מטר"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "2.0 מטר",
+        "isOfficialAnswer": false
+      },
+      "explanation": "תקנות הבטיחות בעבודה (עבודה בגובה) מגדירות עבודה בגובה כעבודה שמתבצעת בגובה של 2 מטרים ומעלה מעל פני הקרקע.",
+      "difficulty": "medium",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-incident-command"
+      ],
+      "lessonIds": [
+        "lesson-06"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-emergency-preparedness",
+          "citationId": "citation-training-emergency-preparedness-incident-command"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-emergency-preparedness",
+          "citationId": "citation-training-emergency-preparedness-incident-command",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": true,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-05",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-06-emergency-preparedness",
+        "legacyQuestionId": "lesson-06-emergency-preparedness-q02",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מי מחויב על פי חוק למנות \"מנהל עבודה\" באתר בנייה?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "ממונה הבטיחות"
+        },
+        {
+          "optionId": "b",
+          "text": "מבצע הבנייה"
+        },
+        {
+          "optionId": "c",
+          "text": "מזמין העבודה"
+        },
+        {
+          "optionId": "d",
+          "text": "קצין הבטיחות בתעבורה"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "מבצע הבנייה",
+        "isOfficialAnswer": false
+      },
+      "explanation": "מבצע הבנייה הוא הגורם האחראי על האתר ומוטלת עליו החובה הסטטוטורית למנות מנהל עבודה.",
+      "difficulty": "medium",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-incident-command"
+      ],
+      "lessonIds": [
+        "lesson-06"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-emergency-preparedness",
+          "citationId": "citation-training-emergency-preparedness-incident-command"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-emergency-preparedness",
+          "citationId": "citation-training-emergency-preparedness-incident-command",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": true,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-06",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-06-emergency-preparedness",
+        "legacyQuestionId": "lesson-06-emergency-preparedness-q03",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו \"צו בטיחות\" הניתן על ידי מפקח עבודה?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "המלצה לשיפור תנאים"
+        },
+        {
+          "optionId": "b",
+          "text": "הוראה להפסקת עבודה מיידית בשל סכנה"
+        },
+        {
+          "optionId": "c",
+          "text": "קנס כספי שהקבלן חייב לשלם"
+        },
+        {
+          "optionId": "d",
+          "text": "אזהרה בעל פה בלבד"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "הוראה להפסקת עבודה מיידית בשל סכנה",
+        "isOfficialAnswer": false
+      },
+      "explanation": "צו בטיחות נועד למנוע סכנה מיידית לחיי אדם, ולכן הוא מחייב הפסקת עבודה עד לתיקון הליקוי.",
+      "difficulty": "medium",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-incident-command"
+      ],
+      "lessonIds": [
+        "lesson-06"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-emergency-preparedness",
+          "citationId": "citation-training-emergency-preparedness-incident-command"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-emergency-preparedness",
+          "citationId": "citation-training-emergency-preparedness-incident-command",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": true,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-07",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-07-legal-responsibility",
+        "legacyQuestionId": "lesson-07-legal-responsibility-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מיקומך כ\"ממונה בטיחות\" בארגון מוגדר מבחינה מבנית ותפקודית כ:",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "לממונה אין סמכות ניהולית-ביצועית על עובדי הייצור."
+        },
+        {
+          "optionId": "b",
+          "text": "פונקציית ייעוץ ומטה (Staff) המסייעת להנהלה ולמנהלי העבודה."
+        },
+        {
+          "optionId": "c",
+          "text": "תופש המפעל נושא באחריות הכוללת, הממונה אינו מחליף אותו."
+        },
+        {
+          "optionId": "d",
+          "text": "ממונה בטיחות ומנהל עבודה הם שני תפקידים נפרדים בחוק."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "פונקציית ייעוץ ומטה (Staff) המסייעת להנהלה ולמנהלי העבודה.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "ממונה הבטיחות הוא יועץ סטטוטורי (Staff). סמכותו היא מקצועית-מייעצת. האחריות הניהולית והביצועית (Line) מוטלת על ההנהלה ומנהלי העבודה.",
+      "difficulty": "medium",
+      "topicIds": [
+        "regulation-governance-domain",
+        "roles-and-responsibilities"
+      ],
+      "lessonIds": [
+        "lesson-07"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-08",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-07-legal-responsibility",
+        "legacyQuestionId": "lesson-07-legal-responsibility-q02",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "למי ניתנת הסמכות להוציא \"צו בטיחות\" המורה על הפסקת עבודה באתר?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "הממונה יכול רק להמליץ למנהל להפסיק עבודה."
+        },
+        {
+          "optionId": "b",
+          "text": "ועדת הבטיחות היא גוף פנים-ארגוני ללא סמכות אכיפה חוקית לעצירת המפעל כולו בצורת \"צו\"."
+        },
+        {
+          "optionId": "c",
+          "text": "למפקח עבודה מטעם משרד העבודה."
+        },
+        {
+          "optionId": "d",
+          "text": "תופש המפעל יכול לעצור מרצונו, אך \"צו\" הוא כלי שלטוני."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "c",
+        "answerText": "למפקח עבודה מטעם משרד העבודה.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "רק למפקח עבודה (רגולטור) יש סמכות חוקית להוציא \"צו בטיחות\" לעצירת עבודה או \"צו שיפור\".",
+      "difficulty": "medium",
+      "topicIds": [
+        "regulation-governance-domain",
+        "roles-and-responsibilities"
+      ],
+      "lessonIds": [
+        "lesson-07"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-09",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-07-legal-responsibility",
+        "legacyQuestionId": "lesson-07-legal-responsibility-q03",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו התנאי להקמת ועדת בטיחות במפעל?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "50 עובדים זה הרף הבסיסי למינוי ממונה בטיחות, לא ועדה."
+        },
+        {
+          "optionId": "b",
+          "text": "מפעל שבו מועסקים 25 עובדים ומעלה."
+        },
+        {
+          "optionId": "c",
+          "text": "החובה מבוססת קודם כל על כמות עובדים."
+        },
+        {
+          "optionId": "d",
+          "text": "זו חובה חוקית ולא נתונה לשיקול דעתו הבלעדי של המעסיק."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "מפעל שבו מועסקים 25 עובדים ומעלה.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "החוק מחייב הקמת ועדת בטיחות פריטטית בכל מקום עבודה בו מועסקים 25 עובדים לפחות.",
+      "difficulty": "medium",
+      "topicIds": [
+        "regulation-governance-domain",
+        "roles-and-responsibilities"
+      ],
+      "lessonIds": [
+        "lesson-07"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-10",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-08-safety-organization",
+        "legacyQuestionId": "lesson08-q03",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מה משמעות המונח PPE?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "תוכנית לניהול איכות"
+        },
+        {
+          "optionId": "b",
+          "text": "ניתוח סיבות שורש"
+        },
+        {
+          "optionId": "c",
+          "text": "ציוד מגן אישי"
+        },
+        {
+          "optionId": "d",
+          "text": "היתר עבודה באש"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "c",
+        "answerText": "ציוד מגן אישי",
+        "isOfficialAnswer": false
+      },
+      "explanation": "PPE הוא Personal Protective Equipment.",
+      "difficulty": "medium",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-safety-officer-role-real"
+      ],
+      "lessonIds": [
+        "lesson-08"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-safety-organization-final",
+          "citationId": "citation-training-safety-organization-safety-officer-role"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-safety-organization-final",
+          "citationId": "citation-training-safety-organization-safety-officer-role",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-11",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-08-safety-organization",
+        "legacyQuestionId": "lesson08-q04",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "באיזה מקרים חלה חובה להקים ועדת בטיחות?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "רק אם מפקח עבודה דרש זאת בכתב"
+        },
+        {
+          "optionId": "b",
+          "text": "ועדה היא וולונטרית בלבד"
+        },
+        {
+          "optionId": "c",
+          "text": "בכל מפעל עם עובד אחד לפחות"
+        },
+        {
+          "optionId": "d",
+          "text": "במפעלים המעסיקים 25 עובדים ומעלה"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "d",
+        "answerText": "במפעלים המעסיקים 25 עובדים ומעלה",
+        "isOfficialAnswer": false
+      },
+      "explanation": "זו דרישה סטטוטורית לפי היקף עובדים.",
+      "difficulty": "medium",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-safety-officer-role-real"
+      ],
+      "lessonIds": [
+        "lesson-08"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-safety-organization-final",
+          "citationId": "citation-training-safety-organization-safety-officer-role"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-safety-organization-final",
+          "citationId": "citation-training-safety-organization-safety-officer-role",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-12",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-08-safety-organization",
+        "legacyQuestionId": "lesson08-q06",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מי מוסמך לאשר כניסה לחלל מוקף?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "מזכירת המפעל"
+        },
+        {
+          "optionId": "b",
+          "text": "אדם כשיר שמונה לכך לאחר בדיקת אטמוספירה וקיום נוהל"
+        },
+        {
+          "optionId": "c",
+          "text": "כל עובד בעל רישיון נהיגה"
+        },
+        {
+          "optionId": "d",
+          "text": "אין צורך באישור"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "אדם כשיר שמונה לכך לאחר בדיקת אטמוספירה וקיום נוהל",
+        "isOfficialAnswer": false
+      },
+      "explanation": "חלל מוקף דורש פרוטוקול בטיחות מחמיר.",
+      "difficulty": "medium",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-safety-officer-role-real"
+      ],
+      "lessonIds": [
+        "lesson-08"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-safety-organization-final",
+          "citationId": "citation-training-safety-organization-safety-officer-role"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-safety-organization-final",
+          "citationId": "citation-training-safety-organization-safety-officer-role",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-13",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-09-safety-management-leadership",
+        "legacyQuestionId": "lesson-09-safety-management-leadership-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מי האחראי העליון לבטיחות במפעל?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "ממונה הבטיחות"
+        },
+        {
+          "optionId": "b",
+          "text": "ועדת הבטיחות"
+        },
+        {
+          "optionId": "c",
+          "text": "תופש המפעל/המנכ\"ל"
+        },
+        {
+          "optionId": "d",
+          "text": "מנהל התחזוקה"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "c",
+        "answerText": "תופש המפעל/המנכ\"ל",
+        "isOfficialAnswer": false
+      },
+      "explanation": "ההנהלה נושאת באחריות החוקית, הפלילית והניהולית.",
+      "difficulty": "medium",
+      "topicIds": [
+        "human-factors-real",
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-09"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-safety-management-human-factors",
+          "citationId": "citation-training-human-factors-human-element-real"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-safety-management-human-factors",
+          "citationId": "citation-training-human-factors-human-element-real",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-14",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-09-safety-management-leadership",
+        "legacyQuestionId": "lesson-09-safety-management-leadership-q02",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "כיצד מוגדר תפקיד ממונה הבטיחות בארגון?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "פונקציית קו"
+        },
+        {
+          "optionId": "b",
+          "text": "פונקציית מטה"
+        },
+        {
+          "optionId": "c",
+          "text": "תפקיד ללא הגדרה"
+        },
+        {
+          "optionId": "d",
+          "text": "מנהל ייצור"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "פונקציית מטה",
+        "isOfficialAnswer": false
+      },
+      "explanation": "פונקציית מטה המייעצת להנהלה, ללא סמכויות ניהול קו ישירות.",
+      "difficulty": "medium",
+      "topicIds": [
+        "human-factors-real",
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-09"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-safety-management-human-factors",
+          "citationId": "citation-training-human-factors-human-element-real"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-safety-management-human-factors",
+          "citationId": "citation-training-human-factors-human-element-real",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-15",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-09-safety-management-leadership",
+        "legacyQuestionId": "lesson-09-safety-management-leadership-q03",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו \"שוטר\" בהקשר של ממונה בטיחות?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "זהו תיאור רשמי לתפקיד"
+        },
+        {
+          "optionId": "b",
+          "text": "ממונה שמתמקד רק באכיפה וענישה"
+        },
+        {
+          "optionId": "c",
+          "text": "הממונה המורשה להטיל קנסות"
+        },
+        {
+          "optionId": "d",
+          "text": "התואר המקצועי של הממונה"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "ממונה שמתמקד רק באכיפה וענישה",
+        "isOfficialAnswer": false
+      },
+      "explanation": "תפיסה מוטעית של הממונה כמעניש יוצרת הסתרה.",
+      "difficulty": "medium",
+      "topicIds": [
+        "human-factors-real",
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-09"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-safety-management-human-factors",
+          "citationId": "citation-training-human-factors-human-element-real"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-safety-management-human-factors",
+          "citationId": "citation-training-human-factors-human-element-real",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-16",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-10-machine-guarding",
+        "legacyQuestionId": "lesson-10-machine-guarding-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהי מטרת גידור מכונה?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "למנוע רעש."
+        },
+        {
+          "optionId": "b",
+          "text": "למנוע גישת אדם לאזור מסוכן."
+        },
+        {
+          "optionId": "c",
+          "text": "למנוע חלודה."
+        },
+        {
+          "optionId": "d",
+          "text": "להגדיל ייצור."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "למנוע גישת אדם לאזור מסוכן.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "המטרה היא הפרדה פיזית בין העובד לחלקים נעים.",
+      "difficulty": "medium",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-10"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-17",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-10-machine-guarding",
+        "legacyQuestionId": "lesson-10-machine-guarding-q03",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מי אחראי על בטיחות המכונה?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "העובד בלבד."
+        },
+        {
+          "optionId": "b",
+          "text": "המעסיק."
+        },
+        {
+          "optionId": "c",
+          "text": "הלקוח."
+        },
+        {
+          "optionId": "d",
+          "text": "הספק."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "המעסיק.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "המעסיק נושא באחריות החוקית לבטיחות.",
+      "difficulty": "medium",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-10"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-18",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-10-machine-guarding",
+        "legacyQuestionId": "lesson-10-machine-guarding-q04",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו \"נקודת לכידה\"?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "אזור ישיבה."
+        },
+        {
+          "optionId": "b",
+          "text": "אזור שבו ניתן להילכד בין חלקים."
+        },
+        {
+          "optionId": "c",
+          "text": "אזור אחסון."
+        },
+        {
+          "optionId": "d",
+          "text": "אזור מואר."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "אזור שבו ניתן להילכד בין חלקים.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "נקודה שבה קיים סיכון להיגרר או להימחץ.",
+      "difficulty": "medium",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-10"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-19",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-11-machine-guarding-risk-surveys-qualified-person",
+        "legacyQuestionId": "lesson-11-machine-guarding-risk-surveys-qualified-person-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מה מייצג רכיב ה-S בנוסחת הסיכון המקובלת בסקרי סיכונים ($R = P \\times S$)?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "Safety (רמת הבטיחות הכללית במחלקה)."
+        },
+        {
+          "optionId": "b",
+          "text": "Severity (חומרת הנזק או הפציעה הצפויה)."
+        },
+        {
+          "optionId": "c",
+          "text": "Standard (תקן המכונה המחייב)."
+        },
+        {
+          "optionId": "d",
+          "text": "Substitution (מדד ההתמרה של המפגע)."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "Severity (חומרת הנזק או הפציעה הצפויה).",
+        "isOfficialAnswer": true
+      },
+      "explanation": "נוסחת הסיכון משלבת בין ההסתברות (Probability) לבין חומרת הנזק (Severity) הפוטנציאלי במקרה של מימוש המפגע. שאר האפשרויות הן מונחי בטיחות אחרים שאינם חלק מהנוסחה.",
+      "difficulty": "easy",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-11"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-20",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-11-machine-guarding-risk-surveys-qualified-person",
+        "legacyQuestionId": "lesson-11-machine-guarding-risk-surveys-qualified-person-q02",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "איזה סוג מגן מתוכנן כך שהוא מאפשר פתיחה שוטפת ללא כלי עבודה, אך פתיחתו מפסיקה מיד את פעולת המכונה?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "מגן קבוע (Fixed Guard)."
+        },
+        {
+          "optionId": "b",
+          "text": "מגן משתלב (Interlock Guard)."
+        },
+        {
+          "optionId": "c",
+          "text": "וילון אור אופטי (Light Curtain)."
+        },
+        {
+          "optionId": "d",
+          "text": "שטיח בטיחות רגיש ללחץ."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "מגן משתלב (Interlock Guard).",
+        "isOfficialAnswer": true
+      },
+      "explanation": "מגן משתלב (אינטרלוק) מחובר למערכת הפיקוד החשמלית; פתיחת הדלת או המכסה מנתקת את זרם הכוח ומפסיקה את התנועה המסוכנת. מגן קבוע דורש כלי עבודה, ווילון אור ושטיח בטיחות אינם מגנים פיזיים (מחיצות) אלא חיישני נוכחות.",
+      "difficulty": "easy",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-11"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-prep-21",
+      "origin": {
+        "legacySource": "prep",
+        "legacySetId": "lesson-11-machine-guarding-risk-surveys-qualified-person",
+        "legacyQuestionId": "lesson-11-machine-guarding-risk-surveys-qualified-person-q03",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהי המשמעות המעשית של עקרון \"מנעול אחד – עובד אחד\" בתהליך ה-LOTO?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "שמנהל העבודה מחזיק במנעול יחיד שנועל את כל המפעל."
+        },
+        {
+          "optionId": "b",
+          "text": "שלכל עובד תחזוקה יש מנעול אישי עם מפתח בלעדי, ורק הוא רשאי להסירו."
+        },
+        {
+          "optionId": "c",
+          "text": "שמותר לעובד להשאיר את המפתח שלו בתוך המנעול כדי שחבריו יוכלו להשתמש בו."
+        },
+        {
+          "optionId": "d",
+          "text": "שמספיק לתלות מנעול אחד על חבק קבוצתי עבור צוות של חמישה טכנאים."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "שלכל עובד תחזוקה יש מנעול אישי עם מפתח בלעדי, ורק הוא רשאי להסירו.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "בטיחות החיים ב-LOTO מבוססת על כך שלאף אדם אחר אין יכולת להסיר את המנעול של העובד שנמצא בתוך המכונה. שאר התשובות מתארות פרקטיקות מסוכנות שעלולות להוביל להפעלה מקרית של הציוד.",
+      "difficulty": "easy",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-11"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-22",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-01-summary-practice-source",
+        "legacyQuestionId": "lesson-01-summary-full-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "( שאלת מלכודת - אחריות פלילית של ממונים) במהלך סיור שגרתי במפעל, ממונה הבטיחות גילה כי מעקה הבטיחות ברציף המדרונות שבור לחלוטין. הוא רשם את המפגע בפנקסו האישי, אך שכח להוציא דוח כתוב למנהל התפעול ולמנכ\"ל. למחרת, עובד מעד ברציף, נפל מגובה 3 מטרים ונפטר. מי יישא באחריות הפלילית וכיצד יתייחס בית המשפט לממונה הבטיחות",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "מנהל העבודה והמעסיק יישאו באחריות הראשית כבעלי סמכות ביצוע, אך ממונה הבטיחות עלול להיות מורשע בפלילים ברשלנות מקצועית חמורה, כיוון שגילוי מפגע קטלני ללא התרעה בכתב להנהלה מהווה הפרה ישירה של חובתו המקצועית על פי דין."
+        },
+        {
+          "optionId": "b",
+          "text": "ממונה הבטיחות בלבד, שכן הוא גילה את המפגע ולא תיקן אותו פיזית בעצמו."
+        },
+        {
+          "optionId": "c",
+          "text": "המעסיק ומנהל העבודה בלבד, שכן ממונה הבטיחות הוא פונקציה מייעצת ואין לו שום אחריות פלילית לעולם."
+        },
+        {
+          "optionId": "d",
+          "text": "העובד המנוח אשם באופן בלעדי כיוון שלא הסתכל לאן הוא הולך."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "מנהל העבודה והמעסיק יישאו באחריות הראשית כבעלי סמכות ביצוע, אך ממונה הבטיחות עלול להיות מורשע בפלילים ברשלנות מקצועית חמורה, כיוון שגילוי מפגע קטלני ללא התרעה בכתב להנהלה מהווה הפרה ישירה של חובתו המקצועית על פי דין.",
+        "isOfficialAnswer": false
+      },
+      "explanation": "המלכודת כאן היא ההנחה המוטעית שממונה בטיחות \"חסין\" מפני אחריות פלילית בגלל היותו פונקציה מייעצת (א). החוק קובע כי אם ממונה ראה מפגע חמור ולא דיווח עליו בכתב למעסיק, הוא התרשל בתפקידו המקצועי הסטטוטורי ויכול לתת את הדין הפלילי לצד המנהלים (ג).",
+      "difficulty": "medium",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "risk-assessment-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-01"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-23",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-01-summary-practice-source",
+        "legacyQuestionId": "lesson-01-summary-full-q02",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "( שאלת מלכודת - היררכיית בקרות מול יעילות כלכלית) חברה לייצור רכיבים אלקטרוניים סובלת מפליטה קבועה של גז רעיל בעת הלחמות. פתרון א' (הנדסי): התקנת מערכת מנדפים יציבה בעלות של 200,000 ש\"ח שתוריד את רמת הגז לאפס. פתרון ב' (צמ\"א): חלוקת מסכות נשימה מתקדמות עם מסנני פחם פעיל בעלות של 2,000 ש\"ח לכל העובדים. מנהל הכספים קבע כי פתרון ב' עדיף משמעותית כי הוא חוסך כסף רב ומגן על דרכי הנשימה של העובד ב-100%. מהי העמדה המקצועית הנכונה של ממונה הבטיחות",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "להסכים עם מנהל הכספים, שכן מסכת נשימה מספקת הגנה מלאה ישירות על פני העובד."
+        },
+        {
+          "optionId": "b",
+          "text": "לדחות את עמדת מנהל הכספים לחלוטין. לפי היררכיית בקרות הסיכונים של מודל ז.ה.ב, בקרה הנדסית (מנדף במקור) קודמת תמיד ועדיפה משפטית ומקצועית על פני ציוד מגן אישי (מסכה). צמ\"א הוא קו ההגנה האחרון והחלש ביותר, התלוי במשמעת התנהגותית של עובדים, והסתמכות עליו בלבד במקום בקרה הנדסית זמינה היא עבירה על חוקי הבטיחות."
+        },
+        {
+          "optionId": "c",
+          "text": "לבטל את תהליך ההלחמה במפעל לחלוטין ולסגור את המפעל כדי לא להוציא כסף."
+        },
+        {
+          "optionId": "d",
+          "text": "לתת לעובדים לעבוד ללא מסכות ולפתוח את החלונות בלבד במידה ויש רוח."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "לדחות את עמדת מנהל הכספים לחלוטין. לפי היררכיית בקרות הסיכונים של מודל ז.ה.ב, בקרה הנדסית (מנדף במקור) קודמת תמיד ועדיפה משפטית ומקצועית על פני ציוד מגן אישי (מסכה). צמ\"א הוא קו ההגנה האחרון והחלש ביותר, התלוי במשמעת התנהגותית של עובדים, והסתמכות עליו בלבד במקום בקרה הנדסית זמינה היא עבירה על חוקי הבטיחות.",
+        "isOfficialAnswer": false
+      },
+      "explanation": "המלכודת מציגה את פתרון ה-PPE כ\"מלא וזול\" (א). ממונה הבטיחות חייב לדעת שציוד מגן אישי לעולם אינו מחליף בקרה הנדסית זמינה. ה-PPE מגן רק על העובד הספציפי (ולא על הסביבה באולם), הוא עלול להיכשל (מסנן פקוע, חוסר אטימות), והחוק מחייב מיגון הנדסי במקור (ב).",
+      "difficulty": "medium",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "risk-assessment-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-01"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-24",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-02-summary-practice-source",
+        "legacyQuestionId": "lesson-02-summary-full-q03",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו תוקפה המשפטי של \"פקודת הבטיחות בעבודה [נוסח חדש]\" בהשוואה לחוק רגיל?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "נמוך מחוק, מכיוון שהיא ישנה ומקורו מנדטורי."
+        },
+        {
+          "optionId": "b",
+          "text": "דינה כנוהל פנימי לא מחייב."
+        },
+        {
+          "optionId": "c",
+          "text": "זהה לחוק לכל דבר ועניין, שכן היא מהווה חקיקה ראשית שאומצה ע\"י הכנסת."
+        },
+        {
+          "optionId": "d",
+          "text": "דינה כהמלצה בלבד של המוסד לבטיחות ולגיהות."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "c",
+        "answerText": "זהה לחוק לכל דבר ועניין, שכן היא מהווה חקיקה ראשית שאומצה ע\"י הכנסת.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "הסבר: פקודות בתוקף שאומצו אל תוך המערכת המשפטית הישראלית מחזיקות במעמד של חקיקה ראשית ודינן כחוק מחייב לחלוטין.",
+      "difficulty": "medium",
+      "topicIds": [
+        "regulation-governance-domain",
+        "roles-and-responsibilities"
+      ],
+      "lessonIds": [
+        "lesson-02"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-25",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-02-summary-practice-source",
+        "legacyQuestionId": "lesson-02-summary-full-q04",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מה מהבאים מגדיר נכונה את תפקידו של המוסד לבטיחות ולגיהות (המוס\"ל)?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "גוף אכיפה בעל סמכות להטלת קנסות וסגירת מפעלים."
+        },
+        {
+          "optionId": "b",
+          "text": "האיגוד המקצועי של פועלי הבניין."
+        },
+        {
+          "optionId": "c",
+          "text": "זרוע משפטית של פרקליטות המדינה."
+        },
+        {
+          "optionId": "d",
+          "text": "גוף הסברתי, חינוכי ומייעץ, ללא סמכויות פיקוח ואכיפה."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "d",
+        "answerText": "גוף הסברתי, חינוכי ומייעץ, ללא סמכויות פיקוח ואכיפה.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "הסבר: המוס\"ל הוקם כגוף סטטוטורי שנועד להדריך, לייעץ ולפתח את מודעות הבטיחות, אך המחוקק לא העניק לו שיניים אכיפתיות או סמכויות צווים.",
+      "difficulty": "medium",
+      "topicIds": [
+        "regulation-governance-domain",
+        "roles-and-responsibilities"
+      ],
+      "lessonIds": [
+        "lesson-02"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-14",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-26",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-03-summary-full-practice-source",
+        "legacyQuestionId": "lesson-03-summary-full-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "על פי עקרונות הבטיחות המודרניים, מי נושא באחריות העליונה והסופית לבטיחות העובדים בארגון?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "ממונה הבטיחות של המפעל משום שהוא הסמכות המקצועית."
+        },
+        {
+          "optionId": "b",
+          "text": "נאמני הבטיחות שנבחרו על ידי העובדים לעקוב אחר מפגעים."
+        },
+        {
+          "optionId": "c",
+          "text": "המעסיק, ההנהלה ותופש מקום העבודה בהתאם לנסיבות והחוק."
+        },
+        {
+          "optionId": "d",
+          "text": "מפקח העבודה האזורי מטעם משרד העבודה."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "c",
+        "answerText": "המעסיק, ההנהלה ותופש מקום העבודה בהתאם לנסיבות והחוק.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "האחריות הכוללת והמשפטית לבטיחות עובדים היא של המעסיק וההנהלה. המינויים המקצועיים נועדו לסייע להם, אך אינם מסירים מהם את האחריות.",
+      "difficulty": "medium",
+      "topicIds": [
+        "regulation-governance-domain",
+        "labor-inspection-law"
+      ],
+      "lessonIds": [
+        "lesson-03"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-11"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-11",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-27",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-03-summary-full-practice-source",
+        "legacyQuestionId": "lesson-03-summary-full-q02",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו תפקידו המרכזי של ממונה הבטיחות בארגון על פי החוק?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "לשמש כיועץ מקצועי ומנחה להנהלה ולעובדים בכל הקשור לבטיחות וגיהות."
+        },
+        {
+          "optionId": "b",
+          "text": "לאכוף את המשמעת באופן אקטיבי ולהטיל קנסות כספיים על עובדים סוררים."
+        },
+        {
+          "optionId": "c",
+          "text": "לנקות ולסדר את רצפת הייצור כדי למנוע החלקות של פועלים."
+        },
+        {
+          "optionId": "d",
+          "text": "לחתום בשם המנכ\"ל על כל החוזים הפיננסיים של החברה."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "לשמש כיועץ מקצועי ומנחה להנהלה ולעובדים בכל הקשור לבטיחות וגיהות.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "לשון התקנות מגדירה את הממונה כיועץ מקצועי ומנחה בלבד, ללא סמכויות אכיפה ביצועיות ישירות.",
+      "difficulty": "medium",
+      "topicIds": [
+        "regulation-governance-domain",
+        "labor-inspection-law"
+      ],
+      "lessonIds": [
+        "lesson-03"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-11"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-11",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-28",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-04-summary-full-practice-source",
+        "legacyQuestionId": "lesson-04-summary-full-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו פרק הזמן המקסימלי המותר על פי תקנות הבטיחות בעבודה לביצוע בדיקה תקופתית לאביזרי הרמה (כגון שאקלים ורצועות בד)?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "אחת ל-6 חודשים על ידי בודק מוסמך."
+        },
+        {
+          "optionId": "b",
+          "text": "אחת ל-14 חודשים על ידי בודק מוסמך."
+        },
+        {
+          "optionId": "c",
+          "text": "אחת לשנה על ידי ממונה הבטיחות של המפעל."
+        },
+        {
+          "optionId": "d",
+          "text": "לפני כל הפעלה בלבד על ידי מנהל העבודה."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "אחת ל-6 חודשים על ידי בודק מוסמך.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "תקנות הבטיחות בעבודה (עגורנאים, מפעילי מכונות הרמה ואחרים) ופקודת הבטיחות קובעות כי בעוד שמכונות הרמה נבדקות אחת ל-14 חודשים, אביזרי הרמה דורשים בדיקה קפדנית יותר של אחת ל-6 חודשים על ידי בודק מוסמך בעל הסמכה רשמית מהמינהל.",
+      "difficulty": "medium",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-29",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-04-summary-full-practice-source",
+        "legacyQuestionId": "lesson-04-summary-full-q03",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "עובד נפגע בתאונת עבודה ונעדר מעבודתו למשך יומיים (כולל יום התאונה). האם חלה על המעסיק חובת דיווח למפקח העבודה האזורי בטופס רשמי (טופס 20)?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "כן, חובה לדווח על כל פציעה או שריטה במקום העבודה בתוך 48 שעות."
+        },
+        {
+          "optionId": "b",
+          "text": "לא, חובת הדיווח חלה רק אם התאונה דרשה אשפוז בבית חולים מעל 24 שעות."
+        },
+        {
+          "optionId": "c",
+          "text": "לא, חובת הדיווח חלה רק אם העובד נעדר מעל 3 ימים מעבודתו עקב התאונה."
+        },
+        {
+          "optionId": "d",
+          "text": "כן, אך הדיווח מבוצע רק אחת לחצי שנה במסגרת ריכוז נתונים."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "c",
+        "answerText": "לא, חובת הדיווח חלה רק אם העובד נעדר מעל 3 ימים מעבודתו עקב התאונה.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "על פי חוק ארגון הפיקוח על העבודה ותקנותיו, חובת הודעה על תאונת עבודה למפקח אזורי חלה רק כאשר התאונה גרמה לעובד מוות, או חוסר יכולת לחזור לעבודתו הרגילה במשך יותר משלושה ימים (לא כולל יום התאונה).",
+      "difficulty": "medium",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-30",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-05-summary-full-practice-source",
+        "legacyQuestionId": "lesson-05-summary-full-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מכוח איזה חוק מוקם שירות הפיקוח על העבודה בישראל?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "חוק ארגון הפיקוח על העבודה, תשי\"ד-1954."
+        },
+        {
+          "optionId": "b",
+          "text": "פקודת הבטיחות בעבודה [נוסח חדש], תש\"ל-1970."
+        },
+        {
+          "optionId": "c",
+          "text": "חוק העונשין, תשל\"ז-1977."
+        },
+        {
+          "optionId": "d",
+          "text": "חוק שירותי כבאות והצלה, תשע\"ב-2012."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "חוק ארגון הפיקוח על העבודה, תשי\"ד-1954.",
+        "isOfficialAnswer": true
+      },
+      "explanation": "סעיף 1 לחוק ארגון הפיקוח על העבודה, תשי\"ד-1954, קובע במפורש: \"יוקם שירות פיקוח על העבודה...\". חוק זה הוא הבסיס המוסדי והמבני של מערך הפיקוח הממשלתי. ❌ למה שא",
+      "difficulty": "medium",
+      "topicIds": [
+        "safety-committee",
+        "safety-committee-composition"
+      ],
+      "lessonIds": [
+        "lesson-05"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-15"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-15",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-31",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-06-summary-full-practice-source",
+        "legacyQuestionId": "lesson-06-summary-full-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו גובה המינימום המוגדר בתקנות הבטיחות בישראל כ\"עבודה בגובה\", המחייב הדרכה וציוד מגן מתאים, במקום שאין עמו גידור תקני?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "מעל 2.0 מטרים."
+        },
+        {
+          "optionId": "b",
+          "text": "מעל 3.0 מטרים."
+        },
+        {
+          "optionId": "c",
+          "text": "מעל 1.5 מטרים."
+        },
+        {
+          "optionId": "d",
+          "text": "מעל 2.5 מטרים."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "מעל 2.0 מטרים.",
+        "isOfficialAnswer": false
+      },
+      "explanation": "תקנות הבטיחות בעבודה (עבודה בגובה) קובעות במפורש את רף ה-2 מטרים כרף הסטטוטורי המחייב.",
+      "difficulty": "medium",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-incident-command"
+      ],
+      "lessonIds": [
+        "lesson-06"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-emergency-preparedness",
+          "citationId": "citation-training-emergency-preparedness-incident-command"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-emergency-preparedness",
+          "citationId": "citation-training-emergency-preparedness-incident-command",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": true,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-32",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-08-summary-full-practice-source",
+        "legacyQuestionId": "lesson-08-summary-full-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "על פי תקנות ארגון הפיקוח על העבודה, מי נושא באחריות המשפטית והארגונית העליונה לבטיחות בארגון?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "תופש המפעל / המחזיק במקום העבודה."
+        },
+        {
+          "optionId": "b",
+          "text": "ממונה הבטיחות הממונה."
+        },
+        {
+          "optionId": "c",
+          "text": "יו\"ר ועדת הבטיחות מטעם העובדים."
+        },
+        {
+          "optionId": "d",
+          "text": "מפקח העבודה האזורי של משרד העבודה."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "תופש המפעל / המחזיק במקום העבודה.",
+        "isOfficialAnswer": false
+      },
+      "explanation": "תקנות ארגון הפיקוח על העבודה ומערכות הניהול קובעות באופן חד-משמעי כי האחריות הכוללת והעליונה לבטיחות, גיהות ובריאות העובדים מונחת על כתפיו של המעסיק/תופש המפעל. ממונה הבטיחות הוא יועץ מקצועי בלבד ואינו מחליף את אחריות ההנהלה.",
+      "difficulty": "medium",
+      "topicIds": [
+        "safety-organization-governance-real",
+        "safety-organization-safety-officer-role-real"
+      ],
+      "lessonIds": [
+        "lesson-08"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-safety-organization-final",
+          "citationId": "citation-training-safety-organization-safety-officer-role"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-safety-organization-final",
+          "citationId": "citation-training-safety-organization-safety-officer-role",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-summary-33",
+      "origin": {
+        "legacySource": "summary",
+        "legacySetId": "lesson-09-summary-full-practice-source",
+        "legacyQuestionId": "lesson-09-summary-full-q01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו התפקיד הסטטוטורי המרכזי של ממונה בטיחות?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "ניהול רכש."
+        },
+        {
+          "optionId": "b",
+          "text": "יועץ מקצועי לתופש המקום."
+        },
+        {
+          "optionId": "c",
+          "text": "קבלן ביצוע לעבודות תחזוקה."
+        },
+        {
+          "optionId": "d",
+          "text": "מנהל שיווק."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "יועץ מקצועי לתופש המקום.",
+        "isOfficialAnswer": false
+      },
+      "explanation": "תפקיד הממונה מוגדר בתקנות 1996 כיועץ מקצועי להנהלה בנושאי בטיחות וגיהות. משמעות: הממונה הוא הגורם המנחה והמקצועי בארגון.",
+      "difficulty": "medium",
+      "topicIds": [
+        "human-factors-real",
+        "safety-culture-real"
+      ],
+      "lessonIds": [
+        "lesson-09"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-safety-management-human-factors",
+          "citationId": "citation-training-human-factors-human-element-real"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-safety-management-human-factors",
+          "citationId": "citation-training-human-factors-human-element-real",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": true,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-exam-34",
+      "origin": {
+        "legacySource": "exam",
+        "legacySetId": "lesson-01",
+        "legacyQuestionId": "lesson-01-source-03",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מה מתאר נכון את היחס בין פקודת הבטיחות בעבודה לבין חוק ארגון הפיקוח על העבודה?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "שני המקורות עוסקים רק בתאונות עבודה לאחר שהתרחשו."
+        },
+        {
+          "optionId": "b",
+          "text": "פקודת הבטיחות עוסקת רק בעובדים, וחוק הפיקוח עוסק רק בציוד מגן אישי."
+        },
+        {
+          "optionId": "c",
+          "text": "הפקודה מתמקדת רבות בדרישות המעשיות בעבודה, וחוק ארגון הפיקוח מתמקד במבנה הפיקוח, סמכויות ובעלי תפקידים."
+        },
+        {
+          "optionId": "d",
+          "text": "חוק ארגון הפיקוח מחליף את פקודת הבטיחות בכל דרישה מקצועית."
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "c",
+        "answerText": "הפקודה מתמקדת רבות בדרישות המעשיות בעבודה, וחוק ארגון הפיקוח מתמקד במבנה הפיקוח, סמכויות ובעלי תפקידים.",
+        "isOfficialAnswer": false
+      },
+      "explanation": "בשפה לימודית מקובל לתאר את הפקודה כחוק ה\"מה\" ואת חוק ארגון הפיקוח כחוק ה\"מי\", אך בשטח יש לבדוק כל דרישה לפי המקור המשפטי הרלוונטי.",
+      "difficulty": "easy",
+      "topicIds": [
+        "occupational-safety-management-real",
+        "risk-assessment-management-real",
+        "hierarchy-of-controls-real"
+      ],
+      "lessonIds": [
+        "lesson-01"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-occupational-safety-management",
+          "citationId": "citation-training-occupational-safety-risk-assessment",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-exam-35",
+      "origin": {
+        "legacySource": "exam",
+        "legacySetId": "lesson-06",
+        "legacyQuestionId": "lesson-06-qa-01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מה ההבחנה המקצועית החשובה ביותר בנושא עבודות וחשיפות חשמל?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "להבחין בין מקור הסיכון, החשיפה בפועל, רמת הסיכון והבקרה הנדרשת"
+        },
+        {
+          "optionId": "b",
+          "text": "להתמקד רק בשאלה מי אשם באירוע"
+        },
+        {
+          "optionId": "c",
+          "text": "להסתפק בשלט אזהרה כללי בכל מצב"
+        },
+        {
+          "optionId": "d",
+          "text": "לטפל בנושא רק אחרי שמתרחשת תאונה"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "להבחין בין מקור הסיכון, החשיפה בפועל, רמת הסיכון והבקרה הנדרשת",
+        "isOfficialAnswer": false
+      },
+      "explanation": "בתחום עבודות וחשיפות חשמל נדרש להבין מה יוצר את הסיכון, מי חשוף אליו ומהי הבקרה המתאימה. חיפוש אשמה או שלט כללי אינם מחליפים ניתוח מקצועי.",
+      "difficulty": "easy",
+      "topicIds": [
+        "emergency-preparedness-domain",
+        "emergency-incident-command"
+      ],
+      "lessonIds": [
+        "lesson-06"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "training-emergency-preparedness",
+          "citationId": "citation-training-emergency-preparedness-incident-command"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "training-emergency-preparedness",
+          "citationId": "citation-training-emergency-preparedness-incident-command",
+          "authorityLevel": 6,
+          "answerSourceType": "learning-material",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": true,
+        "regulationBased": false,
+        "fieldPractice": true,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-exam-36",
+      "origin": {
+        "legacySource": "exam",
+        "legacySetId": "labor-inspection-law-1954",
+        "legacyQuestionId": "labor-inspection-law-1954-easy-01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מה מקים סעיף 1 לחוק?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "שירות פיקוח על העבודה"
+        },
+        {
+          "optionId": "b",
+          "text": "ועד עובדים בלבד"
+        },
+        {
+          "optionId": "c",
+          "text": "בית דין לעבודה"
+        },
+        {
+          "optionId": "d",
+          "text": "משרד הבריאות"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "שירות פיקוח על העבודה",
+        "isOfficialAnswer": true
+      },
+      "explanation": "סעיף 1 מקים את שירות הפיקוח. בשטח המשמעות היא לבדוק מקור חובה, בעל אחריות, תיעוד ובקרת ביצוע לפני סגירת הממצא.",
+      "difficulty": "easy",
+      "topicIds": [
+        "regulation-governance-domain",
+        "labor-inspection-law"
+      ],
+      "lessonIds": [
+        "lesson-03"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-11"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "law-labor-inspection-1954",
+          "citationId": "citation-law-labor-inspection-1954-section-11",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-exam-37",
+      "origin": {
+        "legacySource": "exam",
+        "legacySetId": "work-safety-ordinance-1970",
+        "legacyQuestionId": "work-safety-ordinance-1970-easy-01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מה עוסקת בעיקר פקודת הבטיחות בעבודה?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "בתנאי בריאות, בטיחות ורווחה במקום העבודה"
+        },
+        {
+          "optionId": "b",
+          "text": "רק בזכויות שכר"
+        },
+        {
+          "optionId": "c",
+          "text": "רק בביטוח לאומי"
+        },
+        {
+          "optionId": "d",
+          "text": "רק בחופשות עובדים"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "בתנאי בריאות, בטיחות ורווחה במקום העבודה",
+        "isOfficialAnswer": true
+      },
+      "explanation": "הפקודה מפרטת דרישות מעשיות לבטיחות, בריאות ורווחה. בשטח המשמעות היא לבדוק מקור חובה, בעל אחריות, תיעוד ובקרת ביצוע לפני סגירת הממצא.",
+      "difficulty": "easy",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-exam-38",
+      "origin": {
+        "legacySource": "exam",
+        "legacySetId": "work-safety-ordinance-1970",
+        "legacyQuestionId": "work-safety-ordinance-1970-easy-02",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהי חובת גידור מכונות?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "גידור לפי רצון העובד"
+        },
+        {
+          "optionId": "b",
+          "text": "גידור חלקים מסוכנים לבטח"
+        },
+        {
+          "optionId": "c",
+          "text": "גידור רק אחרי תאונה"
+        },
+        {
+          "optionId": "d",
+          "text": "אין חובה"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "גידור חלקים מסוכנים לבטח",
+        "isOfficialAnswer": true
+      },
+      "explanation": "הפקודה מחייבת גידור חלקים מסוכנים במכונות. בשטח המשמעות היא לבדוק מקור חובה, בעל אחריות, תיעוד ובקרת ביצוע לפני סגירת הממצא.",
+      "difficulty": "easy",
+      "topicIds": [
+        "work-safety-ordinance",
+        "machine-guarding-ordinance"
+      ],
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "ordinance-work-safety-1970",
+          "citationId": "citation-ordinance-work-safety-1970-machine-guarding",
+          "authorityLevel": 1,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": true,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": true,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-exam-39",
+      "origin": {
+        "legacySource": "exam",
+        "legacySetId": "iso-45001-2018",
+        "legacyQuestionId": "iso-45001-2018-01",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהי מטרת ISO 45001?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "לקבוע מערכת ניהול לבטיחות ובריאות בתעסוקה"
+        },
+        {
+          "optionId": "b",
+          "text": "להחליף את חוקי הבטיחות"
+        },
+        {
+          "optionId": "c",
+          "text": "לקבוע מחירי ציוד מגן"
+        },
+        {
+          "optionId": "d",
+          "text": "להחליף את ממונה הבטיחות"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "a",
+        "answerText": "לקבוע מערכת ניהול לבטיחות ובריאות בתעסוקה",
+        "isOfficialAnswer": true
+      },
+      "explanation": "ISO 45001 הוא תקן למערכת ניהול בטיחות ובריאות בתעסוקה. הוא לא מחליף חוקים ותקנות, אלא מסייע לארגון לנהל סיכונים, לעמוד בדרישות דין ולשפר ביצועי בטיחות.",
+      "difficulty": "easy",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "standard-iso-45001-2018",
+          "citationId": "citation-standard-iso-45001-purpose-framework"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "standard-iso-45001-2018",
+          "citationId": "citation-standard-iso-45001-purpose-framework",
+          "authorityLevel": 4,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
+    },
+    {
+      "questionId": "qb-wave1-exam-40",
+      "origin": {
+        "legacySource": "exam",
+        "legacySetId": "iso-45001-2018",
+        "legacyQuestionId": "iso-45001-2018-02",
+        "migrationStatus": "wave1"
+      },
+      "questionType": "multiple-choice",
+      "questionText": "מהו גורם סיכון לפי התקן?",
+      "options": [
+        {
+          "optionId": "a",
+          "text": "אדם שנפגע"
+        },
+        {
+          "optionId": "b",
+          "text": "מקור בעל פוטנציאל לגרום פציעה או פגיעה בבריאות"
+        },
+        {
+          "optionId": "c",
+          "text": "טופס הדרכה"
+        },
+        {
+          "optionId": "d",
+          "text": "מדד ביצוע"
+        }
+      ],
+      "correctAnswer": {
+        "optionId": "b",
+        "answerText": "מקור בעל פוטנציאל לגרום פציעה או פגיעה בבריאות",
+        "isOfficialAnswer": true
+      },
+      "explanation": "גורם סיכון הוא מקור אפשרי לנזק, לדוגמה מכונה, רעש, חומר כימי, עבודה בגובה או עומס עבודה חריג.",
+      "difficulty": "easy",
+      "topicIds": [
+        "iso-45001-management-system-standard",
+        "occupational-safety-management-real"
+      ],
+      "lessonIds": [
+        "lesson-36"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "standard-iso-45001-2018",
+          "citationId": "citation-standard-iso-45001-purpose-framework"
+        }
+      ],
+      "answerProvenance": [
+        {
+          "sourceId": "standard-iso-45001-2018",
+          "citationId": "citation-standard-iso-45001-purpose-framework",
+          "authorityLevel": 4,
+          "answerSourceType": "authoritative-reference",
+          "verificationStatus": "source-backed"
+        }
+      ],
+      "examFacets": {
+        "examRelevant": true,
+        "examCritical": false,
+        "examTrap": false,
+        "goldenNumberRelated": false,
+        "legalBasisRequired": false,
+        "commonMistake": false,
+        "calculation": false,
+        "scenarioBased": false,
+        "regulationBased": false,
+        "fieldPractice": false,
+        "reviewOnly": false
+      },
+      "verification": {
+        "status": "source-backed",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "notes": "Wave 1 question governance migration; not a full question-bank migration."
+      },
+      "status": "draft"
     }
-  ]
+  ],
+  "wave1Metadata": {
+    "addedQuestions": 40,
+    "skipped": {
+      "invalid": 2,
+      "duplicate": 9,
+      "nearDuplicate": 0,
+      "missingRefs": 0
+    },
+    "addedDomainCounts": {
+      "management": 6,
+      "emergency": 5,
+      "regulation": 5,
+      "organization": 4,
+      "human": 4,
+      "ordinance": 10,
+      "laborLaw": 3,
+      "committee": 1,
+      "iso": 2
+    },
+    "dedupeMethod": "Exact normalized Hebrew text and high word-overlap near-duplicate screen."
+  }
 }
