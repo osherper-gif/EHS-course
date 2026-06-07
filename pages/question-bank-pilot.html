@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
+  <meta name="description" content="תצוגת פיילוט לקריאה בלבד של Question Bank מבוסס מקור.">
+  <title>Question Bank Pilot | קורס ממונה בטיחות</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .qb-page {
+      --qb-brand: #0f5f75;
+      --qb-brand-dark: #0a4b5d;
+      --qb-soft: #f8fafc;
+      --qb-ink: #172033;
+      --qb-muted: #64748b;
+      --qb-border: #dbe7ef;
+      --qb-legal: #991b1b;
+      --qb-legal-bg: #fff1f2;
+      --qb-standard: #4338ca;
+      --qb-standard-bg: #eef2ff;
+      --qb-training: #1d4ed8;
+      --qb-training-bg: #eff6ff;
+      --qb-exam: #92400e;
+      --qb-exam-bg: #fffbeb;
+      --qb-ok: #047857;
+      --qb-ok-bg: #ecfdf5;
+      background: #f1f5f9;
+      color: var(--qb-ink);
+      line-height: 1.65;
+    }
+
+    .qb-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 20px 0 56px;
+    }
+
+    .qb-topbar,
+    .qb-hero,
+    .qb-panel,
+    .qb-card {
+      border: 1px solid var(--qb-border);
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, .06);
+    }
+
+    .qb-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    .qb-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .qb-brand-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: var(--qb-brand);
+      color: #fff;
+      font-weight: 800;
+      font-size: .78rem;
+      flex-shrink: 0;
+    }
+
+    .qb-brand strong,
+    .qb-brand small {
+      display: block;
+    }
+
+    .qb-brand small,
+    .qb-muted {
+      color: var(--qb-muted);
+      font-size: .86rem;
+    }
+
+    .qb-hero {
+      padding: clamp(20px, 3vw, 32px);
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #e4f5fa 0%, #fff 70%);
+    }
+
+    .qb-hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.55rem, 4vw, 2.2rem);
+      line-height: 1.15;
+    }
+
+    .qb-hero p {
+      max-width: 760px;
+      margin: 0 0 14px;
+      color: #475569;
+    }
+
+    .qb-kicker {
+      margin: 0 0 6px;
+      color: var(--qb-brand);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .qb-badge-row,
+    .qb-meta-row,
+    .qb-filter-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .qb-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border: 1px solid var(--qb-border);
+      border-radius: 999px;
+      padding: 3px 9px;
+      background: var(--qb-soft);
+      color: #475569;
+      font-size: .76rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .qb-badge[data-kind="legal"] {
+      background: var(--qb-legal-bg);
+      border-color: #fda4af;
+      color: var(--qb-legal);
+    }
+
+    .qb-badge[data-kind="standard"] {
+      background: var(--qb-standard-bg);
+      border-color: #c7d2fe;
+      color: var(--qb-standard);
+    }
+
+    .qb-badge[data-kind="training"] {
+      background: var(--qb-training-bg);
+      border-color: #bfdbfe;
+      color: var(--qb-training);
+    }
+
+    .qb-badge[data-kind="source-backed"],
+    .qb-badge[data-kind="ok"] {
+      background: var(--qb-ok-bg);
+      border-color: #86efac;
+      color: var(--qb-ok);
+    }
+
+    .qb-badge[data-kind="exam"] {
+      background: var(--qb-exam-bg);
+      border-color: #fde68a;
+      color: var(--qb-exam);
+    }
+
+    .qb-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .qb-summary-card {
+      border: 1px solid var(--qb-border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      background: #fff;
+      border-inline-start: 4px solid var(--qb-brand);
+    }
+
+    .qb-summary-card strong {
+      display: block;
+      font-size: 1.75rem;
+      line-height: 1;
+      color: var(--qb-brand);
+    }
+
+    .qb-summary-card span {
+      display: block;
+      margin-top: 5px;
+      color: var(--qb-muted);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .qb-panel {
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .qb-panel h2 {
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+    }
+
+    .qb-filter-grid {
+      align-items: end;
+      gap: 12px;
+    }
+
+    .qb-field {
+      display: grid;
+      gap: 5px;
+      min-width: 160px;
+      flex: 1;
+    }
+
+    .qb-field label {
+      color: var(--qb-muted);
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .qb-field input,
+    .qb-field select {
+      min-height: 42px;
+      border: 1px solid var(--qb-border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      background: var(--qb-soft);
+      color: var(--qb-ink);
+      font: inherit;
+    }
+
+    .qb-field input:focus,
+    .qb-field select:focus {
+      outline: 3px solid rgba(15, 95, 117, .14);
+      border-color: var(--qb-brand);
+      background: #fff;
+    }
+
+    .qb-question-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .qb-card {
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .qb-card h3 {
+      margin: 10px 0 10px;
+      font-size: 1.08rem;
+      line-height: 1.45;
+    }
+
+    .qb-options {
+      display: grid;
+      gap: 7px;
+      margin: 12px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .qb-option {
+      border: 1px solid var(--qb-border);
+      border-radius: 8px;
+      padding: 9px 12px;
+      background: var(--qb-soft);
+    }
+
+    .qb-option[data-correct="true"] {
+      border-color: #86efac;
+      background: var(--qb-ok-bg);
+      color: var(--qb-ok);
+      font-weight: 700;
+    }
+
+    .qb-section-title {
+      margin: 16px 0 6px;
+      font-size: .84rem;
+      color: var(--qb-brand);
+      font-weight: 800;
+    }
+
+    .qb-governance {
+      margin-top: 14px;
+      padding: 12px;
+      border: 1px solid var(--qb-border);
+      border-radius: 9px;
+      background: var(--qb-soft);
+      font-size: .82rem;
+      color: #475569;
+      overflow-wrap: anywhere;
+    }
+
+    .qb-governance-row {
+      display: grid;
+      grid-template-columns: minmax(90px, 120px) 1fr;
+      gap: 8px;
+      padding: 4px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .qb-governance-row:last-child {
+      border-bottom: 0;
+    }
+
+    .qb-governance-row strong {
+      color: var(--qb-ink);
+    }
+
+    .qb-empty,
+    .qb-error {
+      padding: 14px 16px;
+      border-radius: 10px;
+      font-size: .9rem;
+    }
+
+    .qb-empty {
+      border: 1px dashed var(--qb-border);
+      background: var(--qb-soft);
+      color: var(--qb-muted);
+    }
+
+    .qb-error {
+      border: 1px solid #fecaca;
+      background: #fef2f2;
+      color: #7f1d1d;
+    }
+
+    @media (max-width: 640px) {
+      .qb-shell {
+        width: calc(100% - 20px);
+        padding-top: 12px;
+      }
+
+      .qb-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .qb-filter-grid {
+        display: grid;
+      }
+
+      .qb-governance-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+<body class="qb-page" data-page-title="Question Bank Pilot">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <div class="qb-shell">
+    <header class="qb-topbar" aria-label="כותרת עמוד">
+      <a class="qb-brand" href="../index.html">
+        <span class="qb-brand-mark">EHS</span>
+        <span>
+          <strong>קורס ממונה בטיחות</strong>
+          <small>Question Bank Pilot Viewer</small>
+        </span>
+      </a>
+      <span class="qb-badge">קריאה בלבד</span>
+    </header>
+
+    <main id="main">
+      <section class="qb-hero">
+        <p class="qb-kicker">פיילוט צפייה בשאלות</p>
+        <h1>Question Bank Pilot</h1>
+        <p>תצוגת קריאה בלבד של 10 שאלות הפיילוט מתוך מודל Question Governance. זה אינו בוחן, אינו סימולציה ואינו שומר תשובות.</p>
+        <div class="qb-badge-row">
+          <span class="qb-badge" data-kind="exam">פיילוט</span>
+          <span class="qb-badge" data-kind="source-backed">מבוסס מקור</span>
+          <span class="qb-badge">ללא ניקוד</span>
+          <span class="qb-badge">ללא שמירה</span>
+        </div>
+      </section>
+
+      <section class="qb-summary-grid" data-qb-summary aria-label="סיכום שאלות">
+        <article class="qb-summary-card">
+          <strong>...</strong>
+          <span>טוען נתונים</span>
+        </article>
+      </section>
+
+      <section class="qb-panel" aria-labelledby="qbFiltersTitle">
+        <h2 id="qbFiltersTitle">סינון וחיפוש</h2>
+        <div class="qb-filter-grid">
+          <div class="qb-field">
+            <label for="qbSearch">חיפוש</label>
+            <input id="qbSearch" type="search" data-qb-search placeholder="חפש בשאלה, נושא או שיעור" autocomplete="off">
+          </div>
+          <div class="qb-field">
+            <label for="qbTopicFilter">נושא</label>
+            <select id="qbTopicFilter" data-qb-filter-topic></select>
+          </div>
+          <div class="qb-field">
+            <label for="qbLessonFilter">שיעור</label>
+            <select id="qbLessonFilter" data-qb-filter-lesson></select>
+          </div>
+          <div class="qb-field">
+            <label for="qbDifficultyFilter">רמת קושי</label>
+            <select id="qbDifficultyFilter" data-qb-filter-difficulty></select>
+          </div>
+          <div class="qb-field">
+            <label for="qbExamRelevantFilter">רלוונטי למבחן</label>
+            <select id="qbExamRelevantFilter" data-qb-filter-exam-relevant>
+              <option value="">הכול</option>
+              <option value="true">כן</option>
+              <option value="false">לא</option>
+            </select>
+          </div>
+          <div class="qb-field">
+            <label for="qbExamCriticalFilter">דגש קריטי</label>
+            <select id="qbExamCriticalFilter" data-qb-filter-exam-critical>
+              <option value="">הכול</option>
+              <option value="true">כן</option>
+              <option value="false">לא</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="qb-question-list" data-qb-questions aria-label="רשימת שאלות"></section>
+    </main>
+  </div>
+
+  <script src="../js/question-bank-pilot.js"></script>
+</body>
+</html>
