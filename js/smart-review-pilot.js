@@ -73,6 +73,7 @@
   };
 
   let state = null;
+  let pendingFeedback = '';
   let firebaseLearningState = {
     ready: false,
     user: null,
@@ -148,6 +149,7 @@
       if (!questionId || !['mastered', 'review'].includes(value)) return;
 
       setLearningState(questionId, value);
+      pendingFeedback = value === 'mastered' ? 'השאלה הוסרה מתור החזרה' : '';
       renderAll();
     });
   }
@@ -172,7 +174,24 @@
 
   function renderAll() {
     renderSummary();
+    renderFeedback();
     renderSections();
+  }
+
+  function renderFeedback() {
+    const target = document.querySelector('[data-sr-feedback]');
+    if (!target) return;
+    target.hidden = !pendingFeedback;
+    target.textContent = pendingFeedback;
+    if (pendingFeedback) {
+      window.setTimeout(() => {
+        if (target.textContent === pendingFeedback) {
+          pendingFeedback = '';
+          target.hidden = true;
+          target.textContent = '';
+        }
+      }, 3500);
+    }
   }
 
   function renderSummary() {
@@ -204,10 +223,12 @@
     const dueLater = getDueLaterQuestions();
     const nowTarget = document.querySelector('[data-sr-due-now]');
     const laterTarget = document.querySelector('[data-sr-due-later]');
+    const laterPanel = document.querySelector('[data-sr-due-later-panel]');
     const emptyTarget = document.querySelector('[data-sr-empty]');
 
     if (nowTarget) nowTarget.innerHTML = dueNow.length ? dueNow.map(renderQuestionCard).join('') : renderSectionEmpty('אין שאלות שמועד החזרה שלהן הגיע.');
-    if (laterTarget) laterTarget.innerHTML = dueLater.length ? dueLater.map(renderQuestionCard).join('') : renderSectionEmpty('אין שאלות מתוזמנות להמשך.');
+    if (laterTarget) laterTarget.innerHTML = dueLater.map(renderQuestionCard).join('');
+    if (laterPanel) laterPanel.hidden = !dueLater.length;
     if (emptyTarget) emptyTarget.hidden = Boolean(dueNow.length || dueLater.length);
   }
 
@@ -558,8 +579,20 @@
     if (!scheduler || scheduler.type !== 'fsrs' || !scheduler.nextReviewAt) return 'טרם נקבע מועד חזרה חכמה.';
     const due = dateOrNull(scheduler.nextReviewAt);
     const rating = FSRS_RATING_LABELS[scheduler.lastRating] || scheduler.lastRating || '';
-    const prefix = due && due <= new Date() ? 'לחזרה עכשיו' : 'לחזרה בהמשך';
-    return `${prefix}: ${relativeDateLabel(due)}${rating ? ` | דירוג אחרון: ${rating}` : ''}`;
+    return `${reviewTimeLabel(due)}${rating ? ` | דירוג אחרון: ${rating}` : ''}`;
+  }
+
+  function reviewTimeLabel(date) {
+    if (!date) return '';
+    const now = new Date();
+    if (date <= now) return 'זמן החזרה הגיע';
+    const minutes = Math.ceil((date.getTime() - now.getTime()) / 60000);
+    if (minutes < 60) return `לחזרה בעוד ${minutes} דקות`;
+    if (isSameDay(date, now)) return 'לחזרה היום';
+    const days = Math.ceil((date.getTime() - now.getTime()) / 86400000);
+    if (days === 1) return 'לחזרה מחר';
+    if (days < 8) return `לחזרה בעוד ${days} ימים`;
+    return `לחזרה בתאריך ${date.toLocaleDateString('he-IL', { day: '2-digit', month: '2-digit', year: 'numeric' })}`;
   }
 
   function relativeDateLabel(date) {
@@ -575,6 +608,12 @@
     if (days === 1) return 'מחר';
     if (days < 8) return `בעוד ${days} ימים`;
     return date.toLocaleDateString('he-IL', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  }
+
+  function isSameDay(first, second) {
+    return first.getFullYear() === second.getFullYear()
+      && first.getMonth() === second.getMonth()
+      && first.getDate() === second.getDate();
   }
 
   function normalizeScheduler(value) {

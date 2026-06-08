@@ -187,6 +187,22 @@
       font-weight: 800;
     }
 
+    .sr-feedback {
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border: 1px solid #86efac;
+      border-radius: 10px;
+      background: #ecfdf5;
+      color: #047857;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .sr-feedback[hidden],
+    .sr-panel[hidden] {
+      display: none;
+    }
+
     .sr-panel {
       padding: 16px;
       margin-bottom: 16px;
@@ -353,6 +369,10 @@
         align-items: flex-start;
         flex-direction: column;
       }
+
+      .sr-button[data-sr-fsrs-rating] {
+        flex: 1 1 140px;
+      }
     }
   </style>
 </head>
@@ -389,12 +409,14 @@
         </article>
       </section>
 
+      <div class="sr-feedback" data-sr-feedback hidden></div>
+
       <section class="sr-panel" aria-labelledby="dueNowTitle">
         <h2 id="dueNowTitle">לחזרה עכשיו</h2>
         <div class="sr-question-list" data-sr-due-now></div>
       </section>
 
-      <section class="sr-panel" aria-labelledby="dueLaterTitle">
+      <section class="sr-panel" data-sr-due-later-panel aria-labelledby="dueLaterTitle">
         <h2 id="dueLaterTitle">לחזרה בהמשך</h2>
         <div class="sr-question-list" data-sr-due-later></div>
       </section>
