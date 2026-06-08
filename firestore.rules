@@ -171,6 +171,25 @@ service cloud.firestore {
         || request.resource.data.source in ["quiz", "exam", "practice"];
     }
 
+    function validLearningStateKeys() {
+      return request.resource.data.keys().hasOnly([
+        "questionId",
+        "state",
+        "lastReviewedAt",
+        "reviewCount",
+        "updatedAt",
+        "source"
+      ]);
+    }
+
+    function validLearningStateValue() {
+      return request.resource.data.state in ["unknown", "mastered", "review"];
+    }
+
+    function validLearningStateSource() {
+      return request.resource.data.source == "practice-hub";
+    }
+
     function validSelfUserCreateKeys() {
       return request.resource.data.keys().hasOnly([
         "uid",
@@ -255,6 +274,17 @@ service cloud.firestore {
           && noProgressAnswerLeakage()
           && validProgressSource();
         allow delete: if isAdmin();
+      }
+
+      match /learningState/{questionId} {
+        allow read: if isApprovedSelf(uid);
+        allow create, update: if isApprovedSelf(uid)
+          && request.resource.data.questionId == questionId
+          && validLearningStateKeys()
+          && validLearningStateValue()
+          && validLearningStateSource()
+          && noProgressAnswerLeakage();
+        allow delete: if false;
       }
 
       match /examAttempts/{attemptId} {

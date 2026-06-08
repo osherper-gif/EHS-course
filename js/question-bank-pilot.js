@@ -11,6 +11,7 @@
 
   const PAGE_SIZE = 10;
   const LEARNING_STATE_STORAGE_KEY = 'ehs.practiceHub.learningState.v1';
+  const LEARNING_STATE_SOURCE = 'practice-hub';
 
   const LEARNING_STATE_LABELS = {
     unknown: 'לא סומן',
@@ -56,6 +57,11 @@
   };
 
   let state = null;
+  let firebaseLearningState = {
+    ready: false,
+    user: null,
+    api: null
+  };
 
   document.addEventListener('DOMContentLoaded', () => {
     loadQuestionBank()
@@ -67,6 +73,7 @@
         bindBookmarkMode();
         bindLearningStateMode();
         bindPagination();
+        initPersistentLearningState();
       })
       .catch(renderError);
   });
@@ -113,7 +120,7 @@
         page: 1,
         pageSize: PAGE_SIZE
       },
-      learningStates: loadLearningStates()
+      learningStates: loadLocalLearningStates()
     };
   }
 
@@ -655,7 +662,46 @@
     }, {});
   }
 
-  function loadLearningStates() {
+  async function initPersistentLearningState() {
+    try {
+      const firebase = await import('./firebase-config.js');
+      if (!firebase.auth || !firebase.db || typeof firebase.onAuthStateChanged !== 'function') return;
+
+      firebaseLearningState.api = firebase;
+      firebase.onAuthStateChanged(firebase.auth, async (user) => {
+        firebaseLearningState.user = user || null;
+        firebaseLearningState.ready = Boolean(user);
+        if (!user) return;
+
+        try {
+          state.learningStates = await loadFirestoreLearningStates(user.uid);
+          renderLearningDashboard();
+          renderQuestions();
+        } catch (error) {
+          firebaseLearningState.ready = false;
+          // Firestore is an enhancement; localStorage remains the fallback when unavailable.
+        }
+      });
+    } catch (error) {
+      firebaseLearningState.ready = false;
+      // Auth/Firestore may be blocked by CSP, offline mode, or local file use. Keep local fallback.
+    }
+  }
+
+  async function loadFirestoreLearningStates(uid) {
+    const firebase = firebaseLearningState.api;
+    const snapshot = await firebase.getDocs(firebase.collection(firebase.db, 'users', uid, 'learningState'));
+    const nextStates = {};
+    snapshot.forEach((item) => {
+      const data = item.data();
+      const questionId = data && data.questionId ? String(data.questionId) : item.id;
+      const value = normalizeLearningState(data && data.state);
+      if (value !== 'unknown') nextStates[questionId] = value;
+    });
+    return nextStates;
+  }
+
+  function loadLocalLearningStates() {
     try {
       const parsed = JSON.parse(localStorage.getItem(LEARNING_STATE_STORAGE_KEY) || '{}');
       return parsed && typeof parsed === 'object' ? parsed : {};
@@ -674,16 +720,51 @@
 
   function getLearningState(questionId) {
     const value = state && questionId ? state.learningStates[questionId] : '';
-    return ['mastered', 'review'].includes(value) ? value : 'unknown';
+    return normalizeLearningState(value);
   }
 
   function setLearningState(questionId, value) {
-    if (value === 'unknown') {
+    const nextValue = normalizeLearningState(value);
+    if (nextValue === 'unknown') {
       delete state.learningStates[questionId];
     } else {
-      state.learningStates[questionId] = value;
+      state.learningStates[questionId] = nextValue;
     }
+
+    if (canUseFirestoreLearningState()) {
+      saveFirestoreLearningState(questionId, nextValue).catch(() => {
+        saveLearningStates();
+      });
+      return;
+    }
+
     saveLearningStates();
+  }
+
+  function canUseFirestoreLearningState() {
+    return Boolean(firebaseLearningState.ready && firebaseLearningState.user && firebaseLearningState.api);
+  }
+
+  async function saveFirestoreLearningState(questionId, value) {
+    const firebase = firebaseLearningState.api;
+    const uid = firebaseLearningState.user.uid;
+    const currentState = normalizeLearningState(value);
+    const previousDoc = await firebase.getDoc(firebase.doc(firebase.db, 'users', uid, 'learningState', questionId));
+    const previous = previousDoc.exists() ? previousDoc.data() : {};
+    const previousReviewCount = Number(previous.reviewCount || 0);
+
+    await firebase.setDoc(firebase.doc(firebase.db, 'users', uid, 'learningState', questionId), {
+      questionId,
+      state: currentState,
+      lastReviewedAt: firebase.serverTimestamp(),
+      reviewCount: previousReviewCount + 1,
+      updatedAt: firebase.serverTimestamp(),
+      source: LEARNING_STATE_SOURCE
+    }, { merge: true });
+  }
+
+  function normalizeLearningState(value) {
+    return ['mastered', 'review'].includes(value) ? value : 'unknown';
   }
 
   function countLearningStates(questions) {
