@@ -11,8 +11,29 @@
 
   const PAGE_SIZE = 10;
   const LEARNING_STATE_STORAGE_KEY = 'ehs.practiceHub.learningState.v1';
+  const SCHEDULER_STORAGE_KEY = 'ehs.practiceHub.scheduler.v1';
   const LEARNING_STATE_SOURCE = 'practice-hub';
   const LEARNING_STATE_SCHEMA_VERSION = 2;
+  const FSRS_VERSION = 'ts-fsrs@5.2.3';
+  const FSRS_PILOT_QUESTION_IDS = new Set([
+    'qb-pilot-prep-reactive-proactive',
+    'qb-pilot-prep-hierarchy-controls',
+    'qb-pilot-prep-safety-program-responsibility',
+    'qb-pilot-prep-safety-trustee-role',
+    'qb-pilot-summary-knesset-law'
+  ]);
+  const FSRS_RATING_LABELS = {
+    again: 'שוב',
+    hard: 'קשה',
+    good: 'טוב',
+    easy: 'קל'
+  };
+  const FSRS_RATING_TO_STATE = {
+    again: 'review',
+    hard: 'mastered',
+    good: 'mastered',
+    easy: 'mastered'
+  };
   const EMPTY_SCHEDULER = {
     type: null,
     version: null,
@@ -23,7 +44,10 @@
     lapses: 0,
     lastRating: null,
     scheduledDays: null,
-    elapsedDays: null
+    elapsedDays: null,
+    fsrsState: null,
+    learningSteps: null,
+    lastReviewAt: null
   };
 
   const LEARNING_STATE_LABELS = {
@@ -85,6 +109,7 @@
         bindRevealMode();
         bindBookmarkMode();
         bindLearningStateMode();
+        bindFsrsMode();
         bindPagination();
         initPersistentLearningState();
       })
@@ -133,7 +158,8 @@
         page: 1,
         pageSize: PAGE_SIZE
       },
-      learningStates: loadLocalLearningStates()
+      learningStates: loadLocalLearningStates(),
+      schedulers: loadLocalSchedulers()
     };
   }
 
@@ -214,6 +240,21 @@
     });
   }
 
+  function bindFsrsMode() {
+    document.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-qb-fsrs-rating]');
+      if (!button || !state) return;
+
+      const questionId = button.dataset.qbQuestionId;
+      const rating = button.dataset.qbFsrsRating;
+      if (!questionId || !FSRS_PILOT_QUESTION_IDS.has(questionId) || !FSRS_RATING_LABELS[rating]) return;
+
+      setFsrsRating(questionId, rating).catch((error) => {
+        updateFsrsStatus(questionId, `שגיאה בשמירת חזרה חכמה: ${error.message || error}`);
+      });
+    });
+  }
+
   function bindPagination() {
     document.addEventListener('click', (event) => {
       const actionButton = event.target.closest('[data-qb-page-action]');
@@ -247,11 +288,14 @@
     if (!target || !state) return;
 
     const counts = countLearningStates(state.questions);
+    const fsrsCounts = countFsrsDueStates();
     const cards = [
       [counts.mastered, 'ידעתי'],
       [counts.review, 'צריך חזרה'],
       [counts.unknown, 'לא סומנו']
     ];
+
+    cards.push([fsrsCounts.today, 'לחזרה היום'], [fsrsCounts.future, 'לחזרה בהמשך']);
 
     target.innerHTML = cards.map(([count, label]) => `
       <article class="qb-state-card">
@@ -438,6 +482,7 @@
           <p><strong>הסבר:</strong> ${escapeHtml(question.explanation || '')}</p>
 
           ${renderLearningStateControls(question)}
+          ${renderFsrsControls(question)}
 
           <section class="qb-learning-nav" aria-label="קשור ללמידה">
             <p class="qb-section-title">קשור ללמידה</p>
@@ -487,6 +532,32 @@
           </button>
         </div>
         <span class="qb-state-current" data-qb-learning-state-current="${escapeAttribute(questionId)}">${escapeHtml(learningStateDisplay(current))}</span>
+      </section>
+    `;
+  }
+
+  function renderFsrsControls(question) {
+    const questionId = question.questionId || '';
+    if (!FSRS_PILOT_QUESTION_IDS.has(questionId)) return '';
+
+    const scheduler = getScheduler(questionId);
+    const disabled = fsrsRuntime() ? '' : 'disabled';
+    const status = fsrsRuntime()
+      ? fsrsStatusText(scheduler)
+      : 'חזרה חכמה אינה זמינה בדפדפן הזה.';
+
+    return `
+      <section class="qb-fsrs-panel" data-qb-fsrs-panel="${escapeAttribute(questionId)}" aria-label="חזרה חכמה ניסיונית">
+        <p><strong>חזרה חכמה — ניסיוני</strong></p>
+        <p>בחר עד כמה היה קל לשלוף את התשובה. הבחירה מחשבת מועד חזרה עתידי עבור שאלה זו בלבד.</p>
+        <div class="qb-fsrs-actions">
+          ${Object.entries(FSRS_RATING_LABELS).map(([value, label]) => `
+            <button class="qb-fsrs-button" type="button" data-qb-fsrs-rating="${escapeAttribute(value)}" data-qb-question-id="${escapeAttribute(questionId)}" ${disabled}>
+              ${escapeHtml(label)}
+            </button>
+          `).join('')}
+        </div>
+        <span class="qb-fsrs-status" data-qb-fsrs-status="${escapeAttribute(questionId)}">${escapeHtml(status)}</span>
       </section>
     `;
   }
@@ -687,7 +758,9 @@
         if (!user) return;
 
         try {
-          state.learningStates = await loadFirestoreLearningStates(user.uid);
+          const persisted = await loadFirestoreLearningStates(user.uid);
+          state.learningStates = persisted.learningStates;
+          state.schedulers = persisted.schedulers;
           renderLearningDashboard();
           renderQuestions();
         } catch (error) {
@@ -705,13 +778,16 @@
     const firebase = firebaseLearningState.api;
     const snapshot = await firebase.getDocs(firebase.collection(firebase.db, 'users', uid, 'learningState'));
     const nextStates = {};
+    const nextSchedulers = {};
     snapshot.forEach((item) => {
       const data = item.data();
       const questionId = data && data.questionId ? String(data.questionId) : item.id;
       const value = normalizeLearningState(data && data.state);
       if (value !== 'unknown') nextStates[questionId] = value;
+      const scheduler = normalizeScheduler(data && data.scheduler);
+      if (scheduler.type === 'fsrs') nextSchedulers[questionId] = scheduler;
     });
-    return nextStates;
+    return { learningStates: nextStates, schedulers: nextSchedulers };
   }
 
   function loadLocalLearningStates() {
@@ -731,9 +807,30 @@
     }
   }
 
+  function loadLocalSchedulers() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(SCHEDULER_STORAGE_KEY) || '{}');
+      return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function saveLocalSchedulers() {
+    try {
+      localStorage.setItem(SCHEDULER_STORAGE_KEY, JSON.stringify(state.schedulers));
+    } catch (error) {
+      // Scheduler state is experimental; failure to persist should not block practice.
+    }
+  }
+
   function getLearningState(questionId) {
     const value = state && questionId ? state.learningStates[questionId] : '';
     return normalizeLearningState(value);
+  }
+
+  function getScheduler(questionId) {
+    return normalizeScheduler(state && questionId ? state.schedulers[questionId] : null);
   }
 
   function setLearningState(questionId, value) {
@@ -754,17 +851,133 @@
     saveLearningStates();
   }
 
+  async function setFsrsRating(questionId, rating) {
+    const scheduler = calculateFsrsScheduler(questionId, rating);
+    const nextState = FSRS_RATING_TO_STATE[rating] || 'unknown';
+
+    if (nextState === 'unknown') {
+      delete state.learningStates[questionId];
+    } else {
+      state.learningStates[questionId] = nextState;
+    }
+    state.schedulers[questionId] = scheduler;
+
+    if (canUseFirestoreLearningState()) {
+      try {
+        await saveFirestoreLearningState(questionId, nextState, scheduler);
+      } catch (error) {
+        saveLearningStates();
+        saveLocalSchedulers();
+        throw error;
+      }
+    } else {
+      saveLearningStates();
+      saveLocalSchedulers();
+    }
+
+    updateLearningStateControls(questionId);
+    updateFsrsStatus(questionId, fsrsStatusText(scheduler));
+    renderLearningDashboard();
+  }
+
+  function calculateFsrsScheduler(questionId, rating) {
+    const runtime = fsrsRuntime();
+    if (!runtime) throw new Error('FSRS runtime is unavailable.');
+
+    const now = new Date();
+    const previous = getScheduler(questionId);
+    const card = schedulerToFsrsCard(previous, now, runtime);
+    const result = runtime.fsrs().next(card, now, runtime.Rating[ratingName(rating)]);
+    return schedulerFromFsrsResult(result.card, rating, now);
+  }
+
+  function schedulerToFsrsCard(scheduler, now, runtime) {
+    if (!scheduler || scheduler.type !== 'fsrs') return runtime.createEmptyCard(now);
+
+    return {
+      due: dateOrNow(scheduler.nextReviewAt, now),
+      stability: numberOrZero(scheduler.stability),
+      difficulty: numberOrZero(scheduler.difficulty),
+      elapsed_days: nonNegativeNumber(scheduler.elapsedDays),
+      scheduled_days: nonNegativeNumber(scheduler.scheduledDays),
+      reps: nonNegativeNumber(scheduler.repetitions),
+      lapses: nonNegativeNumber(scheduler.lapses),
+      learning_steps: nonNegativeNumber(scheduler.learningSteps),
+      state: typeof scheduler.fsrsState === 'number' ? scheduler.fsrsState : 0,
+      last_review: scheduler.lastReviewAt ? dateOrNow(scheduler.lastReviewAt, now) : undefined
+    };
+  }
+
+  function schedulerFromFsrsResult(card, rating, now) {
+    return normalizeScheduler({
+      type: 'fsrs',
+      version: FSRS_VERSION,
+      stability: card.stability,
+      difficulty: card.difficulty,
+      nextReviewAt: card.due,
+      repetitions: card.reps,
+      lapses: card.lapses,
+      lastRating: rating,
+      scheduledDays: card.scheduled_days,
+      elapsedDays: card.elapsed_days,
+      fsrsState: card.state,
+      learningSteps: card.learning_steps,
+      lastReviewAt: card.last_review || now
+    });
+  }
+
+  function fsrsRuntime() {
+    const runtime = window.FSRS;
+    if (!runtime || typeof runtime.fsrs !== 'function' || typeof runtime.createEmptyCard !== 'function') return null;
+    if (!runtime.Rating) return null;
+    return runtime;
+  }
+
+  function ratingName(rating) {
+    return ({ again: 'Again', hard: 'Hard', good: 'Good', easy: 'Easy' })[rating] || 'Good';
+  }
+
+  function fsrsStatusText(scheduler) {
+    if (!scheduler || scheduler.type !== 'fsrs' || !scheduler.nextReviewAt) {
+      return 'עדיין לא נקבע מועד חזרה חכמה לשאלה זו.';
+    }
+
+    const due = dateOrNull(scheduler.nextReviewAt);
+    const rating = FSRS_RATING_LABELS[scheduler.lastRating] || scheduler.lastRating || '';
+    const prefix = isDueToday(due) ? 'לחזרה היום' : 'לחזרה בהמשך';
+    return `${prefix}: ${formatDate(due)}${rating ? ` | דירוג אחרון: ${rating}` : ''}`;
+  }
+
+  function updateFsrsStatus(questionId, text) {
+    const target = document.querySelector(`[data-qb-fsrs-status="${cssEscape(questionId)}"]`);
+    if (target) target.textContent = text;
+  }
+
+  function countFsrsDueStates() {
+    const now = new Date();
+    return Array.from(FSRS_PILOT_QUESTION_IDS).reduce((counts, questionId) => {
+      const scheduler = getScheduler(questionId);
+      if (scheduler.type !== 'fsrs' || !scheduler.nextReviewAt) return counts;
+      const due = dateOrNull(scheduler.nextReviewAt);
+      if (!due) return counts;
+      if (due <= endOfToday(now)) counts.today += 1;
+      else counts.future += 1;
+      return counts;
+    }, { today: 0, future: 0 });
+  }
+
   function canUseFirestoreLearningState() {
     return Boolean(firebaseLearningState.ready && firebaseLearningState.user && firebaseLearningState.api);
   }
 
-  async function saveFirestoreLearningState(questionId, value) {
+  async function saveFirestoreLearningState(questionId, value, schedulerOverride) {
     const firebase = firebaseLearningState.api;
     const uid = firebaseLearningState.user.uid;
     const currentState = normalizeLearningState(value);
     const previousDoc = await firebase.getDoc(firebase.doc(firebase.db, 'users', uid, 'learningState', questionId));
     const previous = previousDoc.exists() ? previousDoc.data() : {};
     const previousReviewCount = Number(previous.reviewCount || 0);
+    const scheduler = schedulerOverride ? normalizeScheduler(schedulerOverride) : normalizeScheduler(previous.scheduler);
 
     await firebase.setDoc(firebase.doc(firebase.db, 'users', uid, 'learningState', questionId), {
       questionId,
@@ -773,7 +986,7 @@
       reviewCount: previousReviewCount + 1,
       updatedAt: firebase.serverTimestamp(),
       schemaVersion: LEARNING_STATE_SCHEMA_VERSION,
-      scheduler: normalizeScheduler(previous.scheduler),
+      scheduler: firestoreScheduler(scheduler),
       source: LEARNING_STATE_SOURCE
     }, { merge: true });
   }
@@ -787,12 +1000,23 @@
       version: value.version ? String(value.version) : null,
       stability: typeof value.stability === 'number' ? value.stability : null,
       difficulty: typeof value.difficulty === 'number' ? value.difficulty : null,
-      nextReviewAt: value.nextReviewAt || null,
+      nextReviewAt: dateIsoOrNull(value.nextReviewAt),
       repetitions: Math.max(0, Number(value.repetitions || 0)),
       lapses: Math.max(0, Number(value.lapses || 0)),
       lastRating: ['again', 'hard', 'good', 'easy'].includes(value.lastRating) ? value.lastRating : null,
       scheduledDays: typeof value.scheduledDays === 'number' ? value.scheduledDays : null,
-      elapsedDays: typeof value.elapsedDays === 'number' ? value.elapsedDays : null
+      elapsedDays: typeof value.elapsedDays === 'number' ? value.elapsedDays : null,
+      fsrsState: typeof value.fsrsState === 'number' ? value.fsrsState : null,
+      learningSteps: typeof value.learningSteps === 'number' ? value.learningSteps : null,
+      lastReviewAt: dateIsoOrNull(value.lastReviewAt)
+    };
+  }
+
+  function firestoreScheduler(scheduler) {
+    return {
+      ...scheduler,
+      nextReviewAt: scheduler.nextReviewAt ? new Date(scheduler.nextReviewAt) : null,
+      lastReviewAt: scheduler.lastReviewAt ? new Date(scheduler.lastReviewAt) : null
     };
   }
 
@@ -825,6 +1049,51 @@
 
     const label = panel.querySelector('[data-qb-learning-state-current]');
     if (label) label.textContent = learningStateDisplay(current);
+  }
+
+  function dateIsoOrNull(value) {
+    const date = dateOrNull(value);
+    return date ? date.toISOString() : null;
+  }
+
+  function dateOrNull(value) {
+    if (!value) return null;
+    if (value instanceof Date && !Number.isNaN(value.getTime())) return value;
+    if (typeof value.toDate === 'function') {
+      const date = value.toDate();
+      return Number.isNaN(date.getTime()) ? null : date;
+    }
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? null : date;
+  }
+
+  function dateOrNow(value, now) {
+    return dateOrNull(value) || now;
+  }
+
+  function numberOrZero(value) {
+    return typeof value === 'number' && Number.isFinite(value) ? value : 0;
+  }
+
+  function nonNegativeNumber(value) {
+    const number = Number(value || 0);
+    return Number.isFinite(number) && number > 0 ? number : 0;
+  }
+
+  function endOfToday(now) {
+    const end = new Date(now);
+    end.setHours(23, 59, 59, 999);
+    return end;
+  }
+
+  function isDueToday(date) {
+    if (!date) return false;
+    return date <= endOfToday(new Date());
+  }
+
+  function formatDate(date) {
+    if (!date) return '';
+    return date.toLocaleDateString('he-IL', { day: '2-digit', month: '2-digit', year: 'numeric' });
   }
 
   function cssEscape(value) {

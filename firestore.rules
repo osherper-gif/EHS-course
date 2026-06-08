@@ -221,7 +221,10 @@ service cloud.firestore {
           "lapses",
           "lastRating",
           "scheduledDays",
-          "elapsedDays"
+          "elapsedDays",
+          "fsrsState",
+          "learningSteps",
+          "lastReviewAt"
         ])
         && (request.resource.data.scheduler.type == null || request.resource.data.scheduler.type == "fsrs")
         && (request.resource.data.scheduler.version == null || request.resource.data.scheduler.version is string)
@@ -235,7 +238,16 @@ service cloud.firestore {
           || request.resource.data.scheduler.lastRating in ["again", "hard", "good", "easy"]
         )
         && validSchedulerNumberOrNull(request.resource.data.scheduler.scheduledDays)
-        && validSchedulerNumberOrNull(request.resource.data.scheduler.elapsedDays);
+        && validSchedulerNumberOrNull(request.resource.data.scheduler.elapsedDays)
+        && (
+          request.resource.data.scheduler.fsrsState == null
+          || request.resource.data.scheduler.fsrsState in [0, 1, 2, 3]
+        )
+        && (
+          request.resource.data.scheduler.learningSteps == null
+          || validSchedulerNonNegativeNumber(request.resource.data.scheduler.learningSteps)
+        )
+        && validSchedulerTimestampOrNull(request.resource.data.scheduler.lastReviewAt);
     }
 
     function validLearningStateScheduler() {

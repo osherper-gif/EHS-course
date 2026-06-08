@@ -365,6 +365,53 @@
       font-weight: 800;
     }
 
+    .qb-fsrs-panel {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 12px;
+      border: 1px solid #c7d2fe;
+      border-radius: 10px;
+      background: #f8faff;
+    }
+
+    .qb-fsrs-panel p {
+      margin: 0;
+      color: var(--qb-muted);
+      font-size: .86rem;
+    }
+
+    .qb-fsrs-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .qb-fsrs-button {
+      min-height: 36px;
+      border: 1px solid #c7d2fe;
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      color: #3730a3;
+      font: inherit;
+      font-size: .84rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .qb-fsrs-button:hover,
+    .qb-fsrs-button:focus-visible {
+      background: #eef2ff;
+      outline: 3px solid rgba(67, 56, 202, .14);
+    }
+
+    .qb-fsrs-status {
+      color: #3730a3;
+      font-size: .86rem;
+      font-weight: 800;
+    }
+
     .qb-state-actions {
       display: flex;
       flex-wrap: wrap;
@@ -727,6 +774,7 @@
     </main>
   </div>
 
+  <script src="../js/vendor/ts-fsrs/index.umd.js"></script>
   <script src="../js/question-bank-pilot.js"></script>
 </body>
 </html>
