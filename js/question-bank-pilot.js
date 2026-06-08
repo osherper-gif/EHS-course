@@ -12,6 +12,19 @@
   const PAGE_SIZE = 10;
   const LEARNING_STATE_STORAGE_KEY = 'ehs.practiceHub.learningState.v1';
   const LEARNING_STATE_SOURCE = 'practice-hub';
+  const LEARNING_STATE_SCHEMA_VERSION = 2;
+  const EMPTY_SCHEDULER = {
+    type: null,
+    version: null,
+    stability: null,
+    difficulty: null,
+    nextReviewAt: null,
+    repetitions: 0,
+    lapses: 0,
+    lastRating: null,
+    scheduledDays: null,
+    elapsedDays: null
+  };
 
   const LEARNING_STATE_LABELS = {
     unknown: 'לא סומן',
@@ -759,8 +772,28 @@
       lastReviewedAt: firebase.serverTimestamp(),
       reviewCount: previousReviewCount + 1,
       updatedAt: firebase.serverTimestamp(),
+      schemaVersion: LEARNING_STATE_SCHEMA_VERSION,
+      scheduler: normalizeScheduler(previous.scheduler),
       source: LEARNING_STATE_SOURCE
     }, { merge: true });
+  }
+
+  function normalizeScheduler(value) {
+    if (!value || typeof value !== 'object') return { ...EMPTY_SCHEDULER };
+
+    return {
+      ...EMPTY_SCHEDULER,
+      type: value.type === 'fsrs' ? 'fsrs' : null,
+      version: value.version ? String(value.version) : null,
+      stability: typeof value.stability === 'number' ? value.stability : null,
+      difficulty: typeof value.difficulty === 'number' ? value.difficulty : null,
+      nextReviewAt: value.nextReviewAt || null,
+      repetitions: Math.max(0, Number(value.repetitions || 0)),
+      lapses: Math.max(0, Number(value.lapses || 0)),
+      lastRating: ['again', 'hard', 'good', 'easy'].includes(value.lastRating) ? value.lastRating : null,
+      scheduledDays: typeof value.scheduledDays === 'number' ? value.scheduledDays : null,
+      elapsedDays: typeof value.elapsedDays === 'number' ? value.elapsedDays : null
+    };
   }
 
   function normalizeLearningState(value) {

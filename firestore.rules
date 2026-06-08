@@ -178,7 +178,9 @@ service cloud.firestore {
         "lastReviewedAt",
         "reviewCount",
         "updatedAt",
-        "source"
+        "source",
+        "schemaVersion",
+        "scheduler"
       ]);
     }
 
@@ -188,6 +190,57 @@ service cloud.firestore {
 
     function validLearningStateSource() {
       return request.resource.data.source == "practice-hub";
+    }
+
+    function validLearningStateSchemaVersion() {
+      return !request.resource.data.keys().hasAny(["schemaVersion"])
+        || request.resource.data.schemaVersion == 2;
+    }
+
+    function validSchedulerNumberOrNull(value) {
+      return value == null || value is number;
+    }
+
+    function validSchedulerNonNegativeNumber(value) {
+      return value is number && value >= 0;
+    }
+
+    function validSchedulerTimestampOrNull(value) {
+      return value == null || value is timestamp;
+    }
+
+    function validSchedulerObject() {
+      return request.resource.data.scheduler is map
+        && request.resource.data.scheduler.keys().hasOnly([
+          "type",
+          "version",
+          "stability",
+          "difficulty",
+          "nextReviewAt",
+          "repetitions",
+          "lapses",
+          "lastRating",
+          "scheduledDays",
+          "elapsedDays"
+        ])
+        && (request.resource.data.scheduler.type == null || request.resource.data.scheduler.type == "fsrs")
+        && (request.resource.data.scheduler.version == null || request.resource.data.scheduler.version is string)
+        && validSchedulerNumberOrNull(request.resource.data.scheduler.stability)
+        && validSchedulerNumberOrNull(request.resource.data.scheduler.difficulty)
+        && validSchedulerTimestampOrNull(request.resource.data.scheduler.nextReviewAt)
+        && validSchedulerNonNegativeNumber(request.resource.data.scheduler.repetitions)
+        && validSchedulerNonNegativeNumber(request.resource.data.scheduler.lapses)
+        && (
+          request.resource.data.scheduler.lastRating == null
+          || request.resource.data.scheduler.lastRating in ["again", "hard", "good", "easy"]
+        )
+        && validSchedulerNumberOrNull(request.resource.data.scheduler.scheduledDays)
+        && validSchedulerNumberOrNull(request.resource.data.scheduler.elapsedDays);
+    }
+
+    function validLearningStateScheduler() {
+      return !request.resource.data.keys().hasAny(["scheduler"])
+        || validSchedulerObject();
     }
 
     function validSelfUserCreateKeys() {
@@ -283,6 +336,8 @@ service cloud.firestore {
           && validLearningStateKeys()
           && validLearningStateValue()
           && validLearningStateSource()
+          && validLearningStateSchemaVersion()
+          && validLearningStateScheduler()
           && noProgressAnswerLeakage();
         allow delete: if false;
       }
