@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://*.firebaseapp.com https://accounts.google.com;">
+  <meta name="description" content="חזרה חכמה על שאלות שסומנו לחזרה או שהגיע הזמן לחזור עליהן.">
+  <title>חזרה חכמה | קורס ממונה בטיחות</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .sr-page {
+      --sr-brand: #0f5f75;
+      --sr-brand-dark: #0a4b5d;
+      --sr-soft: #f8fafc;
+      --sr-ink: #172033;
+      --sr-muted: #64748b;
+      --sr-border: #dbe7ef;
+      --sr-ok: #047857;
+      --sr-ok-bg: #ecfdf5;
+      --sr-review: #92400e;
+      --sr-review-bg: #fffbeb;
+      --sr-standard: #4338ca;
+      --sr-standard-bg: #eef2ff;
+      background: #f1f5f9;
+      color: var(--sr-ink);
+      line-height: 1.65;
+    }
+
+    .sr-shell {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 20px 0 56px;
+    }
+
+    .sr-topbar,
+    .sr-hero,
+    .sr-panel,
+    .sr-card {
+      border: 1px solid var(--sr-border);
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, .06);
+    }
+
+    .sr-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    .sr-brand,
+    .sr-link-button {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .sr-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sr-brand-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: var(--sr-brand);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .sr-brand strong,
+    .sr-brand small {
+      display: block;
+    }
+
+    .sr-brand small,
+    .sr-muted {
+      color: var(--sr-muted);
+      font-size: .86rem;
+    }
+
+    .sr-hero {
+      padding: clamp(20px, 3vw, 32px);
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #e4f5fa 0%, #fff 70%);
+    }
+
+    .sr-hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.55rem, 4vw, 2.2rem);
+      line-height: 1.15;
+    }
+
+    .sr-hero p {
+      max-width: 760px;
+      margin: 0 0 14px;
+      color: #475569;
+    }
+
+    .sr-kicker {
+      margin: 0 0 6px;
+      color: var(--sr-brand);
+      font-size: .76rem;
+      font-weight: 800;
+    }
+
+    .sr-actions,
+    .sr-meta-row,
+    .sr-option-actions,
+    .sr-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sr-link-button,
+    .sr-button,
+    .sr-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      border: 1px solid var(--sr-border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: var(--sr-soft);
+      color: var(--sr-brand);
+      font: inherit;
+      font-size: .84rem;
+      font-weight: 800;
+    }
+
+    .sr-button {
+      cursor: pointer;
+    }
+
+    .sr-button[data-primary="true"],
+    .sr-link-button[data-primary="true"] {
+      border-color: var(--sr-brand);
+      background: var(--sr-brand);
+      color: #fff;
+    }
+
+    .sr-button:hover,
+    .sr-button:focus-visible,
+    .sr-link-button:hover,
+    .sr-link-button:focus-visible {
+      outline: 3px solid rgba(15, 95, 117, .16);
+      border-color: var(--sr-brand);
+    }
+
+    .sr-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .sr-summary-card {
+      border: 1px solid var(--sr-border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      background: #fff;
+      border-inline-start: 4px solid var(--sr-brand);
+    }
+
+    .sr-summary-card strong {
+      display: block;
+      font-size: 1.75rem;
+      line-height: 1;
+      color: var(--sr-brand);
+    }
+
+    .sr-summary-card span {
+      display: block;
+      margin-top: 5px;
+      color: var(--sr-muted);
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .sr-panel {
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .sr-panel h2 {
+      margin: 0 0 12px;
+      font-size: 1.18rem;
+    }
+
+    .sr-question-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .sr-card {
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .sr-card h3 {
+      margin: 10px 0;
+      font-size: 1.08rem;
+      line-height: 1.45;
+    }
+
+    .sr-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border: 1px solid var(--sr-border);
+      border-radius: 999px;
+      padding: 3px 9px;
+      background: var(--sr-soft);
+      color: #475569;
+      font-size: .76rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .sr-badge[data-kind="review"] {
+      background: var(--sr-review-bg);
+      border-color: #fde68a;
+      color: var(--sr-review);
+    }
+
+    .sr-badge[data-kind="ok"] {
+      background: var(--sr-ok-bg);
+      border-color: #86efac;
+      color: var(--sr-ok);
+    }
+
+    .sr-badge[data-kind="fsrs"] {
+      background: var(--sr-standard-bg);
+      border-color: #c7d2fe;
+      color: var(--sr-standard);
+    }
+
+    .sr-options {
+      display: grid;
+      gap: 7px;
+      margin: 12px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .sr-option {
+      border: 1px solid var(--sr-border);
+      border-radius: 8px;
+      padding: 9px 12px;
+      background: var(--sr-soft);
+    }
+
+    .sr-card[data-revealed="true"] .sr-option[data-correct="true"] {
+      border-color: #86efac;
+      background: var(--sr-ok-bg);
+      color: var(--sr-ok);
+      font-weight: 700;
+    }
+
+    .sr-answer-panel {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--sr-border);
+    }
+
+    .sr-answer-panel[hidden],
+    .sr-reveal-button[hidden] {
+      display: none;
+    }
+
+    .sr-control-panel {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 12px;
+      border: 1px solid var(--sr-border);
+      border-radius: 10px;
+      background: var(--sr-soft);
+    }
+
+    .sr-control-panel[data-kind="fsrs"] {
+      border-color: #c7d2fe;
+      background: #f8faff;
+    }
+
+    .sr-control-panel p {
+      margin: 0;
+      color: var(--sr-muted);
+      font-size: .86rem;
+      font-weight: 800;
+    }
+
+    .sr-source-details {
+      margin-top: 14px;
+    }
+
+    .sr-source-details summary {
+      width: fit-content;
+      border: 1px solid var(--sr-border);
+      border-radius: 999px;
+      padding: 6px 11px;
+      background: var(--sr-soft);
+      color: var(--sr-brand);
+      font-size: .82rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .sr-governance {
+      margin-top: 12px;
+      padding: 12px;
+      border: 1px solid var(--sr-border);
+      border-radius: 9px;
+      background: var(--sr-soft);
+      font-size: .84rem;
+    }
+
+    .sr-empty,
+    .sr-error {
+      padding: 18px;
+      border-radius: 12px;
+    }
+
+    .sr-empty {
+      border: 1px dashed var(--sr-border);
+      background: #fff;
+      color: var(--sr-muted);
+    }
+
+    .sr-error {
+      border: 1px solid #fecaca;
+      background: #fef2f2;
+      color: #7f1d1d;
+    }
+
+    @media (max-width: 640px) {
+      .sr-shell {
+        width: calc(100% - 20px);
+        padding-top: 12px;
+      }
+
+      .sr-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body class="sr-page" data-page-title="חזרה חכמה">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <div class="sr-shell">
+    <header class="sr-topbar" aria-label="כותרת עמוד">
+      <a class="sr-brand" href="../index.html">
+        <span class="sr-brand-mark">EHS</span>
+        <span>
+          <strong>קורס ממונה בטיחות</strong>
+          <small>חזרה חכמה</small>
+        </span>
+      </a>
+      <a class="sr-link-button" href="question-bank-pilot.html">חזרה למרכז התרגול</a>
+    </header>
+
+    <main id="main">
+      <section class="sr-hero">
+        <p class="sr-kicker">Smart Review Pilot</p>
+        <h1>חזרה חכמה</h1>
+        <p>כאן מופיעות שאלות שסומנו לחזרה או שהגיע הזמן לחזור עליהן. זהו תור חזרה ממוקד, לא מאגר התרגול המלא.</p>
+        <div class="sr-actions">
+          <a class="sr-link-button" data-primary="true" href="question-bank-pilot.html">חזרה למרכז התרגול</a>
+          <span class="sr-chip">ללא ניקוד</span>
+          <span class="sr-chip">ללא סימולציה</span>
+        </div>
+      </section>
+
+      <section class="sr-summary-grid" data-sr-summary aria-label="סיכום חזרה">
+        <article class="sr-summary-card">
+          <strong>...</strong>
+          <span>טוען מצב חזרה</span>
+        </article>
+      </section>
+
+      <section class="sr-panel" aria-labelledby="dueNowTitle">
+        <h2 id="dueNowTitle">לחזרה עכשיו</h2>
+        <div class="sr-question-list" data-sr-due-now></div>
+      </section>
+
+      <section class="sr-panel" aria-labelledby="dueLaterTitle">
+        <h2 id="dueLaterTitle">לחזרה בהמשך</h2>
+        <div class="sr-question-list" data-sr-due-later></div>
+      </section>
+
+      <section class="sr-panel" data-sr-empty hidden>
+        <div class="sr-empty">
+          <h2>אין שאלות לחזרה כרגע</h2>
+          <p>כאשר תסמן שאלות כ״צריך חזרה״ או כאשר יגיע מועד חזרה חכמה, הן יופיעו כאן.</p>
+          <a class="sr-link-button" data-primary="true" href="question-bank-pilot.html">חזרה למרכז התרגול</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/vendor/ts-fsrs/index.umd.js"></script>
+  <script src="../js/smart-review-pilot.js"></script>
+</body>
+</html>
