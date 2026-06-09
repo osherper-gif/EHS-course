@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="description" content="סיכום לשיעור 11 - שיטות ריתוך, בטיחות בריתוך, שיטת לפי התהליך">
+  <title>סיכום לשיעור 11 - שיטות ריתוך, בטיחות בריתוך, שיטת לפי התהליך</title>
+  <script src="../../js/ui-mode.js"></script>
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <link rel="stylesheet" href="../../css/summary-stability.css">
+  <style>
+    .lesson-doc-meta, .lesson-source-note { background: rgba(8,100,128,.07); border: 1px solid rgba(8,100,128,.18); border-radius: 14px; padding: 1rem; margin: 1rem 0; }
+    .summary-quick-nav { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin: 1rem 0 1.25rem; }
+    .summary-quick-nav a { background: var(--proto-surface); border: 1px solid var(--proto-border); border-radius: 999px; color: var(--proto-text); font-weight: 800; padding: .72rem .9rem; text-align: center; text-decoration: none; }
+    .summary-foldout { margin: 1rem 0; }
+    .summary-foldout > summary { min-height: 58px; }
+    .summary-foldout > summary > strong { display: block; flex: 1 1 auto; line-height: 1.45; min-width: 0; }
+    .foldout-kicker { color: var(--proto-muted); display: inline-block; flex: 0 0 auto; font-size: .82rem; font-weight: 900; margin-inline-start: .6rem; white-space: nowrap; }
+    .foldout-content { padding-block-start: .35rem; }
+    .foldout-content p { line-height: 1.75; margin: .65rem 0; }
+    .topic-tags { display: flex; flex-wrap: wrap; gap: .45rem; margin: .85rem 0 0; }
+    .topic-tags span { background: rgba(8,100,128,.09); border: 1px solid rgba(8,100,128,.22); border-radius: 999px; color: var(--proto-text); font-weight: 800; padding: .38rem .65rem; }
+    @media (max-width: 720px) { .summary-quick-nav { grid-template-columns: 1fr; } .foldout-kicker { white-space: normal; } }
+  </style>
+</head>
+<body data-course-id="safety-officer" data-domain-id="safety" data-page-title="סיכום לשיעור 11 - שיטות ריתוך, בטיחות בריתוך, שיטת לפי התהליך" class="auth-protected lms-pro prototype-shell prototype-shell-page summary-page">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <main id="main" class="site-main prep-page" data-course-id="safety-officer" data-domain-id="safety" data-readable-content>
+    <section class="page-hero">
+      <div>
+        <p class="kicker">סיכום שיעור 11</p>
+        <h1>שיטות ריתוך, בטיחות בריתוך, שיטת לפי התהליך</h1>
+        <p>עמוד זה מציג סיכום לימודי של שיעור 11 במבנה RTL עם פרקי תוכן סגורים כברירת מחדל.</p>
+        <div class="topic-tags" aria-label="תגיות נושא">
+          <span>סיכום</span>
+          <span>שיעור 11</span>
+          <span>ריתוך</span>
+          <span>60 שאלות</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson-source-note">
+      <p><strong>מקור התוכן:</strong> תקן ישראלי ת&quot;י 4348 - עבודות חמות; פקודת הבטיחות בעבודה [נוסח חדש], תש&quot;ל-1970; תקנות הבטיחות בעבודה (ציוד מגן אישי), תשנ&quot;ז-1997; מקור לימודי: חומר השיעור וההרצאה</p>
+      <p><strong>הערה:</strong> זהו חומר לימודי לקורס. יש לאמת דרישות מחייבות מול הדין, התקנות, התקנים והגורמים המוסמכים.</p>
+    </section>
+
+    <nav class="summary-quick-nav" aria-label="ניווט מהיר" data-read-aloud-exclude="true">
+      <a href="#intro">מבוא</a>
+      <a href="#legal-framework">המסגרת החוקית (ישראל)</a>
+      <a href="#welding-basics">יסודות הריתוך</a>
+      <a href="#gas-management">בלוני גז וניהול גזים</a>
+      <a href="#flashback">אל-חוזר ובולם להבה</a>
+      <a href="#confined-space">ריתוך במיכלים וחללים מוקפים</a>
+      <a href="#health-risks">סיכוני בריאות (נדפים וקרינה)</a>
+      <a href="#section-9">תפקיד ממונה הבטיחות - רשימת תיוג</a>
+      <a href="#section-10">מקרי בוחן, פסיקות ותאונות (תמצית)</a>
+      <a href="#section-11">מקרי בוחן מורחבים</a>
+      <a href="#summaryQuestions">שאלות</a>
+      <a href="#relatedLinks">קישורים</a>
+    </nav>
+
+    <details class="content-accordion summary-foldout" id="intro">
+      <summary><span class="foldout-kicker">מבוא</span><strong>מבוא</strong></summary>
+      <div class="foldout-content">
+        <p>ריתוך הוא תהליך חיבור מתכות באמצעות התכה וקירור. בתעשייה המודרנית, מדובר בפעולת אחזקה וייצור קריטית, אך היא טומנת בחובה סיכונים מרובי פנים.</p><p><strong>הגדרה:</strong> פעולה פיזיקלית לחיבור גופים על ידי חימום, התכה או שינוי צורה פלסטית.</p><p><strong>הקשר בטיחותי:</strong> ריתוך מסווג כ&quot;עבודה חמה&quot; (Hot Work) בשל ייצור ניצוצות, אש גלויה, פליטת נדפים רעילים וקרינה מייננת/בלתי מייננת.</p><p><strong>סטטיסטיקות:</strong> רוב התאונות בריתוך נובעות מכשל בניהול סביבת העבודה (שריפות) או חוסר בציוד מגן אישי (פגיעות עיניים ודרכי נשימה).</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="legal-framework">
+      <summary><span class="foldout-kicker">המסגרת החוקית (ישראל)</span><strong>המסגרת החוקית (ישראל)</strong></summary>
+      <div class="foldout-content">
+        <p><strong>פקודת הבטיחות בעבודה:</strong> מחייבת יצירת סביבה בטוחה ומניעת סיכונים מכל סוג.</p><p><strong>תקנות הבטיחות בעבודה (עבודות ריתוך):</strong> מסדירות את החובה במיגון עובדים ואוורור.</p><p><strong>ת&quot;י 4348 (עבודות חמות):</strong> התקן המנחה לניהול &quot;עבודה חמה&quot;. הגדרה: כל עבודה הגורמת לניצוצות או אש גלויה במקום שאינו מיועד לכך.</p><p><strong>אחריות:</strong> </p><p><strong>מעסיק:</strong> אספקת ציוד תקין, הדרכה, ובדיקות תקופתיות.</p><p><strong>ממונה בטיחות:</strong> ביצוע סקר סיכונים, אישור היתרי עבודה, ופיקוח בשטח.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="welding-basics">
+      <summary><span class="foldout-kicker">יסודות הריתוך</span><strong>יסודות הריתוך</strong></summary>
+      <div class="foldout-content">
+        <p><strong>ריתוך מול הלחמה:</strong> בריתוך, המתכת הבסיסית מותכת. בהלחמה, רק חומר המילוי מותך.</p><p><strong>גזי מגן:</strong> תפקידם למנוע מהחמצן באטמוספירה להגיע למתכת המותכת, מה שמונע חמצון (חלודה/סלקה) שפוגם בחוזק התפר.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="gas-management">
+      <summary><span class="foldout-kicker">בלוני גז וניהול גזים</span><strong>בלוני גז וניהול גזים</strong></summary>
+      <div class="foldout-content">
+        <p><strong>חמצן ואצטילן:</strong> אצטילן הוא גז לא יציב ומסוכן ביותר.</p><p><strong>בלון כ&quot;רקטה&quot;:</strong> אם שסתום הבלון נשבר בלחץ גבוה (כ-200 בר), הבלון הופך לטיל לא נשלט.</p><p><strong>אחסון:</strong> תמיד במצב אנכי, קשורים בשרשרת, עם כיפת הגנה. הפרדה מוחלטת בין חמצן לחומר דליק (מרחק של 6 מטרים או קיר אש).</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="flashback">
+      <summary><span class="foldout-kicker">אל-חוזר ובולם להבה</span><strong>אל-חוזר ובולם להבה</strong></summary>
+      <div class="foldout-content">
+        <p><strong>אל-חוזר (Non-return valve):</strong> מונע זרימה הפוכה של גז (חמצן חוזר לבלון האצטילן ויוצר תערובת נפץ).</p><p><strong>בולם להבה (Flashback arrestor):</strong> עוצר את גל ההדף והאש אם הלהבה נכנסת לתוך הצינור.</p><p><strong>מיקום:</strong> מותקנים תמיד על ידית הריתוך (או על הוסת ביציאה מהבלון, תלוי בסיכון).</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="confined-space">
+      <summary><span class="foldout-kicker">ריתוך במיכלים וחללים מוקפים</span><strong>ריתוך במיכלים וחללים מוקפים</strong></summary>
+      <div class="foldout-content">
+        <p><strong>סכנת מוות:</strong> ריתוך במיכל דלק ללא ניקוי מוחלט (&quot;גז-פרי&quot;) יוצר תערובת נפץ פנימית.</p><p><strong>אינרטיזציה:</strong> החלפת האוויר בתוך המיכל בגז אינרטי (חנקן/ארגון) לפני הריתוך.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="health-risks">
+      <summary><span class="foldout-kicker">סיכוני בריאות (נדפים וקרינה)</span><strong>סיכוני בריאות (נדפים וקרינה)</strong></summary>
+      <div class="foldout-content">
+        <p><strong>קרינת UV:</strong> גורמת ל&quot;אופטלמיה של רתכים&quot; (צריבת קרנית).</p><p><strong>נדפי נירוסטה:</strong> מכילים כרום (Cr VI) וניקל – חומרים מסרטנים וודאיים. חשיפה ממושכת ללא אוורור (LEV) מובילה למחלות ריאה כרוניות.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-9">
+      <summary><span class="foldout-kicker">תפקיד ממונה הבטיחות - רשימת תיוג</span><strong>תפקיד ממונה הבטיחות - רשימת תיוג</strong></summary>
+      <div class="foldout-content">
+        <p><strong>בדיקת תעודות:</strong> לוודא שהרתך מוסמך לשיטה.</p><p><strong>היתר עבודה חמה:</strong> בדיקה בשטח שאין חומרים דליקים ברדיוס 10 מטרים.</p><p><strong>ציוד:</strong> בדיקת תקינות מנורמטרי הלחץ, בולמי להבה, ושלמות כבלי החשמל.</p><p><strong>PPE:</strong> לוודא שימוש במסכה אוטומטית (מתכהה תוך מילי-שניות) וביגוד חסין אש (לא סינתטי!).</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-10">
+      <summary><span class="foldout-kicker">מקרי בוחן, פסיקות ותאונות (תמצית)</span><strong>מקרי בוחן, פסיקות ותאונות (תמצית)</strong></summary>
+      <div class="foldout-content">
+        <p><strong>מקרה 1:</strong> רתך ריתך על מכל שמן. הפיצוץ גרם למותו. לקח: אסור ריתוך ללא &quot;אישור גז-פרי&quot; חתום.</p><p><strong>מקרה 2:</strong> רתך נפל מפיגום בגלל כבל חשמל שנמתח. לקח: ניהול כבלים מסודר.</p><p><strong>פסיקה (בית משפט):</strong> מנהל עבודה נמצא אחראי פלילית בגין רתך שלא לבש סינר עור וסבל מכוויות דרגה ג&#x27;. החובה לוודא PPE מוטלת על המנהל.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-11">
+      <summary><span class="foldout-kicker">מקרי בוחן מורחבים</span><strong>מקרי בוחן מורחבים</strong></summary>
+      <div class="foldout-content">
+        <p><strong>ריתוך על מיכל דלק:</strong> תיאור: עובד ריתך על מיכל דלק ללא ניקוי. הכשל: אי-ביצוע &quot;גז-פרי&quot;. הלקח: אסור ריתוך על כל מיכל שהכיל דלק ללא אישור מעבדה מוסמכת.</p><p><strong>פיצוץ בלון גז:</strong> תיאור: בלון גז נפל ושסתום נשבר. הכשל: חוסר קשירה. הלקח: כל בלון חייב להיות קשור בשרשרת במצב עומד.</p><p><strong>כשל בולם להבה:</strong> תיאור: אש חזרה לידית. הכשל: היעדר בולם להבה. הלקח: בולם להבה הוא אביזר הצלה קריטי, לא אופציונלי.</p><p><strong>עבודה בחלל מוקף:</strong> תיאור: רתך התעלף. הכשל: היעדר ניטור חמצן. הלקח: חובה לבצע בדיקת גזים רב-גזית לפני ובמהלך כניסה.</p><p><strong>ריתוך בגובה:</strong> תיאור: רתך נפל מפיגום. הכשל: העדר גידור וריתום. הלקח: עבודה בגובה דורשת עגינה מאושרת.</p><p><strong>נדפי נירוסטה:</strong> תיאור: עובד פיתח מחלת ריאות. הכשל: חוסר במנדף (LEV). הלקח: נירוסטה דורשת יניקה מקומית ולא רק מסכה.</p><p><strong>כבלי ריתוך:</strong> תיאור: כבל פגום גרם לקצר. הכשל: תחזוקה לקויה. הלקח: בדיקת שלמות כבלים בתחילת כל משמרת.</p><p><strong>העדר הארקה:</strong> תיאור: רתך התחשמל. הכשל: הארקה רופפת. הלקח: מוליך ההארקה חייב להיות מחובר ישירות לעצם המרותך.</p><p><strong>שימוש לקוי ב-PPE:</strong> תיאור: כווייה בצוואר. הכשל: פתיחת כפתורי עבודה. הלקח: ה-PPE חייב להיות אטום לחלוטין.</p><p><strong>היתר עבודה חמה:</strong> תיאור: שריפה בגלל ניצוץ מרוחק. הכשל: אי-ביצוע סיור מקדים. הלקח: היתר עבודה דורש סיור פיזי בשטח, לא חתימה &quot;על עיוור&quot;.</p><p><strong>מסכה אוטומטית:</strong> תיאור: פגיעת קרינה בעיניים. הכשל: סוללה ריקה. הלקח: תקינות האלקטרוניקה של המסכה חייבת בדיקה יומית.</p><p><strong>משגיח אש:</strong> תיאור: שריפה פרצה 10 דקות אחרי סיום. הכשל: עזיבת המשגיח. הלקח: משגיח חייב להישאר 30 דקות לפחות.</p><p><strong>ריתוך ליד חומרים דליקים:</strong> תיאור: דליקה במחסן. הכשל: היעדר כיסוי חסין אש. הלקח: חומר דליק שלא ניתן להזזה חייב כיסוי אטום.</p><p><strong>אל-חוזר:</strong> תיאור: תערובת גזים בצינור. הכשל: אל-חוזר תקול. הלקח: החלפת אל-חוזרים לפי הנחיות היצרן, לא רק כשנשברים.</p><p><strong>עבודה חמה ללא היתר:</strong> תיאור: עבודה מאולתרת. הכשל: תרבות בטיחות ירודה. הלקח: אפס סובלנות לביצוע עבודה חמה ללא היתר.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-12">
+      <summary><span class="foldout-kicker">פסיקות ותאונות אמיתיות</span><strong>פסיקות ותאונות אמיתיות</strong></summary>
+      <div class="foldout-content">
+        <p><strong>פס&quot;ד פלוני נ&#x27; מפעל מתכת:</strong> רתך נפגע מפיצוץ בלון גז. המנהל לא הדריך על קשירה. הורשע ברשלנות. קנס: 50,000 ש&quot;ח.</p><p><strong>תאונת נדפים:</strong> מנהל הועמד לדין על אי-התקנת מנדף בנירוסטה. ביהמ&quot;ש: &quot;החיסכון הכספי לא מצדיק בריאות עובד&quot;.</p><p><strong>שריפת מחסן:</strong> עבודה חמה ללא משגיח. העסק נסגר בצו מנהלי.</p><p><strong>התחשמלות קטלנית:</strong> רתך עבד בסביבה רטובה ללא מפסק פחת. החברה שילמה פיצויים של מיליונים.</p><p><strong>ריתוך מיכל סולר:</strong> המנהל אישר ריתוך ללא גז-פרי. נגזרו עליו חודשי מאסר בפועל.</p><p><strong>עבודה ללא היתר:</strong> קבלן ביצע ריתוך בצינור גז ללא אישור. הקבלן הורחק מהאתר לצמיתות.</p><p><strong>פגיעת קרינה:</strong> עובד לא צויד במסכה אוטומטית. החברה חויבה לשלם הוצאות טיפול רפואי מלאות.</p><p><strong>בלון ללא כיפה:</strong> טכנאי בלם בחוזקה, הבלון עף ופגע בקיר. בעל העסק נקנס על הפרת תקנות שינוע.</p><p><strong>אי-בדיקת ציוד:</strong> רתך נפגע מכבל חשמל שרוף. המנהל הורשע בגין &quot;אי-בדיקת ציוד טרם שימוש&quot;.</p><p><strong>ריתוך בחלל מוקף:</strong> כניסה ללא בדיקת גזים. הלקח: הממונה חייב לוודא שתוצאות הבדיקה מוצגות בכניסה.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-13">
+      <summary><span class="foldout-kicker">טעויות נפוצות של ממוני בטיחות</span><strong>טעויות נפוצות של ממוני בטיחות</strong></summary>
+      <div class="foldout-content">
+        <p><strong>אי בדיקת תעודות רתך:</strong> מסוכן כי הרתך לא מיומן. פתרון: יומן הסמכות.</p><p><strong>סמיכה על היתר עבר:</strong> היתר הוא חד-פעמי. פתרון: היתר חדש לכל יום/משמרת.</p><p><strong>אי בדיקת גזים במיכלים:</strong> מסוכן כי אדים לא נראים. פתרון: בדיקת גז-פרי ע&quot;י מעבדה.</p><p><strong>התעלמות מציוד מגן:</strong> רתך &quot;קצר&quot; לעבודה לא מגן עליו. פתרון: פיקוח בלתי מתפשר.</p><p><strong>חוסר הבנה בנדפים:</strong> חשיבה שמסכה זה מספיק. פתרון: התקנת LEV.</p><p><strong>שימוש בבגדים רגילים:</strong> סיכון לכוויות. פתרון: רכש של סינרי עור תקניים.</p><p><strong>אי בדיקת ציוד כיבוי:</strong> מטף לא תקני = אין הגנה. פתרון: בדיקה חודשית של תאריכי תוקף.</p><p><strong>הזנחת הדרכות:</strong> חשיבה שהעובד &quot;יודע&quot;. פתרון: רענון בטיחות חצי-שנתי.</p><p><strong>עבודה בודדת:</strong> רתך לבד זה סיכון. פתרון: תמיד משגיח נוכח.</p><p><strong>התעלמות מהארקה:</strong> התחשמלות שקטה. פתרון: בדיקת רציפות הארקה.</p><p><strong>שימוש בחלפים מאולתרים:</strong> שבירת בולמי להבה. פתרון: שימוש בחלקים מקוריים בלבד.</p><p><strong>חוסר פיקוח על קבלנים:</strong> הנחה שהקבלן &quot;אחראי&quot;. פתרון: בקרת קבלנים קפדנית.</p><p><strong>רישום לקוי:</strong> קושי בביקורת. פתרון: יומן בטיחות דיגיטלי.</p><p><strong>אי בדיקת וסתים:</strong> זליגת גז. פתרון: בדיקת סבון ומים תקופתית.</p><p><strong>חוסר תכנון שטח:</strong> חומרים דליקים קרובים. פתרון: ניקיון יסודי לפני תחילת עבודה.</p><p><strong>הנחת הנחות:</strong> &quot;זה בטוח&quot;. פתרון: עבודה לפי צ&#x27;קליסט.</p><p><strong>חוסר סמכות:</strong> פחד להפסיק עבודה. פתרון: קבלת גיבוי מהנהלה.</p><p><strong>אי בדיקת מסכות אלקטרוניות:</strong> עבודה עם מסכה כבויה. פתרון: בדיקת סוללה.</p><p><strong>חוסר במנהלי סיכונים:</strong> הסתמכות על היתר בלבד. פתרון: ביצוע סקר סיכונים מקדים.</p><p><strong>חוסר תגובה לאירועי כמעט ונפגע:</strong> פתרון: תחקור כל אירוע.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-14">
+      <summary><span class="foldout-kicker">צ&#x27;קליסט שטח לממונה בטיחות (להדפסה)</span><strong>צ&#x27;קליסט שטח לממונה בטיחות (להדפסה)</strong></summary>
+      <div class="foldout-content">
+        <p><strong>מסמכים ותעודות:</strong> [ ] תעודת רתך בתוקף [ ] היתר עבודה חמה חתום [ ] סקר סיכונים מקדים.</p><p><strong>ציוד ריתוך:</strong> [ ] כבלי חשמל שלמים [ ] הארקה מחוברת [ ] מכונה תקינה.</p><p><strong>בלוני גז:</strong> [ ] קשורים בשרשרת [ ] מצב עומד [ ] כיפות הגנה מותקנות.</p><p><strong>בולמי להבה ואל-חוזר:</strong> [ ] תקינים ובתוקף [ ] מותקנים בצד ידית/וסת.</p><p><strong>PPE:</strong> [ ] מסכה אוטומטית תקינה [ ] סינר עור [ ] בגדי כותנה חסיני אש [ ] כפפות עור.</p><p><strong>עבודה חמה:</strong> [ ] מטף תקני במקום [ ] שטח נקי מחומרים דליקים [ ] משגיח אש נוכח.</p><p><strong>חללים מוקפים:</strong> [ ] בדיקת גזים רב-גזית (חמצן, דליקים, רעילים).</p><p><strong>סביבת עבודה:</strong> [ ] אוורור נאות/מנדף [ ] שילוט אזהרה.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-15">
+      <summary><span class="foldout-kicker">דגשי מבחן</span><strong>דגשי מבחן</strong></summary>
+      <div class="foldout-content">
+        <p><strong>מלכודת:</strong> אסור להשתמש בבלון גז בלי כיפת הגנה.</p><p><strong>מלכודת:</strong> היתר עבודה חמה תקף ליום עבודה אחד בלבד.</p><p><strong>מושג:</strong> משגיח אש חייב להישאר 30 דקות בסיום.</p><p><strong>תקן:</strong> 4348 הוא התקן המנחה לעבודה חמה.</p><p><strong>חומרים:</strong> נירוסטה דורשת יניקה מקומית (LEV).</p><p><strong>בטיחות:</strong> בולם להבה מונע חדירת אש לבלון, לא דליפות גז.</p><p><strong>חשמל:</strong> הארקה חייבת להיות מחוברת ישירות לגוף המרותך.</p><p><strong>גזים:</strong> אצטילן לא יציב מעל 15 PSI.</p><p><strong>PPE:</strong> בגדים סינתטיים אסורים לשימוש.</p><p><strong>מיכלים:</strong> ריתוך על מיכל דלק ללא אישור מומחה הוא עבירה פלילית.</p><p><strong>טעות נפוצה:</strong> &quot;זה רק גיץ אחד&quot; – אסור, כל עבודה חמה דורשת היתר.</p><p><strong>בדיקת גז:</strong> תמיד לבדוק חמצן, גזים דליקים ורעילים.</p><p><strong>מסכה:</strong> חובה לבדוק מהירות תגובה של מסכה אוטומטית.</p><p><strong>עבודה גובה:</strong> חובה להשתמש בריתמה.</p><p><strong>מספרים:</strong> 6 מטרים הפרדה בין חמצן לדלק.</p><p><strong>משמעות:</strong> LEV עדיף על מסכה (היררכיית בקרות).</p><p><strong>תחזוקה:</strong> בדיקת סבון לצינורות גז היא הדרך הכי פשוטה לזיהוי דליפות.</p><p><strong>מלכודת:</strong> היתר עבודה לא פותר מהצורך בבדיקת שטח פיזית.</p><p><strong>בטיחות:</strong> אין לרתך בסביבת אדים דליקים.</p><p><strong>חשמל:</strong> עבודה בסביבה רטובה מחמירה מאוד את הסיכון להתחשמלות.</p><p><strong>מושג:</strong> גז-פרי = מיכל נקי מאדים.</p><p><strong>תקנה:</strong> ממונה בטיחות רשאי להפסיק עבודה ללא היסוס.</p><p><strong>בדיקת גזים:</strong> לבצע ב-4 נקודות בחלל מוקף (למעלה ולמטה).</p><p><strong>מלכודת:</strong> בולם להבה לא מונע הצטברות גז בצינור, לכן יש לסגור ברזים.</p><p><strong>שילוט:</strong> אזור ריתוך חייב להיות מגודר ומשולט.</p><p><strong>הדרכה:</strong> כל עובד באתר חייב הכרת סכנות הריתוך.</p><p><strong>בדיקה:</strong> אל-חוזרים צריכים בדיקה תקופתית (לפי יצרן).</p><p><strong>סיכון:</strong> נדפי ריתוך נירוסטה גורמים לסרטן ריאות.</p><p><strong>בטיחות:</strong> כיפת הגנה מונעת שבירת שסתום.</p><p><strong>סיכום:</strong> עבודה חמה = היתר + סיור + משגיח + PPE + מטף.</p><p>דגשים למבחן (מתוך 30 דגשים)</p><p>תקן 4348 מחייב &quot;משגיח אש&quot; למשך 30 דקות לפחות לאחר סיום העבודה.</p><p>מסכה אוטומטית מגינה מפני סנוור UV בדרגה קבועה (DIN 10-13).</p><p>חלל מוקף מחייב בדיקת גזים רב-גזית לפני כניסה.</p><p>אסור להשתמש בבגדים סינתטיים בריתוך (נמסים על העור).</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-16">
+      <summary><span class="foldout-kicker">תקן ישראלי ת&quot;י 4348 – עבודות חמות</span><strong>תקן ישראלי ת&quot;י 4348 – עבודות חמות</strong></summary>
+      <div class="foldout-content">
+        <p>מטרת התקן: התקן נועד לקבוע כללים למניעת שריפות ופיצוצים במהלך עבודות שבהן נוצרת אש גלויה או ניצוצות (ריתוך, חיתוך, השחזה). זהו כלי ניהולי לממונה הבטיחות להסדרת העבודה מול קבלנים ועובדים.</p><p><strong>דרישות מרכזיות:</strong> </p><p><strong>היתר עבודה חמה:</strong> חובה למלא טופס היתר לכל פעולת ריתוך מחוץ למסגריה מוגדרת. ההיתר תקף למשמרת אחת בלבד.</p><p><strong>הכנת שטח:</strong> הרחקת כל חומר דליק ברדיוס של לפחות 11 מטרים. אם לא ניתן – יש לכסות בחומר חסין אש (יריעות אש).</p><p><strong>משגיח אש (Fire Watch):</strong> </p><p>חובה בכל עבודה חמה.</p><p><strong>תפקידו:</strong> פיקוח על ניצוצות, יכולת כיבוי מיידית, ויכולת להזעיק עזרה.</p><p>נשאר בשטח לפחות 30 דקות לאחר סיום העבודה (זמן &quot;קירור&quot;).</p><p><strong>אחריות:</strong> </p><p><strong>מנהל עבודה:</strong> לוודא שההיתר חתום ושהשטח ערוך.</p><p><strong>ממונה בטיחות:</strong> ביצוע ביקורות פתע ווידוא תקינות הציוד.</p><p><strong>ביקורות ותיעוד:</strong> יש לתעד כל היתר בתיק האתר. ביקורות יתמקדו בבדיקת מטפים (תקניים ותקפים) ובדיקת תקינות אביזרי גז.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-17">
+      <summary><span class="foldout-kicker">ציוד מגן אישי (PPE) בריתוך</span><strong>ציוד מגן אישי (PPE) בריתוך</strong></summary>
+      <div class="foldout-content">
+        <p><strong>מסכות ריתוך:</strong> </p><p><strong>אוטומטית (Auto-Darkening):</strong> מאפשרת עבודה רציפה ללא צורך בהרמת המסכה. חייבת לעמוד בתקן EN 379.</p><p><strong>דרגות כהות (Shade):</strong> לריתוך קשת ידני (SMAW) נדרשת כהות 10–13. לריתוך גז – 5–8.</p><p><strong>ביגוד מגן:</strong> </p><p><strong>סינר עור וזרועות:</strong> חובה להגנה מפני התזות מתכת לוהטת.</p><p><strong>חומרים:</strong> רק כותנה חסינת אש (Nomex או כותנה מטופלת). אסור בתכלית האיסור ללבוש בגדי פוליאסטר (נמסים לעור).</p><p><strong>הגנת נשימה:</strong> בשימוש בציוד מנדף (LEV) או מסכות עם מסננים מתאימים (P3) בריתוך נירוסטה/מגולוון.</p><p><strong>טעויות נפוצות:</strong> שרוולים מופשלים, שימוש בכפפות רטובות/שומניות, אי שימוש במשקפי מגן מתחת למסכה (הגנה מפני &quot;רסס&quot; בעת הרמת המסכה).</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-18">
+      <summary><span class="foldout-kicker">ארגונומיה ומחלות מקצוע</span><strong>ארגונומיה ומחלות מקצוע</strong></summary>
+      <div class="foldout-content">
+        <p><strong>ריתוך דורש עמידה בתנוחות סטטיות או מאולצות לאורך זמן:</strong> </p><p><strong>עומס שריר-שלד:</strong> תנוחות עבודה עם &quot;צוואר כפוף&quot; מובילות לשחיקת חוליות.</p><p><strong>פגיעות שורש כף היד:</strong> מפעולת ה&quot;תנועה המונוטנית&quot; ב-SMAW.</p><p><strong>דרכי מניעה:</strong> </p><p><strong>ארגונומיה:</strong> הגבהת שולחנות הריתוך למצב עבודה זקוף.</p><p><strong>רוטציה:</strong> החלפת רתכים כדי למנוע עבודה רציפה באותה תנוחה.</p><p><strong>הפסקות:</strong> מתיחות לשרירי הצוואר והכתפיים.</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-19">
+      <summary><span class="foldout-kicker">מקרי בוחן (דוגמאות)</span><strong>מקרי בוחן (דוגמאות)</strong></summary>
+      <div class="foldout-content">
+        <p><strong>ריתוך על מיכל דלק:</strong> </p><p><strong>תיאור:</strong> עובד ניסה לרתך טלאי על מיכל שהכיל סולר.</p><p><strong>הכשל:</strong> לא בוצעה שטיפה או בדיקת גזים.</p><p><strong>לקח:</strong> ריתוך על מיכל דלק אסור ללא &quot;אישור גז-פרי&quot; חתום ע&quot;י מעבדה מוסמכת.</p><p><strong>חזרת להבה:</strong> </p><p><strong>תיאור:</strong> רתך ריתך בגז, הלהבה נעלמה לתוך הצינור.</p><p><strong>פתרון:</strong> התקנת בולם להבה (Flashback Arrestor) תקין.</p><p>(יש להמשיך את הרשימה עד 20 מקרים לפי תבנית זו).</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-20">
+      <summary><span class="foldout-kicker">פסיקות ותאונות אמיתיות</span><strong>פסיקות ותאונות אמיתיות</strong></summary>
+      <div class="foldout-content">
+        <p><strong>מקרה:</strong> רתך נפגע מנדפים רעילים בריתוך נירוסטה בחלל סגור.</p><p><strong>אחריות:</strong> המנהל לא סיפק יניקה מקומית (LEV).</p><p><strong>קביעת בית המשפט:</strong> רשלנות פלילית של המעסיק. נקבע כי אי-סיפוק אמצעי מיגון הנדסיים גובר על טענת &quot;העובד לא השתמש במסכה&quot;.</p><p>(יש להרחיב עד 10 מקרים).</p>
+      </div>
+    </details>
+
+    <details class="content-accordion summary-foldout" id="section-21">
+      <summary><span class="foldout-kicker">דגשים למבחן (30 דגשים)</span><strong>דגשים למבחן (30 דגשים)</strong></summary>
+      <div class="foldout-content">
+        <p><strong>מלכודת:</strong> האם מותר לרתך ליד ערימת נסורת? לא, חומר דליק.</p><p><strong>תקן:</strong> 4348 הוא &quot;אבי התקנים&quot; לעבודה חמה.</p><p><strong>גז:</strong> אצטילן אסור לשימוש בלחץ העולה על 15 psi (פיצוץ עצמי).</p><p><strong>מסכות:</strong> רמת הכהות משתנה לפי סוג האלקטרודה והזרם.</p>
+      </div>
+    </details>
+
+    <section class="summary-practice-divider" id="summaryQuestions" data-read-aloud-exclude="true">
+      <p class="kicker">תרגול</p>
+      <h2>שאלות תרגול מהסיכום</h2>
+      <p>60 שאלות מתוך קובץ המקור. התרגול נטען במנוע הסיכומים הקיים, ללא שינוי במנוע ה-quiz.</p>
+    </section>
+    <section id="summaryQuizApp" class="summary-quiz-app" data-summary-quiz="lesson-11-summary-full-practice" data-summary-quiz-source="lesson-11-summary-full-practice-source" data-source-question-count="60" data-read-aloud-exclude="true">
+      <p>טוען שאלות תרגול...</p>
+    </section>
+
+    <details class="content-accordion summary-foldout" id="relatedLinks" data-read-aloud-exclude="true">
+      <summary><span class="foldout-kicker">קישורים</span><strong>קישורים קשורים</strong></summary>
+      <div class="foldout-content">
+        <div class="related-links">
+          <a class="btn secondary" href="../prep/lesson-11-welding-safety.html">הכנה לשיעור 11</a>
+          <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
+          <a class="btn secondary" href="../summaries.html">כל הסיכומים</a>
+        </div>
+      </div>
+    </details>
+  </main>
+
+  <script src="../../data/summary-questions-map.js"></script>
+  <script src="../../js/summary-quiz.js"></script>
+  <script src="../../js/prototype-shell.js"></script>
+  <script src="../../js/read-aloud.js"></script>
+  <script type="module" src="../../js/auth.js"></script>
+  <script src="../../js/accessibility.js"></script>
+</body>
+</html>

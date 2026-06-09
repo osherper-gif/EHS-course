@@ -136,6 +136,7 @@
     const text = normalize([
       item.number,
       item.title,
+      item.domain,
       item.status,
       item.relatedKnowledge.map((key) => labels[key] || key).join(" ")
     ].join(" "));
@@ -159,6 +160,7 @@
         <div class="learning-session-topic">
           <h2>מפגש ${escapeHtml(item.number)} — ${escapeHtml(item.title)}</h2>
           <div class="learning-session-meta">
+            ${item.domain ? `<span class="learning-tag learning-tag--domain">${escapeHtml(item.domain)}</span>` : ""}
             ${item.examFocus ? '<span class="learning-tag learning-tag--exam">נושא מבחן</span>' : ""}
             ${item.status ? `<span class="learning-tag">${escapeHtml(item.status)}</span>` : ""}
             ${item.lastUpdated ? `<span class="learning-tag">עודכן ${escapeHtml(item.lastUpdated)}</span>` : ""}
