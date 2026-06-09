@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.emailjs.com; frame-src https://*.firebaseapp.com https://accounts.google.com https://www.google.com/recaptcha/;">
+  <meta name="description" content="הכנה לשיעור 12: גידור מכונות, ריתוך, סקרי סיכונים במכונות ומבוא לתהליכי עיבוד שבבי.">
+  <title>הכנה לשיעור 12 | גידור מכונות, ריתוך וסקרי סיכונים</title>
+  <script src="../../js/ui-mode.js"></script>
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/prototype-shell.css">
+  <link rel="stylesheet" href="../../css/summary-stability.css">
+  <style>
+    body.prep-page-body,
+    body.prep-page-body .site-main {
+      direction: rtl;
+      text-align: right;
+      overflow-x: hidden;
+    }
+    .prep-page,
+    .prep-page * {
+      box-sizing: border-box;
+      min-width: 0;
+    }
+    .prep-page h1,
+    .prep-page h2,
+    .prep-page h3,
+    .prep-page p,
+    .prep-page li,
+    .prep-page td,
+    .prep-page th {
+      overflow-wrap: anywhere;
+      text-align: right;
+    }
+    .prep-quick-nav,
+    .content-accordion[id],
+    #prepQuestions {
+      scroll-margin-top: 96px;
+    }
+    .prep-quick-nav {
+      display: grid;
+      gap: .6rem;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      margin: 1rem 0 1.25rem;
+    }
+    .prep-quick-nav a {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 999px;
+      color: var(--proto-text);
+      font-weight: 800;
+      padding: .72rem .9rem;
+      text-align: center;
+      text-decoration: none;
+    }
+    .prep-note,
+    .prep-card,
+    .prep-callout {
+      background: var(--proto-surface);
+      border: 1px solid var(--proto-border);
+      border-radius: 14px;
+      padding: .95rem;
+    }
+    .prep-note {
+      border-inline-start: 5px solid #0b6f88;
+      margin: 1rem 0;
+    }
+    .prep-grid {
+      display: grid;
+      gap: .75rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin: .95rem 0;
+    }
+    .prep-card {
+      border-top: 4px solid rgba(8, 100, 128, .55);
+    }
+    .prep-card strong,
+    .prep-callout strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+    .prep-callout.is-warning {
+      border-inline-start: 5px solid #a51d2d;
+    }
+    .prep-callout.is-exam {
+      border-inline-start: 5px solid #b45309;
+    }
+    .summary-foldout {
+      margin: 1rem 0;
+    }
+    .summary-foldout > summary {
+      align-items: center;
+      min-height: 58px;
+      text-align: right;
+    }
+    .summary-foldout > summary > strong {
+      display: block;
+      flex: 1 1 auto;
+      line-height: 1.45;
+      min-width: 0;
+      text-align: right;
+    }
+    .foldout-kicker {
+      color: var(--proto-muted);
+      display: inline-block;
+      flex: 0 0 auto;
+      font-size: .82rem;
+      font-weight: 900;
+      margin-inline-start: .6rem;
+      white-space: nowrap;
+    }
+    .foldout-content {
+      padding-block-start: .25rem;
+    }
+    .prep-table-wrap {
+      margin: 1rem 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .prep-table {
+      border-collapse: collapse;
+      min-width: 680px;
+      width: 100%;
+    }
+    .prep-table th,
+    .prep-table td {
+      border: 1px solid var(--proto-border);
+      padding: .75rem;
+      text-align: right;
+      vertical-align: top;
+    }
+    .prep-table th {
+      background: #eef4f7;
+      font-weight: 900;
+    }
+    .prep-table tbody tr:nth-child(even) td {
+      background: #f8fbfc;
+    }
+    .prep-question-section {
+      background: linear-gradient(180deg, #eef7fb 0%, #ffffff 100%);
+      border: 1px solid #c9e2ec;
+      border-radius: 16px;
+      margin: 1.25rem 0;
+      padding: 1rem;
+    }
+    .related-links {
+      display: grid;
+      gap: .65rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    @media (max-width: 640px) {
+      .prep-quick-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .foldout-kicker {
+        white-space: normal;
+      }
+      .prep-table {
+        min-width: 620px;
+      }
+    }
+  </style>
+</head>
+<body data-course-id="safety-officer" data-domain-id="safety" data-page-title="הכנה לשיעור 12 - גידור מכונות, ריתוך וסקרי סיכונים" class="prep-page-body auth-protected lms-pro prototype-shell prototype-shell-page">
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <main id="main" class="site-main prep-page" data-readable-content>
+    <section class="page-hero">
+      <p class="kicker">הכנה לשיעור 12</p>
+      <h1>גידור מכונות, ריתוך, סקרי סיכונים ומבוא לתהליכי עיבוד שבבי</h1>
+      <p>עמוד הכנה לפני שיעור מכונות וגידור: מנגנוני פציעה במכונות, פתרונות גידור, LOTO, סקרי סיכונים, אדם כשיר ובודק מוסמך.</p>
+    </section>
+
+    <section class="prep-note" data-read-aloud-exclude="true">
+      <p><strong>מקור התוכן:</strong> חומר הכנה מקצועי לשיעור 12 בנושא גידור מכונות, סקרי סיכונים ואדם כשיר.</p>
+      <p><strong>הערה:</strong> זהו חומר לימודי לקורס. כאשר מופיעים מספרים או דגשים חוקיים, יש לאמתם מול הדין, התקנות והתקנים המחייבים.</p>
+    </section>
+
+    <nav class="prep-quick-nav" aria-label="ניווט מהיר" data-read-aloud-exclude="true">
+      <a href="#why">למה זה חשוב</a>
+      <a href="#terms">מושגי יסוד</a>
+      <a href="#lecture">מה ילמד בשיעור</a>
+      <a href="#selfQuestions">שאלות לעצמך</a>
+      <a href="#lecturerQuestions">שאלות למרצה</a>
+      <a href="#previous">חיבור לשיעורים קודמים</a>
+      <a href="#numbers">מספרים לזכור</a>
+      <a href="#pocket">דף כיס</a>
+      <a href="#prepQuestions">שאלות הכנה</a>
+    </nav>
+
+    <details id="why" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">פתיח</span><strong>למה הנושא חשוב?</strong></summary>
+      <div class="foldout-content">
+        <p>גידור מכונות הוא קו ההגנה שמונע מפגש בין גוף האדם לבין אנרגיה מכנית. מכונות תעשייתיות פועלות בכוח, מהירות ומומנטים שאינם מאפשרים תגובה בזמן אמת, ולכן הסיכון המרכזי אינו רק עצם קיום המכונה אלא נקודת המגע האפשרית בין האדם לבין החלק הנע.</p>
+        <p>תאונות מכונה נוטות להיות קשות במיוחד: קטיעות, מעיכות, לכידה ומשיכה של בגדים או שיער לתוך מערכת נעה. רבות מהתאונות מתרחשות דווקא בזמן ניקוי, שחרור תקיעות או תחזוקה קצרה, כאשר קיימת נטייה לעקוף מגן כדי לחסוך זמן.</p>
+        <p>סקרי סיכונים מאפשרים לממונה הבטיחות לנהל את הבטיחות באופן יזום: לזהות מפגעים, להעריך חומרה והסתברות, לקבוע סדרי עדיפויות ולהמליץ על בקרות מתאימות. הדרישה לאדם כשיר נועדה להבטיח שבדיקות ציוד ומתקנים יבוצעו על ידי מי שמחזיק בידע, הכשרה וניסיון מתאימים.</p>
+      </div>
+    </details>
+
+    <details id="terms" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">שפה מקצועית</span><strong>מושגים שכדאי להכיר לפני השיעור</strong></summary>
+      <div class="foldout-content">
+        <div class="prep-grid">
+          <article class="prep-card"><strong>מפגע (Hazard)</strong><p>מקור, מצב או פעולה בעלי פוטנציאל לגרום לנזק, כגון גלגל שיניים חשוף או שלולית שמן.</p></article>
+          <article class="prep-card"><strong>סיכון (Risk)</strong><p>שילוב בין הסתברות להתממשות המפגע לבין חומרת הנזק הצפויה.</p></article>
+          <article class="prep-card"><strong>גידור</strong><p>מחסום פיזי, הנדסי או אלקטרו-אופטי שמטרתו למנוע גישה לאזור סכנה במכונה.</p></article>
+          <article class="prep-card"><strong>Interlock</strong><p>מגן משתלב המחובר למערכת הפיקוד כך שפתיחת המגן מפסיקה את התנועה המסוכנת.</p></article>
+          <article class="prep-card"><strong>LOTO</strong><p>נעילה ותיוג של מקורות אנרגיה לפני תחזוקה, כולל ניתוק, נעילה, פריקה ואימות אפס אנרגיה.</p></article>
+          <article class="prep-card"><strong>אדם כשיר</strong><p>אדם שמונה בהתאם לתקנות ומחזיק בידע, הכשרה וניסיון לביצוע בדיקות מוגדרות.</p></article>
+          <article class="prep-card"><strong>בודק מוסמך</strong><p>גורם בעל רישיון והסמכה רשמית לבדיקות סטטוטוריות כגון מתקני הרמה, לחץ ומעליות.</p></article>
+          <article class="prep-card"><strong>JSA / HAZOP / BowTie</strong><p>כלים לניתוח סיכונים: ניתוח משימה, ניתוח תהליכי מובנה, ומיפוי חזותי של גורמים, חסמים ותוצאות.</p></article>
+        </div>
+      </div>
+    </details>
+
+    <details id="lecture" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">תחזית שיעור</span><strong>מה המרצה כנראה ילמד?</strong></summary>
+      <div class="foldout-content">
+        <div class="prep-table-wrap">
+          <table class="prep-table">
+            <thead><tr><th>נושא</th><th>מה חשוב לשים לב אליו</th></tr></thead>
+            <tbody>
+              <tr><td>חובת גידור בפקודת הבטיחות</td><td>המשמעות של גידור חלקים מסוכנים והסיכון שבהסרת מגן.</td></tr>
+              <tr><td>נקודות לכידה וגזירה</td><td>זיהוי אזורים שבהם תנועה מכנית יכולה למשוך, למעוך או לקטוע.</td></tr>
+              <tr><td>מגנים קבועים ומגנים ניידים</td><td>הבדל בין מגן המחייב כלי להסרה לבין מגן שנפתח לצורך גישה שוטפת.</td></tr>
+              <tr><td>Interlock, וילונות אור ודו-ידית</td><td>אמצעי הגנה הנדסיים והגבולות שלהם מול סיכוני פליטה ושבבים.</td></tr>
+              <tr><td>LOTO ואנרגיות מסוכנות</td><td>ניתוק חשמל, לחץ, גובה ואנרגיה אגורה; פריקה ואימות לפני עבודה.</td></tr>
+              <tr><td>אדם כשיר מול בודק מוסמך</td><td>הפרדה בין בדיקות שוטפות פנימיות לבין בדיקות סטטוטוריות רשמיות.</td></tr>
+              <tr><td>מטריצת סיכונים ומתודולוגיות</td><td>שימוש ב-JSA, HAZOP ו-BowTie בהתאם למורכבות המשימה או התהליך.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prep-callout is-exam">
+          <strong>דגש למבחן</strong>
+          <p>כאשר קיימת אפשרות לבקרה הנדסית, היא עדיפה על נוהל או ציוד מגן אישי בלבד. שאלות מבחן נוטות לבדוק האם בחרת בפתרון שמונע גישה לסכנה ולא רק מזהיר מפניה.</p>
+        </div>
+      </div>
+    </details>
+
+    <details id="selfQuestions" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">חשיבה עצמית</span><strong>שאלות שכדאי לשאול את עצמך</strong></summary>
+      <div class="foldout-content">
+        <ul>
+          <li>אם החוק מחייב לגדר חלקים מסוכנים, מדוע עדיין רואים מכונות חשופות במפעלים?</li>
+          <li>מה גורם לעובד מנוסה לפרק מגן בטיחות ממכונה שבה הוא עובד שנים?</li>
+          <li>האם שלט אזהרה יכול להחליף מגן פיזי? באילו מקרים התשובה ברורה במיוחד?</li>
+          <li>מדוע עובדי אחזקה מטפלים לפעמים במכונה כשהיא עדיין פועלת?</li>
+          <li>כיצד היית מגיב ללחץ ניהולי לעקוף וילון אור למשמרת אחת בלבד?</li>
+          <li>מה ההבדל בין נעילה פיזית לבין תליית שלט בלבד?</li>
+          <li>מדוע אנרגיה אגורה עלולה להיות מסוכנת גם לאחר ניתוק החשמל?</li>
+          <li>כיצד ניתן לקבוע הסתברות בסקר סיכונים בצורה שאינה תחושת בטן בלבד?</li>
+          <li>למה ציוד מגן אישי נמצא בתחתית מדרג הבקרות?</li>
+          <li>מה הערך של חקירת Near Miss אם אף אחד לא נפגע?</li>
+        </ul>
+      </div>
+    </details>
+
+    <details id="lecturerQuestions" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">שאלות בכיתה</span><strong>שאלות שכדאי לשאול את המרצה</strong></summary>
+      <div class="foldout-content">
+        <ul>
+          <li>כיצד מתייחסים למכונות ישנות שאין להן תיעוד יצרן או הגנות מובנות?</li>
+          <li>כיצד מחשבים מרחק בטוח לוילון אור כך שהמכונה תיעצר לפני הגעה לאזור הסכנה?</li>
+          <li>מה נכון לעשות בנוהל LOTO קבוצתי כאשר כמה עובדים עובדים על אותו קו?</li>
+          <li>מה התוקף המשפטי של בדיקת אדם כשיר לאחר תאונה?</li>
+          <li>באילו מצבים JSA אינו מספיק ונדרש HAZOP צוותי?</li>
+          <li>מהם הכללים להסרת מנעול LOTO של עובד שעזב את האתר ושכח את המנעול?</li>
+        </ul>
+      </div>
+    </details>
+
+    <details id="previous" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">אינטגרציה</span><strong>חיבור לשיעורים קודמים</strong></summary>
+      <div class="foldout-content">
+        <p><strong>אחריות משפטית:</strong> אי-גידור מכונה או אי-ניהול בדיקות נדרשות יכולים להפוך מכשל מקצועי לכשל משפטי. הממונה מייעץ ומכוון, אך אינו מחליף את אחריות המעסיק או מנהל העבודה.</p>
+        <p><strong>ניהול בטיחות:</strong> סקרי סיכונים הם בסיס לתוכנית הדרכות, נהלי עבודה, תקצוב בקרות ותיעדוף טיפול במפגעים.</p>
+        <p><strong>עבודה מול הנהלה:</strong> גידור מכונות ו-LOTO מציפים מתח בין רציפות ייצור לבין בטיחות. תפקיד הממונה הוא להפוך את הסיכון לשפה ניהולית ברורה.</p>
+      </div>
+    </details>
+
+    <details id="numbers" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">ערכים לזכירה</span><strong>מספרים שכדאי להכיר מראש</strong></summary>
+      <div class="foldout-content">
+        <div class="prep-table-wrap">
+          <table class="prep-table">
+            <thead><tr><th>תחום</th><th>נתון</th><th>משמעות לימודית</th></tr></thead>
+            <tbody>
+              <tr><td>בדיקות פיגומים</td><td>7 ימים</td><td>תדירות בדיקה שוטפת על ידי אדם כשיר ורישום בפנקס.</td></tr>
+              <tr><td>בדיקות לאחר הפסקת עבודה</td><td>3 ימים</td><td>הפסקה של 3 ימים ומעלה מחייבת בדיקה מחדש לפני שימוש.</td></tr>
+              <tr><td>גובה פיגום קריטי</td><td>6 מטרים</td><td>גובה שמחייב התייחסות מקצועית מיוחדת להקמה ולבדיקה.</td></tr>
+              <tr><td>מתקני הרמה ואביזרי הרמה</td><td>6 חודשים</td><td>תדירות מקובלת לבדיקה יסודית על ידי בודק מוסמך.</td></tr>
+              <tr><td>מכלי לחץ</td><td>14 חודשים</td><td>תדירות בדיקה סטטוטורית של מדחסים ודודי לחץ.</td></tr>
+              <tr><td>מכבשים מסוכנים</td><td>18 שנים</td><td>גיל מינימלי לעבודה עצמאית במכבשים מסוכנים לפי דגשי החומר.</td></tr>
+              <tr><td>דו-ידית הפעלה</td><td>0.5 שניות</td><td>חלון סימולטניות מרבי בין לחיצה בשתי הידיים.</td></tr>
+              <tr><td>רעש תעסוקתי</td><td>85 dB(A)</td><td>סף לימודי מוכר להגדרת רעש מזיק במשמרת עבודה.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>המספרים מוצגים כחומר הכנה ללמידה. אין להסתמך עליהם כדרישה מחייבת ללא בדיקה מול מקור רגולטורי או תקני עדכני.</p>
+      </div>
+    </details>
+
+    <details id="pocket" class="content-accordion summary-foldout">
+      <summary><span class="foldout-kicker">דף כיס</span><strong>מה כדאי לקחת איתך לשיעור?</strong></summary>
+      <div class="foldout-content">
+        <div class="prep-grid">
+          <article class="prep-card"><strong>20 מושגי מפתח</strong><p>מפגע, סיכון, סקר סיכונים, מטריצת סיכונים, מדרג הבקרות, מגן קבוע, Interlock, וילון אור, דו-ידית, E-Stop, LOTO, אנרגיה אגורה, Try-Out, חבק נעילה, אדם כשיר, בודק מוסמך, תסקיר, JSA, HAZOP, Near Miss.</p></article>
+          <article class="prep-card"><strong>10 שאלות לסוף השיעור</strong><p>מהם מנגנוני הפציעה במכונות? מתי נדרש LOTO? מה ההבדל בין אדם כשיר לבודק מוסמך? כיצד בוחרים בקרה לפי מדרג הבקרות? מתי JSA מתאים ומתי HAZOP?</p></article>
+        </div>
+      </div>
+    </details>
+
+    <section id="prepQuestions" class="prep-question-section" data-read-aloud-exclude="true">
+      <div class="section-title">
+        <h2>שאלות הכנה</h2>
+        <p>30 שאלות הכנה מתוך חומר ההכנה: 10 קלות, 10 בינוניות ו-10 קשות. התרגול מקומי בדפדפן ואינו משנה ציונים או מאגרי שאלות אחרים.</p>
+      </div>
+      <div id="prepQuizApp" class="prep-quiz-app" data-prep-quiz="lesson-12-machine-guarding-risk-surveys"></div>
+    </section>
+
+    <section class="related-panel" data-read-aloud-exclude="true">
+      <h2>קישורים קשורים</h2>
+      <div class="related-links">
+        <a class="btn secondary" href="../learning-path.html">מסלול הלימוד</a>
+        <a class="btn secondary" href="../summaries/lesson-10-summary.html">סיכום שיעור 10</a>
+        <a class="btn secondary" href="../knowledge/machine-guarding.html">גידור מכונות</a>
+        <a class="btn secondary" href="../knowledge/loto-ptw.html">LOTO והיתרי עבודה</a>
+        <a class="btn secondary" href="../knowledge/safety-ordinance.html">פקודת הבטיחות</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../data/learning-path-map.js"></script>
+  <script src="../../data/prep-questions-map.js"></script>
+  <script src="../../js/prep-quiz.js"></script>
+  <script src="../../js/summary-stability.js"></script>
+  <script src="../../js/prototype-shell.js"></script>
+  <script src="../../js/read-aloud.js"></script>
+  <script type="module" src="../../js/auth.js"></script>
+  <script src="../../js/accessibility.js"></script>
+</body>
+</html>

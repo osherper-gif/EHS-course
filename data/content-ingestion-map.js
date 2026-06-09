@@ -360,10 +360,10 @@
     "title": "גידור מכונות, ריתוך, סקרי סיכונים במכונות, מבוא לתהליכי עיבוד שבבי",
     "domain": "מכונות וגידור",
     "prep": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": "",
-      "questionCount": 0
+      "status": "available",
+      "href": "pages/prep/lesson-12-machine-guarding-risk-surveys.html",
+      "updatedAt": "2026-06-09",
+      "questionCount": 30
     },
     "summary": {
       "status": "missing",
@@ -372,8 +372,8 @@
       "questionCount": 0
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 30,
+      "href": "pages/prep/lesson-12-machine-guarding-risk-surveys.html#prepQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/machine-guarding.html",
@@ -386,19 +386,19 @@
       "pages/checklists.html?domain=Risk%20Assessment"
     ],
     "glossaryTerms": [],
-    "lastUpdated": "2026-06-07"
+    "lastUpdated": "2026-06-09"
   }
 ];
   lessons.forEach(withCourseScope);
 
 const latestUpdate = {
-  "type": "summary",
-  "typeLabel": "סיכום",
-  "lessonId": "lesson-11",
-  "sessionNumber": 11,
-  "title": "נוסף סיכום לשיעור 11 - שיטות ריתוך ובטיחות בריתוך",
-  "description": "סיכום שיעור ריתוך כולל שאלות תרגול ודגשי בטיחות מרכזיים.",
-  "href": "pages/summaries/lesson-11-summary.html",
+  "type": "prep",
+  "typeLabel": "הכנה",
+  "lessonId": "lesson-12",
+  "sessionNumber": 12,
+  "title": "נוספה הכנה לשיעור 12 - גידור מכונות וסקרי סיכונים",
+  "description": "עמוד הכנה לשיעור מכונות וגידור כולל 30 שאלות תרגול ודגשי LOTO, אדם כשיר וסקרי סיכונים.",
+  "href": "pages/prep/lesson-12-machine-guarding-risk-surveys.html",
   "updatedAt": "2026-06-09"
 };
   withCourseScope(latestUpdate);
@@ -493,6 +493,14 @@ const latestUpdate = {
     "sessionNumber": 11,
     "title": "שיטות ריתוך, בטיחות בריתוך, שיטת לפי התהליך",
     "href": "pages/prep/lesson-11-welding-safety.html",
+    "updatedAt": "2026-06-09",
+    "questionCount": 30
+  },
+  {
+    "lessonId": "lesson-12",
+    "sessionNumber": 12,
+    "title": "גידור מכונות, ריתוך, סקרי סיכונים במכונות, מבוא לתהליכי עיבוד שבבי",
+    "href": "pages/prep/lesson-12-machine-guarding-risk-surveys.html",
     "updatedAt": "2026-06-09",
     "questionCount": 30
   },

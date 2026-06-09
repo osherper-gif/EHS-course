@@ -6065,6 +6065,13 @@ window.CoursePrepQuestionSets["lesson-11-machine-guarding-risk-surveys-qualified
   }
 ];
 
+window.CoursePrepQuestionSets["lesson-12-machine-guarding-risk-surveys"] =
+  window.CoursePrepQuestionSets["lesson-11-machine-guarding-risk-surveys-qualified-person"].map((question) => ({
+    ...question,
+    id: question.id.replace("lesson-11-machine-guarding-risk-surveys-qualified-person", "lesson-12-machine-guarding-risk-surveys")
+  }));
+window.CoursePrepQuestionSetMeta["lesson-12-machine-guarding-risk-surveys"] = { courseId: "safety-officer", domainId: "safety", lessonId: "lesson-12" };
+
 window.CoursePrepQuestionSets["lesson-11-welding-safety"] = [
   {
     "id": "lesson-11-welding-safety-q01",
