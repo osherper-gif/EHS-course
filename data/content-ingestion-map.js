@@ -45,20 +45,20 @@
     "title": "בעיות יסוד במערך הבטיחות הפנימי בארגון",
     "domain": "יסודות הבטיחות",
     "prep": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": "",
+      "status": "available",
+      "href": "pages/prep/lesson-02-roles-responsibility.html",
+      "updatedAt": "2026-05-26",
       "questionCount": 0
     },
     "summary": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": "",
-      "questionCount": 0
+      "status": "available",
+      "href": "pages/summaries/lesson-02-summary.html",
+      "updatedAt": "2026-05-27",
+      "questionCount": 65
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 65,
+      "href": "pages/summaries/lesson-02-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/human-factors.html"
@@ -75,20 +75,20 @@
     "title": "אחריות משפטית, תפקידים, סמכויות, קציני בטיחות, נאמן, מבצע, מנהל, יזם, העסקת קבלני כוח אדם, קבלני משנה, אחריות נזיקית ומשפטית",
     "domain": "אחריות משפטית ובעלי תפקידים",
     "prep": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": "",
+      "status": "available",
+      "href": "pages/prep/lesson-03-labor-inspection-law.html",
+      "updatedAt": "2026-05-26",
       "questionCount": 0
     },
     "summary": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": "",
-      "questionCount": 0
+      "status": "available",
+      "href": "pages/summaries/lesson-03-summary.html",
+      "updatedAt": "2026-05-27",
+      "questionCount": 60
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 60,
+      "href": "pages/summaries/lesson-03-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html",
@@ -108,19 +108,19 @@
     "domain": "חקיקה ורגולציה",
     "prep": {
       "status": "available",
-      "href": "pages/prep/lesson-03-labor-inspection-law.html",
+      "href": "pages/prep/lesson-04-safety-ordinance.html",
       "updatedAt": "2026-05-26",
       "questionCount": 0
     },
     "summary": {
       "status": "available",
-      "href": "pages/summaries/lesson-03-summary.html",
-      "updatedAt": "2026-05-26",
-      "questionCount": 0
+      "href": "pages/summaries/lesson-04-summary.html",
+      "updatedAt": "2026-05-27",
+      "questionCount": 60
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 60,
+      "href": "pages/summaries/lesson-04-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html"
@@ -137,20 +137,20 @@
     "title": "תקנות ארגון הפיקוח על העבודה (ממונים על הבטיחות), הוראות לממונה בטיחות",
     "domain": "חקיקה ורגולציה",
     "prep": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": "",
+      "status": "available",
+      "href": "pages/prep/lesson-05-safety-committee-trustees.html",
+      "updatedAt": "2026-05-26",
       "questionCount": 0
     },
     "summary": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": "",
-      "questionCount": 0
+      "status": "available",
+      "href": "pages/summaries/lesson-05-summary.html",
+      "updatedAt": "2026-05-27",
+      "questionCount": 60
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 60,
+      "href": "pages/summaries/lesson-05-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html"
@@ -167,20 +167,20 @@
     "title": "אחריות משפטית של ממונה בטיחות",
     "domain": "אחריות משפטית ובעלי תפקידים",
     "prep": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": "",
-      "questionCount": 0
+      "status": "available",
+      "href": "pages/prep/lesson-06-emergency-preparedness.html",
+      "updatedAt": "2026-05-26",
+      "questionCount": 30
     },
     "summary": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": "",
-      "questionCount": 0
+      "status": "available",
+      "href": "pages/summaries/lesson-06-summary.html",
+      "updatedAt": "2026-05-27",
+      "questionCount": 59
     },
     "questions": {
-      "count": 0,
-      "href": ""
+      "count": 59,
+      "href": "pages/summaries/lesson-06-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/labor-inspection-law.html",
@@ -417,12 +417,44 @@ const latestUpdate = {
     "questionCount": 0
   },
   {
-    "lessonId": "lesson-04",
-    "sessionNumber": 4,
-    "title": "חוק ארגון הפיקוח על העבודה, מוסדות הבטיחות",
+    "lessonId": "lesson-02",
+    "sessionNumber": 2,
+    "title": "בעיות יסוד במערך הבטיחות הפנימי בארגון",
+    "href": "pages/prep/lesson-02-roles-responsibility.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 0
+  },
+  {
+    "lessonId": "lesson-03",
+    "sessionNumber": 3,
+    "title": "אחריות משפטית, תפקידים, סמכויות, קציני בטיחות, נאמן, מבצע, מנהל, יזם, העסקת קבלני כוח אדם, קבלני משנה, אחריות נזיקית ומשפטית",
     "href": "pages/prep/lesson-03-labor-inspection-law.html",
     "updatedAt": "2026-05-26",
     "questionCount": 0
+  },
+  {
+    "lessonId": "lesson-04",
+    "sessionNumber": 4,
+    "title": "חוק ארגון הפיקוח על העבודה, מוסדות הבטיחות",
+    "href": "pages/prep/lesson-04-safety-ordinance.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 0
+  },
+  {
+    "lessonId": "lesson-05",
+    "sessionNumber": 5,
+    "title": "תקנות ארגון הפיקוח על העבודה (ממונים על הבטיחות), הוראות לממונה בטיחות",
+    "href": "pages/prep/lesson-05-safety-committee-trustees.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 0
+  },
+  {
+    "lessonId": "lesson-06",
+    "sessionNumber": 6,
+    "title": "אחריות משפטית של ממונה בטיחות",
+    "href": "pages/prep/lesson-06-emergency-preparedness.html",
+    "updatedAt": "2026-05-26",
+    "questionCount": 30
   },
   {
     "lessonId": "lesson-07",
@@ -459,7 +491,7 @@ const latestUpdate = {
   {
     "lessonId": "lesson-11",
     "sessionNumber": 11,
-    "title": "????? ?????, ?????? ??????, ???? ??? ??????",
+    "title": "שיטות ריתוך, בטיחות בריתוך, שיטת לפי התהליך",
     "href": "pages/prep/lesson-11-welding-safety.html",
     "updatedAt": "2026-06-09",
     "questionCount": 30
@@ -477,21 +509,21 @@ const latestUpdate = {
   {
     "lessonId": "lesson-10",
     "sessionNumber": 10,
-    "title": "????? ?????? ????????, ??????, ??????, ???????, ??????, ??????, ???????, ???????, ????? ???????? ?????? ??????",
+    "title": "גידור מכונות ופתרונות, הדרכות, סייגים, תפקידים, ממונים, תאונות, תהליכים, מכשירים, תקנים ופתרונות לגידור מכונות",
     "href": "pages/summaries/lesson-10-summary.html",
     "updatedAt": "2026-06-09",
     "summaryAvailable": true,
-    "label": "????",
+    "label": "קיים",
     "questionCount": 60
   },
   {
     "lessonId": "lesson-11",
     "sessionNumber": 11,
-    "title": "????? ?????, ?????? ??????, ???? ??? ??????",
+    "title": "שיטות ריתוך, בטיחות בריתוך, שיטת לפי התהליך",
     "href": "pages/summaries/lesson-11-summary.html",
     "updatedAt": "2026-06-09",
     "summaryAvailable": true,
-    "label": "????",
+    "label": "קיים",
     "questionCount": 60
   },
   {
@@ -505,14 +537,54 @@ const latestUpdate = {
     "questionCount": 0
   },
   {
+    "lessonId": "lesson-02",
+    "sessionNumber": 2,
+    "title": "בעיות יסוד במערך הבטיחות הפנימי בארגון",
+    "href": "pages/summaries/lesson-02-summary.html",
+    "updatedAt": "2026-05-27",
+    "summaryAvailable": true,
+    "label": "קיים",
+    "questionCount": 65
+  },
+  {
+    "lessonId": "lesson-03",
+    "sessionNumber": 3,
+    "title": "אחריות משפטית, תפקידים, סמכויות, קציני בטיחות, נאמן, מבצע, מנהל, יזם, העסקת קבלני כוח אדם, קבלני משנה, אחריות נזיקית ומשפטית",
+    "href": "pages/summaries/lesson-03-summary.html",
+    "updatedAt": "2026-05-27",
+    "summaryAvailable": true,
+    "label": "קיים",
+    "questionCount": 60
+  },
+  {
     "lessonId": "lesson-04",
     "sessionNumber": 4,
     "title": "חוק ארגון הפיקוח על העבודה, מוסדות הבטיחות",
-    "href": "pages/summaries/lesson-03-summary.html",
-    "updatedAt": "2026-05-26",
+    "href": "pages/summaries/lesson-04-summary.html",
+    "updatedAt": "2026-05-27",
     "summaryAvailable": true,
     "label": "קיים",
-    "questionCount": 0
+    "questionCount": 60
+  },
+  {
+    "lessonId": "lesson-05",
+    "sessionNumber": 5,
+    "title": "תקנות ארגון הפיקוח על העבודה (ממונים על הבטיחות), הוראות לממונה בטיחות",
+    "href": "pages/summaries/lesson-05-summary.html",
+    "updatedAt": "2026-05-27",
+    "summaryAvailable": true,
+    "label": "קיים",
+    "questionCount": 60
+  },
+  {
+    "lessonId": "lesson-06",
+    "sessionNumber": 6,
+    "title": "אחריות משפטית של ממונה בטיחות",
+    "href": "pages/summaries/lesson-06-summary.html",
+    "updatedAt": "2026-05-27",
+    "summaryAvailable": true,
+    "label": "קיים",
+    "questionCount": 59
   },
   {
     "lessonId": "lesson-07",
@@ -546,8 +618,8 @@ const latestUpdate = {
   }
 ].map(withCourseScope),
     lessonUpdates: [latestUpdate],
-    glossaryAdditions: lessons.flatMap((item) => item.glossaryTerms.map((term) => withCourseScope({ term, category: "????? ?????", lessonId: item.lessonId, href: "pages/glossary.html" }))),
-    checklistAdditions: lessons.flatMap((item) => item.relatedChecklists.map((href) => withCourseScope({ title: "Checklist ????", category: "Operational", lessonId: item.lessonId, href }))),
+    glossaryAdditions: lessons.flatMap((item) => item.glossaryTerms.map((term) => withCourseScope({ term, category: "מונחי בטיחות", lessonId: item.lessonId, href: "pages/glossary.html" }))),
+    checklistAdditions: lessons.flatMap((item) => item.relatedChecklists.map((href) => withCourseScope({ title: "כלי בדיקה", category: "Operational", lessonId: item.lessonId, href }))),
     knowledgeLinks: Object.fromEntries(lessons.map((item) => [item.lessonId, item.relatedKnowledge])),
     latestUpdate
   };
