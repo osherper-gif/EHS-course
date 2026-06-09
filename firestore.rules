@@ -180,7 +180,8 @@ service cloud.firestore {
         "updatedAt",
         "source",
         "schemaVersion",
-        "scheduler"
+        "scheduler",
+        "signals"
       ]);
     }
 
@@ -253,6 +254,29 @@ service cloud.firestore {
     function validLearningStateScheduler() {
       return !request.resource.data.keys().hasAny(["scheduler"])
         || validSchedulerObject();
+    }
+
+    function validLearningSignals() {
+      return !request.resource.data.keys().hasAny(["signals"])
+        || (
+          request.resource.data.signals is map
+          && request.resource.data.signals.keys().hasOnly([
+            "answered",
+            "correct",
+            "firstAttemptCorrect",
+            "answerChanges",
+            "revealUsed",
+            "answeredAt",
+            "responseTimeMs"
+          ])
+          && request.resource.data.signals.answered == true
+          && request.resource.data.signals.correct is bool
+          && request.resource.data.signals.firstAttemptCorrect is bool
+          && validSchedulerNonNegativeNumber(request.resource.data.signals.answerChanges)
+          && request.resource.data.signals.revealUsed is bool
+          && request.resource.data.signals.answeredAt is timestamp
+          && validSchedulerNonNegativeNumber(request.resource.data.signals.responseTimeMs)
+        );
     }
 
     function validSelfUserCreateKeys() {
@@ -350,6 +374,7 @@ service cloud.firestore {
           && validLearningStateSource()
           && validLearningStateSchemaVersion()
           && validLearningStateScheduler()
+          && validLearningSignals()
           && noProgressAnswerLeakage();
         allow delete: if false;
       }

@@ -12,6 +12,7 @@
   const PAGE_SIZE = 10;
   const LEARNING_STATE_STORAGE_KEY = 'ehs.practiceHub.learningState.v1';
   const SCHEDULER_STORAGE_KEY = 'ehs.practiceHub.scheduler.v1';
+  const LEARNING_SIGNAL_STORAGE_KEY = 'ehs.practiceHub.learningSignals.v1';
   const LEARNING_STATE_SOURCE = 'practice-hub';
   const LEARNING_STATE_SCHEMA_VERSION = 2;
   const FSRS_VERSION = 'ts-fsrs@5.2.3';
@@ -106,6 +107,7 @@
         state = buildState(raw);
         renderAll();
         bindFilters();
+        bindAnswerSelectionMode();
         bindRevealMode();
         bindBookmarkMode();
         bindLearningStateMode();
@@ -159,7 +161,9 @@
         pageSize: PAGE_SIZE
       },
       learningStates: loadLocalLearningStates(),
-      schedulers: loadLocalSchedulers()
+      schedulers: loadLocalSchedulers(),
+      learningSignals: loadLocalLearningSignals(),
+      answerInteractions: {}
     };
   }
 
@@ -195,13 +199,74 @@
       const card = button.closest('.qb-card');
       const panel = card && card.querySelector('[data-qb-answer-panel]');
       const prompt = card && card.querySelector('[data-qb-reveal-prompt]');
+      const feedback = card && card.querySelector('[data-qb-answer-feedback]');
       if (!card || !panel) return;
 
+      const questionId = button.dataset.qbReveal;
+      const selectedOption = card.querySelector('[data-qb-option][data-selected="true"]');
+      if (!selectedOption) {
+        if (feedback) {
+          feedback.hidden = false;
+          feedback.dataset.result = 'pending';
+          feedback.textContent = 'בחר תשובה לפני הבדיקה.';
+        }
+        return;
+      }
+
+      const correct = selectedOption.dataset.correct === 'true';
+      const interaction = getAnswerInteraction(questionId, card);
+      const signal = buildLearningSignal(questionId, correct, interaction);
+      saveLearningSignal(questionId, signal);
+      for (const option of card.querySelectorAll('[data-qb-option]')) {
+        option.classList.toggle('is-answer-correct', option.dataset.correct === 'true');
+        option.classList.toggle('is-answer-wrong', option === selectedOption && !correct);
+      }
+
       card.dataset.revealed = 'true';
+      card.dataset.answerCorrect = correct ? 'true' : 'false';
       panel.hidden = false;
       button.hidden = true;
       if (prompt) prompt.hidden = true;
+      if (feedback) {
+        feedback.hidden = false;
+        feedback.dataset.result = correct ? 'correct' : 'incorrect';
+        feedback.textContent = correct ? 'תשובה נכונה.' : 'שאלה זו תילקח בחשבון בלמידה העתידית';
+      }
       panel.focus({ preventScroll: true });
+    });
+  }
+
+  function bindAnswerSelectionMode() {
+    document.addEventListener('click', (event) => {
+      const option = event.target.closest('[data-qb-option]');
+      if (!option || !state) return;
+
+      const card = option.closest('.qb-card');
+      if (!card || card.dataset.revealed === 'true') return;
+
+      const questionId = option.dataset.qbQuestionId;
+      const optionId = option.dataset.qbOptionId;
+      if (!questionId || !optionId) return;
+
+      const interaction = getAnswerInteraction(questionId, card);
+      if (interaction.selectedOptionId && interaction.selectedOptionId !== optionId) {
+        interaction.answerChanges += 1;
+      }
+      interaction.selectedOptionId = optionId;
+
+      for (const item of card.querySelectorAll('[data-qb-option]')) {
+        const selected = item.dataset.qbOptionId === optionId;
+        item.dataset.selected = selected ? 'true' : 'false';
+        item.classList.toggle('is-selected', selected);
+        item.setAttribute('aria-pressed', String(selected));
+      }
+
+      const feedback = card.querySelector('[data-qb-answer-feedback]');
+      if (feedback && feedback.dataset.result === 'pending') {
+        feedback.hidden = true;
+        feedback.textContent = '';
+        delete feedback.dataset.result;
+      }
     });
   }
 
@@ -444,9 +509,10 @@
     const correctAnswer = question.correctAnswer || {};
     const provenance = Array.isArray(question.answerProvenance) ? question.answerProvenance : [];
     const facets = activeFacets(question.examFacets);
+    const questionId = question.questionId || String(index);
 
     return `
-      <article class="qb-card">
+      <article class="qb-card" data-qb-question-id="${escapeAttribute(questionId)}" data-qb-rendered-at="${Date.now()}">
         <div class="qb-meta-row">
           <span class="qb-badge">שאלה ${escapeHtml(index + 1)}</span>
           <span class="qb-badge">${escapeHtml(difficultyLabel(question.difficulty))}</span>
@@ -457,14 +523,17 @@
 
         <ul class="qb-options">
           ${(question.options || []).map((option) => `
-            <li class="qb-option" data-correct="${option.optionId === correctOptionId ? 'true' : 'false'}">
-              <strong>${escapeHtml(option.optionId)}.</strong> ${escapeHtml(option.text)}
+            <li>
+              <button class="qb-option" type="button" data-qb-option data-qb-question-id="${escapeAttribute(questionId)}" data-qb-option-id="${escapeAttribute(option.optionId)}" data-correct="${option.optionId === correctOptionId ? 'true' : 'false'}" data-selected="false" aria-pressed="false">
+                <strong>${escapeHtml(option.optionId)}.</strong>
+                <span>${escapeHtml(option.text)}</span>
+              </button>
             </li>
           `).join('')}
         </ul>
 
         <div class="qb-card-actions">
-          <button class="qb-bookmark-button" type="button" data-qb-bookmark="${escapeAttribute(question.questionId || String(index))}" aria-pressed="false">
+          <button class="qb-bookmark-button" type="button" data-qb-bookmark="${escapeAttribute(questionId)}" aria-pressed="false">
             ⭐ שמור לעיון
           </button>
         </div>
@@ -473,7 +542,8 @@
           <strong>🤔 חשוב לפני שאתה מגלה את התשובה</strong>
           <span>נסה לבחור תשובה בעצמך ורק אז בדוק את ההסבר והמקור.</span>
         </div>
-        <button class="qb-reveal-button" type="button" data-qb-reveal="${escapeAttribute(question.questionId || String(index))}">
+        <p class="qb-answer-feedback" data-qb-answer-feedback hidden></p>
+        <button class="qb-reveal-button" type="button" data-qb-reveal="${escapeAttribute(questionId)}">
           בדוק את עצמך
         </button>
 
@@ -761,6 +831,7 @@
           const persisted = await loadFirestoreLearningStates(user.uid);
           state.learningStates = persisted.learningStates;
           state.schedulers = persisted.schedulers;
+          state.learningSignals = persisted.learningSignals;
           renderLearningDashboard();
           renderQuestions();
         } catch (error) {
@@ -779,6 +850,7 @@
     const snapshot = await firebase.getDocs(firebase.collection(firebase.db, 'users', uid, 'learningState'));
     const nextStates = {};
     const nextSchedulers = {};
+    const nextSignals = {};
     snapshot.forEach((item) => {
       const data = item.data();
       const questionId = data && data.questionId ? String(data.questionId) : item.id;
@@ -786,8 +858,10 @@
       if (value !== 'unknown') nextStates[questionId] = value;
       const scheduler = normalizeScheduler(data && data.scheduler);
       if (scheduler.type === 'fsrs') nextSchedulers[questionId] = scheduler;
+      const signal = normalizeLearningSignal(data && data.signals);
+      if (signal) nextSignals[questionId] = signal;
     });
-    return { learningStates: nextStates, schedulers: nextSchedulers };
+    return { learningStates: nextStates, schedulers: nextSchedulers, learningSignals: nextSignals };
   }
 
   function loadLocalLearningStates() {
@@ -822,6 +896,66 @@
     } catch (error) {
       // Scheduler state is experimental; failure to persist should not block practice.
     }
+  }
+
+  function loadLocalLearningSignals() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(LEARNING_SIGNAL_STORAGE_KEY) || '{}');
+      return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function saveLearningSignals() {
+    try {
+      localStorage.setItem(LEARNING_SIGNAL_STORAGE_KEY, JSON.stringify(state.learningSignals));
+    } catch (error) {
+      // Learning signals are analytics hints; failure to persist should not block practice.
+    }
+  }
+
+  function getAnswerInteraction(questionId, card) {
+    if (!state.answerInteractions[questionId]) {
+      const renderedAt = card && Number(card.dataset.qbRenderedAt);
+      state.answerInteractions[questionId] = {
+        selectedOptionId: null,
+        answerChanges: 0,
+        startedAt: Number.isFinite(renderedAt) ? renderedAt : Date.now()
+      };
+    }
+    return state.answerInteractions[questionId];
+  }
+
+  function buildLearningSignal(questionId, correct, interaction) {
+    const answeredAt = new Date();
+    const responseTimeMs = Math.max(0, Math.round(answeredAt.getTime() - Number(interaction.startedAt || answeredAt.getTime())));
+    return {
+      answered: true,
+      correct: Boolean(correct),
+      firstAttemptCorrect: Boolean(correct && interaction.answerChanges === 0),
+      answerChanges: Math.max(0, Number(interaction.answerChanges || 0)),
+      revealUsed: true,
+      answeredAt: answeredAt.toISOString(),
+      responseTimeMs
+    };
+  }
+
+  function saveLearningSignal(questionId, signal) {
+    const normalized = normalizeLearningSignal(signal);
+    if (!questionId || !normalized) return;
+
+    state.learningSignals[questionId] = normalized;
+    saveLearningSignals();
+
+    if (canUseFirestoreLearningState()) {
+      saveFirestoreLearningSignal(questionId, normalized).catch(() => {
+        saveLearningSignals();
+      });
+      return;
+    }
+
+    saveLearningSignals();
   }
 
   function getLearningState(questionId) {
@@ -991,6 +1125,22 @@
     }, { merge: true });
   }
 
+  async function saveFirestoreLearningSignal(questionId, signal) {
+    const firebase = firebaseLearningState.api;
+    const uid = firebaseLearningState.user.uid;
+    const normalized = normalizeLearningSignal(signal);
+    if (!normalized) return;
+
+    await firebase.setDoc(firebase.doc(firebase.db, 'users', uid, 'learningState', questionId), {
+      questionId,
+      state: getLearningState(questionId),
+      signals: firestoreLearningSignal(normalized),
+      updatedAt: firebase.serverTimestamp(),
+      schemaVersion: LEARNING_STATE_SCHEMA_VERSION,
+      source: LEARNING_STATE_SOURCE
+    }, { merge: true });
+  }
+
   function normalizeScheduler(value) {
     if (!value || typeof value !== 'object') return { ...EMPTY_SCHEDULER };
 
@@ -1020,8 +1170,29 @@
     };
   }
 
+  function firestoreLearningSignal(signal) {
+    return {
+      ...signal,
+      answeredAt: signal.answeredAt ? new Date(signal.answeredAt) : null
+    };
+  }
+
   function normalizeLearningState(value) {
     return ['mastered', 'review'].includes(value) ? value : 'unknown';
+  }
+
+  function normalizeLearningSignal(value) {
+    if (!value || typeof value !== 'object' || value.answered !== true) return null;
+    const answeredAt = dateIsoOrNull(value.answeredAt) || new Date().toISOString();
+    return {
+      answered: true,
+      correct: Boolean(value.correct),
+      firstAttemptCorrect: Boolean(value.firstAttemptCorrect),
+      answerChanges: Math.max(0, Number(value.answerChanges || 0)),
+      revealUsed: Boolean(value.revealUsed),
+      answeredAt,
+      responseTimeMs: Math.max(0, Number(value.responseTimeMs || 0))
+    };
   }
 
   function countLearningStates(questions) {
