@@ -118,6 +118,7 @@
         bindLearningStateMode();
         bindFsrsMode();
         bindPagination();
+        bindWeakTopicsMode();
         initPersistentLearningState();
       })
       .catch(renderError);
@@ -340,10 +341,27 @@
     });
   }
 
+  function bindWeakTopicsMode() {
+    document.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-qb-weak-topic-practice]');
+      if (!button || !state) return;
+
+      const topicId = button.dataset.qbWeakTopicPractice;
+      const topicFilter = document.querySelector('[data-qb-filter-topic]');
+      if (!topicId || !topicFilter) return;
+
+      topicFilter.value = topicId;
+      state.pagination.page = 1;
+      renderQuestions();
+      document.querySelector('[data-qb-questions]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
   function renderAll() {
     updateWeakTopicsRuntime();
     renderSummary();
     renderLearningDashboard();
+    renderWeakTopicsPanel();
     renderFilterOptions();
     renderQuestions();
   }
@@ -397,6 +415,69 @@
         <span>${escapeHtml(label)}</span>
       </article>
     `).join('');
+  }
+
+  function renderWeakTopicsPanel() {
+    const target = document.querySelector('[data-qb-weak-topics]');
+    if (!target || !state) return;
+
+    const recommendations = buildWeakTopicRecommendations();
+    if (!recommendations.length) {
+      target.innerHTML = `
+        <h2 id="qbWeakTopicsTitle">נושאים שכדאי לחזור עליהם</h2>
+        <p class="qb-weak-topics-intro">ענה על כמה שאלות כדי לקבל המלצות חזרה.</p>
+      `;
+      return;
+    }
+
+    target.innerHTML = `
+      <h2 id="qbWeakTopicsTitle">נושאים שכדאי לחזור עליהם</h2>
+      <p class="qb-weak-topics-intro">המלצות עדינות לפי התרגול שסימנת וענית עליו. הן לא משנות את מצב הלמידה אוטומטית.</p>
+      <div class="qb-weak-topic-list">
+        ${recommendations.map(renderWeakTopicCard).join('')}
+      </div>
+    `;
+  }
+
+  function buildWeakTopicRecommendations() {
+    if (!SERVICES.WeakTopicsPresentation || typeof SERVICES.WeakTopicsPresentation.buildWeakTopicPresentations !== 'function') {
+      return [];
+    }
+
+    return SERVICES.WeakTopicsPresentation.buildWeakTopicPresentations({
+      metrics: state.weakTopics || [],
+      limit: 3,
+      topicTitle: topicLabel,
+      capabilities: {
+        hasPracticeQuestions: true,
+        hasSummary: false,
+        canOpenSmartReview: true
+      }
+    });
+  }
+
+  function renderWeakTopicCard(item) {
+    const secondaryAction = item.secondaryCTA
+      ? `<a class="qb-weak-topic-action" href="smart-review-pilot.html">${escapeHtml(item.secondaryCTA)}</a>`
+      : '';
+
+    return `
+      <article class="qb-weak-topic-card" data-severity="${escapeAttribute(item.severity)}">
+        <div class="qb-meta-row">
+          <span class="qb-badge" data-kind="exam">${escapeHtml(item.displayLabel)}</span>
+          <span class="qb-badge">${escapeHtml(item.confidenceLabel)}</span>
+        </div>
+        <h3>${escapeHtml(item.topicTitle)}</h3>
+        <p>${escapeHtml(item.recommendationText)}</p>
+        <p>${escapeHtml(item.evidenceSummary)}</p>
+        <div class="qb-weak-topic-actions">
+          <button class="qb-weak-topic-action" type="button" data-qb-weak-topic-practice="${escapeAttribute(item.topicId)}">
+            ${escapeHtml(item.primaryCTA)}
+          </button>
+          ${secondaryAction}
+        </div>
+      </article>
+    `;
   }
 
   function renderSummary() {
@@ -914,6 +995,7 @@
 
     state.learningSignals[questionId] = normalized;
     updateWeakTopicsRuntime();
+    renderWeakTopicsPanel();
     saveLocalLearningSignal(questionId, normalized);
 
     if (canUseFirestoreLearningState()) {
@@ -943,6 +1025,7 @@
       state.learningStates[questionId] = nextValue;
     }
     updateWeakTopicsRuntime();
+    renderWeakTopicsPanel();
 
     if (canUseFirestoreLearningState()) {
       saveFirestoreLearningState(questionId, nextValue).catch(() => {
@@ -965,6 +1048,7 @@
     }
     state.schedulers[questionId] = scheduler;
     updateWeakTopicsRuntime();
+    renderWeakTopicsPanel();
 
     if (canUseFirestoreLearningState()) {
       try {
@@ -982,6 +1066,7 @@
     updateLearningStateControls(questionId);
     updateFsrsStatus(questionId, fsrsStatusText(scheduler));
     updateWeakTopicsRuntime();
+    renderWeakTopicsPanel();
     renderLearningDashboard();
   }
 

@@ -260,6 +260,82 @@
       font-size: 1.15rem;
     }
 
+    .qb-weak-topics {
+      display: grid;
+      gap: 12px;
+    }
+
+    .qb-weak-topics-intro {
+      margin: -4px 0 0;
+      color: var(--qb-muted);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .qb-weak-topic-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+
+    .qb-weak-topic-card {
+      border: 1px solid var(--qb-border);
+      border-radius: 10px;
+      background: #fff;
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .qb-weak-topic-card h3 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .qb-weak-topic-card p {
+      margin: 0;
+      color: var(--qb-muted);
+      font-size: .88rem;
+      line-height: 1.65;
+    }
+
+    .qb-weak-topic-card[data-severity="exam-focus"],
+    .qb-weak-topic-card[data-severity="review-recommended"] {
+      border-inline-start: 4px solid var(--qb-exam);
+    }
+
+    .qb-weak-topic-card[data-severity="early-signal"],
+    .qb-weak-topic-card[data-severity="light-review"] {
+      border-inline-start: 4px solid var(--qb-standard);
+    }
+
+    .qb-weak-topic-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .qb-weak-topic-action {
+      border: 1px solid var(--qb-border);
+      border-radius: 999px;
+      background: var(--qb-soft);
+      color: var(--qb-brand);
+      padding: 8px 12px;
+      font: inherit;
+      font-size: .84rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .qb-weak-topic-action:hover,
+    .qb-weak-topic-action:focus-visible {
+      border-color: var(--qb-brand);
+      outline: none;
+    }
+
     .qb-filter-grid {
       align-items: end;
       gap: 12px;
@@ -842,6 +918,11 @@
         </article>
       </section>
 
+      <section class="qb-panel qb-weak-topics" aria-labelledby="qbWeakTopicsTitle" data-qb-weak-topics>
+        <h2 id="qbWeakTopicsTitle">נושאים שכדאי לחזור עליהם</h2>
+        <p class="qb-weak-topics-intro">ענה על כמה שאלות כדי לקבל המלצות חזרה.</p>
+      </section>
+
       <section class="qb-panel" aria-labelledby="qbFiltersTitle">
         <h2 id="qbFiltersTitle">סינון וחיפוש</h2>
         <div class="qb-filter-grid">
@@ -900,6 +981,7 @@
   <script src="../js/services/source-details-service.js"></script>
   <script src="../js/services/storage-adapter.js"></script>
   <script src="../js/services/weak-topics-service.js"></script>
+  <script src="../js/services/weak-topics-presentation-service.js"></script>
   <script src="../js/question-bank-pilot.js"></script>
 </body>
 </html>
