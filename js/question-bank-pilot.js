@@ -160,6 +160,8 @@
       learningStates: loadLocalLearningStates(),
       schedulers: loadLocalSchedulers(),
       learningSignals: loadLocalLearningSignals(),
+      weakTopics: [],
+      weakTopicsLogged: false,
       answerInteractions: {}
     };
   }
@@ -339,10 +341,40 @@
   }
 
   function renderAll() {
+    updateWeakTopicsRuntime();
     renderSummary();
     renderLearningDashboard();
     renderFilterOptions();
     renderQuestions();
+  }
+
+  function updateWeakTopicsRuntime() {
+    if (!state || !SERVICES.WeakTopics || typeof SERVICES.WeakTopics.calculateWeakTopics !== 'function') return;
+
+    state.weakTopics = SERVICES.WeakTopics.calculateWeakTopics({
+      questions: state.questions,
+      learningStates: state.learningStates,
+      learningSignals: state.learningSignals,
+      schedulers: state.schedulers,
+      now: new Date()
+    });
+
+    window.__ehsWeakTopicsPilot = state.weakTopics;
+
+    if (!state.weakTopicsLogged && window.console && typeof window.console.debug === 'function') {
+      const sample = state.weakTopics.slice(0, 5).map((topic) => ({
+        topicId: topic.topicId,
+        answeredCount: topic.answeredCount,
+        totalQuestions: topic.totalQuestions,
+        weaknessScore: topic.weaknessScore,
+        confidence: topic.confidence
+      }));
+      window.console.debug('Debug: Weak Topics Runtime Pilot', sample);
+      if (typeof window.console.table === 'function') {
+        window.console.table(sample);
+      }
+      state.weakTopicsLogged = true;
+    }
   }
 
   function renderLearningDashboard() {
@@ -881,6 +913,7 @@
     if (!questionId || !normalized) return;
 
     state.learningSignals[questionId] = normalized;
+    updateWeakTopicsRuntime();
     saveLocalLearningSignal(questionId, normalized);
 
     if (canUseFirestoreLearningState()) {
@@ -909,6 +942,7 @@
     } else {
       state.learningStates[questionId] = nextValue;
     }
+    updateWeakTopicsRuntime();
 
     if (canUseFirestoreLearningState()) {
       saveFirestoreLearningState(questionId, nextValue).catch(() => {
@@ -930,6 +964,7 @@
       state.learningStates[questionId] = nextState;
     }
     state.schedulers[questionId] = scheduler;
+    updateWeakTopicsRuntime();
 
     if (canUseFirestoreLearningState()) {
       try {
@@ -946,6 +981,7 @@
 
     updateLearningStateControls(questionId);
     updateFsrsStatus(questionId, fsrsStatusText(scheduler));
+    updateWeakTopicsRuntime();
     renderLearningDashboard();
   }
 
