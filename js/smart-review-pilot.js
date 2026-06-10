@@ -10,6 +10,7 @@
   };
 
   const SERVICES = window.EHSLearningServices || {};
+  const storageAdapter = SERVICES.StorageAdapter.createLocalStorageAdapter();
 
   const LEARNING_STATE_STORAGE_KEY = 'ehs.practiceHub.learningState.v1';
   const SCHEDULER_STORAGE_KEY = 'ehs.practiceHub.scheduler.v1';
@@ -397,37 +398,19 @@
   }
 
   function loadLocalLearningStates() {
-    try {
-      const parsed = JSON.parse(localStorage.getItem(LEARNING_STATE_STORAGE_KEY) || '{}');
-      return parsed && typeof parsed === 'object' ? parsed : {};
-    } catch (error) {
-      return {};
-    }
+    return storageAdapter.loadLocalLearningStates();
   }
 
-  function saveLearningStates() {
-    try {
-      localStorage.setItem(LEARNING_STATE_STORAGE_KEY, JSON.stringify(state.learningStates));
-    } catch (error) {
-      // Local state is a progressive enhancement.
-    }
+  function saveLocalLearningState(questionId, value) {
+    storageAdapter.saveLocalLearningState(questionId, { state: value });
   }
 
   function loadLocalSchedulers() {
-    try {
-      const parsed = JSON.parse(localStorage.getItem(SCHEDULER_STORAGE_KEY) || '{}');
-      return parsed && typeof parsed === 'object' ? parsed : {};
-    } catch (error) {
-      return {};
-    }
+    return storageAdapter.loadLocalSchedulers();
   }
 
-  function saveLocalSchedulers() {
-    try {
-      localStorage.setItem(SCHEDULER_STORAGE_KEY, JSON.stringify(state.schedulers));
-    } catch (error) {
-      // Scheduler state is a pilot enhancement.
-    }
+  function saveLocalScheduler(questionId, scheduler) {
+    storageAdapter.saveLocalScheduler(questionId, scheduler);
   }
 
   function getLearningState(questionId) {
@@ -448,11 +431,13 @@
     }
 
     if (canUseFirestoreLearningState()) {
-      saveFirestoreLearningState(questionId, nextValue).catch(saveLearningStates);
+      saveFirestoreLearningState(questionId, nextValue).catch(() => {
+        saveLocalLearningState(questionId, nextValue);
+      });
       return;
     }
 
-    saveLearningStates();
+    saveLocalLearningState(questionId, nextValue);
   }
 
   async function setFsrsRating(questionId, rating) {
@@ -470,13 +455,13 @@
       try {
         await saveFirestoreLearningState(questionId, nextState, scheduler);
       } catch (error) {
-        saveLearningStates();
-        saveLocalSchedulers();
+        saveLocalLearningState(questionId, nextState);
+        saveLocalScheduler(questionId, scheduler);
         throw error;
       }
     } else {
-      saveLearningStates();
-      saveLocalSchedulers();
+      saveLocalLearningState(questionId, nextState);
+      saveLocalScheduler(questionId, scheduler);
     }
   }
 
@@ -614,24 +599,7 @@
   }
 
   function normalizeScheduler(value) {
-    if (!value || typeof value !== 'object') return { ...EMPTY_SCHEDULER };
-
-    return {
-      ...EMPTY_SCHEDULER,
-      type: value.type === 'fsrs' ? 'fsrs' : null,
-      version: value.version ? String(value.version) : null,
-      stability: typeof value.stability === 'number' ? value.stability : null,
-      difficulty: typeof value.difficulty === 'number' ? value.difficulty : null,
-      nextReviewAt: dateIsoOrNull(value.nextReviewAt),
-      repetitions: Math.max(0, Number(value.repetitions || 0)),
-      lapses: Math.max(0, Number(value.lapses || 0)),
-      lastRating: ['again', 'hard', 'good', 'easy'].includes(value.lastRating) ? value.lastRating : null,
-      scheduledDays: typeof value.scheduledDays === 'number' ? value.scheduledDays : null,
-      elapsedDays: typeof value.elapsedDays === 'number' ? value.elapsedDays : null,
-      fsrsState: typeof value.fsrsState === 'number' ? value.fsrsState : null,
-      learningSteps: typeof value.learningSteps === 'number' ? value.learningSteps : null,
-      lastReviewAt: dateIsoOrNull(value.lastReviewAt)
-    };
+    return SERVICES.StorageAdapter.normalizeScheduler(value);
   }
 
   function firestoreScheduler(scheduler) {
@@ -643,7 +611,7 @@
   }
 
   function normalizeLearningState(value) {
-    return ['mastered', 'review'].includes(value) ? value : 'unknown';
+    return SERVICES.StorageAdapter.normalizeLearningState(value);
   }
 
   function sourceRoleLabel(item) {

@@ -10,6 +10,7 @@
   };
 
   const SERVICES = window.EHSLearningServices || {};
+  const storageAdapter = SERVICES.StorageAdapter.createLocalStorageAdapter();
 
   const PAGE_SIZE = 10;
   const LEARNING_STATE_STORAGE_KEY = 'ehs.practiceHub.learningState.v1';
@@ -826,54 +827,27 @@
   }
 
   function loadLocalLearningStates() {
-    try {
-      const parsed = JSON.parse(localStorage.getItem(LEARNING_STATE_STORAGE_KEY) || '{}');
-      return parsed && typeof parsed === 'object' ? parsed : {};
-    } catch (error) {
-      return {};
-    }
+    return storageAdapter.loadLocalLearningStates();
   }
 
-  function saveLearningStates() {
-    try {
-      localStorage.setItem(LEARNING_STATE_STORAGE_KEY, JSON.stringify(state.learningStates));
-    } catch (error) {
-      // Learning state is a pilot enhancement; failure to persist should not block practice.
-    }
+  function saveLocalLearningState(questionId, value) {
+    storageAdapter.saveLocalLearningState(questionId, { state: value });
   }
 
   function loadLocalSchedulers() {
-    try {
-      const parsed = JSON.parse(localStorage.getItem(SCHEDULER_STORAGE_KEY) || '{}');
-      return parsed && typeof parsed === 'object' ? parsed : {};
-    } catch (error) {
-      return {};
-    }
+    return storageAdapter.loadLocalSchedulers();
   }
 
-  function saveLocalSchedulers() {
-    try {
-      localStorage.setItem(SCHEDULER_STORAGE_KEY, JSON.stringify(state.schedulers));
-    } catch (error) {
-      // Scheduler state is experimental; failure to persist should not block practice.
-    }
+  function saveLocalScheduler(questionId, scheduler) {
+    storageAdapter.saveLocalScheduler(questionId, scheduler);
   }
 
   function loadLocalLearningSignals() {
-    try {
-      const parsed = JSON.parse(localStorage.getItem(LEARNING_SIGNAL_STORAGE_KEY) || '{}');
-      return parsed && typeof parsed === 'object' ? parsed : {};
-    } catch (error) {
-      return {};
-    }
+    return storageAdapter.loadLocalLearningSignals();
   }
 
-  function saveLearningSignals() {
-    try {
-      localStorage.setItem(LEARNING_SIGNAL_STORAGE_KEY, JSON.stringify(state.learningSignals));
-    } catch (error) {
-      // Learning signals are analytics hints; failure to persist should not block practice.
-    }
+  function saveLocalLearningSignal(questionId, signal) {
+    storageAdapter.saveLocalLearningSignals(questionId, signal);
   }
 
   function getAnswerInteraction(questionId, card) {
@@ -907,16 +881,16 @@
     if (!questionId || !normalized) return;
 
     state.learningSignals[questionId] = normalized;
-    saveLearningSignals();
+    saveLocalLearningSignal(questionId, normalized);
 
     if (canUseFirestoreLearningState()) {
       saveFirestoreLearningSignal(questionId, normalized).catch(() => {
-        saveLearningSignals();
+        saveLocalLearningSignal(questionId, normalized);
       });
       return;
     }
 
-    saveLearningSignals();
+    saveLocalLearningSignal(questionId, normalized);
   }
 
   function getLearningState(questionId) {
@@ -938,12 +912,12 @@
 
     if (canUseFirestoreLearningState()) {
       saveFirestoreLearningState(questionId, nextValue).catch(() => {
-        saveLearningStates();
+        saveLocalLearningState(questionId, nextValue);
       });
       return;
     }
 
-    saveLearningStates();
+    saveLocalLearningState(questionId, nextValue);
   }
 
   async function setFsrsRating(questionId, rating) {
@@ -961,13 +935,13 @@
       try {
         await saveFirestoreLearningState(questionId, nextState, scheduler);
       } catch (error) {
-        saveLearningStates();
-        saveLocalSchedulers();
+        saveLocalLearningState(questionId, nextState);
+        saveLocalScheduler(questionId, scheduler);
         throw error;
       }
     } else {
-      saveLearningStates();
-      saveLocalSchedulers();
+      saveLocalLearningState(questionId, nextState);
+      saveLocalScheduler(questionId, scheduler);
     }
 
     updateLearningStateControls(questionId);
@@ -1103,24 +1077,7 @@
   }
 
   function normalizeScheduler(value) {
-    if (!value || typeof value !== 'object') return { ...EMPTY_SCHEDULER };
-
-    return {
-      ...EMPTY_SCHEDULER,
-      type: value.type === 'fsrs' ? 'fsrs' : null,
-      version: value.version ? String(value.version) : null,
-      stability: typeof value.stability === 'number' ? value.stability : null,
-      difficulty: typeof value.difficulty === 'number' ? value.difficulty : null,
-      nextReviewAt: dateIsoOrNull(value.nextReviewAt),
-      repetitions: Math.max(0, Number(value.repetitions || 0)),
-      lapses: Math.max(0, Number(value.lapses || 0)),
-      lastRating: ['again', 'hard', 'good', 'easy'].includes(value.lastRating) ? value.lastRating : null,
-      scheduledDays: typeof value.scheduledDays === 'number' ? value.scheduledDays : null,
-      elapsedDays: typeof value.elapsedDays === 'number' ? value.elapsedDays : null,
-      fsrsState: typeof value.fsrsState === 'number' ? value.fsrsState : null,
-      learningSteps: typeof value.learningSteps === 'number' ? value.learningSteps : null,
-      lastReviewAt: dateIsoOrNull(value.lastReviewAt)
-    };
+    return SERVICES.StorageAdapter.normalizeScheduler(value);
   }
 
   function firestoreScheduler(scheduler) {
@@ -1139,21 +1096,11 @@
   }
 
   function normalizeLearningState(value) {
-    return ['mastered', 'review'].includes(value) ? value : 'unknown';
+    return SERVICES.StorageAdapter.normalizeLearningState(value);
   }
 
   function normalizeLearningSignal(value) {
-    if (!value || typeof value !== 'object' || value.answered !== true) return null;
-    const answeredAt = dateIsoOrNull(value.answeredAt) || new Date().toISOString();
-    return {
-      answered: true,
-      correct: Boolean(value.correct),
-      firstAttemptCorrect: Boolean(value.firstAttemptCorrect),
-      answerChanges: Math.max(0, Number(value.answerChanges || 0)),
-      revealUsed: Boolean(value.revealUsed),
-      answeredAt,
-      responseTimeMs: Math.max(0, Number(value.responseTimeMs || 0))
-    };
+    return SERVICES.StorageAdapter.normalizeLearningSignals(value);
   }
 
   function countLearningStates(questions) {
