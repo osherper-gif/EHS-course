@@ -9,6 +9,8 @@
     citations: '../content/citation-registry-pilot.json'
   };
 
+  const SERVICES = window.EHSLearningServices || {};
+
   const LEARNING_STATE_STORAGE_KEY = 'ehs.practiceHub.learningState.v1';
   const SCHEDULER_STORAGE_KEY = 'ehs.practiceHub.scheduler.v1';
   const LEARNING_STATE_SOURCE = 'practice-hub';
@@ -74,6 +76,8 @@
 
   let state = null;
   let pendingFeedback = '';
+  let navigationLabels = null;
+  let sourceDetails = null;
   let firebaseLearningState = {
     ready: false,
     user: null,
@@ -94,30 +98,23 @@
   });
 
   async function loadData() {
-    const entries = await Promise.all(
-      Object.entries(DATA_FILES).map(async ([key, file]) => {
-        const response = await fetch(file, { cache: 'no-store' });
-        if (!response.ok) throw new Error('טעינת נתוני החזרה נכשלה.');
-        return [key, await response.json()];
-      })
-    );
-    return Object.fromEntries(entries);
+    return SERVICES.QuestionBank.loadJsonFiles(DATA_FILES, 'טעינת נתוני החזרה נכשלה.');
   }
 
   function buildState(raw) {
-    const questionData = raw.questions || {};
-    const questions = Array.isArray(questionData.questions) ? questionData.questions : [];
-    const topics = raw.topics && Array.isArray(raw.topics.topics) ? raw.topics.topics : [];
-    const lessons = raw.lessons && Array.isArray(raw.lessons.lessonMappings) ? raw.lessons.lessonMappings : [];
-    const sources = raw.sources && Array.isArray(raw.sources.entries) ? raw.sources.entries : [];
-    const citations = raw.citations && Array.isArray(raw.citations.citations) ? raw.citations.citations : [];
+    const indexes = SERVICES.QuestionBank.createIndexes(raw);
+    navigationLabels = SERVICES.NavigationLabels.createNavigationLabels({
+      topicById: indexes.topicById,
+      lessonById: indexes.lessonById,
+      maxLessonTitleLength: 46
+    });
+    sourceDetails = SERVICES.SourceDetails.createSourceDetails({
+      sourceById: indexes.sourceById,
+      citationById: indexes.citationById
+    });
 
     return {
-      questions,
-      topicById: new Map(topics.map((topic) => [topic.topicId, topic])),
-      lessonById: new Map(lessons.map((lesson) => [lesson.lessonId, lesson])),
-      sourceById: new Map(sources.map((source) => [source.stableSourceId, source])),
-      citationById: new Map(citations.map((citation) => [citation.citationId, citation])),
+      ...indexes,
       learningStates: loadLocalLearningStates(),
       schedulers: loadLocalSchedulers()
     };
@@ -650,50 +647,35 @@
   }
 
   function sourceRoleLabel(item) {
-    const level = Number(item.authorityLevel);
-    return level >= 6 ? 'מקור לימודי' : 'מקור אימות';
+    return sourceDetails.sourceRoleLabel(item);
   }
 
   function sourceStatusLabel(item) {
-    const level = Number(item.authorityLevel);
-    if (level >= 6 && item.verificationStatus === 'source-backed') return 'הסבר מבוסס חומר לימודי';
-    if (item.verificationStatus === 'source-backed') return 'מבוסס מקור';
-    if (item.verificationStatus === 'verified') return 'מאומת';
-    return item.verificationStatus || 'לא ידוע';
+    return sourceDetails.sourceStatusLabel(item);
   }
 
   function authorityLabel(level) {
-    return AUTHORITY_LABELS[Number(level)] || `רמת סמכות ${level || 'לא ידועה'}`;
+    return SERVICES.SourceDetails.authorityLabel(level);
   }
 
   function sourceTitle(sourceId) {
-    if (SOURCE_DISPLAY_LABELS[sourceId]) return SOURCE_DISPLAY_LABELS[sourceId];
-    const source = state && state.sourceById ? state.sourceById.get(sourceId) : null;
-    return source ? cleanSourceTitle(source.title || source.stableSourceId) : 'מקור לא מזוהה';
+    return sourceDetails.sourceTitle(sourceId);
   }
 
   function citationLabel(citationId) {
-    const citation = state && state.citationById ? state.citationById.get(citationId) : null;
-    if (!citation) return 'הפניה לא מזוהה';
-    return citation.label || locatorLabel(citation.locator) || 'הפניה במקור';
+    return sourceDetails.citationLabel(citationId);
   }
 
   function lessonLabel(lessonId) {
-    const lesson = state && state.lessonById ? state.lessonById.get(lessonId) : null;
-    const lessonNumber = lessonNumberFromId(lessonId);
-    if (!lesson) return lessonNumber ? `שיעור ${lessonNumber}` : 'שיעור';
-    const shortTitle = shortenTitle(lesson.title || '', 46);
-    return lessonNumber ? `שיעור ${lessonNumber} - ${shortTitle}` : shortTitle;
+    return navigationLabels.lessonLabel(lessonId);
   }
 
   function topicLabel(topicId) {
-    const topic = state && state.topicById ? state.topicById.get(topicId) : null;
-    return topic ? presentationTitle(topic.title) : 'נושא קשור';
+    return navigationLabels.topicLabel(topicId);
   }
 
   function lessonNumberFromId(lessonId) {
-    const match = String(lessonId || '').match(/lesson-(\d+)/);
-    return match ? String(Number(match[1])) : '';
+    return SERVICES.NavigationLabels.lessonNumberFromId(lessonId);
   }
 
   function difficultyLabel(value) {
@@ -701,31 +683,19 @@
   }
 
   function locatorLabel(locator) {
-    if (!locator || typeof locator !== 'object') return '';
-    if (locator.section) return `סעיף ${locator.section}`;
-    if (locator.heading) return locator.heading;
-    if (locator.sectionTitle) return locator.sectionTitle;
-    if (locator.page) return `עמוד ${locator.page}`;
-    return '';
+    return SERVICES.SourceDetails.locatorLabel(locator);
   }
 
   function cleanSourceTitle(title) {
-    return String(title || '')
-      .replace(/^\d+(?:\.\d+)*\./, '')
-      .replace(/-?סופי\.?העלאה לאתר$/u, '')
-      .replace(/-?סופי$/u, '')
-      .replace(/_/g, ' ')
-      .trim();
+    return SERVICES.SourceDetails.cleanSourceTitle(title);
   }
 
   function presentationTitle(value) {
-    return String(value || '').trim();
+    return SERVICES.NavigationLabels.presentationTitle(value);
   }
 
   function shortenTitle(title, maxLength) {
-    const value = String(title || '').trim();
-    if (value.length <= maxLength) return value;
-    return `${value.slice(0, maxLength - 1).trim()}...`;
+    return SERVICES.NavigationLabels.shortenTitle(title, maxLength);
   }
 
   function dateIsoOrNull(value) {

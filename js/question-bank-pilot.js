@@ -9,6 +9,8 @@
     citations: '../content/citation-registry-pilot.json'
   };
 
+  const SERVICES = window.EHSLearningServices || {};
+
   const PAGE_SIZE = 10;
   const LEARNING_STATE_STORAGE_KEY = 'ehs.practiceHub.learningState.v1';
   const SCHEDULER_STORAGE_KEY = 'ehs.practiceHub.scheduler.v1';
@@ -95,6 +97,8 @@
   };
 
   let state = null;
+  let navigationLabels = null;
+  let sourceDetails = null;
   let firebaseLearningState = {
     ready: false,
     user: null,
@@ -119,34 +123,26 @@
   });
 
   async function loadQuestionBank() {
-    const entries = await Promise.all(
-      Object.entries(DATA_FILES).map(async ([key, file]) => {
-        const response = await fetch(file, { cache: 'no-store' });
-        if (!response.ok) {
-          throw new Error('טעינת קובץ הפיילוט נכשלה.');
-        }
-        return [key, await response.json()];
-      })
-    );
-
-    return Object.fromEntries(entries);
+    return SERVICES.QuestionBank.loadJsonFiles(DATA_FILES, 'טעינת קובץ הפיילוט נכשלה.');
   }
 
   function buildState(raw) {
-    const data = raw.questions || {};
-    const questions = Array.isArray(data.questions) ? data.questions : [];
-    const topics = raw.topics && Array.isArray(raw.topics.topics) ? raw.topics.topics : [];
-    const lessons = raw.lessons && Array.isArray(raw.lessons.lessonMappings) ? raw.lessons.lessonMappings : [];
-    const sources = raw.sources && Array.isArray(raw.sources.entries) ? raw.sources.entries : [];
-    const citations = raw.citations && Array.isArray(raw.citations.citations) ? raw.citations.citations : [];
+    const indexes = SERVICES.QuestionBank.createIndexes(raw);
+    navigationLabels = SERVICES.NavigationLabels.createNavigationLabels({
+      topicById: indexes.topicById,
+      lessonById: indexes.lessonById,
+      lessonIcon: '📚',
+      topicIcon: '🏷️',
+      separator: ' – ',
+      maxLessonTitleLength: 46
+    });
+    sourceDetails = SERVICES.SourceDetails.createSourceDetails({
+      sourceById: indexes.sourceById,
+      citationById: indexes.citationById
+    });
 
     return {
-      data,
-      questions,
-      topicById: new Map(topics.map((topic) => [topic.topicId, topic])),
-      lessonById: new Map(lessons.map((lesson) => [lesson.lessonId, lesson])),
-      sourceById: new Map(sources.map((source) => [source.stableSourceId, source])),
-      citationById: new Map(citations.map((citation) => [citation.citationId, citation])),
+      ...indexes,
       filters: {
         search: '',
         topic: '',
@@ -686,47 +682,27 @@
   }
 
   function sourceRoleLabel(item) {
-    const level = Number(item.authorityLevel);
-    return level >= 6 ? 'מקור לימודי' : 'מקור אימות';
+    return sourceDetails.sourceRoleLabel(item);
   }
 
   function sourceStatusLabel(item) {
-    const level = Number(item.authorityLevel);
-    if (level >= 6 && item.verificationStatus === 'source-backed') {
-      return 'הסבר מבוסס חומר לימודי';
-    }
-    return statusLabel(item.verificationStatus);
+    return sourceDetails.sourceStatusLabel(item);
   }
 
   function sourceTitle(sourceId) {
-    if (SOURCE_DISPLAY_LABELS[sourceId]) return SOURCE_DISPLAY_LABELS[sourceId];
-    const source = state && state.sourceById ? state.sourceById.get(sourceId) : null;
-    if (!source) return 'מקור לא מזוהה';
-    return cleanSourceTitle(source.title || source.stableSourceId);
+    return sourceDetails.sourceTitle(sourceId);
   }
 
   function citationLabel(citationId) {
-    const citation = state && state.citationById ? state.citationById.get(citationId) : null;
-    if (!citation) return 'הפניה לא מזוהה';
-    return citation.label || locatorLabel(citation.locator) || 'הפניה במקור';
+    return sourceDetails.citationLabel(citationId);
   }
 
   function cleanSourceTitle(title) {
-    return String(title || '')
-      .replace(/^\d+(?:\.\d+)*\./, '')
-      .replace(/-?סופי\.?העלאה לאתר$/u, '')
-      .replace(/-?סופי$/u, '')
-      .replace(/_/g, ' ')
-      .trim();
+    return SERVICES.SourceDetails.cleanSourceTitle(title);
   }
 
   function locatorLabel(locator) {
-    if (!locator || typeof locator !== 'object') return '';
-    if (locator.section) return `סעיף ${locator.section}`;
-    if (locator.heading) return locator.heading;
-    if (locator.sectionTitle) return locator.sectionTitle;
-    if (locator.page) return `עמוד ${locator.page}`;
-    return '';
+    return SERVICES.SourceDetails.locatorLabel(locator);
   }
 
   function activeFacets(facets) {
@@ -747,27 +723,19 @@
   }
 
   function lessonLabel(lessonId) {
-    const lesson = state && state.lessonById ? state.lessonById.get(lessonId) : null;
-    const lessonNumber = lessonNumberFromId(lessonId);
-    if (!lesson) {
-      return lessonNumber ? `📚 שיעור ${lessonNumber}` : '📚 שיעור';
-    }
-    const shortTitle = shortenTitle(lesson.title || '', 46);
-    return lessonNumber ? `📚 שיעור ${lessonNumber} – ${shortTitle}` : `📚 ${shortTitle}`;
+    return navigationLabels.lessonLabel(lessonId);
   }
 
   function topicLabel(topicId) {
-    const topic = state && state.topicById ? state.topicById.get(topicId) : null;
-    return `🏷️ ${topic ? presentationTitle(topic.title) : 'נושא קשור'}`;
+    return navigationLabels.topicLabel(topicId);
   }
 
   function lessonHref(lessonId) {
-    return `learning-path.html#${encodeURIComponent(lessonId)}`;
+    return navigationLabels.lessonHref(lessonId);
   }
 
   function topicHref(topicId) {
-    // TODO: Replace this placeholder with a true Knowledge Hub deep-link when URL-state opening is supported.
-    return `knowledge-hub-pilot.html?topic=${encodeURIComponent(topicId)}`;
+    return navigationLabels.topicHref(topicId);
   }
 
   function difficultyLabel(value) {
@@ -782,38 +750,31 @@
   }
 
   function lessonNumberFromId(lessonId) {
-    const match = String(lessonId || '').match(/lesson-(\d+)/);
-    return match ? String(Number(match[1])) : '';
+    return SERVICES.NavigationLabels.lessonNumberFromId(lessonId);
   }
 
   function shortenTitle(title, maxLength) {
-    const value = String(title || '').trim();
-    if (value.length <= maxLength) return value;
-    return `${value.slice(0, maxLength - 1).trim()}…`;
+    return SERVICES.NavigationLabels.shortenTitle(title, maxLength);
   }
 
   function presentationTitle(value) {
-    return String(value || '').trim();
+    return SERVICES.NavigationLabels.presentationTitle(value);
   }
 
   function normalize(value) {
-    return String(value || '').trim().toLowerCase();
+    return SERVICES.QuestionBank.normalizeText(value);
   }
 
   function unique(values) {
-    return Array.from(new Set(values));
+    return SERVICES.QuestionBank.unique(values);
   }
 
   function flatMap(values, mapper) {
-    return values.reduce((result, value) => result.concat(mapper(value)), []);
+    return SERVICES.QuestionBank.flatMap(values, mapper);
   }
 
   function countBy(values, mapper) {
-    return values.reduce((counts, value) => {
-      const key = mapper(value);
-      counts[key] = (counts[key] || 0) + 1;
-      return counts;
-    }, {});
+    return SERVICES.QuestionBank.countBy(values, mapper);
   }
 
   async function initPersistentLearningState() {
