@@ -49,6 +49,7 @@ const manifestSitePages = new Set(
 );
 const allowedHtmlChanges = new Set([
   "pages/open-exam-practice.html",
+  "pages/quizzes.html",
   "pages/prep/lesson-13-electrical-safety-fundamentals.html",
 ]);
 const gitStatus = childProcess.execSync("git status --short", { cwd: repoRoot, encoding: "utf8" });
