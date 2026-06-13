@@ -6,8 +6,10 @@
 
   function isLoginPage() { return /(^|\/)login\.html$/.test(location.pathname); }
   function isProtectedPage() { return document.body.classList.contains("auth-protected") && !isLoginPage(); }
-  function basePath() { return location.pathname.includes("/pages/") ? "../" : "./"; }
-  function href(path) { return basePath() + path; }
+  function href(path) {
+    if (!path) return "/";
+    return path.startsWith("/") ? path : "/" + path.replace(/^\.?\//, "");
+  }
   function isAdmin(profile) {
     return Boolean(window.CourseAuth?.isAdminProfile?.(profile)) || String(profile?.email || "").toLowerCase() === "osherper@gmail.com";
   }
@@ -135,7 +137,7 @@
     nav.className = "m-bottom-nav";
     nav.setAttribute("aria-label", "ניווט תחתון למובייל");
     nav.append(
-      navItem("בית", "⌂", href("index.html"), () => /(^|\/)index\.html$/.test(pathname) || /\/$/.test(pathname)),
+      navItem("בית", "⌂", href(""), () => /(^|\/)index\.html$/.test(pathname) || /\/$/.test(pathname)),
       navItem("שיעורים", "▦", href("pages/syllabus.html"), () => /lesson-\d+|syllabus/.test(pathname)),
       navItem("תרגול", "✓", href("pages/quizzes.html"), () => /quizzes|exam-questions/.test(pathname)),
       navItem("אתגר", "★", href("pages/safety-game.html"), () => /safety-game|game-/.test(pathname))
