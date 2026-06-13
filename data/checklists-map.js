@@ -23,7 +23,7 @@
       emergency: "עצור עבודה, הרחק עובדים, בודד אזור והזעק מנהל עבודה/ממונה בטיחות.",
       commonMistakes: ["סימון בלבד בלי חסימה פיזית", "הנחה שפיגום שנראה תקין אכן נבדק", "עבודה סביב עגורן ללא אזור סטרילי"],
       regulations: ["תקנות הבטיחות בעבודה (עבודות בנייה)", "פקודת הבטיחות בעבודה"],
-      relatedKnowledge: ["construction-safety.html", "work-at-height.html", "lifting-and-cranes.html"],
+      relatedKnowledge: ["/pages/knowledge/construction-safety.html", "/pages/knowledge/work-at-height.html", "/pages/knowledge/lifting-and-cranes.html"],
       relatedLessons: ["lesson-03.html", "lesson-09.html"]
     },
     {
@@ -40,7 +40,7 @@
       emergency: "אין לגעת בנפגע לפני ניתוק מקור חשמל. נתק הזנה, הזעק עזרה וטפל לפי נוהל חירום.",
       commonMistakes: ["כיבוי מפסק בלי אימות", "הסתמכות על ממסר פחת כתחליף לנוהל", "עבודה עם כלי לא מבודד"],
       regulations: ["חוק החשמל", "פקודת הבטיחות בעבודה"],
-      relatedKnowledge: ["electrical-safety.html", "loto-ptw.html"],
+      relatedKnowledge: ["/pages/knowledge/electrical-safety.html", "/pages/knowledge/loto-ptw.html"],
       relatedLessons: ["lesson-02.html", "lesson-06.html"]
     },
     {
@@ -57,7 +57,7 @@
       emergency: "הפעל חילוץ מתוכנן במהירות; תלייה ברתמה מחייבת טיפול מיידי.",
       commonMistakes: ["התמקדות ברתמה במקום מניעת נפילה", "שימוש בסולם כעמדת עבודה ממושכת", "אין בדיקת ציוד לפני שימוש"],
       regulations: ["תקנות עבודה בגובה"],
-      relatedKnowledge: ["work-at-height.html", "construction-safety.html"],
+      relatedKnowledge: ["/pages/knowledge/work-at-height.html", "/pages/knowledge/construction-safety.html"],
       relatedLessons: ["lesson-03.html", "lesson-09.html"]
     },
     {
@@ -74,7 +74,7 @@
       emergency: "עצור, פנה עובדים מאזור האנרגיה, ודווח למנהל העבודה ולממונה.",
       commonMistakes: ["נעילה בלי בדיקת אפס אנרגיה", "שכחת לחץ/קפיץ/חום", "PTW נחתם אבל התנאים השתנו"],
       regulations: ["נהלי LOTO/PTW", "פקודת הבטיחות בעבודה"],
-      relatedKnowledge: ["loto-ptw.html", "machine-guarding.html"],
+      relatedKnowledge: ["/pages/knowledge/loto-ptw.html", "/pages/knowledge/machine-guarding.html"],
       relatedLessons: ["lesson-02.html", "lesson-11.html"]
     },
     {
@@ -91,7 +91,7 @@
       emergency: "בודד אזור, הרחק עובדים, זהה חומר לפי SDS והזעק צוות מתאים.",
       commonMistakes: ["שימוש ב-PPE לא מתאים לחומר", "התעלמות מאי-תאימות", "פתיחת חלל ללא אוורור"],
       regulations: ["דרישות SDS", "תקנות חומרים מסוכנים"],
-      relatedKnowledge: ["hazardous-materials.html", "occupational-hygiene.html"],
+      relatedKnowledge: ["/pages/knowledge/hazardous-materials.html", "/pages/knowledge/occupational-hygiene.html"],
       relatedLessons: ["lesson-04.html", "lesson-07.html"]
     },
     {
@@ -108,7 +108,7 @@
       emergency: "פעל לפי תרחיש: התרעה, פינוי/בידוד, דיווח, ספירה והפקת לקחים.",
       commonMistakes: ["תרגיל ללא לקחים", "נקודת כינוס לא מוכרת", "ציוד חירום מאחורי ציוד אחר"],
       regulations: ["דרישות חירום, כיבוי והדרכה"],
-      relatedKnowledge: ["emergency-preparedness.html", "emergency-management.html"],
+      relatedKnowledge: ["/pages/knowledge/emergency-preparedness.html", "/pages/knowledge/emergency-management.html"],
       relatedLessons: ["lesson-06.html", "lesson-11.html"]
     },
     {
@@ -125,7 +125,7 @@
       emergency: "עצור הנפה, הורד מטען אם בטוח, סגור אזור ודווח.",
       commonMistakes: ["בדיקת משקל בלבד בלי רדיוס", "זווית רצועה לא מחושבת", "אין שליטה בסיבוב מטען"],
       regulations: ["פקודת הבטיחות בעבודה", "תסקירי בודק מוסמך"],
-      relatedKnowledge: ["lifting-and-cranes.html", "construction-safety.html"],
+      relatedKnowledge: ["/pages/knowledge/lifting-and-cranes.html", "/pages/knowledge/construction-safety.html"],
       relatedLessons: ["lesson-03.html", "lesson-10.html"]
     },
     {
@@ -142,7 +142,7 @@
       emergency: "נתק מכונה, אל תשחרר לכידה ללא שליטה באנרגיה והזעק עזרה.",
       commonMistakes: ["E-stop במקום מיגון", "כפפות ליד חלקים מסתובבים", "ניקוי תוך כדי תנועה"],
       regulations: ["פקודת הבטיחות בעבודה"],
-      relatedKnowledge: ["machine-guarding.html", "loto-ptw.html"],
+      relatedKnowledge: ["/pages/knowledge/machine-guarding.html", "/pages/knowledge/loto-ptw.html"],
       relatedLessons: ["lesson-02.html", "lesson-11.html"]
     },
     {
@@ -159,7 +159,7 @@
       emergency: "הפעל escalation ניהולי לסיכון גבוה או כשל חוזר.",
       commonMistakes: ["מערכת נייר בלבד", "מדידה בלי פעולה", "RCA שמסתיים בהאשמת עובד"],
       regulations: ["ISO 45001", "תוכנית ניהול בטיחות"],
-      relatedKnowledge: ["iso-45001.html", "process-safety.html", "human-factors.html"],
+      relatedKnowledge: ["/pages/knowledge/iso-45001.html", "/pages/knowledge/process-safety.html", "/pages/knowledge/human-factors.html"],
       relatedLessons: ["lesson-07.html", "lesson-12.html"]
     },
     {
@@ -176,7 +176,7 @@
       emergency: "עצור משימה, תדרך מחדש ובדוק תנאים ארגוניים לפני חזרה.",
       commonMistakes: ["הדרכה במקום תיקון תהליך", "אי דיווח כמעט ונפגע", "התעלמות מלחץ תפוקה"],
       regulations: ["חובת הדרכה ופיקוח"],
-      relatedKnowledge: ["human-factors.html"],
+      relatedKnowledge: ["/pages/knowledge/human-factors.html"],
       relatedLessons: ["lesson-01.html", "lesson-09.html"]
     },
     {
@@ -193,7 +193,7 @@
       emergency: "בחשיפה: הסר מהאזור, שטוף/טפל לפי SDS ודווח.",
       commonMistakes: ["PPE כפתרון ראשון", "מידה לא מתאימה", "אי החלפה אחרי פגיעה או בלאי"],
       regulations: ["חובת ציוד מגן והדרכה"],
-      relatedKnowledge: ["occupational-hygiene.html", "hazardous-materials.html"],
+      relatedKnowledge: ["/pages/knowledge/occupational-hygiene.html", "/pages/knowledge/hazardous-materials.html"],
       relatedLessons: ["lesson-04.html", "lesson-08.html"]
     },
     {
@@ -210,7 +210,7 @@
       emergency: "עצור קבלן, החזר לנקודת תיאום ודווח לאחראי האתר.",
       commonMistakes: ["הדרכה כללית מדי", "אין בקרה על שינוי משימה", "אין תיאום עם עבודות אחרות"],
       regulations: ["חובות מעסיק ומחזיק מקום", "נהלי קבלנים"],
-      relatedKnowledge: ["human-factors.html", "loto-ptw.html", "process-safety.html"],
+      relatedKnowledge: ["/pages/knowledge/human-factors.html", "/pages/knowledge/loto-ptw.html", "/pages/knowledge/process-safety.html"],
       relatedLessons: ["lesson-02.html", "lesson-11.html"]
     },
     {
@@ -227,7 +227,7 @@
       emergency: "אין להיכנס לחילוץ ללא בקרת קריסה; הזעק כוחות והרחיק ציוד מהשפה.",
       commonMistakes: ["חפירה קצרה נתפסת כלא מסוכנת", "דיפון לא מותאם לקרקע", "התעלמות מגשם"],
       regulations: ["תקנות עבודות בנייה"],
-      relatedKnowledge: ["construction-safety.html"],
+      relatedKnowledge: ["/pages/knowledge/construction-safety.html"],
       relatedLessons: ["lesson-03.html", "lesson-09.html"]
     },
     {
@@ -244,7 +244,7 @@
       emergency: "הפסק עבודה, התריע, השתמש בכיבוי רק אם בטוח ופנה לפי נוהל.",
       commonMistakes: ["בדיקה רק לפני ולא אחרי", "מטף לא מתאים לסוג אש", "ניצוצות מגיעים לצד השני של קיר/רצפה"],
       regulations: ["דרישות אש וחירום", "היתר עבודה חמה"],
-      relatedKnowledge: ["emergency-management.html", "hazardous-materials.html"],
+      relatedKnowledge: ["/pages/knowledge/emergency-management.html", "/pages/knowledge/hazardous-materials.html"],
       relatedLessons: ["lesson-06.html", "lesson-11.html"]
     },
     {
@@ -261,7 +261,7 @@
       emergency: "אין להיכנס להצלה ללא ציוד ותוכנית; הזעק צוות חילוץ מתאים.",
       commonMistakes: ["מדידה פעם אחת בלבד", "הסתמכות על ריח", "משגיח עוזב את המקום"],
       regulations: ["פקודת הבטיחות בעבודה", "נהלי חלל מוקף"],
-      relatedKnowledge: ["process-safety.html", "emergency-management.html"],
+      relatedKnowledge: ["/pages/knowledge/process-safety.html", "/pages/knowledge/emergency-management.html"],
       relatedLessons: ["lesson-11.html"]
     },
     {
@@ -278,7 +278,7 @@
       emergency: "עצור תהליך אם שינוי יצר סיכון לא מבוקר והפעל escalation.",
       commonMistakes: ["שינוי קטן נתפס כלא דורש MOC", "אין עדכון לתפעול", "בדיקה אחרי אירוע ולא לפני"],
       regulations: ["ISO 45001", "נהלי MOC"],
-      relatedKnowledge: ["process-safety.html", "iso-45001.html"],
+      relatedKnowledge: ["/pages/knowledge/process-safety.html", "/pages/knowledge/iso-45001.html"],
       relatedLessons: ["lesson-07.html", "lesson-11.html"]
     }
   ];

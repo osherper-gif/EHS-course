@@ -16,6 +16,7 @@
   }
 
   function linkToKnowledge(file) {
+    if (file.startsWith("/") || file.includes("/")) return file;
     return "knowledge/" + file;
   }
 
