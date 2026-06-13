@@ -1,0 +1,2830 @@
+﻿<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="תרגול שאלות פתוחות לקורס ממונה בטיחות לקראת מבחן 12/07/2026, כולל ציון מקומי, משוב, דילוג, Voice-to-Text וסימולציית מבחן.">
+  <title>תרגול שאלות פתוחות - ממונה בטיחות</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d9e0ea;
+      --brand: #0f766e;
+      --brand-dark: #115e59;
+      --good: #167347;
+      --good-bg: #eaf7ef;
+      --warn: #b45309;
+      --warn-bg: #fff4df;
+      --bad: #b42318;
+      --bad-bg: #ffedeb;
+      --info: #175cd3;
+      --info-bg: #eaf1ff;
+      --shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(15, 118, 110, 0.08), transparent 260px),
+        var(--bg);
+      font-family: Arial, "Noto Sans Hebrew", "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    button, textarea, select {
+      font: inherit;
+    }
+
+    .app {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .topbar {
+      display: grid;
+      gap: 12px;
+      margin-block: 10px 18px;
+    }
+
+    .mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-block: 4px 12px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .mini-nav a,
+    .back-to-quizzes {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .mini-nav a[aria-current="page"] {
+      border-color: rgba(15, 118, 110, 0.35);
+      background: #e6f5f2;
+      color: var(--brand-dark);
+    }
+
+    .back-to-quizzes {
+      width: fit-content;
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .title-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @media (max-width: 520px) {
+      .mini-nav { flex-wrap: nowrap; padding-bottom: 4px; }
+      .mini-nav a { flex: 0 0 auto; }
+      .back-to-quizzes { width: 100%; }
+    }
+
+    .title-block h1 {
+      margin: 0;
+      font-size: clamp(1.35rem, 5vw, 2.2rem);
+      line-height: 1.2;
+    }
+
+    .title-block p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .exam-date {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 38px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--brand-dark);
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+
+    .layout {
+      display: grid;
+      gap: 16px;
+    }
+
+    .question-card,
+    .summary-panel,
+    .feedback-card,
+    .notice {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .question-card {
+      padding: 18px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .meta {
+      min-height: 58px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      background: #fbfcfe;
+    }
+
+    .meta span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.25;
+    }
+
+    .meta strong {
+      display: block;
+      margin-top: 2px;
+      line-height: 1.25;
+    }
+
+    .question-text {
+      margin: 0 0 14px;
+      font-size: 1.18rem;
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 190px;
+      resize: vertical;
+      border: 1px solid #b8c2d2;
+      border-radius: 8px;
+      padding: 13px;
+      background: #fff;
+      color: var(--ink);
+      direction: rtl;
+      text-align: right;
+    }
+
+    textarea:focus {
+      outline: 3px solid rgba(15, 118, 110, 0.18);
+      border-color: var(--brand);
+    }
+
+    .voice-tools {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin: 10px 0 12px;
+    }
+
+    .experimental-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      margin-inline-start: 6px;
+      border: 1px solid #fed7aa;
+      border-radius: 999px;
+      padding: 2px 8px;
+      background: #fff7ed;
+      color: #9a3412;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .voice-status {
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      background: #fbfcfe;
+      color: var(--muted);
+      direction: rtl;
+      text-align: right;
+      font-size: 0.92rem;
+    }
+
+    .voice-status.recording {
+      border-color: #f59e0b;
+      background: #fff7ed;
+      color: #92400e;
+      font-weight: 700;
+    }
+
+    .voice-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .mode-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .mode-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .mode-card h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .mode-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .skip-panel {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: #fbfcfe;
+    }
+
+    .skip-panel legend {
+      font-weight: 800;
+      padding: 0 4px;
+    }
+
+    .skip-options {
+      display: grid;
+      gap: 7px;
+    }
+
+    .skip-options label {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      min-height: 44px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: transform 0.12s ease, background 0.12s ease;
+    }
+
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { background: var(--brand); color: #fff; }
+    .btn.primary:hover { background: var(--brand-dark); }
+    .btn.secondary { background: #eef6f5; color: var(--brand-dark); border-color: #a7d7d1; }
+    .btn.ghost { background: #fff; color: var(--ink); border-color: var(--line); }
+    .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .feedback-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .feedback-card {
+      padding: 14px;
+      box-shadow: none;
+    }
+
+    .feedback-card h2,
+    .summary-panel h2 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .study-plan-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8fbff;
+      padding: 14px;
+      margin: 14px 0 18px;
+    }
+
+    .study-plan-card h2 { margin-top: 0; }
+
+    .study-plan { display: grid; gap: 12px; }
+
+    .readiness-meter {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid #c7d7fe;
+      border-radius: 8px;
+      background: #eef4ff;
+    }
+
+    .readiness-meter > div:first-child {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-weight: 700;
+    }
+
+    .readiness-bar {
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #d9e0ea;
+    }
+
+    .readiness-bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #dc2626, #f59e0b 48%, #16a34a);
+    }
+
+    .study-plan-list {
+      display: grid;
+      gap: 10px;
+      padding-inline-start: 22px;
+      margin: 0;
+    }
+
+    .study-plan-list li {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 10px;
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .score-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+      border-color: rgba(15, 118, 110, 0.35);
+    }
+
+    .score-number {
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #e8f5f3;
+      color: var(--brand-dark);
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .good { background: var(--good-bg); border-color: #aadfbd; color: #114c32; }
+    .warn { background: var(--warn-bg); border-color: #ffd28a; color: #703b07; }
+    .bad { background: var(--bad-bg); border-color: #ffb8b0; color: #7a211b; }
+    .info { background: var(--info-bg); border-color: #b8cbff; color: #143f91; }
+
+    .feedback-list {
+      margin: 0;
+      padding-inline-start: 20px;
+    }
+
+    .feedback-list li {
+      margin-bottom: 5px;
+    }
+
+    .score-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .score-table th,
+    .score-table td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    .score-table th {
+      background: #f3f7fb;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .score-total {
+      margin: 10px 0 0;
+      font-weight: 900;
+    }
+
+    .coaching-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .coaching-list li {
+      border: 1px solid rgba(23, 32, 51, 0.12);
+      border-radius: 8px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .coaching-label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 900;
+    }
+
+    .model-sections {
+      display: grid;
+      gap: 10px;
+    }
+
+    .model-section {
+      border: 1px solid rgba(23, 32, 51, 0.12);
+      border-radius: 8px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .model-section h3 {
+      margin: 0 0 4px;
+      font-size: 0.98rem;
+    }
+
+    .model-section p {
+      margin: 0;
+    }
+
+    .notice {
+      margin-top: 16px;
+      padding: 12px 14px;
+      background: #fffdf5;
+      color: #604a00;
+      box-shadow: none;
+    }
+
+    .exam-banner {
+      display: none;
+      margin: 0 0 14px;
+      border: 1px solid #c7d2fe;
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: #eef2ff;
+      color: #24346f;
+      font-weight: 700;
+    }
+
+    .exam-banner.active {
+      display: block;
+    }
+
+    .review-notice {
+      display: none;
+      margin: 0 0 12px;
+      border: 1px solid #facc15;
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: #fef9c3;
+      color: #713f12;
+      font-weight: 800;
+    }
+
+    .review-notice.active {
+      display: block;
+    }
+
+    .filters-panel {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: #fbfcfe;
+    }
+
+    .availability-controls {
+      display: grid;
+      gap: 8px;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+
+    .availability-controls label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .availability-warning {
+      display: none;
+      padding: 9px 10px;
+      border: 1px solid #f59e0b;
+      border-radius: 8px;
+      background: #fff7ed;
+      color: #92400e;
+      font-weight: 700;
+    }
+
+    .availability-warning.active { display: block; }
+
+    .lesson-lock-badge {
+      display: inline-flex;
+      width: fit-content;
+      margin: 8px 0;
+      padding: 4px 8px;
+      border: 1px solid #f59e0b;
+      border-radius: 999px;
+      background: #fff7ed;
+      color: #92400e;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .filters-panel label {
+      margin: 0;
+      font-size: 0.86rem;
+    }
+
+    .filter-help {
+      margin: 0;
+      border: 1px solid #c7d2fe;
+      border-radius: 8px;
+      padding: 9px 10px;
+      background: #eef2ff;
+      color: #24346f;
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+    .filter-help strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .filters-panel select {
+      width: 100%;
+      min-height: 38px;
+      border: 1px solid #b8c2d2;
+      border-radius: 8px;
+      padding: 6px 8px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .summary-panel {
+      padding: 14px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .stat {
+      min-height: 70px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: #fbfcfe;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 1.15rem;
+    }
+
+    .topic-list {
+      display: grid;
+      gap: 7px;
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .topic-list li {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      background: #fff;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .empty {
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    @media (min-width: 760px) {
+      .app { padding: 28px; }
+      .topbar {
+        grid-template-columns: 1fr auto;
+        align-items: end;
+      }
+      .layout {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        align-items: start;
+      }
+      .actions {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+      .voice-tools {
+        grid-template-columns: 1fr;
+      }
+      .voice-actions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .mode-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .feedback-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .score-card {
+        grid-column: 1 / -1;
+      }
+      .meta-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <nav class="mini-nav" aria-label="&#1504;&#1497;&#1493;&#1493;&#1496; &#1489;&#1488;&#1514;&#1512; &#1492;&#1511;&#1493;&#1512;&#1505;">
+      <a href="../index.html">&#1491;&#1507; &#1492;&#1489;&#1497;&#1514;</a>
+      <a href="learning-path.html">&#1502;&#1505;&#1500;&#1493;&#1500; &#1492;&#1500;&#1502;&#1497;&#1491;&#1492;</a>
+      <a href="quizzes.html">&#1514;&#1512;&#1490;&#1493;&#1500; &#1493;&#1502;&#1489;&#1495;&#1504;&#1497;&#1501;</a>
+      <a href="open-exam-practice.html" aria-current="page">&#1513;&#1488;&#1500;&#1493;&#1514; &#1508;&#1514;&#1493;&#1495;&#1493;&#1514;</a>
+    </nav>
+    <header class="topbar">
+      <div class="title-block">
+        <h1>תרגול שאלות פתוחות - קורס ממונה בטיחות</h1>
+        <p>שאלה אחת בכל פעם, בדיקה מקומית לפי מחוון, וחזרה חכמה לנושאים חלשים.</p>
+      </div>
+      <div class="title-actions">
+        <div class="exam-date">מועד מבחן: 12/07/2026</div>
+        <a class="back-to-quizzes" href="quizzes.html">&#1495;&#1494;&#1512;&#1492; &#1500;&#1514;&#1512;&#1490;&#1493;&#1500; &#1493;&#1502;&#1489;&#1495;&#1504;&#1497;&#1501;</a>
+      </div>
+    </header>
+
+    <section class="layout" aria-label="תרגול שאלות פתוחות">
+      <article class="question-card">
+        <div class="exam-banner" id="examBanner" aria-live="polite"></div>
+        <div class="review-notice" id="reviewNotice">לבדיקה מקצועית: שאלה זו זמינה לתרגול חופשי בלבד ולא תופיע בסימולציית מבחן.</div>
+        <div class="meta-grid" id="questionMeta"></div>
+        <p class="question-text" id="questionText"></p>
+
+        <label for="answerInput">התשובה שלך</label>
+        <textarea id="answerInput" rows="8" autocomplete="off" spellcheck="true" placeholder="כתוב כאן תשובה מלאה. לאחר הבדיקה אפשר להמשיך לשאלה הבאה."></textarea>
+
+        <div class="voice-tools" aria-label="כלי הכתבה קולית">
+          <div class="voice-actions">
+            <button class="btn secondary" id="startVoiceBtn" type="button">התחל הקלטה <span class="experimental-badge">ניסיוני</span></button>
+            <button class="btn ghost" id="stopVoiceBtn" type="button">עצור הקלטה</button>
+            <button class="btn ghost" id="clearAnswerBtn" type="button">נקה טקסט</button>
+          </div>
+          <div class="voice-status" id="voiceStatus" aria-live="polite">אפשר לענות גם בהקלדה רגילה. הכתבה קולית תלויה בתמיכת הדפדפן ובהרשאת מיקרופון.</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" id="checkBtn" type="button">בדוק תשובה</button>
+          <button class="btn secondary" id="nextBtn" type="button">שאלה הבאה</button>
+          <button class="btn ghost" id="weakBtn" type="button">תרגל נושאים חלשים</button>
+          <button class="btn ghost" id="skipBtn" type="button">דלג על השאלה</button>
+          <button class="btn ghost" id="examBtn" type="button">סימולציית מבחן</button>
+        </div>
+
+        <fieldset class="skip-panel" id="skipPanel">
+          <legend>למה אתה מדלג?</legend>
+          <div class="skip-options">
+            <label><input type="radio" name="skipReason" value="notLearned" checked> טרם למדתי את הנושא</label>
+            <label><input type="radio" name="skipReason" value="notRemembered"> לא זוכר כרגע</label>
+            <label><input type="radio" name="skipReason" value="returnLater"> רוצה לחזור אליו אחר כך</label>
+            <label><input type="radio" name="skipReason" value="unclearQuestion"> השאלה לא ברורה</label>
+          </div>
+        </fieldset>
+
+        <section class="feedback-grid" id="feedback" aria-live="polite"></section>
+
+        <aside class="notice">
+          הציון הוא הערכה לימודית אוטומטית ואינו מחליף בדיקת מרצה.
+        </aside>
+      </article>
+
+      <aside class="summary-panel">
+        <h2>סיכום תרגול</h2>
+        <section class="study-plan-card" aria-label="&#1514;&#1493;&#1499;&#1504;&#1497;&#1514; &#1506;&#1489;&#1493;&#1491;&#1492; &#1506;&#1491; &#1492;&#1502;&#1489;&#1495;&#1503;">
+          <h2>&#1514;&#1493;&#1499;&#1504;&#1497;&#1514; &#1506;&#1489;&#1493;&#1491;&#1492; &#1506;&#1491; 12/07/2026</h2>
+          <div class="study-plan" id="studyPlan"></div>
+        </section>
+        <section class="filters-panel" aria-label="סינון שאלות">
+          <label for="filterMode">סוג שאלות</label>
+          <select id="filterMode">
+            <option value="all">כל השאלות</option>
+            <option value="verified">שאלות רגילות לתרגול</option>
+            <option value="review">שאלות לבדיקה מקצועית</option>
+            <option value="critical">שאלות חשובות למבחן</option>
+          </select>
+          <p class="filter-help"><strong>הסבר קצר</strong>רגילות לתרגול: שאלות שאפשר לתרגל ולשלב בסימולציה. לבדיקה מקצועית: שאלות שממתינות לאישור נוסף ולכן לא נכנסות לסימולציה. חשובות למבחן: שאלות מרכזיות שמקבלות עדיפות ומשקל גבוה יותר בסימולציה.</p>
+
+          <div class="availability-controls">
+            <label><input type="checkbox" id="learnedOnlyToggle" checked> &#1492;&#1510;&#1490; &#1512;&#1511; &#1504;&#1493;&#1513;&#1488;&#1497;&#1501; &#1513;&#1499;&#1489;&#1512; &#1504;&#1500;&#1502;&#1491;&#1493;</label>
+            <label><input type="checkbox" id="showFutureToggle"> &#1492;&#1510;&#1490; &#1490;&#1501; &#1504;&#1493;&#1513;&#1488;&#1497;&#1501; &#1506;&#1514;&#1497;&#1491;&#1497;&#1497;&#1501;</label>
+            <div class="availability-warning" id="futureTopicsWarning">&#1495;&#1500;&#1511; &#1502;&#1492;&#1513;&#1488;&#1500;&#1493;&#1514; &#1513;&#1497;&#1497;&#1499;&#1493;&#1514; &#1500;&#1504;&#1493;&#1513;&#1488;&#1497;&#1501; &#1513;&#1496;&#1512;&#1501; &#1504;&#1500;&#1502;&#1491;&#1493; &#1489;&#1511;&#1493;&#1512;&#1505;.</div>
+          </div>
+
+          <label for="filterTopic">נושא</label>
+          <select id="filterTopic">
+            <option value="">כל הנושאים</option>
+          </select>
+
+          <label for="filterLesson">שיעור</label>
+          <select id="filterLesson">
+            <option value="">כל השיעורים</option>
+          </select>
+
+          <label for="filterDifficulty">קושי</label>
+          <select id="filterDifficulty">
+            <option value="">כל רמות הקושי</option>
+            <option value="קל">קל</option>
+            <option value="בינוני">בינוני</option>
+            <option value="קשה">קשה</option>
+          </select>
+
+          <label for="filterQuestionStyle">סגנון שאלה</label>
+          <select id="filterQuestionStyle">
+            <option value="">כל הסגנונות</option>
+          </select>
+        </section>
+        <div class="stats-grid">
+          <div class="stat"><span>שאלות שנענו</span><strong id="answeredCount">0</strong></div>
+          <div class="stat"><span>ממוצע כללי</span><strong id="averageScore">0</strong></div>
+          <div class="stat"><span>נושאים חלשים</span><strong id="weakCount">0</strong></div>
+          <div class="stat"><span>סבבי חזרה</span><strong id="reviewCount">0</strong></div>
+          <div class="stat"><span>תשובות קוליות</span><strong id="voiceAnswerCount">0</strong></div>
+          <div class="stat"><span>תשובות מוקלדות</span><strong id="keyboardAnswerCount">0</strong></div>
+          <div class="stat"><span>שאלות שדולגו</span><strong id="skippedCount">0</strong></div>
+          <div class="stat"><span>נכונות / שגויות</span><strong id="correctWrongCount">0 / 0</strong></div>
+        </div>
+
+        <h2>3 נושאים חזקים</h2>
+        <ul class="topic-list" id="strongTopics"></ul>
+
+        <h2>3 נושאים חלשים</h2>
+        <ul class="topic-list" id="weakTopics"></ul>
+
+        <h2>נושאים שטרם למדת</h2>
+        <ul class="topic-list" id="notLearnedTopics"></ul>
+
+        <h2>&#1504;&#1493;&#1513;&#1488;&#1497;&#1501; &#1513;&#1497;&#1497;&#1508;&#1514;&#1495;&#1493; &#1489;&#1492;&#1502;&#1513;&#1498;</h2>
+        <ul class="topic-list" id="futureTopics"></ul>
+
+        <h2>המלצה עכשיו</h2>
+        <div class="small" id="recommendation">ענה על כמה שאלות כדי שהמערכת תזהה דפוסים.</div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../data/open-exam-question-bank.js"></script>
+  <script>
+    const STORAGE_KEY = "ehsOpenExamPracticeState";
+
+    const LESSON_AVAILABILITY_MAP = {
+      "lesson-01": "2026-04-28", "lesson-02": "2026-04-30", "lesson-03": "2026-05-03", "lesson-04": "2026-05-07",
+      "lesson-05": "2026-05-10", "lesson-06": "2026-05-14", "lesson-07": "2026-05-24", "lesson-08": "2026-05-28",
+      "lesson-09": "2026-05-31", "lesson-10": "2026-06-04", "lesson-11": "2026-06-07", "lesson-12": "2026-06-11",
+      "lesson-13": "2026-06-14", "lesson-14": "2026-06-18", "lesson-15": "2026-06-21", "lesson-16": "2026-06-25",
+      "lesson-17": "2026-06-28", "lesson-18": "2026-07-02", "lesson-19": "2026-07-05", "lesson-20": "2026-07-09"
+    };
+
+    let debugCurrentDate = null;
+
+    const LESSONS = [
+      { n: 1, main: "יסודות הבטיחות", sub: "מושגי יסוד בבטיחות", topics: ["basic-safety-concepts", "risk-management"], tags: ["מושגי יסוד", "ניהול סיכונים"], focus: ["מפגע", "סיכון", "אירוע בטיחות", "כמעט תאונה", "בקרה"] },
+      { n: 2, main: "יסודות הבטיחות", sub: "בעיות יסוד במערך הבטיחות הפנימי בארגון", topics: ["internal-safety-system", "organizational-culture"], tags: ["מערך בטיחות פנימי", "תרבות בטיחות"], focus: ["פערי אחריות", "דיווח חסר", "אכיפה", "הדרכה", "מדדים"] },
+      { n: 3, main: "אחריות משפטית ובעלי תפקידים", sub: "חובות מנהלים ועובדים", topics: ["legal-responsibility", "duty-holders"], tags: ["אחריות משפטית", "בעלי תפקידים"], focus: ["מעסיק", "מנהל עבודה", "עובד", "אחריות אישית", "תיעוד"] },
+      { n: 4, main: "חוק ארגון הפיקוח על העבודה", sub: "מוסדות הבטיחות", topics: ["labor-inspection-law", "safety-institutions"], tags: ["חוק הפיקוח", "מוסדות בטיחות"], focus: ["מפקח עבודה", "ועדת בטיחות", "נאמן בטיחות", "שיתוף עובדים", "צו בטיחות"] },
+      { n: 5, main: "תקנות ממונים על הבטיחות", sub: "הוראות לממונה בטיחות", topics: ["safety-officer-regulations", "appointment-requirements"], tags: ["תקנות ממונים", "כשירות ממונה"], focus: ["מינוי", "תכנית בטיחות", "ייעוץ למעסיק", "דיווח", "מעקב"] },
+      { n: 6, main: "אחריות משפטית של ממונה בטיחות", sub: "גבולות אחריות מקצועית", topics: ["safety-officer-liability", "professional-duty"], tags: ["אחריות ממונה", "חובת זהירות"], focus: ["ייעוץ", "התרעה", "מסמכים", "סמכות", "הסלמה"] },
+      { n: 7, main: "תפקיד ממונה בטיחות", sub: "פעולות יומיומיות ומקצועיות", topics: ["safety-officer-role", "work-plan"], tags: ["תפקיד הממונה", "תכנית עבודה"], focus: ["סיורים", "סקרי סיכונים", "הדרכות", "בדיקות", "תחקיר"] },
+      { n: 8, main: "ארגון מערך הבטיחות במפעל וניהולו", sub: "ניהול שיטתי של בטיחות", topics: ["factory-safety-management", "safety-system"], tags: ["ניהול בטיחות", "מערכת בטיחות"], focus: ["מדיניות", "נהלים", "יעדים", "בקרה", "שיפור מתמיד"] },
+      { n: 9, main: "עבודת ממונה בטיחות מול הנהלת הארגון", sub: "השפעה, דיווח וקבלת החלטות", topics: ["management-interface", "safety-leadership"], tags: ["הנהלה", "מנהיגות בטיחות"], focus: ["דיווח להנהלה", "תעדוף", "תקציב", "סיכונים מהותיים", "החלטות"] },
+      { n: 10, main: "גידור מכונות ופתרונות", sub: "מיגון וגידור מכונות", topics: ["machine-guarding", "safeguarding"], tags: ["גידור מכונות", "מיגון"], focus: ["גידור קבוע", "אינטרלוק", "נקודת לכידה", "עצירת חירום", "גישה בטוחה"] },
+      { n: 11, main: "בטיחות בריתוך", sub: "סיכוני ריתוך ובקרות", topics: ["welding-safety", "hot-work"], tags: ["ריתוך", "עבודה חמה"], focus: ["אש", "עשן ריתוך", "קרינה", "גלילי גז", "היתר עבודה"] },
+      { n: 12, main: "סקרי סיכונים במכונות ועיבוד שבבי", sub: "זיהוי סיכונים בעיבוד", topics: ["machine-risk-survey", "machining"], tags: ["סקר מכונות", "עיבוד שבבי"], focus: ["שבבים", "חלקים מסתובבים", "נעילה ותיוג", "תחזוקה", "מדידת סיכון"] },
+      { n: 13, main: "בטיחות בחשמל - חלק א", sub: "מושגי יסוד וסיכוני חשמל", topics: ["electrical-safety-a", "electric-shock"], tags: ["חשמל א", "התחשמלות"], focus: ["התחשמלות", "זרם דלף", "הארקה", "ממסר פחת", "בידוד"] },
+      { n: 14, main: "בטיחות בחשמל - חלק ב", sub: "עבודה במתקני חשמל", topics: ["electrical-safety-b", "electrical-work"], tags: ["חשמל ב", "עבודות חשמל"], focus: ["חשמלאי מורשה", "ניתוק", "בדיקת העדר מתח", "לוחות חשמל", "ציוד מגן"] },
+      { n: 15, main: "בטיחות בחשמל - חלק ג", sub: "ניהול סיכונים חשמליים", topics: ["electrical-safety-c", "electrical-risk-management"], tags: ["חשמל ג", "ניהול חשמל"], focus: ["קשת חשמלית", "תחזוקה", "בדיקות תקופתיות", "תיוג", "הרשאות"] },
+      { n: 16, main: "בטיחות אש", sub: "מניעה, גילוי וכיבוי", topics: ["fire-safety", "fire-prevention"], tags: ["בטיחות אש", "כיבוי"], focus: ["משולש האש", "מטפי כיבוי", "גילוי אש", "דרכי מילוט", "תרגול חירום"] },
+      { n: 17, main: "בטיחות אש במקום מוקף", sub: "עבודה באווירה מסוכנת", topics: ["confined-space-fire", "confined-space"], tags: ["מקום מוקף", "אווירה מסוכנת"], focus: ["היתר כניסה", "ניטור אווירה", "אוורור", "צופה", "חילוץ"] },
+      { n: 18, main: "מכונות הרמה ואביזרי הרמה", sub: "בדיקות ושימוש בטוח", topics: ["lifting-machines", "lifting-accessories"], tags: ["מכונות הרמה", "אביזרי הרמה"], focus: ["בודק מוסמך", "עומס עבודה", "רצועות", "שרשראות", "פסילה"] },
+      { n: 19, main: "דודי קיטור", sub: "סיכונים, בדיקות ותפעול", topics: ["steam-boilers", "pressure-equipment"], tags: ["דודי קיטור", "ציוד לחץ"], focus: ["לחץ", "שסתום ביטחון", "בדיקה תקופתית", "מפעיל", "פיצוץ"] },
+      { n: 20, main: "מכונות ואביזרי הרמה, שינוע, מנופים ועגורנים", sub: "ניהול שינוע והרמה", topics: ["cranes-hoisting", "material-handling"], tags: ["מנופים", "שינוע"], focus: ["תכנית הנפה", "אתת", "רדיוס עבודה", "יציבות", "אזור סכנה"] }
+    ];
+
+    const QUESTION_PATTERNS = [
+      { diff: "קל", critical: true, lead: "הסבר את המושגים המרכזיים בנושא", task: "והצג דוגמה קצרה ממקום עבודה.", points: ["הגדיר שני מושגי יסוד", "קישר בין המושגים לסיכון בפועל", "ציין בקרה או אמצעי מניעה", "נתן דוגמה יישומית", "השתמש במונחים מקצועיים"] },
+      { diff: "בינוני", critical: true, lead: "תאר כיצד ממונה בטיחות צריך לזהות ולטפל בסיכון בנושא", task: "כלול שלבי פעולה, תיעוד ומעקב.", points: ["זיהוי שיטתי של מפגעים", "הערכת חומרה והסתברות", "בחירת בקרות מתאימות", "תיעוד והעברת אחריות", "מעקב אחר ביצוע"] },
+      { diff: "בינוני", critical: false, lead: "נתח אירוע שבו קיימת חולשה בנושא", task: "פרט מה נכון לעשות לפני שהאירוע הופך לתאונה.", points: ["זיהה חולשה ארגונית או טכנית", "הסביר השלכות אפשריות", "הציע פעולה מיידית", "הציע פעולה מתקנת לטווח ארוך", "שילב הדרכה או תקשורת"] },
+      { diff: "קשה", critical: true, lead: "בנה תכנית פעולה לממונה בטיחות לשיפור הנושא", task: "התייחס להנהלה, עובדים, בקרות ומדדי הצלחה.", points: ["הגדיר יעד בטיחות ברור", "חיבר את ההנהלה לתהליך", "פירט בקרות הנדסיות או מנהליות", "הגדיר מדדי בקרה", "קבע מנגנון שיפור מתמיד"] },
+      { diff: "קשה", critical: true, lead: "השווה בין פתרון תגובתי לפתרון מניעתי בנושא", task: "הסבר איזה פתרון עדיף ומדוע.", points: ["הבחין בין תגובה למניעה", "הסביר יתרון של מניעה", "ציין מגבלות של פתרון חלקי", "הציג דוגמה מקצועית", "קישר לאחריות הממונה"] }
+    ];
+
+    const SIMILAR_TERMS = {
+      "סיכון": ["סיכונים", "רמת סיכון", "הסתברות", "חומרה", "נזק"],
+      "מפגע": ["ליקוי", "גורם מסוכן", "מצב מסוכן"],
+      "בקרה": ["בקרות", "אמצעי מניעה", "מיגון", "נהלים", "פיקוח"],
+      "תיעוד": ["מסמך", "רישום", "דוח", "מעקב"],
+      "הדרכה": ["הסברה", "הכשרה", "תרגול"],
+      "הנהלה": ["מנהל", "מנהלים", "מעסיק"],
+      "עובדים": ["עובד", "צוות", "משתמשים"],
+      "בדיקה": ["ביקורת", "סקר", "בחינה", "בדיקות"],
+      "מניעה": ["מניעתי", "מניעת", "הפחתה"],
+      "תאונה": ["אירוע", "כמעט תאונה", "פגיעה"]
+    };
+    const TOPIC_PRIORITY_CONFIG = {
+      "basic-safety-concepts": { label: "יסודות הבטיחות", examWeight: 50, importance: "רגילה", curriculumOrder: 1 },
+      "risk-management": { label: "יסודות הבטיחות", examWeight: 50, importance: "רגילה", curriculumOrder: 1 },
+      "legal-responsibility": { label: "אחריות משפטית", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 3 },
+      "duty-holders": { label: "אחריות משפטית", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 3 },
+      "inspection-law": { label: "חוק ארגון הפיקוח על העבודה", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 4 },
+      "labor-inspection-law": { label: "חוק ארגון הפיקוח על העבודה", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 4 },
+      "safety-officer-regulations": { label: "תקנות ממונים על הבטיחות", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 5 },
+      "safety-officer-liability": { label: "אחריות משפטית של ממונה בטיחות", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 6 },
+      "safety-officer": { label: "תפקיד ממונה בטיחות", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 7 },
+      "safety-officer-role": { label: "תפקיד ממונה בטיחות", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 7 },
+      "safety-management": { label: "ניהול בטיחות", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 8 },
+      "factory-safety-management": { label: "ניהול בטיחות", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 8 },
+      "machine-guarding": { label: "מכונות וגידור", examWeight: 75, importance: "גבוהה", curriculumOrder: 10 },
+      "machine-risk-survey": { label: "מכונות וגידור", examWeight: 75, importance: "גבוהה", curriculumOrder: 12 },
+      "welding-safety": { label: "ריתוך", examWeight: 75, importance: "גבוהה", curriculumOrder: 11 },
+      "electrical-safety": { label: "חשמל", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 13 },
+      "electrical-safety-a": { label: "חשמל", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 13 },
+      "electrical-safety-b": { label: "חשמל", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 14 },
+      "electrical-safety-c": { label: "חשמל", examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 15 },
+      "fire-safety": { label: "בטיחות אש", examWeight: 75, importance: "גבוהה", curriculumOrder: 16 },
+      "confined-space-fire": { label: "בטיחות אש", examWeight: 75, importance: "גבוהה", curriculumOrder: 17 },
+      "lifting-equipment": { label: "ציוד הרמה", examWeight: 75, importance: "גבוהה", curriculumOrder: 18 },
+      "lifting-machines": { label: "ציוד הרמה", examWeight: 75, importance: "גבוהה", curriculumOrder: 18 },
+      "lifting-accessories": { label: "ציוד הרמה", examWeight: 75, importance: "גבוהה", curriculumOrder: 18 },
+      "cranes-hoisting": { label: "ציוד הרמה", examWeight: 75, importance: "גבוהה", curriculumOrder: 20 },
+      "steam-boilers": { label: "דודי קיטור", examWeight: 75, importance: "גבוהה", curriculumOrder: 19 }
+    };
+
+    const QUESTIONS = Array.isArray(window.OPEN_EXAM_QUESTION_BANK) && window.OPEN_EXAM_QUESTION_BANK.length
+      ? window.OPEN_EXAM_QUESTION_BANK
+      : buildQuestions();
+    let state = loadState();
+    let currentQuestion = null;
+    let lastResult = null;
+    let recognition = null;
+    let isRecording = false;
+    let isApplyingSpeech = false;
+    let speechBaseText = "";
+    let speechFinalText = "";
+    let answerInputFlags = { voice: false, keyboard: false };
+
+    const els = {
+      meta: document.getElementById("questionMeta"),
+      question: document.getElementById("questionText"),
+      answer: document.getElementById("answerInput"),
+      feedback: document.getElementById("feedback"),
+      examBanner: document.getElementById("examBanner"),
+      reviewNotice: document.getElementById("reviewNotice"),
+      check: document.getElementById("checkBtn"),
+      next: document.getElementById("nextBtn"),
+      weak: document.getElementById("weakBtn"),
+      skip: document.getElementById("skipBtn"),
+      skipPanel: document.getElementById("skipPanel"),
+      exam: document.getElementById("examBtn"),
+      startVoice: document.getElementById("startVoiceBtn"),
+      stopVoice: document.getElementById("stopVoiceBtn"),
+      clearAnswer: document.getElementById("clearAnswerBtn"),
+      voiceStatus: document.getElementById("voiceStatus"),
+      answered: document.getElementById("answeredCount"),
+      average: document.getElementById("averageScore"),
+      weakCount: document.getElementById("weakCount"),
+      reviewCount: document.getElementById("reviewCount"),
+      voiceAnswerCount: document.getElementById("voiceAnswerCount"),
+      keyboardAnswerCount: document.getElementById("keyboardAnswerCount"),
+      skippedCount: document.getElementById("skippedCount"),
+      correctWrongCount: document.getElementById("correctWrongCount"),
+      strongTopics: document.getElementById("strongTopics"),
+      weakTopics: document.getElementById("weakTopics"),
+      notLearnedTopics: document.getElementById("notLearnedTopics"),
+      recommendation: document.getElementById("recommendation"),
+      studyPlan: document.getElementById("studyPlan"),
+      filterMode: document.getElementById("filterMode"),
+      filterTopic: document.getElementById("filterTopic"),
+      filterLesson: document.getElementById("filterLesson"),
+      filterDifficulty: document.getElementById("filterDifficulty"),
+      filterQuestionStyle: document.getElementById("filterQuestionStyle"),
+      learnedOnlyToggle: document.getElementById("learnedOnlyToggle"),
+      showFutureToggle: document.getElementById("showFutureToggle"),
+      futureTopicsWarning: document.getElementById("futureTopicsWarning"),
+      futureTopics: document.getElementById("futureTopics")
+    };
+
+    els.check.addEventListener("click", checkAnswer);
+    els.next.addEventListener("click", () => isExamSimulationActive() ? moveExamNext() : moveNext(false));
+    els.weak.addEventListener("click", () => moveNext(true));
+    els.skip.addEventListener("click", skipQuestion);
+    els.exam.addEventListener("click", showSimulationModeChooser);
+    els.startVoice.addEventListener("click", startVoiceInput);
+    els.stopVoice.addEventListener("click", stopVoiceInput);
+    els.clearAnswer.addEventListener("click", clearAnswerText);
+    [els.filterMode, els.filterTopic, els.filterLesson, els.filterDifficulty, els.filterQuestionStyle].forEach((filterEl) => {
+      filterEl.addEventListener("change", applyQuestionFilters);
+    });
+    els.learnedOnlyToggle.addEventListener("change", () => {
+      if (els.learnedOnlyToggle.checked) els.showFutureToggle.checked = false;
+      applyQuestionFilters();
+    });
+    els.showFutureToggle.addEventListener("change", () => {
+      if (els.showFutureToggle.checked) els.learnedOnlyToggle.checked = false;
+      else els.learnedOnlyToggle.checked = true;
+      applyQuestionFilters();
+    });
+    els.answer.addEventListener("input", () => {
+      if (isApplyingSpeech) return;
+      answerInputFlags.keyboard = true;
+      state.signals.answerChanges += 1;
+      syncAnswerDraft();
+    });
+
+    setupSpeechRecognition();
+    populateQuestionFilters();
+    els.learnedOnlyToggle.checked = true;
+    els.showFutureToggle.checked = false;
+    normalizeExamSimulationAvailability();
+    currentQuestion = getExamQuestion() || selectQuestion(false);
+    render();
+
+    function buildQuestions() {
+      const questions = [];
+      LESSONS.forEach((lesson) => {
+        QUESTION_PATTERNS.forEach((pattern, index) => {
+          const id = `open-l${String(lesson.n).padStart(2, "0")}-q${String(index + 1).padStart(3, "0")}`;
+          const selectedFocus = lesson.focus.slice(0, 3 + (index % 3));
+          const question = `${pattern.lead} "${lesson.sub}" ${pattern.task}`;
+          const expectedAnswer = buildExpectedAnswer(lesson, pattern, selectedFocus);
+          questions.push({
+            id,
+            type: "open",
+            lessonIds: [`lesson-${String(lesson.n).padStart(2, "0")}`],
+            topicIds: lesson.topics,
+            mainTopic: lesson.main,
+            subTopic: lesson.sub,
+            difficulty: pattern.diff,
+            question,
+            expectedAnswer,
+            rubric: buildRubric(pattern, lesson, selectedFocus),
+            weakTopicTags: lesson.tags,
+            examCritical: pattern.critical
+          });
+        });
+      });
+      return questions;
+    }
+
+    function buildExpectedAnswer(lesson, pattern, focus) {
+      return `תשובה טובה תציג את ${lesson.sub} כחלק ממערך בטיחות שיטתי. יש לזהות ${focus.join(", ")}, להעריך את רמת הסיכון לפי חומרה והסתברות, לבחור בקרות לפי סדר עדיפות מקצועי, לתעד אחריות ולוחות זמנים, לוודא הדרכה לעובדים ולבצע מעקב עד לסגירת הפערים. בתפקיד ממונה הבטיחות חשוב להתריע בפני ההנהלה, להמליץ על פתרונות ישימים, ולבדוק שהפעולה המתקנת אכן מפחיתה את הסיכון בפועל.`;
+    }
+
+    function buildRubric(pattern, lesson, focus) {
+      const baseKeywords = [
+        focus[0],
+        focus[1] || lesson.tags[0],
+        focus[2] || "סיכון",
+        "סיכון",
+        "בקרה",
+        "תיעוד",
+        "הדרכה",
+        "מעקב",
+        "הנהלה",
+        "עובדים"
+      ];
+      return pattern.points.map((item, i) => ({
+        item,
+        points: 20,
+        keywords: unique([baseKeywords[i], baseKeywords[i + 1], lesson.tags[i % lesson.tags.length], lesson.sub, "בטיחות"].filter(Boolean))
+      }));
+    }
+
+
+    const STYLE_RUBRIC_TEMPLATES = {
+      comparison: [
+        { item: "\u05d4\u05d2\u05d3\u05e8\u05ea \u05e6\u05d3 \u05d0 \u05d1\u05d4\u05e9\u05d5\u05d5\u05d0\u05d4", points: 20, role: "sideA", keywords: ["\u05d4\u05d2\u05d3\u05e8\u05d4", "\u05de\u05d9\u05e0\u05d5\u05d9", "\u05db\u05ea\u05d1 \u05de\u05d9\u05e0\u05d5\u05d9", "\u05d0\u05d9\u05e9\u05d5\u05e8", "\u05db\u05e9\u05d9\u05e8\u05d5\u05ea"] },
+        { item: "\u05d4\u05d2\u05d3\u05e8\u05ea \u05e6\u05d3 \u05d1 \u05d1\u05d4\u05e9\u05d5\u05d5\u05d0\u05d4", points: 20, role: "sideB", keywords: ["\u05ea\u05e4\u05e7\u05d5\u05d3", "\u05d0\u05e4\u05e7\u05d8\u05d9\u05d1\u05d9", "\u05d9\u05d9\u05e2\u05d5\u05e5", "\u05ea\u05db\u05e0\u05d9\u05ea \u05e2\u05d1\u05d5\u05d3\u05d4", "\u05e1\u05e7\u05e8", "\u05d4\u05de\u05dc\u05e6\u05d4"] },
+        { item: "\u05d4\u05d1\u05d3\u05dc\u05d9\u05dd \u05de\u05e8\u05db\u05d6\u05d9\u05d9\u05dd", points: 20, role: "difference", keywords: ["\u05d4\u05d1\u05d3\u05dc", "\u05dc\u05e2\u05d5\u05de\u05ea", "\u05d1\u05e9\u05d5\u05e0\u05d4", "\u05de\u05d5\u05dc", "\u05e4\u05d5\u05e8\u05de\u05dc\u05d9", "\u05d1\u05e4\u05d5\u05e2\u05dc"] },
+        { item: "\u05e0\u05e7\u05d5\u05d3\u05d5\u05ea \u05d7\u05e4\u05d9\u05e4\u05d4 / \u05e7\u05e9\u05e8 \u05d1\u05d9\u05e0\u05d9\u05d4\u05dd", points: 20, role: "relationship", keywords: ["\u05e7\u05e9\u05e8", "\u05d7\u05e4\u05d9\u05e4\u05d4", "\u05de\u05e9\u05dc\u05d9\u05dd", "\u05ea\u05e0\u05d0\u05d9", "\u05d0\u05d7\u05e8\u05d9\u05d5\u05ea", "\u05de\u05e1\u05de\u05db\u05d9\u05dd"] },
+        { item: "\u05d3\u05d5\u05d2\u05de\u05d4 \u05d9\u05d9\u05e9\u05d5\u05de\u05d9\u05ea \u05d0\u05d5 \u05de\u05e1\u05e7\u05e0\u05d4 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05ea", points: 20, role: "example", keywords: ["\u05d3\u05d5\u05d2\u05de\u05d4", "\u05dc\u05de\u05e9\u05dc", "\u05e1\u05d9\u05d5\u05e8", "\u05d1\u05e9\u05d8\u05d7", "\u05de\u05e1\u05e7\u05e0\u05d4", "\u05d4\u05d7\u05dc\u05d8\u05d4"] }
+      ],
+      definition: [
+        { item: "\u05d4\u05d2\u05d3\u05e8\u05d4 \u05de\u05d3\u05d5\u05d9\u05e7\u05ea", points: 30, role: "definition", keywords: ["\u05d4\u05d5\u05d0", "\u05d4\u05d9\u05d0", "\u05de\u05d5\u05e9\u05d2", "\u05d4\u05d2\u05d3\u05e8\u05d4", "\u05e4\u05d9\u05e8\u05d5\u05e9"] },
+        { item: "\u05e8\u05db\u05d9\u05d1\u05d9\u05dd \u05de\u05e8\u05db\u05d6\u05d9\u05d9\u05dd", points: 30, role: "components", keywords: ["\u05e8\u05db\u05d9\u05d1", "\u05db\u05d5\u05dc\u05dc", "\u05de\u05d0\u05e4\u05d9\u05d9\u05df", "\u05ea\u05e0\u05d0\u05d9", "\u05d3\u05e8\u05d9\u05e9\u05d4"] },
+        { item: "\u05d4\u05e7\u05e9\u05e8 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9 / \u05e8\u05d2\u05d5\u05dc\u05d8\u05d5\u05e8\u05d9", points: 20, role: "context", keywords: ["\u05d1\u05d8\u05d9\u05d7\u05d5\u05ea", "\u05de\u05de\u05d5\u05e0\u05d4", "\u05d7\u05d5\u05e7", "\u05ea\u05e7\u05e0\u05d5\u05ea", "\u05d0\u05e8\u05d2\u05d5\u05df", "\u05de\u05e7\u05e6\u05d5\u05e2\u05d9"] },
+        { item: "\u05d3\u05d5\u05d2\u05de\u05d4 \u05e7\u05e6\u05e8\u05d4", points: 20, role: "example", keywords: ["\u05d3\u05d5\u05d2\u05de\u05d4", "\u05dc\u05de\u05e9\u05dc", "\u05d1\u05de\u05e4\u05e2\u05dc", "\u05d1\u05e9\u05d8\u05d7", "\u05e2\u05d5\u05d1\u05d3"] }
+      ],
+      explanation: [
+        { item: "\u05d4\u05e6\u05d2\u05ea \u05d4\u05e2\u05d9\u05e7\u05e8\u05d5\u05df", points: 25, role: "principle", keywords: ["\u05e2\u05d9\u05e7\u05e8\u05d5\u05df", "\u05de\u05e9\u05de\u05e2\u05d5\u05ea", "\u05de\u05d8\u05e8\u05d4", "\u05d4\u05d2\u05d3\u05e8\u05d4"] },
+        { item: "\u05d4\u05e1\u05d1\u05e8 \u05d1\u05e8\u05d5\u05e8", points: 25, role: "explanation", keywords: ["\u05de\u05e9\u05d5\u05dd", "\u05dc\u05db\u05df", "\u05db\u05d9", "\u05de\u05e9\u05e4\u05d9\u05e2", "\u05de\u05e4\u05d7\u05d9\u05ea"] },
+        { item: "\u05e7\u05e9\u05e8 \u05dc\u05ea\u05e4\u05e7\u05d9\u05d3 \u05de\u05de\u05d5\u05e0\u05d4 \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea", points: 25, role: "safetyOfficer", keywords: ["\u05de\u05de\u05d5\u05e0\u05d4", "\u05d9\u05d9\u05e2\u05d5\u05e5", "\u05d4\u05de\u05dc\u05e6\u05d4", "\u05de\u05e2\u05e7\u05d1", "\u05d4\u05e0\u05d4\u05dc\u05d4"] },
+        { item: "\u05d3\u05d5\u05d2\u05de\u05d4 \u05d0\u05d5 \u05d9\u05d9\u05e9\u05d5\u05dd", points: 25, role: "example", keywords: ["\u05d3\u05d5\u05d2\u05de\u05d4", "\u05dc\u05de\u05e9\u05dc", "\u05d9\u05d9\u05e9\u05d5\u05dd", "\u05d1\u05e9\u05d8\u05d7", "\u05d1\u05de\u05e4\u05e2\u05dc"] }
+      ],
+      scenario: [
+        { item: "\u05d6\u05d9\u05d4\u05d5\u05d9 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9 \u05e9\u05dc \u05d4\u05e1\u05d9\u05db\u05d5\u05df \u05d5\u05d4\u05d1\u05e2\u05d9\u05d4", points: 20, role: "risk", keywords: ["\u05e1\u05d9\u05db\u05d5\u05df", "\u05de\u05e4\u05d2\u05e2", "\u05d1\u05e2\u05d9\u05d4", "\u05d7\u05d5\u05de\u05e8\u05d4", "\u05d4\u05e1\u05ea\u05d1\u05e8\u05d5\u05ea"] },
+        { item: "\u05e0\u05d9\u05ea\u05d5\u05d7 \u05d0\u05d7\u05e8\u05d9\u05d5\u05ea \u05d5\u05ea\u05e4\u05e7\u05d9\u05d3\u05d9\u05dd", points: 20, role: "responsibility", keywords: ["\u05d0\u05d7\u05e8\u05d9\u05d5\u05ea", "\u05de\u05e2\u05e1\u05d9\u05e7", "\u05de\u05e0\u05d4\u05dc", "\u05de\u05de\u05d5\u05e0\u05d4", "\u05e2\u05d5\u05d1\u05d3"] },
+        { item: "\u05d1\u05d7\u05d9\u05e8\u05ea \u05d1\u05e7\u05e8\u05d5\u05ea \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05d5\u05ea", points: 20, role: "controls", keywords: ["\u05d1\u05e7\u05e8\u05d4", "\u05de\u05d9\u05d2\u05d5\u05df", "\u05e0\u05d5\u05d4\u05dc", "\u05d4\u05d3\u05e8\u05db\u05d4", "\u05e4\u05d9\u05e7\u05d5\u05d7"] },
+        { item: "\u05d9\u05d9\u05e9\u05d5\u05dd, \u05ea\u05d9\u05e2\u05d5\u05d3 \u05d5\u05de\u05e2\u05e7\u05d1", points: 20, role: "documentation", keywords: ["\u05ea\u05d9\u05e2\u05d5\u05d3", "\u05de\u05e2\u05e7\u05d1", "\u05e4\u05e2\u05d5\u05dc\u05d4 \u05de\u05ea\u05e7\u05e0\u05ea", "\u05dc\u05d5\u05d7\u05d5\u05ea \u05d6\u05de\u05e0\u05d9\u05dd", "\u05d3\u05d5\u05d7"] },
+        { item: "\u05d7\u05e9\u05d9\u05d1\u05d4 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05ea \u05de\u05ea\u05e7\u05d3\u05de\u05ea", points: 20, role: "advanced", keywords: ["\u05d2\u05d5\u05e8\u05de\u05d9 \u05e9\u05d5\u05e8\u05e9", "\u05d3\u05d5\u05d2\u05de\u05d4", "\u05d4\u05e9\u05d5\u05d5\u05d0\u05d4", "\u05d4\u05de\u05dc\u05e6\u05d4", "\u05dc\u05d0 \u05dc\u05d4\u05de\u05e6\u05d9\u05d0"] }
+      ],
+      legalResponsibility: [
+        { item: "\u05d6\u05d9\u05d4\u05d5\u05d9 \u05d1\u05e2\u05dc\u05d9 \u05ea\u05e4\u05e7\u05d9\u05d3\u05d9\u05dd", points: 20, role: "stakeholders", keywords: ["\u05de\u05e2\u05e1\u05d9\u05e7", "\u05de\u05e0\u05d4\u05dc", "\u05de\u05de\u05d5\u05e0\u05d4", "\u05e2\u05d5\u05d1\u05d3", "\u05d1\u05e2\u05dc \u05ea\u05e4\u05e7\u05d9\u05d3"] },
+        { item: "\u05d0\u05d7\u05e8\u05d9\u05d5\u05ea \u05de\u05e9\u05e4\u05d8\u05d9\u05ea / \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05ea", points: 30, role: "legal", keywords: ["\u05d0\u05d7\u05e8\u05d9\u05d5\u05ea", "\u05d7\u05d5\u05d1\u05d4", "\u05d7\u05d5\u05d1\u05ea \u05d6\u05d4\u05d9\u05e8\u05d5\u05ea", "\u05e4\u05dc\u05d9\u05dc\u05d9", "\u05d0\u05d6\u05e8\u05d7\u05d9"] },
+        { item: "\u05d7\u05d5\u05d1\u05d5\u05ea \u05e4\u05e2\u05d5\u05dc\u05d4 / \u05e1\u05de\u05db\u05d5\u05d9\u05d5\u05ea", points: 20, role: "duties", keywords: ["\u05dc\u05e2\u05e6\u05d5\u05e8", "\u05dc\u05d4\u05ea\u05e8\u05d9\u05e2", "\u05dc\u05d4\u05de\u05dc\u05d9\u05e5", "\u05e1\u05de\u05db\u05d5\u05ea", "\u05d7\u05d5\u05d1\u05d4"] },
+        { item: "\u05de\u05e1\u05de\u05db\u05d9\u05dd \u05d0\u05d5 \u05ea\u05d9\u05e2\u05d5\u05d3 \u05e0\u05d3\u05e8\u05e9", points: 15, role: "documents", keywords: ["\u05de\u05e1\u05de\u05da", "\u05ea\u05d9\u05e2\u05d5\u05d3", "\u05d3\u05d5\u05d7", "\u05e4\u05e8\u05d5\u05d8\u05d5\u05e7\u05d5\u05dc", "\u05d0\u05d9\u05e9\u05d5\u05e8"] },
+        { item: "\u05d3\u05d5\u05d2\u05de\u05d4 \u05d9\u05d9\u05e9\u05d5\u05de\u05d9\u05ea", points: 15, role: "example", keywords: ["\u05d3\u05d5\u05d2\u05de\u05d4", "\u05dc\u05de\u05e9\u05dc", "\u05d1\u05e9\u05d8\u05d7", "\u05d1\u05de\u05e4\u05e2\u05dc", "\u05e1\u05d9\u05d5\u05e8"] }
+      ],
+      application: [
+        { item: "\u05d4\u05d1\u05e0\u05ea \u05d4\u05d3\u05e8\u05d9\u05e9\u05d4", points: 20, role: "requirement", keywords: ["\u05e0\u05d3\u05e8\u05e9", "\u05ea\u05db\u05e0\u05d9\u05ea", "\u05de\u05d8\u05e8\u05d4", "\u05d3\u05e8\u05d9\u05e9\u05d4"] },
+        { item: "\u05d4\u05ea\u05d0\u05de\u05d4 \u05dc\u05de\u05e4\u05e2\u05dc / \u05dc\u05e9\u05d8\u05d7", points: 25, role: "siteFit", keywords: ["\u05de\u05e4\u05e2\u05dc", "\u05e9\u05d8\u05d7", "\u05de\u05d7\u05dc\u05e7\u05d4", "\u05e2\u05d5\u05d1\u05d3\u05d9\u05dd", "\u05e1\u05d9\u05d5\u05e8"] },
+        { item: "\u05e4\u05e2\u05d5\u05dc\u05d5\u05ea \u05de\u05d5\u05de\u05dc\u05e6\u05d5\u05ea", points: 25, role: "actions", keywords: ["\u05dc\u05d1\u05e6\u05e2", "\u05e4\u05e2\u05d5\u05dc\u05d4", "\u05dc\u05d4\u05de\u05dc\u05d9\u05e5", "\u05d4\u05d3\u05e8\u05db\u05d4", "\u05d1\u05e7\u05e8\u05d4"] },
+        { item: "\u05ea\u05d9\u05e2\u05d5\u05d3 \u05d5\u05de\u05e2\u05e7\u05d1", points: 15, role: "followup", keywords: ["\u05ea\u05d9\u05e2\u05d5\u05d3", "\u05de\u05e2\u05e7\u05d1", "\u05d3\u05d5\u05d7", "\u05dc\u05d5\u05d7 \u05d6\u05de\u05e0\u05d9\u05dd"] },
+        { item: "\u05e0\u05d9\u05de\u05d5\u05e7 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9", points: 15, role: "rationale", keywords: ["\u05db\u05d3\u05d9", "\u05de\u05e9\u05d5\u05dd", "\u05dc\u05db\u05df", "\u05de\u05e4\u05d7\u05d9\u05ea", "\u05e1\u05d9\u05d1\u05d4"] }
+      ],
+      correctiveActions: [
+        { item: "\u05d6\u05d9\u05d4\u05d5\u05d9 \u05d4\u05d1\u05e2\u05d9\u05d4", points: 20, role: "problem", keywords: ["\u05d1\u05e2\u05d9\u05d4", "\u05dc\u05d9\u05e7\u05d5\u05d9", "\u05e1\u05d9\u05db\u05d5\u05df", "\u05de\u05e4\u05d2\u05e2"] },
+        { item: "\u05e4\u05e2\u05d5\u05dc\u05d4 \u05de\u05d9\u05d9\u05d3\u05d9\u05ea", points: 20, role: "immediate", keywords: ["\u05de\u05d9\u05d9\u05d3", "\u05dc\u05e2\u05e6\u05d5\u05e8", "\u05dc\u05d4\u05e4\u05e1\u05d9\u05e7", "\u05dc\u05d4\u05e8\u05d7\u05d9\u05e7"] },
+        { item: "\u05e4\u05e2\u05d5\u05dc\u05d4 \u05de\u05ea\u05e7\u05e0\u05ea", points: 25, role: "corrective", keywords: ["\u05e4\u05e2\u05d5\u05dc\u05d4 \u05de\u05ea\u05e7\u05e0\u05ea", "\u05ea\u05d9\u05e7\u05d5\u05df", "\u05dc\u05ea\u05e7\u05df", "\u05de\u05d9\u05d2\u05d5\u05df"] },
+        { item: "\u05e4\u05e2\u05d5\u05dc\u05d4 \u05de\u05d5\u05e0\u05e2\u05ea", points: 20, role: "preventive", keywords: ["\u05de\u05d5\u05e0\u05e2", "\u05dc\u05de\u05e0\u05d5\u05e2", "\u05e0\u05d5\u05d4\u05dc", "\u05d4\u05d3\u05e8\u05db\u05d4", "\u05d1\u05e7\u05e8\u05d4"] },
+        { item: "\u05de\u05e2\u05e7\u05d1 \u05d5\u05e1\u05d2\u05d9\u05e8\u05d4", points: 15, role: "closure", keywords: ["\u05de\u05e2\u05e7\u05d1", "\u05e1\u05d2\u05d9\u05e8\u05d4", "\u05dc\u05d5\u05d7 \u05d6\u05de\u05e0\u05d9\u05dd", "\u05d0\u05d7\u05e8\u05d0\u05d9"] }
+      ],
+      investigation: [
+        { item: "\u05d0\u05d9\u05e1\u05d5\u05e3 \u05e2\u05d5\u05d1\u05d3\u05d5\u05ea", points: 20, role: "facts", keywords: ["\u05e2\u05d5\u05d1\u05d3\u05d5\u05ea", "\u05e2\u05d3\u05d5\u05d9\u05d5\u05ea", "\u05de\u05de\u05e6\u05d0", "\u05ea\u05d7\u05e7\u05d9\u05e8"] },
+        { item: "\u05d6\u05d9\u05d4\u05d5\u05d9 \u05d2\u05d5\u05e8\u05de\u05d9\u05dd", points: 25, role: "causes", keywords: ["\u05d2\u05d5\u05e8\u05dd", "\u05e9\u05d5\u05e8\u05e9", "\u05db\u05e9\u05dc", "\u05e1\u05d9\u05d1\u05d4"] },
+        { item: "\u05e0\u05d9\u05ea\u05d5\u05d7 \u05d0\u05d7\u05e8\u05d9\u05d5\u05ea", points: 20, role: "responsibility", keywords: ["\u05d0\u05d7\u05e8\u05d9\u05d5\u05ea", "\u05de\u05e2\u05e1\u05d9\u05e7", "\u05de\u05e0\u05d4\u05dc", "\u05de\u05de\u05d5\u05e0\u05d4", "\u05e2\u05d5\u05d1\u05d3"] },
+        { item: "\u05de\u05e1\u05e7\u05e0\u05d5\u05ea", points: 15, role: "conclusions", keywords: ["\u05de\u05e1\u05e7\u05e0\u05d4", "\u05dc\u05e7\u05d7", "\u05de\u05e9\u05de\u05e2\u05d5\u05ea"] },
+        { item: "\u05e4\u05e2\u05d5\u05dc\u05d5\u05ea \u05de\u05ea\u05e7\u05e0\u05d5\u05ea \u05d5\u05de\u05d5\u05e0\u05e2\u05d5\u05ea", points: 20, role: "actions", keywords: ["\u05e4\u05e2\u05d5\u05dc\u05d4 \u05de\u05ea\u05e7\u05e0\u05ea", "\u05de\u05d5\u05e0\u05e2", "\u05de\u05e2\u05e7\u05d1", "\u05d4\u05de\u05dc\u05e6\u05d4"] }
+      ]
+    };
+
+    function getRubricForQuestion(question) {
+      const style = question.questionStyle || inferQuestionStyle(question);
+      const originalRubric = Array.isArray(question.rubric) ? question.rubric : [];
+      const styleRubric = STYLE_RUBRIC_TEMPLATES[style];
+      const genericRubric = isGenericScenarioRubric(originalRubric);
+      const styleNeedsRubric = ["comparison", "definition", "explanation", "legalResponsibility", "application", "correctiveActions", "investigation"].includes(style);
+      const shouldReplace = Boolean(styleRubric) && ((style === "scenario" && !originalRubric.length) || (style !== "scenario" && (genericRubric || styleNeedsRubric)));
+      const rubric = shouldReplace ? buildQuestionStyleRubric(question, style, styleRubric) : originalRubric;
+      return { rubric, source: shouldReplace ? style : "question", questionStyle: style };
+    }
+
+    function inferQuestionStyle(question) {
+      const text = normalize([question.question, question.expectedAnswer, question.subTopic].join(" "));
+      if (text.includes(normalize("\u05d4\u05e9\u05d5\u05d5\u05d4")) || text.includes(normalize("\u05d4\u05d1\u05d3\u05dc"))) return "comparison";
+      if (text.includes(normalize("\u05d4\u05d2\u05d3\u05e8")) || text.includes(normalize("\u05de\u05d4\u05d5")) || text.includes(normalize("\u05de\u05d4\u05d9"))) return "definition";
+      if (text.includes(normalize("\u05d4\u05e1\u05d1\u05e8"))) return "explanation";
+      return "scenario";
+    }
+
+    function isGenericScenarioRubric(rubric) {
+      if (!Array.isArray(rubric) || !rubric.length) return true;
+      const text = normalize(rubric.map((rule) => [rule.item, ...(rule.keywords || []), ...(rule.expectations || [])].join(" ")).join(" "));
+      const genericHits = ["\u05e1\u05d9\u05db\u05d5\u05df", "\u05de\u05e4\u05d2\u05e2", "\u05d1\u05e7\u05e8\u05d4", "\u05ea\u05d9\u05e2\u05d5\u05d3", "\u05de\u05e2\u05e7\u05d1", "\u05e4\u05e2\u05d5\u05dc\u05d4 \u05de\u05ea\u05e7\u05e0\u05ea"].filter((term) => text.includes(normalize(term))).length;
+      return genericHits >= 3;
+    }
+
+    function buildQuestionStyleRubric(question, style, template) {
+      return template.map((rule) => ({
+        item: rule.item,
+        points: rule.points,
+        role: rule.role,
+        keywords: unique([...(rule.keywords || []), ...deriveRubricKeywords(question, style, rule.role)]).filter(Boolean)
+      }));
+    }
+
+    function deriveRubricKeywords(question, style, role) {
+      const fields = [question.question, question.expectedAnswer, question.modelAnswerShort, question.modelAnswerFull, question.mainTopic, question.subTopic].filter(Boolean).join(" ");
+      const keywords = [];
+      if (style === "comparison") {
+        const sides = extractComparisonSides(question.question);
+        if (role === "sideA") keywords.push(sides.sideA, ...extractImportantTerms(sides.sideA), "\u05db\u05ea\u05d1 \u05de\u05d9\u05e0\u05d5\u05d9", "\u05d0\u05d9\u05e9\u05d5\u05e8", "\u05db\u05e9\u05d9\u05e8\u05d5\u05ea", "\u05de\u05d9\u05e0\u05d5\u05d9 \u05de\u05de\u05d5\u05e0\u05d4");
+        if (role === "sideB") keywords.push(sides.sideB, ...extractImportantTerms(sides.sideB), "\u05ea\u05e4\u05e7\u05d5\u05d3", "\u05d0\u05e4\u05e7\u05d8\u05d9\u05d1\u05d9", "\u05ea\u05e4\u05e7\u05d9\u05d3\u05d9 \u05de\u05de\u05d5\u05e0\u05d4", "\u05d4\u05e9\u05ea\u05dc\u05de\u05d5\u05ea", "\u05d4\u05de\u05dc\u05e6\u05d4");
+        if (role === "difference") keywords.push("\u05d4\u05d1\u05d3\u05dc", "\u05dc\u05e2\u05d5\u05de\u05ea", "\u05de\u05d5\u05dc", "\u05e4\u05d5\u05e8\u05de\u05dc\u05d9", "\u05d1\u05e4\u05d5\u05e2\u05dc");
+        if (role === "relationship") keywords.push("\u05d0\u05d7\u05e8\u05d9\u05d5\u05ea", "\u05de\u05e1\u05de\u05db\u05d9\u05dd", "\u05db\u05e9\u05d9\u05e8\u05d5\u05ea", "\u05ea\u05d9\u05e2\u05d5\u05d3", "\u05ea\u05e0\u05d0\u05d9", "\u05e4\u05d9\u05e7\u05d5\u05d7");
+      }
+      if (["definition", "explanation"].includes(style)) keywords.push(...extractImportantTerms(fields).slice(0, 8));
+      if (!["comparison", "definition", "explanation"].includes(style)) keywords.push(...extractImportantTerms(fields).slice(0, 6));
+      return keywords;
+    }
+
+    function extractComparisonSides(questionText) {
+      const clean = String(questionText || "").replace(/\s+/g, " ");
+      const match = clean.match(/(?:\u05d4\u05e9\u05d5\u05d5\u05d4|\u05d4\u05e9\u05d5\u05d5\u05d9)\s+\u05d1\u05d9\u05df\s+(.+?)\s+\u05dc\u05d1\u05d9\u05df\s+(.+?)(?:\s+\u05d1\u05d4\u05e7\u05e9\u05e8|\.|$)/);
+      return {
+        sideA: match ? match[1].trim() : "",
+        sideB: match ? match[2].trim() : ""
+      };
+    }
+
+    function extractImportantTerms(text) {      const stop = new Set(["\u05e9\u05dc", "\u05d0\u05ea", "\u05e2\u05dc", "\u05e2\u05dd", "\u05d0\u05d5", "\u05db\u05dc", "\u05d1\u05d9\u05df", "\u05dc\u05d1\u05d9\u05df", "\u05d1\u05d4\u05e7\u05e9\u05e8", "\u05db\u05d5\u05dc\u05dc", "\u05de\u05ea\u05d5\u05da", "\u05d4\u05d5\u05d0", "\u05d4\u05d9\u05d0", "\u05d9\u05e9", "\u05dc\u05e4\u05d9"]);
+      return unique(String(text || "")
+        .replace(/[.,;:!?()\"']/g, " ")
+        .split(/\s+/)
+        .map((word) => word.trim())
+        .filter((word) => word.length >= 4 && !stop.has(word))
+        .slice(0, 12));
+    }
+
+    function evaluateOpenAnswer(question, answer) {
+      const normalized = normalize(answer);
+      const matchedItems = [];
+      const missingItems = [];
+      let score = 0;
+
+      // Local evaluation is heuristic and not equivalent to AI grading.
+      const rubricSelection = getRubricForQuestion(question);
+      const rubricBreakdown = rubricSelection.rubric.map((rule) => {
+        const matchedKeyword = rule.keywords.find((keyword) => containsKeyword(normalized, keyword));
+        const earned = matchedKeyword ? rule.points : 0;
+        if (matchedKeyword) {
+          score += rule.points;
+          matchedItems.push({ item: rule.item, keyword: matchedKeyword, points: rule.points });
+        } else {
+          missingItems.push(rule.item);
+        }
+        return {
+          item: rule.item,
+          earned,
+          max: rule.points,
+          matchedKeyword: matchedKeyword || null,
+          keywords: rule.keywords || []
+        };
+      });
+
+      if (normalized.length < 20) {
+        score = Math.min(score, 20);
+      } else if (normalized.length > 220 && matchedItems.length >= 3) {
+        score = Math.min(100, score + 5);
+      }
+
+      const misleading = findMisleading(question, answer);
+      const rubricScore = rubricBreakdown.reduce((sum, row) => sum + row.earned, 0);
+      const lengthAdjustment = score - rubricScore;
+      const conceptualPenalty = calculateConceptualPenalty(misleading, score, rubricScore);
+      score -= conceptualPenalty;
+
+      const finalScore = Math.max(0, Math.min(100, Math.round(score)));
+
+      return {
+        score: finalScore,
+        rubricScore,
+        scoreAdjustment: lengthAdjustment,
+        conceptualPenalty,
+        matchedItems,
+        missingItems,
+        rubricBreakdown,
+        rubricSource: rubricSelection.source,
+        evaluatedQuestionStyle: rubricSelection.questionStyle,
+        misleadingItems: misleading,
+        feedback: buildFeedback(question, matchedItems, missingItems, misleading),
+        modelAnswerShort: question.modelAnswerShort || buildShortModelAnswer(question.expectedAnswer, question),
+        modelAnswer: question.modelAnswerFull || question.expectedAnswer
+      };
+    }
+
+
+    function isFormalAppointmentComparisonQuestion(question) {
+      const text = normalize([question.id, question.question, question.subTopic, question.expectedAnswer].join(" "));
+      return text.includes(normalize("\u05de\u05d9\u05e0\u05d5\u05d9 \u05e4\u05d5\u05e8\u05de\u05dc\u05d9")) && text.includes(normalize("\u05ea\u05e4\u05e7\u05d5\u05d3 \u05d0\u05e4\u05e7\u05d8\u05d9\u05d1\u05d9"));
+    }
+
+    function formalAppointmentShortAnswer() {
+      return "\u05de\u05d9\u05e0\u05d5\u05d9 \u05e4\u05d5\u05e8\u05de\u05dc\u05d9 \u05d4\u05d5\u05d0 \u05e2\u05e6\u05dd \u05d4\u05d4\u05e1\u05de\u05db\u05d4 \u05d5\u05d4\u05d0\u05d9\u05e9\u05d5\u05e8 \u05d4\u05d0\u05e8\u05d2\u05d5\u05e0\u05d9/\u05e8\u05d2\u05d5\u05dc\u05d8\u05d5\u05e8\u05d9 \u05e9\u05dc \u05de\u05de\u05d5\u05e0\u05d4 \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea, \u05db\u05d5\u05dc\u05dc \u05db\u05ea\u05d1 \u05de\u05d9\u05e0\u05d5\u05d9, \u05e2\u05de\u05d9\u05d3\u05d4 \u05d1\u05ea\u05e0\u05d0\u05d9 \u05db\u05e9\u05d9\u05e8\u05d5\u05ea \u05d5\u05d0\u05d9\u05e9\u05d5\u05e8 \u05db\u05e0\u05d3\u05e8\u05e9. \u05ea\u05e4\u05e7\u05d5\u05d3 \u05d0\u05e4\u05e7\u05d8\u05d9\u05d1\u05d9 \u05d4\u05d5\u05d0 \u05d4\u05d0\u05d5\u05e4\u05df \u05e9\u05d1\u05d5 \u05d4\u05de\u05de\u05d5\u05e0\u05d4 \u05de\u05de\u05de\u05e9 \u05d1\u05e4\u05d5\u05e2\u05dc \u05d0\u05ea \u05ea\u05e4\u05e7\u05d9\u05d3\u05d5: \u05de\u05d6\u05d4\u05d4 \u05e4\u05e2\u05e8\u05d9\u05dd, \u05de\u05d9\u05d9\u05e2\u05e5 \u05dc\u05d4\u05e0\u05d4\u05dc\u05d4, \u05de\u05de\u05dc\u05d9\u05e5 \u05e2\u05dc \u05e4\u05e2\u05d5\u05dc\u05d5\u05ea, \u05de\u05e7\u05d3\u05dd \u05d4\u05d3\u05e8\u05db\u05d5\u05ea, \u05e2\u05d5\u05e7\u05d1 \u05d0\u05d7\u05e8 \u05d1\u05d9\u05e6\u05d5\u05e2 \u05d5\u05de\u05e1\u05d9\u05d9\u05e2 \u05dc\u05d4\u05d8\u05de\u05e2\u05ea \u05de\u05e2\u05e8\u05da \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea. \u05de\u05d9\u05e0\u05d5\u05d9 \u05d4\u05d5\u05d0 \u05ea\u05e0\u05d0\u05d9 \u05e4\u05ea\u05d9\u05d7\u05d4; \u05ea\u05e4\u05e7\u05d5\u05d3 \u05d0\u05e4\u05e7\u05d8\u05d9\u05d1\u05d9 \u05d4\u05d5\u05d0 \u05d4\u05e2\u05e8\u05da \u05d4\u05de\u05e7\u05e6\u05d5\u05e2\u05d9 \u05d1\u05e9\u05d8\u05d7.";
+    }
+
+    function buildShortModelAnswer(answer, question) {
+      if (question && isFormalAppointmentComparisonQuestion(question)) return formalAppointmentShortAnswer();
+      if (question && isLiftingEquipmentQuestion(question)) {
+        return "מכונת הרמה היא המתקן שמבצע את פעולת ההרמה, כגון עגורן, כננת או מלגזה מתאימה. אביזר הרמה הוא רכיב המחבר או מסייע להרמת המטען, כגון רצועה, מענב, שאקל או וו. ממונה בטיחות צריך לבדוק התאמה לעומס, תקינות, בדיקות נדרשות, הדרכת עובדים ותיעוד.";
+      }
+      const clean = String(answer || "").replace(/\s+/g, " ").trim();
+      if (clean.length <= 220) return clean;
+      const sentenceEnd = clean.search(/[.!?]\s/);
+      if (sentenceEnd > 80 && sentenceEnd < 220) return clean.slice(0, sentenceEnd + 1);
+      return `${clean.slice(0, 210).trim()}...`;
+    }
+
+    function containsKeyword(text, keyword) {
+      const key = normalize(keyword);
+      if (!key) return false;
+      if (text.includes(key)) return true;
+      const alternatives = SIMILAR_TERMS[keyword] || SIMILAR_TERMS[key] || [];
+      return alternatives.some((term) => text.includes(normalize(term)));
+    }
+
+    function findMisleading(question, answer) {
+      const text = normalize(answer);
+      const findings = findCommonMistakes(question, answer);
+      if (text.includes("אין צורך") && (text.includes("תיעוד") || text.includes("הדרכה") || text.includes("בדיקה"))) {
+        findings.push({
+          title: "ביטול צורך בבקרה",
+          written: "נכתב שאין צורך בתיעוד, הדרכה או בדיקה.",
+          why: "במבחן ממונה בטיחות מצפים לראות בקרה ניהולית: תיעוד, הדרכה, בדיקה ומעקב הם חלק מרכזי מהוכחת טיפול בסיכון.",
+          better: "נכון יותר לכתוב שיש לבצע תיעוד, הדרכה ובדיקה לפי אופי הסיכון, ולאחר מכן לוודא שהפעולה המתקנת נסגרה."
+        });
+      }
+      if (text.includes("רק העובד אחראי") || text.includes("האחריות רק על העובד")) {
+        findings.push({
+          title: "ייחוס אחריות צר מדי",
+          written: "האחריות יוחסה רק לעובד.",
+          why: "בתשובת מבחן חשוב להציג אחריות משולבת: עובד, מנהל, מעסיק וממונה בטיחות לפי תפקידם וסמכותם.",
+          better: "נכון יותר לכתוב שהעובד חייב לפעול לפי ההנחיות, אך על ההנהלה והמעסיק לספק תנאים ובקרות, ועל ממונה הבטיחות להתריע, להמליץ ולעקוב."
+        });
+      }
+      if (text.includes("תמיד מספיק") && text.includes("שלט")) {
+        findings.push({
+          title: "הסתמכות יתר על שילוט",
+          written: "נכתב ששילוט תמיד מספיק.",
+          why: "שילוט הוא בקרה חלשה יחסית ואינו מחליף גידור, מניעה הנדסית, נוהל, הדרכה או אכיפה כשקיים סיכון משמעותי.",
+          better: "נכון יותר לכתוב ששילוט יכול להשלים בקרות אחרות, אך יש לבחור בקרה לפי חומרת הסיכון והאפשרות למנוע חשיפה בפועל."
+        });
+      }
+      return findings;
+    }
+
+    function findCommonMistakes(question, answer) {
+      const text = normalize(answer);
+      const findings = [];
+      const mistakes = Array.isArray(question.commonMistakes) ? question.commonMistakes : [];
+      mistakes.forEach((mistake) => {
+        const matchedPattern = (mistake.patterns || []).find((pattern) => text.includes(normalize(pattern)));
+        if (!matchedPattern) return;
+        findings.push({
+          title: mistake.severity === "major" ? "טעות מושגית מהותית" : "ניסוח מטעה",
+          written: matchedPattern,
+          why: mistake.feedback || "הניסוח עלול להוביל למסקנה מקצועית לא מדויקת.",
+          better: mistake.feedback || "נסח מחדש תוך הבחנה בין המושגים המרכזיים בשאלה.",
+          severity: mistake.severity || "minor",
+          source: "commonMistakes"
+        });
+      });
+      if (isLiftingEquipmentQuestion(question)) {
+        const liftingMachineAsAccessory = [
+          "מכונת הרמה היא חלק מאביזר הרמה",
+          "מכונת הרמה הוא חלק מאביזר הרמה",
+          "מכונת הרמה חלק מאביזר",
+          "מכונת ההרמה היא חלק מאביזר ההרמה",
+          "אביזר הרמה כולל את מכונת ההרמה"
+        ].find((pattern) => text.includes(normalize(pattern)));
+        if (liftingMachineAsAccessory && !findings.some((item) => item.source === "commonMistakes")) {
+          findings.push({
+            title: "טעות מושגית מהותית",
+            written: liftingMachineAsAccessory,
+            why: "מכונת הרמה אינה חלק מאביזר הרמה. אלו שני רכיבים שונים במערך ההרמה, ובלבול ביניהם עלול להוביל לבחירת בדיקות, עומסים ובקרות לא נכונות.",
+            better: "מכונת הרמה היא הציוד שמבצע את פעולת ההרמה, כגון עגורן, כננת או מלגזה מתאימה. אביזר הרמה הוא רכיב המחבר או מסייע להרמת המטען, כגון רצועה, מענב, שאקל או וו.",
+            severity: "major",
+            source: "liftingConcept"
+          });
+        }
+      }
+      return findings;
+    }
+
+    function calculateConceptualPenalty(misleadingItems, score, rubricScore) {
+      const hasMajor = misleadingItems.some((item) => item && item.severity === "major");
+      if (!hasMajor) return 0;
+      const alreadyLow = score <= 40 || rubricScore <= 40;
+      return alreadyLow ? 10 : 20;
+    }
+
+    function isLiftingEquipmentQuestion(question) {
+      const haystack = normalize([
+        question.id,
+        question.mainTopic,
+        question.subTopic,
+        question.question,
+        ...(question.topicIds || []),
+        ...(question.weakTopicTags || [])
+      ].join(" "));
+      return haystack.includes(normalize("מכונת הרמה")) || haystack.includes(normalize("אביזר הרמה")) || haystack.includes("lifting");
+    }
+
+    function buildFeedback(question, matched, missing, misleading) {
+      if (!matched.length) return `התשובה אינה כוללת עדיין את רכיבי המחוון המרכזיים בנושא ${question.subTopic}. כדאי להתחיל בהגדרה, סיכון, בקרה ודוגמה.`;
+      if (!missing.length && !misleading.length) return "התשובה מכסה היטב את רוב סעיפי המחוון ומציגה הבנה יישומית.";
+      return "התשובה בכיוון נכון, אך חסרים רכיבים במחוון או נדרשת זהירות מניסוח מטעה.";
+    }
+
+    function setupSpeechRecognition() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        els.startVoice.disabled = true;
+        els.stopVoice.disabled = true;
+        setVoiceStatus("הכתבה קולית אינה זמינה כרגע. ניתן להמשיך בהקלדה רגילה.", false);
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.lang = "he-IL";
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.maxAlternatives = 1;
+
+      recognition.onstart = () => {
+        isRecording = true;
+        els.startVoice.disabled = true;
+        els.stopVoice.disabled = false;
+        setVoiceStatus("מקליט ומעתיק בזמן אמת... אפשר לעצור ואז לערוך ידנית לפני בדיקת התשובה.", true);
+      };
+
+      recognition.onresult = (event) => {
+        let interimText = "";
+        let newFinalText = "";
+        for (let i = event.resultIndex; i < event.results.length; i += 1) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            newFinalText += transcript + " ";
+          } else {
+            interimText += transcript;
+          }
+        }
+        if (newFinalText) {
+          speechFinalText = [speechFinalText, newFinalText.trim()].filter(Boolean).join(" ");
+          answerInputFlags.voice = true;
+        }
+        applySpeechText(interimText);
+      };
+
+      recognition.onerror = (event) => {
+        const message = event.error === "not-allowed"
+          ? "הכתבה קולית אינה זמינה כרגע. ניתן להמשיך בהקלדה רגילה."
+          : "הכתבה קולית אינה זמינה כרגע. ניתן להמשיך בהקלדה רגילה.";
+        setVoiceStatus(message, false);
+      };
+
+      recognition.onend = () => {
+        isRecording = false;
+        els.startVoice.disabled = false;
+        els.stopVoice.disabled = true;
+        speechBaseText = els.answer.value.trim();
+        speechFinalText = "";
+        setVoiceStatus("ההקלטה נעצרה. אפשר לתקן את הטקסט ואז ללחוץ בדוק תשובה.", false);
+        syncAnswerDraft();
+      };
+
+      els.stopVoice.disabled = true;
+      setVoiceStatus("אפשר לענות גם בהקלדה רגילה. הכתבה קולית תלויה בתמיכת הדפדפן ובהרשאת מיקרופון.", false);
+    }
+
+    function startVoiceInput() {
+      if (!recognition || isRecording) return;
+      speechBaseText = els.answer.value.trim();
+      speechFinalText = "";
+      try {
+        recognition.start();
+      } catch (error) {
+        setVoiceStatus("הכתבה קולית אינה זמינה כרגע. ניתן להמשיך בהקלדה רגילה.", false);
+      }
+    }
+
+    function stopVoiceInput() {
+      if (!recognition || !isRecording) return;
+      recognition.stop();
+    }
+
+    function clearAnswerText() {
+      if (isRecording) stopVoiceInput();
+      els.answer.value = "";
+      speechBaseText = "";
+      speechFinalText = "";
+      answerInputFlags = { voice: false, keyboard: false };
+      state.draftByQuestionId[currentQuestion.id] = "";
+      saveState();
+      setVoiceStatus("הטקסט נוקה. אפשר להקליד או להתחיל הכתבה חדשה.", false);
+      els.answer.focus();
+    }
+
+    function applySpeechText(interimText) {
+      const parts = [speechBaseText, speechFinalText, interimText.trim()].filter(Boolean);
+      isApplyingSpeech = true;
+      els.answer.value = parts.join(" ").trim();
+      isApplyingSpeech = false;
+      syncAnswerDraft();
+    }
+
+    function syncAnswerDraft() {
+      state.draftByQuestionId[currentQuestion.id] = els.answer.value;
+      saveState();
+    }
+
+    function setVoiceStatus(message, recording) {
+      els.voiceStatus.textContent = message;
+      els.voiceStatus.classList.toggle("recording", Boolean(recording));
+    }
+
+    function getCurrentAnswerMethod() {
+      if (answerInputFlags.voice && answerInputFlags.keyboard) return "mixed";
+      if (answerInputFlags.voice) return "voice";
+      return "keyboard";
+    }
+
+    function parseCourseDate(value) {
+      if (!value) return null;
+      const parts = String(value).split("-").map(Number);
+      if (parts.length !== 3 || parts.some((part) => Number.isNaN(part))) return null;
+      return new Date(parts[0], parts[1] - 1, parts[2]);
+    }
+
+    function formatCourseDate(value) {
+      const date = parseCourseDate(value);
+      if (!date) return "";
+      return String(date.getDate()).padStart(2, "0") + "/" + String(date.getMonth() + 1).padStart(2, "0") + "/" + date.getFullYear();
+    }
+
+    function getCourseCurrentDate() {
+      const params = new URLSearchParams(window.location.search);
+      const queryDate = params.get("debugCurrentDate");
+      const source = debugCurrentDate || queryDate;
+      const parsed = source ? parseCourseDate(source) : null;
+      const now = parsed || new Date();
+      return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    }
+
+    function getQuestionAvailability(question, now = getCourseCurrentDate()) {
+      const lessonIds = question.lessonIds || [];
+      const rows = lessonIds.map((lessonId) => ({ lessonId, dateText: LESSON_AVAILABILITY_MAP[lessonId], date: parseCourseDate(LESSON_AVAILABILITY_MAP[lessonId]) })).filter((row) => row.date);
+      if (!rows.length) return { available: true, availableFrom: null, lessonId: lessonIds[0] || null, lessonNumber: "" };
+      const latest = rows.reduce((max, row) => row.date > max.date ? row : max, rows[0]);
+      return { available: latest.date <= now, availableFrom: latest.dateText, lessonId: latest.lessonId, lessonNumber: latest.lessonId.replace("lesson-", "") };
+    }
+
+    function isQuestionAvailable(question, now = getCourseCurrentDate()) { return getQuestionAvailability(question, now).available; }
+    function shouldIncludeFutureQuestions() { return Boolean(els.showFutureToggle && els.showFutureToggle.checked); }
+    function getAvailabilityFilteredQuestions(questions, includeFuture = shouldIncludeFutureQuestions()) { if (includeFuture) return questions; const now = getCourseCurrentDate(); return questions.filter((question) => isQuestionAvailable(question, now)); }
+
+    function getFutureTopicRows() {
+      const now = getCourseCurrentDate();
+      const rows = new Map();
+      QUESTIONS.forEach((question) => {
+        const availability = getQuestionAvailability(question, now);
+        if (availability.available) return;
+        const key = question.topicIds[0] || availability.lessonId || question.id;
+        const existing = rows.get(key);
+        if (!existing || availability.availableFrom < existing.availableFrom) rows.set(key, { topicId: key, label: question.mainTopic || question.subTopic || key, lessonId: availability.lessonId, lessonNumber: availability.lessonNumber, availableFrom: availability.availableFrom });
+      });
+      return [...rows.values()].sort((a, b) => a.availableFrom.localeCompare(b.availableFrom) || a.label.localeCompare(b.label, "he"));
+    }
+
+    function isTopicFuture(topicId) {
+      return getFutureTopicRows().some((row) => row.topicId === topicId);
+    }
+
+    function populateQuestionFilters() {
+      const topics = [...new Map(QUESTIONS.map((question) => [question.topicIds[0], question.mainTopic])).entries()]
+        .sort((a, b) => a[1].localeCompare(b[1], "he"));
+      const lessons = [...new Set(QUESTIONS.flatMap((question) => question.lessonIds))]
+        .sort((a, b) => Number(a.replace("lesson-", "")) - Number(b.replace("lesson-", "")));
+      const styles = [...new Set(QUESTIONS.map((question) => question.questionStyle).filter(Boolean))]
+        .sort();
+
+      els.filterTopic.innerHTML = `<option value="">כל הנושאים</option>` +
+        topics.map(([id, label]) => `<option value="${escapeHtml(id)}">${escapeHtml(label)}</option>`).join("");
+      els.filterLesson.innerHTML = `<option value="">כל השיעורים</option>` +
+        lessons.map((lessonId) => `<option value="${escapeHtml(lessonId)}">שיעור ${Number(lessonId.replace("lesson-", ""))}</option>`).join("");
+      els.filterQuestionStyle.innerHTML = `<option value="">כל הסגנונות</option>` +
+        styles.map((style) => `<option value="${escapeHtml(style)}">${escapeHtml(getQuestionStyleLabel(style))}</option>`).join("");
+    }
+
+    function hasActiveQuestionFilters() {
+      return Boolean(els.filterMode.value || els.filterTopic.value || els.filterLesson.value || els.filterDifficulty.value || els.filterQuestionStyle.value);
+    }
+
+    function getFilteredQuestions() {
+      const mode = els.filterMode.value;
+      const topic = els.filterTopic.value;
+      const lesson = els.filterLesson.value;
+      const difficulty = els.filterDifficulty.value;
+      const questionStyle = els.filterQuestionStyle.value;
+
+      const base = QUESTIONS.filter((question) => {
+        if (mode === "verified" && question.reviewRequired) return false;
+        if (mode === "review" && !question.reviewRequired) return false;
+        if (mode === "critical" && !question.examCritical) return false;
+        if (topic && !question.topicIds.includes(topic)) return false;
+        if (lesson && !question.lessonIds.includes(lesson)) return false;
+        if (difficulty && question.difficulty !== difficulty) return false;
+        if (questionStyle && question.questionStyle !== questionStyle) return false;
+        return true;
+      });
+      return getAvailabilityFilteredQuestions(base);
+    }
+
+    function getQuestionStyleLabel(style) {
+      return {
+        definition: "הגדרה",
+        explanation: "הסבר",
+        comparison: "השוואה",
+        scenario: "תרחיש",
+        application: "יישום",
+        investigation: "חקירה",
+        legalResponsibility: "אחריות משפטית",
+        correctiveActions: "פעולות מתקנות"
+      }[style] || style;
+    }
+
+    function applyQuestionFilters() {
+      if (isExamSimulationActive()) return;
+      currentQuestion = selectQuestion(false);
+      state.questionStartedAt = Date.now();
+      saveState();
+      render();
+    }
+
+    function getSelectedSkipReason() {
+      const checked = document.querySelector('input[name="skipReason"]:checked');
+      return checked ? checked.value : "notLearned";
+    }
+
+    function skipQuestion() {
+      if (isExamSimulationActive() && state.examSimulation.simulationMode !== "study") return;
+      if (isRecording) stopVoiceInput();
+      const reason = getSelectedSkipReason();
+      const event = {
+        questionId: currentQuestion.id,
+        action: "skipped",
+        reason,
+        timestamp: new Date().toISOString()
+      };
+      state.history.push(event);
+      state.skippedQuestionIds.push(currentQuestion.id);
+      state.lastQuestionId = currentQuestion.id;
+      currentQuestion.topicIds.forEach((topicId) => {
+        const topic = state.topicSkipStats[topicId] || {
+          label: currentQuestion.subTopic,
+          skipped: 0,
+          answered: 0,
+          topicStatus: "active"
+        };
+        topic.skipped += 1;
+        topic.label = currentQuestion.subTopic;
+        const total = topic.skipped + topic.answered;
+        topic.topicStatus = total > 0 && topic.skipped / total > 0.5 ? "notLearned" : "active";
+        state.topicSkipStats[topicId] = topic;
+        if (topic.topicStatus === "notLearned") {
+          state.notLearnedTopics[topicId] = { label: topic.label, skipped: topic.skipped, answered: topic.answered, topicStatus: "notLearned" };
+          delete state.weakTopics[topicId];
+        }
+      });
+      recomputePracticeCounters();
+      state.questionStartedAt = Date.now();
+
+      if (isExamSimulationActive() && state.examSimulation.simulationMode === "study") {
+        state.examSimulation.skipped[currentQuestion.id] = event;
+        saveState();
+        moveExamNext();
+        return;
+      }
+
+      saveState();
+      currentQuestion = selectQuestion(false);
+      render();
+    }
+
+    function showSimulationModeChooser() {
+      if (isRecording) stopVoiceInput();
+      if (isExamSimulationActive()) return;
+      els.feedback.innerHTML = `
+        <article class="feedback-card info" style="grid-column: 1 / -1;">
+          <h2>בחר מצב תרגול</h2>
+          <div class="mode-grid">
+            <section class="mode-card">
+              <h3>מצב לימוד</h3>
+              <p>מתאים ללמידה ולחזרה. לאחר כל תשובה יוצגו ציון, משוב ותשובה לדוגמה.</p>
+              <button class="btn primary" id="startStudySimulationBtn" type="button">התחל מצב לימוד</button>
+            </section>
+            <section class="mode-card">
+              <h3>מצב סימולציית מבחן</h3>
+              <p>מדמה מבחן אמיתי. במהלך הסימולציה לא יוצגו ציונים או פתרונות. דוח מלא יוצג רק בסוף.</p>
+              <button class="btn secondary" id="startExamSimulationBtn" type="button">התחל סימולציית מבחן</button>
+            </section>
+          </div>
+        </article>
+      `;
+      document.getElementById("startStudySimulationBtn").addEventListener("click", () => startSimulationMode("study"));
+      document.getElementById("startExamSimulationBtn").addEventListener("click", () => startSimulationMode("exam"));
+    }
+
+    function startExamSimulation() {
+      showSimulationModeChooser();
+    }
+
+    function startSimulationMode(simulationMode) {
+      if (isRecording) stopVoiceInput();
+      const questionCount = 10 + Math.floor(Math.random() * 6);
+      const selectedQuestions = selectExamQuestions(questionCount, false);
+      if (selectedQuestions.length < questionCount) {
+        els.feedback.innerHTML = `
+          <article class="feedback-card warn">
+            <h2>אין מספיק שאלות רגילות לתרגול לסימולציה</h2>
+            <p>נדרשות ${questionCount} שאלות רגילות לתרגול, אך נמצאו ${selectedQuestions.length}. שאלות לבדיקה מקצועית לא נבחרות אוטומטית במצב לימוד או בסימולציית מבחן.</p>
+          </article>
+        `;
+        return;
+      }
+      state.examSimulation = {
+        active: true,
+        completed: false,
+        simulationMode,
+        questionIds: selectedQuestions.map((question) => question.id),
+        currentIndex: 0,
+        answers: {},
+        results: {},
+        skipped: {},
+        startedAt: new Date().toISOString(),
+        finishedAt: null
+      };
+      currentQuestion = selectedQuestions[0];
+      state.questionStartedAt = Date.now();
+      state.learningState.state = simulationMode === "study" ? "studySimulation" : "examSimulation";
+      saveState();
+      render();
+    }
+
+    function selectExamQuestions(count, includeFuture = false) {
+      const shuffled = shuffle(getAvailabilityFilteredQuestions(QUESTIONS.filter((question) => !question.reviewRequired), includeFuture));
+      const critical = shuffled.filter((question) => question.examCritical);
+      const regular = shuffled.filter((question) => !question.examCritical);
+      const targetCritical = Math.min(critical.length, Math.ceil(count * 0.65));
+      return shuffle([...critical.slice(0, targetCritical), ...regular.slice(0, count - targetCritical)]).slice(0, count);
+    }
+
+    function isExamSimulationActive() {
+      return Boolean(state.examSimulation && state.examSimulation.active && !state.examSimulation.completed);
+    }
+
+    function getExamQuestion() {
+      if (!state.examSimulation || !state.examSimulation.active || state.examSimulation.completed) return null;
+      const id = state.examSimulation.questionIds[state.examSimulation.currentIndex];
+      return QUESTIONS.find((question) => question.id === id) || null;
+    }
+
+    function normalizeExamSimulationAvailability() {
+      const sim = state.examSimulation;
+      if (!sim || !sim.active || sim.completed || shouldIncludeFutureQuestions()) return;
+      const originalIds = Array.isArray(sim.questionIds) ? sim.questionIds : [];
+      const allowedIds = originalIds.filter((id) => {
+        const question = QUESTIONS.find((item) => item.id === id);
+        return question && !question.reviewRequired && isQuestionAvailable(question);
+      });
+      if (allowedIds.length === originalIds.length) return;
+      sim.questionIds = allowedIds;
+      if (!allowedIds.length) {
+        sim.active = false;
+        sim.completed = true;
+        sim.finishedAt = new Date().toISOString();
+        state.learningState.state = "openExam";
+      } else {
+        sim.currentIndex = Math.min(Number(sim.currentIndex || 0), allowedIds.length - 1);
+      }
+      saveState();
+    }
+
+    function saveExamSimulationAnswer(result, answerMethod) {
+      const sim = state.examSimulation;
+      sim.answers[currentQuestion.id] = {
+        text: els.answer.value.trim(),
+        answerMethod,
+        answeredAt: new Date().toISOString()
+      };
+      sim.results[currentQuestion.id] = {
+        score: result.score,
+        topicIds: currentQuestion.topicIds,
+        lessonIds: currentQuestion.lessonIds,
+        mainTopic: currentQuestion.mainTopic,
+        subTopic: currentQuestion.subTopic,
+        examCritical: currentQuestion.examCritical
+      };
+      state.draftByQuestionId[currentQuestion.id] = els.answer.value;
+      saveState();
+      if (sim.simulationMode === "study") {
+        renderFeedback(result);
+        renderExamBanner();
+        renderSummary();
+        return;
+      }
+      renderExamProgress("התשובה נשמרה. המשוב יוצג בסוף הסימולציה.");
+    }
+
+    function moveExamNext() {
+      const sim = state.examSimulation;
+      if (!sim) return;
+      if (!sim.results[currentQuestion.id] && !(sim.simulationMode === "study" && sim.skipped && sim.skipped[currentQuestion.id])) {
+        const message = sim.simulationMode === "study"
+          ? "לפני מעבר לשאלה הבאה יש ללחוץ בדוק תשובה או לדלג על השאלה."
+          : "לפני מעבר לשאלה הבאה יש ללחוץ בדוק תשובה כדי לשמור את המענה לסימולציה.";
+        renderExamProgress(message);
+        return;
+      }
+      if (sim.currentIndex >= sim.questionIds.length - 1) {
+        finishExamSimulation();
+        return;
+      }
+      sim.currentIndex += 1;
+      currentQuestion = getExamQuestion();
+      state.questionStartedAt = Date.now();
+      saveState();
+      render();
+    }
+
+    function finishExamSimulation() {
+      const sim = state.examSimulation;
+      sim.active = false;
+      sim.completed = true;
+      sim.finishedAt = new Date().toISOString();
+      state.learningState.state = "openExam";
+      saveState();
+      renderExamFinalSummary(buildExamSummary(sim));
+      renderSummary();
+    }
+
+    function buildExamSummary(sim) {
+      const results = Object.values(sim.results || {});
+      const skippedCount = Object.keys(sim.skipped || {}).length;
+      let weightedTotal = 0;
+      let weightSum = 0;
+      const topicStats = {};
+
+      results.forEach((result) => {
+        const weight = result.examCritical ? 1.5 : 1;
+        weightedTotal += result.score * weight;
+        weightSum += weight;
+        result.topicIds.forEach((topicId) => {
+          const topic = topicStats[topicId] || { label: result.subTopic, total: 0, weight: 0, attempts: 0 };
+          topic.total += result.score * weight;
+          topic.weight += weight;
+          topic.attempts += 1;
+          topicStats[topicId] = topic;
+        });
+      });
+
+      const topics = Object.entries(topicStats)
+        .map(([topicId, stat]) => ({
+          topicId,
+          label: stat.label,
+          averageScore: stat.weight ? Math.round(stat.total / stat.weight) : 0,
+          attempts: stat.attempts
+        }))
+        .sort((a, b) => b.averageScore - a.averageScore);
+
+      return {
+        questionCount: sim.questionIds.length,
+        answeredCount: results.length,
+        skippedCount,
+        overallScore: weightSum ? Math.round(weightedTotal / weightSum) : 0,
+        topics,
+        strongTopics: topics.filter((topic) => topic.averageScore >= 75).slice(0, 3),
+        weakTopics: topics.filter((topic) => topic.averageScore < 70).sort((a, b) => a.averageScore - b.averageScore).slice(0, 3)
+      };
+    }
+
+    function selectQuestion(weakOnly) {
+      const answeredSet = new Set(state.answeredQuestionIds);
+      const weakTopics = Object.keys(state.weakTopics || {});
+      const filteredQuestions = getFilteredQuestions();
+      const fallbackQuestions = getAvailabilityFilteredQuestions(QUESTIONS);
+      if (hasActiveQuestionFilters() && !filteredQuestions.length) return null;
+      let pool = (filteredQuestions.length ? filteredQuestions : fallbackQuestions).filter((q) => q.id !== state.lastQuestionId);
+
+      if (weakOnly && weakTopics.length) {
+        pool = pool.filter((q) => q.topicIds.some((topic) => weakTopics.includes(topic)));
+      } else if (state.answeredQuestionIds.length >= 5 && weakTopics.length) {
+        const weakPool = pool.filter((q) => q.topicIds.some((topic) => weakTopics.includes(topic)));
+        if (weakPool.length && Math.random() < 0.65) pool = weakPool;
+      }
+
+      const unanswered = pool.filter((q) => !answeredSet.has(q.id));
+      if (unanswered.length) pool = unanswered;
+
+      if (!pool.length) {
+        state.learningState.state = "review-cycle";
+        state.reviewCount += 1;
+        pool = (filteredQuestions.length ? filteredQuestions : fallbackQuestions).filter((q) => q.id !== state.lastQuestionId);
+      }
+
+      return weightedPick(pool) || fallbackQuestions[0] || null;
+    }
+
+    function weightedPick(pool) {
+      const weakTopics = Object.keys(state.weakTopics || {});
+      const expanded = [];
+      pool.forEach((q) => {
+        let weight = 1;
+        if (q.examCritical) weight += 1;
+        if (q.topicIds.some((topic) => weakTopics.includes(topic))) weight += 3;
+        if ((state.skippedQuestionIds || []).includes(q.id)) weight += 2;
+        if ((state.repetitions[q.id] || 0) > 0 && (state.scoreByQuestionId[q.id] || 100) < 60) weight += 2;
+        for (let i = 0; i < weight; i += 1) expanded.push(q);
+      });
+      return expanded[Math.floor(Math.random() * expanded.length)] || QUESTIONS[0];
+    }
+
+    function checkAnswer() {
+      if (isRecording) {
+        stopVoiceInput();
+        setVoiceStatus("עצור את ההכתבה, תקן את הטקסט במידת הצורך, ואז לחץ שוב בדוק תשובה.", false);
+        return;
+      }
+      const startedAt = state.questionStartedAt || Date.now();
+      const answer = els.answer.value.trim();
+      const result = evaluateOpenAnswer(currentQuestion, answer);
+      const answerMethod = getCurrentAnswerMethod();
+      lastResult = result;
+
+      if (isExamSimulationActive()) {
+        saveExamSimulationAnswer(result, answerMethod);
+        return;
+      }
+
+      state.answeredQuestionIds = unique([...state.answeredQuestionIds, currentQuestion.id]);
+      state.scoreByQuestionId[currentQuestion.id] = result.score;
+      const previousAnswerMethod = state.answerMethodByQuestionId[currentQuestion.id];
+      if (previousAnswerMethod && state.answerMethodStats[previousAnswerMethod] > 0) {
+        state.answerMethodStats[previousAnswerMethod] -= 1;
+      }
+      state.answerMethod = answerMethod;
+      state.answerMethodByQuestionId[currentQuestion.id] = answerMethod;
+      state.answerMethodStats[answerMethod] = (state.answerMethodStats[answerMethod] || 0) + 1;
+      state.lastAnsweredAt = new Date().toISOString();
+      state.lastQuestionId = currentQuestion.id;
+      state.repetitions[currentQuestion.id] = (state.repetitions[currentQuestion.id] || 0) + 1;
+      state.scheduler.repetitions += 1;
+      state.scheduler.lastRating = result.score >= 85 ? "good" : result.score >= 70 ? "ok" : "again";
+      state.signals.correct = result.score >= 70;
+      state.signals.firstAttemptCorrect = !state.previousAttempts[currentQuestion.id] && result.score >= 70;
+      state.signals.responseTimeMs = Date.now() - startedAt;
+      state.previousAttempts[currentQuestion.id] = true;
+      state.reviewCount = Math.max(state.reviewCount, state.scheduler.repetitions);
+
+      updateStats(currentQuestion, result.score);
+      recomputePracticeCounters();
+      if (result.score < 70) markWeak(currentQuestion, result.score);
+      if (result.score < 60) {
+        state.scheduler.lapses += 1;
+        state.repetitionQueue = unique([...state.repetitionQueue, currentQuestion.id]);
+      }
+
+      saveState();
+      renderFeedback(result);
+      renderSummary();
+    }
+
+    function updateStats(question, score) {
+      question.topicIds.forEach((topicId) => {
+        const topic = state.topicStats[topicId] || { attempts: 0, totalScore: 0, averageScore: 0, failureAttempts: 0, label: question.weakTopicTags[0] || topicId };
+        topic.attempts += 1;
+        topic.totalScore += score;
+        topic.averageScore = Math.round(topic.totalScore / topic.attempts);
+        topic.failureAttempts = Number(topic.failureAttempts || 0) + (score < 70 ? 1 : 0);
+        topic.label = question.weakTopicTags[0] || topic.label;
+        state.topicStats[topicId] = topic;
+
+        const skipTopic = state.topicSkipStats[topicId] || { skipped: 0, answered: 0, label: question.subTopic, topicStatus: "active" };
+        skipTopic.answered += 1;
+        skipTopic.label = question.subTopic;
+        const total = skipTopic.skipped + skipTopic.answered;
+        skipTopic.topicStatus = total > 0 && skipTopic.skipped / total > 0.5 ? "notLearned" : "active";
+        state.topicSkipStats[topicId] = skipTopic;
+        if (skipTopic.topicStatus === "notLearned") {
+          state.notLearnedTopics[topicId] = { label: skipTopic.label, skipped: skipTopic.skipped, answered: skipTopic.answered, topicStatus: "notLearned" };
+        } else {
+          delete state.notLearnedTopics[topicId];
+        }
+        syncComputedWeakTopic(topicId, topic);
+      });
+
+      question.lessonIds.forEach((lessonId) => {
+        const lesson = state.lessonStats[lessonId] || { attempts: 0, totalScore: 0, averageScore: 0, label: `שיעור ${lessonId.replace("lesson-", "")}` };
+        lesson.attempts += 1;
+        lesson.totalScore += score;
+        lesson.averageScore = Math.round(lesson.totalScore / lesson.attempts);
+        state.lessonStats[lessonId] = lesson;
+      });
+    }
+
+    function syncComputedWeakTopic(topicId, topic) {
+      if (state.topicSkipStats[topicId] && state.topicSkipStats[topicId].topicStatus === "notLearned") {
+        delete state.weakTopics[topicId];
+        return;
+      }
+      if (topic.attempts >= 1 && topic.averageScore < 70) {
+        const existing = state.weakTopics[topicId] || { attempts: 0, label: topic.label, lastScore: topic.averageScore };
+        existing.attempts = Math.max(existing.attempts || 0, topic.failureAttempts || 0);
+        existing.lastScore = topic.averageScore;
+        existing.label = topic.label || existing.label;
+        state.weakTopics[topicId] = existing;
+      } else {
+        delete state.weakTopics[topicId];
+      }
+    }
+
+    function markWeak(question, score) {
+      question.topicIds.forEach((topicId) => {
+        if (state.topicSkipStats[topicId] && state.topicSkipStats[topicId].topicStatus === "notLearned") return;
+        const topic = state.topicStats[topicId];
+        if (!topic || topic.averageScore >= 70) {
+          delete state.weakTopics[topicId];
+          return;
+        }
+        const existing = state.weakTopics[topicId] || { attempts: 0, label: question.weakTopicTags[0] || topicId, lastScore: score };
+        existing.attempts = Math.max(existing.attempts || 0, topic.failureAttempts || 1);
+        existing.lastScore = score;
+        existing.label = question.weakTopicTags[0] || existing.label;
+        state.weakTopics[topicId] = existing;
+      });
+    }
+
+    function recomputePracticeCounters() {
+      const scores = Object.values(state.scoreByQuestionId).map(Number);
+      state.answeredCount = state.answeredQuestionIds.length;
+      state.correctCount = scores.filter((score) => score >= 70).length;
+      state.wrongCount = scores.filter((score) => score < 70).length;
+      state.skippedCount = state.history.filter((event) => event.action === "skipped").length;
+    }
+
+    function moveNext(weakOnly) {
+      if (isRecording) stopVoiceInput();
+      currentQuestion = selectQuestion(weakOnly);
+      state.questionStartedAt = Date.now();
+      lastResult = null;
+      saveState();
+      render();
+    }
+
+    function render() {
+      if (!currentQuestion) {
+        renderQuestion();
+        renderSummary();
+        els.feedback.innerHTML = "";
+        return;
+      }
+      renderQuestion();
+      renderSummary();
+      els.feedback.innerHTML = "";
+      els.answer.value = isExamSimulationActive()
+        ? ((state.examSimulation.answers[currentQuestion.id] || {}).text || "")
+        : (state.draftByQuestionId[currentQuestion.id] || "");
+      const savedMethod = state.answerMethodByQuestionId[currentQuestion.id];
+      answerInputFlags = {
+        voice: savedMethod === "voice" || savedMethod === "mixed",
+        keyboard: savedMethod === "keyboard" || savedMethod === "mixed" || (!savedMethod && Boolean(els.answer.value.trim()))
+      };
+      speechBaseText = els.answer.value.trim();
+      speechFinalText = "";
+      els.answer.focus({ preventScroll: true });
+    }
+
+    function renderNoAvailableQuestions() {
+      els.meta.innerHTML = "";
+      els.reviewNotice.classList.remove("active");
+      els.question.textContent = "אין כרגע שאלות זמינות לפי הנושאים שכבר נלמדו. ניתן לשנות סינון או להציג נושאים עתידיים.";
+      els.answer.value = "";
+      els.answer.disabled = true;
+      els.check.disabled = true;
+      els.skip.disabled = true;
+      els.next.disabled = false;
+      els.feedback.innerHTML = "";
+    }
+
+    function renderQuestion() {
+      if (!currentQuestion) {
+        renderNoAvailableQuestions();
+        return;
+      }
+      els.answer.disabled = false;
+      els.check.disabled = false;
+      els.skip.disabled = false;
+      const lesson = currentQuestion.lessonIds[0].replace("lesson-", "");
+      renderExamBanner();
+      els.reviewNotice.classList.toggle("active", Boolean(currentQuestion.reviewRequired) && !isExamSimulationActive());
+      const availability = getQuestionAvailability(currentQuestion);
+      els.meta.innerHTML = [
+        ["מספר שיעור", Number(lesson)],
+        ["נושא ראשי", currentQuestion.mainTopic],
+        ["תת נושא", currentQuestion.subTopic],
+        ["רמת קושי", currentQuestion.difficulty],
+        ["סוג שאלה", currentQuestion.reviewRequired ? "דורשת אימות מקצועי" : "רגילה לתרגול"]
+      ].concat(availability.available ? [] : [["זמינות", "טרם נלמד בקורס"]])
+        .map(([label, value]) => `<div class="meta"><span>${escapeHtml(label)}</span><strong>${escapeHtml(String(value))}</strong></div>`).join("");
+      const lessonBadge = availability.available ? "" : '<span class="lesson-lock-badge">&#1496;&#1512;&#1501; &#1504;&#1500;&#1502;&#1491; &#1489;&#1511;&#1493;&#1512;&#1505;</span><br>';
+      els.question.innerHTML = lessonBadge + '<span>' + escapeHtml(currentQuestion.question) + '</span>';
+    }
+
+    function renderExamBanner(message) {
+      const active = isExamSimulationActive();
+      const sim = state.examSimulation;
+      els.examBanner.classList.toggle("active", active);
+      if (!active || !sim) {
+        els.examBanner.textContent = "";
+        els.check.textContent = "בדוק תשובה";
+        els.next.textContent = "שאלה הבאה";
+        els.weak.disabled = false;
+        els.skip.disabled = false;
+        els.skip.style.display = "";
+        els.skipPanel.style.display = "";
+        els.exam.disabled = false;
+        return;
+      }
+
+      const index = sim.currentIndex + 1;
+      const total = sim.questionIds.length;
+      const answered = Object.keys(sim.results || {}).length;
+      const isStudy = sim.simulationMode === "study";
+      const title = isStudy ? "מצב לימוד" : "סימולציית מבחן";
+      const defaultMessage = isStudy
+        ? `${title}: שאלה ${index} מתוך ${total}. אחרי בדיקת תשובה יוצגו ציון, משוב ותשובה לדוגמה.`
+        : `${title}: שאלה ${index} מתוך ${total}. נשמרו ${answered} תשובות. הציון יוצג רק בסיום.`;
+      els.examBanner.textContent = message || defaultMessage;
+      els.check.textContent = isStudy ? "בדוק תשובה" : "שמור תשובה";
+      els.next.textContent = index >= total ? "סיים סימולציה" : (isStudy ? "המשך לשאלה הבאה" : "שאלה הבאה");
+      els.weak.disabled = true;
+      els.skip.disabled = !isStudy;
+      els.skip.style.display = isStudy ? "" : "none";
+      els.skipPanel.style.display = isStudy ? "" : "none";
+      els.exam.disabled = true;
+    }
+
+    function renderExamProgress(message) {
+      renderExamBanner(message);
+      els.feedback.innerHTML = `
+        <article class="feedback-card info">
+          <h2>תשובה נשמרה</h2>
+          <p>${escapeHtml(message)}</p>
+        </article>
+      `;
+    }
+
+    function renderExamFinalSummary(summary) {
+      const finishedMode = state.examSimulation && state.examSimulation.simulationMode === "study" ? "מצב לימוד" : "סימולציית מבחן";
+      els.examBanner.classList.remove("active");
+      els.examBanner.textContent = "";
+      els.check.textContent = "בדוק תשובה";
+      els.next.textContent = "שאלה הבאה";
+      els.weak.disabled = false;
+      els.skip.disabled = false;
+      els.skip.style.display = "";
+      els.skipPanel.style.display = "";
+      els.exam.disabled = false;
+
+      const topicRows = summary.topics.length
+        ? summary.topics.map((topic) => `<li><strong>${escapeHtml(topic.label)}</strong><br><span class="small">ציון ${topic.averageScore}, ${topic.attempts} שאלות</span></li>`).join("")
+        : `<li>לא נשמרו תשובות בסימולציה.</li>`;
+      const strongRows = summary.strongTopics.length
+        ? summary.strongTopics.map((topic) => `<li>${escapeHtml(topic.label)} - ${topic.averageScore}</li>`).join("")
+        : `<li>אין עדיין נושא חזק מובהק.</li>`;
+      const weakRows = summary.weakTopics.length
+        ? summary.weakTopics.map((topic) => `<li>${escapeHtml(topic.label)} - ${topic.averageScore}</li>`).join("")
+        : `<li>לא זוהו נושאים חלשים מובהקים.</li>`;
+      const recommendation = summary.weakTopics.length
+        ? `מומלץ לחזור קודם על ${summary.weakTopics.map((topic) => topic.label).join(", ")} ואז לבצע סימולציה נוספת.`
+        : "הביצוע יציב. מומלץ להמשיך לתרגל שאלות קריטיות וקשות לשימור רמה.";
+
+      els.feedback.innerHTML = `
+        <article class="feedback-card score-card">
+          <div class="score-number">${summary.overallScore}</div>
+          <div>
+            <h2>ציון כללי - ${escapeHtml(finishedMode)}</h2>
+            <p>נענו ${summary.answeredCount} מתוך ${summary.questionCount} שאלות. שאלות חשובות למבחן קיבלו משקל גבוה יותר בציון.</p>
+          </div>
+        </article>
+        <article class="feedback-card info">
+          <h2>ציון לפי נושא</h2>
+          <ul class="feedback-list">${topicRows}</ul>
+        </article>
+        <article class="feedback-card good">
+          <h2>נושאים חזקים</h2>
+          <ul class="feedback-list">${strongRows}</ul>
+        </article>
+        <article class="feedback-card warn">
+          <h2>נושאים חלשים</h2>
+          <ul class="feedback-list">${weakRows}</ul>
+        </article>
+        <article class="feedback-card info">
+          <h2>המלצות לחזרה</h2>
+          <p>${escapeHtml(recommendation)}</p>
+        </article>
+      `;
+    }
+
+    function renderFeedback(result) {
+      const scoreRows = renderScoreBreakdown(result);
+      const shortAnswer = escapeHtml(result.modelAnswerShort || buildShortModelAnswer(result.modelAnswer, currentQuestion));
+      const matched = renderMatchedCoaching(result, currentQuestion);
+      const missing = renderMissingCoaching(result, currentQuestion);
+      const misleading = renderMisleadingCoaching(result);
+      const modelSections = renderRecommendedExamAnswer(currentQuestion, result);
+      const improvement = renderImprovementPlan(result, currentQuestion);
+      const learning = renderLearningRecommendation(currentQuestion, result.score);
+
+      els.feedback.innerHTML = `
+        <article class="feedback-card score-card">
+          <div class="score-number">${result.score}</div>
+          <div>
+            <h2>ציון 0-100</h2>
+            <p>${escapeHtml(result.feedback)}</p>
+          </div>
+        </article>
+        <article class="feedback-card info" style="grid-column: 1 / -1;">
+          <h2>למה קיבלת את הציון הזה?</h2>
+          <table class="score-table">
+            <thead><tr><th>קריטריון</th><th>קיבלת</th><th>מקסימום</th></tr></thead>
+            <tbody>${scoreRows}</tbody>
+          </table>
+          <p class="score-total">ציון סופי: ${result.score} / 100</p>
+        </article>
+        <article class="feedback-card good" style="grid-column: 1 / -1;">
+          <h2>תשובה נכונה בקצרה</h2>
+          <p>${shortAnswer}</p>
+        </article>
+        <article class="feedback-card good">
+          <h2>מה היה נכון</h2>
+          <ul class="coaching-list">${matched}</ul>
+        </article>
+        <article class="feedback-card warn">
+          <h2>מה חסר</h2>
+          <ul class="coaching-list">${missing}</ul>
+        </article>
+        <article class="feedback-card bad">
+          <h2>מה היה שגוי או מטעה</h2>
+          <ul class="coaching-list">${misleading}</ul>
+        </article>
+        <article class="feedback-card info" style="grid-column: 1 / -1;">
+          <h2>תשובת מבחן מומלצת</h2>
+          <div class="model-sections">${modelSections}</div>
+        </article>
+        <article class="feedback-card warn">
+          <h2>איך להגיע לציון גבוה יותר</h2>
+          <ul class="feedback-list">${improvement}</ul>
+          <p>אם היית מוסיף את הרכיבים האלה, הציון שלך היה משתפר משמעותית.</p>
+        </article>
+        <article class="feedback-card info">
+          <h2>מומלץ לחזור על</h2>
+          ${learning}
+        </article>
+      `;
+    }
+
+    function renderScoreBreakdown(result) {
+      const rows = (result.rubricBreakdown || []).map((row) => `
+        <tr>
+          <td>${escapeHtml(row.item)}</td>
+          <td>${row.earned}</td>
+          <td>${row.max}</td>
+        </tr>
+      `);
+      if (result.scoreAdjustment) {
+        rows.push(`
+          <tr>
+            <td>התאמת פירוט התשובה</td>
+            <td>${result.scoreAdjustment > 0 ? "+" : ""}${result.scoreAdjustment}</td>
+            <td>לפי מנגנון קיים</td>
+          </tr>
+        `);
+      }
+      if (result.conceptualPenalty) {
+        rows.push(`
+          <tr>
+            <td>הפחתה על טעות מושגית</td>
+            <td>-${result.conceptualPenalty}</td>
+            <td>טעות major בתשובה</td>
+          </tr>
+        `);
+      }
+      return rows.join("");
+    }
+
+    function renderMatchedCoaching(result, question) {
+      if (!result.matchedItems.length) {
+        return `<li><span class="coaching-label">עדיין לא זוהו רכיבים שקיבלו ניקוד.</span><p>כדאי להתחיל בתשובה ישירה: מה הסיכון, מי אחראי, ומה הפעולה המתקנת הנדרשת.</p></li>`;
+      }
+      return result.matchedItems.map((item) => `
+        <li>
+          <span class="coaching-label">מה כתבת נכון: ${escapeHtml(item.item)}</span>
+          <p>המערכת זיהתה שהתייחסת לרכיב הזה באמצעות הביטוי "${escapeHtml(item.keyword)}".</p>
+          <p><strong>למה זה חשוב:</strong> ${escapeHtml(explainCriterionImportance(item.item, question))}</p>
+        </li>
+      `).join("");
+    }
+
+    function renderMissingCoaching(result, question) {
+      if (!result.missingItems.length) {
+        return `<li><span class="coaching-label">לא חסרים סעיפי מחוון מרכזיים.</span><p>כדי לחזק עוד יותר, כדאי להוסיף דוגמה יישומית, אחריות ותיעוד.</p></li>`;
+      }
+      return result.missingItems.map((item) => `
+        <li>
+          <span class="coaching-label">${escapeHtml(item)}</span>
+          <p><strong>למה זה חשוב:</strong> ${escapeHtml(explainCriterionImportance(item, question))}</p>
+          <p><strong>דוגמה למה שאפשר היה לכתוב:</strong> "${escapeHtml(exampleForCriterion(item, question))}"</p>
+        </li>
+      `).join("");
+    }
+
+    function renderMisleadingCoaching(result) {
+      if (!result.misleadingItems.length) {
+        return `<li><span class="coaching-label">לא זוהו טעויות מהותיות.</span><p>עדיין כדאי לוודא שהתשובה כוללת נימוק מקצועי ולא רק רשימת מילים.</p></li>`;
+      }
+      return result.misleadingItems.map((item) => {
+        const detail = typeof item === "string" ? { title: "ניסוח בעייתי", written: item, why: item, better: "נסח בזהירות, לפי הסיכון, האחריות והבקרות הנדרשות." } : item;
+        return `
+          <li>
+            <span class="coaching-label">${escapeHtml(detail.title || "ניסוח בעייתי")}</span>
+            <p><strong>מה נכתב:</strong> ${escapeHtml(detail.written || "זוהה ניסוח שעלול להטעות.")}</p>
+            <p><strong>למה זה בעייתי:</strong> ${escapeHtml(detail.why || "הניסוח עלול ליצור מסקנה מקצועית לא מדויקת.")}</p>
+            <p><strong>איך נכון יותר לנסח:</strong> ${escapeHtml(detail.better || "יש לקשור בין הסיכון, האחריות והפעולה המתקנת.")}</p>
+          </li>
+        `;
+      }).join("");
+    }
+
+    function renderImprovementPlan(result, question) {
+      const gaps = result.missingItems.length ? result.missingItems : [];
+      const suggestions = isLiftingEquipmentQuestion(question)
+        ? buildLiftingImprovementSuggestions(result)
+        : buildGeneralImprovementSuggestions(gaps, question);
+      return uniqueSimilarSuggestions(suggestions).slice(0, 4).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+    }
+
+    function buildLiftingImprovementSuggestions(result) {
+      const hasConceptMistake = (result.misleadingItems || []).some((item) => item && item.severity === "major");
+      const suggestions = [];
+      if (hasConceptMistake || (result.missingItems || []).length) {
+        suggestions.push("להגדיר במפורש מהי מכונת הרמה ומהו אביזר הרמה.");
+        suggestions.push("לציין שאביזר הרמה אינו חלק ממכונת ההרמה אלא רכיב המשמש לחיבור או אחיזת המטען.");
+        suggestions.push("להתייחס לעומס עבודה בטוח, התאמת האביזר למטען ובדיקות נדרשות.");
+        suggestions.push("להסביר מה ממונה הבטיחות צריך לעשות לאחר סיור: להתריע, להמליץ, לתעד ולעקוב.");
+      }
+      return suggestions.length ? suggestions : [
+        "להוסיף דוגמה קצרה להרמה בפועל ולציוד שנבדק.",
+        "לציין מי אחראי לפסילת אביזר פגום ומי עוקב אחר הטיפול.",
+        "להוסיף תיעוד בדיקות והדרכת עובדים."
+      ];
+    }
+
+    function buildGeneralImprovementSuggestions(gaps, question) {
+      if (!gaps.length) {
+        return [
+          "להוסיף דוגמה קצרה מהשטח שמראה יישום ולא רק הגדרה.",
+          "להסביר מי אחראי לביצוע ומי עוקב אחר הסגירה.",
+          "לציין תיעוד, הדרכה ובקרה חוזרת.",
+          "לסיים במשפט מסכם שמחבר בין הסיכון לפעולה המתקנת."
+        ];
+      }
+      return gaps.map((item) => shortenImprovementSuggestion(exampleForCriterion(item, question)));
+    }
+
+    function shortenImprovementSuggestion(text) {
+      const clean = String(text || "").replace(/\s+/g, " ").trim();
+      if (clean.length <= 120) return clean;
+      const sentenceEnd = clean.search(/[.!?]\s/);
+      if (sentenceEnd > 30 && sentenceEnd < 120) return clean.slice(0, sentenceEnd + 1);
+      return `${clean.slice(0, 116).trim()}...`;
+    }
+
+    function uniqueSimilarSuggestions(items) {
+      const seen = new Set();
+      return items.filter((item) => {
+        const key = normalize(item)
+          .replace(/\b(יש|צריך|כדאי|להוסיף|לציין|להסביר|להגדיר)\b/g, "")
+          .replace(/\s+/g, " ")
+          .trim()
+          .slice(0, 90);
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+
+    function renderLearningRecommendation(question, score) {
+      const lesson = question.lessonIds[0].replace("lesson-", "");
+      const reason = score < 60
+        ? "הציון מצביע על פער בסיסי בתשובה: כדאי לחזור על ההגדרות, הסיכונים והבקרות לפני ניסיון נוסף."
+        : score < 80
+          ? "התשובה בכיוון נכון, אבל חסרים רכיבי עומק כמו אחריות, תיעוד או פעולות מתקנות."
+          : "הבסיס טוב. כדאי להתמקד בשיפור ניסוח תשובת מבחן מלאה ודוגמאות יישומיות.";
+      return `
+        <p><strong>נושא:</strong> ${escapeHtml(question.subTopic)}</p>
+        <p><strong>שיעור:</strong> ${escapeHtml(lesson)}</p>
+        <p><strong>למה:</strong> ${escapeHtml(reason)}</p>
+      `;
+    }
+
+    function renderRecommendedExamAnswer(question, result) {
+      const sections = buildModelAnswerSections(question, result);
+      return sections.map((section) => `
+        <section class="model-section">
+          <h3>${escapeHtml(section.title)}</h3>
+          <p>${escapeHtml(section.text)}</p>
+        </section>
+      `).join("");
+    }
+
+    function buildModelAnswerSections(question, result) {
+      const answer = String(result.modelAnswer || question.expectedAnswer || "").replace(/\s+/g, " ").trim();
+      if (isLiftingEquipmentQuestion(question)) {
+        return [
+          { title: "הבחנה מושגית", text: "מכונת הרמה היא המתקן שמבצע את פעולת ההרמה, למשל עגורן, כננת או מלגזה מתאימה. אביזר הרמה אינו חלק מהמכונה אלא רכיב המחבר או מסייע בהרמת המטען, כגון רצועה, מענב, שאקל או וו." },
+          { title: "בדיקות והתאמה", text: "יש לבדוק התאמה לעומס העבודה הבטוח, מצב פיזי של האביזר, שחיקה, סימון, התאמה למטען ולזוויות ההרמה, ובדיקות נדרשות לפי סוג הציוד והדרישה החלה." },
+          { title: "ניהול הסיכון", text: "לפני הרמה יש לתכנן את ההנפה, להרחיק עובדים מאזור סכנה, לוודא תקשורת עם אתת או גורם מכוון, ולפסול ציוד פגום או לא מתאים." },
+          { title: "תפקיד ממונה הבטיחות", text: "ממונה הבטיחות צריך לזהות פערים, להתריע, להמליץ על בקרה, לוודא הדרכת עובדים ותיעוד בדיקות, ולעקוב שהליקויים נסגרו בפועל." },
+          { title: "סיכום", text: "בלבול בין מכונת הרמה לאביזר הרמה הוא טעות מקצועית: לכל אחד תפקיד, מגבלות, בדיקות ובקרות משלו, ושניהם חייבים להתאים למשימת ההרמה." }
+        ];
+      }
+      const isScenario = question.questionStyle === "scenario" || /במהלך|אירוע|נפגע|מפעל|עובד|מכונה|שרפה|הרמה/.test(question.question);
+      if (isScenario) {
+        return [
+          { title: "רקע", text: `יש לפתוח בזיהוי האירוע וההקשר: ${question.subTopic}. התשובה צריכה להסביר מה קרה ומהו הסיכון המרכזי.` },
+          { title: "גורמי סיכון", text: `יש לזהות גורמי סיכון מתוך השאלה ולחבר אותם לחומרה ולהסתברות. דוגמה: ${exampleForCriterion(result.missingItems[0] || "זיהוי מקצועי של הסיכון והבעיה", question)}` },
+          { title: "אחריות", text: "יש לציין את אחריות העובד, המנהל, המעסיק וממונה הבטיחות לפי תפקידם: ביצוע הנחיות, אספקת תנאים, התרעה, המלצה ומעקב." },
+          { title: "פעולות מתקנות", text: "יש להציע פעולות מתקנות מעשיות: עצירת עבודה אם נדרש, בקרה הנדסית או ניהולית, הדרכה, תיעוד, לוחות זמנים ומעקב סגירה." },
+          { title: "סיכום", text: buildShortModelAnswer(answer, question) }
+        ];
+      }
+      return [
+        { title: "הגדרה או עיקרון מרכזי", text: buildShortModelAnswer(answer, question) },
+        { title: "הסבר מקצועי", text: `יש להסביר איך ${question.subTopic} משפיע על ניהול הסיכון ולא להסתפק בסיסמה או במילת מפתח.` },
+        { title: "יישום במפעל", text: "יש להראות מה ממונה הבטיחות עושה בפועל: מזהה פער, ממליץ על בקרה, מתעד ומוודא ביצוע." },
+        { title: "סיכום מבחן", text: "תשובה טובה מסיימת בקשר ברור בין הסיכון, האחריות והפעולה המתקנת." }
+      ];
+    }
+
+    function explainCriterionImportance(item, question) {
+      const text = normalize(item);
+      if (text.includes("סיכון") || text.includes("מפגע") || text.includes("בעיה")) return "המבחן בודק האם הצלחת לזהות את הגורמים שהובילו לאירוע או לפער הבטיחותי.";
+      if (text.includes("אחריות") || text.includes("תפקיד")) return "בתשובת ממונה בטיחות חשוב להראות מי צריך לפעול, מי מחליט ומי עוקב אחר הביצוע.";
+      if (text.includes("בקרה") || text.includes("פעולה")) return "זיהוי הבעיה אינו מספיק; נדרש להציע דרך מעשית להפחתת הסיכון.";
+      if (text.includes("תיעוד") || text.includes("מעקב") || text.includes("הדרכה")) return "בלי תיעוד ומעקב אי אפשר להוכיח שהסיכון טופל ושהעובדים יודעים לפעול נכון.";
+      return `זהו רכיב מקצועי מרכזי בנושא ${question.subTopic}, והוא מראה שהבנת את הדרישה מעבר להגדרה בסיסית.`;
+    }
+
+    function formalAppointmentCriterionExample(item) {
+      const text = normalize(item);
+      if (text.includes(normalize("\u05d4\u05d2\u05d3\u05e8\u05ea \u05e6\u05d3 \u05d0"))) return "\u05de\u05d9\u05e0\u05d5\u05d9 \u05e4\u05d5\u05e8\u05de\u05dc\u05d9 \u05d4\u05d5\u05d0 \u05db\u05ea\u05d1 \u05de\u05d9\u05e0\u05d5\u05d9, \u05d0\u05d9\u05e9\u05d5\u05e8 \u05d5\u05e2\u05de\u05d9\u05d3\u05d4 \u05d1\u05db\u05e9\u05d9\u05e8\u05d5\u05ea \u05db\u05e0\u05d3\u05e8\u05e9.";
+      if (text.includes(normalize("\u05d4\u05d2\u05d3\u05e8\u05ea \u05e6\u05d3 \u05d1"))) return "\u05ea\u05e4\u05e7\u05d5\u05d3 \u05d0\u05e4\u05e7\u05d8\u05d9\u05d1\u05d9 \u05d4\u05d5\u05d0 \u05d6\u05d9\u05d4\u05d5\u05d9 \u05e4\u05e2\u05e8\u05d9\u05dd, \u05d9\u05d9\u05e2\u05d5\u05e5, \u05d4\u05de\u05dc\u05e6\u05d4, \u05d4\u05d3\u05e8\u05db\u05d4 \u05d5\u05de\u05e2\u05e7\u05d1 \u05d1\u05e4\u05d5\u05e2\u05dc.";
+      if (text.includes(normalize("\u05d4\u05d1\u05d3\u05dc\u05d9\u05dd"))) return "\u05d7\u05e1\u05e8\u05d4 \u05d4\u05d1\u05d7\u05e0\u05d4 \u05d1\u05e8\u05d5\u05e8\u05d4 \u05d1\u05d9\u05df \u05e2\u05e6\u05dd \u05d4\u05de\u05d9\u05e0\u05d5\u05d9 \u05d4\u05e4\u05d5\u05e8\u05de\u05dc\u05d9 \u05dc\u05d1\u05d9\u05df \u05d1\u05d9\u05e6\u05d5\u05e2 \u05d1\u05e4\u05d5\u05e2\u05dc \u05e9\u05dc \u05ea\u05e4\u05e7\u05d9\u05d3 \u05d4\u05de\u05de\u05d5\u05e0\u05d4.";
+      if (text.includes(normalize("\u05d7\u05e4\u05d9\u05e4\u05d4")) || text.includes(normalize("\u05e7\u05e9\u05e8"))) return "\u05d7\u05e1\u05e8\u05d4 \u05de\u05d8\u05e8\u05ea \u05d4\u05e9\u05d9\u05de\u05d5\u05e9 \u05e9\u05dc \u05db\u05dc \u05d0\u05d7\u05d3: \u05e2\u05de\u05d9\u05d3\u05d4 \u05d1\u05d3\u05e8\u05d9\u05e9\u05d4 \u05e4\u05d5\u05e8\u05de\u05dc\u05d9\u05ea \u05de\u05d5\u05dc \u05d9\u05e6\u05d9\u05e8\u05ea \u05e2\u05e8\u05da \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea\u05d9 \u05d1\u05e4\u05d5\u05e2\u05dc.";
+      if (text.includes(normalize("\u05d3\u05d5\u05d2\u05de\u05d4"))) return "\u05d7\u05e1\u05e8\u05d4 \u05d3\u05d5\u05d2\u05de\u05d4 \u05d9\u05d9\u05e9\u05d5\u05de\u05d9\u05ea \u05e9\u05de\u05e8\u05d0\u05d4 \u05d0\u05d9\u05da \u05de\u05de\u05d5\u05e0\u05d4 \u05e4\u05d5\u05e2\u05dc \u05dc\u05d0\u05d7\u05e8 \u05d6\u05d9\u05d4\u05d5\u05d9 \u05e4\u05e2\u05e8 \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea.";
+      return "\u05d7\u05e1\u05e8\u05d4 \u05d4\u05ea\u05d9\u05d9\u05d7\u05e1\u05d5\u05ea \u05de\u05e1\u05d5\u05d3\u05e8\u05ea \u05dc\u05de\u05e1\u05de\u05db\u05d9\u05dd \u05e0\u05dc\u05d5\u05d5\u05d9\u05dd: \u05db\u05ea\u05d1 \u05de\u05d9\u05e0\u05d5\u05d9, \u05d0\u05d9\u05e9\u05d5\u05e8, \u05db\u05e9\u05d9\u05e8\u05d5\u05ea \u05d5\u05ea\u05d9\u05e2\u05d5\u05d3 \u05e4\u05e2\u05d9\u05dc\u05d5\u05ea.";
+    }
+
+    function exampleForCriterion(item, question) {
+      if (isLiftingEquipmentQuestion(question)) {
+        return "חסרה הבחנה ברורה בין מכונת ההרמה לבין אביזר ההרמה, וחסרה התייחסות לעומס עבודה בטוח, בדיקה תקופתית, התאמת האביזר למטען ותיעוד.";
+      }
+      const text = normalize(item);
+      if (text.includes("סיכון") || text.includes("מפגע") || text.includes("בעיה")) return `במקרה זה יש לזהות את ${question.subTopic} כמקור סיכון, להסביר מה עלול לקרות ומה חומרת הפגיעה האפשרית.`;
+      if (text.includes("אחריות") || text.includes("תפקיד")) return "המנהל אחראי לעצור עבודה לא בטוחה, העובד חייב לפעול לפי ההנחיות, וממונה הבטיחות צריך להתריע, להמליץ ולוודא מעקב.";
+      if (text.includes("בקרה") || text.includes("פעולה")) return "יש לבצע פעולה מתקנת כמו גידור, ניתוק מקור אנרגיה, היתר עבודה, הדרכה או בדיקה תקופתית לפי סוג הסיכון.";
+      if (text.includes("תיעוד") || text.includes("מעקב") || text.includes("הדרכה")) return "יש לתעד את הממצא, לקבוע אחראי ולוח זמנים, להדריך את העובדים ולבדוק שהפעולה נסגרה בפועל.";
+      return `בתשובה מלאה צריך להסביר כיצד ${question.subTopic} מתורגם להחלטה מקצועית, בקרה ותיעוד.`;
+    }
+    function renderSummary() {
+      if (isExamSimulationActive()) {
+        const sim = state.examSimulation;
+        const simAnswered = Object.keys(sim.results || {}).length;
+        const simSkipped = Object.keys(sim.skipped || {}).length;
+        els.answered.textContent = `${simAnswered}/${sim.questionIds.length}`;
+        els.average.textContent = "-";
+        els.weakCount.textContent = "-";
+        els.reviewCount.textContent = String(state.reviewCount || 0);
+        els.voiceAnswerCount.textContent = String((state.answerMethodStats.voice || 0) + (state.answerMethodStats.mixed || 0));
+        els.keyboardAnswerCount.textContent = String((state.answerMethodStats.keyboard || 0) + (state.answerMethodStats.mixed || 0));
+        els.skippedCount.textContent = String(state.skippedCount || 0);
+        els.correctWrongCount.textContent = "- / -";
+        const isStudy = sim.simulationMode === "study";
+        els.strongTopics.innerHTML = `<li class="empty">יוצג בסיום ${isStudy ? "מצב הלימוד" : "הסימולציה"}.</li>`;
+        els.weakTopics.innerHTML = `<li class="empty">יוצג בסיום ${isStudy ? "מצב הלימוד" : "הסימולציה"}.</li>`;
+        els.notLearnedTopics.innerHTML = `<li class="empty">יוצג בתרגול הרגיל.</li>`;
+        els.futureTopics.innerHTML = renderFutureTopicList(getFutureTopicRows());
+        els.futureTopicsWarning.classList.toggle("active", shouldIncludeFutureQuestions() && getFutureTopicRows().length > 0);
+        els.recommendation.textContent = isStudy
+          ? "במצב לימוד מוצג משוב מיידי לאחר כל תשובה."
+          : "בסימולציה לא מוצגים ציונים או תשובות נכונות עד לסיום.";
+        els.studyPlan.innerHTML = renderStudyPlanPaused(isStudy);
+        return;
+      }
+      recomputePracticeCounters();
+      const scores = Object.values(state.scoreByQuestionId).map(Number);
+      const average = scores.length ? Math.round(scores.reduce((sum, score) => sum + score, 0) / scores.length) : 0;
+      const summary = buildTopicLearningSummary();
+
+      els.answered.textContent = String(state.answeredCount || 0);
+      els.average.textContent = String(average);
+      els.weakCount.textContent = String(summary.weakTopics.length);
+      els.reviewCount.textContent = String(state.reviewCount || 0);
+      els.voiceAnswerCount.textContent = String((state.answerMethodStats.voice || 0) + (state.answerMethodStats.mixed || 0));
+      els.keyboardAnswerCount.textContent = String((state.answerMethodStats.keyboard || 0) + (state.answerMethodStats.mixed || 0));
+      els.skippedCount.textContent = String(state.skippedCount || 0);
+      els.correctWrongCount.textContent = `${state.correctCount || 0} / ${state.wrongCount || 0}`;
+
+      els.strongTopics.innerHTML = renderTopicList(summary.strongTopics.slice(0, 3), "אין עדיין מספיק נתונים לנושאים חזקים.");
+      els.weakTopics.innerHTML = renderTopicList(summary.weakTopics.slice(0, 3), "אין כרגע נושאים חלשים מזוהים.");
+      els.notLearnedTopics.innerHTML = renderSkipTopicList(summary.notLearnedTopics.slice(0, 5), "אין כרגע נושאים שסומנו כטרם נלמדו.");
+      els.futureTopics.innerHTML = renderFutureTopicList(summary.futureTopics);
+      els.futureTopicsWarning.classList.toggle("active", shouldIncludeFutureQuestions() && summary.futureTopics.length > 0);
+      els.recommendation.innerHTML = renderPriorityRecommendation(summary);
+      els.studyPlan.innerHTML = renderPersonalStudyPlan(summary);
+    }
+
+    function buildTopicLearningSummary() {
+      const rows = Object.entries(state.topicStats || {}).map(([topicId, stat]) => buildTopicPriorityRow(topicId, stat));
+      const notLearnedIds = new Set(Object.keys(state.notLearnedTopics || {}));
+      Object.entries(state.topicSkipStats || {}).forEach(([topicId, stat]) => {
+        if (stat.topicStatus === "notLearned") notLearnedIds.add(topicId);
+      });
+      const notLearnedTopics = [...notLearnedIds].map((topicId) => {
+        const stat = state.notLearnedTopics[topicId] || state.topicSkipStats[topicId] || {};
+        return [topicId, { ...stat, label: stat.label || getTopicPriorityMeta(topicId).label, topicStatus: "notLearned" }];
+      });
+      const activeRows = rows.filter((row) => !notLearnedIds.has(row.topicId) && row.attempts >= 1);
+      const weakTopics = activeRows
+        .filter((row) => row.averageScore < 70)
+        .sort((a, b) => b.priorityScore - a.priorityScore || a.averageScore - b.averageScore);
+      const weakIds = new Set(weakTopics.map((row) => row.topicId));
+      const strongTopics = activeRows
+        .filter((row) => row.averageScore >= 75 && !weakIds.has(row.topicId))
+        .sort((a, b) => b.averageScore - a.averageScore || b.priorityScore - a.priorityScore);
+      const recommended = activeRows.slice().sort((a, b) => b.priorityScore - a.priorityScore || a.curriculumOrder - b.curriculumOrder)[0] || null;
+      const lowestAverage = activeRows.slice().sort((a, b) => a.averageScore - b.averageScore)[0] || null;
+      const futureTopics = getFutureTopicRows();
+      return { rows, activeRows, strongTopics, weakTopics, notLearnedTopics, futureTopics, recommended, lowestAverage };
+    }
+
+    function buildTopicPriorityRow(topicId, stat) {
+      const meta = getTopicPriorityMeta(topicId, stat);
+      const failureAttempts = Math.max(Number(stat.failureAttempts || 0), Number((state.weakTopics[topicId] && state.weakTopics[topicId].attempts) || 0));
+      const weaknessScore = Math.max(0, 100 - Number(stat.averageScore || 0));
+      const repeatFailureWeight = Math.min(100, failureAttempts * 25);
+      const priorityScore = Math.round((weaknessScore * 0.5) + (meta.examWeight * 0.3) + (repeatFailureWeight * 0.2));
+      return {
+        topicId,
+        label: meta.label || stat.label || topicId,
+        attempts: Number(stat.attempts || 0),
+        averageScore: Number(stat.averageScore || 0),
+        failureAttempts,
+        weaknessScore,
+        repeatFailureWeight,
+        priorityScore,
+        examWeight: meta.examWeight,
+        importance: meta.importance,
+        curriculumOrder: meta.curriculumOrder
+      };
+    }
+
+    function getTopicPriorityMeta(topicId, stat) {
+      if (TOPIC_PRIORITY_CONFIG[topicId]) return TOPIC_PRIORITY_CONFIG[topicId];
+      const label = (stat && stat.label) || topicId;
+      if (/אחריות|פיקוח|תקנות|ממונה|ניהול|חשמל/.test(label)) return { label, examWeight: 100, importance: "גבוהה מאוד", curriculumOrder: 99 };
+      if (/מכונות|גידור|ריתוך|אש|הרמה|קיטור/.test(label)) return { label, examWeight: 75, importance: "גבוהה", curriculumOrder: 99 };
+      return { label, examWeight: 50, importance: "רגילה", curriculumOrder: 99 };
+    }
+
+    function renderTopicList(entries, emptyText) {
+      if (!entries.length) return `<li class="empty">${escapeHtml(emptyText)}</li>`;
+      return entries.map((entry) => {
+        const topicId = Array.isArray(entry) ? entry[0] : entry.topicId;
+        const stat = Array.isArray(entry) ? entry[1] : entry;
+        const priority = stat.priorityScore != null ? `, עדיפות ${stat.priorityScore}` : "";
+        const importance = stat.importance ? `, חשיבות ${stat.importance}` : "";
+        return `<li><strong>${escapeHtml(stat.label || topicId)}</strong><br><span class="small">ממוצע ${stat.averageScore}, ${stat.attempts} ניסיונות${importance}${priority}</span></li>`;
+      }).join("");
+    }
+
+    function renderSkipTopicList(entries, emptyText) {
+      if (!entries.length) return `<li class="empty">${escapeHtml(emptyText)}</li>`;
+      return entries.map(([topicId, stat]) => `<li><strong>${escapeHtml(stat.label || getTopicPriorityMeta(topicId).label || topicId)}</strong><br><span class="small">דולגו ${stat.skipped || 0}, נענו ${stat.answered || 0}, topicStatus = notLearned</span></li>`).join("");
+    }
+
+    function getDaysUntilExam(now = new Date()) {
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const examDate = new Date(2026, 6, 12);
+      return Math.max(0, Math.ceil((examDate - today) / 86400000));
+    }
+
+    function calculateExamReadiness(summary) {
+      const rows = summary.activeRows || [];
+      if (!rows.length) {
+        return { score: 0, label: "&#1491;&#1493;&#1512;&#1513; &#1506;&#1489;&#1493;&#1491;&#1492; &#1502;&#1513;&#1502;&#1506;&#1493;&#1514;&#1497;&#1514;" };
+      }
+      const totalWeight = rows.reduce((sum, row) => sum + row.examWeight, 0) || 1;
+      const weightedAverage = rows.reduce((sum, row) => sum + (row.averageScore * row.examWeight), 0) / totalWeight;
+      const weakPenalty = Math.min(25, (summary.weakTopics.length * 5) + rows.reduce((sum, row) => sum + Math.min(row.failureAttempts || 0, 3), 0) * 2);
+      const notLearnedPenalty = Math.min(15, (summary.notLearnedTopics || []).length * 3);
+      const score = Math.max(0, Math.min(100, Math.round(weightedAverage - weakPenalty - notLearnedPenalty)));
+      return { score, label: getReadinessLabel(score) };
+    }
+
+    function getReadinessLabel(score) {
+      if (score >= 80) return "&#1502;&#1493;&#1499;&#1503; &#1500;&#1502;&#1489;&#1495;&#1503;";
+      if (score >= 60) return "&#1502;&#1514;&#1511;&#1491;&#1501;";
+      if (score >= 40) return "&#1489;&#1514;&#1492;&#1500;&#1497;&#1498;";
+      return "&#1491;&#1493;&#1512;&#1513; &#1506;&#1489;&#1493;&#1491;&#1492; &#1502;&#1513;&#1502;&#1506;&#1493;&#1514;&#1497;&#1514;";
+    }
+
+    function getStudyAction(row) {
+      if (row.averageScore < 30) return "&#1497;&#1513; &#1500;&#1495;&#1494;&#1493;&#1512; &#1506;&#1500; &#1495;&#1493;&#1502;&#1512; &#1492;&#1500;&#1497;&#1502;&#1493;&#1491; &#1500;&#1508;&#1504;&#1497; &#1514;&#1512;&#1490;&#1493;&#1500; &#1504;&#1493;&#1505;&#1507;.";
+      if (row.averageScore < 60) return "&#1497;&#1513; &#1500;&#1489;&#1510;&#1506; 5 &#1513;&#1488;&#1500;&#1493;&#1514; &#1508;&#1514;&#1493;&#1495;&#1493;&#1514; &#1504;&#1493;&#1505;&#1508;&#1493;&#1514;.";
+      if (row.averageScore < 75) return "&#1497;&#1513; &#1500;&#1489;&#1510;&#1506; &#1505;&#1497;&#1502;&#1493;&#1500;&#1510;&#1497;&#1497;&#1514; &#1502;&#1489;&#1495;&#1503; &#1489;&#1504;&#1493;&#1513;&#1488;.";
+      return "&#1504;&#1512;&#1488;&#1492; &#1513;&#1492;&#1504;&#1493;&#1513;&#1488; &#1489;&#1513;&#1500;&#1497;&#1496;&#1492;.";
+    }
+
+    function getStudyLessonAction(row) {
+      const order = Number(row.curriculumOrder || 0);
+      if (order === 1) return "&#1495;&#1494;&#1493;&#1512; &#1506;&#1500; &#1502;&#1508;&#1490;&#1513; 1-2";
+      if (order === 8) return "&#1495;&#1494;&#1493;&#1512; &#1506;&#1500; &#1502;&#1508;&#1490;&#1513; 8-9";
+      if (order === 10) return "&#1495;&#1494;&#1493;&#1512; &#1506;&#1500; &#1502;&#1508;&#1490;&#1513; 10 &#1493;-12";
+      if (order === 13) return "&#1495;&#1494;&#1493;&#1512; &#1506;&#1500; &#1502;&#1508;&#1490;&#1513; 13-15";
+      if (order === 16) return "&#1495;&#1494;&#1493;&#1512; &#1506;&#1500; &#1502;&#1508;&#1490;&#1513; 16-17";
+      if (order === 18) return "&#1495;&#1494;&#1493;&#1512; &#1506;&#1500; &#1502;&#1508;&#1490;&#1513; 18 &#1493;-20";
+      if (order > 0 && order < 99) return "&#1495;&#1494;&#1493;&#1512; &#1506;&#1500; &#1502;&#1508;&#1490;&#1513; " + order;
+      return "&#1495;&#1494;&#1493;&#1512; &#1506;&#1500; &#1495;&#1493;&#1502;&#1512; &#1492;&#1500;&#1497;&#1502;&#1493;&#1491; &#1492;&#1512;&#1500;&#1493;&#1493;&#1504;&#1496;&#1497;";
+    }
+
+    function getStudyTarget(row) {
+      return row.examWeight >= 100 ? "80+" : "70+";
+    }
+
+    function renderStudyPlanPaused(isStudy) {
+      const mode = isStudy ? "&#1502;&#1510;&#1489; &#1500;&#1497;&#1502;&#1493;&#1491;" : "&#1505;&#1497;&#1502;&#1493;&#1500;&#1510;&#1497;&#1497;&#1514; &#1502;&#1489;&#1495;&#1503;";
+      return "<div class=\"readiness-meter\"><div><strong>&#1502;&#1493;&#1499;&#1504;&#1493;&#1514; &#1500;&#1502;&#1489;&#1495;&#1503;</strong><span>- / 100</span></div><p class=\"small\">&#1492;&#1514;&#1493;&#1499;&#1504;&#1497;&#1514; &#1514;&#1514;&#1506;&#1491;&#1499;&#1503; &#1489;&#1514;&#1512;&#1490;&#1493;&#1500; &#1492;&#1512;&#1490;&#1497;&#1500; &#1500;&#1488;&#1495;&#1512; &#1505;&#1497;&#1493;&#1501; " + mode + ".</p></div>";
+    }
+
+    function renderPersonalStudyPlan(summary) {
+      const days = getDaysUntilExam();
+      const readiness = calculateExamReadiness(summary);
+      const planRows = (summary.activeRows || [])
+        .filter((row) => !isTopicFuture(row.topicId))
+        .slice()
+        .sort((a, b) => b.priorityScore - a.priorityScore || a.curriculumOrder - b.curriculumOrder)
+        .slice(0, 5);
+      const currentPlan = planRows.length
+        ? '<h4>&#1504;&#1493;&#1513;&#1488;&#1497;&#1501; &#1500;&#1500;&#1502;&#1497;&#1491;&#1492; &#1506;&#1499;&#1513;&#1497;&#1493;</h4><ol class="study-plan-list">' + planRows.map((row) => '<li><strong>' + escapeHtml(row.label) + '</strong><div class="small">&#1510;&#1497;&#1493;&#1503;: ' + row.averageScore + ' | &#1504;&#1497;&#1505;&#1497;&#1493;&#1504;&#1493;&#1514;: ' + row.attempts + ' | &#1495;&#1513;&#1497;&#1489;&#1493;&#1514; &#1500;&#1502;&#1489;&#1495;&#1503;: ' + escapeHtml(row.importance) + '</div><div class="small">&#1497;&#1506;&#1491;: ' + getStudyTarget(row) + '</div><ul class="small"><li>' + getStudyLessonAction(row) + '</li><li>' + getStudyAction(row) + '</li></ul></li>').join('') + '</ol>'
+        : '<h4>&#1504;&#1493;&#1513;&#1488;&#1497;&#1501; &#1500;&#1500;&#1502;&#1497;&#1491;&#1492; &#1506;&#1499;&#1513;&#1497;&#1493;</h4><p class="small">&#1506;&#1504;&#1492; &#1506;&#1500; &#1502;&#1505;&#1508;&#1512; &#1513;&#1488;&#1500;&#1493;&#1514; &#1499;&#1491;&#1497; &#1500;&#1489;&#1504;&#1493;&#1514; &#1514;&#1493;&#1499;&#1504;&#1497;&#1514; &#1506;&#1489;&#1493;&#1491;&#1492; &#1488;&#1497;&#1513;&#1497;&#1514;.</p>';
+      const futureRows = (summary.futureTopics || []).slice(0, 5);
+      const futurePlan = futureRows.length
+        ? '<h4>&#1504;&#1493;&#1513;&#1488;&#1497;&#1501; &#1513;&#1497;&#1497;&#1508;&#1514;&#1495;&#1493; &#1489;&#1492;&#1502;&#1513;&#1498;</h4><ol class="study-plan-list">' + futureRows.map((row) => '<li><strong>' + escapeHtml(row.label) + '</strong><div class="small">&#1513;&#1497;&#1506;&#1493;&#1512; ' + Number(row.lessonNumber) + ' | &#1497;&#1497;&#1508;&#1514;&#1495;: ' + formatCourseDate(row.availableFrom) + '</div><div class="small">&#1508;&#1506;&#1493;&#1500;&#1492;: &#1500;&#1495;&#1494;&#1493;&#1512; &#1500;&#1504;&#1493;&#1513;&#1488; &#1500;&#1488;&#1495;&#1512; &#1502;&#1493;&#1506;&#1491; &#1492;&#1513;&#1497;&#1506;&#1493;&#1512; &#1493;&#1488;&#1494; &#1500;&#1514;&#1512;&#1490;&#1500; &#1513;&#1488;&#1500;&#1493;&#1514; &#1508;&#1514;&#1493;&#1495;&#1493;&#1514;.</div></li>').join('') + '</ol>'
+        : '';
+      return '<div class="readiness-meter"><div><strong>&#1502;&#1493;&#1499;&#1504;&#1493;&#1514; &#1500;&#1502;&#1489;&#1495;&#1503;</strong><span>' + readiness.score + ' / 100</span></div><div class="readiness-bar" aria-hidden="true"><span style="width: ' + readiness.score + '%"></span></div><p class="small">' + readiness.label + '</p><p class="small">&#1504;&#1493;&#1514;&#1512;&#1493; ' + days + ' &#1497;&#1502;&#1497;&#1501; &#1500;&#1502;&#1489;&#1495;&#1503;</p></div>' + currentPlan + futurePlan;
+    }
+    function renderFutureTopicList(entries) {
+      if (!entries.length) return `<li class="empty">&#1488;&#1497;&#1503; &#1499;&#1512;&#1490;&#1506; &#1504;&#1493;&#1513;&#1488;&#1497;&#1501; &#1506;&#1514;&#1497;&#1491;&#1497;&#1497;&#1501; &#1504;&#1506;&#1493;&#1500;&#1497;&#1501;.</li>`;
+      return entries.slice(0, 6).map((row) => `<li><strong>${escapeHtml(row.label)}</strong><br><span class="small">&#1497;&#1497;&#1508;&#1514;&#1495; &#1500;&#1488;&#1495;&#1512; &#1513;&#1497;&#1506;&#1493;&#1512; ${Number(row.lessonNumber)}, ${formatCourseDate(row.availableFrom)}</span></li>`).join("");
+    }
+
+    function renderPriorityRecommendation(summary) {
+      const row = summary.recommended;
+      if (!row) return "ענה על כמה שאלות כדי שהמערכת תזהה דפוסים.";
+      const reason = summary.lowestAverage && summary.lowestAverage.topicId !== row.topicId && summary.lowestAverage.averageScore < row.averageScore
+        ? `<p>הנושא נבחר בגלל חשיבותו הגבוהה למבחן למרות שקיים נושא אחר עם ציון נמוך יותר.</p>`
+        : "";
+      return `
+        <p><strong>מומלץ ללמוד עכשיו:</strong><br>${escapeHtml(row.label)}</p>
+        <p>ציון ממוצע: ${row.averageScore}<br>ניסיונות: ${row.attempts}<br>חשיבות למבחן: ${escapeHtml(row.importance)}</p>
+        ${reason}
+      `;
+    }
+
+    function buildRecommendationText(question, score) {
+      if (score >= 85) return `המשך לשאלה נוספת. בנושא ${question.subTopic} כדאי להתמקד כעת ביישום ודוגמאות מורכבות.`;
+      if (score >= 70) return `חזור בקצרה על ${question.weakTopicTags.join(" ו-")} והוסף בתשובות הבאות יותר תיעוד, בקרות ומעקב.`;
+      return `מומלץ לתרגל שוב את ${question.subTopic}, לנסח הגדרות בסיסיות, ואז להוסיף סיכון, בקרה, אחריות ודוגמה.`;
+    }
+
+    function buildOverallRecommendation(average, weakTopics) {
+      if (!state.answeredQuestionIds.length) return "ענה על כמה שאלות כדי שהמערכת תזהה דפוסים.";
+      if (weakTopics.length) {
+        const first = weakTopics[0][1].label || weakTopics[0][0];
+        return `כדאי ללחוץ על "תרגל נושאים חלשים" ולהתחיל מ-${first}.`;
+      }
+      if (average >= 85) return "הממוצע טוב. המשך לשאלות קשות ונושאים קריטיים למבחן.";
+      return "המשך לענות על שאלות מכל השיעורים כדי לבנות תמונת חוזקות וחולשות אמינה.";
+    }
+
+    function loadState() {
+      const fallback = {
+        answeredQuestionIds: [],
+        scoreByQuestionId: {},
+        topicStats: {},
+        lessonStats: {},
+        weakTopics: {},
+        notLearnedTopics: {},
+        topicSkipStats: {},
+        history: [],
+        skippedQuestionIds: [],
+        answeredCount: 0,
+        wrongCount: 0,
+        correctCount: 0,
+        skippedCount: 0,
+        examSimulation: {
+          active: false,
+          completed: false,
+          questionIds: [],
+          currentIndex: 0,
+          answers: {},
+          results: {},
+          skipped: {},
+          simulationMode: "exam",
+          startedAt: null,
+          finishedAt: null
+        },
+        answerMethod: null,
+        answerMethodByQuestionId: {},
+        answerMethodStats: {
+          voice: 0,
+          keyboard: 0,
+          mixed: 0
+        },
+        repetitions: {},
+        repetitionQueue: [],
+        lastAnsweredAt: null,
+        reviewCount: 0,
+        lastQuestionId: null,
+        questionStartedAt: Date.now(),
+        draftByQuestionId: {},
+        previousAttempts: {},
+        learningState: { state: "openExam" },
+        signals: {
+          correct: false,
+          firstAttemptCorrect: false,
+          answerChanges: 0,
+          revealUsed: false,
+          responseTimeMs: 0
+        },
+        scheduler: {
+          lastRating: null,
+          lapses: 0,
+          repetitions: 0
+        }
+      };
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return fallback;
+        return mergeState(fallback, JSON.parse(raw));
+      } catch (error) {
+        return fallback;
+      }
+    }
+
+    function mergeState(base, saved) {
+      const merged = { ...base, ...saved };
+      merged.learningState = { ...base.learningState, ...(saved.learningState || {}) };
+      merged.signals = { ...base.signals, ...(saved.signals || {}) };
+      merged.scheduler = { ...base.scheduler, ...(saved.scheduler || {}) };
+      merged.answerMethodStats = { ...base.answerMethodStats, ...(saved.answerMethodStats || {}) };
+      merged.answerMethodByQuestionId = saved.answerMethodByQuestionId || base.answerMethodByQuestionId;
+      merged.examSimulation = { ...base.examSimulation, ...(saved.examSimulation || {}) };
+      merged.examSimulation.answers = (saved.examSimulation && saved.examSimulation.answers) || base.examSimulation.answers;
+      merged.examSimulation.results = (saved.examSimulation && saved.examSimulation.results) || base.examSimulation.results;
+      merged.examSimulation.skipped = (saved.examSimulation && saved.examSimulation.skipped) || base.examSimulation.skipped;
+      merged.examSimulation.simulationMode = (saved.examSimulation && saved.examSimulation.simulationMode) || base.examSimulation.simulationMode;
+      merged.examSimulation.questionIds = (saved.examSimulation && saved.examSimulation.questionIds) || base.examSimulation.questionIds;
+      merged.history = saved.history || base.history;
+      merged.skippedQuestionIds = saved.skippedQuestionIds || base.skippedQuestionIds;
+      merged.topicSkipStats = saved.topicSkipStats || base.topicSkipStats;
+      merged.notLearnedTopics = saved.notLearnedTopics || base.notLearnedTopics;
+      return merged;
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function normalize(value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/[.,;:!?()"']/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function unique(items) {
+      return [...new Set(items)];
+    }
+
+    function shuffle(items) {
+      const copy = items.slice();
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    window.ehsOpenExamPractice = {
+      questions: QUESTIONS,
+      evaluateOpenAnswer,
+      selectQuestion,
+      selectExamQuestions,
+      buildExamSummary,
+      startExamSimulation,
+      getRubricForQuestion,
+      getFilteredQuestions,
+      getQuestionAvailability,
+      isQuestionAvailable,
+      getAvailabilityFilteredQuestions,
+      getFutureTopicRows,
+      debugSetCurrentDate: (value) => { debugCurrentDate = value; renderApp(); },
+      getState: () => state,
+      storageKey: STORAGE_KEY
+    };
+  </script>
+</body>
+</html>
+
+
