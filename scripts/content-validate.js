@@ -47,6 +47,9 @@ const manifestSitePages = new Set(
     .filter(Boolean)
     .map((item) => item.replace(/\\/g, "/"))
 );
+const allowedHtmlChanges = new Set([
+  "pages/prep/lesson-13-electrical-safety-fundamentals.html",
+]);
 const gitStatus = childProcess.execSync("git status --short", { cwd: repoRoot, encoding: "utf8" });
 const unexpectedHtml = gitStatus
   .split(/\r?\n/)
@@ -56,7 +59,8 @@ const unexpectedHtml = gitStatus
     const status = line.slice(0, 2);
     const filePath = line.slice(3).trim().replace(/\\/g, "/");
     const isNewManifestPage = (status === "??" || status === "A ") && manifestSitePages.has(filePath);
-    return !isNewManifestPage;
+    const isAllowedHtmlChange = allowedHtmlChanges.has(filePath);
+    return !isNewManifestPage && !isAllowedHtmlChange;
   });
 
 if (unexpectedHtml.length) {

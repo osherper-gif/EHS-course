@@ -387,6 +387,36 @@
     ],
     "glossaryTerms": [],
     "lastUpdated": "2026-06-09"
+  },
+  {
+    "lessonId": "lesson-13",
+    "sessionNumber": 13,
+    "title": "בטיחות בחשמל – מושגי יסוד בחשמל, חוק החשמל ותקנותיו, תקנות הבטיחות בעבודה בחשמל 1994",
+    "domain": "חשמל",
+    "prep": {
+      "status": "available",
+      "href": "pages/prep/lesson-13-electrical-safety-fundamentals.html",
+      "updatedAt": "2026-06-13",
+      "questionCount": 30
+    },
+    "summary": {
+      "status": "missing",
+      "href": "",
+      "updatedAt": "",
+      "questionCount": 0
+    },
+    "questions": {
+      "count": 30,
+      "href": "pages/prep/lesson-13-electrical-safety-fundamentals.html#prepQuestions"
+    },
+    "relatedKnowledge": [
+      "pages/knowledge/electrical-safety.html"
+    ],
+    "relatedChecklists": [
+      "pages/checklists.html?domain=Electrical%20Safety"
+    ],
+    "glossaryTerms": [],
+    "lastUpdated": "2026-06-13"
   }
 ];
   lessons.forEach(withCourseScope);
@@ -394,12 +424,12 @@
 const latestUpdate = {
   "type": "prep",
   "typeLabel": "הכנה",
-  "lessonId": "lesson-12",
-  "sessionNumber": 12,
-  "title": "נוספה הכנה לשיעור 12 - גידור מכונות וסקרי סיכונים",
-  "description": "עמוד הכנה לשיעור מכונות וגידור כולל 30 שאלות תרגול ודגשי LOTO, אדם כשיר וסקרי סיכונים.",
-  "href": "pages/prep/lesson-12-machine-guarding-risk-surveys.html",
-  "updatedAt": "2026-06-09"
+  "lessonId": "lesson-13",
+  "sessionNumber": 13,
+  "title": "נוספה הכנה לשיעור 13 - בטיחות בחשמל",
+  "description": "עמוד הכנה לבטיחות בחשמל כולל מושגי יסוד, חוק החשמל, תקנות הבטיחות, 5 כללי הזהב ו-30 שאלות הכנה.",
+  "href": "pages/prep/lesson-13-electrical-safety-fundamentals.html",
+  "updatedAt": "2026-06-13"
 };
   withCourseScope(latestUpdate);
 
@@ -502,6 +532,14 @@ const latestUpdate = {
     "title": "גידור מכונות, ריתוך, סקרי סיכונים במכונות, מבוא לתהליכי עיבוד שבבי",
     "href": "pages/prep/lesson-12-machine-guarding-risk-surveys.html",
     "updatedAt": "2026-06-09",
+    "questionCount": 30
+  },
+  {
+    "lessonId": "lesson-13",
+    "sessionNumber": 13,
+    "title": "בטיחות בחשמל – מושגי יסוד בחשמל, חוק החשמל ותקנותיו, תקנות הבטיחות בעבודה בחשמל 1994",
+    "href": "pages/prep/lesson-13-electrical-safety-fundamentals.html",
+    "updatedAt": "2026-06-13",
     "questionCount": 30
   },
 ].map(withCourseScope),
