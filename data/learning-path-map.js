@@ -42,7 +42,7 @@
     session(9, "עבודת ממונה בטיחות מול הנהלת הארגון", ["human-factors","iso-45001","labor-inspection-law"], { domain: "ניהול בטיחות", prepHref: "prep/lesson-09-safety-management-leadership.html", summary: { status: "available", href: "summaries/lesson-09-summary.html" }, examFocus: true, checklists: ["checklists.html?domain=ISO","checklists.html?domain=Human%20Factors"] }),
     session(10, "גידור מכונות ופתרונות, הדרכות, סייגים, תפקידים, ממונים, תאונות, תהליכים, מכשירים, תקנים ופתרונות לגידור מכונות", ["machine-guarding","safety-ordinance","loto-ptw"], { domain: "מכונות וגידור", prepHref: "prep/lesson-10-machine-guarding.html", summary: { status: "available", href: "summaries/lesson-10-summary.html" }, examFocus: true, questionCount: 60, practice: "summaries/lesson-10-summary.html#summaryQuestions", lastUpdated: "2026-06-09", checklists: ["checklists.html?domain=Machine%20Guarding","checklists.html?domain=LOTO"] }),
     session(11, "שיטות ריתוך, בטיחות בריתוך, שיטת לפי התהליך", ["process-safety","emergency-preparedness"], { domain: "ריתוך", prepHref: "prep/lesson-11-welding-safety.html", summary: { status: "available", href: "summaries/lesson-11-summary.html" }, examFocus: true, questionCount: 30, practice: "prep/lesson-11-welding-safety.html#prepQuestions", lastUpdated: "2026-06-09", checklists: ["checklists.html?domain=Hot%20Work","checklists.html?domain=Fire"] }),
-    session(12, "גידור מכונות, ריתוך, סקרי סיכונים במכונות, מבוא לתהליכי עיבוד שבבי", ["machine-guarding","safety-ordinance","loto-ptw"], { domain: "מכונות וגידור", prepHref: "prep/lesson-12-machine-guarding-risk-surveys.html", examFocus: true, questionCount: 30, practice: "prep/lesson-12-machine-guarding-risk-surveys.html#prepQuestions", lastUpdated: "2026-06-09", checklists: ["checklists.html?domain=Machine%20Guarding","checklists.html?domain=LOTO","checklists.html?domain=Risk%20Assessment"] }),
+    session(12, "כלי עבודה ידניים וממונעים", ["machine-guarding","safety-ordinance","loto-ptw"], { domain: "מכונות וגידור", prepHref: "prep/lesson-12-machine-guarding-risk-surveys.html", summary: { status: "available", href: "summaries/lesson-12-tools-safety-summary.html" }, examFocus: true, questionCount: 90, practice: "summaries/lesson-12-tools-safety-summary.html#summaryQuestions", lastUpdated: "2026-06-14", checklists: ["checklists.html?domain=Machine%20Guarding","checklists.html?domain=LOTO","checklists.html?domain=Risk%20Assessment"] }),
     session(13, "בטיחות בחשמל: מושגי יסוד בחשמל, חוק החשמל, תקנות הבטיחות בעבודה בחשמל 1994", ["electrical-safety"], { domain: "חשמל", prepHref: "prep/lesson-13-electrical-safety-fundamentals.html", examFocus: true, questionCount: 30, practice: "prep/lesson-13-electrical-safety-fundamentals.html#prepQuestions", lastUpdated: "2026-06-13", checklists: ["checklists.html?domain=Electrical%20Safety"] }),
     session(14, "בטיחות בחשמל: מושגי יסוד בחשמל, חוק החשמל, תקנות הבטיחות בעבודה בחשמל 1994", ["electrical-safety"], { domain: "חשמל", examFocus: true }),
     session(15, "בטיחות בחשמל: מושגי יסוד בחשמל, חוק החשמל, תקנות הבטיחות בעבודה בחשמל 1994", ["electrical-safety"], { domain: "חשמל", examFocus: true }),
@@ -102,7 +102,8 @@
     summaryShell(8, "ארגון מערך הבטיחות במפעל וניהולו", ["iso-45001", "human-factors", "labor-inspection-law", "safety-ordinance"], { available: true }),
     summaryShell(9, sessions[8].title, sessions[8].relatedKnowledge, { available: true }),
     summaryShell(10, sessions[9].title, sessions[9].relatedKnowledge, { available: true }),
-    summaryShell(11, sessions[10].title, sessions[10].relatedKnowledge, { available: true })
+    summaryShell(11, sessions[10].title, sessions[10].relatedKnowledge, { available: true }),
+    summaryShell(12, "כלי עבודה ידניים וממונעים", sessions[11].relatedKnowledge, { available: true, href: "summaries/lesson-12-tools-safety-summary.html", lastUpdated: "2026-06-14" })
   ];
 
   const prepPages = sessions
@@ -159,11 +160,11 @@
       "id": `lesson-${padded}-summary`,
       "number": String(number),
       title,
-      "href": `summaries/lesson-${padded}-summary.html`,
+      "href": settings.href || `summaries/lesson-${padded}-summary.html`,
       "status": isAvailable ? "available" : "placeholder",
       "label": isAvailable ? "קיים" : "מעטפת קיימת",
       summaryAvailable: isAvailable,
-      lastUpdated: "2026-05-26",
+      lastUpdated: settings.lastUpdated || "2026-05-26",
       relatedKnowledge: relatedKnowledge || [],
       relatedChecklists: ["checklists.html"],
       relatedLaws: ["laws.html", "standards.html"]

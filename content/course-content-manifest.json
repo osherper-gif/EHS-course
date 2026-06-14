@@ -565,6 +565,37 @@
         "duplicate question numbers or repeated banks detected",
         "raw marker count 53 adjusted to 60"
       ]
+    },
+    {
+      "lessonNumber": 12,
+      "contentType": "summary",
+      "sourceFile": "12.3.GEMINI.סיכום.docx",
+      "sourcePath": "C:\\Users\\Administrator\\Desktop\\קורס ממונה בטיחות\\הכנה וסיכומי הרצאות\\DRAFT\\12\\12.3.GEMINI.סיכום.docx",
+      "extension": ".docx",
+      "hash": "D201E2E6050CE96D7A7448D0BBE13D0DF4C0E8A0DA47BC274D6E6C5BD1665D0A",
+      "modifiedAt": "2026-06-13T23:03:28.260Z",
+      "status": "scanned",
+      "existingSitePage": "pages/summaries/lesson-12-tools-safety-summary.html",
+      "questionCountDetected": 60,
+      "questionDetectionConfidence": "high",
+      "questionDetection": {
+        "count": 60,
+        "confidence": "high",
+        "rawMarkerCount": 60,
+        "namedQuestionMarkers": 10,
+        "numberedQuestionMarkers": 50,
+        "uniqueNumbers": 60,
+        "firstNumber": 1,
+        "lastNumber": 60,
+        "answerMarkers": 60,
+        "sectionMarkers": 3,
+        "notes": [
+          "partial source bank completed to 60 questions from lesson content"
+        ]
+      },
+      "notes": [
+        "partial source bank completed to 60 questions from lesson content"
+      ]
     }
   ]
 }

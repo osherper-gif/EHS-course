@@ -357,7 +357,7 @@
   {
     "lessonId": "lesson-12",
     "sessionNumber": 12,
-    "title": "גידור מכונות, ריתוך, סקרי סיכונים במכונות, מבוא לתהליכי עיבוד שבבי",
+    "title": "כלי עבודה ידניים וממונעים",
     "domain": "מכונות וגידור",
     "prep": {
       "status": "available",
@@ -366,14 +366,14 @@
       "questionCount": 30
     },
     "summary": {
-      "status": "missing",
-      "href": "",
-      "updatedAt": "",
-      "questionCount": 0
+      "status": "available",
+      "href": "pages/summaries/lesson-12-tools-safety-summary.html",
+      "updatedAt": "2026-06-14",
+      "questionCount": 60
     },
     "questions": {
-      "count": 30,
-      "href": "pages/prep/lesson-12-machine-guarding-risk-surveys.html#prepQuestions"
+      "count": 90,
+      "href": "pages/summaries/lesson-12-tools-safety-summary.html#summaryQuestions"
     },
     "relatedKnowledge": [
       "pages/knowledge/machine-guarding.html",
@@ -386,7 +386,7 @@
       "pages/checklists.html?domain=Risk%20Assessment"
     ],
     "glossaryTerms": [],
-    "lastUpdated": "2026-06-09"
+    "lastUpdated": "2026-06-14"
   },
   {
     "lessonId": "lesson-13",
@@ -422,14 +422,14 @@
   lessons.forEach(withCourseScope);
 
 const latestUpdate = {
-  "type": "prep",
-  "typeLabel": "הכנה",
-  "lessonId": "lesson-13",
-  "sessionNumber": 13,
-  "title": "נוספה הכנה לשיעור 13 - בטיחות בחשמל",
-  "description": "עמוד הכנה לבטיחות בחשמל כולל מושגי יסוד, חוק החשמל, תקנות הבטיחות, 5 כללי הזהב ו-30 שאלות הכנה.",
-  "href": "pages/prep/lesson-13-electrical-safety-fundamentals.html",
-  "updatedAt": "2026-06-13"
+  "type": "summary",
+  "typeLabel": "סיכום",
+  "lessonId": "lesson-12",
+  "sessionNumber": 12,
+  "title": "נוסף סיכום לשיעור 12 - כלי עבודה ידניים וממונעים",
+  "description": "עמוד סיכום לשיעור 12 כולל כלי עבודה ידניים וממונעים, PPE, תחזוקה, אדם כשיר, היתרי עבודה ו-60 שאלות סיכום.",
+  "href": "pages/summaries/lesson-12-tools-safety-summary.html",
+  "updatedAt": "2026-06-14"
 };
   withCourseScope(latestUpdate);
 
@@ -544,6 +544,16 @@ const latestUpdate = {
   },
 ].map(withCourseScope),
     summaryPages: [
+  {
+    "lessonId": "lesson-12",
+    "sessionNumber": 12,
+    "title": "כלי עבודה ידניים וממונעים",
+    "href": "pages/summaries/lesson-12-tools-safety-summary.html",
+    "updatedAt": "2026-06-14",
+    "summaryAvailable": true,
+    "label": "קיים",
+    "questionCount": 60
+  },
   {
     "lessonId": "lesson-10",
     "sessionNumber": 10,
