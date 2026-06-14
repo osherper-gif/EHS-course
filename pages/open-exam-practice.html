@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="תרגול שאלות פתוחות לקורס ממונה בטיחות לקראת מבחן 12/07/2026, כולל ציון מקומי, משוב, דילוג, Voice-to-Text וסימולציית מבחן.">
+  <meta name="description" content="תרגול שאלות פתוחות לקורס ממונה בטיחות לקראת מבחן 12/07/2026, כולל הערכה לימודית מקומית, משוב, דילוג, Voice-to-Text וסימולציה לימודית.">
   <title>תרגול שאלות פתוחות - ממונה בטיחות</title>
   <style>
     :root {
@@ -342,6 +342,8 @@
     .feedback-card {
       padding: 14px;
       box-shadow: none;
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
 
     .feedback-card h2,
@@ -445,7 +447,9 @@
 
     .score-table {
       width: 100%;
+      max-width: 100%;
       border-collapse: collapse;
+      table-layout: fixed;
       margin-top: 8px;
       overflow: hidden;
       border-radius: 8px;
@@ -458,6 +462,7 @@
       padding: 8px 10px;
       text-align: right;
       vertical-align: top;
+      overflow-wrap: anywhere;
     }
 
     .score-table th {
@@ -469,6 +474,25 @@
     .score-total {
       margin: 10px 0 0;
       font-weight: 900;
+    }
+
+    .official-disclaimer,
+    .scoring-note {
+      margin: 10px 0 0;
+      padding: 10px 12px;
+      border: 1px solid #d8e2ef;
+      border-radius: 8px;
+      background: #f8fbff;
+      color: #334155;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .official-disclaimer strong,
+    .scoring-note strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
     }
 
     .coaching-list {
@@ -723,6 +747,27 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
+
+    @media (max-width: 520px) {
+      .score-card {
+        grid-template-columns: 1fr;
+      }
+      .score-number {
+        width: 58px;
+        height: 58px;
+        font-size: 1.15rem;
+      }
+      .score-table th,
+      .score-table td {
+        padding: 7px 6px;
+        font-size: 0.82rem;
+      }
+      .feedback-card,
+      .summary-panel,
+      .study-plan-card {
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -747,7 +792,7 @@
     <section class="layout" aria-label="תרגול שאלות פתוחות">
       <article class="question-card">
         <div class="exam-banner" id="examBanner" aria-live="polite"></div>
-        <div class="review-notice" id="reviewNotice">לבדיקה מקצועית: שאלה זו זמינה לתרגול חופשי בלבד ולא תופיע בסימולציית מבחן.</div>
+        <div class="review-notice" id="reviewNotice">לבדיקה מקצועית: שאלה זו זמינה לתרגול חופשי בלבד ולא תופיע בסימולציה הלימודית.</div>
         <div class="meta-grid" id="questionMeta"></div>
         <p class="question-text" id="questionText"></p>
 
@@ -768,7 +813,7 @@
           <button class="btn secondary" id="nextBtn" type="button">שאלה הבאה</button>
           <button class="btn ghost" id="weakBtn" type="button">תרגל נושאים חלשים</button>
           <button class="btn ghost" id="skipBtn" type="button">דלג על השאלה</button>
-          <button class="btn ghost" id="examBtn" type="button">סימולציית מבחן</button>
+          <button class="btn ghost" id="examBtn" type="button">סימולציה לימודית</button>
         </div>
 
         <fieldset class="skip-panel" id="skipPanel">
@@ -1682,9 +1727,9 @@
               <button class="btn primary" id="startStudySimulationBtn" type="button">התחל מצב לימוד</button>
             </section>
             <section class="mode-card">
-              <h3>מצב סימולציית מבחן</h3>
-              <p>מדמה מבחן אמיתי. במהלך הסימולציה לא יוצגו ציונים או פתרונות. דוח מלא יוצג רק בסוף.</p>
-              <button class="btn secondary" id="startExamSimulationBtn" type="button">התחל סימולציית מבחן</button>
+              <h3>מצב סימולציה לימודית</h3>
+              <p>תרגול בתנאי מבחן. במהלך הסימולציה לא יוצגו ציונים או פתרונות. דוח לימודי מלא יוצג רק בסוף.</p>
+              <button class="btn secondary" id="startExamSimulationBtn" type="button">התחל סימולציה לימודית</button>
             </section>
           </div>
         </article>
@@ -1705,7 +1750,7 @@
         els.feedback.innerHTML = `
           <article class="feedback-card warn">
             <h2>אין מספיק שאלות רגילות לתרגול לסימולציה</h2>
-            <p>נדרשות ${questionCount} שאלות רגילות לתרגול, אך נמצאו ${selectedQuestions.length}. שאלות לבדיקה מקצועית לא נבחרות אוטומטית במצב לימוד או בסימולציית מבחן.</p>
+            <p>נדרשות ${questionCount} שאלות רגילות לתרגול, אך נמצאו ${selectedQuestions.length}. שאלות לבדיקה מקצועית לא נבחרות אוטומטית במצב לימוד או בסימולציה לימודית.</p>
           </article>
         `;
         return;
@@ -2118,7 +2163,7 @@
       const total = sim.questionIds.length;
       const answered = Object.keys(sim.results || {}).length;
       const isStudy = sim.simulationMode === "study";
-      const title = isStudy ? "מצב לימוד" : "סימולציית מבחן";
+      const title = isStudy ? "מצב לימוד" : "סימולציה לימודית";
       const defaultMessage = isStudy
         ? `${title}: שאלה ${index} מתוך ${total}. אחרי בדיקת תשובה יוצגו ציון, משוב ותשובה לדוגמה.`
         : `${title}: שאלה ${index} מתוך ${total}. נשמרו ${answered} תשובות. הציון יוצג רק בסיום.`;
@@ -2143,7 +2188,7 @@
     }
 
     function renderExamFinalSummary(summary) {
-      const finishedMode = state.examSimulation && state.examSimulation.simulationMode === "study" ? "מצב לימוד" : "סימולציית מבחן";
+      const finishedMode = state.examSimulation && state.examSimulation.simulationMode === "study" ? "מצב לימוד" : "סימולציה לימודית";
       els.examBanner.classList.remove("active");
       els.examBanner.textContent = "";
       els.check.textContent = "בדוק תשובה";
@@ -2171,12 +2216,13 @@
         <article class="feedback-card score-card">
           <div class="score-number">${summary.overallScore}</div>
           <div>
-            <h2>ציון כללי - ${escapeHtml(finishedMode)}</h2>
-            <p>נענו ${summary.answeredCount} מתוך ${summary.questionCount} שאלות. שאלות חשובות למבחן קיבלו משקל גבוה יותר בציון.</p>
+            <h2>הערכה כללית - ${escapeHtml(finishedMode)}</h2>
+            <p>נענו ${summary.answeredCount} מתוך ${summary.questionCount} שאלות. שאלות חשובות למבחן קיבלו משקל גבוה יותר בהערכה.</p>
+            ${renderScoreDisclaimer()}
           </div>
         </article>
         <article class="feedback-card info">
-          <h2>ציון לפי נושא</h2>
+          <h2>הערכה לפי נושא</h2>
           <ul class="feedback-list">${topicRows}</ul>
         </article>
         <article class="feedback-card good">
@@ -2190,6 +2236,7 @@
         <article class="feedback-card info">
           <h2>המלצות לחזרה</h2>
           <p>${escapeHtml(recommendation)}</p>
+          ${renderScoringTransparency()}
         </article>
       `;
     }
@@ -2208,8 +2255,9 @@
         <article class="feedback-card score-card">
           <div class="score-number">${result.score}</div>
           <div>
-            <h2>ציון 0-100</h2>
+            <h2>הערכה לימודית 0-100</h2>
             <p>${escapeHtml(result.feedback)}</p>
+            ${renderScoreDisclaimer()}
           </div>
         </article>
         <article class="feedback-card info" style="grid-column: 1 / -1;">
@@ -2219,6 +2267,7 @@
             <tbody>${scoreRows}</tbody>
           </table>
           <p class="score-total">ציון סופי: ${result.score} / 100</p>
+          ${renderScoringTransparency()}
         </article>
         <article class="feedback-card good" style="grid-column: 1 / -1;">
           <h2>תשובה נכונה בקצרה</h2>
@@ -2250,6 +2299,14 @@
           ${learning}
         </article>
       `;
+    }
+
+    function renderScoreDisclaimer() {
+      return `<p class="official-disclaimer"><strong>הבהרה חשובה</strong>הציון המוצג הוא הערכה לימודית אוטומטית בלבד. הוא אינו מהווה ציון רשמי ואינו מחליף בדיקת מרצה או מבחן אמיתי.</p>`;
+    }
+
+    function renderScoringTransparency() {
+      return `<div class="scoring-note"><strong>איך מחושב הציון?</strong>ההערכה מתבססת על התאמה לנקודות מפתח, כיסוי מושגים מרכזיים, איכות ההסבר ושלמות התשובה. היא נועדה לכוון למידה ולא לשמש כציון רשמי.</div>`;
     }
 
     function renderScoreBreakdown(result) {
@@ -2632,8 +2689,8 @@
     }
 
     function renderStudyPlanPaused(isStudy) {
-      const mode = isStudy ? "&#1502;&#1510;&#1489; &#1500;&#1497;&#1502;&#1493;&#1491;" : "&#1505;&#1497;&#1502;&#1493;&#1500;&#1510;&#1497;&#1497;&#1514; &#1502;&#1489;&#1495;&#1503;";
-      return "<div class=\"readiness-meter\"><div><strong>&#1502;&#1493;&#1499;&#1504;&#1493;&#1514; &#1500;&#1502;&#1489;&#1495;&#1503;</strong><span>- / 100</span></div><p class=\"small\">&#1492;&#1514;&#1493;&#1499;&#1504;&#1497;&#1514; &#1514;&#1514;&#1506;&#1491;&#1499;&#1503; &#1489;&#1514;&#1512;&#1490;&#1493;&#1500; &#1492;&#1512;&#1490;&#1497;&#1500; &#1500;&#1488;&#1495;&#1512; &#1505;&#1497;&#1493;&#1501; " + mode + ".</p></div>";
+      const mode = isStudy ? "מצב לימוד" : "סימולציה לימודית";
+      return "<div class=\"readiness-meter\"><div><strong>הערכת מוכנות לימודית</strong><span>- / 100</span></div><p class=\"small\">התוכנית תתעדכן בתרגול הרגיל לאחר סיום " + mode + ".</p>" + renderScoreDisclaimer() + "</div>";
     }
 
     function renderPersonalStudyPlan(summary) {
@@ -2651,7 +2708,7 @@
       const futurePlan = futureRows.length
         ? '<h4>&#1504;&#1493;&#1513;&#1488;&#1497;&#1501; &#1513;&#1497;&#1497;&#1508;&#1514;&#1495;&#1493; &#1489;&#1492;&#1502;&#1513;&#1498;</h4><ol class="study-plan-list">' + futureRows.map((row) => '<li><strong>' + escapeHtml(row.label) + '</strong><div class="small">&#1513;&#1497;&#1506;&#1493;&#1512; ' + Number(row.lessonNumber) + ' | &#1497;&#1497;&#1508;&#1514;&#1495;: ' + formatCourseDate(row.availableFrom) + '</div><div class="small">&#1508;&#1506;&#1493;&#1500;&#1492;: &#1500;&#1495;&#1494;&#1493;&#1512; &#1500;&#1504;&#1493;&#1513;&#1488; &#1500;&#1488;&#1495;&#1512; &#1502;&#1493;&#1506;&#1491; &#1492;&#1513;&#1497;&#1506;&#1493;&#1512; &#1493;&#1488;&#1494; &#1500;&#1514;&#1512;&#1490;&#1500; &#1513;&#1488;&#1500;&#1493;&#1514; &#1508;&#1514;&#1493;&#1495;&#1493;&#1514;.</div></li>').join('') + '</ol>'
         : '';
-      return '<div class="readiness-meter"><div><strong>&#1502;&#1493;&#1499;&#1504;&#1493;&#1514; &#1500;&#1502;&#1489;&#1495;&#1503;</strong><span>' + readiness.score + ' / 100</span></div><div class="readiness-bar" aria-hidden="true"><span style="width: ' + readiness.score + '%"></span></div><p class="small">' + readiness.label + '</p><p class="small">&#1504;&#1493;&#1514;&#1512;&#1493; ' + days + ' &#1497;&#1502;&#1497;&#1501; &#1500;&#1502;&#1489;&#1495;&#1503;</p></div>' + currentPlan + futurePlan;
+      return '<div class="readiness-meter"><div><strong>הערכת מוכנות לימודית</strong><span>' + readiness.score + ' / 100</span></div><div class="readiness-bar" aria-hidden="true"><span style="width: ' + readiness.score + '%"></span></div><p class="small">' + readiness.label + '</p><p class="small">נותרו ' + days + ' ימים למועד המבחן.</p>' + renderScoreDisclaimer() + '</div>' + currentPlan + futurePlan;
     }
     function renderFutureTopicList(entries) {
       if (!entries.length) return `<li class="empty">&#1488;&#1497;&#1503; &#1499;&#1512;&#1490;&#1506; &#1504;&#1493;&#1513;&#1488;&#1497;&#1501; &#1506;&#1514;&#1497;&#1491;&#1497;&#1497;&#1501; &#1504;&#1506;&#1493;&#1500;&#1497;&#1501;.</li>`;
