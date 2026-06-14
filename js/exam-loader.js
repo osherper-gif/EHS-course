@@ -15,7 +15,7 @@ import {
 
   function isLocalQuestionFallbackAllowed() {
     const hostname = window.location.hostname;
-    return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "ehs-course-staging.web.app";
+    return hostname === "localhost" || hostname === "127.0.0.1";
   }
 
   function getLocalQuestionsScriptSrc() {
@@ -27,14 +27,24 @@ import {
     if (!isLocalQuestionFallbackAllowed()) return Promise.resolve(false);
     if (localQuestionsLoadPromise) return localQuestionsLoadPromise;
 
-    localQuestionsLoadPromise = new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = getLocalQuestionsScriptSrc();
-      script.async = true;
-      script.onload = () => resolve(Array.isArray(window.EXAM_QUESTIONS));
-      script.onerror = () => resolve(false);
-      document.head.appendChild(script);
-    });
+    localQuestionsLoadPromise = (async () => {
+      const scriptSrc = getLocalQuestionsScriptSrc();
+      try {
+        const response = await fetch(scriptSrc, { method: "HEAD", cache: "no-store" });
+        if (!response.ok) return false;
+      } catch {
+        return false;
+      }
+
+      return new Promise((resolve) => {
+        const script = document.createElement("script");
+        script.src = scriptSrc;
+        script.async = true;
+        script.onload = () => resolve(Array.isArray(window.EXAM_QUESTIONS));
+        script.onerror = () => resolve(false);
+        document.head.appendChild(script);
+      });
+    })();
 
     return localQuestionsLoadPromise;
   }
